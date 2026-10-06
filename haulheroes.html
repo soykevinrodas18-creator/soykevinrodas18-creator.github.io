@@ -240,6 +240,38 @@ footer .fl a:hover{color:var(--orange)}
 .mbar .wa{background:#25D366;color:#062b16}
 @media(max-width:760px){.mbar{display:flex}body{padding-bottom:88px}}
 
+/* ============ HERO PHOTO ============ */
+.hero-photo{position:absolute;inset:0;overflow:hidden}
+.hero-photo img{width:100%;height:100%;object-fit:cover;object-position:center;will-change:transform}
+.hero-shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,11,12,.88) 0%,rgba(11,11,12,.62) 42%,rgba(11,11,12,.8) 72%,var(--ink) 100%)}
+
+/* ============ FEATURED PHOTO BANDS ============ */
+.feat{margin-top:clamp(56px,7vw,88px);display:flex;flex-direction:column;gap:clamp(36px,4.6vw,60px)}
+.feat-row{display:grid;grid-template-columns:1.02fr 1fr;align-items:stretch;background:linear-gradient(180deg,var(--ink-3),var(--ink-2));border:1px solid var(--line);border-radius:24px;overflow:hidden;position:relative;box-shadow:var(--shadow-1);transition:border-color .3s,box-shadow .3s}
+.feat-row:hover{border-color:rgba(255,92,0,.5);box-shadow:var(--shadow-2)}
+.feat-row::before{content:"";position:absolute;top:0;left:0;right:0;height:6px;background:var(--hazard);z-index:3}
+.feat-row.flip .feat-img{order:2}
+.feat-img{position:relative;min-height:430px;overflow:hidden}
+.feat-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .9s cubic-bezier(.2,.8,.2,1)}
+.feat-row:hover .feat-img img{transform:scale(1.045)}
+.feat-img::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 52%,rgba(11,11,12,.62) 100%);pointer-events:none}
+.feat-tag{position:absolute;left:22px;bottom:22px;z-index:2;background:var(--orange);color:#fff;font-weight:800;font-size:.7rem;letter-spacing:2.6px;text-transform:uppercase;padding:10px 20px;border-radius:100px;box-shadow:0 10px 26px rgba(0,0,0,.55)}
+.feat-txt{padding:clamp(34px,4.4vw,56px) clamp(26px,3.6vw,52px);display:flex;flex-direction:column;justify-content:center;align-items:flex-start}
+.feat-txt .kicker{margin-bottom:14px}
+.feat-txt h3{font-family:'Anton',sans-serif;font-size:clamp(1.75rem,3.4vw,2.5rem);text-transform:uppercase;letter-spacing:1px;line-height:1.06;margin-bottom:14px}
+.feat-txt h3 .fire{color:var(--orange)}
+.feat-txt>p{color:var(--steel);font-size:1rem;max-width:32rem}
+.feat-list{list-style:none;display:flex;flex-direction:column;gap:12px;margin:24px 0 32px}
+.feat-list li{display:flex;gap:11px;align-items:flex-start;color:var(--steel);font-size:.95rem}
+.feat-list li strong{color:#fff}
+.feat-list li svg{width:18px;height:18px;stroke:var(--orange);fill:none;stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round;flex:none;margin-top:3px}
+@media(max-width:900px){
+  .feat-row{grid-template-columns:1fr}
+  .feat-row.flip .feat-img{order:0}
+  .feat-img{min-height:0;height:252px}
+  .feat-txt{padding:30px 24px 36px}
+}
+
 /* ============ REVEALS ============ */
 .rv{opacity:0;transform:translateY(36px);transition:opacity .8s cubic-bezier(.2,.8,.2,1),transform .8s cubic-bezier(.2,.8,.2,1)}
 .rv.in{opacity:1;transform:none}
@@ -266,6 +298,8 @@ footer .fl a:hover{color:var(--orange)}
 
 <!-- HERO -->
 <header class="hero" id="top">
+  <div class="hero-photo" data-parallax="0.16"><img src="images/hh-hero.jpg" alt="Haul Heroes junk removal crew loading furniture and debris into a truck at night"></div>
+  <div class="hero-shade"></div>
   <div class="hero-mesh" data-parallax="0.12"></div>
   <div class="hero-stripes" data-parallax="0.05"></div>
   <div class="hero-grid"></div>
@@ -325,6 +359,44 @@ footer .fl a:hover{color:var(--orange)}
     <div class="svc rv rv-d2"><div class="ico"><svg viewBox="0 0 24 24"><path d="M21 8v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8"/><path d="M2 3h20v5H2z"/><path d="M10 12h4"/></svg></div><h3>Storage Unit Cleanouts</h3><p>Empty it, lock it, done</p></div>
     <div class="svc rv rv-d3"><div class="ico"><svg viewBox="0 0 24 24"><path d="M3 11l9-8 9 8"/><path d="M5 10v10h14V10"/><path d="M10 20v-5h4v5"/></svg></div><h3>Estate Cleanouts</h3><p>Handled with care &amp; respect</p></div>
     <div class="svc rv rv-d4"><div class="ico"><svg viewBox="0 0 24 24"><path d="M5 7h14l-1.3 12.5a1 1 0 0 1-1 .5H7.3a1 1 0 0 1-1-.5z"/><path d="M3 7h18"/><path d="M9.5 7V4.8A.8.8 0 0 1 10.3 4h3.4a.8.8 0 0 1 .8.8V7"/><path d="M10 11v6M14 11v6"/></svg></div><h3>Trash Can Cleanouts</h3><p>Bulk pickup &amp; bin overflows</p></div>
+  </div>
+
+  <!-- FEATURED: PHOTO BANDS -->
+  <div class="feat">
+    <article class="feat-row rv">
+      <figure class="feat-img">
+        <img src="images/hh-cleanout.jpg" alt="Haul Heroes crew carrying boxes and an old mattress out of a residential garage during a home cleanout" loading="lazy">
+        <span class="feat-tag">Estate Cleanouts</span>
+      </figure>
+      <div class="feat-txt">
+        <div class="kicker">Featured service</div>
+        <h3>Whole-home &amp; <span class="fire">estate cleanouts</span></h3>
+        <p>Garages, storage units, full estates — we sort, donate, recycle and haul it all in one visit, handled with care and respect.</p>
+        <ul class="feat-list">
+          <li><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg><span><strong>Furniture, boxes, mattresses</strong> &amp; appliances — out in hours</span></li>
+          <li><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg><span><strong>Donation &amp; recycling</strong> sorted on-site, not dumped</span></li>
+          <li><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg><span><strong>Sweep-up included</strong> — the space is spotless when we leave</span></li>
+        </ul>
+        <a class="btn btn-fire" href="https://wa.me/19545496775?text=Hi%20Haul%20Heroes!%20I%20need%20a%20free%20estimate%20for%20a%20cleanout."><svg viewBox="0 0 24 24"><path d="M21 11.5a8.5 8.5 0 0 1-12.4 7.5L3 21l2-5.4A8.5 8.5 0 1 1 21 11.5z"/></svg> Get My Free Estimate</a>
+      </div>
+    </article>
+    <article class="feat-row flip rv">
+      <figure class="feat-img">
+        <img src="images/hh-debris.jpg" alt="Haul Heroes worker in an orange safety vest tossing construction debris into a dumpster truck" loading="lazy">
+        <span class="feat-tag">Demolition</span>
+      </figure>
+      <div class="feat-txt">
+        <div class="kicker">Featured service</div>
+        <h3>Demolition &amp; <span class="fire">construction debris</span></h3>
+        <p>Sheds, decks, interior tear-outs and remodel debris — we tear it down, load every last bit and leave your job site spotless.</p>
+        <ul class="feat-list">
+          <li><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg><span><strong>Tear-out + haul-away</strong> in a single call</span></li>
+          <li><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg><span><strong>Contractor-friendly</strong> scheduling that keeps crews moving</span></li>
+          <li><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg><span><strong>Same-day pickup</strong> available across Broward</span></li>
+        </ul>
+        <a class="btn btn-fire" href="tel:+19545496775"><svg viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.13.96.36 1.9.7 2.8a2 2 0 0 1-.45 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.45c.9.34 1.84.57 2.8.7a2 2 0 0 1 1.7 2.05z"/></svg> Call (954) 549-6775</a>
+      </div>
+    </article>
   </div>
 </div></section>
 

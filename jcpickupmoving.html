@@ -337,6 +337,43 @@ footer h4{font-family:var(--fd);color:#fff;font-size:.82rem;font-weight:800;lett
 .foot-contact .fc-row svg{width:17px;height:17px;flex:none;stroke:var(--orange);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;margin-top:4px}
 .foot-bar{border-top:1px solid rgba(255,255,255,.1);padding:24px 0;display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;font-size:.82rem;color:#7E93B8}
 
+/* ---------- hero photo ---------- */
+.hero-photo{position:absolute;inset:0;background:url('images/jc-hero.jpg') center 70%/cover no-repeat}
+.hero-photo::after{content:"";position:absolute;inset:0;background:linear-gradient(100deg,rgba(8,26,62,.97) 0%,rgba(10,30,70,.9) 38%,rgba(10,30,70,.5) 66%,rgba(10,30,70,.42) 100%)}
+
+/* ---------- service areas ---------- */
+.areas{background:var(--cream)}
+.areas-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+.areas-visual{position:relative}
+.areas-visual img{width:100%;height:540px;object-fit:cover;border-radius:28px;box-shadow:var(--sh-2);display:block}
+.areas-visual::after{content:"";position:absolute;inset:0;border-radius:28px;box-shadow:inset 0 0 0 1px rgba(255,255,255,.25);pointer-events:none}
+.areas-badge{position:absolute;left:24px;bottom:24px;background:rgba(8,26,62,.92);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.16);border-radius:18px;padding:16px 20px;display:flex;align-items:center;gap:14px;color:#fff;box-shadow:0 24px 50px -12px rgba(0,0,0,.5)}
+.areas-badge .ab-dot{width:12px;height:12px;flex:none;border-radius:50%;background:var(--orange);animation:pulse 2s infinite}
+.areas-badge b{font-family:var(--fd);font-size:.95rem;display:block}
+.areas-badge small{color:var(--mut-lt);font-size:.78rem;font-weight:600}
+.area-list{display:grid;gap:16px;margin:30px 0 34px}
+.area{display:flex;gap:18px;align-items:flex-start;background:#fff;border:1px solid var(--line-cool);border-radius:20px;padding:22px 24px;box-shadow:var(--sh-1);transition:transform .25s,box-shadow .25s,border-color .25s}
+.area:hover{transform:translateX(6px);border-color:rgba(255,122,26,.45);box-shadow:var(--sh-2)}
+.area .pin{width:52px;height:52px;flex:none;border-radius:16px;background:linear-gradient(135deg,#FF8F2E,var(--orange));display:grid;place-items:center;box-shadow:0 10px 22px -6px rgba(255,122,26,.55)}
+.area .pin svg{width:24px;height:24px;stroke:#fff;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.area b{font-family:var(--fd);color:var(--navy);font-size:1.12rem;display:block;margin-bottom:4px}
+.area p{color:var(--mut);font-size:.93rem}
+
+/* ---------- process split ---------- */
+.process-grid{display:grid;grid-template-columns:.92fr 1.08fr;gap:60px;align-items:center}
+.process-visual{position:relative}
+.process-visual img{width:100%;height:520px;object-fit:cover;border-radius:28px;box-shadow:var(--sh-2);display:block}
+.process-visual .pv-badge{position:absolute;top:24px;right:-14px;background:#fff;border-radius:16px;box-shadow:var(--sh-2);padding:14px 20px;display:flex;align-items:center;gap:12px;z-index:2}
+.pv-badge .pv-ic{width:40px;height:40px;flex:none;border-radius:12px;background:var(--orange-soft);display:grid;place-items:center}
+.pv-badge .pv-ic svg{width:20px;height:20px;stroke:var(--orange-d);fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.pv-badge b{font-family:var(--fd);color:var(--navy);font-size:.9rem;display:block;line-height:1.3}
+.pv-badge small{color:var(--mut);font-size:.76rem;font-weight:600}
+.steps-split{grid-template-columns:repeat(2,1fr);gap:26px}
+.steps-split::before{display:none}
+.steps-split .step{text-align:left;background:#fff;border:1px solid var(--line-cool);border-radius:20px;padding:28px 26px;box-shadow:var(--sh-1);transition:transform .25s,box-shadow .25s}
+.steps-split .step:hover{transform:translateY(-6px);box-shadow:var(--sh-2)}
+.steps-split .step-n{margin:0 0 16px;width:64px;height:64px;font-size:1.2rem}
+
 /* ---------- mobile sticky bar ---------- */
 .sticky-bar{display:none}
 @media(max-width:767px){
@@ -356,6 +393,10 @@ footer h4{font-family:var(--fd);color:#fff;font-size:.82rem;font-weight:800;lett
   .hero{padding-top:140px}
   .fb-1{right:6px}.fb-2{left:6px}
   .quote-grid{grid-template-columns:1fr;gap:48px}
+  .areas-grid,.process-grid{grid-template-columns:1fr;gap:48px}
+  .areas-visual img{height:380px}
+  .process-visual img{height:380px}
+  .pv-badge{right:12px}
   .steps{grid-template-columns:repeat(2,1fr);gap:40px}
   .steps::before{display:none}
   .testi-grid{grid-template-columns:1fr;max-width:560px;margin:0 auto}
@@ -381,6 +422,11 @@ footer h4{font-family:var(--fd);color:#fff;font-size:.82rem;font-weight:800;lett
   .steps{grid-template-columns:1fr;gap:34px}
   .foot-grid{grid-template-columns:1fr;gap:34px}
   .hero-ctas .btn{flex:1;min-width:200px}
+  .hero-photo::after{background:linear-gradient(180deg,rgba(8,26,62,.95) 0%,rgba(8,26,62,.9) 100%)}
+  .areas-visual img{height:300px}
+  .process-visual img{height:300px}
+  .areas-badge{left:12px;bottom:12px;right:12px}
+  .pv-badge{top:12px}
   .hs-ring{width:380px;height:380px;border-width:46px}
   .float-badge{padding:10px 14px}
   .fb-1{top:-20px}
@@ -399,6 +445,7 @@ footer h4{font-family:var(--fd);color:#fff;font-size:.82rem;font-weight:800;lett
     </a>
     <div class="nav-links">
       <a href="#services">Services</a>
+      <a href="#areas">Areas</a>
       <a href="#quote">Get a Quote</a>
       <a href="#pricing">Pricing</a>
       <a href="#reviews">Reviews</a>
@@ -410,6 +457,7 @@ footer h4{font-family:var(--fd);color:#fff;font-size:.82rem;font-weight:800;lett
 </nav>
 <div class="mobile-menu" id="mobileMenu">
   <a href="#services">Services<svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg></a>
+  <a href="#areas">Areas<svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg></a>
   <a href="#quote">Get a Quote<svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg></a>
   <a href="#pricing">Pricing<svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg></a>
   <a href="#reviews">Reviews<svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg></a>
@@ -421,6 +469,7 @@ footer h4{font-family:var(--fd);color:#fff;font-size:.82rem;font-weight:800;lett
 
 <!-- ============ HERO ============ -->
 <header class="hero">
+  <div class="hero-photo" aria-hidden="true"></div>
   <div class="hero-mesh"></div>
   <div class="hero-shapes" aria-hidden="true">
     <div class="hs hs-ring" data-px="0.12"></div>
@@ -520,6 +569,29 @@ footer h4{font-family:var(--fd);color:#fff;font-size:.82rem;font-weight:800;lett
     <div class="stat reveal" style="--d:.08s"><div class="num nowrap">Same-day</div><b>Pickup available</b><small>Book by noon — we come today</small></div>
     <div class="stat reveal" style="--d:.16s"><div class="num">$0</div><b>Hidden fees. Ever.</b><small>The quote is the price</small></div>
     <div class="stat reveal" style="--d:.24s"><div class="num">100%</div><b>Upfront flat pricing</b><small>Local, uniformed crew</small></div>
+  </div>
+</section>
+
+<!-- ============ SERVICE AREAS ============ -->
+<section class="sec areas" id="areas">
+  <div class="wrap areas-grid">
+    <div class="areas-visual reveal">
+      <img src="images/jc-truck.jpg" alt="JC Moving truck loaded with boxes on a Miami street" loading="lazy">
+      <div class="areas-badge"><span class="ab-dot"></span><span><b>On the road daily</b><small>Crews across all 3 areas, every day</small></span></div>
+    </div>
+    <div class="areas-copy">
+      <div class="sec-head reveal" style="margin-bottom:0">
+        <span class="kicker">Service areas</span>
+        <h2>Your neighborhood is <span class="u">our neighborhood</span></h2>
+        <p>We're a local crew — not a broker, not a call center. Our trucks run daily across these three areas, so pickup windows stay short and prices stay flat.</p>
+      </div>
+      <div class="area-list">
+        <div class="area reveal"><span class="pin"><svg viewBox="0 0 24 24"><path d="M12 21s7-5.1 7-11a7 7 0 1 0-14 0c0 5.9 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></span><span><b>Miami-Dade County</b><p>From Kendall to Hialeah, Miami Beach to Coral Gables — our home turf.</p></span></div>
+        <div class="area reveal" style="--d:.08s"><span class="pin"><svg viewBox="0 0 24 24"><path d="M12 21s7-5.1 7-11a7 7 0 1 0-14 0c0 5.9 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></span><span><b>Doral</b><p>Condos, offices, and warehouses — we know every loading dock in Doral.</p></span></div>
+        <div class="area reveal" style="--d:.16s"><span class="pin"><svg viewBox="0 0 24 24"><path d="M12 21s7-5.1 7-11a7 7 0 1 0-14 0c0 5.9 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></span><span><b>Fort Lauderdale</b><p>Daily runs north — same crew standards, same upfront pricing.</p></span></div>
+      </div>
+      <a href="#quote" class="btn btn-navy reveal" style="--d:.2s">Check My Area<svg viewBox="0 0 24 24"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg></a>
+    </div>
   </div>
 </section>
 
@@ -637,11 +709,17 @@ footer h4{font-family:var(--fd);color:#fff;font-size:.82rem;font-weight:800;lett
       <h2>From first call to <span class="u">done &amp; hauled</span></h2>
       <p>No paperwork marathons, no mystery fees. Four simple steps and your problem is gone.</p>
     </div>
-    <div class="steps">
-      <div class="step reveal"><div class="step-n">01</div><h3>Tell us what you need</h3><p>Call, text, or send the quote form. Photos of the items help us price it fast.</p></div>
-      <div class="step reveal" style="--d:.1s"><div class="step-n">02</div><h3>Get an upfront quote</h3><p>One flat price before we lift a finger. If the job changes, we re-quote first.</p></div>
-      <div class="step reveal" style="--d:.2s"><div class="step-n">03</div><h3>We show up on time</h3><p>A uniformed local crew with the right truck, dollies, and blankets — in your window.</p></div>
-      <div class="step reveal" style="--d:.3s"><div class="step-n">04</div><h3>Done &amp; hauled</h3><p>We load, deliver, or clear it out — then sweep up so it looks like we were never there.</p></div>
+    <div class="process-grid">
+      <div class="process-visual reveal">
+        <img src="images/jc-boxes.jpg" alt="Neatly packed and labeled moving boxes ready for pickup" loading="lazy">
+        <div class="pv-badge"><span class="pv-ic"><svg viewBox="0 0 24 24"><path d="M21 8l-9-5-9 5v8l9 5 9-5z"/><path d="M3.3 8.3L12 13l8.7-4.7"/><path d="M12 13v8"/></svg></span><span><b>Packed &amp; protected</b><small>Every box labeled, every piece wrapped</small></span></div>
+      </div>
+      <div class="steps steps-split">
+        <div class="step reveal"><div class="step-n">01</div><h3>Tell us what you need</h3><p>Call, text, or send the quote form. Photos of the items help us price it fast.</p></div>
+        <div class="step reveal" style="--d:.1s"><div class="step-n">02</div><h3>Get an upfront quote</h3><p>One flat price before we lift a finger. If the job changes, we re-quote first.</p></div>
+        <div class="step reveal" style="--d:.2s"><div class="step-n">03</div><h3>We show up on time</h3><p>A uniformed local crew with the right truck, dollies, and blankets — in your window.</p></div>
+        <div class="step reveal" style="--d:.3s"><div class="step-n">04</div><h3>Done &amp; hauled</h3><p>We load, deliver, or clear it out — then sweep up so it looks like we were never there.</p></div>
+      </div>
     </div>
   </div>
 </section>

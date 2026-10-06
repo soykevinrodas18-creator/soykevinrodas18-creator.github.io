@@ -72,11 +72,12 @@ section{scroll-margin-top:92px}
 /* ============ HERO ============ */
 .hero{position:relative;min-height:100svh;display:flex;align-items:center;color:var(--cream);overflow:hidden;background:var(--green-ink);padding:150px 0 110px}
 .hero-bg{position:absolute;inset:-8% 0;will-change:transform}
+.hero-photo{position:absolute;inset:0;background:url('images/ld-hero.jpg') center 32%/cover no-repeat}
+.hero-photo::after{content:"";position:absolute;inset:0;background:linear-gradient(165deg,rgba(12,26,18,.80) 0%,rgba(20,41,31,.58) 45%,rgba(12,26,18,.88) 100%)}
 .hero-bg .mesh{position:absolute;inset:0;background:
-  radial-gradient(900px 520px at 82% 8%,rgba(201,162,75,.22),transparent 60%),
-  radial-gradient(700px 480px at 8% 85%,rgba(201,162,75,.12),transparent 60%),
-  radial-gradient(520px 380px at 45% 45%,rgba(230,203,130,.08),transparent 65%),
-  linear-gradient(165deg,#0C1A12 0%,#142A20 45%,#1E3D2F 100%)}
+  radial-gradient(900px 520px at 82% 8%,rgba(201,162,75,.20),transparent 60%),
+  radial-gradient(700px 480px at 8% 85%,rgba(201,162,75,.10),transparent 60%),
+  radial-gradient(520px 380px at 45% 45%,rgba(230,203,130,.07),transparent 65%)}
 .hero-bg .route{position:absolute;right:-7%;top:44%;transform:translateY(-50%);width:min(50vw,660px);opacity:.5;pointer-events:none;-webkit-mask-image:linear-gradient(90deg,transparent 0%,#000 42%);mask-image:linear-gradient(90deg,transparent 0%,#000 42%)}
 .hero-bg .route path.lane{fill:none;stroke:var(--gold);stroke-width:1.6;stroke-dasharray:10 9;opacity:.5;animation:dashmove 26s linear infinite}
 @keyframes dashmove{to{stroke-dashoffset:-380}}
@@ -102,6 +103,32 @@ section{scroll-margin-top:92px}
 .scroll-hint::after{content:"";width:1.5px;height:44px;background:linear-gradient(var(--gold-soft),transparent);animation:hintdrop 2.2s ease-in-out infinite}
 @keyframes hintdrop{0%{transform:scaleY(0);transform-origin:top}45%{transform:scaleY(1);transform-origin:top}55%{transform:scaleY(1);transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
 @media(max-width:700px){.scroll-hint{display:none}}
+
+/* ============ CATER SPLIT (editorial photo block) ============ */
+.cater-split{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,4vw,64px);align-items:center;margin-bottom:clamp(52px,6vw,80px)}
+@media(max-width:860px){.cater-split{grid-template-columns:1fr}}
+.cater-photo{position:relative;border-radius:26px;overflow:hidden;box-shadow:var(--sh-2);border:1px solid rgba(201,162,75,.55)}
+.cater-photo::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(12,26,18,.32));pointer-events:none}
+.cater-photo img{width:100%;height:450px;object-fit:cover;display:block;transition:transform .9s cubic-bezier(.2,.65,.25,1)}
+.cater-photo:hover img{transform:scale(1.045)}
+@media(max-width:860px){.cater-photo img{height:300px}}
+.cater-copy h3{font-family:var(--serif);font-weight:560;font-size:clamp(1.8rem,3.2vw,2.5rem);letter-spacing:-.6px;color:var(--green);margin-bottom:16px;line-height:1.14;font-variation-settings:"opsz" 144}
+.cater-copy h3 em{font-style:italic;color:var(--gold-deep);font-weight:480}
+.cater-copy p{color:var(--mut);margin-bottom:24px;max-width:30rem;font-size:1.04rem}
+.cater-list{list-style:none}
+.cater-list li{display:flex;gap:16px;align-items:flex-start;padding:12px 0}
+.cater-list .ck{flex:0 0 32px;width:32px;height:32px;border-radius:50%;background:rgba(201,162,75,.16);border:1px solid rgba(201,162,75,.55);display:grid;place-items:center;margin-top:2px}
+.cater-list .ck svg{width:15px;height:15px;stroke:var(--gold-deep);stroke-width:2.6;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.cater-list strong{display:block;color:var(--green);font-size:1rem;letter-spacing:-.2px}
+.cater-list small{display:block;font-weight:500;color:var(--mut);font-size:.9rem}
+
+/* ============ DAY BANNER ============ */
+.day-banner{position:relative;border-radius:26px;overflow:hidden;margin-bottom:clamp(36px,4vw,52px);box-shadow:var(--sh-2);border:1px solid rgba(201,162,75,.55)}
+.day-banner::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 58%,rgba(12,26,18,.32));pointer-events:none}
+.day-banner img{width:100%;height:380px;object-fit:cover;display:block}
+@media(max-width:700px){.day-banner img{height:230px}}
+.day-banner .cap{position:absolute;left:22px;bottom:20px;z-index:2;background:rgba(12,26,18,.82);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border:1px solid rgba(201,162,75,.5);color:var(--gold-soft);font-size:.76rem;font-weight:700;letter-spacing:2.2px;text-transform:uppercase;padding:11px 20px;border-radius:999px}
+@media(max-width:700px){.day-banner .cap{left:14px;bottom:14px;font-size:.66rem;padding:9px 16px}}
 
 /* ============ TRUST BAR ============ */
 .trust{background:var(--green-ink);border-top:1px solid rgba(201,162,75,.25);border-bottom:1px solid rgba(201,162,75,.25);padding:26px 0;color:#D9E2D6;position:relative;z-index:3}
@@ -319,6 +346,7 @@ footer{background:#081209;color:#B7C6B3;padding:70px 0 0;font-size:.94rem}
 <!-- ================= HERO ================= -->
 <header class="hero" id="top">
   <div class="hero-bg" id="heroBg" aria-hidden="true">
+    <div class="hero-photo"></div>
     <div class="mesh"></div>
     <svg class="route" viewBox="0 0 760 560" fill="none">
       <path class="lane" d="M60 500 C 180 480, 200 380, 300 360 S 480 340, 520 220 S 640 120, 700 90"/>
@@ -385,6 +413,19 @@ footer{background:#081209;color:#B7C6B3;padding:70px 0 0;font-size:.94rem}
       <span class="kicker">What we take off your plate</span>
       <h2>Delivery services built <em>for caterers</em>, not for apps.</h2>
       <p>No surge pricing, no strangers handling your chafing dishes. Just a local team that understands what a catering order actually looks like — trays, timing, and all.</p>
+    </div>
+    <div class="cater-split reveal">
+      <div class="cater-photo"><img src="images/ld-chef.jpg" alt="Chef finishing elegant plated dishes for a Miami catering order" loading="lazy"></div>
+      <div class="cater-copy">
+        <span class="kicker">Made for Miami caterers</span>
+        <h3>We speak <em>kitchen.</em></h3>
+        <p>We're not a gig app — we're the local crew your kitchen can actually rely on. Every run is handled like the food matters, because it does.</p>
+        <ul class="cater-list">
+          <li><span class="ck"><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg></span><div><strong>Trays ride level, garnishes untouched</strong><small>Hot boxes sealed, chafing dishes secured — food arrives as plated.</small></div></li>
+          <li><span class="ck"><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg></span><div><strong>Photo confirmation on every drop</strong><small>You see the handoff before your client even calls.</small></div></li>
+          <li><span class="ck"><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg></span><div><strong>Same driver on your weekly route</strong><small>A familiar face your kitchen team knows by name.</small></div></li>
+        </ul>
+      </div>
     </div>
     <div class="svc-grid">
       <article class="svc reveal">
@@ -467,6 +508,10 @@ footer{background:#081209;color:#B7C6B3;padding:70px 0 0;font-size:.94rem}
       <span class="kicker">A typical delivery day</span>
       <h2>While you're <em>perfecting the menu</em>, we're on the road.</h2>
       <p>Here's what a Saturday looks like when ldeliveries is your delivery team.</p>
+    </div>
+    <div class="day-banner reveal">
+      <img src="images/ld-delivery.jpg" alt="ldeliveries driver handing elegant catering boxes at a Miami venue entrance" loading="lazy">
+      <span class="cap">On the road across Miami-Dade</span>
     </div>
     <div class="timeline timeline-pad">
       <div class="moment reveal">
