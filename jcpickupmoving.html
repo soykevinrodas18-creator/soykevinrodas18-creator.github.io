@@ -3,204 +3,936 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>JC Pickup, Delivery & Moving | Miami-Dade, Doral & Fort Lauderdale</title>
-<meta name="description" content="Moving, delivery and junk removal in Miami-Dade, Doral and Fort Lauderdale. One call does it all. Call or text 305-812-9104 for a free quote.">
+<title>JC Pickup, Delivery & Moving | Miami-Dade · Doral · Fort Lauderdale</title>
+<meta name="description" content="Residential moving, pickup & delivery, and junk removal in Miami-Dade, Doral & Fort Lauderdale. One call does it all — upfront pricing, same-day pickup. Call 305-812-9104.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-:root{--blue:#0b3d91;--blue-d:#082c6b;--blue-l:#1550b8;--orange:#ff6b1a;--orange-d:#e55a0e;--ink:#16233a;--mut:#5b6b84;--light:#f5f8fd;--white:#fff;--line:#e6edf7}
+:root{
+  --navy:#0F2A5C; --navy-2:#0B2148; --navy-deep:#081A3E; --navy-ink:#0A1730;
+  --orange:#FF7A1A; --orange-d:#E8630A; --orange-soft:#FFF0E0; --orange-glow:rgba(255,122,26,.4);
+  --cream:#FFF8F0; --white:#fff;
+  --ink:#17233C; --mut:#5C6E89; --mut-lt:#A9B9D4;
+  --line:#E9E1D3; --line-cool:#E4E9F2;
+  --fd:'Archivo',system-ui,-apple-system,sans-serif;
+  --fb:'Inter',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --sh-1:0 1px 2px rgba(15,42,92,.06),0 10px 28px -10px rgba(15,42,92,.14);
+  --sh-2:0 2px 6px rgba(15,42,92,.08),0 26px 54px -14px rgba(15,42,92,.28);
+  --r:20px;
+}
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:var(--ink);background:var(--white);line-height:1.65;-webkit-font-smoothing:antialiased}
-a{text-decoration:none;color:inherit}
-.wrap{max-width:1160px;margin:0 auto;padding:0 24px}
+body{font-family:var(--fb);color:var(--ink);background:var(--white);line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit}
 ::selection{background:var(--orange);color:#fff}
-nav{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.95);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
-.nav-in{display:flex;align-items:center;justify-content:space-between;height:70px}
-.logo{display:flex;align-items:center;gap:11px;font-weight:800;font-size:1.04rem;color:var(--blue);letter-spacing:-.2px}
-.logo .truck{width:40px;height:40px;border-radius:13px;background:linear-gradient(135deg,var(--orange),#ff8f4d);display:grid;place-items:center;box-shadow:0 8px 18px rgba(255,107,26,.35)}
-.logo .truck svg{width:22px;height:22px;stroke:#fff;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
-.logo small{display:block;font-size:.64rem;font-weight:700;color:var(--mut);letter-spacing:1.6px}
-.nav-links{display:flex;gap:30px;font-size:.92rem;font-weight:600;color:var(--mut)}
-.nav-links a{position:relative;padding:4px 0;transition:.2s}
-.nav-links a:hover{color:var(--blue)}
-.nav-links a::after{content:"";position:absolute;left:0;bottom:0;width:0;height:2px;background:var(--orange);border-radius:2px;transition:.25s}
+.wrap{max-width:1180px;margin:0 auto;padding:0 24px}
+section{scroll-margin-top:88px}
+h1,h2,h3{font-family:var(--fd);line-height:1.08;letter-spacing:-.025em;color:var(--navy)}
+svg{display:block}
+
+/* ---------- reveal ---------- */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .75s cubic-bezier(.16,1,.3,1);transition-delay:var(--d,0s)}
+.reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
+
+/* ---------- buttons ---------- */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;font-family:var(--fd);font-weight:800;font-size:.98rem;letter-spacing:.2px;padding:16px 30px;border-radius:14px;border:0;cursor:pointer;transition:transform .22s ease,box-shadow .22s ease,background .22s ease;white-space:nowrap}
+.btn svg{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.btn .fill-ic{fill:currentColor;stroke:none}
+.btn-primary{background:linear-gradient(135deg,#FF8F2E,var(--orange) 55%,#EF6A08);color:#fff;box-shadow:0 14px 30px -10px rgba(255,122,26,.6),inset 0 1px 0 rgba(255,255,255,.4)}
+.btn-primary:hover{transform:translateY(-3px);box-shadow:0 20px 40px -10px rgba(255,122,26,.65),inset 0 1px 0 rgba(255,255,255,.4)}
+.btn-primary:active{transform:translateY(-1px)}
+.btn-ghost{background:rgba(255,255,255,.08);color:#fff;border:1px solid rgba(255,255,255,.4);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+.btn-ghost:hover{background:rgba(255,255,255,.17);transform:translateY(-3px);box-shadow:0 16px 34px -12px rgba(0,0,0,.4)}
+.btn-navy{background:var(--navy);color:#fff;box-shadow:0 14px 30px -12px rgba(15,42,92,.55)}
+.btn-navy:hover{transform:translateY(-3px);box-shadow:0 20px 40px -12px rgba(15,42,92,.6);background:var(--navy-2)}
+.btn-outline{background:#fff;color:var(--navy);border:1.5px solid var(--line-cool)}
+.btn-outline:hover{border-color:var(--orange);color:var(--orange-d);transform:translateY(-3px);box-shadow:var(--sh-1)}
+.btn-block{width:100%}
+
+/* ---------- nav ---------- */
+.nav{position:fixed;top:0;left:0;right:0;z-index:80;transition:background .3s,box-shadow .3s,border-color .3s;background:rgba(8,26,62,.55);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid rgba(255,255,255,.12)}
+.nav.scrolled{background:rgba(8,26,62,.88);box-shadow:0 12px 32px -12px rgba(0,0,0,.45)}
+.nav-in{display:flex;align-items:center;justify-content:space-between;height:74px}
+.logo{display:flex;align-items:center;gap:12px}
+.logo-mark{width:44px;height:44px;border-radius:14px;background:linear-gradient(135deg,#FF8F2E,var(--orange) 60%,#EF6A08);display:grid;place-items:center;box-shadow:0 10px 22px -6px rgba(255,122,26,.65),inset 0 1px 0 rgba(255,255,255,.4);transition:transform .25s}
+.logo:hover .logo-mark{transform:rotate(-6deg) scale(1.05)}
+.logo-mark svg{width:24px;height:24px;stroke:#fff;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.logo-txt{font-family:var(--fd);font-weight:900;font-size:1.12rem;letter-spacing:.4px;color:#fff;line-height:1.1}
+.logo-txt span{color:var(--orange)}
+.logo-txt small{display:block;font-family:var(--fb);font-weight:600;font-size:.6rem;letter-spacing:2.6px;color:var(--mut-lt)}
+.nav-links{display:flex;align-items:center;gap:34px}
+.nav-links a{font-weight:600;font-size:.93rem;color:#D7E2F5;position:relative;padding:6px 0;transition:color .2s}
+.nav-links a::after{content:"";position:absolute;left:0;bottom:0;height:2px;width:0;border-radius:2px;background:var(--orange);transition:width .25s}
+.nav-links a:hover{color:#fff}
 .nav-links a:hover::after{width:100%}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:14px 28px;border-radius:14px;font-weight:750;font-size:.96rem;transition:.22s;cursor:pointer;border:none;letter-spacing:.1px}
-.btn svg{width:17px;height:17px;stroke:currentColor;fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
-.btn-orange{background:var(--orange);color:#fff;box-shadow:0 10px 24px rgba(255,107,26,.35)}
-.btn-orange:hover{background:var(--orange-d);transform:translateY(-2px);box-shadow:0 14px 30px rgba(255,107,26,.45)}
-.btn-white{background:#fff;color:var(--blue);box-shadow:0 10px 24px rgba(0,0,0,.18)}
-.btn-white:hover{transform:translateY(-2px)}
-.btn-nav{padding:11px 22px;font-size:.88rem}
-@media(max-width:860px){.nav-links{display:none}}
-/* HERO */
-.hero{background:linear-gradient(125deg,var(--blue-d) 0%,var(--blue) 55%,var(--blue-l) 100%);color:#fff;padding:96px 0 104px;position:relative;overflow:hidden}
-.hero::before{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.09) 1.5px,transparent 1.5px);background-size:34px 34px;mask-image:radial-gradient(760px 480px at 82% 18%,#000 25%,transparent 78%)}
-.hero-in{position:relative;z-index:1}
-.eyebrow{display:inline-flex;align-items:center;gap:10px;background:rgba(255,107,26,.16);border:1px solid rgba(255,107,26,.55);color:#ffb37e;font-size:.76rem;font-weight:750;letter-spacing:1.8px;text-transform:uppercase;padding:9px 18px;border-radius:100px;margin-bottom:24px}
-.eyebrow .dot{width:7px;height:7px;border-radius:50%;background:var(--orange);box-shadow:0 0 10px var(--orange)}
-.hero h1{font-size:clamp(2.3rem,4.8vw,3.6rem);line-height:1.08;font-weight:800;letter-spacing:-1px;margin-bottom:20px;max-width:44rem}
-.hero h1 em{font-style:normal;color:var(--orange)}
-.hero p.lead{color:#cfdef8;font-size:1.14rem;max-width:37rem;margin-bottom:16px}
-.areas{display:flex;gap:10px;flex-wrap:wrap;margin:24px 0 32px}
-.area{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);padding:9px 18px;border-radius:100px;font-weight:700;font-size:.88rem}
-.area svg{width:14px;height:14px;stroke:#ffb37e;fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
-.hero-ctas{display:flex;gap:14px;flex-wrap:wrap}
-.hero-proof{margin-top:30px;display:flex;gap:28px;flex-wrap:wrap;color:#b9cdf3;font-size:.9rem;font-weight:600}
-.hero-proof span{display:flex;align-items:center;gap:8px}
-.hero-proof svg{width:16px;height:16px;stroke:var(--orange);fill:none;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
-/* SECTIONS */
-section{padding:96px 0}
-.sec-head{max-width:660px;margin-bottom:52px}
-.kicker{display:flex;align-items:center;gap:12px;color:var(--orange-d);font-weight:800;font-size:.76rem;letter-spacing:2.4px;text-transform:uppercase;margin-bottom:14px}
-.kicker::before{content:"";width:34px;height:2px;background:var(--orange);border-radius:2px}
-.sec-head h2{font-size:clamp(1.7rem,3.4vw,2.5rem);font-weight:800;letter-spacing:-.8px;line-height:1.15;color:var(--blue-d);margin-bottom:14px}
-.sec-head p{color:var(--mut);font-size:1.06rem}
-.cards{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
-@media(max-width:720px){.cards{grid-template-columns:1fr}}
-.card{display:flex;gap:22px;background:#fff;border:1px solid var(--line);border-radius:20px;padding:36px 32px;transition:.25s;box-shadow:0 2px 8px rgba(11,61,145,.04)}
-.card:hover{transform:translateY(-5px);box-shadow:0 24px 48px rgba(11,61,145,.12);border-color:var(--orange)}
-.card .ico{flex:0 0 60px;width:60px;height:60px;border-radius:17px;background:linear-gradient(135deg,var(--blue),var(--blue-l));display:grid;place-items:center;box-shadow:0 10px 20px rgba(11,61,145,.25)}
-.card .ico svg{width:28px;height:28px;stroke:#fff;fill:none;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
-.card h3{font-size:1.18rem;font-weight:750;color:var(--blue-d);margin-bottom:8px;letter-spacing:-.2px}
-.card p{color:var(--mut);font-size:.95rem}
-.card .tag{display:inline-block;margin-top:12px;font-size:.74rem;font-weight:750;color:var(--orange-d);letter-spacing:1.2px;text-transform:uppercase}
-/* STEPS */
-.steps-wrap{background:var(--light)}
-.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
-@media(max-width:780px){.steps{grid-template-columns:1fr}}
-.step{background:#fff;border:1px solid var(--line);border-radius:20px;padding:38px 30px;text-align:center;transition:.22s;position:relative}
-.step:hover{box-shadow:0 20px 44px rgba(11,61,145,.1);transform:translateY(-4px)}
-.step .n{width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,var(--orange),#ff8f4d);color:#fff;font-weight:800;font-size:1.35rem;display:grid;place-items:center;margin:0 auto 20px;box-shadow:0 10px 22px rgba(255,107,26,.35)}
-.step h3{color:var(--blue-d);margin-bottom:10px;font-size:1.14rem}
-.step p{color:var(--mut);font-size:.94rem}
-.step p strong{color:var(--blue-d)}
-/* QUOTE */
-.quote{background:linear-gradient(140deg,var(--blue-d),var(--blue) 75%);color:#fff;border-radius:28px;padding:64px 52px;display:grid;grid-template-columns:1fr 1fr;gap:56px;margin:0 24px;position:relative;overflow:hidden}
-.quote::before{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.08) 1.5px,transparent 1.5px);background-size:32px 32px;mask-image:radial-gradient(600px 400px at 15% 20%,#000 20%,transparent 75%)}
-@media(max-width:920px){.quote{grid-template-columns:1fr;padding:44px 28px;margin:0 14px}}
-.quote h2{font-size:clamp(1.7rem,3.2vw,2.3rem);font-weight:800;letter-spacing:-.6px;margin-bottom:14px;line-height:1.18;position:relative}
-.quote h2 em{font-style:normal;color:var(--orange)}
-.quote .lede{color:#cfdef8;margin-bottom:24px;position:relative;font-size:1.04rem}
-.alt-contact{position:relative;font-size:.96rem;color:#cfdef8;line-height:2}
-.alt-contact a{color:#fff;font-weight:750;border-bottom:2px solid var(--orange)}
-.qform{background:#fff;border-radius:20px;padding:34px;color:var(--ink);position:relative;box-shadow:0 30px 60px rgba(0,0,0,.25)}
-.qform h3{color:var(--blue-d);font-size:1.2rem;margin-bottom:6px;letter-spacing:-.2px}
-.qform>p{color:var(--mut);font-size:.9rem;margin-bottom:8px}
-.qform label{display:block;font-size:.76rem;font-weight:750;color:var(--blue-d);margin:16px 0 7px;text-transform:uppercase;letter-spacing:1px}
-.qform input,.qform select,.qform textarea{width:100%;padding:14px 15px;border:2px solid #e2e9f4;border-radius:12px;font-size:.95rem;font-family:inherit;transition:.2s;background:#fbfcfe}
-.qform input:focus,.qform select:focus,.qform textarea:focus{outline:none;border-color:var(--orange);background:#fff;box-shadow:0 0 0 4px rgba(255,107,26,.12)}
-.qform .btn{width:100%;margin-top:24px;font-size:1rem;padding:16px}
-.qnote{text-align:center;color:var(--mut);font-size:.82rem;margin-top:14px}
-/* BAND */
-.band{background:linear-gradient(120deg,var(--orange),#ff8f4d);color:#fff;text-align:center;padding:64px 24px}
-.band h2{font-size:clamp(1.7rem,3.4vw,2.5rem);font-weight:800;letter-spacing:-.6px;margin-bottom:10px}
-.band p{font-size:1.06rem;margin-bottom:28px;opacity:.96}
-footer{background:#071d44;color:#9db4d8;padding:40px 0;font-size:.88rem}
-.foot{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;align-items:center}
-.mbar{display:none;position:fixed;bottom:0;left:0;right:0;z-index:60;background:#fff;border-top:1px solid var(--line);padding:10px 14px calc(10px + env(safe-area-inset-bottom));gap:10px;box-shadow:0 -8px 24px rgba(11,61,145,.1)}
-.mbar a{flex:1;text-align:center;padding:14px;border-radius:12px;font-weight:750;font-size:.95rem;display:flex;align-items:center;justify-content:center;gap:8px}
-.mbar a svg{width:17px;height:17px;stroke:currentColor;fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
-.mbar .call{background:var(--orange);color:#fff}
-.mbar .wa{background:#25d366;color:#fff}
-@media(max-width:760px){.mbar{display:flex}body{padding-bottom:76px}.btn-nav{white-space:nowrap;padding:10px 14px;font-size:.8rem}.logo{font-size:.92rem}.logo small{display:none}.logo .truck{width:36px;height:36px}}
+.nav-call{display:inline-flex;align-items:center;gap:9px;font-family:var(--fd);font-weight:800;font-size:.9rem;color:#fff;background:linear-gradient(135deg,#FF8F2E,var(--orange) 60%,#EF6A08);padding:12px 22px;border-radius:12px;box-shadow:0 10px 24px -8px rgba(255,122,26,.6),inset 0 1px 0 rgba(255,255,255,.35);transition:transform .22s,box-shadow .22s}
+.nav-call:hover{transform:translateY(-2px);box-shadow:0 16px 32px -8px rgba(255,122,26,.7)}
+.nav-call svg{width:16px;height:16px;stroke:#fff;fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.burger{display:none;background:none;border:0;cursor:pointer;padding:10px;z-index:90}
+.burger span{display:block;width:26px;height:2.5px;border-radius:3px;background:#fff;margin:6px 0;transition:.3s}
+.mobile-menu{display:none}
+@media(max-width:920px){
+  .nav-links,.nav .nav-call{display:none}
+  .burger{display:block}
+  .mobile-menu{display:block;position:fixed;top:74px;left:12px;right:12px;z-index:79;background:rgba(10,24,54,.97);backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,.14);border-radius:18px;padding:12px;box-shadow:0 30px 60px -12px rgba(0,0,0,.5);opacity:0;transform:translateY(-12px);pointer-events:none;transition:.28s}
+  .mobile-menu.open{opacity:1;transform:none;pointer-events:auto}
+  .mobile-menu a{display:flex;align-items:center;justify-content:space-between;padding:15px 16px;font-family:var(--fd);font-weight:800;color:#fff;border-radius:12px;transition:background .2s}
+  .mobile-menu a:hover{background:rgba(255,122,26,.15)}
+  .mobile-menu a svg{width:18px;height:18px;stroke:var(--orange);fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+  .mobile-menu .mm-call{background:linear-gradient(135deg,#FF8F2E,var(--orange));margin-top:8px;justify-content:center;gap:10px}
+  .mobile-menu .mm-call svg{stroke:#fff}
+}
+
+/* ---------- hero ---------- */
+.hero{position:relative;overflow:hidden;color:#fff;background:linear-gradient(158deg,#0A1E46 0%,var(--navy) 52%,#14336B 100%);padding:158px 0 0}
+.hero-mesh{position:absolute;inset:0;pointer-events:none;background:
+  radial-gradient(640px 420px at 88% 6%,rgba(255,122,26,.42),transparent 62%),
+  radial-gradient(560px 520px at 6% 96%,rgba(255,122,26,.16),transparent 60%),
+  radial-gradient(760px 520px at 45% 125%,rgba(70,120,230,.28),transparent 65%)}
+.hero-shapes{position:absolute;inset:0;pointer-events:none;overflow:hidden}
+.hs{position:absolute;will-change:transform}
+.hs-ring{width:560px;height:560px;right:-150px;top:-120px;border:70px solid rgba(255,122,26,.14);border-radius:50%}
+.hs-ring2{width:380px;height:380px;right:-60px;top:-30px;border:2px solid rgba(255,255,255,.14);border-radius:50%}
+.hs-arc{width:700px;height:700px;left:-260px;bottom:-380px;border:90px solid rgba(255,255,255,.045);border-radius:50%}
+.hs-dots{left:6%;top:22%;opacity:.5}
+.hs-blob{right:32%;bottom:-90px;width:340px;height:340px;background:radial-gradient(circle,rgba(255,122,26,.22),transparent 70%);border-radius:50%;filter:blur(10px)}
+.hero-in{position:relative;z-index:2;display:grid;grid-template-columns:1.04fr .96fr;gap:56px;align-items:center;padding-bottom:96px}
+.pill{display:inline-flex;align-items:center;gap:10px;background:rgba(255,122,26,.14);border:1px solid rgba(255,122,26,.5);color:#FFC79B;font-size:.74rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:10px 20px;border-radius:100px;margin-bottom:26px;backdrop-filter:blur(6px)}
+.pill .pulse{width:8px;height:8px;border-radius:50%;background:var(--orange);box-shadow:0 0 0 0 rgba(255,122,26,.7);animation:pulse 2s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(255,122,26,.65)}70%{box-shadow:0 0 0 10px rgba(255,122,26,0)}100%{box-shadow:0 0 0 0 rgba(255,122,26,0)}}
+.hero h1{color:#fff;font-size:clamp(2.9rem,6.2vw,5.1rem);font-weight:900;line-height:1.0;letter-spacing:-.032em;margin-bottom:22px}
+.hero h1 .grad{background:linear-gradient(100deg,#FFB25E,var(--orange) 60%,#FF8F2E);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero .lead{color:#C9D8F2;font-size:clamp(1.02rem,1.6vw,1.2rem);max-width:34rem;margin-bottom:34px}
+.hero-ctas{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:26px}
+.hero-micro{display:flex;align-items:center;gap:10px 22px;flex-wrap:wrap;color:#9DB4DC;font-size:.88rem;font-weight:600}
+.hm-item{display:inline-flex;align-items:center;gap:9px;white-space:nowrap}
+.hm-item svg{width:15px;height:15px;stroke:var(--orange);fill:none;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round;flex:none}
+
+/* hero visual : dispatch card */
+.hero-visual{position:relative;z-index:2}
+.dispatch{background:#fff;border-radius:24px;box-shadow:0 40px 90px -20px rgba(0,0,0,.5),0 2px 0 rgba(255,255,255,.6) inset;overflow:hidden;transform:rotate(1.2deg);transition:transform .35s ease}
+.hero-visual:hover .dispatch{transform:rotate(0deg) translateY(-4px)}
+.dispatch-head{display:flex;align-items:center;justify-content:space-between;padding:20px 24px;background:linear-gradient(120deg,var(--navy),var(--navy-2));color:#fff}
+.dispatch-head .dh-l{display:flex;align-items:center;gap:12px}
+.dh-mark{width:38px;height:38px;border-radius:12px;background:linear-gradient(135deg,#FF8F2E,var(--orange));display:grid;place-items:center}
+.dh-mark svg{width:20px;height:20px;stroke:#fff;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.dh-l b{font-family:var(--fd);font-weight:800;font-size:.95rem;letter-spacing:.5px;display:block}
+.dh-l small{color:#9DB4DC;font-size:.72rem;font-weight:600;letter-spacing:1.6px}
+.status{display:inline-flex;align-items:center;gap:8px;background:rgba(255,122,26,.16);border:1px solid rgba(255,122,26,.55);color:#FFB25E;font-size:.72rem;font-weight:700;letter-spacing:1.4px;padding:8px 15px;border-radius:100px}
+.status i{width:7px;height:7px;border-radius:50%;background:var(--orange);animation:pulse 2s infinite}
+.dispatch-body{padding:24px}
+.route{display:flex;align-items:center;gap:14px;margin-bottom:20px}
+.route .pin{width:42px;height:42px;flex:none;border-radius:14px;background:var(--orange-soft);display:grid;place-items:center}
+.route .pin svg{width:20px;height:20px;stroke:var(--orange-d);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.route b{font-family:var(--fd);color:var(--navy);font-size:1.12rem;letter-spacing:-.2px;display:block}
+.route small{color:var(--mut);font-size:.82rem;font-weight:600}
+.d-line{height:1px;background:var(--line-cool);margin:4px 0 18px}
+.d-rows{display:grid;gap:13px}
+.d-row{display:flex;align-items:center;gap:13px;font-size:.9rem}
+.d-row .ic{width:36px;height:36px;flex:none;border-radius:11px;background:#F2F6FD;display:grid;place-items:center}
+.d-row .ic svg{width:17px;height:17px;stroke:var(--navy);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.d-row b{color:var(--ink);font-weight:600;display:block;font-size:.9rem}
+.d-row small{color:var(--mut);font-size:.8rem}
+.d-row .tag{margin-left:auto;font-size:.72rem;font-weight:700;color:var(--orange-d);background:var(--orange-soft);padding:5px 12px;border-radius:100px;white-space:nowrap}
+.dispatch-foot{display:flex;align-items:center;justify-content:space-between;padding:18px 24px;background:#F7FAFF;border-top:1px solid var(--line-cool)}
+.dispatch-foot .drv{display:flex;align-items:center;gap:11px}
+.drv .ava{width:38px;height:38px;border-radius:50%;background:linear-gradient(135deg,var(--navy),#2A4E9E);color:#fff;font-family:var(--fd);font-weight:800;font-size:.8rem;display:grid;place-items:center}
+.drv b{display:block;font-size:.86rem;color:var(--navy)}
+.drv small{color:var(--mut);font-size:.76rem}
+.dispatch-foot .eta{font-family:var(--fd);font-weight:900;color:var(--orange-d);font-size:1.05rem}
+.float-badge{position:absolute;background:#fff;border-radius:16px;box-shadow:var(--sh-2);padding:13px 18px;display:flex;align-items:center;gap:11px;z-index:3;animation:floaty 5s ease-in-out infinite}
+.float-badge .fb-ic{width:36px;height:36px;border-radius:11px;display:grid;place-items:center;flex:none}
+.float-badge b{font-family:var(--fd);font-size:.86rem;color:var(--navy);display:block;line-height:1.25}
+.float-badge small{color:var(--mut);font-size:.74rem;font-weight:600}
+.fb-1{top:-28px;left:-12px}
+.fb-1 .fb-ic{background:#E9F7EE}
+.fb-1 .fb-ic svg{width:18px;height:18px;stroke:#1E9E50;fill:none;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
+.fb-2{bottom:-34px;left:-52px;animation-delay:2.4s}
+.fb-2 .fb-ic{background:var(--orange-soft)}
+.fb-2 .fb-ic svg{width:18px;height:18px;fill:var(--orange);stroke:none}
+.fb-2 .stars{display:flex;gap:2px}
+.fb-2 .stars svg{width:13px;height:13px;fill:var(--orange);stroke:none}
+@keyframes floaty{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+/* layered waves into trust bar */
+.hero-waves{position:relative;z-index:2;display:block;width:100%;height:110px;margin-bottom:-1px}
+.hero-waves svg{width:100%;height:100%;display:block}
+
+/* ---------- trust bar ---------- */
+.trust{background:var(--cream);padding:34px 0;border-bottom:1px solid var(--line)}
+.trust-in{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.trust-item{display:flex;align-items:center;gap:14px;justify-content:center;padding:6px 10px}
+.trust-item + .trust-item{border-left:1px solid var(--line)}
+.t-ic{width:46px;height:46px;flex:none;border-radius:15px;background:#fff;border:1px solid var(--line);box-shadow:var(--sh-1);display:grid;place-items:center;transition:transform .25s,background .25s}
+.trust-item:hover .t-ic{transform:translateY(-3px) rotate(-4deg);background:var(--orange-soft)}
+.t-ic svg{width:22px;height:22px;stroke:var(--orange-d);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.trust-item b{font-family:var(--fd);font-size:.92rem;color:var(--navy);display:block;line-height:1.3}
+.trust-item small{color:var(--mut);font-size:.76rem;font-weight:600}
+
+/* ---------- stats band ---------- */
+.stats{background:linear-gradient(150deg,var(--navy-deep),var(--navy) 60%,#14316A);position:relative;overflow:hidden;padding:74px 0}
+.stats::before{content:"";position:absolute;inset:0;background:radial-gradient(560px 300px at 90% 0%,rgba(255,122,26,.22),transparent 60%),radial-gradient(500px 300px at 5% 100%,rgba(255,122,26,.1),transparent 60%)}
+.stats-grid{position:relative;display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.stat{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:var(--r);padding:30px 26px;backdrop-filter:blur(6px);transition:transform .25s,background .25s,border-color .25s}
+.stat:hover{transform:translateY(-5px);background:rgba(255,255,255,.09);border-color:rgba(255,122,26,.45)}
+.stat .num{font-family:var(--fd);font-weight:900;font-size:clamp(2rem,3.4vw,2.9rem);letter-spacing:-.03em;background:linear-gradient(100deg,#FFB25E,var(--orange));-webkit-background-clip:text;background-clip:text;color:transparent;line-height:1;margin-bottom:8px}
+.stat .num.nowrap{white-space:nowrap;font-size:clamp(1.55rem,2.5vw,2.15rem);letter-spacing:-.02em}
+.stat b{display:block;color:#fff;font-family:var(--fd);font-weight:800;font-size:1rem;margin-bottom:4px}
+.stat small{color:var(--mut-lt);font-size:.83rem}
+
+/* ---------- sections common ---------- */
+.sec{padding:104px 0}
+.sec-cream{background:var(--cream)}
+.kicker{display:inline-flex;align-items:center;gap:12px;color:var(--orange-d);font-family:var(--fd);font-weight:800;font-size:.76rem;letter-spacing:2.6px;text-transform:uppercase;margin-bottom:16px}
+.kicker::before{content:"";width:36px;height:2.5px;border-radius:3px;background:linear-gradient(90deg,var(--orange),#FFB25E)}
+.sec-head{max-width:700px;margin-bottom:56px}
+.sec-head h2{font-size:clamp(1.9rem,3.6vw,2.7rem);font-weight:900;margin-bottom:16px}
+.sec-head h2 .u{background:linear-gradient(transparent 62%,rgba(255,122,26,.35) 62%);padding:0 .1em}
+.sec-head p{color:var(--mut);font-size:1.07rem}
+.sec-head.center{margin-left:auto;margin-right:auto;text-align:center}
+.sec-head.center .kicker::before{display:none}
+.sec-head.center .kicker::after{content:"";width:36px;height:2.5px;border-radius:3px;background:linear-gradient(90deg,#FFB25E,var(--orange))}
+
+/* ---------- services ---------- */
+.svc-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
+.svc{background:#fff;border:1px solid var(--line-cool);border-radius:24px;padding:40px 36px;position:relative;overflow:hidden;transition:transform .28s ease,box-shadow .28s ease,border-color .28s ease;box-shadow:var(--sh-1)}
+.svc::before{content:"";position:absolute;top:0;left:0;right:0;height:5px;background:linear-gradient(90deg,var(--orange),#FFB25E);transform:scaleX(0);transform-origin:left;transition:transform .35s ease}
+.svc:hover{transform:translateY(-8px);box-shadow:var(--sh-2);border-color:rgba(255,122,26,.4)}
+.svc:hover::before{transform:scaleX(1)}
+.svc-ic{width:64px;height:64px;border-radius:19px;background:linear-gradient(135deg,#EFF4FE,#E2EBFB);display:grid;place-items:center;margin-bottom:24px;transition:.3s}
+.svc-ic svg{width:30px;height:30px;stroke:var(--navy);fill:none;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round;transition:.3s}
+.svc:hover .svc-ic{background:linear-gradient(135deg,#FF8F2E,var(--orange));box-shadow:0 12px 26px -8px rgba(255,122,26,.6)}
+.svc:hover .svc-ic svg{stroke:#fff}
+.svc h3{font-size:1.32rem;font-weight:800;margin-bottom:12px}
+.svc p{color:var(--mut);font-size:.99rem;margin-bottom:20px}
+.svc-link{display:inline-flex;align-items:center;gap:9px;font-family:var(--fd);font-weight:800;font-size:.9rem;color:var(--orange-d);transition:gap .22s}
+.svc-link svg{width:17px;height:17px;stroke:currentColor;fill:none;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
+.svc-link:hover{gap:14px}
+
+/* ---------- quote form ---------- */
+.quote-sec{background:linear-gradient(155deg,var(--navy-deep) 0%,var(--navy) 55%,#15326B 100%);position:relative;overflow:hidden;color:#fff}
+.quote-sec::before{content:"";position:absolute;inset:0;background:radial-gradient(700px 420px at 12% 8%,rgba(255,122,26,.28),transparent 60%),radial-gradient(600px 500px at 95% 95%,rgba(70,120,230,.22),transparent 60%)}
+.quote-sec::after{content:"";position:absolute;width:480px;height:480px;right:-160px;top:-160px;border:60px solid rgba(255,122,26,.1);border-radius:50%}
+.quote-grid{position:relative;z-index:2;display:grid;grid-template-columns:.92fr 1.08fr;gap:60px;align-items:start}
+.quote-copy h2{color:#fff;font-size:clamp(1.9rem,3.6vw,2.7rem);font-weight:900;margin-bottom:18px}
+.quote-copy h2 .grad{background:linear-gradient(100deg,#FFB25E,var(--orange));-webkit-background-clip:text;background-clip:text;color:transparent}
+.quote-copy>p{color:#C9D8F2;font-size:1.06rem;margin-bottom:30px}
+.q-points{display:grid;gap:16px;margin-bottom:34px}
+.q-point{display:flex;gap:15px;align-items:flex-start}
+.q-point .ck{width:30px;height:30px;flex:none;border-radius:50%;background:rgba(255,122,26,.16);border:1px solid rgba(255,122,26,.5);display:grid;place-items:center;margin-top:2px}
+.q-point .ck svg{width:14px;height:14px;stroke:var(--orange);fill:none;stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
+.q-point b{color:#fff;font-weight:600;font-size:.98rem;display:block}
+.q-point small{color:#9DB4DC;font-size:.86rem}
+.q-direct{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);border-radius:18px;padding:22px 24px;display:flex;align-items:center;gap:18px;backdrop-filter:blur(8px);transition:border-color .25s,transform .25s}
+.q-direct:hover{border-color:rgba(255,122,26,.5);transform:translateY(-3px)}
+.q-direct .qd-ic{width:52px;height:52px;flex:none;border-radius:16px;background:linear-gradient(135deg,#FF8F2E,var(--orange));display:grid;place-items:center;box-shadow:0 10px 22px -6px rgba(255,122,26,.6)}
+.q-direct .qd-ic svg{width:24px;height:24px;stroke:#fff;fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.q-direct b{font-family:var(--fd);color:#fff;font-size:1.18rem;letter-spacing:.3px;display:block}
+.q-direct small{color:#9DB4DC;font-size:.84rem}
+.form-card{background:#fff;border-radius:26px;padding:42px 40px;box-shadow:0 50px 100px -24px rgba(0,0,0,.55);color:var(--ink)}
+.form-card h3{font-size:1.4rem;font-weight:800;margin-bottom:6px}
+.form-card>p{color:var(--mut);font-size:.93rem;margin-bottom:26px}
+.f-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.f-group{margin-bottom:18px}
+.f-group label{display:block;font-weight:600;font-size:.84rem;color:var(--navy);margin-bottom:8px}
+.f-group label i{font-style:normal;color:var(--orange-d)}
+.f-group input,.f-group select,.f-group textarea{width:100%;font-family:var(--fb);font-size:.96rem;color:var(--ink);background:#F7F9FD;border:1.5px solid var(--line-cool);border-radius:13px;padding:14px 16px;transition:border-color .2s,box-shadow .2s,background .2s;appearance:none}
+.f-group textarea{resize:vertical;min-height:96px}
+.f-group input:focus,.f-group select:focus,.f-group textarea:focus{outline:none;border-color:var(--orange);background:#fff;box-shadow:0 0 0 4px rgba(255,122,26,.14)}
+.f-group select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%230F2A5C' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 16px center;padding-right:44px;cursor:pointer}
+.f-group.err input,.f-group.err select{border-color:#E5484D;background:#FFF5F5;box-shadow:0 0 0 4px rgba(229,72,77,.1)}
+.f-err{display:none;color:#D13438;font-size:.78rem;font-weight:600;margin-top:6px}
+.f-group.err .f-err{display:block}
+.form-note{display:flex;align-items:center;gap:9px;justify-content:center;color:var(--mut);font-size:.8rem;margin-top:16px}
+.form-note svg{width:15px;height:15px;stroke:#1E9E50;fill:none;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round;flex:none}
+
+/* ---------- process ---------- */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:26px;position:relative}
+.steps::before{content:"";position:absolute;top:44px;left:11%;right:11%;border-top:2px dashed #F0C9A6;z-index:0}
+.step{position:relative;z-index:1;text-align:center;padding:0 8px}
+.step-n{width:88px;height:88px;margin:0 auto 22px;border-radius:50%;background:#fff;border:2px solid #F5D3AE;display:grid;place-items:center;font-family:var(--fd);font-weight:900;font-size:1.6rem;color:var(--orange-d);box-shadow:var(--sh-1);transition:transform .3s,background .3s,color .3s,border-color .3s}
+.step:hover .step-n{transform:scale(1.1) rotate(-6deg);background:linear-gradient(135deg,#FF8F2E,var(--orange));color:#fff;border-color:transparent;box-shadow:0 16px 32px -10px rgba(255,122,26,.55)}
+.step h3{font-size:1.08rem;font-weight:800;margin-bottom:10px}
+.step p{color:var(--mut);font-size:.92rem}
+
+/* ---------- testimonials ---------- */
+.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.testi{background:#fff;border:1px solid var(--line-cool);border-radius:24px;padding:36px 32px;box-shadow:var(--sh-1);display:flex;flex-direction:column;transition:transform .28s,box-shadow .28s}
+.testi:hover{transform:translateY(-8px);box-shadow:var(--sh-2)}
+.testi .stars{display:flex;gap:4px;margin-bottom:18px}
+.testi .stars svg{width:17px;height:17px;fill:var(--orange);stroke:none}
+.testi blockquote{color:var(--ink);font-size:1rem;flex:1;margin-bottom:24px}
+.testi blockquote::before{content:"\201C";font-family:var(--fd);font-weight:900;color:var(--orange);font-size:1.6em;line-height:0;margin-right:4px;vertical-align:-.28em}
+.testi-who{display:flex;align-items:center;gap:14px;border-top:1px solid var(--line-cool);padding-top:20px}
+.testi-who .ava{width:48px;height:48px;flex:none;border-radius:50%;background:linear-gradient(135deg,var(--navy),#2A4E9E);color:#fff;font-family:var(--fd);font-weight:800;font-size:.92rem;display:grid;place-items:center}
+.testi-who b{font-family:var(--fd);color:var(--navy);font-size:.95rem;display:block}
+.testi-who small{color:var(--mut);font-size:.8rem;font-weight:600}
+
+/* ---------- pricing ---------- */
+.price-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;align-items:stretch}
+.price{background:#fff;border:1.5px solid var(--line-cool);border-radius:26px;padding:42px 36px;display:flex;flex-direction:column;position:relative;transition:transform .28s,box-shadow .28s,border-color .28s;box-shadow:var(--sh-1)}
+.price:hover{transform:translateY(-8px);box-shadow:var(--sh-2);border-color:rgba(255,122,26,.45)}
+.price.hot{background:linear-gradient(165deg,var(--navy) 0%,var(--navy-2) 70%,#0A1C42 100%);border-color:var(--navy);color:#fff;box-shadow:0 34px 70px -18px rgba(15,42,92,.55)}
+.price.hot:hover{box-shadow:0 44px 84px -18px rgba(15,42,92,.6);border-color:var(--orange)}
+.ribbon{position:absolute;top:-16px;left:50%;transform:translateX(-50%);background:linear-gradient(135deg,#FF8F2E,var(--orange));color:#fff;font-family:var(--fd);font-weight:800;font-size:.72rem;letter-spacing:2.2px;padding:9px 22px;border-radius:100px;box-shadow:0 10px 24px -6px rgba(255,122,26,.65);white-space:nowrap}
+.price h3{font-size:1.16rem;font-weight:800;margin-bottom:6px}
+.price.hot h3{color:#fff}
+.price .tag{color:var(--mut);font-size:.9rem;margin-bottom:22px}
+.price.hot .tag{color:var(--mut-lt)}
+.price .amount{font-family:var(--fd);font-weight:900;letter-spacing:-.03em;margin-bottom:26px}
+.price .amount .from{display:block;font-size:.78rem;font-weight:700;letter-spacing:1.8px;text-transform:uppercase;color:var(--mut);margin-bottom:4px}
+.price.hot .amount .from{color:#FFB25E}
+.price .amount .val{font-size:2.9rem;color:var(--navy)}
+.price.hot .amount .val{color:#fff}
+.price ul{list-style:none;display:grid;gap:13px;margin-bottom:32px;flex:1}
+.price li{display:flex;gap:12px;align-items:flex-start;font-size:.93rem;color:var(--mut)}
+.price.hot li{color:#C9D8F2}
+.price li svg{width:18px;height:18px;flex:none;stroke:var(--orange);fill:none;stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round;margin-top:3px}
+
+/* ---------- faq ---------- */
+.faq-list{display:grid;gap:14px;max-width:820px;margin:0 auto}
+.faq-item{background:#fff;border:1px solid var(--line-cool);border-radius:18px;overflow:hidden;transition:border-color .25s,box-shadow .25s}
+.faq-item.open{border-color:rgba(255,122,26,.5);box-shadow:var(--sh-1)}
+.faq-q{width:100%;display:flex;align-items:center;justify-content:space-between;gap:18px;background:none;border:0;cursor:pointer;padding:22px 26px;font-family:var(--fd);font-weight:800;font-size:1.02rem;color:var(--navy);text-align:left;transition:color .2s}
+.faq-q:hover{color:var(--orange-d)}
+.faq-x{width:34px;height:34px;flex:none;border-radius:50%;background:var(--orange-soft);display:grid;place-items:center;position:relative;transition:transform .3s,background .3s}
+.faq-x::before,.faq-x::after{content:"";position:absolute;background:var(--orange-d);border-radius:2px;transition:.3s}
+.faq-x::before{width:14px;height:2.4px}
+.faq-x::after{width:2.4px;height:14px}
+.faq-item.open .faq-x{transform:rotate(135deg);background:var(--orange)}
+.faq-item.open .faq-x::before,.faq-item.open .faq-x::after{background:#fff}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .38s ease}
+.faq-a p{padding:0 26px 24px;color:var(--mut);font-size:.96rem;max-width:62ch}
+.faq-a a{color:var(--orange-d);font-weight:700}
+
+/* ---------- final cta ---------- */
+.cta-band{background:linear-gradient(150deg,var(--navy-deep),var(--navy) 55%,#16336E);position:relative;overflow:hidden;padding:110px 0;color:#fff;text-align:center}
+.cta-band::before{content:"";position:absolute;inset:0;background:radial-gradient(720px 420px at 50% -10%,rgba(255,122,26,.4),transparent 62%),radial-gradient(520px 380px at 8% 110%,rgba(255,122,26,.14),transparent 60%)}
+.cta-ring{position:absolute;width:640px;height:640px;left:50%;top:50%;transform:translate(-50%,-50%);border:70px solid rgba(255,255,255,.04);border-radius:50%;pointer-events:none}
+.cta-in{position:relative;z-index:2;max-width:760px;margin:0 auto}
+.cta-in .pill{margin-bottom:22px}
+.cta-in h2{color:#fff;font-size:clamp(2.2rem,5vw,3.6rem);font-weight:900;margin-bottom:18px}
+.cta-in h2 .grad{background:linear-gradient(100deg,#FFB25E,var(--orange));-webkit-background-clip:text;background-clip:text;color:transparent}
+.cta-in p{color:#C9D8F2;font-size:1.1rem;margin-bottom:36px;max-width:36rem;margin-left:auto;margin-right:auto}
+.cta-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-bottom:24px}
+.cta-micro{color:#9DB4DC;font-size:.88rem;font-weight:600}
+
+/* ---------- footer ---------- */
+footer{background:var(--navy-deep);color:#C9D8F2;padding:72px 0 0}
+.foot-grid{display:grid;grid-template-columns:1.3fr 1fr 1fr 1.1fr;gap:44px;padding-bottom:52px}
+.foot-brand .logo-txt{color:#fff}
+.foot-brand p{font-size:.92rem;color:#93A7CC;margin:18px 0 22px;max-width:22rem}
+.foot-badges{display:flex;gap:9px;flex-wrap:wrap}
+.foot-badges span{font-size:.72rem;font-weight:700;letter-spacing:1.2px;color:#FFC79B;background:rgba(255,122,26,.13);border:1px solid rgba(255,122,26,.4);padding:7px 14px;border-radius:100px}
+footer h4{font-family:var(--fd);color:#fff;font-size:.82rem;font-weight:800;letter-spacing:2.2px;text-transform:uppercase;margin-bottom:20px}
+.foot-links{list-style:none;display:grid;gap:12px}
+.foot-links a,.foot-links li{font-size:.93rem;color:#A9BDDD;transition:color .2s,padding-left .2s}
+.foot-links a:hover{color:var(--orange);padding-left:5px}
+.foot-contact{display:grid;gap:14px;font-size:.93rem}
+.foot-contact a.tel{font-family:var(--fd);font-weight:800;font-size:1.25rem;color:#fff;transition:color .2s}
+.foot-contact a.tel:hover{color:var(--orange)}
+.foot-contact .fc-row{display:flex;gap:11px;align-items:flex-start;color:#A9BDDD}
+.foot-contact .fc-row svg{width:17px;height:17px;flex:none;stroke:var(--orange);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;margin-top:4px}
+.foot-bar{border-top:1px solid rgba(255,255,255,.1);padding:24px 0;display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;font-size:.82rem;color:#7E93B8}
+
+/* ---------- mobile sticky bar ---------- */
+.sticky-bar{display:none}
+@media(max-width:767px){
+  body{padding-bottom:78px}
+  .sticky-bar{display:flex;position:fixed;bottom:0;left:0;right:0;z-index:85;background:rgba(8,26,62,.94);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-top:1px solid rgba(255,255,255,.14);padding:10px 12px calc(10px + env(safe-area-inset-bottom));gap:10px}
+  .sticky-bar a{flex:1;display:flex;align-items:center;justify-content:center;gap:9px;min-height:52px;border-radius:14px;font-family:var(--fd);font-weight:800;font-size:.95rem;transition:transform .2s}
+  .sticky-bar a:active{transform:scale(.97)}
+  .sticky-bar a svg{width:19px;height:19px;stroke:currentColor;fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+  .sticky-bar .sb-call{background:linear-gradient(135deg,#FF8F2E,var(--orange));color:#fff;box-shadow:0 8px 20px -6px rgba(255,122,26,.6)}
+  .sticky-bar .sb-wa{background:rgba(255,255,255,.1);color:#fff;border:1px solid rgba(255,255,255,.3)}
+  .sticky-bar .sb-wa .fill-ic{fill:currentColor;stroke:none}
+}
+
+/* ---------- responsive ---------- */
+@media(max-width:1020px){
+  .hero-in{grid-template-columns:1fr;gap:64px}
+  .hero{padding-top:140px}
+  .fb-1{right:6px}.fb-2{left:6px}
+  .quote-grid{grid-template-columns:1fr;gap:48px}
+  .steps{grid-template-columns:repeat(2,1fr);gap:40px}
+  .steps::before{display:none}
+  .testi-grid{grid-template-columns:1fr;max-width:560px;margin:0 auto}
+  .price-grid{grid-template-columns:1fr;max-width:520px;margin:0 auto}
+  .price.hot{order:-1}
+  .foot-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:640px){
+  .pill{font-size:.66rem;letter-spacing:1.3px;padding:9px 16px;line-height:1.5}
+  .hm-item{white-space:normal}
+  .sec{padding:76px 0}
+  .hero{padding:132px 0 0}
+  .hero-in{padding-bottom:70px}
+  .hero-waves{height:70px}
+  .trust-in{grid-template-columns:1fr 1fr;gap:8px}
+  .trust-item{justify-content:flex-start;padding:12px 6px}
+  .trust-item + .trust-item{border-left:0}
+  .trust-item:nth-child(even){border-left:1px solid var(--line)}
+  .stats-grid{grid-template-columns:1fr 1fr}
+  .svc-grid{grid-template-columns:1fr}
+  .f-row{grid-template-columns:1fr}
+  .form-card{padding:32px 24px}
+  .steps{grid-template-columns:1fr;gap:34px}
+  .foot-grid{grid-template-columns:1fr;gap:34px}
+  .hero-ctas .btn{flex:1;min-width:200px}
+  .hs-ring{width:380px;height:380px;border-width:46px}
+  .float-badge{padding:10px 14px}
+  .fb-1{top:-20px}
+  .fb-2{bottom:-18px}
+}
 </style>
 </head>
 <body>
 
-<nav><div class="wrap nav-in">
-  <a class="logo" href="#top"><span class="truck"><svg viewBox="0 0 24 24"><path d="M1 8h13v9H1zM14 11h4l3 3v3h-7z"/><circle cx="6" cy="19" r="1.6"/><circle cx="17" cy="19" r="1.6"/></svg></span><span>JC Moving<small>PICKUP · DELIVERY · JUNK REMOVAL</small></span></a>
-  <div class="nav-links"><a href="#services">Services</a><a href="#how">How It Works</a><a href="#quote">Free Quote</a></div>
-  <a class="btn btn-orange btn-nav" href="tel:+13058129104"><svg viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.13.96.36 1.9.7 2.8a2 2 0 0 1-.45 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.45c.9.34 1.84.57 2.8.7a2 2 0 0 1 1.7 2.05z"/></svg> 305-812-9104</a>
-</div></nav>
-
-<header class="hero" id="top"><div class="wrap hero-in">
-  <span class="eyebrow"><span class="dot"></span> Miami-Dade · Doral · Fort Lauderdale</span>
-  <h1>One Call Does It All — <em>Moving, Delivery &amp; Junk Removal.</em></h1>
-  <p class="lead">From a single couch to a full cleanout: JC Pickup, Delivery &amp; Moving gets it picked up, moved or hauled away — fast, careful and affordable.</p>
-  <div class="areas">
-    <span class="area"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> Miami-Dade</span>
-    <span class="area"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> Doral</span>
-    <span class="area"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> Fort Lauderdale</span>
-  </div>
-  <div class="hero-ctas">
-    <a class="btn btn-orange" href="tel:+13058129104"><svg viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.13.96.36 1.9.7 2.8a2 2 0 0 1-.45 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.45c.9.34 1.84.57 2.8.7a2 2 0 0 1 1.7 2.05z"/></svg> Call or Text 305-812-9104</a>
-    <a class="btn btn-white" href="#quote">Get a Free Quote</a>
-  </div>
-  <div class="hero-proof">
-    <span><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg> Free upfront quotes</span>
-    <span><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg> Same-day service</span>
-    <span><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg> Careful &amp; reliable crew</span>
-  </div>
-</div></header>
-
-<section id="services"><div class="wrap">
-  <div class="sec-head"><div class="kicker">Services</div><h2>Whatever Needs Moving, We Handle It</h2><p>Residential, commercial and everything in between — one crew, one call.</p></div>
-  <div class="cards">
-    <div class="card"><div class="ico"><svg viewBox="0 0 24 24"><path d="M3 21h18M5 21V7l7-4 7 4v14"/><path d="M9 21v-6h6v6"/></svg></div><div><h3>Residential Moving</h3><p>Apartments, houses and condos — careful loading, transport and placement, room by room.</p><span class="tag">Most requested</span></div></div>
-    <div class="card"><div class="ico"><svg viewBox="0 0 24 24"><path d="M4 7h16l-1.5 12.5a1 1 0 0 1-1 .5h-11a1 1 0 0 1-1-.5z"/><path d="M2 7h20M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2"/></svg></div><div><h3>Junk Removal</h3><p>Furniture, appliances, mattresses, yard debris and general junk — gone the same day you call.</p></div></div>
-    <div class="card"><div class="ico"><svg viewBox="0 0 24 24"><path d="M1 8h13v9H1zM14 11h4l3 3v3h-7z"/><circle cx="6" cy="19" r="1.6"/><circle cx="17" cy="19" r="1.6"/></svg></div><div><h3>Pickup &amp; Delivery</h3><p>Bought something big? We pick it up and deliver it — stores, marketplaces, warehouses.</p></div></div>
-    <div class="card"><div class="ico"><svg viewBox="0 0 24 24"><path d="M3 12l9-9 9 9M5 10v10h5v-6h4v6h5V10"/></svg></div><div><h3>Cleanouts</h3><p>Garages, storage units, estates and offices cleared out quickly and responsibly.</p><span class="tag">Same-day available</span></div></div>
-  </div>
-</div></section>
-
-<section class="steps-wrap" id="how"><div class="wrap">
-  <div class="sec-head"><div class="kicker">How it works</div><h2>Easy as 1-2-3</h2></div>
-  <div class="steps">
-    <div class="step"><div class="n">1</div><h3>Call or Text</h3><p>Tell us what needs moving at <strong>305-812-9104</strong> — photos get you the fastest quote.</p></div>
-    <div class="step"><div class="n">2</div><h3>Get Your Free Quote</h3><p>Upfront, honest pricing before we lift a finger. No surprises, no hidden fees.</p></div>
-    <div class="step"><div class="n">3</div><h3>We Do the Heavy Lifting</h3><p>We show up on time and handle everything, start to finish.</p></div>
-  </div>
-</div></section>
-
-<section id="quote" style="padding-left:0;padding-right:0"><div class="wrap" style="max-width:1240px">
-  <div class="quote">
-    <div>
-      <h2>Get Your <em>Free Quote</em> in Minutes</h2>
-      <p class="lede">Fill out the form and it opens WhatsApp with your request ready to send. Prefer to talk? We're one tap away.</p>
-      <div class="alt-contact">Call or text: <a href="tel:+13058129104">305-812-9104</a><br>WhatsApp: <a href="https://wa.me/13058129104?text=Hi%20JC!%20I%20need%20a%20quote%20for%20moving%2Fjunk%20removal.">chat with us now</a></div>
+<!-- ============ NAV ============ -->
+<nav class="nav" id="nav">
+  <div class="wrap nav-in">
+    <a href="#top" class="logo" aria-label="JC Moving — home">
+      <span class="logo-mark"><svg viewBox="0 0 24 24"><path d="M1.5 6.5h12.5V16H1.5z"/><path d="M14 10h3.8l4.2 4.2V16H14"/><circle cx="6" cy="18.2" r="1.9"/><circle cx="17.4" cy="18.2" r="1.9"/></svg></span>
+      <span class="logo-txt">JC <span>MOVING</span><small>PICKUP · DELIVERY</small></span>
+    </a>
+    <div class="nav-links">
+      <a href="#services">Services</a>
+      <a href="#quote">Get a Quote</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#faq">FAQ</a>
     </div>
-    <form class="qform" id="qform">
-      <h3>Request a quote</h3><p>Takes 30 seconds — we reply fast.</p>
-      <label for="qname">Your name</label><input id="qname" required placeholder="Jane Smith" autocomplete="name">
-      <label for="qphone">Phone</label><input id="qphone" required placeholder="(305) 555-0123" inputmode="tel" autocomplete="tel">
-      <label for="qservice">Service needed</label>
-      <select id="qservice"><option>Residential Moving</option><option>Junk Removal</option><option>Pickup &amp; Delivery</option><option>Cleanout</option><option>Other</option></select>
-      <label for="qdate">Preferred date</label><input id="qdate" type="date">
-      <label for="qdetails">Details</label><textarea id="qdetails" rows="3" placeholder="What are we moving, and from where to where?"></textarea>
-      <button class="btn btn-orange" type="submit">Send via WhatsApp →</button>
-      <div class="qnote">Opens WhatsApp with your message ready — no account needed.</div>
-    </form>
+    <a class="nav-call" href="tel:+13058129104"><svg viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.13.96.36 1.9.7 2.8a2 2 0 0 1-.45 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.45c.9.34 1.84.57 2.8.7a2 2 0 0 1 1.7 2z"/></svg>305-812-9104</a>
+    <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
   </div>
-</div></section>
-
-<div class="band">
-  <h2>Need It Moved Today?</h2>
-  <p>Same-day service available across Miami-Dade, Doral &amp; Fort Lauderdale.</p>
-  <a class="btn btn-white" href="tel:+13058129104" style="font-size:1.08rem;padding:17px 44px"><svg viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.13.96.36 1.9.7 2.8a2 2 0 0 1-.45 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.45c.9.34 1.84.57 2.8.7a2 2 0 0 1 1.7 2.05z"/></svg> 305-812-9104</a>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#services">Services<svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg></a>
+  <a href="#quote">Get a Quote<svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg></a>
+  <a href="#pricing">Pricing<svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg></a>
+  <a href="#reviews">Reviews<svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg></a>
+  <a href="#faq">FAQ<svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg></a>
+  <a class="mm-call" href="tel:+13058129104"><svg viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.13.96.36 1.9.7 2.8a2 2 0 0 1-.45 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.45c.9.34 1.84.57 2.8.7a2 2 0 0 1 1.7 2z"/></svg>Call 305-812-9104</a>
 </div>
 
-<footer><div class="wrap foot">
-  <div><strong style="color:#fff">JC Pickup, Delivery &amp; Moving</strong> — Serving Miami-Dade, Doral &amp; Fort Lauderdale</div>
-  <div><a href="tel:+13058129104" style="color:#fff;font-weight:750">305-812-9104</a></div>
-</div></footer>
+<main id="top">
 
-<div class="mbar">
-  <a class="call" href="tel:+13058129104"><svg viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.13.96.36 1.9.7 2.8a2 2 0 0 1-.45 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.45c.9.34 1.84.57 2.8.7a2 2 0 0 1 1.7 2.05z"/></svg> Call Now</a>
-  <a class="wa" href="https://wa.me/13058129104?text=Hi%20JC!%20I%20need%20a%20quote."><svg viewBox="0 0 24 24"><path d="M21 11.5a8.5 8.5 0 0 1-12.4 7.5L3 21l2-5.4A8.5 8.5 0 1 1 21 11.5z"/></svg> WhatsApp</a>
+<!-- ============ HERO ============ -->
+<header class="hero">
+  <div class="hero-mesh"></div>
+  <div class="hero-shapes" aria-hidden="true">
+    <div class="hs hs-ring" data-px="0.12"></div>
+    <div class="hs hs-ring2" data-px="0.2"></div>
+    <div class="hs hs-arc" data-px="0.08"></div>
+    <div class="hs hs-blob" data-px="0.25"></div>
+    <svg class="hs hs-dots" data-px="0.15" width="150" height="110" viewBox="0 0 150 110"><g fill="rgba(255,255,255,.35)"><circle cx="6" cy="6" r="2.4"/><circle cx="36" cy="6" r="2.4"/><circle cx="66" cy="6" r="2.4"/><circle cx="96" cy="6" r="2.4"/><circle cx="126" cy="6" r="2.4"/><circle cx="6" cy="36" r="2.4"/><circle cx="36" cy="36" r="2.4"/><circle cx="66" cy="36" r="2.4"/><circle cx="96" cy="36" r="2.4"/><circle cx="126" cy="36" r="2.4"/><circle cx="6" cy="66" r="2.4"/><circle cx="36" cy="66" r="2.4"/><circle cx="66" cy="66" r="2.4"/><circle cx="96" cy="66" r="2.4"/><circle cx="126" cy="66" r="2.4"/><circle cx="6" cy="96" r="2.4"/><circle cx="36" cy="96" r="2.4"/><circle cx="66" cy="96" r="2.4"/><circle cx="96" cy="96" r="2.4"/><circle cx="126" cy="96" r="2.4"/></g></svg>
+  </div>
+
+  <div class="wrap hero-in">
+    <div>
+      <span class="pill reveal"><span class="pulse"></span>Licensed &amp; Insured · Miami-Dade · Doral · Fort Lauderdale</span>
+      <h1 class="reveal" style="--d:.08s">One Call<br><span class="grad">Does It All.</span></h1>
+      <p class="lead reveal" style="--d:.16s">Miami's friendly crew for moves, deliveries, and junk removal. One local team, one upfront price — we show up on time and handle the heavy lifting.</p>
+      <div class="hero-ctas reveal" style="--d:.24s">
+        <a href="#quote" class="btn btn-primary">Get My Quote<svg viewBox="0 0 24 24"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg></a>
+        <a href="tel:+13058129104" class="btn btn-ghost"><svg viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.13.96.36 1.9.7 2.8a2 2 0 0 1-.45 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.45c.9.34 1.84.57 2.8.7a2 2 0 0 1 1.7 2z"/></svg>Call 305-812-9104</a>
+      </div>
+      <div class="hero-micro reveal" style="--d:.32s">
+        <span class="hm-item"><svg viewBox="0 0 24 24"><path d="M4 12.5l5 5L20 6.5"/></svg>Same-day pickup available</span>
+        <span class="hm-item"><svg viewBox="0 0 24 24"><path d="M4 12.5l5 5L20 6.5"/></svg>Upfront pricing, no hidden fees</span>
+      </div>
+    </div>
+
+    <div class="hero-visual reveal" style="--d:.3s">
+      <div class="float-badge fb-1">
+        <span class="fb-ic"><svg viewBox="0 0 24 24"><path d="M4 12.5l5 5L20 6.5"/></svg></span>
+        <span><b>Same-day pickup</b><small>Book by noon, we come today</small></span>
+      </div>
+      <div class="dispatch">
+        <div class="dispatch-head">
+          <div class="dh-l">
+            <span class="dh-mark"><svg viewBox="0 0 24 24"><path d="M1.5 6.5h12.5V16H1.5z"/><path d="M14 10h3.8l4.2 4.2V16H14"/><circle cx="6" cy="18.2" r="1.9"/><circle cx="17.4" cy="18.2" r="1.9"/></svg></span>
+            <span><b>JC MOVING</b><small>TODAY'S DISPATCH</small></span>
+          </div>
+          <span class="status"><i></i>ON THE WAY</span>
+        </div>
+        <div class="dispatch-body">
+          <div class="route">
+            <span class="pin"><svg viewBox="0 0 24 24"><path d="M12 21s7-5.1 7-11a7 7 0 1 0-14 0c0 5.9 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></span>
+            <span><b>Doral &rarr; Kendall</b><small>2 stops · 18 miles</small></span>
+            <span class="tag" style="margin-left:auto;font-size:.72rem;font-weight:700;color:#1E9E50;background:#E9F7EE;padding:5px 12px;border-radius:100px;white-space:nowrap">Live GPS</span>
+          </div>
+          <div class="d-line"></div>
+          <div class="d-rows">
+            <div class="d-row">
+              <span class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg></span>
+              <span><b>Pickup window</b><small>9:00 – 11:00 AM</small></span>
+              <span class="tag">On time</span>
+            </div>
+            <div class="d-row">
+              <span class="ic"><svg viewBox="0 0 24 24"><path d="M1.5 6.5h12.5V16H1.5z"/><path d="M14 10h3.8l4.2 4.2V16H14"/><circle cx="6" cy="18.2" r="1.9"/><circle cx="17.4" cy="18.2" r="1.9"/></svg></span>
+              <span><b>Crew &amp; truck</b><small>2 uniformed movers · 16-ft truck</small></span>
+              <span class="tag">Equipped</span>
+            </div>
+            <div class="d-row">
+              <span class="ic"><svg viewBox="0 0 24 24"><path d="M12 2l8 3v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V5z"/><path d="M9 12l2 2 4-4"/></svg></span>
+              <span><b>Flat-rate quote</b><small>Agreed before we lift a thing</small></span>
+              <span class="tag">$0 surprises</span>
+            </div>
+          </div>
+        </div>
+        <div class="dispatch-foot">
+          <div class="drv"><span class="ava">JC</span><span><b>Your crew lead</b><small>Uniformed · Background-checked</small></span></div>
+          <span class="eta">ETA 12 min</span>
+        </div>
+      </div>
+      <div class="float-badge fb-2">
+        <span class="fb-ic"><svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.26 6.6.72-4.9 4.55 1.35 6.47L12 16.9 6.05 20l1.35-6.47-4.9-4.55 6.6-.72z"/></svg></span>
+        <span><b>5.0 rating</b><span class="stars" aria-label="5 out of 5 stars"><svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.26 6.6.72-4.9 4.55 1.35 6.47L12 16.9 6.05 20l1.35-6.47-4.9-4.55 6.6-.72z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.26 6.6.72-4.9 4.55 1.35 6.47L12 16.9 6.05 20l1.35-6.47-4.9-4.55 6.6-.72z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.26 6.6.72-4.9 4.55 1.35 6.47L12 16.9 6.05 20l1.35-6.47-4.9-4.55 6.6-.72z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.26 6.6.72-4.9 4.55 1.35 6.47L12 16.9 6.05 20l1.35-6.47-4.9-4.55 6.6-.72z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.26 6.6.72-4.9 4.55 1.35 6.47L12 16.9 6.05 20l1.35-6.47-4.9-4.55 6.6-.72z"/></svg></span><small>from Miami neighbors</small></span>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-waves" aria-hidden="true">
+    <svg viewBox="0 0 1440 110" preserveAspectRatio="none">
+      <path d="M0,64 C240,100 480,20 720,52 C960,84 1200,30 1440,62 L1440,110 L0,110 Z" fill="#FF7A1A" opacity="0.22"/>
+      <path d="M0,78 C260,108 520,40 780,70 C1040,100 1240,48 1440,76 L1440,110 L0,110 Z" fill="#FFF8F0"/>
+    </svg>
+  </div>
+</header>
+
+<!-- ============ TRUST BAR ============ -->
+<div class="trust">
+  <div class="wrap trust-in">
+    <div class="trust-item reveal"><span class="t-ic"><svg viewBox="0 0 24 24"><path d="M12 2l8 3v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V5z"/><path d="M9 12l2 2 4-4"/></svg></span><span><b>Licensed &amp; Insured</b><small>Full coverage, every job</small></span></div>
+    <div class="trust-item reveal" style="--d:.08s"><span class="t-ic"><svg viewBox="0 0 24 24"><path d="M12 21s7-5.1 7-11a7 7 0 1 0-14 0c0 5.9 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></span><span><b>Local Miami Crew</b><small>We know every shortcut</small></span></div>
+    <div class="trust-item reveal" style="--d:.16s"><span class="t-ic"><svg viewBox="0 0 24 24"><path d="M12 2v20"/><path d="M17 6.5c0-1.9-2.2-3-5-3s-5 1.1-5 3 2 2.6 5 3.2 5 1.4 5 3.3-2.2 3-5 3-5-1.1-5-3"/></svg></span><span><b>Upfront Pricing</b><small>Flat rates, zero surprises</small></span></div>
+    <div class="trust-item reveal" style="--d:.24s"><span class="t-ic"><svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.26 6.6.72-4.9 4.55 1.35 6.47L12 16.9 6.05 20l1.35-6.47-4.9-4.55 6.6-.72z"/></svg></span><span><b>5-Star Rated</b><small>By your Miami neighbors</small></span></div>
+  </div>
+</div>
+
+<!-- ============ STATS ============ -->
+<section class="stats" style="padding:74px 0">
+  <div class="wrap stats-grid">
+    <div class="stat reveal"><div class="num">3</div><b>Service areas</b><small>Miami-Dade · Doral · Fort Lauderdale</small></div>
+    <div class="stat reveal" style="--d:.08s"><div class="num nowrap">Same-day</div><b>Pickup available</b><small>Book by noon — we come today</small></div>
+    <div class="stat reveal" style="--d:.16s"><div class="num">$0</div><b>Hidden fees. Ever.</b><small>The quote is the price</small></div>
+    <div class="stat reveal" style="--d:.24s"><div class="num">100%</div><b>Upfront flat pricing</b><small>Local, uniformed crew</small></div>
+  </div>
+</section>
+
+<!-- ============ SERVICES ============ -->
+<section class="sec" id="services">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="kicker">What we do</span>
+      <h2>Four services. <span class="u">One phone number.</span></h2>
+      <p>Every service covers Miami-Dade, Doral &amp; Fort Lauderdale — with the same crew, the same care, and the same upfront price.</p>
+    </div>
+    <div class="svc-grid">
+      <article class="svc reveal">
+        <span class="svc-ic"><svg viewBox="0 0 24 24"><path d="M3 7a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v9H3z"/><path d="M13 10h4l4 4v2h-8z"/><path d="M3 16h18"/><circle cx="7" cy="18.5" r="1.8"/><circle cx="17.5" cy="18.5" r="1.8"/></svg></span>
+        <h3>Residential Moving</h3>
+        <p>Apartments, condos, and houses — from Kendall to Doral to Fort Lauderdale. We pad, wrap, and protect every piece, then place it exactly where you want it in your new place.</p>
+        <a class="svc-link" href="#quote">Get a moving quote<svg viewBox="0 0 24 24"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg></a>
+      </article>
+      <article class="svc reveal" style="--d:.08s">
+        <span class="svc-ic"><svg viewBox="0 0 24 24"><path d="M21 8l-9-5-9 5v8l9 5 9-5z"/><path d="M3.3 8.3L12 13l8.7-4.7"/><path d="M12 13v8"/></svg></span>
+        <h3>Pickup &amp; Delivery</h3>
+        <p>Scored furniture on Marketplace or need a store pickup across town? We'll grab it, transport it safely, and carry it inside — stairs and tight hallways included.</p>
+        <a class="svc-link" href="#quote">Get a delivery quote<svg viewBox="0 0 24 24"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg></a>
+      </article>
+      <article class="svc reveal" style="--d:.16s">
+        <span class="svc-ic"><svg viewBox="0 0 24 24"><path d="M4 7h16"/><path d="M9.5 7V5a1 1 0 0 1 1-1h3a1 1 0 0 1 1 1v2"/><path d="M6.5 7l.9 12.2a1.5 1.5 0 0 0 1.5 1.3h6.2a1.5 1.5 0 0 0 1.5-1.3L17.5 7"/><path d="M10 11v6M14 11v6"/></svg></span>
+        <h3>Junk Removal</h3>
+        <p>Old sofas, mattresses, yard debris, full garage cleanouts. We haul it all away the same day — and sort donations and responsible disposal for you.</p>
+        <a class="svc-link" href="#quote">Get a removal quote<svg viewBox="0 0 24 24"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg></a>
+      </article>
+      <article class="svc reveal" style="--d:.24s">
+        <span class="svc-ic"><svg viewBox="0 0 24 24"><path d="M6 11V8a3 3 0 0 1 3-3h6a3 3 0 0 1 3 3v3"/><path d="M4 11h16a1 1 0 0 1 1 1v5a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-5a1 1 0 0 1 1-1z"/><path d="M5 18v2M19 18v2"/></svg></span>
+        <h3>Furniture &amp; Appliance Hauling</h3>
+        <p>Heavy lifting done right: sectionals, washers, treadmills, gun safes. Our crew handles stairs, elevators, and tight corners without a scratch on your walls.</p>
+        <a class="svc-link" href="#quote">Get a hauling quote<svg viewBox="0 0 24 24"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg></a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ QUOTE FORM ============ -->
+<section class="sec quote-sec" id="quote">
+  <div class="wrap quote-grid">
+    <div class="quote-copy">
+      <span class="kicker reveal" style="color:#FFB25E">Free quote</span>
+      <h2 class="reveal" style="--d:.08s">Your upfront price,<br><span class="grad">in 60 seconds.</span></h2>
+      <p class="reveal" style="--d:.14s">Tell us what you need moved, picked up, or hauled away. We'll reply with one flat price — no visit required for most jobs.</p>
+      <div class="q-points">
+        <div class="q-point reveal" style="--d:.18s"><span class="ck"><svg viewBox="0 0 24 24"><path d="M4 12.5l5 5L20 6.5"/></svg></span><span><b>No obligation, no pushy sales calls</b><small>Just a straight price for your job.</small></span></div>
+        <div class="q-point reveal" style="--d:.24s"><span class="ck"><svg viewBox="0 0 24 24"><path d="M4 12.5l5 5L20 6.5"/></svg></span><span><b>Fast reply, 8 AM – 7 PM</b><small>Most quotes answered within the hour.</small></span></div>
+        <div class="q-point reveal" style="--d:.3s"><span class="ck"><svg viewBox="0 0 24 24"><path d="M4 12.5l5 5L20 6.5"/></svg></span><span><b>Photos welcome on WhatsApp</b><small>Snap the items — we'll price it on the spot.</small></span></div>
+      </div>
+      <a class="q-direct reveal" style="--d:.36s" href="tel:+13058129104">
+        <span class="qd-ic"><svg viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.13.96.36 1.9.7 2.8a2 2 0 0 1-.45 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.45c.9.34 1.84.57 2.8.7a2 2 0 0 1 1.7 2z"/></svg></span>
+        <span><b>305-812-9104</b><small>Prefer to talk? Call or text — we pick up.</small></span>
+      </a>
+    </div>
+    <form class="form-card reveal" style="--d:.2s" id="quoteForm" novalidate>
+      <h3>Get my quote</h3>
+      <p>Fill this in — it opens WhatsApp with your request ready to send.</p>
+      <div class="f-row">
+        <div class="f-group" data-field="name">
+          <label for="fName">Name <i>*</i></label>
+          <input id="fName" type="text" placeholder="Your name" autocomplete="name">
+          <span class="f-err">Please enter your name.</span>
+        </div>
+        <div class="f-group" data-field="phone">
+          <label for="fPhone">Phone <i>*</i></label>
+          <input id="fPhone" type="tel" placeholder="(305) 555-0123" autocomplete="tel">
+          <span class="f-err">Please enter a valid phone number.</span>
+        </div>
+      </div>
+      <div class="f-row">
+        <div class="f-group" data-field="area">
+          <label for="fArea">Service area <i>*</i></label>
+          <select id="fArea">
+            <option value="">Select your area…</option>
+            <option>Miami-Dade</option>
+            <option>Doral</option>
+            <option>Fort Lauderdale</option>
+          </select>
+          <span class="f-err">Please choose your area.</span>
+        </div>
+        <div class="f-group" data-field="service">
+          <label for="fService">Service <i>*</i></label>
+          <select id="fService">
+            <option value="">Select a service…</option>
+            <option>Residential Moving</option>
+            <option>Pickup &amp; Delivery</option>
+            <option>Junk Removal</option>
+            <option>Furniture &amp; Appliance Hauling</option>
+            <option>Something else</option>
+          </select>
+          <span class="f-err">Please choose a service.</span>
+        </div>
+      </div>
+      <div class="f-group" data-field="details">
+        <label for="fDetails">Tell us about the job <span style="color:var(--mut);font-weight:500">(optional)</span></label>
+        <textarea id="fDetails" placeholder="e.g. 2-bedroom apartment, 3rd floor no elevator, moving from Doral to Kendall…"></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary btn-block">
+        <svg class="fill-ic" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+        Get Quote on WhatsApp
+      </button>
+      <div class="form-note"><svg viewBox="0 0 24 24"><path d="M12 2l8 3v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V5z"/><path d="M9 12l2 2 4-4"/></svg>Your info stays private — it only goes to our dispatch phone.</div>
+    </form>
+  </div>
+</section>
+
+<!-- ============ PROCESS ============ -->
+<section class="sec" id="process">
+  <div class="wrap">
+    <div class="sec-head center reveal">
+      <span class="kicker">How it works</span>
+      <h2>From first call to <span class="u">done &amp; hauled</span></h2>
+      <p>No paperwork marathons, no mystery fees. Four simple steps and your problem is gone.</p>
+    </div>
+    <div class="steps">
+      <div class="step reveal"><div class="step-n">01</div><h3>Tell us what you need</h3><p>Call, text, or send the quote form. Photos of the items help us price it fast.</p></div>
+      <div class="step reveal" style="--d:.1s"><div class="step-n">02</div><h3>Get an upfront quote</h3><p>One flat price before we lift a finger. If the job changes, we re-quote first.</p></div>
+      <div class="step reveal" style="--d:.2s"><div class="step-n">03</div><h3>We show up on time</h3><p>A uniformed local crew with the right truck, dollies, and blankets — in your window.</p></div>
+      <div class="step reveal" style="--d:.3s"><div class="step-n">04</div><h3>Done &amp; hauled</h3><p>We load, deliver, or clear it out — then sweep up so it looks like we were never there.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TESTIMONIALS ============ -->
+<section class="sec sec-cream" id="reviews">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="kicker">Reviews</span>
+      <h2>Neighbors who <span class="u">called once</span></h2>
+      <p>Real jobs across Miami-Dade, Doral, and Fort Lauderdale — in our customers' words.</p>
+    </div>
+    <div class="testi-grid">
+      <article class="testi reveal">
+        <div class="stars" aria-label="5 out of 5 stars"><svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.26 6.6.72-4.9 4.55 1.35 6.47L12 16.9 6.05 20l1.35-6.47-4.9-4.55 6.6-.72z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.26 6.6.72-4.9 4.55 1.35 6.47L12 16.9 6.05 20l1.35-6.47-4.9-4.55 6.6-.72z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.26 6.6.72-4.9 4.55 1.35 6.47L12 16.9 6.05 20l1.35-6.47-4.9-4.55 6.6-.72z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.26 6.6.72-4.9 4.55 1.35 6.47L12 16.9 6.05 20l1.35-6.47-4.9-4.55 6.6-.72z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.26 6.6.72-4.9 4.55 1.35 6.47L12 16.9 6.05 20l1.35-6.47-4.9-4.55 6.6-.72z"/></svg></div>
+        <blockquote>They moved our 2-bedroom from Kendall to Doral in one morning. Wrapped everything, zero scratches, and the final price was exactly what they quoted on the phone.</blockquote>
+        <div class="testi-who"><span class="ava">MG</span><span><b>Mariana G.</b><small>Family move · Kendall &rarr; Doral</small></span></div>
+      </article>
+      <article class="testi reveal" style="--d:.1s">
+        <div class="stars" aria-label="5 out of 5 stars"><svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.26 6.6.72-4.9 4.55 1.35 6.47L12 16.9 6.05 20l1.35-6.47-4.9-4.55 6.6-.72z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.26 6.6.72-4.9 4.55 1.35 6.47L12 16.9 6.05 20l1.35-6.47-4.9-4.55 6.6-.72z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.26 6.6.72-4.9 4.55 1.35 6.47L12 16.9 6.05 20l1.35-6.47-4.9-4.55 6.6-.72z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.26 6.6.72-4.9 4.55 1.35 6.47L12 16.9 6.05 20l1.35-6.47-4.9-4.55 6.6-.72z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.26 6.6.72-4.9 4.55 1.35 6.47L12 16.9 6.05 20l1.35-6.47-4.9-4.55 6.6-.72z"/></svg></div>
+        <blockquote>We needed our small office relocated over a weekend in Doral. They showed up at 8 sharp, labeled every box, and we were working again Monday morning.</blockquote>
+        <div class="testi-who"><span class="ava">CR</span><span><b>Carlos R.</b><small>Office move · Doral</small></span></div>
+      </article>
+      <article class="testi reveal" style="--d:.2s">
+        <div class="stars" aria-label="5 out of 5 stars"><svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.26 6.6.72-4.9 4.55 1.35 6.47L12 16.9 6.05 20l1.35-6.47-4.9-4.55 6.6-.72z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.26 6.6.72-4.9 4.55 1.35 6.47L12 16.9 6.05 20l1.35-6.47-4.9-4.55 6.6-.72z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.26 6.6.72-4.9 4.55 1.35 6.47L12 16.9 6.05 20l1.35-6.47-4.9-4.55 6.6-.72z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.26 6.6.72-4.9 4.55 1.35 6.47L12 16.9 6.05 20l1.35-6.47-4.9-4.55 6.6-.72z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.26 6.6.72-4.9 4.55 1.35 6.47L12 16.9 6.05 20l1.35-6.47-4.9-4.55 6.6-.72z"/></svg></div>
+        <blockquote>Bought a sectional on Facebook Marketplace with no way to move it. JC picked it up in Fort Lauderdale the same afternoon and carried it up my stairs.</blockquote>
+        <div class="testi-who"><span class="ava">DW</span><span><b>Denise W.</b><small>Furniture pickup · Fort Lauderdale</small></span></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PRICING ============ -->
+<section class="sec" id="pricing">
+  <div class="wrap">
+    <div class="sec-head center reveal">
+      <span class="kicker">Simple pricing</span>
+      <h2>Flat rates. <span class="u">No fine print.</span></h2>
+      <p>Most jobs fall into one of these three. Anything in between gets a custom flat quote — still upfront, still final.</p>
+    </div>
+    <div class="price-grid">
+      <article class="price reveal">
+        <h3>Single-Item Pickup</h3>
+        <p class="tag">One piece, one trip.</p>
+        <div class="amount"><span class="from">From</span><span class="val">$79</span></div>
+        <ul>
+          <li><svg viewBox="0 0 24 24"><path d="M4 12.5l5 5L20 6.5"/></svg>Sofas, mattresses &amp; appliances</li>
+          <li><svg viewBox="0 0 24 24"><path d="M4 12.5l5 5L20 6.5"/></svg>Carry-in &amp; placement included</li>
+          <li><svg viewBox="0 0 24 24"><path d="M4 12.5l5 5L20 6.5"/></svg>Same-day slots available</li>
+          <li><svg viewBox="0 0 24 24"><path d="M4 12.5l5 5L20 6.5"/></svg>Upfront flat rate</li>
+        </ul>
+        <a class="btn btn-outline btn-block" href="https://wa.me/13058129104?text=Hi%20JC%20Moving!%20I%27d%20like%20a%20quote%20for%20a%20Single-Item%20Pickup%20(from%20%2479)." target="_blank" rel="noopener">Get This Quote</a>
+      </article>
+      <article class="price hot reveal" style="--d:.1s">
+        <span class="ribbon">Most Popular</span>
+        <h3>Half-Truck Load</h3>
+        <p class="tag">The sweet spot for cleanouts.</p>
+        <div class="amount"><span class="from">From</span><span class="val">$189</span></div>
+        <ul>
+          <li><svg viewBox="0 0 24 24"><path d="M4 12.5l5 5L20 6.5"/></svg>Up to half a 16-ft truck</li>
+          <li><svg viewBox="0 0 24 24"><path d="M4 12.5l5 5L20 6.5"/></svg>Garage, yard &amp; estate cleanouts</li>
+          <li><svg viewBox="0 0 24 24"><path d="M4 12.5l5 5L20 6.5"/></svg>We load everything — you point</li>
+          <li><svg viewBox="0 0 24 24"><path d="M4 12.5l5 5L20 6.5"/></svg>Donation &amp; disposal handled</li>
+        </ul>
+        <a class="btn btn-primary btn-block" href="https://wa.me/13058129104?text=Hi%20JC%20Moving!%20I%27d%20like%20a%20quote%20for%20a%20Half-Truck%20Load%20(from%20%24189)." target="_blank" rel="noopener">Get This Quote</a>
+      </article>
+      <article class="price reveal" style="--d:.2s">
+        <h3>Full Home Move</h3>
+        <p class="tag">Whole-home, zero stress.</p>
+        <div class="amount"><span class="from">Free</span><span class="val" style="font-size:2rem">On-site quote</span></div>
+        <ul>
+          <li><svg viewBox="0 0 24 24"><path d="M4 12.5l5 5L20 6.5"/></svg>Apartments, condos &amp; houses</li>
+          <li><svg viewBox="0 0 24 24"><path d="M4 12.5l5 5L20 6.5"/></svg>Padding, wrapping &amp; protection</li>
+          <li><svg viewBox="0 0 24 24"><path d="M4 12.5l5 5L20 6.5"/></svg>Disassembly &amp; reassembly</li>
+          <li><svg viewBox="0 0 24 24"><path d="M4 12.5l5 5L20 6.5"/></svg>Dedicated crew &amp; truck</li>
+        </ul>
+        <a class="btn btn-outline btn-block" href="https://wa.me/13058129104?text=Hi%20JC%20Moving!%20I%27d%20like%20a%20free%20on-site%20quote%20for%20a%20Full%20Home%20Move." target="_blank" rel="noopener">Get This Quote</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section class="sec sec-cream" id="faq">
+  <div class="wrap">
+    <div class="sec-head center reveal">
+      <span class="kicker">Good to know</span>
+      <h2>Questions, <span class="u">answered straight</span></h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item reveal">
+        <button class="faq-q" aria-expanded="false">How do you price a job?<span class="faq-x"></span></button>
+        <div class="faq-a"><p>Flat and upfront. Single-item pickups start at $79, half-truck loads at $189, and full home moves get a free on-site or video quote. The price we agree on before the job is the price you pay — we re-quote first if anything changes, never after.</p></div>
+      </div>
+      <div class="faq-item reveal" style="--d:.06s">
+        <button class="faq-q" aria-expanded="false">Do you really offer same-day service?<span class="faq-x"></span></button>
+        <div class="faq-a"><p>Yes — it's one of the reasons people call us. Book by noon and we'll usually get a crew to you the same day in Miami-Dade, Doral, or Fort Lauderdale. After noon, we'll get you the first slot tomorrow morning.</p></div>
+      </div>
+      <div class="faq-item reveal" style="--d:.12s">
+        <button class="faq-q" aria-expanded="false">Which areas do you serve?<span class="faq-x"></span></button>
+        <div class="faq-a"><p>All of Miami-Dade County, the Doral area, and Fort Lauderdale — including Kendall, Hialeah, Miami Beach, Coral Gables, Weston, and everything in between. Just outside those zones? <a href="tel:+13058129104">Call us</a> — we'll tell you straight if we can make it work.</p></div>
+      </div>
+      <div class="faq-item reveal" style="--d:.18s">
+        <button class="faq-q" aria-expanded="false">Is there anything you won't move?<span class="faq-x"></span></button>
+        <div class="faq-a"><p>We don't move hazardous materials, chemicals, fuel, or open food. Oversized specialty items like pianos and large safes need a heads-up first — if we can't move it safely with our crew and equipment, we'll tell you honestly instead of risking your belongings.</p></div>
+      </div>
+      <div class="faq-item reveal" style="--d:.24s">
+        <button class="faq-q" aria-expanded="false">Are you licensed and insured?<span class="faq-x"></span></button>
+        <div class="faq-a"><p>Yes. JC Pickup, Delivery &amp; Moving is licensed and insured, and every job is covered. Our crew is uniformed, background-checked, and trained to protect your home — floors, doorways, and walls included.</p></div>
+      </div>
+      <div class="faq-item reveal" style="--d:.3s">
+        <button class="faq-q" aria-expanded="false">How do I book?<span class="faq-x"></span></button>
+        <div class="faq-a"><p>Three ways, all fast: call or text <a href="tel:+13058129104">305-812-9104</a>, send the <a href="#quote">quote form</a> above (it opens WhatsApp with your request ready), or message us photos of what needs moving for an instant price.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FINAL CTA ============ -->
+<section class="cta-band">
+  <div class="cta-ring" aria-hidden="true"></div>
+  <div class="wrap cta-in">
+    <span class="pill reveal"><span class="pulse"></span>Miami-Dade · Doral · Fort Lauderdale</span>
+    <h2 class="reveal" style="--d:.08s">Ready when you are.<br><span class="grad">One call does it all.</span></h2>
+    <p class="reveal" style="--d:.16s">Moves, deliveries, and junk removal with one upfront price and a crew that shows up on time. Tell us what you need — we'll take it from there.</p>
+    <div class="cta-btns reveal" style="--d:.24s">
+      <a href="tel:+13058129104" class="btn btn-primary"><svg viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.13.96.36 1.9.7 2.8a2 2 0 0 1-.45 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.45c.9.34 1.84.57 2.8.7a2 2 0 0 1 1.7 2z"/></svg>Call 305-812-9104</a>
+      <a href="https://wa.me/13058129104?text=Hi%20JC%20Moving!%20I%27d%20like%20a%20quote." target="_blank" rel="noopener" class="btn btn-ghost"><svg class="fill-ic" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>WhatsApp Us</a>
+    </div>
+    <div class="cta-micro reveal" style="--d:.3s">Mon – Sat · 8:00 AM – 7:00 PM · Same-day pickup when you book by noon</div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <a href="#top" class="logo"><span class="logo-mark"><svg viewBox="0 0 24 24"><path d="M1.5 6.5h12.5V16H1.5z"/><path d="M14 10h3.8l4.2 4.2V16H14"/><circle cx="6" cy="18.2" r="1.9"/><circle cx="17.4" cy="18.2" r="1.9"/></svg></span><span class="logo-txt">JC <span>MOVING</span><small>PICKUP · DELIVERY</small></span></a>
+        <p>Miami's one-call crew for residential moving, pickup &amp; delivery, and junk removal. Upfront pricing, same-day pickup, zero hassle.</p>
+        <div class="foot-badges"><span>LICENSED &amp; INSURED</span><span>LOCAL CREW</span><span>UPFRONT PRICING</span></div>
+      </div>
+      <div>
+        <h4>Services</h4>
+        <ul class="foot-links">
+          <li><a href="#services">Residential Moving</a></li>
+          <li><a href="#services">Pickup &amp; Delivery</a></li>
+          <li><a href="#services">Junk Removal</a></li>
+          <li><a href="#services">Furniture &amp; Appliance Hauling</a></li>
+          <li><a href="#pricing">Pricing</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Service Areas</h4>
+        <ul class="foot-links">
+          <li>Miami-Dade County</li>
+          <li>Doral</li>
+          <li>Fort Lauderdale</li>
+          <li>Kendall · Hialeah</li>
+          <li>Coral Gables · Weston</li>
+        </ul>
+      </div>
+      <div>
+        <h4>Get in Touch</h4>
+        <div class="foot-contact">
+          <a class="tel" href="tel:+13058129104">305-812-9104</a>
+          <div class="fc-row"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg><span>Mon – Sat<br>8:00 AM – 7:00 PM</span></div>
+          <div class="fc-row"><svg viewBox="0 0 24 24"><path d="M12 21s7-5.1 7-11a7 7 0 1 0-14 0c0 5.9 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></svg><span>Miami-Dade · Doral<br>Fort Lauderdale, FL</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bar">
+      <span>© <span id="year">2026</span> JC Pickup, Delivery &amp; Moving. All rights reserved.</span>
+      <span>One call does it all.</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ============ MOBILE STICKY BAR ============ -->
+<div class="sticky-bar">
+  <a class="sb-call" href="tel:+13058129104"><svg viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.13.96.36 1.9.7 2.8a2 2 0 0 1-.45 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.45c.9.34 1.84.57 2.8.7a2 2 0 0 1 1.7 2z"/></svg>Call Now</a>
+  <a class="sb-wa" href="https://wa.me/13058129104?text=Hi%20JC%20Moving!%20I%27d%20like%20a%20quote." target="_blank" rel="noopener"><svg class="fill-ic" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>WhatsApp</a>
 </div>
 
 <script>
-document.getElementById('qform').addEventListener('submit',function(e){
-  e.preventDefault();
-  var v=function(id){return document.getElementById(id).value.trim();};
-  if(!v('qname')||!v('qphone'))return;
-  var msg='Hi JC! I need a quote.%0A%0AName: '+encodeURIComponent(v('qname'))
-  +'%0APhone: '+encodeURIComponent(v('qphone'))
-  +'%0AService: '+encodeURIComponent(v('qservice'))
-  +'%0ADate: '+encodeURIComponent(v('qdate')||'Flexible')
-  +'%0ADetails: '+encodeURIComponent(v('qdetails')||'-');
-  window.open('https://wa.me/13058129104?text='+msg,'_blank');
-});
+(function(){
+  "use strict";
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* year */
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  /* nav shadow */
+  var nav = document.getElementById('nav');
+  function onScrollNav(){ nav.classList.toggle('scrolled', window.scrollY > 24); }
+  window.addEventListener('scroll', onScrollNav, {passive:true});
+  onScrollNav();
+
+  /* mobile menu */
+  var burger = document.getElementById('burger'),
+      menu = document.getElementById('mobileMenu');
+  burger.addEventListener('click', function(){
+    var open = menu.classList.toggle('open');
+    burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  menu.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click', function(){ menu.classList.remove('open'); burger.setAttribute('aria-expanded','false'); });
+  });
+
+  /* reveal on scroll */
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
+    });
+  }, {threshold:.12, rootMargin:'0px 0px -40px 0px'});
+  document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
+
+  /* hero parallax */
+  var pxEls = Array.prototype.slice.call(document.querySelectorAll('[data-px]'));
+  var hero = document.querySelector('.hero'), ticking = false;
+  if(!reduceMotion && pxEls.length){
+    window.addEventListener('scroll', function(){
+      if(ticking) return; ticking = true;
+      requestAnimationFrame(function(){
+        var y = window.scrollY;
+        if(y < hero.offsetHeight + 200){
+          pxEls.forEach(function(el){
+            var s = parseFloat(el.getAttribute('data-px'));
+            el.style.transform = 'translate3d(0,' + Math.round(y * s) + 'px,0)';
+          });
+        }
+        ticking = false;
+      });
+    }, {passive:true});
+  }
+
+  /* faq accordion */
+  document.querySelectorAll('.faq-item').forEach(function(item){
+    var btn = item.querySelector('.faq-q'), panel = item.querySelector('.faq-a');
+    btn.addEventListener('click', function(){
+      var isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item.open').forEach(function(o){
+        o.classList.remove('open');
+        o.querySelector('.faq-a').style.maxHeight = null;
+        o.querySelector('.faq-q').setAttribute('aria-expanded','false');
+      });
+      if(!isOpen){
+        item.classList.add('open');
+        panel.style.maxHeight = panel.scrollHeight + 'px';
+        btn.setAttribute('aria-expanded','true');
+      }
+    });
+  });
+
+  /* quote form -> WhatsApp */
+  var form = document.getElementById('quoteForm');
+  function setErr(field, bad){
+    var g = form.querySelector('[data-field="' + field + '"]');
+    if(g) g.classList.toggle('err', bad);
+    return !bad;
+  }
+  ['fName','fPhone','fArea','fService'].forEach(function(id){
+    var el = document.getElementById(id);
+    el.addEventListener('input', function(){ el.closest('.f-group').classList.remove('err'); });
+    el.addEventListener('change', function(){ el.closest('.f-group').classList.remove('err'); });
+  });
+  form.addEventListener('submit', function(ev){
+    ev.preventDefault();
+    var name = document.getElementById('fName').value.trim(),
+        phone = document.getElementById('fPhone').value.trim(),
+        area = document.getElementById('fArea').value,
+        service = document.getElementById('fService').value,
+        details = document.getElementById('fDetails').value.trim();
+    var ok = true;
+    ok = setErr('name', name.length < 2) && ok;
+    ok = setErr('phone', phone.replace(/\D/g,'').length < 7) && ok;
+    ok = setErr('area', !area) && ok;
+    ok = setErr('service', !service) && ok;
+    if(!ok){
+      var firstErr = form.querySelector('.f-group.err input, .f-group.err select');
+      if(firstErr) firstErr.focus();
+      return;
+    }
+    var lines = ['Hi JC Moving! I would like a quote.', '', 'Name: ' + name, 'Phone: ' + phone, 'Area: ' + area, 'Service: ' + service];
+    if(details) lines.push('Details: ' + details);
+    var url = 'https://wa.me/13058129104?text=' + encodeURIComponent(lines.join('\n'));
+    window.open(url, '_blank', 'noopener');
+  });
+})();
 </script>
 </body>
 </html>

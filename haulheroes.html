@@ -3,163 +3,565 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Haul Heroes | Junk Removal, Demolition & Cleanouts — Broward County</title>
-<meta name="description" content="Haul Heroes hauls it all: furniture removal, demolition, cleanouts and construction debris in Broward County. Fast, affordable, reliable. Free estimates: (954) 549-6775.">
+<title>Haul Heroes — Junk Removal &amp; Demolition | Broward, FL</title>
+<meta name="description" content="Need it gone? We haul it all. Furniture removal, demolition, cleanouts & debris hauling across Broward County. Fast, affordable, reliable. Free estimates: (954) 549-6775.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
-:root{--black:#0e0e0e;--char:#171717;--char2:#1e1a14;--orange:#ff5c00;--orange-d:#d94d00;--yellow:#ffc400;--white:#fff;--gray:#b5b5b5;--line:#2b2b2b}
+:root{
+  --ink:#0B0B0C;
+  --ink-2:#111113;
+  --ink-3:#161618;
+  --orange:#FF5C00;
+  --orange-hi:#FF7A2E;
+  --orange-deep:#C74800;
+  --steel:#A8ADB5;
+  --steel-dim:#6E747D;
+  --line:#232327;
+  --white:#FFFFFF;
+  --hazard:repeating-linear-gradient(-45deg,var(--orange) 0 14px,#0B0B0C 14px 28px);
+  --shadow-1:0 10px 30px rgba(0,0,0,.55);
+  --shadow-2:0 22px 55px rgba(0,0,0,.6);
+  --glow:0 14px 38px rgba(255,92,0,.42);
+}
 *{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:var(--black);color:var(--white);line-height:1.65;-webkit-font-smoothing:antialiased}
+html{scroll-behavior:smooth;overflow-x:hidden}
+body{
+  font-family:'Inter',system-ui,-apple-system,sans-serif;
+  background:var(--ink);color:var(--white);
+  line-height:1.65;-webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
 a{text-decoration:none;color:inherit}
-.wrap{max-width:1160px;margin:0 auto;padding:0 24px}
+img,svg{display:block}
 ::selection{background:var(--orange);color:#fff}
-nav{position:sticky;top:0;z-index:50;background:rgba(14,14,14,.96);border-bottom:1px solid var(--line);backdrop-filter:blur(10px)}
-.nav-in{display:flex;align-items:center;justify-content:space-between;height:70px}
-.logo{display:flex;align-items:center;gap:12px;font-weight:900;font-size:1.14rem;letter-spacing:1.5px;text-transform:uppercase}
-.logo .hh{width:42px;height:42px;border-radius:13px;background:linear-gradient(135deg,var(--orange),#ff7a26);display:grid;place-items:center;transform:skew(-6deg);box-shadow:0 8px 20px rgba(255,92,0,.4)}
-.logo .hh svg{width:23px;height:23px;stroke:#101010;fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;transform:skew(6deg)}
-.nav-links{display:flex;gap:30px;font-size:.86rem;font-weight:750;color:var(--gray);text-transform:uppercase;letter-spacing:1.2px}
-.nav-links a{transition:.2s;position:relative;padding:4px 0}
-.nav-links a:hover{color:var(--orange)}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:15px 32px;border-radius:14px;font-weight:800;font-size:.98rem;letter-spacing:.6px;transition:.22s;cursor:pointer;border:none;text-transform:uppercase}
-.btn svg{width:17px;height:17px;stroke:currentColor;fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
-.btn-orange{background:linear-gradient(135deg,var(--orange),#ff7a26);color:#fff;box-shadow:0 12px 28px rgba(255,92,0,.4)}
-.btn-orange:hover{transform:translateY(-2px);box-shadow:0 16px 34px rgba(255,92,0,.5)}
-.btn-ghost{border:1.5px solid rgba(255,92,0,.7);color:var(--orange)}
-.btn-ghost:hover{background:rgba(255,92,0,.1);transform:translateY(-2px)}
-.btn-nav{padding:11px 22px;font-size:.82rem}
-@media(max-width:860px){.nav-links{display:none}}
-/* HERO */
-.hero{background:radial-gradient(950px 500px at 78% 0%,#3d1e06 0%,var(--black) 62%);padding:100px 0 110px;position:relative;overflow:hidden}
-.hero::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(-45deg,transparent 0 34px,rgba(255,92,0,.05) 34px 36px);mask-image:radial-gradient(800px 500px at 80% 10%,#000 20%,transparent 78%)}
-.hero-in{position:relative;z-index:1;text-align:center;max-width:860px;margin:0 auto}
-.stripe{display:inline-flex;align-items:center;gap:10px;background:rgba(255,196,0,.1);border:1px solid rgba(255,196,0,.4);color:var(--yellow);font-weight:800;font-size:.78rem;letter-spacing:2.2px;text-transform:uppercase;padding:10px 22px;border-radius:100px;margin-bottom:28px}
-.stripe .dot{width:7px;height:7px;border-radius:50%;background:var(--yellow);box-shadow:0 0 10px var(--yellow)}
-.hero h1{font-size:clamp(2.7rem,7vw,4.8rem);line-height:1.02;font-weight:900;letter-spacing:-1.5px;text-transform:uppercase;margin-bottom:20px}
-.hero h1 .o{color:var(--orange)}
-.hero p.lead{color:var(--gray);font-size:1.16rem;max-width:37rem;margin:0 auto 36px}
-.hero-ctas{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
-.promise{display:flex;justify-content:center;gap:14px 40px;flex-wrap:wrap;margin-top:38px}
-.promise span{display:flex;align-items:center;gap:10px;font-weight:800;font-size:1rem;letter-spacing:.8px;text-transform:uppercase;color:#e8e8e8}
-.promise svg{width:19px;height:19px;stroke:var(--yellow);fill:none;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
-/* SECTIONS */
-section{padding:96px 0}
-.sec-head{text-align:center;max-width:660px;margin:0 auto 54px}
-.kicker{display:inline-flex;align-items:center;gap:12px;color:var(--orange);font-weight:800;font-size:.76rem;letter-spacing:2.6px;text-transform:uppercase;margin-bottom:14px}
-.kicker::before,.kicker::after{content:"";width:30px;height:2px;background:var(--orange);border-radius:2px}
-.sec-head h2{font-size:clamp(1.8rem,3.8vw,2.6rem);font-weight:900;text-transform:uppercase;letter-spacing:-.8px;line-height:1.12}
-.sec-head p{color:var(--gray);font-size:1.04rem;margin-top:12px}
-.grid{display:grid;grid-template-columns:repeat(5,1fr);gap:16px}
-@media(max-width:1020px){.grid{grid-template-columns:repeat(3,1fr)}}
-@media(max-width:600px){.grid{grid-template-columns:repeat(2,1fr)}}
-.svc{background:var(--char);border:1px solid var(--line);border-radius:18px;padding:32px 16px;text-align:center;transition:.25s}
-.svc:hover{border-color:var(--orange);transform:translateY(-5px);background:var(--char2);box-shadow:0 20px 40px rgba(255,92,0,.12)}
-.svc .ico{width:56px;height:56px;border-radius:16px;background:rgba(255,92,0,.12);border:1px solid rgba(255,92,0,.3);display:grid;place-items:center;margin:0 auto 16px;transition:.25s}
-.svc:hover .ico{background:var(--orange)}
-.svc .ico svg{width:27px;height:27px;stroke:var(--orange);fill:none;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round;transition:.25s}
+.wrap{max-width:1180px;margin:0 auto;padding:0 clamp(20px,4vw,32px)}
+.disp{font-family:'Anton',sans-serif;text-transform:uppercase;letter-spacing:.5px;line-height:1}
+
+/* ============ NAV ============ */
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(11,11,12,.86);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--line);transition:background .3s,box-shadow .3s}
+.nav.scrolled{background:rgba(11,11,12,.96);box-shadow:0 8px 30px rgba(0,0,0,.5)}
+.nav-in{display:flex;align-items:center;justify-content:space-between;height:74px}
+.brand{display:flex;align-items:center;gap:13px}
+.brand-mark{width:46px;height:46px;background:var(--hazard);border-radius:12px;display:grid;place-items:center;transform:skewX(-7deg);box-shadow:var(--shadow-1),inset 0 0 0 2px rgba(255,255,255,.14);transition:transform .25s}
+.brand:hover .brand-mark{transform:skewX(-7deg) scale(1.06) rotate(-2deg)}
+.brand-mark svg{width:24px;height:24px;transform:skewX(7deg)}
+.brand-name{font-family:'Anton',sans-serif;font-size:1.32rem;letter-spacing:2.2px;text-transform:uppercase;line-height:1}
+.brand-name em{display:block;font-style:normal;font-size:.58rem;letter-spacing:4.6px;color:var(--orange);margin-top:5px;font-family:'Inter',sans-serif;font-weight:800}
+.nav-links{display:flex;gap:clamp(16px,2.6vw,34px);align-items:center}
+.nav-links a{font-size:.8rem;font-weight:700;letter-spacing:1.8px;text-transform:uppercase;color:var(--steel);position:relative;padding:6px 0;transition:color .22s}
+.nav-links a::after{content:"";position:absolute;left:0;bottom:0;height:2px;width:0;background:var(--orange);transition:width .25s}
+.nav-links a:hover{color:#fff}
+.nav-links a:hover::after{width:100%}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:11px;padding:17px 34px;border-radius:14px;font-weight:800;font-size:.95rem;letter-spacing:1px;text-transform:uppercase;cursor:pointer;border:0;transition:transform .22s,box-shadow .22s,background .22s;white-space:nowrap}
+.btn svg{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:2.3;stroke-linecap:round;stroke-linejoin:round}
+.btn-fire{background:linear-gradient(135deg,var(--orange-hi),var(--orange) 55%,var(--orange-deep));color:#fff;box-shadow:var(--glow),inset 0 1px 0 rgba(255,255,255,.28)}
+.btn-fire:hover{transform:translateY(-3px) scale(1.015);box-shadow:0 20px 46px rgba(255,92,0,.5),inset 0 1px 0 rgba(255,255,255,.3)}
+.btn-fire:active{transform:translateY(-1px)}
+.btn-line{border:2px solid rgba(255,92,0,.75);color:var(--orange);background:rgba(255,92,0,.06)}
+.btn-line:hover{background:rgba(255,92,0,.16);transform:translateY(-3px);color:var(--orange-hi)}
+.btn-call{padding:12px 22px;font-size:.8rem;border-radius:12px}
+@media(max-width:920px){.nav-links{display:none}}
+@media(max-width:560px){.brand-name{font-size:1.08rem}.btn-call{padding:11px 15px;font-size:.74rem}}
+
+/* ============ HERO ============ */
+.hero{position:relative;min-height:100svh;display:flex;align-items:center;padding:118px 0 84px;overflow:hidden;background:#0B0B0C}
+.hero-mesh{position:absolute;inset:0;background:
+  radial-gradient(900px 480px at 82% 12%,rgba(255,92,0,.30),transparent 62%),
+  radial-gradient(700px 420px at 12% 85%,rgba(255,92,0,.12),transparent 60%),
+  radial-gradient(1200px 700px at 50% 120%,rgba(255,92,0,.08),transparent 65%);
+  will-change:transform}
+.hero-stripes{position:absolute;inset:-40%;background:repeating-linear-gradient(-55deg,transparent 0 46px,rgba(255,92,0,.055) 46px 48px);will-change:transform}
+.hero-grid{position:absolute;inset:0;background:
+  linear-gradient(rgba(255,255,255,.028) 1px,transparent 1px),
+  linear-gradient(90deg,rgba(255,255,255,.028) 1px,transparent 1px);
+  background-size:64px 64px;
+  mask-image:radial-gradient(900px 600px at 60% 40%,#000 10%,transparent 75%);
+  -webkit-mask-image:radial-gradient(900px 600px at 60% 40%,#000 10%,transparent 75%)}
+.hero-fade{position:absolute;inset:auto 0 0 0;height:120px;background:linear-gradient(transparent,var(--ink))}
+.hero-in{position:relative;z-index:2;text-align:center;max-width:980px;margin:0 auto}
+.badge{display:inline-flex;align-items:center;gap:11px;border:1px solid rgba(255,92,0,.45);background:rgba(255,92,0,.09);color:#FFD9C2;font-weight:700;font-size:.76rem;letter-spacing:2.6px;text-transform:uppercase;padding:12px 26px;border-radius:100px;margin-bottom:32px;backdrop-filter:blur(6px)}
+.badge .pulse{width:8px;height:8px;border-radius:50%;background:var(--orange);box-shadow:0 0 0 0 rgba(255,92,0,.7);animation:pulse 2s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(255,92,0,.7)}70%{box-shadow:0 0 0 12px rgba(255,92,0,0)}100%{box-shadow:0 0 0 0 rgba(255,92,0,0)}}
+.hero h1{font-family:'Anton',sans-serif;font-size:clamp(3rem,8.6vw,6.5rem);line-height:.98;letter-spacing:1px;text-transform:uppercase;margin-bottom:22px}
+.hero h1 .stroke{color:transparent;-webkit-text-stroke:2px var(--white)}
+.hero h1 .fire{color:var(--orange);text-shadow:0 0 60px rgba(255,92,0,.45)}
+.hero-sub{color:var(--steel);font-size:clamp(1rem,2.2vw,1.22rem);max-width:44rem;margin:0 auto 40px}
+.hero-sub strong{color:#fff}
+.hero-ctas{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-bottom:36px}
+.microline{display:flex;justify-content:center;align-items:center;gap:14px 34px;flex-wrap:wrap}
+.microline span{display:flex;align-items:center;gap:10px;font-weight:800;font-size:.95rem;letter-spacing:2.2px;text-transform:uppercase;color:#E9E9E9}
+.microline svg{width:18px;height:18px;stroke:var(--orange);fill:none;stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round}
+.microline i{width:5px;height:5px;background:var(--steel-dim);border-radius:50%;flex:none}
+.scroll-hint{position:absolute;left:50%;bottom:26px;transform:translateX(-50%);z-index:2;color:var(--steel-dim);font-size:.68rem;letter-spacing:3.5px;text-transform:uppercase;display:flex;flex-direction:column;align-items:center;gap:10px}
+.scroll-hint::after{content:"";width:2px;height:34px;background:linear-gradient(var(--orange),transparent);animation:drop 1.8s infinite}
+@keyframes drop{0%{transform:scaleY(0);transform-origin:top}45%{transform:scaleY(1);transform-origin:top}55%{transform:scaleY(1);transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+
+/* ============ HAZARD TAPE / MARQUEE ============ */
+.tape{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--ink-2);overflow:hidden;position:relative}
+.tape-hazard{height:10px;background:var(--hazard)}
+.marquee{display:flex;overflow:hidden;user-select:none;padding:20px 0}
+.mq-track{display:flex;flex:none;align-items:center;gap:44px;padding-right:44px;animation:mq 30s linear infinite}
+.marquee:hover .mq-track{animation-play-state:paused}
+@keyframes mq{to{transform:translateX(-100%)}}
+.mq-track span{font-family:'Anton',sans-serif;font-size:clamp(1.05rem,2.4vw,1.5rem);letter-spacing:2.6px;text-transform:uppercase;color:#fff;white-space:nowrap;display:flex;align-items:center;gap:44px}
+.mq-track span::after{content:"";width:11px;height:11px;background:var(--orange);transform:rotate(45deg);flex:none}
+
+/* ============ SECTIONS ============ */
+section{padding:clamp(80px,9vw,120px) 0;position:relative}
+.sec-head{text-align:center;max-width:700px;margin:0 auto clamp(48px,6vw,68px)}
+.kicker{display:inline-flex;align-items:center;gap:14px;color:var(--orange);font-weight:800;font-size:.74rem;letter-spacing:3.4px;text-transform:uppercase;margin-bottom:18px}
+.kicker::before,.kicker::after{content:"";width:36px;height:2px;background:var(--orange);border-radius:2px}
+.sec-head h2{font-family:'Anton',sans-serif;font-size:clamp(2.1rem,5vw,3.4rem);text-transform:uppercase;letter-spacing:1px;line-height:1.04}
+.sec-head h2 .fire{color:var(--orange)}
+.sec-head p{color:var(--steel);font-size:1.05rem;margin-top:14px}
+
+/* ============ STATS ============ */
+.stats{background:var(--ink-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0}
+.stat{padding:clamp(28px,4vw,44px) 24px;text-align:center;border-left:1px solid var(--line);position:relative;transition:background .25s}
+.stat:first-child{border-left:0}
+.stat:hover{background:var(--ink-3)}
+.stat .num{font-family:'Anton',sans-serif;font-size:clamp(2.6rem,5vw,3.8rem);color:var(--orange);line-height:1;letter-spacing:1px}
+.stat .num small{font-size:.55em;vertical-align:.28em;margin-left:2px}
+.stat h3{font-size:.95rem;font-weight:800;letter-spacing:1.6px;text-transform:uppercase;margin:12px 0 8px}
+.stat p{color:var(--steel-dim);font-size:.9rem}
+@media(max-width:820px){.stats-grid{grid-template-columns:repeat(2,1fr)}.stat:nth-child(3){border-left:0}.stat{border-top:1px solid var(--line)}.stat:nth-child(-n+2){border-top:0}}
+
+/* ============ SERVICES GRID ============ */
+.svc-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:16px}
+@media(max-width:1080px){.svc-grid{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:600px){.svc-grid{grid-template-columns:repeat(2,1fr);gap:12px}}
+.svc{background:linear-gradient(180deg,var(--ink-3),var(--ink-2));border:1px solid var(--line);border-radius:18px;padding:34px 14px 30px;text-align:center;position:relative;overflow:hidden;transition:transform .28s cubic-bezier(.2,.8,.2,1),box-shadow .28s,border-color .28s;min-width:0}
+.svc::before{content:"";position:absolute;top:0;left:0;right:0;height:4px;background:var(--hazard);transform:scaleX(0);transform-origin:left;transition:transform .3s}
+.svc:hover::before{transform:scaleX(1)}
+.svc:hover{transform:translateY(-8px);border-color:rgba(255,92,0,.6);box-shadow:var(--shadow-2),0 0 0 1px rgba(255,92,0,.25),0 18px 44px rgba(255,92,0,.14)}
+.svc .ico{width:60px;height:60px;border-radius:16px;background:rgba(255,92,0,.1);border:1px solid rgba(255,92,0,.32);display:grid;place-items:center;margin:0 auto 18px;transition:background .28s,transform .28s}
+.svc:hover .ico{background:linear-gradient(135deg,var(--orange),var(--orange-deep));transform:scale(1.08) rotate(-3deg);border-color:transparent}
+.svc .ico svg{width:29px;height:29px;stroke:var(--orange);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;transition:stroke .28s}
 .svc:hover .ico svg{stroke:#fff}
-.svc h3{font-size:.9rem;font-weight:750;line-height:1.4;letter-spacing:.2px}
-/* HOW */
-.how{background:var(--char);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-@media(max-width:780px){.steps{grid-template-columns:1fr}}
-.step{background:#101010;border:1px solid var(--line);border-radius:20px;padding:40px 30px;text-align:center;transition:.22s;position:relative;overflow:hidden}
-.step::top,.step::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,transparent,var(--orange),transparent);opacity:0;transition:.25s}
-.step:hover::before{opacity:1}
-.step:hover{transform:translateY(-4px);border-color:rgba(255,92,0,.4)}
-.step .n{font-size:2.8rem;font-weight:900;color:var(--orange);line-height:1;letter-spacing:-1px}
-.step h3{margin:14px 0 10px;font-size:1.14rem;text-transform:uppercase;letter-spacing:.8px}
-.step p{color:var(--gray);font-size:.94rem}
+.svc h3{font-size:.92rem;font-weight:800;letter-spacing:.4px;line-height:1.42}
+.svc p{color:var(--steel-dim);font-size:.8rem;margin-top:8px}
+
+/* ============ PROCESS ============ */
+.process{background:var(--ink-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;position:relative}
+.steps::before{content:"";position:absolute;top:64px;left:6%;right:6%;height:2px;background:linear-gradient(90deg,transparent,rgba(255,92,0,.5),rgba(255,92,0,.5),transparent);z-index:0}
+@media(max-width:980px){.steps{grid-template-columns:repeat(2,1fr)}.steps::before{display:none}}
+@media(max-width:520px){.steps{grid-template-columns:1fr}}
+.step{position:relative;z-index:1;background:var(--ink);border:1px solid var(--line);border-radius:20px;padding:40px 28px;text-align:center;transition:transform .25s,border-color .25s,box-shadow .25s}
+.step:hover{transform:translateY(-6px);border-color:rgba(255,92,0,.55);box-shadow:var(--shadow-1)}
+.step .n{display:grid;place-items:center;width:76px;height:76px;margin:0 auto 22px;border-radius:50%;background:radial-gradient(circle at 32% 28%,var(--orange-hi),var(--orange-deep));font-family:'Anton',sans-serif;font-size:1.9rem;letter-spacing:1px;box-shadow:var(--glow),inset 0 2px 0 rgba(255,255,255,.3);border:1px solid rgba(255,255,255,.12)}
+.step h3{font-size:1.02rem;font-weight:800;letter-spacing:1px;text-transform:uppercase;margin-bottom:10px}
+.step h3 .o{color:var(--orange)}
+.step p{color:var(--steel);font-size:.92rem}
 .step p strong{color:#fff}
-/* CTA */
-.cta{background:linear-gradient(135deg,#ff5c00 0%,#c24300 100%);text-align:center;padding:84px 24px;position:relative;overflow:hidden}
-.cta::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(-45deg,transparent 0 40px,rgba(0,0,0,.06) 40px 42px)}
-.cta h2{font-size:clamp(2rem,4.6vw,3.1rem);font-weight:900;text-transform:uppercase;letter-spacing:-1px;margin-bottom:12px;position:relative}
-.cta p{font-size:1.12rem;font-weight:600;margin-bottom:26px;opacity:.97;position:relative}
-.cta .big-num{display:inline-block;font-size:clamp(1.9rem,4.4vw,2.7rem);font-weight:900;margin-bottom:30px;letter-spacing:1px;position:relative;border-bottom:3px solid rgba(255,255,255,.5);padding-bottom:6px;transition:.2s}
-.cta .big-num:hover{border-color:#fff}
-.cta .row{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;position:relative}
-.cta .btn-dark{background:#101010;color:#fff}
-.cta .btn-dark:hover{background:#000;transform:translateY(-2px)}
-.cta .btn-light{background:#fff;color:var(--orange-d)}
-.cta .btn-light:hover{transform:translateY(-2px)}
-footer{background:#0a0a0a;color:#717171;padding:40px 0;font-size:.88rem;border-top:1px solid #1e1e1e}
-.foot{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;align-items:center}
-.mbar{display:none;position:fixed;bottom:0;left:0;right:0;z-index:60;background:#101010;border-top:1px solid var(--line);padding:10px 14px calc(10px + env(safe-area-inset-bottom));gap:10px}
-.mbar a{flex:1;text-align:center;padding:14px;border-radius:12px;font-weight:800;font-size:.92rem;text-transform:uppercase;letter-spacing:.5px;display:flex;align-items:center;justify-content:center;gap:8px}
-.mbar a svg{width:17px;height:17px;stroke:currentColor;fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
-.mbar .call{background:var(--orange);color:#fff}
-.mbar .wa{background:#25d366;color:#fff}
-@media(max-width:760px){.mbar{display:flex}body{padding-bottom:78px}.btn-nav{white-space:nowrap;padding:10px 14px;font-size:.8rem}.logo{font-size:.95rem;letter-spacing:1px}.logo .hh{width:36px;height:36px}}
+
+/* ============ TESTIMONIALS ============ */
+.testis{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+@media(max-width:900px){.testis{grid-template-columns:1fr;max-width:560px;margin:0 auto}}
+.testi{background:linear-gradient(180deg,var(--ink-3),var(--ink-2));border:1px solid var(--line);border-radius:22px;padding:38px 32px;position:relative;transition:transform .25s,border-color .25s,box-shadow .25s;box-shadow:var(--shadow-1)}
+.testi:hover{transform:translateY(-6px);border-color:rgba(255,92,0,.5);box-shadow:var(--shadow-2)}
+.testi .qmark{font-family:'Anton',sans-serif;font-size:4.4rem;line-height:1;color:var(--orange);opacity:.85;margin-bottom:6px}
+.testi blockquote{font-size:1.02rem;color:#E7E7E7;margin-bottom:22px}
+.testi blockquote strong{color:var(--orange)}
+.stars{display:flex;gap:5px;margin-bottom:18px}
+.stars svg{width:17px;height:17px;fill:var(--orange)}
+.who{display:flex;align-items:center;gap:14px}
+.who .av{width:48px;height:48px;border-radius:50%;background:linear-gradient(135deg,var(--orange),var(--orange-deep));display:grid;place-items:center;font-family:'Anton',sans-serif;font-size:1.15rem;letter-spacing:1px;flex:none}
+.who .nm{font-weight:800;font-size:.95rem}
+.who .dt{color:var(--steel-dim);font-size:.82rem}
+
+/* ============ PRICING ============ */
+.pricing{background:var(--ink-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.tiers{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;align-items:stretch}
+@media(max-width:900px){.tiers{grid-template-columns:1fr;max-width:520px;margin:0 auto}}
+.tier{background:var(--ink);border:1px solid var(--line);border-radius:24px;padding:44px 36px;text-align:center;position:relative;transition:transform .28s,box-shadow .28s,border-color .28s;display:flex;flex-direction:column}
+.tier:hover{transform:translateY(-8px);box-shadow:var(--shadow-2);border-color:#3a3a40}
+.tier.hot{border:2px solid var(--orange);box-shadow:var(--glow),var(--shadow-2);transform:scale(1.03)}
+.tier.hot:hover{transform:scale(1.03) translateY(-6px)}
+.tier .tag{position:absolute;top:-16px;left:50%;transform:translateX(-50%);background:var(--hazard);background-size:auto;color:#fff;font-weight:800;font-size:.7rem;letter-spacing:2.6px;text-transform:uppercase;padding:9px 22px;border-radius:100px;white-space:nowrap;box-shadow:0 6px 18px rgba(0,0,0,.5)}
+.tier h3{font-family:'Anton',sans-serif;font-size:1.6rem;letter-spacing:1.6px;text-transform:uppercase}
+.tier .price{font-family:'Anton',sans-serif;font-size:clamp(3rem,4.6vw,3.6rem);color:var(--orange);margin:14px 0 4px;line-height:1}
+.tier .price small{font-size:.42em;color:var(--steel);font-family:'Inter',sans-serif;font-weight:700;letter-spacing:1px}
+.tier .sub{color:var(--steel-dim);font-size:.88rem;margin-bottom:24px}
+.tier ul{list-style:none;text-align:left;margin-bottom:30px;flex:1;display:flex;flex-direction:column;gap:13px}
+.tier li{display:flex;gap:11px;align-items:flex-start;font-size:.93rem;color:var(--steel)}
+.tier li svg{width:18px;height:18px;stroke:var(--orange);fill:none;stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round;flex:none;margin-top:3px}
+.price-note{text-align:center;color:var(--steel-dim);font-size:.88rem;margin-top:28px;max-width:46rem;margin-left:auto;margin-right:auto}
+.price-note strong{color:var(--orange)}
+
+/* ============ FAQ ============ */
+.faq{max-width:820px;margin:0 auto}
+.faq-item{border:1px solid var(--line);border-radius:16px;margin-bottom:12px;background:var(--ink-2);overflow:hidden;transition:border-color .25s,box-shadow .25s}
+.faq-item.open{border-color:rgba(255,92,0,.55);box-shadow:0 10px 30px rgba(255,92,0,.08)}
+.faq-q{width:100%;background:none;border:0;color:#fff;font-family:'Inter',sans-serif;font-weight:700;font-size:1.02rem;text-align:left;padding:22px 26px;display:flex;justify-content:space-between;align-items:center;gap:16px;cursor:pointer}
+.faq-q .x{width:34px;height:34px;flex:none;border-radius:50%;border:1px solid rgba(255,92,0,.5);display:grid;place-items:center;transition:transform .3s,background .3s}
+.faq-q .x svg{width:15px;height:15px;stroke:var(--orange);stroke-width:2.6;stroke-linecap:round}
+.faq-item.open .x{transform:rotate(45deg);background:var(--orange)}
+.faq-item.open .x svg{stroke:#fff}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .38s cubic-bezier(.2,.8,.2,1)}
+.faq-a p{padding:0 26px 24px;color:var(--steel);font-size:.95rem}
+.faq-a strong{color:#fff}
+
+/* ============ FINAL CTA ============ */
+.final-cta{position:relative;background:linear-gradient(120deg,#FF6A1A 0%,var(--orange) 45%,var(--orange-deep) 100%);overflow:hidden;text-align:center;padding:clamp(90px,10vw,130px) 24px}
+.final-cta::before{content:"";position:absolute;inset:-30%;background:repeating-linear-gradient(-55deg,transparent 0 52px,rgba(0,0,0,.07) 52px 55px)}
+.final-cta::after{content:"HAUL";position:absolute;left:50%;top:50%;transform:translate(-50%,-54%);font-family:'Anton',sans-serif;font-size:clamp(10rem,28vw,26rem);letter-spacing:4px;color:rgba(255,255,255,.06);pointer-events:none;white-space:nowrap}
+.final-cta h2{position:relative;z-index:1;font-family:'Anton',sans-serif;font-size:clamp(2.6rem,7vw,5.2rem);text-transform:uppercase;letter-spacing:1px;color:#0B0B0C;margin-bottom:12px}
+.final-cta p{position:relative;z-index:1;color:#1d1008;font-weight:600;font-size:clamp(1rem,2.4vw,1.2rem);margin-bottom:34px}
+.final-cta .row{position:relative;z-index:1;display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+.btn-dark{background:#0B0B0C;color:#fff;box-shadow:0 16px 40px rgba(0,0,0,.4)}
+.btn-dark:hover{transform:translateY(-3px);background:#000;box-shadow:0 22px 50px rgba(0,0,0,.5)}
+.btn-white{background:#fff;color:var(--orange-deep);box-shadow:0 16px 40px rgba(0,0,0,.22)}
+.btn-white:hover{transform:translateY(-3px)}
+
+/* ============ FOOTER ============ */
+footer{background:#070708;border-top:1px solid var(--line);padding:64px 0 40px}
+.foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:36px;margin-bottom:44px}
+@media(max-width:900px){.foot-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:520px){.foot-grid{grid-template-columns:1fr}}
+.foot-brand p{color:var(--steel-dim);font-size:.9rem;margin-top:14px;max-width:24rem}
+footer h4{font-size:.76rem;font-weight:800;letter-spacing:2.6px;text-transform:uppercase;color:var(--orange);margin-bottom:18px}
+footer .fl{display:flex;flex-direction:column;gap:12px}
+footer .fl a,footer .fl span{color:var(--steel);font-size:.93rem;transition:color .2s}
+footer .fl a:hover{color:var(--orange)}
+.foot-bottom{border-top:1px solid var(--line);padding-top:28px;display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap;color:var(--steel-dim);font-size:.84rem}
+.foot-bottom a{color:var(--steel)}
+.foot-bottom a:hover{color:var(--orange)}
+
+/* ============ MOBILE BAR ============ */
+.mbar{display:none;position:fixed;bottom:0;left:0;right:0;z-index:120;background:rgba(11,11,12,.96);backdrop-filter:blur(12px);border-top:1px solid var(--line);padding:12px 14px calc(12px + env(safe-area-inset-bottom));gap:10px}
+.mbar a{flex:1;display:flex;align-items:center;justify-content:center;gap:9px;min-height:52px;border-radius:13px;font-weight:800;font-size:.9rem;letter-spacing:1px;text-transform:uppercase;transition:transform .2s}
+.mbar a svg{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:2.3;stroke-linecap:round;stroke-linejoin:round}
+.mbar a:active{transform:scale(.97)}
+.mbar .call{background:linear-gradient(135deg,var(--orange-hi),var(--orange-deep));color:#fff;box-shadow:var(--glow)}
+.mbar .wa{background:#25D366;color:#062b16}
+@media(max-width:760px){.mbar{display:flex}body{padding-bottom:88px}}
+
+/* ============ REVEALS ============ */
+.rv{opacity:0;transform:translateY(36px);transition:opacity .8s cubic-bezier(.2,.8,.2,1),transform .8s cubic-bezier(.2,.8,.2,1)}
+.rv.in{opacity:1;transform:none}
+.rv-d1{transition-delay:.1s}.rv-d2{transition-delay:.2s}.rv-d3{transition-delay:.3s}.rv-d4{transition-delay:.4s}
+@media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}.mq-track{animation:none}*{scroll-behavior:auto}}
 </style>
 </head>
 <body>
 
-<nav><div class="wrap nav-in">
-  <a class="logo" href="#top"><span class="hh"><svg viewBox="0 0 24 24"><path d="M1 8h13v9H1zM14 11h4l3 3v3h-7z"/><circle cx="6" cy="19" r="1.6"/><circle cx="17" cy="19" r="1.6"/></svg></span> Haul Heroes</a>
-  <div class="nav-links"><a href="#services">Services</a><a href="#how">How It Works</a><a href="#contact">Contact</a></div>
-  <a class="btn btn-orange btn-nav" href="tel:+19545496775">(954) 549-6775</a>
+<!-- NAV -->
+<nav class="nav" id="nav"><div class="wrap nav-in">
+  <a class="brand" href="#top" aria-label="Haul Heroes home">
+    <span class="brand-mark"><svg viewBox="0 0 24 24" fill="none" stroke="#0B0B0C" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M1 7h13v10H1z"/><path d="M14 10h4l3 3v4h-7z"/><circle cx="6" cy="19" r="1.7"/><circle cx="17.5" cy="19" r="1.7"/></svg></span>
+    <span class="brand-name">Haul Heroes<em>Junk Removal Co.</em></span>
+  </a>
+  <div class="nav-links">
+    <a href="#services">Services</a>
+    <a href="#process">Process</a>
+    <a href="#pricing">Pricing</a>
+    <a href="#faq">FAQ</a>
+  </div>
+  <a class="btn btn-fire btn-call" href="tel:+19545496775"><svg viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.13.96.36 1.9.7 2.8a2 2 0 0 1-.45 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.45c.9.34 1.84.57 2.8.7a2 2 0 0 1 1.7 2.05z"/></svg> (954) 549-6775</a>
 </div></nav>
 
-<header class="hero" id="top"><div class="hero-in">
-  <div class="stripe"><span class="dot"></span> Broward County's Cleanup Crew</div>
-  <h1>Need It Gone?<br><span class="o">We Haul It ALL.</span></h1>
-  <p class="lead">Furniture, demolition debris, full cleanouts — Haul Heroes shows up fast and leaves your space spotless. Free estimates, honest prices, zero hassle.</p>
-  <div class="hero-ctas">
-    <a class="btn btn-orange" href="tel:+19545496775"><svg viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.13.96.36 1.9.7 2.8a2 2 0 0 1-.45 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.45c.9.34 1.84.57 2.8.7a2 2 0 0 1 1.7 2.05z"/></svg> Call (954) 549-6775</a>
-    <a class="btn btn-ghost" href="https://wa.me/19545496775?text=Hi!%20I%20need%20a%20free%20estimate%20for%20junk%20removal.">Free Estimate</a>
+<!-- HERO -->
+<header class="hero" id="top">
+  <div class="hero-mesh" data-parallax="0.12"></div>
+  <div class="hero-stripes" data-parallax="0.05"></div>
+  <div class="hero-grid"></div>
+  <div class="wrap hero-in">
+    <div class="badge rv"><span class="pulse"></span> Broward's Junk Removal Crew · Free Estimates</div>
+    <h1 class="rv rv-d1"><span class="stroke">Need it gone?</span><br><span class="fire">We haul it all.</span></h1>
+    <p class="hero-sub rv rv-d2">Furniture, demolition debris, full cleanouts — <strong>Haul Heroes</strong> shows up fast and leaves your space spotless. Free estimates, upfront prices, zero hassle.</p>
+    <div class="hero-ctas rv rv-d3">
+      <a class="btn btn-fire" href="https://wa.me/19545496775?text=Hi%20Haul%20Heroes!%20I%20need%20a%20free%20estimate."><svg viewBox="0 0 24 24"><path d="M21 11.5a8.5 8.5 0 0 1-12.4 7.5L3 21l2-5.4A8.5 8.5 0 1 1 21 11.5z"/></svg> Get My Free Estimate</a>
+      <a class="btn btn-line" href="tel:+19545496775"><svg viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.13.96.36 1.9.7 2.8a2 2 0 0 1-.45 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.45c.9.34 1.84.57 2.8.7a2 2 0 0 1 1.7 2.05z"/></svg> Call (954) 549-6775</a>
+    </div>
+    <div class="microline rv rv-d4">
+      <span><svg viewBox="0 0 24 24"><path d="M13 2 4 14h6l-1 8 9-12h-6z"/></svg> Fast</span><i></i>
+      <span><svg viewBox="0 0 24 24"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg> Affordable</span><i></i>
+      <span><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg> Reliable</span>
+    </div>
   </div>
-  <div class="promise">
-    <span><svg viewBox="0 0 24 24"><path d="M13 2L4 14h6l-1 8 9-12h-6z"/></svg> Fast</span>
-    <span><svg viewBox="0 0 24 24"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg> Affordable</span>
-    <span><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg> Reliable</span>
-  </div>
-</div></header>
+  <div class="scroll-hint">Scroll</div>
+  <div class="hero-fade"></div>
+</header>
 
+<!-- MARQUEE TAPE -->
+<div class="tape" aria-hidden="true">
+  <div class="marquee"><div class="mq-track">
+    <span>Furniture Removal</span><span>Demolition</span><span>Appliance Removal</span><span>Mattress Removal</span><span>Yard Debris Removal</span><span>Construction Debris Removal</span><span>Garage Cleanouts</span><span>Storage Unit Cleanouts</span><span>Estate Cleanouts</span><span>Trash Can Cleanouts</span>
+  </div><div class="mq-track">
+    <span>Furniture Removal</span><span>Demolition</span><span>Appliance Removal</span><span>Mattress Removal</span><span>Yard Debris Removal</span><span>Construction Debris Removal</span><span>Garage Cleanouts</span><span>Storage Unit Cleanouts</span><span>Estate Cleanouts</span><span>Trash Can Cleanouts</span>
+  </div></div>
+  <div class="tape-hazard"></div>
+</div>
+
+<!-- STATS -->
+<section class="stats"><div class="wrap">
+  <div class="stats-grid">
+    <div class="stat rv"><div class="num" data-count="10">10</div><h3>Services, One Crew</h3><p>Furniture to full demolition cleanouts — handled by one call.</p></div>
+    <div class="stat rv rv-d1"><div class="num"><span data-count="60">60</span><small>%</small></div><h3>Donated or Recycled</h3><p>We sort every load. Your junk gets a second life, not a landfill.</p></div>
+    <div class="stat rv rv-d2"><div class="num"><small>$</small><span data-count="99">99</span></div><h3>Starting Price</h3><p>Upfront, volume-based pricing. You approve before we lift.</p></div>
+    <div class="stat rv rv-d3"><div class="num"><span data-count="7">7</span></div><h3>Days a Week</h3><p>Same-day pickup available across Broward County.</p></div>
+  </div>
+</div></section>
+
+<!-- SERVICES -->
 <section id="services"><div class="wrap">
-  <div class="sec-head"><div class="kicker">What we haul</div><h2>If It's Junk, It's Gone</h2><p>One call covers the whole list — residential, commercial and construction.</p></div>
-  <div class="grid">
-    <div class="svc"><div class="ico"><svg viewBox="0 0 24 24"><path d="M5 11V8a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v3M3 11h18a1 1 0 0 1 1 1v7H2v-7a1 1 0 0 1 1-1z"/><path d="M5 20v-4M19 20v-4"/></svg></div><h3>Furniture Removal</h3></div>
-    <div class="svc"><div class="ico"><svg viewBox="0 0 24 24"><path d="M14 4l6 6L8 22H2v-6z"/><path d="M12 6l6 6"/></svg></div><h3>Demolition</h3></div>
-    <div class="svc"><div class="ico"><svg viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 3v18M3 9h4M3 15h4M17 9h4M17 15h4"/></svg></div><h3>Appliance Removal</h3></div>
-    <div class="svc"><div class="ico"><svg viewBox="0 0 24 24"><path d="M3 18v-6a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v6"/><path d="M3 18h18M5 10V6a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v4"/></svg></div><h3>Mattress Removal</h3></div>
-    <div class="svc"><div class="ico"><svg viewBox="0 0 24 24"><path d="M12 22v-8M12 14c0-4 3-8 8-9-1 5-4 8-8 9zM12 14c0-3-2.5-6-6-7 .8 4 3 6 6 7z"/></svg></div><h3>Yard Debris Removal</h3></div>
-    <div class="svc"><div class="ico"><svg viewBox="0 0 24 24"><path d="M2 20h20M4 20V9l6-5 6 5v11"/><path d="M10 20v-5h4v5M16 9l5 3M4 12l-2 2"/></svg></div><h3>Construction Debris</h3></div>
-    <div class="svc"><div class="ico"><svg viewBox="0 0 24 24"><path d="M3 21V10l9-7 9 7v11"/><path d="M9 21v-6h6v6"/></svg></div><h3>Garage Cleanouts</h3></div>
-    <div class="svc"><div class="ico"><svg viewBox="0 0 24 24"><path d="M21 8v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8M1 4h22v4H1z"/><path d="M10 12h4"/></svg></div><h3>Storage Unit Cleanouts</h3></div>
-    <div class="svc"><div class="ico"><svg viewBox="0 0 24 24"><path d="M3 11l9-8 9 8M5 10v10h14V10"/></svg></div><h3>Estate Cleanouts</h3></div>
-    <div class="svc"><div class="ico"><svg viewBox="0 0 24 24"><path d="M4 7h16l-1.5 12.5a1 1 0 0 1-1 .5h-11a1 1 0 0 1-1-.5z"/><path d="M2 7h20M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2"/></svg></div><h3>Trash Can Cleanouts</h3></div>
+  <div class="sec-head rv">
+    <div class="kicker">What we haul</div>
+    <h2>If it's junk, <span class="fire">it's gone</span></h2>
+    <p>Residential, commercial and construction — one crew, one call, zero headaches.</p>
+  </div>
+  <div class="svc-grid">
+    <div class="svc rv"><div class="ico"><svg viewBox="0 0 24 24"><path d="M5 11V7a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v4"/><path d="M3 13a2 2 0 0 1 4 0v1h10v-1a2 2 0 0 1 4 0v2a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3z"/><path d="M6 18v2M18 18v2"/></svg></div><h3>Furniture Removal</h3><p>Couches, beds, dressers — out fast</p></div>
+    <div class="svc rv rv-d1"><div class="ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="15.5" r="5.5"/><path d="M12 10V3"/><path d="M8.5 3h7"/></svg></div><h3>Demolition</h3><p>Sheds, decks, interior tear-outs</p></div>
+    <div class="svc rv rv-d2"><div class="ico"><svg viewBox="0 0 24 24"><rect x="6" y="2" width="12" height="20" rx="2"/><path d="M6 7h12M10 2v3h4V2"/></svg></div><h3>Appliance Removal</h3><p>Fridges, washers, stoves &amp; more</p></div>
+    <div class="svc rv rv-d3"><div class="ico"><svg viewBox="0 0 24 24"><path d="M3 18v-5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v5"/><path d="M3 18h18M5 11V6a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v5"/><path d="M3 18v2M21 18v2"/></svg></div><h3>Mattress Removal</h3><p>Any size, hauled responsibly</p></div>
+    <div class="svc rv rv-d4"><div class="ico"><svg viewBox="0 0 24 24"><path d="M12 22v-9"/><path d="M12 13c0-4.5 3-9 9-10-.8 5.5-4.5 9-9 10z"/><path d="M12 13c0-3.5-2.8-7-7-8 .7 4.5 3.2 7 7 8z"/></svg></div><h3>Yard Debris Removal</h3><p>Branches, storms, landscaping piles</p></div>
+    <div class="svc rv"><div class="ico"><svg viewBox="0 0 24 24"><path d="M3 7h18l-1.6 12.2a1 1 0 0 1-1 .8H5.6a1 1 0 0 1-1-.8z"/><path d="M2 7h20"/><path d="M7 11h4M13 15h4"/></svg></div><h3>Construction Debris Removal</h3><p>Job sites left spotless</p></div>
+    <div class="svc rv rv-d1"><div class="ico"><svg viewBox="0 0 24 24"><path d="M3 21V9l9-6 9 6v12"/><path d="M7 21v-8h10v8"/><path d="M7 13h10"/></svg></div><h3>Garage Cleanouts</h3><p>Reclaim your garage in hours</p></div>
+    <div class="svc rv rv-d2"><div class="ico"><svg viewBox="0 0 24 24"><path d="M21 8v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8"/><path d="M2 3h20v5H2z"/><path d="M10 12h4"/></svg></div><h3>Storage Unit Cleanouts</h3><p>Empty it, lock it, done</p></div>
+    <div class="svc rv rv-d3"><div class="ico"><svg viewBox="0 0 24 24"><path d="M3 11l9-8 9 8"/><path d="M5 10v10h14V10"/><path d="M10 20v-5h4v5"/></svg></div><h3>Estate Cleanouts</h3><p>Handled with care &amp; respect</p></div>
+    <div class="svc rv rv-d4"><div class="ico"><svg viewBox="0 0 24 24"><path d="M5 7h14l-1.3 12.5a1 1 0 0 1-1 .5H7.3a1 1 0 0 1-1-.5z"/><path d="M3 7h18"/><path d="M9.5 7V4.8A.8.8 0 0 1 10.3 4h3.4a.8.8 0 0 1 .8.8V7"/><path d="M10 11v6M14 11v6"/></svg></div><h3>Trash Can Cleanouts</h3><p>Bulk pickup &amp; bin overflows</p></div>
   </div>
 </div></section>
 
-<section class="how" id="how"><div class="wrap">
-  <div class="sec-head"><div class="kicker">How it works</div><h2>Gone in 3 Steps</h2></div>
+<!-- PROCESS -->
+<section class="process" id="process"><div class="wrap">
+  <div class="sec-head rv">
+    <div class="kicker">How it works</div>
+    <h2>Gone in <span class="fire">four steps</span></h2>
+    <p>From the first call to a spotless space — no lifting on your end.</p>
+  </div>
   <div class="steps">
-    <div class="step"><div class="n">01</div><h3>Call or Message</h3><p>Tell us what needs to go — <strong>(954) 549-6775</strong>. Photos get you the fastest quote.</p></div>
-    <div class="step"><div class="n">02</div><h3>Free Estimate</h3><p>Upfront price before we lift a finger. No hidden fees, ever.</p></div>
-    <div class="step"><div class="n">03</div><h3>We Haul It Away</h3><p>We load, sweep up and haul — you just point.</p></div>
+    <div class="step rv"><div class="n">01</div><h3><span class="o">Snap</span> a Photo</h3><p>Text us a picture of the pile. Photos get you the <strong>fastest quote</strong>.</p></div>
+    <div class="step rv rv-d1"><div class="n">02</div><h3><span class="o">Upfront</span> Price</h3><p>We price it <strong>on the spot</strong>. You approve before we lift a finger.</p></div>
+    <div class="step rv rv-d2"><div class="n">03</div><h3><span class="o">We Lift,</span> Load &amp; Sweep</h3><p>We carry, load and <strong>sweep up</strong>. You just point.</p></div>
+    <div class="step rv rv-d3"><div class="n">04</div><h3><span class="o">Sorted</span> Right</h3><p><strong>Donated, recycled</strong> or disposed responsibly — never dumped.</p></div>
   </div>
 </div></section>
 
-<div class="cta" id="contact">
-  <h2>Stop Staring at the Pile.</h2>
-  <p>Message Haul Heroes today for a free estimate.</p>
-  <a class="big-num" href="tel:+19545496775">(954) 549-6775</a>
-  <div class="row">
-    <a class="btn btn-dark" href="tel:+19545496775"><svg viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.13.96.36 1.9.7 2.8a2 2 0 0 1-.45 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.45c.9.34 1.84.57 2.8.7a2 2 0 0 1 1.7 2.05z"/></svg> Call Now</a>
-    <a class="btn btn-light" href="https://wa.me/19545496775?text=Hi!%20I%20need%20a%20free%20estimate.">WhatsApp Us</a>
+<!-- TESTIMONIALS -->
+<section><div class="wrap">
+  <div class="sec-head rv">
+    <div class="kicker">Broward talks</div>
+    <h2>Neighbors who <span class="fire">called us</span></h2>
+    <p>Real cleanouts, real results — from garages to job sites.</p>
+  </div>
+  <div class="testis">
+    <div class="testi rv">
+      <div class="qmark">&ldquo;</div>
+      <div class="stars" aria-label="5 stars"><svg viewBox="0 0 24 24"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg></div>
+      <blockquote>Ten years of garage junk, gone in <strong>one afternoon</strong>. They quoted it on the spot, hauled everything and even swept. Wish I'd called years ago.</blockquote>
+      <div class="who"><div class="av">MR</div><div><div class="nm">Mike R.</div><div class="dt">Garage Cleanout · Fort Lauderdale</div></div></div>
+    </div>
+    <div class="testi rv rv-d1">
+      <div class="qmark">&ldquo;</div>
+      <div class="stars" aria-label="5 stars"><svg viewBox="0 0 24 24"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg></div>
+      <blockquote>Remodel debris was piling up and slowing my crew. Haul Heroes showed up <strong>same-day</strong>, priced it by the load, and the site was clean by 5. My go-to haulers now.</blockquote>
+      <div class="who"><div class="av">DT</div><div><div class="nm">Derek T.</div><div class="dt">Contractor Debris · Pembroke Pines</div></div></div>
+    </div>
+    <div class="testi rv rv-d2">
+      <div class="qmark">&ldquo;</div>
+      <div class="stars" aria-label="5 stars"><svg viewBox="0 0 24 24"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg></div>
+      <blockquote>Clearing out my father's house felt overwhelming. They treated everything <strong>with respect</strong>, donated what they could, and finished the whole estate in two days.</blockquote>
+      <div class="who"><div class="av">SL</div><div><div class="nm">Sandra L.</div><div class="dt">Estate Cleanout · Hollywood</div></div></div>
+    </div>
+  </div>
+</div></section>
+
+<!-- PRICING -->
+<section class="pricing" id="pricing"><div class="wrap">
+  <div class="sec-head rv">
+    <div class="kicker">Honest pricing</div>
+    <h2>Pay by the load, <span class="fire">not by the headache</span></h2>
+    <p>Simple volume-based pricing. You see the price, you approve it, we haul.</p>
+  </div>
+  <div class="tiers">
+    <div class="tier rv">
+      <h3>Quarter Load</h3>
+      <div class="price">$99 <small>FROM</small></div>
+      <div class="sub">A few bulky items</div>
+      <ul>
+        <li><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg> Mattresses, couches, single appliances</li>
+        <li><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg> Small garage or patio clear-outs</li>
+        <li><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg> Same-day pickup available</li>
+        <li><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg> Free estimate included</li>
+      </ul>
+      <a class="btn btn-line" href="tel:+19545496775">Get a Quote</a>
+    </div>
+    <div class="tier hot rv rv-d1">
+      <div class="tag">Most Popular</div>
+      <h3>Half Load</h3>
+      <div class="price">$199 <small>FROM</small></div>
+      <div class="sub">Our most-booked job size</div>
+      <ul>
+        <li><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg> Full garage or storage unit cleanouts</li>
+        <li><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg> Multiple rooms of furniture</li>
+        <li><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg> Light demolition debris</li>
+        <li><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg> Priority same-day scheduling</li>
+      </ul>
+      <a class="btn btn-fire" href="tel:+19545496775">Get a Quote</a>
+    </div>
+    <div class="tier rv rv-d2">
+      <h3>Full Load</h3>
+      <div class="price">$349 <small>FROM</small></div>
+      <div class="sub">Whole properties &amp; job sites</div>
+      <ul>
+        <li><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg> Estate &amp; hoarding cleanouts</li>
+        <li><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg> Construction &amp; remodel debris</li>
+        <li><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg> Donation &amp; recycling sorting</li>
+        <li><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg> Free estimate included</li>
+      </ul>
+      <a class="btn btn-line" href="tel:+19545496775">Get a Quote</a>
+    </div>
+  </div>
+  <p class="price-note rv">Final price is always <strong>confirmed on-site</strong> before we start — based on how much space your junk takes in the truck. <strong>No hidden fees. No surprises.</strong></p>
+</div></section>
+
+<!-- FAQ -->
+<section id="faq"><div class="wrap">
+  <div class="sec-head rv">
+    <div class="kicker">Straight answers</div>
+    <h2>Before you <span class="fire">call</span></h2>
+  </div>
+  <div class="faq">
+    <div class="faq-item rv">
+      <button class="faq-q">How do you charge for junk removal?<span class="x"><svg viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14"/></svg></span></button>
+      <div class="faq-a"><p>By <strong>volume</strong> — how much space your junk takes up in our truck. We give you an upfront price on the spot, you approve it, and <strong>that's the price</strong>. No hourly games, no hidden fees.</p></div>
+    </div>
+    <div class="faq-item rv">
+      <button class="faq-q">Is there anything you won't pick up?<span class="x"><svg viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14"/></svg></span></button>
+      <div class="faq-a"><p>We can't haul <strong>hazardous materials</strong> — paint, chemicals, fuel, asbestos or biohazards. Everything else is fair game: furniture, appliances, debris, cleanouts, demolition waste and more.</p></div>
+    </div>
+    <div class="faq-item rv">
+      <button class="faq-q">Do you really do same-day service?<span class="x"><svg viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14"/></svg></span></button>
+      <div class="faq-a"><p>Yes. Call before noon and we'll <strong>usually get to you the same day</strong>, 7 days a week. Need it gone today? Text us a photo and we'll give you a time slot right away.</p></div>
+    </div>
+    <div class="faq-item rv">
+      <button class="faq-q">Do you do light demolition too?<span class="x"><svg viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14"/></svg></span></button>
+      <div class="faq-a"><p>Absolutely. We tear down <strong>sheds, decks, fences, hot tubs and interior rooms</strong> — then haul every last bit of debris away and sweep up. You get the tear-out and the cleanup in one call.</p></div>
+    </div>
+    <div class="faq-item rv">
+      <button class="faq-q">What happens to my junk after you haul it?<span class="x"><svg viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14"/></svg></span></button>
+      <div class="faq-a"><p>Every load gets <strong>sorted</strong>: usable items are donated, metals and materials are recycled, and only true waste goes to disposal. About <strong>60% of what we haul</strong> avoids the landfill.</p></div>
+    </div>
+    <div class="faq-item rv">
+      <button class="faq-q">What areas do you serve?<span class="x"><svg viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14"/></svg></span></button>
+      <div class="faq-a"><p>All of <strong>Broward County</strong> — Fort Lauderdale, Pembroke Pines, Hollywood, Pompano Beach, Coral Springs and everywhere in between. Just outside Broward? Call us — we often make it work.</p></div>
+    </div>
+  </div>
+</div></section>
+
+<!-- FINAL CTA -->
+<div class="final-cta" id="contact">
+  <h2 class="rv">Done staring<br>at the pile?</h2>
+  <p class="rv rv-d1">Text us a photo, get your free estimate, and watch it disappear.</p>
+  <div class="row rv rv-d2">
+    <a class="btn btn-dark" href="tel:+19545496775"><svg viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.13.96.36 1.9.7 2.8a2 2 0 0 1-.45 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.45c.9.34 1.84.57 2.8.7a2 2 0 0 1 1.7 2.05z"/></svg> Call (954) 549-6775</a>
+    <a class="btn btn-white" href="https://wa.me/19545496775?text=Hi%20Haul%20Heroes!%20I%20need%20a%20free%20estimate."><svg viewBox="0 0 24 24"><path d="M21 11.5a8.5 8.5 0 0 1-12.4 7.5L3 21l2-5.4A8.5 8.5 0 1 1 21 11.5z"/></svg> WhatsApp Us</a>
   </div>
 </div>
 
-<footer><div class="wrap foot">
-  <div><strong style="color:#fff;letter-spacing:1px">HAUL HEROES</strong> — Junk Removal &amp; Demolition, Broward County FL</div>
-  <div><a href="tel:+19545496775" style="color:var(--orange);font-weight:800">(954) 549-6775</a></div>
-</div></footer>
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <a class="brand" href="#top">
+          <span class="brand-mark"><svg viewBox="0 0 24 24" fill="none" stroke="#0B0B0C" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M1 7h13v10H1z"/><path d="M14 10h4l3 3v4h-7z"/><circle cx="6" cy="19" r="1.7"/><circle cx="17.5" cy="19" r="1.7"/></svg></span>
+          <span class="brand-name">Haul Heroes<em>Junk Removal Co.</em></span>
+        </a>
+        <p>Need it gone? We haul it all. Broward County's fast, affordable and reliable junk removal &amp; demolition crew — with free estimates on every job.</p>
+      </div>
+      <div>
+        <h4>Services</h4>
+        <div class="fl">
+          <a href="#services">Furniture Removal</a>
+          <a href="#services">Demolition</a>
+          <a href="#services">Cleanouts</a>
+          <a href="#pricing">Pricing</a>
+        </div>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <div class="fl">
+          <a href="#process">How It Works</a>
+          <a href="#faq">FAQ</a>
+          <a href="#contact">Get an Estimate</a>
+        </div>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <div class="fl">
+          <a href="tel:+19545496775">(954) 549-6775</a>
+          <a href="https://wa.me/19545496775">WhatsApp Us</a>
+          <span>Broward County, FL</span>
+          <span>Mon–Sun · 7:00 AM – 7:00 PM</span>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Haul Heroes. All rights reserved.</span>
+      <span>Licensed &amp; insured · Broward County, Florida</span>
+    </div>
+  </div>
+</footer>
 
+<!-- MOBILE BAR -->
 <div class="mbar">
   <a class="call" href="tel:+19545496775"><svg viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.13.96.36 1.9.7 2.8a2 2 0 0 1-.45 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.45c.9.34 1.84.57 2.8.7a2 2 0 0 1 1.7 2.05z"/></svg> Call Now</a>
-  <a class="wa" href="https://wa.me/19545496775?text=Hi!%20I%20need%20a%20free%20estimate."><svg viewBox="0 0 24 24"><path d="M21 11.5a8.5 8.5 0 0 1-12.4 7.5L3 21l2-5.4A8.5 8.5 0 1 1 21 11.5z"/></svg> WhatsApp</a>
+  <a class="wa" href="https://wa.me/19545496775?text=Hi%20Haul%20Heroes!%20I%20need%20a%20free%20estimate."><svg viewBox="0 0 24 24"><path d="M21 11.5a8.5 8.5 0 0 1-12.4 7.5L3 21l2-5.4A8.5 8.5 0 1 1 21 11.5z"/></svg> WhatsApp</a>
 </div>
+
+<script>
+// Nav shadow on scroll
+const nav = document.getElementById('nav');
+addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 20), {passive: true});
+
+// Parallax on hero layers
+const pxEls = document.querySelectorAll('[data-parallax]');
+addEventListener('scroll', () => {
+  const y = scrollY;
+  pxEls.forEach(el => { el.style.transform = 'translateY(' + (y * parseFloat(el.dataset.parallax)) + 'px)'; });
+}, {passive: true});
+
+// Reveal on scroll
+const io = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+}, {threshold: 0.12, rootMargin: '0px 0px -40px 0px'});
+document.querySelectorAll('.rv').forEach(el => io.observe(el));
+
+// Animated counters
+const cio = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (!e.isIntersecting) return;
+    const el = e.target, target = +el.dataset.count, dur = 1400, t0 = performance.now();
+    (function tick(t) {
+      const p = Math.min((t - t0) / dur, 1), ease = 1 - Math.pow(1 - p, 3);
+      el.textContent = Math.round(target * ease);
+      if (p < 1) requestAnimationFrame(tick);
+    })(t0);
+    cio.unobserve(el);
+  });
+}, {threshold: 0.6});
+document.querySelectorAll('[data-count]').forEach(el => cio.observe(el));
+
+// FAQ accordion
+document.querySelectorAll('.faq-item').forEach(item => {
+  const q = item.querySelector('.faq-q'), a = item.querySelector('.faq-a');
+  q.addEventListener('click', () => {
+    const open = item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(o => {
+      o.classList.remove('open');
+      o.querySelector('.faq-a').style.maxHeight = '0px';
+    });
+    if (!open) { item.classList.add('open'); a.style.maxHeight = a.scrollHeight + 'px'; }
+  });
+});
+</script>
 
 </body>
 </html>
