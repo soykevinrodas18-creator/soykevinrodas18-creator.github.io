@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Skin Society Miami | Estética, Láser y Cuidado de la Piel</title>
+<meta name="description" content="Skin Society Miami — Faciales personalizados, depilación láser y blanqueamiento corporal en Doral y Westchester. Reserva tu cita por WhatsApp.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --cream:#FBF6F1; --blush:#F5E6DA; --rose:#C98A6B; --rosedeep:#A9664F;
+  --gold:#C6A15B; --ink:#33261F; --inksoft:#6B584D; --white:#FFFFFF;
+  --shadow:0 18px 45px rgba(169,102,79,.14); --radius:22px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Jost',sans-serif;color:var(--ink);background:var(--cream);line-height:1.65;overflow-x:hidden}
+h1,h2,h3,.serif{font-family:'Playfair Display',serif;font-weight:600;line-height:1.2}
+img{max-width:100%}
+a{text-decoration:none;color:inherit}
+.container{width:min(1140px,92%);margin:0 auto}
+section{padding:84px 0}
+/* ---------- Header ---------- */
+header{position:fixed;top:0;left:0;right:0;z-index:100;transition:.3s;background:rgba(251,246,241,.85);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+header.scrolled{box-shadow:0 6px 24px rgba(51,38,31,.08)}
+.nav{display:flex;align-items:center;justify-content:space-between;padding:16px 0}
+.logo{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:700;letter-spacing:.5px}
+.logo span{color:var(--rosedeep)}
+.nav-links{display:flex;gap:34px;list-style:none;font-weight:500;font-size:.95rem}
+.nav-links a{position:relative;opacity:.85;transition:.25s}
+.nav-links a:hover{opacity:1;color:var(--rosedeep)}
+.btn{display:inline-flex;align-items:center;gap:10px;background:var(--rosedeep);color:#fff;padding:13px 28px;border-radius:60px;font-weight:500;font-size:.95rem;border:none;cursor:pointer;transition:.3s;box-shadow:0 10px 25px rgba(169,102,79,.35)}
+.btn:hover{transform:translateY(-2px);box-shadow:0 14px 30px rgba(169,102,79,.45);background:#96543F}
+.btn.ghost{background:transparent;color:var(--ink);border:1.5px solid var(--rose);box-shadow:none}
+.btn.ghost:hover{background:var(--blush);box-shadow:none}
+.btn.small{padding:10px 22px;font-size:.88rem}
+.burger{display:none;background:none;border:none;cursor:pointer;flex-direction:column;gap:6px;padding:8px}
+.burger span{width:26px;height:2px;background:var(--ink);border-radius:2px;transition:.3s}
+/* ---------- Hero ---------- */
+.hero{min-height:100vh;display:flex;align-items:center;position:relative;padding:140px 0 70px;overflow:hidden;
+  background:radial-gradient(900px 500px at 85% 10%, #F7DECD 0%, transparent 60%),
+             radial-gradient(700px 500px at 8% 90%, #F3D9C8 0%, transparent 55%),
+             var(--cream)}
+.blob{position:absolute;border-radius:50%;filter:blur(70px);opacity:.55;pointer-events:none;animation:float 9s ease-in-out infinite}
+.blob.b1{width:340px;height:340px;background:#F2C9B4;top:8%;right:6%}
+.blob.b2{width:260px;height:260px;background:#F7E3CF;bottom:5%;left:4%;animation-delay:-4s}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-28px)}}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:50px;align-items:center;position:relative;z-index:2}
+.badge{display:inline-flex;align-items:center;gap:8px;background:#fff;border:1px solid #EBD5C3;padding:8px 18px;border-radius:60px;font-size:.85rem;font-weight:500;color:var(--rosedeep);margin-bottom:22px;box-shadow:0 6px 18px rgba(169,102,79,.10)}
+.hero h1{font-size:clamp(2.4rem,5.2vw,4rem);margin-bottom:20px}
+.hero h1 em{font-style:italic;color:var(--rosedeep)}
+.hero p.lead{font-size:1.12rem;color:var(--inksoft);max-width:480px;margin-bottom:34px;font-weight:300}
+.hero-ctas{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:40px}
+.hero-proof{display:flex;gap:28px;flex-wrap:wrap}
+.proof-item{display:flex;flex-direction:column}
+.proof-item strong{font-family:'Playfair Display',serif;font-size:1.5rem;color:var(--rosedeep)}
+.proof-item small{color:var(--inksoft);font-size:.85rem}
+/* Hero visual card */
+.hero-visual{position:relative;display:flex;justify-content:center}
+.beauty-card{background:linear-gradient(160deg,#fff 0%,#FBEFE5 100%);border-radius:32px;padding:46px 40px;box-shadow:var(--shadow);position:relative;width:min(420px,100%);border:1px solid #F0DCCB}
+.beauty-card::before{content:"";position:absolute;inset:14px;border:1px dashed #E3C3AC;border-radius:22px;pointer-events:none}
+.bc-icon{width:84px;height:84px;border-radius:50%;background:linear-gradient(140deg,var(--rose),var(--rosedeep));display:flex;align-items:center;justify-content:center;margin-bottom:22px;box-shadow:0 12px 28px rgba(169,102,79,.35)}
+.bc-icon svg{width:40px;height:40px;stroke:#fff;fill:none;stroke-width:1.6}
+.beauty-card h3{font-size:1.6rem;margin-bottom:10px}
+.beauty-card p{color:var(--inksoft);font-size:.98rem;margin-bottom:24px}
+.mini-list{list-style:none;display:flex;flex-direction:column;gap:12px}
+.mini-list li{display:flex;align-items:center;gap:12px;font-size:.95rem;font-weight:500}
+.mini-list .dot{width:30px;height:30px;border-radius:50%;background:var(--blush);display:flex;align-items:center;justify-content:center;color:var(--rosedeep);font-weight:600;flex-shrink:0}
+.float-chip{position:absolute;background:#fff;border-radius:16px;padding:12px 18px;box-shadow:var(--shadow);font-size:.85rem;font-weight:500;display:flex;align-items:center;gap:10px;animation:float 7s ease-in-out infinite;border:1px solid #F0DCCB}
+.chip1{top:6%;left:-4%}
+.chip2{bottom:8%;right:-3%;animation-delay:-3.5s}
+.chip-star{color:var(--gold);font-size:1.1rem}
+/* ---------- Trust strip ---------- */
+.strip{background:var(--ink);color:#F7EFE6;padding:26px 0}
+.strip-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;text-align:center}
+.strip-item{display:flex;align-items:center;justify-content:center;gap:12px;font-size:.95rem}
+.strip-item .ic{width:42px;height:42px;border-radius:50%;background:rgba(198,161,91,.18);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.strip-item .ic svg{width:20px;height:20px;stroke:var(--gold);fill:none;stroke-width:1.8}
+/* ---------- Section headers ---------- */
+.kicker{display:inline-block;text-transform:uppercase;letter-spacing:3px;font-size:.78rem;font-weight:600;color:var(--rosedeep);margin-bottom:14px}
+.sec-title{font-size:clamp(1.9rem,3.6vw,2.7rem);margin-bottom:16px}
+.sec-sub{color:var(--inksoft);max-width:620px;margin-bottom:50px;font-weight:300;font-size:1.05rem}
+.center{text-align:center}
+.center .sec-sub{margin-left:auto;margin-right:auto}
+/* ---------- Services ---------- */
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.svc{background:#fff;border-radius:var(--radius);padding:40px 32px;box-shadow:0 10px 34px rgba(51,38,31,.07);border:1px solid #F1E2D4;transition:.35s;position:relative;overflow:hidden}
+.svc::after{content:"";position:absolute;top:0;left:0;right:0;height:5px;background:linear-gradient(90deg,var(--rose),var(--gold));opacity:0;transition:.35s}
+.svc:hover{transform:translateY(-8px);box-shadow:var(--shadow)}
+.svc:hover::after{opacity:1}
+.svc-icon{width:70px;height:70px;border-radius:20px;background:linear-gradient(140deg,#F7E4D3,#EFD0B8);display:flex;align-items:center;justify-content:center;margin-bottom:24px}
+.svc-icon svg{width:32px;height:32px;stroke:var(--rosedeep);fill:none;stroke-width:1.7}
+.svc h3{font-size:1.35rem;margin-bottom:12px}
+.svc p{color:var(--inksoft);font-size:.96rem;margin-bottom:22px}
+.svc a.link{color:var(--rosedeep);font-weight:600;font-size:.92rem;display:inline-flex;align-items:center;gap:8px}
+.svc a.link:hover{gap:12px}
+/* ---------- About ---------- */
+.about{background:linear-gradient(180deg,#fff 0%,var(--cream) 100%)}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+.about-copy p{color:var(--inksoft);margin-bottom:18px;font-weight:300}
+.check-list{list-style:none;margin:28px 0;display:flex;flex-direction:column;gap:16px}
+.check-list li{display:flex;gap:14px;align-items:flex-start;font-weight:500}
+.check-list .ck{width:28px;height:28px;border-radius:50%;background:var(--rosedeep);color:#fff;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:.85rem}
+.quote-card{background:#fff;border-left:5px solid var(--gold);border-radius:0 20px 20px 0;padding:34px 30px;box-shadow:0 10px 34px rgba(51,38,31,.07);font-family:'Playfair Display',serif;font-style:italic;font-size:1.15rem;color:var(--inksoft);position:relative}
+.quote-card small{display:block;margin-top:14px;font-family:'Jost',sans-serif;font-style:normal;font-size:.85rem;color:var(--rosedeep);font-weight:600;letter-spacing:1px;text-transform:uppercase}
+/* ---------- Locations ---------- */
+.loc-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.loc{background:#fff;border-radius:var(--radius);overflow:hidden;box-shadow:0 10px 34px rgba(51,38,31,.07);border:1px solid #F1E2D4;transition:.35s}
+.loc:hover{transform:translateY(-6px);box-shadow:var(--shadow)}
+.loc-top{height:150px;background:linear-gradient(135deg,#EFCFAF 0%,#DCA47E 55%,#B97F5E 100%);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+.loc-top::after{content:"";position:absolute;width:220px;height:220px;border-radius:50%;background:rgba(255,255,255,.18);top:-70px;right:-50px}
+.loc-top svg{width:56px;height:56px;stroke:#fff;fill:none;stroke-width:1.5;position:relative;z-index:2}
+.loc-body{padding:32px}
+.loc-body h3{font-size:1.4rem;margin-bottom:8px}
+.loc-body p{color:var(--inksoft);font-size:.95rem;margin-bottom:20px}
+/* ---------- Promo banner ---------- */
+.promo{background:linear-gradient(120deg,#3A2A22 0%,#5C4030 60%,#7A563C 100%);border-radius:30px;padding:60px 50px;color:#F9F1E8;display:grid;grid-template-columns:1.3fr .7fr;gap:30px;align-items:center;position:relative;overflow:hidden}
+.promo::before{content:"";position:absolute;width:380px;height:380px;border-radius:50%;background:radial-gradient(circle,rgba(198,161,91,.35),transparent 70%);top:-120px;right:-80px}
+.promo h2{font-size:clamp(1.7rem,3vw,2.4rem);margin-bottom:14px;position:relative;z-index:2}
+.promo h2 em{color:var(--gold);font-style:italic}
+.promo p{opacity:.85;margin-bottom:26px;position:relative;z-index:2;font-weight:300}
+.promo .btn{background:var(--gold);box-shadow:0 10px 25px rgba(198,161,91,.4);position:relative;z-index:2}
+.promo .btn:hover{background:#B28E4E}
+.promo-badge{position:relative;z-index:2;justify-self:center;background:rgba(255,255,255,.08);border:1px solid rgba(198,161,91,.5);border-radius:20px;padding:26px 34px;text-align:center;backdrop-filter:blur(6px)}
+.promo-badge .pct{font-family:'Playfair Display',serif;font-size:2.6rem;color:var(--gold);display:block}
+/* ---------- Steps ---------- */
+.steps-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;counter-reset:step}
+.step{background:#fff;border-radius:var(--radius);padding:38px 30px;border:1px solid #F1E2D4;position:relative;box-shadow:0 10px 30px rgba(51,38,31,.06)}
+.step-num{width:52px;height:52px;border-radius:50%;background:linear-gradient(140deg,var(--rose),var(--rosedeep));color:#fff;font-family:'Playfair Display',serif;font-size:1.4rem;display:flex;align-items:center;justify-content:center;margin-bottom:20px;box-shadow:0 8px 20px rgba(169,102,79,.35)}
+.step h3{font-size:1.2rem;margin-bottom:10px}
+.step p{color:var(--inksoft);font-size:.94rem}
+/* ---------- Final CTA ---------- */
+.final-cta{background:linear-gradient(160deg,#F9EFE4,#F3DDC8);border-radius:30px;padding:70px 40px;text-align:center;position:relative;overflow:hidden}
+.final-cta h2{font-size:clamp(1.9rem,3.6vw,2.8rem);margin-bottom:16px}
+.final-cta p{color:var(--inksoft);max-width:560px;margin:0 auto 32px;font-weight:300;font-size:1.05rem}
+.wa-note{display:flex;align-items:center;justify-content:center;gap:10px;margin-top:22px;color:var(--inksoft);font-size:.9rem}
+/* ---------- Footer ---------- */
+footer{background:var(--ink);color:#D9C9BC;padding:60px 0 30px}
+.foot-grid{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:40px;margin-bottom:44px}
+.foot-grid h4{color:#fff;font-family:'Playfair Display',serif;font-size:1.1rem;margin-bottom:16px}
+.foot-grid p,.foot-grid a{font-size:.92rem;opacity:.85;display:block;margin-bottom:10px;font-weight:300}
+.foot-grid a:hover{opacity:1;color:var(--gold)}
+.foot-logo{font-family:'Playfair Display',serif;font-size:1.6rem;color:#fff;margin-bottom:14px}
+.foot-logo span{color:var(--gold)}
+.foot-bottom{border-top:1px solid rgba(255,255,255,.12);padding-top:24px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:.82rem;opacity:.7}
+/* ---------- Floating WhatsApp ---------- */
+.wa-float{position:fixed;bottom:26px;right:26px;width:60px;height:60px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;box-shadow:0 12px 30px rgba(37,211,102,.45);z-index:90;transition:.3s}
+.wa-float:hover{transform:scale(1.08)}
+.wa-float svg{width:30px;height:30px;fill:#fff}
+/* ---------- Reveal animation ---------- */
+.reveal{opacity:0;transform:translateY(36px);transition:opacity .8s ease,transform .8s ease}
+.reveal.visible{opacity:1;transform:none}
+/* ---------- Responsive ---------- */
+@media(max-width:900px){
+  .hero-grid{grid-template-columns:1fr;text-align:center}
+  .hero p.lead{margin-left:auto;margin-right:auto}
+  .hero-ctas,.hero-proof{justify-content:center}
+  .hero-visual{order:-1}
+  .beauty-card{padding:36px 28px}
+  .chip1{left:0}.chip2{right:0}
+  .services-grid,.steps-grid{grid-template-columns:1fr;max-width:520px;margin:0 auto}
+  .about-grid{grid-template-columns:1fr;gap:40px}
+  .loc-grid{grid-template-columns:1fr;max-width:520px;margin:0 auto}
+  .promo{grid-template-columns:1fr;text-align:center;padding:48px 30px}
+  .promo-badge{justify-self:center}
+  .strip-grid{grid-template-columns:1fr;gap:14px}
+  .foot-grid{grid-template-columns:1fr;gap:30px}
+  section{padding:64px 0}
+}
+@media(max-width:640px){
+  .nav-links{position:fixed;top:0;right:-100%;width:72%;max-width:300px;height:100vh;background:#fff;flex-direction:column;align-items:flex-start;padding:90px 34px;gap:26px;transition:.35s;box-shadow:-10px 0 30px rgba(0,0,0,.12);z-index:99}
+  .nav-links.open{right:0}
+  .nav .btn.small{display:none}
+  .burger{display:flex;z-index:100}
+  .burger.open span:nth-child(1){transform:translateY(8px) rotate(45deg)}
+  .burger.open span:nth-child(2){opacity:0}
+  .burger.open span:nth-child(3){transform:translateY(-8px) rotate(-45deg)}
+  .hero{padding-top:120px}
+  .final-cta{padding:50px 24px}
+  .foot-bottom{justify-content:center;text-align:center}
+}
+</style>
+</head>
+<body>
+
+<header id="header">
+  <div class="container nav">
+    <a href="#inicio" class="logo">Skin<span>Society</span></a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#servicios">Servicios</a></li>
+      <li><a href="#nosotros">Nosotros</a></li>
+      <li><a href="#ubicaciones">Ubicaciones</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+    </ul>
+    <a class="btn small" href="https://wa.me/13055280714?text=Hola%20Skin%20Society%20%F0%9F%A4%8D%2C%20quiero%20reservar%20una%20cita" target="_blank" rel="noopener">Reservar cita</a>
+    <button class="burger" id="burger" aria-label="Menú"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="inicio">
+  <div class="blob b1"></div><div class="blob b2"></div>
+  <div class="container hero-grid">
+    <div>
+      <span class="badge">📍 Doral &nbsp;•&nbsp; Westchester, Miami</span>
+      <h1>Tu piel merece un cuidado <em>tan único como tú</em></h1>
+      <p class="lead">Faciales personalizados, depilación láser y blanqueamiento corporal. Cada tratamiento empieza con entender tu piel — porque un buen facial no es solo limpieza, es una experiencia.</p>
+      <div class="hero-ctas">
+        <a class="btn" href="https://wa.me/13055280714?text=Hola%20Skin%20Society%20%F0%9F%A4%8D%2C%20quiero%20reservar%20una%20cita" target="_blank" rel="noopener">Reservar por WhatsApp</a>
+        <a class="btn ghost" href="#servicios">Ver servicios</a>
+      </div>
+      <div class="hero-proof">
+        <div class="proof-item"><strong>2</strong><small>Ubicaciones en Miami</small></div>
+        <div class="proof-item"><strong>+3.5K</strong><small>Comunidad en Instagram</small></div>
+        <div class="proof-item"><strong>100%</strong><small>Trato personalizado</small></div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="beauty-card">
+        <div class="bc-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 3c-2 3.5-6 5-6 10a6 6 0 0 0 12 0c0-5-4-6.5-6-10z"/><path d="M12 21v-8"/></svg>
+        </div>
+        <h3>Diagnóstico personalizado</h3>
+        <p>Cada piel tiene necesidades diferentes. Analizamos la tuya y diseñamos el tratamiento ideal para ti.</p>
+        <ul class="mini-list">
+          <li><span class="dot">✓</span> Análisis inicial de tu piel</li>
+          <li><span class="dot">✓</span> Productos y técnicas a tu medida</li>
+          <li><span class="dot">✓</span> Resultados que se sienten y se ven</li>
+        </ul>
+      </div>
+      <div class="float-chip chip1"><span class="chip-star">✦</span> Depilación láser</div>
+      <div class="float-chip chip2"><span class="chip-star">✦</span> Faciales &amp; corporal</div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST STRIP -->
+<div class="strip">
+  <div class="container strip-grid">
+    <div class="strip-item"><span class="ic"><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.5-9.5-9C.7 8.6 2.6 5 6 5c2 0 3.4 1.1 4 2.2C10.6 6.1 12 5 14 5c3.4 0 5.3 3.6 3.5 7-2.5 4.5-9.5 9-9.5 9z"/></svg></span> Atención cercana y dedicada</div>
+    <div class="strip-item"><span class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></span> Citas con abono reservado</div>
+    <div class="strip-item"><span class="ic"><svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.2 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8z"/></svg></span> Especialistas en piel</div>
+  </div>
+</div>
+
+<!-- SERVICIOS -->
+<section id="servicios">
+  <div class="container">
+    <div class="center reveal">
+      <span class="kicker">Nuestros servicios</span>
+      <h2 class="sec-title">Tratamientos diseñados para tu piel</h2>
+      <p class="sec-sub">No creemos en soluciones genéricas. Cada servicio se adapta a tu tipo de piel, tus objetivos y tu momento.</p>
+    </div>
+    <div class="services-grid">
+      <div class="svc reveal">
+        <div class="svc-icon"><svg viewBox="0 0 24 24"><path d="M12 3c-2 3.5-6 5-6 10a6 6 0 0 0 12 0c0-5-4-6.5-6-10z"/><path d="M9.5 13.5a2.5 2.5 0 0 0 2.5 2.5"/></svg></div>
+        <h3>Faciales personalizados</h3>
+        <p>Un buen facial empieza con entender tu piel. Análisis inicial, productos y técnicas elegidos para ti: limpieza profunda, hidratación y luminosidad en una experiencia que también disfrutas.</p>
+        <a class="link" href="https://wa.me/13055280714?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20los%20faciales" target="_blank" rel="noopener">Preguntar por WhatsApp →</a>
+      </div>
+      <div class="svc reveal">
+        <div class="svc-icon"><svg viewBox="0 0 24 24"><path d="M13 2L4.5 13.5H11L9.5 22 19 10h-6.5z"/></svg></div>
+        <h3>Depilación láser</h3>
+        <p>Tecnología láser para una piel suave y sin vello de forma duradera. Tratamiento preciso, seguro y adaptado a tu tipo de piel y a cada zona del cuerpo.</p>
+        <a class="link" href="https://wa.me/13055280714?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20depilaci%C3%B3n%20l%C3%A1ser" target="_blank" rel="noopener">Preguntar por WhatsApp →</a>
+      </div>
+      <div class="svc reveal">
+        <div class="svc-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M19.1 4.9L17 7M7 17l-2.1 2.1"/></svg></div>
+        <h3>Blanqueamiento corporal</h3>
+        <p>Tratamientos especializados para unificar el tono de la piel y devolverle su luminosidad natural, con protocolos personalizados según cada zona.</p>
+        <a class="link" href="https://wa.me/13055280714?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20blanqueamiento%20corporal" target="_blank" rel="noopener">Preguntar por WhatsApp →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NOSOTROS -->
+<section class="about" id="nosotros">
+  <div class="container about-grid">
+    <div class="about-copy reveal">
+      <span class="kicker">Sobre nosotros</span>
+      <h2 class="sec-title">Más que un tratamiento, una experiencia</h2>
+      <p>En Skin Society creemos que el cuidado de la piel va más allá de los productos. Detrás de cada cita hay tiempo, preparación y dedicación — porque tu espacio y tu piel lo merecen.</p>
+      <p>Hablamos tu idioma, entendemos tu piel y te acompañamos en cada paso con un trato cercano y honesto.</p>
+      <ul class="check-list">
+        <li><span class="ck">✓</span> Diagnóstico honesto: te recomendamos solo lo que tu piel necesita</li>
+        <li><span class="ck">✓</span> Ambiente cálido y privado en cada sesión</li>
+        <li><span class="ck">✓</span> Seguimiento personalizado después de tu tratamiento</li>
+      </ul>
+      <a class="btn" href="https://wa.me/13055280714?text=Hola%20Skin%20Society%20%F0%9F%A4%8D%2C%20quiero%20reservar%20una%20cita" target="_blank" rel="noopener">Agendar mi cita</a>
+    </div>
+    <div class="reveal">
+      <div class="quote-card">
+        "Un facial no debería ser solo limpieza. Debe combinar personalización, tratamiento, resultados y una experiencia que también disfrutes."
+        <small>La filosofía Skin Society</small>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- UBICACIONES -->
+<section id="ubicaciones">
+  <div class="container">
+    <div class="center reveal">
+      <span class="kicker">Dónde encontrarnos</span>
+      <h2 class="sec-title">Dos ubicaciones en Miami</h2>
+      <p class="sec-sub">Elige la sede que te quede más cerca. Escríbenos por WhatsApp y te compartimos la dirección exacta y los horarios disponibles.</p>
+    </div>
+    <div class="loc-grid">
+      <div class="loc reveal">
+        <div class="loc-top"><svg viewBox="0 0 24 24"><path d="M12 21s-7-5.5-7-11a7 7 0 0 1 14 0c0 5.5-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></div>
+        <div class="loc-body">
+          <h3>Doral</h3>
+          <p>Nuestra sede en Doral, de fácil acceso y con estacionamiento cercano. Ideal si estás en el oeste de Miami.</p>
+          <a class="btn ghost small" href="https://wa.me/13055280714?text=Hola%2C%20quiero%20cita%20en%20la%20sede%20de%20Doral" target="_blank" rel="noopener">Reservar en Doral</a>
+        </div>
+      </div>
+      <div class="loc reveal">
+        <div class="loc-top"><svg viewBox="0 0 24 24"><path d="M12 21s-7-5.5-7-11a7 7 0 0 1 14 0c0 5.5-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></div>
+        <div class="loc-body">
+          <h3>Westchester</h3>
+          <p>Nuestra sede en Westchester, en el corazón de la comunidad. Perfecta si estás en el suroeste de Miami.</p>
+          <a class="btn ghost small" href="https://wa.me/13055280714?text=Hola%2C%20quiero%20cita%20en%20la%20sede%20de%20Westchester" target="_blank" rel="noopener">Reservar en Westchester</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROMO -->
+<section style="padding-top:0">
+  <div class="container">
+    <div class="promo reveal">
+      <div>
+        <h2>Promociones <em>del mes</em></h2>
+        <p>Cada mes tenemos promociones especiales en faciales, láser y tratamientos corporales. Escríbenos y te contamos las vigentes hoy mismo.</p>
+        <a class="btn" href="https://wa.me/13055280714?text=Hola%2C%20quiero%20saber%20las%20promociones%20del%20mes" target="_blank" rel="noopener">Preguntar promociones</a>
+      </div>
+      <div class="promo-badge">
+        <span class="pct">✦</span>
+        <strong>Ofertas exclusivas</strong><br>
+        <span style="font-size:.9rem;opacity:.8">para nuevas clientas</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CÓMO RESERVAR -->
+<section id="reservar" style="padding-top:0">
+  <div class="container">
+    <div class="center reveal">
+      <span class="kicker">Reserva fácil</span>
+      <h2 class="sec-title">Tu cita en 3 pasos</h2>
+      <p class="sec-sub">Sin llamadas perdidas ni formularios complicados. Todo por WhatsApp, como ya lo haces.</p>
+    </div>
+    <div class="steps-grid">
+      <div class="step reveal">
+        <div class="step-num">1</div>
+        <h3>Escríbenos por WhatsApp</h3>
+        <p>Cuéntanos qué tratamiento te interesa o pide una recomendación: te ayudamos a elegir el ideal para tu piel.</p>
+      </div>
+      <div class="step reveal">
+        <div class="step-num">2</div>
+        <h3>Separa tu espacio con un abono</h3>
+        <p>Con un pequeño abono reservamos tu cita y preparamos todo especialmente para ti. Tu tiempo vale — y el nuestro también.</p>
+      </div>
+      <div class="step reveal">
+        <div class="step-num">3</div>
+        <h3>Disfruta tu experiencia</h3>
+        <p>Llega, relájate y déjalo en nuestras manos. Saldrás con la piel radiante y una sonrisa.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<section id="contacto" style="padding-top:0">
+  <div class="container">
+    <div class="final-cta reveal">
+      <span class="kicker">Empieza hoy</span>
+      <h2>Tu mejor piel está a un mensaje de distancia</h2>
+      <p>Agenda tu diagnóstico personalizado y descubre el tratamiento perfecto para ti. Respondemos rápido por WhatsApp.</p>
+      <a class="btn" href="https://wa.me/13055280714?text=Hola%20Skin%20Society%20%F0%9F%A4%8D%2C%20quiero%20reservar%20una%20cita" target="_blank" rel="noopener" style="font-size:1.05rem;padding:16px 40px;">Reservar por WhatsApp</a>
+      <div class="wa-note">📍 Doral &nbsp;•&nbsp; Westchester, Miami &nbsp;&nbsp;|&nbsp;&nbsp; 📩 karla.valladares.esthetics@gmail.com</div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-logo">Skin<span>Society</span></div>
+        <p>Estética y cuidado personal de la piel en Miami. Faciales personalizados, depilación láser y blanqueamiento corporal.</p>
+      </div>
+      <div>
+        <h4>Ubicaciones</h4>
+        <p>📍 Doral, Miami FL</p>
+        <p>📍 Westchester, Miami FL</p>
+        <a href="https://wa.me/13055280714" target="_blank" rel="noopener">💬 WhatsApp: +1 (305) 528-0714</a>
+      </div>
+      <div>
+        <h4>Síguenos</h4>
+        <a href="https://www.instagram.com/skinsociety.mia" target="_blank" rel="noopener">📸 Instagram: @skinsociety.mia</a>
+        <a href="mailto:karla.valladares.esthetics@gmail.com">📩 karla.valladares.esthetics@gmail.com</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Skin Society Miami. Todos los derechos reservados.</span>
+      <span>Página de muestra con fines ilustrativos.</span>
+    </div>
+  </div>
+</footer>
+
+<a class="wa-float" href="https://wa.me/13055280714?text=Hola%20Skin%20Society%20%F0%9F%A4%8D%2C%20quiero%20reservar%20una%20cita" target="_blank" rel="noopener" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.6-6.1c-.3-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4 0-.5.1-.7l.4-.5c.1-.2.1-.3 0-.5L9.4 8c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.2-.7.6-.2.4-.9 2.2.9 4.4 1.2 1.5 2.6 2.4 4.4 2.9.6.2 1.1.2 1.5.1.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2 0-.1-.2-.1-.4-.2z"/></svg>
+</a>
+
+<script>
+// Header shadow on scroll
+const header=document.getElementById('header');
+addEventListener('scroll',()=>header.classList.toggle('scrolled',scrollY>10),{passive:true});
+// Mobile menu
+const burger=document.getElementById('burger'),navLinks=document.getElementById('navLinks');
+burger.addEventListener('click',()=>{
+  burger.classList.toggle('open');navLinks.classList.toggle('open');
+  document.body.style.overflow=navLinks.classList.contains('open')?'hidden':'';
+});
+navLinks.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{
+  burger.classList.remove('open');navLinks.classList.remove('open');document.body.style.overflow='';
+}));
+// Scroll reveal
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target)}}),{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
