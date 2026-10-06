@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JC Pickup, Delivery & Moving | Miami-Dade, Doral & Fort Lauderdale</title>
+<meta name="description" content="Moving, delivery and junk removal in Miami-Dade, Doral and Fort Lauderdale. One call does it all. Call or text 305-812-9104 for a free quote.">
+<style>
+:root{--blue:#0b3d91;--blue-d:#082c6b;--blue-l:#1550b8;--orange:#ff6b1a;--orange-d:#e55a0e;--ink:#16233a;--mut:#5b6b84;--light:#f5f8fd;--white:#fff;--line:#e6edf7}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:var(--ink);background:var(--white);line-height:1.65;-webkit-font-smoothing:antialiased}
+a{text-decoration:none;color:inherit}
+.wrap{max-width:1160px;margin:0 auto;padding:0 24px}
+::selection{background:var(--orange);color:#fff}
+nav{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.95);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav-in{display:flex;align-items:center;justify-content:space-between;height:70px}
+.logo{display:flex;align-items:center;gap:11px;font-weight:800;font-size:1.04rem;color:var(--blue);letter-spacing:-.2px}
+.logo .truck{width:40px;height:40px;border-radius:13px;background:linear-gradient(135deg,var(--orange),#ff8f4d);display:grid;place-items:center;box-shadow:0 8px 18px rgba(255,107,26,.35)}
+.logo .truck svg{width:22px;height:22px;stroke:#fff;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.logo small{display:block;font-size:.64rem;font-weight:700;color:var(--mut);letter-spacing:1.6px}
+.nav-links{display:flex;gap:30px;font-size:.92rem;font-weight:600;color:var(--mut)}
+.nav-links a{position:relative;padding:4px 0;transition:.2s}
+.nav-links a:hover{color:var(--blue)}
+.nav-links a::after{content:"";position:absolute;left:0;bottom:0;width:0;height:2px;background:var(--orange);border-radius:2px;transition:.25s}
+.nav-links a:hover::after{width:100%}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:14px 28px;border-radius:14px;font-weight:750;font-size:.96rem;transition:.22s;cursor:pointer;border:none;letter-spacing:.1px}
+.btn svg{width:17px;height:17px;stroke:currentColor;fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.btn-orange{background:var(--orange);color:#fff;box-shadow:0 10px 24px rgba(255,107,26,.35)}
+.btn-orange:hover{background:var(--orange-d);transform:translateY(-2px);box-shadow:0 14px 30px rgba(255,107,26,.45)}
+.btn-white{background:#fff;color:var(--blue);box-shadow:0 10px 24px rgba(0,0,0,.18)}
+.btn-white:hover{transform:translateY(-2px)}
+.btn-nav{padding:11px 22px;font-size:.88rem}
+@media(max-width:860px){.nav-links{display:none}}
+/* HERO */
+.hero{background:linear-gradient(125deg,var(--blue-d) 0%,var(--blue) 55%,var(--blue-l) 100%);color:#fff;padding:96px 0 104px;position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.09) 1.5px,transparent 1.5px);background-size:34px 34px;mask-image:radial-gradient(760px 480px at 82% 18%,#000 25%,transparent 78%)}
+.hero-in{position:relative;z-index:1}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;background:rgba(255,107,26,.16);border:1px solid rgba(255,107,26,.55);color:#ffb37e;font-size:.76rem;font-weight:750;letter-spacing:1.8px;text-transform:uppercase;padding:9px 18px;border-radius:100px;margin-bottom:24px}
+.eyebrow .dot{width:7px;height:7px;border-radius:50%;background:var(--orange);box-shadow:0 0 10px var(--orange)}
+.hero h1{font-size:clamp(2.3rem,4.8vw,3.6rem);line-height:1.08;font-weight:800;letter-spacing:-1px;margin-bottom:20px;max-width:44rem}
+.hero h1 em{font-style:normal;color:var(--orange)}
+.hero p.lead{color:#cfdef8;font-size:1.14rem;max-width:37rem;margin-bottom:16px}
+.areas{display:flex;gap:10px;flex-wrap:wrap;margin:24px 0 32px}
+.area{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);padding:9px 18px;border-radius:100px;font-weight:700;font-size:.88rem}
+.area svg{width:14px;height:14px;stroke:#ffb37e;fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.hero-ctas{display:flex;gap:14px;flex-wrap:wrap}
+.hero-proof{margin-top:30px;display:flex;gap:28px;flex-wrap:wrap;color:#b9cdf3;font-size:.9rem;font-weight:600}
+.hero-proof span{display:flex;align-items:center;gap:8px}
+.hero-proof svg{width:16px;height:16px;stroke:var(--orange);fill:none;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
+/* SECTIONS */
+section{padding:96px 0}
+.sec-head{max-width:660px;margin-bottom:52px}
+.kicker{display:flex;align-items:center;gap:12px;color:var(--orange-d);font-weight:800;font-size:.76rem;letter-spacing:2.4px;text-transform:uppercase;margin-bottom:14px}
+.kicker::before{content:"";width:34px;height:2px;background:var(--orange);border-radius:2px}
+.sec-head h2{font-size:clamp(1.7rem,3.4vw,2.5rem);font-weight:800;letter-spacing:-.8px;line-height:1.15;color:var(--blue-d);margin-bottom:14px}
+.sec-head p{color:var(--mut);font-size:1.06rem}
+.cards{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+@media(max-width:720px){.cards{grid-template-columns:1fr}}
+.card{display:flex;gap:22px;background:#fff;border:1px solid var(--line);border-radius:20px;padding:36px 32px;transition:.25s;box-shadow:0 2px 8px rgba(11,61,145,.04)}
+.card:hover{transform:translateY(-5px);box-shadow:0 24px 48px rgba(11,61,145,.12);border-color:var(--orange)}
+.card .ico{flex:0 0 60px;width:60px;height:60px;border-radius:17px;background:linear-gradient(135deg,var(--blue),var(--blue-l));display:grid;place-items:center;box-shadow:0 10px 20px rgba(11,61,145,.25)}
+.card .ico svg{width:28px;height:28px;stroke:#fff;fill:none;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
+.card h3{font-size:1.18rem;font-weight:750;color:var(--blue-d);margin-bottom:8px;letter-spacing:-.2px}
+.card p{color:var(--mut);font-size:.95rem}
+.card .tag{display:inline-block;margin-top:12px;font-size:.74rem;font-weight:750;color:var(--orange-d);letter-spacing:1.2px;text-transform:uppercase}
+/* STEPS */
+.steps-wrap{background:var(--light)}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+@media(max-width:780px){.steps{grid-template-columns:1fr}}
+.step{background:#fff;border:1px solid var(--line);border-radius:20px;padding:38px 30px;text-align:center;transition:.22s;position:relative}
+.step:hover{box-shadow:0 20px 44px rgba(11,61,145,.1);transform:translateY(-4px)}
+.step .n{width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,var(--orange),#ff8f4d);color:#fff;font-weight:800;font-size:1.35rem;display:grid;place-items:center;margin:0 auto 20px;box-shadow:0 10px 22px rgba(255,107,26,.35)}
+.step h3{color:var(--blue-d);margin-bottom:10px;font-size:1.14rem}
+.step p{color:var(--mut);font-size:.94rem}
+.step p strong{color:var(--blue-d)}
+/* QUOTE */
+.quote{background:linear-gradient(140deg,var(--blue-d),var(--blue) 75%);color:#fff;border-radius:28px;padding:64px 52px;display:grid;grid-template-columns:1fr 1fr;gap:56px;margin:0 24px;position:relative;overflow:hidden}
+.quote::before{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.08) 1.5px,transparent 1.5px);background-size:32px 32px;mask-image:radial-gradient(600px 400px at 15% 20%,#000 20%,transparent 75%)}
+@media(max-width:920px){.quote{grid-template-columns:1fr;padding:44px 28px;margin:0 14px}}
+.quote h2{font-size:clamp(1.7rem,3.2vw,2.3rem);font-weight:800;letter-spacing:-.6px;margin-bottom:14px;line-height:1.18;position:relative}
+.quote h2 em{font-style:normal;color:var(--orange)}
+.quote .lede{color:#cfdef8;margin-bottom:24px;position:relative;font-size:1.04rem}
+.alt-contact{position:relative;font-size:.96rem;color:#cfdef8;line-height:2}
+.alt-contact a{color:#fff;font-weight:750;border-bottom:2px solid var(--orange)}
+.qform{background:#fff;border-radius:20px;padding:34px;color:var(--ink);position:relative;box-shadow:0 30px 60px rgba(0,0,0,.25)}
+.qform h3{color:var(--blue-d);font-size:1.2rem;margin-bottom:6px;letter-spacing:-.2px}
+.qform>p{color:var(--mut);font-size:.9rem;margin-bottom:8px}
+.qform label{display:block;font-size:.76rem;font-weight:750;color:var(--blue-d);margin:16px 0 7px;text-transform:uppercase;letter-spacing:1px}
+.qform input,.qform select,.qform textarea{width:100%;padding:14px 15px;border:2px solid #e2e9f4;border-radius:12px;font-size:.95rem;font-family:inherit;transition:.2s;background:#fbfcfe}
+.qform input:focus,.qform select:focus,.qform textarea:focus{outline:none;border-color:var(--orange);background:#fff;box-shadow:0 0 0 4px rgba(255,107,26,.12)}
+.qform .btn{width:100%;margin-top:24px;font-size:1rem;padding:16px}
+.qnote{text-align:center;color:var(--mut);font-size:.82rem;margin-top:14px}
+/* BAND */
+.band{background:linear-gradient(120deg,var(--orange),#ff8f4d);color:#fff;text-align:center;padding:64px 24px}
+.band h2{font-size:clamp(1.7rem,3.4vw,2.5rem);font-weight:800;letter-spacing:-.6px;margin-bottom:10px}
+.band p{font-size:1.06rem;margin-bottom:28px;opacity:.96}
+footer{background:#071d44;color:#9db4d8;padding:40px 0;font-size:.88rem}
+.foot{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;align-items:center}
+.mbar{display:none;position:fixed;bottom:0;left:0;right:0;z-index:60;background:#fff;border-top:1px solid var(--line);padding:10px 14px calc(10px + env(safe-area-inset-bottom));gap:10px;box-shadow:0 -8px 24px rgba(11,61,145,.1)}
+.mbar a{flex:1;text-align:center;padding:14px;border-radius:12px;font-weight:750;font-size:.95rem;display:flex;align-items:center;justify-content:center;gap:8px}
+.mbar a svg{width:17px;height:17px;stroke:currentColor;fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.mbar .call{background:var(--orange);color:#fff}
+.mbar .wa{background:#25d366;color:#fff}
+@media(max-width:760px){.mbar{display:flex}body{padding-bottom:76px}.btn-nav{white-space:nowrap;padding:10px 14px;font-size:.8rem}.logo{font-size:.92rem}.logo small{display:none}.logo .truck{width:36px;height:36px}}
+</style>
+</head>
+<body>
+
+<nav><div class="wrap nav-in">
+  <a class="logo" href="#top"><span class="truck"><svg viewBox="0 0 24 24"><path d="M1 8h13v9H1zM14 11h4l3 3v3h-7z"/><circle cx="6" cy="19" r="1.6"/><circle cx="17" cy="19" r="1.6"/></svg></span><span>JC Moving<small>PICKUP · DELIVERY · JUNK REMOVAL</small></span></a>
+  <div class="nav-links"><a href="#services">Services</a><a href="#how">How It Works</a><a href="#quote">Free Quote</a></div>
+  <a class="btn btn-orange btn-nav" href="tel:+13058129104"><svg viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.13.96.36 1.9.7 2.8a2 2 0 0 1-.45 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.45c.9.34 1.84.57 2.8.7a2 2 0 0 1 1.7 2.05z"/></svg> 305-812-9104</a>
+</div></nav>
+
+<header class="hero" id="top"><div class="wrap hero-in">
+  <span class="eyebrow"><span class="dot"></span> Miami-Dade · Doral · Fort Lauderdale</span>
+  <h1>One Call Does It All — <em>Moving, Delivery &amp; Junk Removal.</em></h1>
+  <p class="lead">From a single couch to a full cleanout: JC Pickup, Delivery &amp; Moving gets it picked up, moved or hauled away — fast, careful and affordable.</p>
+  <div class="areas">
+    <span class="area"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> Miami-Dade</span>
+    <span class="area"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> Doral</span>
+    <span class="area"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> Fort Lauderdale</span>
+  </div>
+  <div class="hero-ctas">
+    <a class="btn btn-orange" href="tel:+13058129104"><svg viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.13.96.36 1.9.7 2.8a2 2 0 0 1-.45 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.45c.9.34 1.84.57 2.8.7a2 2 0 0 1 1.7 2.05z"/></svg> Call or Text 305-812-9104</a>
+    <a class="btn btn-white" href="#quote">Get a Free Quote</a>
+  </div>
+  <div class="hero-proof">
+    <span><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg> Free upfront quotes</span>
+    <span><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg> Same-day service</span>
+    <span><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg> Careful &amp; reliable crew</span>
+  </div>
+</div></header>
+
+<section id="services"><div class="wrap">
+  <div class="sec-head"><div class="kicker">Services</div><h2>Whatever Needs Moving, We Handle It</h2><p>Residential, commercial and everything in between — one crew, one call.</p></div>
+  <div class="cards">
+    <div class="card"><div class="ico"><svg viewBox="0 0 24 24"><path d="M3 21h18M5 21V7l7-4 7 4v14"/><path d="M9 21v-6h6v6"/></svg></div><div><h3>Residential Moving</h3><p>Apartments, houses and condos — careful loading, transport and placement, room by room.</p><span class="tag">Most requested</span></div></div>
+    <div class="card"><div class="ico"><svg viewBox="0 0 24 24"><path d="M4 7h16l-1.5 12.5a1 1 0 0 1-1 .5h-11a1 1 0 0 1-1-.5z"/><path d="M2 7h20M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2"/></svg></div><div><h3>Junk Removal</h3><p>Furniture, appliances, mattresses, yard debris and general junk — gone the same day you call.</p></div></div>
+    <div class="card"><div class="ico"><svg viewBox="0 0 24 24"><path d="M1 8h13v9H1zM14 11h4l3 3v3h-7z"/><circle cx="6" cy="19" r="1.6"/><circle cx="17" cy="19" r="1.6"/></svg></div><div><h3>Pickup &amp; Delivery</h3><p>Bought something big? We pick it up and deliver it — stores, marketplaces, warehouses.</p></div></div>
+    <div class="card"><div class="ico"><svg viewBox="0 0 24 24"><path d="M3 12l9-9 9 9M5 10v10h5v-6h4v6h5V10"/></svg></div><div><h3>Cleanouts</h3><p>Garages, storage units, estates and offices cleared out quickly and responsibly.</p><span class="tag">Same-day available</span></div></div>
+  </div>
+</div></section>
+
+<section class="steps-wrap" id="how"><div class="wrap">
+  <div class="sec-head"><div class="kicker">How it works</div><h2>Easy as 1-2-3</h2></div>
+  <div class="steps">
+    <div class="step"><div class="n">1</div><h3>Call or Text</h3><p>Tell us what needs moving at <strong>305-812-9104</strong> — photos get you the fastest quote.</p></div>
+    <div class="step"><div class="n">2</div><h3>Get Your Free Quote</h3><p>Upfront, honest pricing before we lift a finger. No surprises, no hidden fees.</p></div>
+    <div class="step"><div class="n">3</div><h3>We Do the Heavy Lifting</h3><p>We show up on time and handle everything, start to finish.</p></div>
+  </div>
+</div></section>
+
+<section id="quote" style="padding-left:0;padding-right:0"><div class="wrap" style="max-width:1240px">
+  <div class="quote">
+    <div>
+      <h2>Get Your <em>Free Quote</em> in Minutes</h2>
+      <p class="lede">Fill out the form and it opens WhatsApp with your request ready to send. Prefer to talk? We're one tap away.</p>
+      <div class="alt-contact">Call or text: <a href="tel:+13058129104">305-812-9104</a><br>WhatsApp: <a href="https://wa.me/13058129104?text=Hi%20JC!%20I%20need%20a%20quote%20for%20moving%2Fjunk%20removal.">chat with us now</a></div>
+    </div>
+    <form class="qform" id="qform">
+      <h3>Request a quote</h3><p>Takes 30 seconds — we reply fast.</p>
+      <label for="qname">Your name</label><input id="qname" required placeholder="Jane Smith" autocomplete="name">
+      <label for="qphone">Phone</label><input id="qphone" required placeholder="(305) 555-0123" inputmode="tel" autocomplete="tel">
+      <label for="qservice">Service needed</label>
+      <select id="qservice"><option>Residential Moving</option><option>Junk Removal</option><option>Pickup &amp; Delivery</option><option>Cleanout</option><option>Other</option></select>
+      <label for="qdate">Preferred date</label><input id="qdate" type="date">
+      <label for="qdetails">Details</label><textarea id="qdetails" rows="3" placeholder="What are we moving, and from where to where?"></textarea>
+      <button class="btn btn-orange" type="submit">Send via WhatsApp →</button>
+      <div class="qnote">Opens WhatsApp with your message ready — no account needed.</div>
+    </form>
+  </div>
+</div></section>
+
+<div class="band">
+  <h2>Need It Moved Today?</h2>
+  <p>Same-day service available across Miami-Dade, Doral &amp; Fort Lauderdale.</p>
+  <a class="btn btn-white" href="tel:+13058129104" style="font-size:1.08rem;padding:17px 44px"><svg viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.13.96.36 1.9.7 2.8a2 2 0 0 1-.45 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.45c.9.34 1.84.57 2.8.7a2 2 0 0 1 1.7 2.05z"/></svg> 305-812-9104</a>
+</div>
+
+<footer><div class="wrap foot">
+  <div><strong style="color:#fff">JC Pickup, Delivery &amp; Moving</strong> — Serving Miami-Dade, Doral &amp; Fort Lauderdale</div>
+  <div><a href="tel:+13058129104" style="color:#fff;font-weight:750">305-812-9104</a></div>
+</div></footer>
+
+<div class="mbar">
+  <a class="call" href="tel:+13058129104"><svg viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.13.96.36 1.9.7 2.8a2 2 0 0 1-.45 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.45c.9.34 1.84.57 2.8.7a2 2 0 0 1 1.7 2.05z"/></svg> Call Now</a>
+  <a class="wa" href="https://wa.me/13058129104?text=Hi%20JC!%20I%20need%20a%20quote."><svg viewBox="0 0 24 24"><path d="M21 11.5a8.5 8.5 0 0 1-12.4 7.5L3 21l2-5.4A8.5 8.5 0 1 1 21 11.5z"/></svg> WhatsApp</a>
+</div>
+
+<script>
+document.getElementById('qform').addEventListener('submit',function(e){
+  e.preventDefault();
+  var v=function(id){return document.getElementById(id).value.trim();};
+  if(!v('qname')||!v('qphone'))return;
+  var msg='Hi JC! I need a quote.%0A%0AName: '+encodeURIComponent(v('qname'))
+  +'%0APhone: '+encodeURIComponent(v('qphone'))
+  +'%0AService: '+encodeURIComponent(v('qservice'))
+  +'%0ADate: '+encodeURIComponent(v('qdate')||'Flexible')
+  +'%0ADetails: '+encodeURIComponent(v('qdetails')||'-');
+  window.open('https://wa.me/13058129104?text='+msg,'_blank');
+});
+</script>
+</body>
+</html>

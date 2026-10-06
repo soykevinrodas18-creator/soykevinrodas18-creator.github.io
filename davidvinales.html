@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>David Vinales Electrician | Commercial Electrical & EV Charging — Miami, FL</title>
+<meta name="description" content="Commercial electrical contractor in Miami, FL specializing in EV charging infrastructure, energy management systems and multifamily projects. Free estimates. Call (786) 387-8101.">
+<style>
+:root{--navy:#0a1628;--navy2:#0e1f38;--amber:#ffb800;--amber-d:#dd9d00;--white:#fff;--gray:#c3cfe0;--light:#f3f6fa;--ink:#17222f;--mut:#5a6b82}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:var(--ink);background:var(--white);line-height:1.65;-webkit-font-smoothing:antialiased}
+a{text-decoration:none;color:inherit}
+.wrap{max-width:1160px;margin:0 auto;padding:0 24px}
+::selection{background:var(--amber);color:var(--navy)}
+/* NAV */
+nav{position:sticky;top:0;z-index:50;background:rgba(10,22,40,.96);backdrop-filter:blur(10px);border-bottom:1px solid rgba(255,184,0,.22)}
+.nav-in{display:flex;align-items:center;justify-content:space-between;height:70px}
+.logo{display:flex;align-items:center;gap:11px;color:#fff;font-weight:800;font-size:1.04rem;letter-spacing:-.2px}
+.logo .bolt{width:38px;height:38px;border-radius:12px;background:linear-gradient(135deg,var(--amber),#ffcf4d);display:grid;place-items:center;box-shadow:0 6px 16px rgba(255,184,0,.35)}
+.logo .bolt svg{width:21px;height:21px;fill:#0a1628}
+.nav-links{display:flex;gap:30px;color:var(--gray);font-size:.92rem;font-weight:600}
+.nav-links a{position:relative;padding:4px 0;transition:.2s}
+.nav-links a:hover{color:var(--amber)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:14px 28px;border-radius:14px;font-weight:750;font-size:.96rem;transition:.22s;cursor:pointer;border:none;letter-spacing:.1px}
+.btn svg{width:17px;height:17px;stroke:currentColor;fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.btn-amber{background:var(--amber);color:#0a1628;box-shadow:0 10px 24px rgba(255,184,0,.3)}
+.btn-amber:hover{background:var(--amber-d);transform:translateY(-2px);box-shadow:0 14px 30px rgba(255,184,0,.4)}
+.btn-outline{border:1.5px solid rgba(255,184,0,.65);color:var(--amber);background:transparent}
+.btn-outline:hover{background:rgba(255,184,0,.1);transform:translateY(-2px)}
+.btn-nav{padding:11px 22px;font-size:.88rem}
+@media(max-width:860px){.nav-links{display:none}}
+/* HERO */
+.hero{background:radial-gradient(1000px 520px at 76% -8%,#1d3d6e 0%,var(--navy) 58%),var(--navy);color:#fff;padding:96px 0 110px;position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(255,184,0,.1) 1.5px,transparent 1.5px);background-size:36px 36px;mask-image:radial-gradient(720px 460px at 78% 12%,#000 25%,transparent 78%);pointer-events:none}
+.hero-grid{position:relative;z-index:1;display:grid;grid-template-columns:1.1fr .9fr;gap:60px;align-items:center}
+@media(max-width:920px){.hero-grid{grid-template-columns:1fr;gap:44px}}
+.eyebrow{display:inline-flex;align-items:center;gap:9px;background:rgba(255,184,0,.12);border:1px solid rgba(255,184,0,.45);color:var(--amber);font-size:.76rem;font-weight:750;letter-spacing:1.8px;text-transform:uppercase;padding:9px 18px;border-radius:100px;margin-bottom:24px}
+.eyebrow .dot{width:7px;height:7px;border-radius:50%;background:var(--amber);box-shadow:0 0 10px var(--amber)}
+.hero h1{font-size:clamp(2.3rem,4.8vw,3.6rem);line-height:1.08;font-weight:800;letter-spacing:-1px;margin-bottom:20px}
+.hero h1 em{font-style:normal;color:var(--amber)}
+.hero p.lead{color:var(--gray);font-size:1.14rem;max-width:34rem;margin-bottom:34px}
+.hero-ctas{display:flex;gap:14px;flex-wrap:wrap}
+.est-card{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.15);border-radius:22px;padding:36px;backdrop-filter:blur(6px);box-shadow:0 30px 60px rgba(0,0,0,.3)}
+.est-card h3{color:var(--amber);font-size:.76rem;letter-spacing:2.2px;text-transform:uppercase;margin-bottom:16px;font-weight:800}
+.est-card .big{font-size:1.9rem;font-weight:800;letter-spacing:-.4px;margin-bottom:8px}
+.est-card .big a{border-bottom:2px solid rgba(255,184,0,.4);transition:.2s}
+.est-card .big a:hover{color:var(--amber)}
+.est-card p{color:var(--gray);font-size:.94rem;margin-bottom:22px;line-height:1.7}
+.est-card p a{color:var(--amber);font-weight:600}
+.est-card .btn{width:100%}
+/* TRUST */
+.trust{background:var(--amber);padding:20px 0}
+.trust-in{display:flex;justify-content:center;gap:18px 52px;flex-wrap:wrap;color:#0a1628;font-weight:750;font-size:.94rem}
+.trust-in span{display:inline-flex;align-items:center;gap:9px}
+.trust-in svg{width:17px;height:17px;stroke:#0a1628;fill:none;stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round}
+/* SECTIONS */
+section{padding:96px 0}
+.sec-head{max-width:660px;margin-bottom:52px}
+.kicker{display:flex;align-items:center;gap:12px;color:#a86e00;font-weight:800;font-size:.76rem;letter-spacing:2.4px;text-transform:uppercase;margin-bottom:14px}
+.kicker::before{content:"";width:34px;height:2px;background:var(--amber);border-radius:2px}
+.sec-head h2{font-size:clamp(1.7rem,3.4vw,2.5rem);font-weight:800;letter-spacing:-.8px;line-height:1.15;color:var(--navy);margin-bottom:14px}
+.sec-head p{color:var(--mut);font-size:1.06rem}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+@media(max-width:920px){.cards{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:620px){.cards{grid-template-columns:1fr}}
+.card{background:#fff;border:1px solid #e3eaf3;border-radius:20px;padding:36px 30px;transition:.25s;box-shadow:0 2px 8px rgba(10,22,40,.03)}
+.card:hover{transform:translateY(-5px);box-shadow:0 24px 48px rgba(10,22,40,.1);border-color:var(--amber)}
+.card .ico{width:60px;height:60px;border-radius:17px;background:linear-gradient(135deg,var(--navy),#1c3a66);display:grid;place-items:center;margin-bottom:22px;box-shadow:0 10px 20px rgba(10,22,40,.22)}
+.card .ico svg{width:28px;height:28px;stroke:var(--amber);fill:none;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
+.card h3{font-size:1.16rem;font-weight:750;margin-bottom:9px;color:var(--navy);letter-spacing:-.2px}
+.card p{color:var(--mut);font-size:.94rem}
+/* EV FEATURE */
+.ev{background:linear-gradient(165deg,var(--navy2),var(--navy) 70%);color:#fff;border-top:1px solid rgba(255,184,0,.2);border-bottom:1px solid rgba(255,184,0,.2)}
+.ev .sec-head h2{color:#fff}
+.ev .sec-head p{color:var(--gray)}
+.ev .kicker{color:var(--amber)}
+.ev-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:start}
+@media(max-width:920px){.ev-grid{grid-template-columns:1fr}}
+.ev-list{list-style:none;display:grid;gap:16px}
+.ev-list li{background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.11);border-left:3px solid var(--amber);border-radius:14px;padding:22px;transition:.2s}
+.ev-list li:hover{background:rgba(255,255,255,.07);transform:translateX(4px)}
+.ev-list li strong{color:var(--amber);display:flex;align-items:center;gap:9px;margin-bottom:6px;font-size:.98rem}
+.ev-list li strong svg{width:16px;height:16px;stroke:var(--amber);fill:none;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round;flex:0 0 16px}
+.ev-list li span{color:#c9d4e4;font-size:.94rem}
+.ev-cta{background:rgba(255,184,0,.06);border:1px solid rgba(255,184,0,.3);border-radius:22px;padding:38px;box-shadow:0 24px 50px rgba(0,0,0,.25)}
+.ev-cta h3{font-size:1.35rem;font-weight:750;margin-bottom:12px;letter-spacing:-.3px}
+.ev-cta h3 em{font-style:normal;color:var(--amber)}
+.ev-cta p{color:var(--gray);font-size:.96rem;margin-bottom:26px}
+.ev-cta .btn{width:100%;margin-bottom:12px}
+/* PROCESS */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+@media(max-width:920px){.steps{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.steps{grid-template-columns:1fr}}
+.step{background:var(--light);border-radius:20px;padding:34px 28px;position:relative;overflow:hidden;transition:.22s;border:1px solid transparent}
+.step:hover{border-color:var(--amber);box-shadow:0 18px 40px rgba(10,22,40,.08)}
+.step .n{font-size:2.6rem;font-weight:800;color:var(--amber);line-height:1;margin-bottom:14px;letter-spacing:-1px}
+.step h3{font-size:1.06rem;font-weight:750;margin-bottom:8px;color:var(--navy)}
+.step p{color:var(--mut);font-size:.93rem}
+/* CTA */
+.cta{background:linear-gradient(140deg,#0a1628 0%,#16305a 100%);color:#fff;text-align:center;border-radius:28px;padding:80px 36px;margin:0 24px;position:relative;overflow:hidden}
+.cta::before{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(255,184,0,.13) 1.5px,transparent 1.5px);background-size:32px 32px;mask-image:radial-gradient(640px 360px at 50% 100%,#000 20%,transparent 75%)}
+.cta h2{font-size:clamp(1.8rem,3.8vw,2.7rem);font-weight:800;letter-spacing:-.7px;margin-bottom:14px;position:relative}
+.cta h2 em{font-style:normal;color:var(--amber)}
+.cta p{color:var(--gray);max-width:36rem;margin:0 auto 32px;font-size:1.06rem;position:relative}
+.cta-row{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;position:relative}
+.contact-line{margin-top:28px;color:var(--gray);font-size:.95rem;position:relative}
+.contact-line a{color:var(--amber);font-weight:700;border-bottom:1px solid rgba(255,184,0,.4)}
+@media(max-width:760px){.cta{margin:0 14px;padding:60px 26px}}
+/* FOOTER */
+footer{background:#060d18;color:#8fa0b8;padding:40px 0;font-size:.88rem}
+.foot{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;align-items:center}
+/* MOBILE BAR */
+.mbar{display:none;position:fixed;bottom:0;left:0;right:0;z-index:60;background:#0a1628;border-top:1px solid rgba(255,184,0,.3);padding:10px 14px calc(10px + env(safe-area-inset-bottom));gap:10px}
+.mbar a{flex:1;text-align:center;padding:14px;border-radius:12px;font-weight:750;font-size:.95rem;display:flex;align-items:center;justify-content:center;gap:8px}
+.mbar a svg{width:17px;height:17px;stroke:currentColor;fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.mbar .call{background:var(--amber);color:#0a1628}
+.mbar .wa{background:#25d366;color:#fff}
+@media(max-width:760px){.mbar{display:flex}body{padding-bottom:76px}.btn-nav{white-space:nowrap;padding:10px 14px;font-size:.8rem}.logo{font-size:.92rem}.logo .bolt{width:34px;height:34px}}
+</style>
+</head>
+<body>
+
+<nav><div class="wrap nav-in">
+  <a class="logo" href="#top"><span class="bolt"><svg viewBox="0 0 24 24"><path d="M13 2L4 14h6l-1 8 9-12h-6z"/></svg></span> David Vinales Electrician</a>
+  <div class="nav-links"><a href="#services">Services</a><a href="#ev">EV Charging</a><a href="#process">Process</a><a href="#contact">Contact</a></div>
+  <a class="btn btn-amber btn-nav" href="tel:+17863878101"><svg viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.13.96.36 1.9.7 2.8a2 2 0 0 1-.45 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.45c.9.34 1.84.57 2.8.7a2 2 0 0 1 1.7 2.05z"/></svg> (786) 387-8101</a>
+</div></nav>
+
+<header class="hero" id="top"><div class="wrap hero-grid">
+  <div>
+    <span class="eyebrow"><span class="dot"></span> Commercial & Multifamily Electrical — Miami, FL</span>
+    <h1>EV Charging Infrastructure, <em>Engineered Right.</em></h1>
+    <p class="lead">More EV ports don't automatically mean a simple upgrade. We design code-compliant charging systems for commercial and multifamily properties — so you can plan growth without guessing.</p>
+    <div class="hero-ctas">
+      <a class="btn btn-amber" href="tel:+17863878101">Get a Free Estimate</a>
+      <a class="btn btn-outline" href="https://wa.me/17863878101?text=Hi%2C%20I%27d%20like%20a%20free%20estimate%20for%20an%20electrical%20project.">WhatsApp Us</a>
+    </div>
+  </div>
+  <div class="est-card">
+    <h3>Free Estimate</h3>
+    <div class="big"><a href="tel:+17863878101">(786) 387-8101</a></div>
+    <p>Call or text for commercial &amp; multifamily projects.<br>Email: <a href="mailto:electricalwinners@gmail.com">electricalwinners@gmail.com</a><br>Serving Miami, Florida</p>
+    <a class="btn btn-amber" href="#contact">Request a Site Review</a>
+  </div>
+</div></header>
+
+<div class="trust"><div class="wrap trust-in">
+  <span><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg> Licensed &amp; Insured</span>
+  <span><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg> Commercial &amp; Multifamily Focus</span>
+  <span><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg> NEC Code Expertise</span>
+  <span><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg> Free Estimates</span>
+</div></div>
+
+<section id="services"><div class="wrap">
+  <div class="sec-head"><div class="kicker">What we do</div><h2>Electrical Services for Demanding Projects</h2><p>From EV infrastructure to full commercial build-outs — one accountable contractor.</p></div>
+  <div class="cards">
+    <div class="card"><div class="ico"><svg viewBox="0 0 24 24"><path d="M13 2L4 14h6l-1 8 9-12h-6z"/></svg></div><h3>EV Charging Installation</h3><p>Level 2 and DC fast charging for parking structures, fleets and multifamily garages — designed around your real load.</p></div>
+    <div class="card"><div class="ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .34 1.87l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.7 1.7 0 0 0-1.87-.34 1.7 1.7 0 0 0-1 1.55V21a2 2 0 1 1-4 0v-.09a1.7 1.7 0 0 0-1-1.55 1.7 1.7 0 0 0-1.87.34l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.7 1.7 0 0 0 .34-1.87 1.7 1.7 0 0 0-1.55-1H3a2 2 0 1 1 0-4h.09a1.7 1.7 0 0 0 1.55-1 1.7 1.7 0 0 0-.34-1.87l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.7 1.7 0 0 0 1.87.34h.01a1.7 1.7 0 0 0 1-1.55V3a2 2 0 1 1 4 0v.09a1.7 1.7 0 0 0 1 1.55h.01a1.7 1.7 0 0 0 1.87-.34l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.7 1.7 0 0 0-.34 1.87v.01a1.7 1.7 0 0 0 1.55 1H21a2 2 0 1 1 0 4h-.09a1.7 1.7 0 0 0-1.55 1z"/></svg></div><h3>Energy Management Systems</h3><p>Load-controlled charging coordinated as one system: sensors, communications, disconnects and raceways.</p></div>
+    <div class="card"><div class="ico"><svg viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="M7 15l4-6 4 3 5-8"/></svg></div><h3>Load Calculations &amp; Service Upgrades</h3><p>Service and feeder calculations under your locally adopted NEC edition — no unverified capacity promises.</p></div>
+    <div class="card"><div class="ico"><svg viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="18" rx="1"/><path d="M9 21v-4h6v4M8 7h8M8 11h8"/></svg></div><h3>Commercial Electrical</h3><p>Build-outs, tenant improvements and maintenance for offices, retail and hospitality across Miami.</p></div>
+    <div class="card"><div class="ico"><svg viewBox="0 0 24 24"><path d="M3 21h18M5 21V7l7-4 7 4v14"/><path d="M9 21v-6h6v6"/></svg></div><h3>Multifamily Projects</h3><p>Coordinated electrical work for apartments and condos, from unit turns to common-area upgrades.</p></div>
+    <div class="card"><div class="ico"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M9 12h6M9 8h6"/></svg></div><h3>Panel Upgrades &amp; Repairs</h3><p>Panel replacements, troubleshooting and code corrections — clean, permitted and on schedule.</p></div>
+  </div>
+</div></section>
+
+<section class="ev" id="ev"><div class="wrap">
+  <div class="sec-head"><div class="kicker">Our specialty</div><h2>EV Energy-Management, Done by the Book</h2><p>A clear control strategy helps owners plan charging growth without treating future capacity as a promise.</p></div>
+  <div class="ev-grid">
+    <ul class="ev-list">
+      <li><strong><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg> Defined operating sequence</strong><span>What is monitored, what load is controlled, and what happens when the service limit is approached.</span></li>
+      <li><strong><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg> NEC 625.42 compliance</strong><span>Verified power-transfer equipment ratings and the correct path for energy-management installations.</span></li>
+      <li><strong><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg> NEC 750.30 coordination</strong><span>Energy-management systems installed per code, with listed equipment per NEC 110.3(B).</span></li>
+      <li><strong><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg> Documented control strategy</strong><span>Load-management assumptions that match the documented control sequence — ready for AHJ review.</span></li>
+    </ul>
+    <div class="ev-cta">
+      <h3>Planning a commercial or multifamily <em>EV project?</em></h3>
+      <p>Call or message us to review EV energy-management coordination for your next project. We'll tell you honestly what your service can support.</p>
+      <a class="btn btn-amber" href="tel:+17863878101"><svg viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.13.96.36 1.9.7 2.8a2 2 0 0 1-.45 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.45c.9.34 1.84.57 2.8.7a2 2 0 0 1 1.7 2.05z"/></svg> (786) 387-8101</a>
+      <a class="btn btn-outline" href="https://wa.me/17863878101?text=Hi%2C%20I%27d%20like%20to%20review%20EV%20energy-management%20for%20a%20project.">Message on WhatsApp</a>
+    </div>
+  </div>
+</div></section>
+
+<section id="process"><div class="wrap">
+  <div class="sec-head"><div class="kicker">How we work</div><h2>A Process Built for Commercial Timelines</h2></div>
+  <div class="steps">
+    <div class="step"><div class="n">01</div><h3>Site Assessment</h3><p>We walk the property, review existing service and document constraints.</p></div>
+    <div class="step"><div class="n">02</div><h3>Engineering &amp; Load Study</h3><p>Calculations, control strategy and equipment selection — on paper first.</p></div>
+    <div class="step"><div class="n">03</div><h3>Permitted Installation</h3><p>Clean, code-compliant installation coordinated with your schedule.</p></div>
+    <div class="step"><div class="n">04</div><h3>Commissioning</h3><p>Testing, documentation and handover so your team knows the system.</p></div>
+  </div>
+</div></section>
+
+<div class="wrap"><div class="cta" id="contact">
+  <h2>Let's Review Your <em>Next Project</em></h2>
+  <p>Commercial or multifamily electrical work in Miami — call, text or email for a free estimate. We respond fast.</p>
+  <div class="cta-row">
+    <a class="btn btn-amber" href="tel:+17863878101"><svg viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.13.96.36 1.9.7 2.8a2 2 0 0 1-.45 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.45c.9.34 1.84.57 2.8.7a2 2 0 0 1 1.7 2.05z"/></svg> Call (786) 387-8101</a>
+    <a class="btn btn-outline" href="https://wa.me/17863878101?text=Hi%2C%20I%27d%20like%20a%20free%20estimate.">WhatsApp</a>
+    <a class="btn btn-outline" href="mailto:electricalwinners@gmail.com"><svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg> Email Us</a>
+  </div>
+  <div class="contact-line">Serving Miami, Florida &nbsp;·&nbsp; <a href="mailto:electricalwinners@gmail.com">electricalwinners@gmail.com</a></div>
+</div></div>
+
+<footer><div class="wrap foot">
+  <div><strong style="color:#fff">David Vinales Electrician</strong> — Commercial &amp; Multifamily Electrical, Miami FL</div>
+  <div><a href="tel:+17863878101" style="color:var(--amber);font-weight:700">(786) 387-8101</a></div>
+</div></footer>
+
+<div class="mbar">
+  <a class="call" href="tel:+17863878101"><svg viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.13.96.36 1.9.7 2.8a2 2 0 0 1-.45 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.45c.9.34 1.84.57 2.8.7a2 2 0 0 1 1.7 2.05z"/></svg> Call Now</a>
+  <a class="wa" href="https://wa.me/17863878101?text=Hi%2C%20I%27d%20like%20a%20free%20estimate."><svg viewBox="0 0 24 24"><path d="M21 11.5a8.5 8.5 0 0 1-12.4 7.5L3 21l2-5.4A8.5 8.5 0 1 1 21 11.5z"/></svg> WhatsApp</a>
+</div>
+
+</body>
+</html>
