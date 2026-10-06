@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pure Drop Auto Detailing | Mobile Detailing & Pressure Washing in Broward & Miami-Dade</title>
+<meta name="description" content="Pure Drop Auto Detailing — certified mobile car detailing and pressure washing across Broward & Miami-Dade. We come to you. Book on WhatsApp.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"LocalBusiness","name":"Pure Drop Auto Detailing","description":"Certified mobile auto detailing and pressure washing service across Broward and Miami-Dade County.","telephone":"+1-786-320-3191","areaServed":["Broward County, FL","Miami-Dade County, FL"],"sameAs":["https://www.instagram.com/puredrop_autodetailing"],"priceRange":"$$"}
+</script>
+<style>
+:root{
+  --navy:#050b14; --navy2:#0a1424; --card:#0d1729; --line:rgba(148,184,226,.14);
+  --cyan:#38bdf8; --aqua:#22d3ee; --deep:#0369a1;
+  --ink:#eaf2fb; --mut:#9db1c9; --white:#fff;
+  --r:18px; --shadow:0 24px 60px -18px rgba(2,8,20,.7);
+  --font-d:'Sora',sans-serif; --font-b:'Inter',sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:var(--font-b);background:var(--navy);color:var(--ink);line-height:1.65;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1180px;margin:0 auto;padding:0 24px}
+h1,h2,h3{font-family:var(--font-d);line-height:1.12;letter-spacing:-.01em}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;font-family:var(--font-d);font-size:12px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--aqua)}
+.eyebrow::before{content:"";width:26px;height:2px;background:linear-gradient(90deg,var(--cyan),var(--aqua));border-radius:2px}
+.sec{padding:96px 0}
+.sec h2{font-size:clamp(30px,4.4vw,50px);font-weight:800;margin:14px 0 12px}
+.sec .lede{color:var(--mut);max-width:640px;font-size:17px}
+/* ---------- header ---------- */
+header{position:fixed;inset:0 0 auto 0;z-index:100;transition:background .3s,box-shadow .3s,border-color .3s;border-bottom:1px solid transparent}
+header.scrolled{background:rgba(5,11,20,.92);backdrop-filter:blur(14px);border-color:var(--line);box-shadow:0 10px 30px -12px rgba(0,0,0,.6)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:74px}
+.brand{display:flex;align-items:center;gap:11px;font-family:var(--font-d);font-weight:800;font-size:19px;letter-spacing:.04em}
+.brand .drop{width:34px;height:34px;border-radius:12px;background:linear-gradient(135deg,var(--cyan),var(--deep));display:grid;place-items:center;box-shadow:0 8px 22px -6px rgba(56,189,248,.55)}
+.brand small{display:block;font-size:10px;font-weight:600;letter-spacing:.28em;color:var(--mut)}
+.nav-links{display:flex;gap:30px;font-size:14.5px;font-weight:500;color:var(--mut)}
+.nav-links a:hover{color:var(--white)}
+.btn{display:inline-flex;align-items:center;gap:10px;font-family:var(--font-d);font-weight:700;font-size:15px;padding:14px 26px;border-radius:999px;border:0;cursor:pointer;transition:transform .2s,box-shadow .2s}
+.btn:hover{transform:translateY(-2px)}
+.btn-primary{background:linear-gradient(135deg,#38bdf8,#0284c7);color:#fff;box-shadow:0 14px 30px -10px rgba(56,189,248,.55)}
+.btn-ghost{background:rgba(255,255,255,.06);color:var(--white);border:1px solid var(--line)}
+.btn-wa{background:linear-gradient(135deg,#22c55e,#15803d);color:#fff;box-shadow:0 14px 30px -10px rgba(34,197,94,.5)}
+.burger{display:none;background:none;border:0;cursor:pointer;flex-direction:column;gap:5px;padding:8px}
+.burger span{width:24px;height:2.5px;background:#fff;border-radius:2px;transition:.3s}
+@media(max-width:900px){
+  .nav-links{position:fixed;top:74px;right:0;left:0;background:rgba(5,11,20,.97);backdrop-filter:blur(14px);flex-direction:column;padding:26px;gap:20px;border-bottom:1px solid var(--line);transform:translateY(-130%);transition:transform .35s}
+  .nav-links.open{transform:translateY(0)}
+  .burger{display:flex}
+  .nav .btn{display:none}
+}
+/* ---------- hero ---------- */
+.hero{position:relative;min-height:100svh;display:flex;align-items:center;padding:150px 0 90px;overflow:hidden}
+.hero-bg{position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1607860108855-64acf2078ed9?q=80&w=1800&auto=format&fit=crop') center/cover;filter:saturate(1.05)}
+.hero-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(100deg,rgba(4,9,18,.96) 20%,rgba(4,9,18,.72) 55%,rgba(4,9,18,.35))}
+.hero-wave{position:absolute;left:0;right:0;bottom:-1px;height:120px;color:var(--navy)}
+.hero-inner{position:relative;z-index:2;max-width:1180px;margin:0 auto;padding:0 24px;width:100%}
+.hero h1{font-size:clamp(40px,6.6vw,78px);font-weight:800;max-width:760px;margin:18px 0}
+.hero h1 .grad{background:linear-gradient(92deg,#7dd3fc,#22d3ee 60%,#a5f3fc);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p.sub{color:#c9d8ea;max-width:600px;font-size:18px;margin-bottom:34px}
+.hero-cta{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:44px}
+.hero-chips{display:flex;gap:12px;flex-wrap:wrap}
+.chip{display:inline-flex;align-items:center;gap:9px;font-size:13.5px;font-weight:600;color:#dbe7f5;background:rgba(255,255,255,.07);border:1px solid var(--line);padding:10px 16px;border-radius:999px;backdrop-filter:blur(6px)}
+.chip svg{width:16px;height:16px;stroke:var(--aqua)}
+/* ---------- trust strip ---------- */
+.trust{border-block:1px solid var(--line);background:var(--navy2)}
+.trust-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;padding:34px 0}
+.trust-item{display:flex;gap:14px;align-items:flex-start}
+.trust-item .ic{flex:0 0 46px;width:46px;height:46px;border-radius:14px;background:rgba(56,189,248,.12);border:1px solid rgba(56,189,248,.3);display:grid;place-items:center}
+.trust-item .ic svg{width:22px;height:22px;stroke:var(--cyan)}
+.trust-item b{display:block;font-family:var(--font-d);font-size:15.5px}
+.trust-item span{font-size:13.5px;color:var(--mut)}
+@media(max-width:900px){.trust-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:540px){.trust-grid{grid-template-columns:1fr}}
+/* ---------- services tabs ---------- */
+.tabs{display:flex;gap:12px;margin:34px 0 30px;flex-wrap:wrap}
+.tab{font-family:var(--font-d);font-weight:700;font-size:15px;padding:13px 26px;border-radius:999px;border:1px solid var(--line);background:rgba(255,255,255,.04);color:var(--mut);cursor:pointer;transition:.25s;display:inline-flex;align-items:center;gap:10px}
+.tab svg{width:18px;height:18px;stroke:currentColor}
+.tab.active{background:linear-gradient(135deg,#38bdf8,#0284c7);color:#fff;border-color:transparent;box-shadow:0 12px 26px -10px rgba(56,189,248,.55)}
+.tab:not(.active):hover{color:#fff;border-color:rgba(56,189,248,.4)}
+.panel{display:none}
+.panel.active{display:block;animation:fadeUp .45s ease}
+@keyframes fadeUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+@media(max-width:900px){.cards{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){.cards{grid-template-columns:1fr}}
+.card{background:linear-gradient(180deg,var(--card),#0a1222);border:1px solid var(--line);border-radius:var(--r);padding:30px 26px;transition:transform .25s,border-color .25s,box-shadow .25s;position:relative;overflow:hidden}
+.card::before{content:"";position:absolute;inset:0 0 auto 0;height:3px;background:linear-gradient(90deg,var(--cyan),transparent);opacity:0;transition:.25s}
+.card:hover{transform:translateY(-6px);border-color:rgba(56,189,248,.45);box-shadow:var(--shadow)}
+.card:hover::before{opacity:1}
+.card .ic{width:52px;height:52px;border-radius:15px;background:rgba(56,189,248,.12);border:1px solid rgba(56,189,248,.3);display:grid;place-items:center;margin-bottom:18px}
+.card .ic svg{width:25px;height:25px;stroke:var(--cyan)}
+.card h3{font-size:19px;margin-bottom:8px}
+.card p{font-size:14.5px;color:var(--mut);margin-bottom:16px}
+.card .book{font-family:var(--font-d);font-weight:700;font-size:14px;color:var(--aqua);display:inline-flex;align-items:center;gap:8px}
+.card .book:hover{gap:12px}
+.tab-note{margin-top:22px;font-size:14px;color:var(--mut);background:rgba(56,189,248,.07);border:1px dashed rgba(56,189,248,.35);border-radius:14px;padding:16px 20px}
+/* ---------- process ---------- */
+.process{background:var(--navy2);border-block:1px solid var(--line)}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:40px;counter-reset:step}
+@media(max-width:800px){.steps{grid-template-columns:1fr}}
+.step{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:32px 28px;position:relative}
+.step .n{font-family:var(--font-d);font-size:15px;font-weight:800;color:var(--navy);background:linear-gradient(135deg,var(--cyan),var(--aqua));width:44px;height:44px;border-radius:50%;display:grid;place-items:center;margin-bottom:18px;box-shadow:0 10px 24px -8px rgba(56,189,248,.6)}
+.step h3{font-size:19px;margin-bottom:8px}
+.step p{font-size:14.5px;color:var(--mut)}
+/* ---------- results ---------- */
+.results-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:40px}
+@media(max-width:900px){.results-grid{grid-template-columns:1fr}}
+.result{border-radius:var(--r);overflow:hidden;border:1px solid var(--line);background:var(--card);transition:transform .25s}
+.result:hover{transform:translateY(-6px)}
+.result .ph{height:210px;background-size:cover;background-position:center;position:relative}
+.result .ph::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(5,11,20,.85))}
+.result .badge{position:absolute;z-index:2;top:14px;left:14px;font-family:var(--font-d);font-size:11.5px;font-weight:800;letter-spacing:.14em;background:rgba(5,11,20,.7);border:1px solid rgba(56,189,248,.5);color:var(--aqua);padding:7px 13px;border-radius:999px;backdrop-filter:blur(6px)}
+.result .tx{padding:22px 24px 26px}
+.result .tx p{font-size:15px;color:#d7e3f2;font-style:italic}
+.result .tx span{display:block;margin-top:10px;font-size:13px;color:var(--mut);font-style:normal}
+/* ---------- areas ---------- */
+.areas{background:linear-gradient(180deg,var(--navy2),var(--navy));border-block:1px solid var(--line);text-align:center}
+.area-pills{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin:30px 0 18px}
+.area-pills span{font-family:var(--font-d);font-weight:700;font-size:15px;padding:12px 24px;border-radius:999px;background:rgba(56,189,248,.1);border:1px solid rgba(56,189,248,.35);color:#d9ecfd}
+.areas .van{display:inline-flex;align-items:center;gap:10px;color:var(--mut);font-size:15px}
+.areas .van svg{width:20px;height:20px;stroke:var(--aqua)}
+/* ---------- faq ---------- */
+.faq-list{margin-top:36px;max-width:780px}
+.faq{border:1px solid var(--line);border-radius:14px;margin-bottom:12px;background:var(--card);overflow:hidden}
+.faq button{width:100%;background:none;border:0;color:var(--ink);font-family:var(--font-d);font-weight:700;font-size:16px;text-align:left;padding:20px 22px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:16px}
+.faq button .pl{flex:0 0 30px;width:30px;height:30px;border-radius:50%;border:1px solid rgba(56,189,248,.4);display:grid;place-items:center;font-size:18px;color:var(--aqua);transition:.3s}
+.faq.open button .pl{transform:rotate(45deg);background:rgba(56,189,248,.15)}
+.faq .ans{max-height:0;overflow:hidden;transition:max-height .35s ease;color:var(--mut);font-size:15px}
+.faq .ans div{padding:0 22px 22px}
+/* ---------- final cta ---------- */
+.final{padding:110px 0}
+.cta-box{position:relative;border-radius:28px;overflow:hidden;border:1px solid rgba(56,189,248,.35);background:linear-gradient(120deg,#0a1a30,#06283f 55%,#0a1a30);padding:70px 40px;text-align:center;box-shadow:var(--shadow)}
+.cta-box::before{content:"";position:absolute;width:520px;height:520px;border-radius:50%;background:radial-gradient(circle,rgba(56,189,248,.22),transparent 65%);top:-200px;right:-140px}
+.cta-box h2{font-size:clamp(30px,4.6vw,52px);position:relative}
+.cta-box p{color:#c4d6ea;max-width:560px;margin:16px auto 32px;position:relative}
+.cta-box .row{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;position:relative}
+.cta-box .fine{margin-top:22px;font-size:13px;color:var(--mut);position:relative}
+/* ---------- footer ---------- */
+footer{border-top:1px solid var(--line);background:#04080f;padding:54px 0 30px}
+.foot{display:flex;justify-content:space-between;gap:30px;flex-wrap:wrap;margin-bottom:34px}
+.foot .col h4{font-family:var(--font-d);font-size:14px;letter-spacing:.14em;text-transform:uppercase;color:var(--mut);margin-bottom:14px}
+.foot .col a,.foot .col p{display:block;font-size:14.5px;color:#c4d2e4;margin-bottom:9px}
+.foot .col a:hover{color:var(--aqua)}
+.copy{border-top:1px solid var(--line);padding-top:24px;display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;font-size:13px;color:var(--mut)}
+/* ---------- floating wa ---------- */
+.wa-float{position:fixed;right:22px;bottom:22px;z-index:90;width:60px;height:60px;border-radius:50%;background:linear-gradient(135deg,#25d366,#128c4b);display:grid;place-items:center;box-shadow:0 16px 34px -8px rgba(37,211,102,.6);transition:transform .2s}
+.wa-float:hover{transform:scale(1.08)}
+.wa-float svg{width:30px;height:30px;fill:#fff}
+/* ---------- reveal ---------- */
+.rv{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s ease}
+.rv.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
+@media(max-width:640px){.sec{padding:70px 0}.hero{padding-top:130px}}
+</style>
+</head>
+<body>
+
+<header id="hdr">
+  <div class="wrap nav">
+    <a class="brand" href="#top" aria-label="Pure Drop home">
+      <span class="drop"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 2.7s6.5 7.1 6.5 11.3a6.5 6.5 0 1 1-13 0C5.5 9.8 12 2.7 12 2.7z" fill="#fff" opacity=".95"/></svg></span>
+      <span>PURE DROP<small>AUTO DETAILING</small></span>
+    </a>
+    <nav class="nav-links" id="navLinks">
+      <a href="#services">Services</a><a href="#process">How it works</a><a href="#results">Results</a><a href="#areas">Areas</a><a href="#faq">FAQ</a>
+    </nav>
+    <a class="btn btn-primary" href="https://wa.me/17863203191?text=Hi%20Pure%20Drop!%20I%27d%20like%20a%20free%20quote." target="_blank" rel="noopener">Get a Quote</a>
+    <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<section class="hero" id="top">
+  <div class="hero-bg"></div>
+  <svg class="hero-wave" viewBox="0 0 1440 120" preserveAspectRatio="none"><path fill="currentColor" d="M0,64 C240,110 480,20 720,54 C960,88 1200,110 1440,60 L1440,120 L0,120 Z"/></svg>
+  <div class="hero-inner">
+    <span class="eyebrow">Mobile detailing + pressure washing — Broward &amp; Miami-Dade</span>
+    <h1>One team. Two services. <span class="grad">Zero dirt left behind.</span></h1>
+    <p class="sub">Certified mobile car detailing and professional pressure washing. We come to you — your driveway, your home, your business — across Broward &amp; Miami-Dade County.</p>
+    <div class="hero-cta">
+      <a class="btn btn-wa" href="https://wa.me/17863203191?text=Hi%20Pure%20Drop!%20I%27d%20like%20a%20free%20quote." target="_blank" rel="noopener">Book on WhatsApp</a>
+      <a class="btn btn-ghost" href="#services">Explore services</a>
+    </div>
+    <div class="hero-chips">
+      <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Certified &amp; professional crew</span>
+      <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>We come to you — 100% mobile</span>
+      <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>10.7K Instagram community</span>
+    </div>
+  </div>
+</section>
+
+<div class="trust">
+  <div class="wrap trust-grid">
+    <div class="trust-item rv"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M12 2.7s6.5 7.1 6.5 11.3a6.5 6.5 0 1 1-13 0C5.5 9.8 12 2.7 12 2.7z"/></svg></span><div><b>Two services, one call</b><span>Detailing for your car, pressure washing for your property.</span></div></div>
+    <div class="trust-item rv"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></span><div><b>Mobile convenience</b><span>We bring everything to your location. You don't move.</span></div></div>
+    <div class="trust-item rv"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.2 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8z"/></svg></span><div><b>Certified quality</b><span>Professionally trained crew. Guaranteed quality work.</span></div></div>
+    <div class="trust-item rv"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M12 21s-7-5.5-7-11a7 7 0 1 1 14 0c0 5.5-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></span><div><b>Local &amp; trusted</b><span>Serving Broward &amp; Miami-Dade, from Weston to Doral.</span></div></div>
+  </div>
+</div>
+
+<section class="sec" id="services">
+  <div class="wrap">
+    <span class="eyebrow rv">What we do</span>
+    <h2 class="rv">Pick your service.<br>We handle the rest.</h2>
+    <p class="lede rv">From a showroom-shine detail to a full property refresh — one certified crew, premium products, and results that speak for themselves.</p>
+    <div class="tabs rv" role="tablist">
+      <button class="tab active" data-tab="detailing" role="tab"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M5 17h14M7 17l1.5-5h7L17 17M9 20a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zm9 0a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zM4 12l2-5h12l2 5"/></svg>Auto Detailing</button>
+      <button class="tab" data-tab="pressure" role="tab"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M12 2.7s6.5 7.1 6.5 11.3a6.5 6.5 0 1 1-13 0C5.5 9.8 12 2.7 12 2.7z"/></svg>Pressure Washing</button>
+    </div>
+
+    <div class="panel active" id="panel-detailing">
+      <div class="cards">
+        <div class="card rv"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M5 17h14M7 17l1.5-5h7L17 17M4 12l2-5h12l2 5"/></svg></span><h3>Premium Wash</h3><p>A meticulous hand wash that brings back the clean, fresh look — inside attention to every panel, wheel and trim.</p><a class="book" href="https://wa.me/17863203191?text=Hi%20Pure%20Drop!%20I%27d%20like%20a%20quote%20for%20a%20Premium%20Wash." target="_blank" rel="noopener">Book this →</a></div>
+        <div class="card rv"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M12 3l1.8 4.6L18 9l-4.2 1.4L12 15l-1.8-4.6L6 9l4.2-1.4zM19 15l.9 2.1L22 18l-2.1.9L19 21l-.9-2.1L16 18l2.1-.9z"/></svg></span><h3>Full Detailing</h3><p>Complete interior + exterior transformation with high-quality products. Every detail matters — and it shows.</p><a class="book" href="https://wa.me/17863203191?text=Hi%20Pure%20Drop!%20I%27d%20like%20a%20quote%20for%20a%20Full%20Detailing." target="_blank" rel="noopener">Book this →</a></div>
+        <div class="card rv"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.2 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8z"/></svg></span><h3>Ceramic Coating</h3><p>Long-lasting protection and deep gloss that keeps your paint looking new — and makes maintenance effortless.</p><a class="book" href="https://wa.me/17863203191?text=Hi%20Pure%20Drop!%20I%27d%20like%20a%20quote%20for%20Ceramic%20Coating." target="_blank" rel="noopener">Book this →</a></div>
+        <div class="card rv"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M14 7l-5 5 5 5M20 7l-5 5 5 5"/></svg></span><h3>Engine Bay Detail</h3><p>A careful, professional engine wash with quality products — clean, dressed and detailed under the hood.</p><a class="book" href="https://wa.me/17863203191?text=Hi%20Pure%20Drop!%20I%27d%20like%20a%20quote%20for%20an%20Engine%20Bay%20Detail." target="_blank" rel="noopener">Book this →</a></div>
+        <div class="card rv"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.5 2.5L16 9.5"/></svg></span><h3>Paint Correction</h3><p>We remove swirls and oxidation to restore depth and clarity — the difference is not subtle.</p><a class="book" href="https://wa.me/17863203191?text=Hi%20Pure%20Drop!%20I%27d%20like%20a%20quote%20for%20Paint%20Correction." target="_blank" rel="noopener">Book this →</a></div>
+        <div class="card rv"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M12 21s-7-5.5-7-11a7 7 0 1 1 14 0c0 5.5-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></span><h3>100% Mobile Service</h3><p>Home, office or anywhere in between — we bring water, power and pro equipment to your door.</p><a class="book" href="https://wa.me/17863203191?text=Hi%20Pure%20Drop!%20I%27d%20like%20to%20book%20a%20mobile%20detailing%20appointment." target="_blank" rel="noopener">Book this →</a></div>
+      </div>
+    </div>
+
+    <div class="panel" id="panel-pressure">
+      <div class="cards">
+        <div class="card rv"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M4 18h16M6 18V9l6-5 6 5v9"/></svg></span><h3>Driveways &amp; Walkways</h3><p>Years of grime, oil and mildew gone in one visit. Your concrete looks new again.</p><a class="book" href="https://wa.me/17863203191?text=Hi%20Pure%20Drop!%20I%27d%20like%20a%20quote%20for%20pressure%20washing%20my%20driveway." target="_blank" rel="noopener">Book this →</a></div>
+        <div class="card rv"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M3 11l9-7 9 7M5 10v10h5v-6h4v6h5V10"/></svg></span><h3>House Exteriors</h3><p>Soft, safe washing for siding, stucco and walls — instant curb appeal, zero damage.</p><a class="book" href="https://wa.me/17863203191?text=Hi%20Pure%20Drop!%20I%27d%20like%20a%20quote%20for%20pressure%20washing%20my%20home%20exterior." target="_blank" rel="noopener">Book this →</a></div>
+        <div class="card rv"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 3v18M3 12h18"/></svg></span><h3>Patios &amp; Pool Decks</h3><p>Slippery buildup and stains removed — reclaim your outdoor space for the season.</p><a class="book" href="https://wa.me/17863203191?text=Hi%20Pure%20Drop!%20I%27d%20like%20a%20quote%20for%20pressure%20washing%20my%20patio." target="_blank" rel="noopener">Book this →</a></div>
+        <div class="card rv"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M4 20V8l8-4 8 4v12M4 20h16"/></svg></span><h3>Fences &amp; Outdoor Areas</h3><p>Fences, walls and outdoor surfaces restored to a clean, uniform finish.</p><a class="book" href="https://wa.me/17863203191?text=Hi%20Pure%20Drop!%20I%27d%20like%20a%20quote%20for%20pressure%20washing." target="_blank" rel="noopener">Book this →</a></div>
+        <div class="card rv"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M3 7h18v10H3zM8 21h8"/></svg></span><h3>Commercial Properties</h3><p>Storefronts and business exteriors that make the right first impression on customers.</p><a class="book" href="https://wa.me/17863203191?text=Hi%20Pure%20Drop!%20I%27d%20like%20a%20quote%20for%20commercial%20pressure%20washing." target="_blank" rel="noopener">Book this →</a></div>
+        <div class="card rv"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M21 12a8 8 0 1 1-3.2-6.4M21 4v5h-5"/></svg></span><h3>Not sure? Ask us</h3><p>Every property is different. Send photos on WhatsApp and get an exact quote — free.</p><a class="book" href="https://wa.me/17863203191?text=Hi%20Pure%20Drop!%20I%27d%20like%20a%20free%20quote%20for%20pressure%20washing." target="_blank" rel="noopener">Ask now →</a></div>
+      </div>
+      <p class="tab-note">Every surface and stain is different — message us photos on WhatsApp and we'll give you an exact, no-pressure quote.</p>
+    </div>
+  </div>
+</section>
+
+<section class="sec process" id="process">
+  <div class="wrap">
+    <span class="eyebrow rv">How it works</span>
+    <h2 class="rv">You don't move.<br>We do.</h2>
+    <p class="lede rv">Booking takes less than a minute. Everything else happens at your location.</p>
+    <div class="steps">
+      <div class="step rv"><span class="n">1</span><h3>Message us on WhatsApp</h3><p>Tell us what you need — your car, your driveway, or both. Send photos for the most accurate quote.</p></div>
+      <div class="step rv"><span class="n">2</span><h3>We come to you</h3><p>Our certified crew arrives with water, power and professional-grade products anywhere in Broward &amp; Miami-Dade.</p></div>
+      <div class="step rv"><span class="n">3</span><h3>Enjoy the results</h3><p>Before ➜ after. The results speak for themselves — guaranteed quality work, every time.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="results">
+  <div class="wrap">
+    <span class="eyebrow rv">The proof</span>
+    <h2 class="rv">The results speak<br>for themselves.</h2>
+    <p class="lede rv">No need to say much — every detail counts, and it shows in the finish.</p>
+    <div class="results-grid">
+      <div class="result rv"><div class="ph" style="background-image:url('https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=900&auto=format&fit=crop')" onerror="this.style.display='none'"><span class="badge">BEFORE ➜ AFTER</span></div><div class="tx"><p>"From accumulated grime to a clean, glossy, renewed finish."</p><span>Full detailing — mobile service</span></div></div>
+      <div class="result rv"><div class="ph" style="background-image:url('https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?q=80&w=900&auto=format&fit=crop')"><span class="badge">PAINT REVIVAL</span></div><div class="tx"><p>"Every detail matters. We bring the clean, polished look your car deserves."</p><span>Paint correction &amp; ceramic coating</span></div></div>
+      <div class="result rv"><div class="ph" style="background-image:url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?q=80&w=900&auto=format&fit=crop')"><span class="badge">SHOWROOM SHINE</span></div><div class="tx"><p>"Bringing back that clean, fresh, detailed look your vehicle deserves."</p><span>Premium wash — book on WhatsApp</span></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec areas" id="areas">
+  <div class="wrap">
+    <span class="eyebrow rv" style="justify-content:center">Service area</span>
+    <h2 class="rv">Proudly mobile across<br>two counties.</h2>
+    <div class="area-pills rv"><span>Broward County</span><span>Miami-Dade County</span></div>
+    <p class="lede rv" style="margin:0 auto">Including Weston, Doral, Miami and surrounding areas.</p>
+    <p class="van rv" style="justify-content:center;margin-top:18px"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M3 7h11v9H3zM14 10h4l4 4v2h-8zM7 20a1.8 1.8 0 1 0 0-3.6A1.8 1.8 0 0 0 7 20zm11 0a1.8 1.8 0 1 0 0-3.6 1.8 1.8 0 0 0 0 3.6z"/></svg>Fully equipped mobile unit — water, power &amp; pro products on board.</p>
+  </div>
+</section>
+
+<section class="sec" id="faq" style="padding-top:80px">
+  <div class="wrap">
+    <span class="eyebrow rv">FAQ</span>
+    <h2 class="rv">Questions, answered.</h2>
+    <div class="faq-list">
+      <div class="faq rv"><button>Do you come to my location?<span class="pl">+</span></button><div class="ans"><div>Yes — we're 100% mobile. Our crew comes to your home, office or business anywhere in Broward &amp; Miami-Dade with everything needed on board.</div></div></div>
+      <div class="faq rv"><button>How do I book an appointment?<span class="pl">+</span></button><div class="ans"><div>Just message us on WhatsApp at (786) 320-3191. Tell us what you need — photos help us give you the most accurate quote, fast.</div></div></div>
+      <div class="faq rv"><button>Do you do both cars and properties?<span class="pl">+</span></button><div class="ans"><div>That's our thing. One certified crew handles auto detailing (washes, full details, ceramic coating, paint correction) and pressure washing for homes and businesses.</div></div></div>
+      <div class="faq rv"><button>How do I get an exact price?<span class="pl">+</span></button><div class="ans"><div>Every vehicle and property is different. Send us a few photos on WhatsApp and we'll reply with an exact, no-pressure quote — free.</div></div></div>
+      <div class="faq rv"><button>Are you certified?<span class="pl">+</span></button><div class="ans"><div>Yes. We're certified and professionally prepared — with us you get guaranteed, quality work on every job.</div></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="final">
+  <div class="wrap">
+    <div class="cta-box rv">
+      <h2>Ready when you are.<br>We come to you.</h2>
+      <p>Message us today for a free quote — car, driveway, or the whole property. One WhatsApp message is all it takes.</p>
+      <div class="row">
+        <a class="btn btn-wa" href="https://wa.me/17863203191?text=Hi%20Pure%20Drop!%20I%27d%20like%20a%20free%20quote." target="_blank" rel="noopener">Get my free quote</a>
+        <a class="btn btn-ghost" href="https://www.instagram.com/puredrop_autodetailing" target="_blank" rel="noopener">See our work on Instagram</a>
+      </div>
+      <p class="fine">WhatsApp (786) 320-3191 · Broward &amp; Miami-Dade · Se habla español</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div class="col">
+        <a class="brand" href="#top"><span class="drop"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 2.7s6.5 7.1 6.5 11.3a6.5 6.5 0 1 1-13 0C5.5 9.8 12 2.7 12 2.7z" fill="#fff" opacity=".95"/></svg></span><span>PURE DROP<small>AUTO DETAILING</small></span></a>
+        <p style="margin-top:12px;max-width:280px">Certified mobile detailing &amp; pressure washing across Broward &amp; Miami-Dade.</p>
+      </div>
+      <div class="col"><h4>Services</h4><a href="#services">Auto Detailing</a><a href="#services">Pressure Washing</a><a href="#services">Ceramic Coating</a><a href="#services">Paint Correction</a></div>
+      <div class="col"><h4>Contact</h4><a href="https://wa.me/17863203191" target="_blank" rel="noopener">WhatsApp (786) 320-3191</a><a href="https://www.instagram.com/puredrop_autodetailing" target="_blank" rel="noopener">Instagram @puredrop_autodetailing</a><p>Broward &amp; Miami-Dade, FL</p></div>
+    </div>
+    <div class="copy"><span>© <span id="yr"></span> Pure Drop Auto Detailing. All rights reserved.</span><span>Design concept preview.</span></div>
+  </div>
+</footer>
+
+<a class="wa-float" href="https://wa.me/17863203191?text=Hi%20Pure%20Drop!%20I%27d%20like%20a%20free%20quote." target="_blank" rel="noopener" aria-label="Chat on WhatsApp"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.6-6.1c-.3-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1-.2.3-.6.8-.8 1-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4 0-.5.1-.7l.4-.5c.1-.2.1-.3 0-.5l-.8-1.9c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.2-.7.3-.9.9-1.1 2.2-.2 3.9a11.6 11.6 0 0 0 4.5 4.2c1.7.8 2.4.9 3.2.7.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2 0-.1-.2-.1-.4-.2z"/></svg></a>
+
+<script>
+(function(){
+  var hdr=document.getElementById('hdr');
+  addEventListener('scroll',function(){hdr.classList.toggle('scrolled',scrollY>40)},{passive:true});
+  hdr.classList.toggle('scrolled',scrollY>40);
+  var burger=document.getElementById('burger'),links=document.getElementById('navLinks');
+  burger.addEventListener('click',function(){links.classList.toggle('open')});
+  links.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){links.classList.remove('open')})});
+  document.querySelectorAll('.tab').forEach(function(t){
+    t.addEventListener('click',function(){
+      document.querySelectorAll('.tab').forEach(function(x){x.classList.remove('active')});
+      document.querySelectorAll('.panel').forEach(function(x){x.classList.remove('active')});
+      t.classList.add('active');
+      document.getElementById('panel-'+t.dataset.tab).classList.add('active');
+    });
+  });
+  document.querySelectorAll('.faq').forEach(function(f){
+    var btn=f.querySelector('button'),ans=f.querySelector('.ans');
+    btn.addEventListener('click',function(){
+      var open=f.classList.contains('open');
+      document.querySelectorAll('.faq.open').forEach(function(o){o.classList.remove('open');o.querySelector('.ans').style.maxHeight=null});
+      if(!open){f.classList.add('open');ans.style.maxHeight=ans.scrollHeight+'px'}
+    });
+  });
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12});
+  document.querySelectorAll('.rv').forEach(function(el){io.observe(el)});
+  document.getElementById('yr').textContent=new Date().getFullYear();
+  document.querySelectorAll('img').forEach(function(img){
+    img.addEventListener('error',function(){img.style.display='none'});
+  });
+})();
+</script>
+</body>
+</html>

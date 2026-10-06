@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>La Perla Med Spa | Estética & Bienestar en Miami</title>
+<meta name="description" content="La Perla Med Spa — Miami Aesthetics & Wellness. Faciales personalizados, depilación láser, microneedling, botox, fillers y bienestar integral. Fundado por Iraida Pozo, LMHC. 7811 Coral Way, Miami.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"MedicalBusiness","name":"La Perla Med Spa","description":"Miami Aesthetics & Wellness. Facials, laser hair removal, microneedling, botox, fillers and wellness.","address":{"@type":"PostalAddress","streetAddress":"7811 Coral Way Suite 130","addressLocality":"Miami","addressRegion":"FL","postalCode":"33155","addressCountry":"US"},"telephone":"+1-786-601-3877","email":"laperlamedcenter@gmail.com","founder":{"@type":"Person","name":"Iraida Pozo"},"sameAs":["https://www.instagram.com/laperlamedspa"]}
+</script>
+<style>
+:root{
+  --ivory:#FAF7F1; --pearl:#F4EEE3; --blush:#F1E3D8;
+  --gold:#C19A5F; --gold-deep:#A8824A; --gold-soft:#E8D5B5;
+  --ink:#2C251D; --taupe:#7E6F5E; --line:#E7DCCB;
+  --white:#FFFFFF;
+  --serif:'Cormorant Garamond',Georgia,serif;
+  --sans:'Jost',-apple-system,'Segoe UI',sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);color:var(--ink);background:var(--ivory);line-height:1.7;font-weight:300;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{text-decoration:none;color:inherit}
+.container{max-width:1180px;margin:0 auto;padding:0 24px}
+.eyebrow{font-size:.72rem;letter-spacing:.32em;text-transform:uppercase;color:var(--gold-deep);font-weight:500;margin-bottom:18px}
+h1,h2,h3{font-family:var(--serif);font-weight:500;line-height:1.15}
+/* ---------- header ---------- */
+header{position:fixed;top:0;left:0;right:0;z-index:100;transition:background .35s,box-shadow .35s;padding:20px 0}
+header.scrolled{background:rgba(250,247,241,.96);backdrop-filter:blur(12px);box-shadow:0 2px 24px rgba(44,37,29,.08);padding:12px 0}
+.nav{display:flex;align-items:center;justify-content:space-between}
+.brand{display:flex;align-items:center;gap:12px}
+.brand .pearl{width:34px;height:34px;border-radius:50%;background:radial-gradient(circle at 32% 30%,#fffdf8 0%,#f3e9d6 38%,#dcc49c 72%,#b8935a 100%);box-shadow:0 4px 14px rgba(184,147,90,.4), inset -3px -4px 8px rgba(120,90,50,.25)}
+.brand .word{font-family:var(--serif);font-size:1.5rem;letter-spacing:.14em;font-weight:600}
+.brand .word small{display:block;font-family:var(--sans);font-size:.58rem;letter-spacing:.42em;color:var(--taupe);font-weight:400;margin-top:2px}
+.nav-links{display:flex;gap:34px;list-style:none;font-size:.82rem;letter-spacing:.18em;text-transform:uppercase;font-weight:400}
+.nav-links a{position:relative;padding:4px 0}
+.nav-links a::after{content:'';position:absolute;left:0;bottom:0;width:0;height:1px;background:var(--gold-deep);transition:width .3s}
+.nav-links a:hover::after{width:100%}
+.btn{display:inline-block;font-family:var(--sans);font-size:.8rem;letter-spacing:.22em;text-transform:uppercase;font-weight:500;padding:15px 34px;border-radius:999px;transition:transform .25s,box-shadow .25s,background .25s;cursor:pointer;border:1px solid transparent}
+.btn-gold{background:linear-gradient(135deg,var(--gold) 0%,var(--gold-deep) 100%);color:#fff;box-shadow:0 10px 28px rgba(168,130,74,.35)}
+.btn-gold:hover{transform:translateY(-2px);box-shadow:0 16px 34px rgba(168,130,74,.45)}
+.btn-outline{border-color:var(--ink);color:var(--ink);background:transparent}
+.btn-outline:hover{background:var(--ink);color:var(--ivory);transform:translateY(-2px)}
+.btn-light{border-color:rgba(255,255,255,.7);color:#fff}
+.btn-light:hover{background:#fff;color:var(--ink);transform:translateY(-2px)}
+.burger{display:none;background:none;border:0;cursor:pointer;flex-direction:column;gap:6px;padding:8px}
+.burger span{width:26px;height:2px;background:var(--ink);transition:.3s}
+/* ---------- hero ---------- */
+.hero{min-height:100svh;display:flex;align-items:center;position:relative;color:#fff;overflow:hidden}
+.hero-bg{position:absolute;inset:0}
+.hero-bg img{width:100%;height:100%;object-fit:cover}
+.hero-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(100deg,rgba(30,24,17,.82) 0%,rgba(30,24,17,.55) 45%,rgba(30,24,17,.18) 100%)}
+.hero-inner{position:relative;z-index:2;max-width:1180px;margin:0 auto;padding:140px 24px 90px;width:100%}
+.hero .eyebrow{color:var(--gold-soft)}
+.hero h1{font-size:clamp(2.9rem,6.4vw,5.2rem);max-width:640px;font-weight:500}
+.hero h1 em{font-style:italic;color:var(--gold-soft)}
+.hero p.lead{font-size:1.12rem;max-width:520px;margin:24px 0 36px;color:rgba(255,255,255,.88);font-weight:300}
+.hero-ctas{display:flex;gap:16px;flex-wrap:wrap}
+.hero-proof{display:flex;gap:38px;margin-top:56px;flex-wrap:wrap}
+.hero-proof div strong{font-family:var(--serif);font-size:1.5rem;display:block;font-weight:600}
+.hero-proof div span{font-size:.74rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.7)}
+.scroll-hint{position:absolute;bottom:26px;left:50%;transform:translateX(-50%);z-index:2;color:rgba(255,255,255,.65);font-size:.68rem;letter-spacing:.34em;text-transform:uppercase;animation:float 2.6s ease-in-out infinite}
+@keyframes float{0%,100%{transform:translate(-50%,0)}50%{transform:translate(-50%,10px)}}
+/* ---------- marquee ---------- */
+.marquee{background:var(--ink);color:var(--gold-soft);overflow:hidden;padding:16px 0;white-space:nowrap}
+.marquee span{font-family:var(--serif);font-size:1.15rem;letter-spacing:.24em;text-transform:uppercase;margin:0 26px;display:inline-block}
+.marquee .dot{color:var(--gold);font-size:.8rem;vertical-align:middle}
+/* ---------- sections ---------- */
+section{padding:110px 0}
+.sec-head{text-align:center;max-width:640px;margin:0 auto 64px}
+.sec-head h2{font-size:clamp(2rem,4.4vw,3.1rem);margin-bottom:16px}
+.sec-head p{color:var(--taupe);font-size:1.05rem}
+.alt{background:var(--pearl)}
+/* treatments */
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.card{background:var(--white);border-radius:22px;overflow:hidden;box-shadow:0 14px 40px rgba(44,37,29,.07);transition:transform .35s,box-shadow .35s;display:flex;flex-direction:column}
+.card:hover{transform:translateY(-8px);box-shadow:0 24px 54px rgba(44,37,29,.13)}
+.card .ph{height:230px;overflow:hidden;position:relative;background:linear-gradient(135deg,var(--blush),var(--gold-soft))}
+.card .ph img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
+.card:hover .ph img{transform:scale(1.06)}
+.card .tag{position:absolute;top:16px;left:16px;background:rgba(255,255,255,.92);font-size:.66rem;letter-spacing:.22em;text-transform:uppercase;padding:7px 14px;border-radius:999px;color:var(--gold-deep);font-weight:500}
+.card .body{padding:30px 28px 34px;display:flex;flex-direction:column;flex:1}
+.card h3{font-size:1.55rem;margin-bottom:10px}
+.card p{color:var(--taupe);font-size:.95rem;flex:1}
+.card .link{margin-top:18px;font-size:.76rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold-deep);font-weight:500}
+/* difference */
+.diff{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center}
+.diff .imgwrap{border-radius:26px;overflow:hidden;box-shadow:0 30px 70px rgba(44,37,29,.16);position:relative}
+.diff .imgwrap img{height:560px;width:100%;object-fit:cover}
+.diff .badge{position:absolute;bottom:24px;left:24px;right:24px;background:rgba(250,247,241,.94);backdrop-filter:blur(8px);border-radius:18px;padding:20px 24px;font-family:var(--serif);font-style:italic;font-size:1.15rem;line-height:1.5}
+.pillar{display:flex;gap:20px;margin-bottom:30px}
+.pillar .n{flex:0 0 52px;height:52px;border-radius:50%;background:linear-gradient(135deg,var(--gold-soft),var(--gold));display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:1.3rem;color:#fff;font-weight:600;box-shadow:0 8px 20px rgba(168,130,74,.35)}
+.pillar h3{font-size:1.35rem;margin-bottom:6px}
+.pillar p{color:var(--taupe);font-size:.96rem}
+/* founder */
+.founder{background:linear-gradient(120deg,#241c12 0%,#3a2c1a 55%,#241c12 100%);color:#f4ede1;border-radius:34px;padding:80px 70px;display:grid;grid-template-columns:1fr 1.4fr;gap:60px;align-items:center;position:relative;overflow:hidden}
+.founder::before{content:'';position:absolute;width:480px;height:480px;border-radius:50%;background:radial-gradient(circle,rgba(193,154,95,.28) 0%,transparent 70%);top:-160px;right:-120px}
+.founder .monogram{width:190px;height:190px;border-radius:50%;margin:0 auto;background:radial-gradient(circle at 34% 30%,#fffdf8 0%,#f0e4cd 40%,#d9bf94 75%,#b8935a 100%);display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:3.4rem;color:#5c4526;box-shadow:0 20px 50px rgba(0,0,0,.35), inset -8px -10px 22px rgba(120,90,50,.3);position:relative;z-index:1}
+.founder h2{font-size:clamp(1.9rem,3.6vw,2.7rem);margin-bottom:8px;position:relative;z-index:1}
+.founder .role{color:var(--gold-soft);letter-spacing:.28em;text-transform:uppercase;font-size:.74rem;margin-bottom:22px;position:relative;z-index:1}
+.founder p{color:rgba(244,237,225,.82);margin-bottom:16px;position:relative;z-index:1}
+.founder .note{margin-top:26px;padding:18px 22px;border:1px solid rgba(193,154,95,.45);border-radius:16px;font-size:.92rem;color:var(--gold-soft);position:relative;z-index:1}
+/* process */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;counter-reset:step}
+.step{background:var(--white);border-radius:20px;padding:38px 28px;box-shadow:0 12px 34px rgba(44,37,29,.06);position:relative;overflow:hidden}
+.step::before{counter-increment:step;content:"0" counter(step);font-family:var(--serif);font-size:3.4rem;color:var(--gold-soft);line-height:1;display:block;margin-bottom:14px}
+.step h3{font-size:1.3rem;margin-bottom:8px}
+.step p{color:var(--taupe);font-size:.93rem}
+/* faq */
+.faq{max-width:760px;margin:0 auto}
+.faq-item{border-bottom:1px solid var(--line)}
+.faq-q{width:100%;background:none;border:0;display:flex;justify-content:space-between;align-items:center;padding:24px 4px;cursor:pointer;font-family:var(--serif);font-size:1.3rem;color:var(--ink);text-align:left}
+.faq-q .plus{font-size:1.8rem;color:var(--gold-deep);transition:transform .3s;line-height:1}
+.faq-item.open .faq-q .plus{transform:rotate(45deg)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .4s ease;color:var(--taupe);font-size:.97rem}
+.faq-a p{padding:0 4px 26px}
+/* booking */
+.booking{background:linear-gradient(135deg,var(--blush) 0%,var(--pearl) 55%,#efe0cd 100%);border-radius:34px;padding:90px 60px;text-align:center;position:relative;overflow:hidden}
+.booking::before{content:'';position:absolute;width:560px;height:560px;border-radius:50%;background:radial-gradient(circle,rgba(255,255,255,.75) 0%,transparent 65%);top:-220px;left:50%;transform:translateX(-50%)}
+.booking h2{font-size:clamp(2.1rem,4.6vw,3.4rem);margin-bottom:16px;position:relative}
+.booking h2 em{font-style:italic;color:var(--gold-deep)}
+.booking p{color:var(--taupe);max-width:560px;margin:0 auto 36px;position:relative}
+.booking .ctas{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;position:relative}
+.booking .addr{margin-top:34px;font-size:.9rem;color:var(--taupe);letter-spacing:.06em;position:relative}
+/* footer */
+footer{background:var(--ink);color:#cfc3b2;padding:70px 0 34px}
+.foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:44px;margin-bottom:50px}
+.foot-grid h4{font-family:var(--sans);font-size:.74rem;letter-spacing:.3em;text-transform:uppercase;color:var(--gold-soft);margin-bottom:18px;font-weight:500}
+.foot-grid p,.foot-grid a{font-size:.93rem;color:#a99a86;display:block;margin-bottom:10px}
+.foot-grid a:hover{color:var(--gold-soft)}
+.foot-brand{font-family:var(--serif);font-size:1.9rem;color:#f4ede1;letter-spacing:.1em;margin-bottom:12px}
+.copy{border-top:1px solid rgba(255,255,255,.1);padding-top:26px;font-size:.78rem;color:#7d6f5e;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+/* floating */
+.float-sms{position:fixed;bottom:26px;right:26px;z-index:90;width:60px;height:60px;border-radius:50%;background:linear-gradient(135deg,var(--gold),var(--gold-deep));display:flex;align-items:center;justify-content:center;box-shadow:0 12px 30px rgba(168,130,74,.5);transition:transform .25s}
+.float-sms:hover{transform:scale(1.1)}
+.float-sms svg{width:26px;height:26px;fill:#fff}
+/* reveal */
+.reveal{opacity:0;transform:translateY(34px);transition:opacity .8s ease,transform .8s ease}
+.reveal.visible{opacity:1;transform:none}
+.reveal.d1{transition-delay:.12s}.reveal.d2{transition-delay:.24s}.reveal.d3{transition-delay:.36s}
+/* responsive */
+@media(max-width:960px){
+  .grid3{grid-template-columns:1fr 1fr}
+  .diff{grid-template-columns:1fr;gap:44px}
+  .diff .imgwrap img{height:420px}
+  .founder{grid-template-columns:1fr;padding:60px 40px;text-align:center}
+  .steps{grid-template-columns:1fr 1fr}
+  .foot-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:640px){
+  section{padding:76px 0}
+  .nav-links{position:fixed;top:0;right:-100%;width:78%;max-width:320px;height:100svh;background:var(--ivory);flex-direction:column;justify-content:center;align-items:center;gap:30px;transition:right .35s;box-shadow:-20px 0 50px rgba(0,0,0,.12);font-size:.95rem}
+  .nav-links.open{right:0}
+  .nav .btn{display:none}
+  .burger{display:flex}
+  .grid3{grid-template-columns:1fr}
+  .steps{grid-template-columns:1fr}
+  .booking{padding:64px 28px}
+  .founder{padding:52px 26px}
+  .foot-grid{grid-template-columns:1fr}
+  .hero-ctas .btn{width:100%;text-align:center}
+  .float-sms{bottom:18px;right:18px}
+}
+</style>
+</head>
+<body>
+
+<header id="header">
+  <div class="container nav">
+    <a class="brand" href="#inicio" aria-label="La Perla Med Spa">
+      <span class="pearl"></span>
+      <span class="word">LA PERLA<small>MED SPA · MIAMI</small></span>
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#tratamientos">Tratamientos</a></li>
+      <li><a href="#diferencia">Nosotros</a></li>
+      <li><a href="#bienestar">Bienestar</a></li>
+      <li><a href="#faq">FAQ</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+    </ul>
+    <a class="btn btn-gold" href="sms:+17866013877?&body=Hola%20La%20Perla%2C%20quiero%20reservar%20una%20cita">Reservar</a>
+    <button class="burger" id="burger" aria-label="Abrir menú"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="inicio" style="padding:0">
+  <div class="hero-bg">
+    <img src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=1600&q=80&auto=format&fit=crop" alt="Ambiente de spa en La Perla Med Spa" onerror="this.style.display='none'">
+  </div>
+  <div class="hero-inner">
+    <p class="eyebrow">Miami Aesthetics &amp; Wellness</p>
+    <h1>El arte de cuidarte, <em>por dentro</em> y por fuera.</h1>
+    <p class="lead">Estética avanzada y bienestar integral en Miami. Tratamientos personalizados con acompañamiento cercano, en un espacio creado para que salgas renovada — por fuera y por dentro.</p>
+    <div class="hero-ctas">
+      <a class="btn btn-gold" href="sms:+17866013877?&body=Hola%20La%20Perla%2C%20quiero%20reservar%20una%20cita">Reservar por texto</a>
+      <a class="btn btn-light" href="#tratamientos">Ver tratamientos</a>
+    </div>
+    <div class="hero-proof">
+      <div><strong>Personalizado</strong><span>Enfoque a tu medida</span></div>
+      <div><strong>Integral</strong><span>Estética + bienestar</span></div>
+      <div><strong>Miami</strong><span>Coral Way</span></div>
+    </div>
+  </div>
+  <div class="scroll-hint">Descubre</div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee" aria-hidden="true">
+  <span>Faciales</span><span class="dot">✦</span><span>Láser</span><span class="dot">✦</span><span>Microneedling</span><span class="dot">✦</span><span>Botox</span><span class="dot">✦</span><span>Fillers</span><span class="dot">✦</span><span>Masaje linfático</span><span class="dot">✦</span><span>Weight loss</span><span class="dot">✦</span><span>Bienestar</span><span class="dot">✦</span>
+</div>
+
+<!-- TRATAMIENTOS -->
+<section id="tratamientos">
+  <div class="container">
+    <div class="sec-head reveal">
+      <p class="eyebrow">Tratamientos</p>
+      <h2>Cuidado experto para cada versión de ti</h2>
+      <p>Empezamos por entender tu piel para encontrar el tratamiento que realmente necesita.</p>
+    </div>
+    <div class="grid3">
+      <article class="card reveal">
+        <div class="ph"><span class="tag">Rostro</span><img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=800&q=80&auto=format&fit=crop" alt="Facial personalizado" loading="lazy" onerror="this.style.display='none'"></div>
+        <div class="body"><h3>Faciales personalizados</h3><p>Desde el Glow2 Facial hasta rituales a tu medida: analizamos tu piel primero y diseñamos el facial que ella necesita — luminosidad, hidratación o textura.</p><a class="link" href="sms:+17866013877?&body=Hola%2C%20me%20interesa%20un%20facial%20personalizado">Reservar →</a></div>
+      </article>
+      <article class="card reveal d1">
+        <div class="ph"><span class="tag">Láser</span><img src="https://images.unsplash.com/photo-1596178065887-1198b6148b2b?w=800&q=80&auto=format&fit=crop" alt="Depilación láser" loading="lazy" onerror="this.style.display='none'"></div>
+        <div class="body"><h3>Depilación láser</h3><p>Tecnología Alma Soprano Titanium: un tratamiento cómodo que ayuda a reducir progresivamente el vello para una piel más suave, sesión tras sesión.</p><a class="link" href="sms:+17866013877?&body=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20depilaci%C3%B3n%20l%C3%A1ser">Reservar →</a></div>
+      </article>
+      <article class="card reveal d2">
+        <div class="ph"><span class="tag">Piel</span><img src="https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?w=800&q=80&auto=format&fit=crop" alt="Microneedling y radiofrecuencia" loading="lazy" onerror="this.style.display='none'"></div>
+        <div class="body"><h3>Microneedling &amp; radiofrecuencia</h3><p>Con SkinPen y radiofrecuencia: aliados profesionales para estimular el colágeno y mejorar la firmeza y apariencia de tu piel.</p><a class="link" href="sms:+17866013877?&body=Hola%2C%20me%20interesa%20microneedling">Reservar →</a></div>
+      </article>
+      <article class="card reveal">
+        <div class="ph"><span class="tag">Inyectables</span><img src="https://images.unsplash.com/photo-1515377905703-c4788e51af15?w=800&q=80&auto=format&fit=crop" alt="Botox y rellenos" loading="lazy" onerror="this.style.display='none'"></div>
+        <div class="body"><h3>Botox &amp; rellenos</h3><p>Rejuvenecimiento con criterio: enfoque preventivo y resultados naturales, para que te veas descansada — nunca exagerada.</p><a class="link" href="sms:+17866013877?&body=Hola%2C%20quiero%20una%20consulta%20de%20botox%20y%20rellenos">Reservar →</a></div>
+      </article>
+      <article class="card reveal d1">
+        <div class="ph"><span class="tag">Cuerpo</span><img src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=800&q=80&auto=format&fit=crop" alt="Masaje linfático y corporal" loading="lazy" onerror="this.style.display='none'"></div>
+        <div class="body"><h3>Masaje linfático &amp; corporal</h3><p>Drenaje linfático y masaje con piedras y técnicas personalizadas: ayuda a aliviar la pesadez, realzar tus curvas y reconectar con tu cuerpo.</p><a class="link" href="sms:+17866013877?&body=Hola%2C%20quiero%20reservar%20un%20masaje">Reservar →</a></div>
+      </article>
+      <article class="card reveal d2">
+        <div class="ph"><span class="tag">Bienestar</span><img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=800&q=80&auto=format&fit=crop" alt="Programa de peso y bienestar" loading="lazy" onerror="this.style.display='none'"></div>
+        <div class="body"><h3>Peso &amp; bienestar integral</h3><p>Más allá de la dieta: te ayudamos a identificar las barreras que te frenan y a construir un camino sostenible hacia tu mejor versión.</p><a class="link" href="sms:+17866013877?&body=Hola%2C%20me%20interesa%20el%20programa%20de%20bienestar">Reservar →</a></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- DIFERENCIA -->
+<section id="diferencia" class="alt">
+  <div class="container">
+    <div class="diff">
+      <div class="imgwrap reveal">
+        <img src="https://images.unsplash.com/photo-1515377905703-c4788e51af15?w=1000&q=80&auto=format&fit=crop" alt="Experiencia La Perla Med Spa" loading="lazy" onerror="this.style.display='none'">
+        <div class="badge">“No se trata solo de resultados.<br>Se trata de acompañarte en el camino.”</div>
+      </div>
+      <div>
+        <p class="eyebrow reveal">La diferencia La Perla</p>
+        <h2 class="reveal" style="font-size:clamp(2rem,4.4vw,3rem);margin-bottom:34px">Entre tantos med spas en Miami,<br>elegimos hacerlo distinto.</h2>
+        <div class="pillar reveal">
+          <span class="n">✦</span>
+          <div><h3>Tratamientos personalizados</h3><p>Nada de protocolos genéricos. Tu piel tiene un problema — nosotros buscamos la solución hecha para ti.</p></div>
+        </div>
+        <div class="pillar reveal d1">
+          <span class="n">✦</span>
+          <div><h3>Acompañamiento integral</h3><p>Entendemos que el bienestar también es emocional. Te acompañamos con cercanía en cada paso del proceso.</p></div>
+        </div>
+        <div class="pillar reveal d2">
+          <span class="n">✦</span>
+          <div><h3>Atención que se siente</h3><p>Un espacio donde te reciben con calidez, te escuchan de verdad y sales con esa paz que se nota.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FUNDADORA / BIENESTAR -->
+<section id="bienestar">
+  <div class="container">
+    <div class="founder reveal">
+      <div class="monogram">IP</div>
+      <div>
+        <h2>Iraida Pozo, LMHC</h2>
+        <p class="role">Fundadora · Consejera de salud mental licenciada</p>
+        <p>La Perla nació de una convicción: la belleza florece cuando también cuidamos lo que sentimos. Por eso aquí la estética camina junto al bienestar emocional — desde el acompañamiento en tu proceso hasta programas que miran más allá del espejo.</p>
+        <p>Porque el cuidado preventivo, el amor propio y elegirte sin culpa también son parte del tratamiento.</p>
+        <div class="note">🤍 10% de descuento permanente para profesionales de la salud mental — nuestra forma de cuidar a quienes cuidan.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESO -->
+<section class="alt" style="padding-top:0">
+  <div class="container" style="padding-top:110px">
+    <div class="sec-head reveal">
+      <p class="eyebrow">Tu experiencia</p>
+      <h2>Así empieza tu momento</h2>
+    </div>
+    <div class="steps">
+      <div class="step reveal"><h3>Conversamos</h3><p>Cuéntanos qué te trae y qué quieres lograr. Te escuchamos de verdad.</p></div>
+      <div class="step reveal d1"><h3>Analizamos</h3><p>Evaluamos tu piel y tus necesidades para entender el punto de partida.</p></div>
+      <div class="step reveal d2"><h3>Personalizamos</h3><p>Diseñamos un plan hecho a tu medida — sin fórmulas genéricas.</p></div>
+      <div class="step reveal d3"><h3>Te acompañamos</h3><p>Seguimiento cercano durante todo tu proceso, hasta ver los resultados.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="container">
+    <div class="sec-head reveal">
+      <p class="eyebrow">Preguntas frecuentes</p>
+      <h2>Respuestas honestas</h2>
+    </div>
+    <div class="faq reveal">
+      <div class="faq-item">
+        <button class="faq-q">¿Cómo reservo mi cita?<span class="plus">+</span></button>
+        <div class="faq-a"><p>Muy fácil: envíanos un mensaje de texto al <strong>(786) 601-3877</strong> y coordinamos tu visita. También puedes escribirnos por Instagram en <strong>@laperlamedspa</strong>.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">¿Cuántas sesiones de láser necesito?<span class="plus">+</span></button>
+        <div class="faq-a"><p>Es la pregunta más común y merece una respuesta honesta: depende de tu tipo de piel y de vello. En tu primera visita te explicamos qué esperar y un estimado realista de sesiones.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">¿El botox se ve natural?<span class="plus">+</span></button>
+        <div class="faq-a"><p>Nuestro enfoque es preventivo y sutil: buscamos que te veas descansada y fresca, nunca exagerada. En tu consulta resolvemos todas tus dudas sin compromiso.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">¿Cuándo debería empezar a cuidarme?<span class="plus">+</span></button>
+        <div class="faq-a"><p>El error más común es esperar a que se note para actuar. El cuidado preventivo ayuda a mantener tu piel y tu cuerpo en mejores condiciones a largo plazo — empezar antes siempre es mejor idea.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">¿Dónde están ubicados?<span class="plus">+</span></button>
+        <div class="faq-a"><p>Estamos en <strong>7811 Coral Way, Suite 130, Miami, FL 33155</strong>. Atendemos con cita previa.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BOOKING -->
+<section id="contacto" style="padding-top:0">
+  <div class="container">
+    <div class="booking reveal">
+      <p class="eyebrow">Reserva tu cita</p>
+      <h2>Hoy empieza <em>por ti.</em></h2>
+      <p>Regálate ese momento: elige cuidarte como también cuidas a otros. Escríbenos y coordinamos tu visita.</p>
+      <div class="ctas">
+        <a class="btn btn-gold" href="sms:+17866013877?&body=Hola%20La%20Perla%2C%20quiero%20reservar%20una%20cita">Enviar mensaje de texto</a>
+        <a class="btn btn-outline" href="https://www.instagram.com/laperlamedspa" target="_blank" rel="noopener">Instagram</a>
+      </div>
+      <p class="addr">📍 7811 Coral Way, Suite 130, Miami, FL 33155 &nbsp;·&nbsp; 📲 (786) 601-3877</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-brand">LA PERLA</div>
+        <p>Miami Aesthetics &amp; Wellness.<br>Estética avanzada y bienestar integral, con trato personalizado y cercano.</p>
+      </div>
+      <div>
+        <h4>Contacto</h4>
+        <p>7811 Coral Way, Suite 130<br>Miami, FL 33155</p>
+        <a href="sms:+17866013877">Texto: (786) 601-3877</a>
+        <a href="mailto:laperlamedcenter@gmail.com">laperlamedcenter@gmail.com</a>
+      </div>
+      <div>
+        <h4>Síguenos</h4>
+        <a href="https://www.instagram.com/laperlamedspa" target="_blank" rel="noopener">Instagram @laperlamedspa</a>
+        <a href="https://linktr.ee/LaPerlaMedspa" target="_blank" rel="noopener">Reservas y enlaces</a>
+        <p style="margin-top:14px">Atención con cita previa.</p>
+      </div>
+    </div>
+    <div class="copy">
+      <span>© <span id="year"></span> La Perla Med Spa · Miami, FL</span>
+      <span>Vista previa de concepto de diseño</span>
+    </div>
+  </div>
+</footer>
+
+<a class="float-sms" href="sms:+17866013877?&body=Hola%20La%20Perla%2C%20quiero%20reservar%20una%20cita" aria-label="Reservar por mensaje de texto">
+  <svg viewBox="0 0 24 24"><path d="M20 2H4a2 2 0 0 0-2 2v18l4-4h14a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2zm-9 9H7V9h4zm6 0h-4V9h4z"/></svg>
+</a>
+
+<script>
+(function(){
+  var header=document.getElementById('header');
+  function onScroll(){header.classList.toggle('scrolled',window.scrollY>40)}
+  window.addEventListener('scroll',onScroll,{passive:true});onScroll();
+  var burger=document.getElementById('burger'),links=document.getElementById('navLinks');
+  burger.addEventListener('click',function(){links.classList.toggle('open')});
+  links.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){links.classList.remove('open')})});
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target)}})},{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(function(el){io.observe(el)});
+  document.querySelectorAll('.faq-item').forEach(function(item){
+    var q=item.querySelector('.faq-q'),a=item.querySelector('.faq-a');
+    q.addEventListener('click',function(){
+      var open=item.classList.contains('open');
+      document.querySelectorAll('.faq-item.open').forEach(function(o){o.classList.remove('open');o.querySelector('.faq-a').style.maxHeight=null});
+      if(!open){item.classList.add('open');a.style.maxHeight=a.scrollHeight+'px'}
+    });
+  });
+  document.getElementById('year').textContent=new Date().getFullYear();
+})();
+</script>
+</body>
+</html>

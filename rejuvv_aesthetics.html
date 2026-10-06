@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rejuvv Aesthetics | Tailored, Timeless & Undetectable Results in Miami</title>
+<meta name="description" content="Rejuvv Aesthetics — 5-star rated medspa in Miami. Injectables, skin, wellness, body & weight loss. Tailored, timeless & undetectable results. Founded by @lipsbycaro.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"MedicalSpa","name":"Rejuvv Aesthetics","address":{"@type":"PostalAddress","streetAddress":"11020 SW 88 Street, Suite 204","addressLocality":"Miami","addressRegion":"FL","postalCode":"33176"},"telephone":"+1-786-899-0120","sameAs":["https://www.instagram.com/rejuvv.aesthetics"]}
+</script>
+<style>
+:root{
+  --ivory:#FAF7F1; --cream:#F3EDE3; --espresso:#2A2320; --taupe:#8A7B6C;
+  --gold:#C2A059; --gold-soft:#E4D3AC; --line:rgba(42,35,32,.12); --white:#FFFFFF;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Jost',sans-serif;background:var(--ivory);color:var(--espresso);line-height:1.7;font-weight:300;overflow-x:hidden}
+h1,h2,h3,.serif{font-family:'Cormorant Garamond',serif;font-weight:500;line-height:1.15}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+.container{max-width:1200px;margin:0 auto;padding:0 24px}
+.eyebrow{font-size:.72rem;letter-spacing:.32em;text-transform:uppercase;color:var(--gold);font-weight:500}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.6rem;padding:1rem 2.2rem;font-size:.78rem;letter-spacing:.22em;text-transform:uppercase;font-weight:500;border:1px solid transparent;cursor:pointer;transition:all .35s ease;border-radius:2px}
+.btn-gold{background:var(--gold);color:#fff}
+.btn-gold:hover{background:var(--espresso);transform:translateY(-2px);box-shadow:0 12px 28px rgba(42,35,32,.22)}
+.btn-outline{border-color:var(--espresso);color:var(--espresso);background:transparent}
+.btn-outline:hover{background:var(--espresso);color:#fff;transform:translateY(-2px)}
+.btn-light{border-color:#fff;color:#fff}
+.btn-light:hover{background:#fff;color:var(--espresso)}
+/* NAV */
+header{position:fixed;top:0;left:0;right:0;z-index:100;transition:all .4s ease;padding:1.4rem 0}
+header.scrolled{background:rgba(250,247,241,.96);backdrop-filter:blur(12px);padding:.8rem 0;box-shadow:0 4px 24px rgba(42,35,32,.08)}
+.nav{display:flex;align-items:center;justify-content:space-between}
+.logo{font-family:'Cormorant Garamond',serif;font-size:1.9rem;font-weight:600;letter-spacing:.06em}
+.logo span{color:var(--gold)}
+.nav-links{display:flex;gap:2.2rem;list-style:none;font-size:.78rem;letter-spacing:.2em;text-transform:uppercase;font-weight:400}
+.nav-links a{position:relative;padding:.3rem 0}
+.nav-links a::after{content:'';position:absolute;left:0;bottom:0;width:0;height:1px;background:var(--gold);transition:width .3s ease}
+.nav-links a:hover::after{width:100%}
+.nav-cta{display:flex;align-items:center;gap:1rem}
+.burger{display:none;background:none;border:none;cursor:pointer;flex-direction:column;gap:6px;padding:.4rem}
+.burger span{width:26px;height:1.5px;background:var(--espresso);transition:.3s}
+/* HERO */
+.hero{min-height:100svh;display:flex;align-items:center;position:relative;color:#fff;overflow:hidden}
+.hero-bg{position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=1600&q=70') center/cover;transform:scale(1.06);animation:heroZoom 18s ease-in-out infinite alternate}
+@keyframes heroZoom{to{transform:scale(1.14)}}
+.hero-veil{position:absolute;inset:0;background:linear-gradient(100deg,rgba(30,24,20,.78) 20%,rgba(30,24,20,.42) 55%,rgba(30,24,20,.15) 100%)}
+.hero-inner{position:relative;z-index:2;max-width:1200px;margin:0 auto;padding:8rem 24px 5rem;width:100%}
+.hero h1{font-size:clamp(3rem,7.5vw,5.6rem);max-width:12ch;margin:1.2rem 0 1.4rem}
+.hero h1 em{color:var(--gold-soft);font-style:italic}
+.hero p{max-width:46ch;font-size:1.08rem;color:rgba(255,255,255,.88);font-weight:300}
+.hero-btns{display:flex;gap:1rem;margin-top:2.4rem;flex-wrap:wrap}
+.hero-proof{display:flex;gap:2.6rem;margin-top:3.4rem;flex-wrap:wrap}
+.hero-proof div strong{display:block;font-family:'Cormorant Garamond',serif;font-size:1.7rem;font-weight:600}
+.hero-proof div span{font-size:.72rem;letter-spacing:.24em;text-transform:uppercase;color:rgba(255,255,255,.7)}
+.stars{color:var(--gold-soft);letter-spacing:.2em;font-size:.95rem}
+/* TRUST */
+.trust{background:var(--espresso);color:#fff;padding:1.6rem 0}
+.trust-row{display:flex;justify-content:space-between;align-items:center;gap:1.5rem;flex-wrap:wrap;text-align:center}
+.trust-row span{font-size:.74rem;letter-spacing:.26em;text-transform:uppercase;color:rgba(255,255,255,.75)}
+.trust-row .dot{color:var(--gold)}
+/* SECTIONS */
+section{padding:6.5rem 0}
+.sec-head{text-align:center;max-width:640px;margin:0 auto 3.6rem}
+.sec-head h2{font-size:clamp(2.2rem,4.5vw,3.2rem);margin:1rem 0 .8rem}
+.sec-head p{color:var(--taupe)}
+/* TREATMENTS */
+.treat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:1.4rem}
+.treat{background:var(--white);border:1px solid var(--line);border-radius:6px;padding:2.4rem 1.8rem;transition:all .4s ease;position:relative;overflow:hidden}
+.treat::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--gold),var(--gold-soft));transform:scaleX(0);transform-origin:left;transition:transform .45s ease}
+.treat:hover{transform:translateY(-8px);box-shadow:0 24px 48px rgba(42,35,32,.12)}
+.treat:hover::before{transform:scaleX(1)}
+.treat .num{font-family:'Cormorant Garamond',serif;font-size:.95rem;color:var(--gold);letter-spacing:.2em}
+.treat h3{font-size:1.55rem;margin:.7rem 0 .6rem}
+.treat p{font-size:.92rem;color:var(--taupe)}
+.treat ul{list-style:none;margin-top:1rem;font-size:.88rem;color:var(--espresso)}
+.treat ul li{padding:.32rem 0 .32rem 1.3rem;position:relative}
+.treat ul li::before{content:'✦';position:absolute;left:0;color:var(--gold);font-size:.75rem}
+/* PHILOSOPHY */
+.philo{background:var(--cream);position:relative;overflow:hidden}
+.philo-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
+.philo-img{border-radius:8px;overflow:hidden;box-shadow:0 30px 60px rgba(42,35,32,.16)}
+.philo-img img{height:560px;width:100%;object-fit:cover;transition:transform 1.2s ease}
+.philo-img:hover img{transform:scale(1.04)}
+.pillar{margin:2rem 0;padding-left:1.6rem;border-left:2px solid var(--gold)}
+.pillar h3{font-size:1.7rem;font-style:italic;margin-bottom:.4rem}
+.pillar p{color:var(--taupe);font-size:.95rem}
+/* FOUNDER */
+.founder-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:4rem;align-items:center}
+.founder-img{border-radius:50% 50% 8px 8px;overflow:hidden;box-shadow:0 30px 60px rgba(42,35,32,.14);max-width:420px;margin:0 auto}
+.founder-img img{height:520px;width:100%;object-fit:cover}
+.founder-copy h2{font-size:clamp(2.2rem,4.5vw,3.2rem);margin:1rem 0 1.2rem}
+.founder-copy p{color:var(--taupe);margin-bottom:1.1rem}
+.founder-copy p strong{color:var(--espresso);font-weight:500}
+.ig-pill{display:inline-flex;align-items:center;gap:.6rem;margin-top:1.2rem;padding:.85rem 1.8rem;border:1px solid var(--line);border-radius:100px;font-size:.82rem;letter-spacing:.14em;text-transform:uppercase;transition:.35s;background:#fff}
+.ig-pill:hover{border-color:var(--gold);color:var(--gold);transform:translateY(-2px)}
+/* PROCESS */
+.process{background:var(--espresso);color:#fff}
+.process .sec-head p{color:rgba(255,255,255,.65)}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.4rem;counter-reset:step}
+.step{border:1px solid rgba(255,255,255,.14);border-radius:6px;padding:2.4rem 1.8rem;position:relative;transition:.4s;background:rgba(255,255,255,.02)}
+.step:hover{border-color:var(--gold);transform:translateY(-6px);background:rgba(255,255,255,.05)}
+.step .snum{font-family:'Cormorant Garamond',serif;font-size:2.6rem;color:var(--gold);font-style:italic}
+.step h3{font-size:1.45rem;margin:.8rem 0 .5rem}
+.step p{font-size:.9rem;color:rgba(255,255,255,.68)}
+/* FAQ */
+.faq-wrap{max-width:760px;margin:0 auto}
+.faq{border-bottom:1px solid var(--line)}
+.faq button{width:100%;background:none;border:none;display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:1.5rem .2rem;cursor:pointer;font-family:'Cormorant Garamond',serif;font-size:1.35rem;color:var(--espresso);text-align:left}
+.faq .plus{font-size:1.6rem;color:var(--gold);transition:transform .35s;flex-shrink:0;font-family:'Jost',sans-serif;font-weight:300}
+.faq.open .plus{transform:rotate(45deg)}
+.faq .answer{max-height:0;overflow:hidden;transition:max-height .45s ease}
+.faq .answer p{padding:0 .2rem 1.6rem;color:var(--taupe);font-size:.95rem}
+/* BOOKING */
+.booking{position:relative;color:#fff;overflow:hidden;text-align:center}
+.booking-bg{position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=1600&q=70') center/cover}
+.booking-veil{position:absolute;inset:0;background:rgba(30,24,20,.72)}
+.booking-inner{position:relative;z-index:2;max-width:680px;margin:0 auto}
+.booking-inner h2{font-size:clamp(2.4rem,5vw,3.6rem);margin:1rem 0 1rem}
+.booking-inner h2 em{color:var(--gold-soft)}
+.booking-inner p{color:rgba(255,255,255,.85);margin-bottom:2.2rem}
+.book-cards{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-top:2.4rem}
+.book-card{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.2);backdrop-filter:blur(8px);border-radius:6px;padding:1.4rem 2rem;min-width:220px;transition:.35s}
+.book-card:hover{background:rgba(255,255,255,.14);transform:translateY(-4px)}
+.book-card small{display:block;font-size:.68rem;letter-spacing:.26em;text-transform:uppercase;color:var(--gold-soft);margin-bottom:.4rem}
+.book-card strong{font-family:'Cormorant Garamond',serif;font-size:1.25rem;font-weight:600}
+/* FOOTER */
+footer{background:#211B18;color:rgba(255,255,255,.72);padding:4rem 0 2rem;font-size:.88rem}
+.foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:3rem;margin-bottom:3rem}
+.foot-grid h4{font-family:'Cormorant Garamond',serif;color:#fff;font-size:1.3rem;margin-bottom:1rem}
+.foot-grid a:hover{color:var(--gold-soft)}
+.foot-bottom{border-top:1px solid rgba(255,255,255,.1);padding-top:1.6rem;display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;font-size:.78rem;color:rgba(255,255,255,.45)}
+/* REVEAL */
+.reveal{opacity:0;transform:translateY(34px);transition:opacity .8s ease,transform .8s ease}
+.reveal.visible{opacity:1;transform:none}
+.reveal-d1{transition-delay:.12s}.reveal-d2{transition-delay:.24s}.reveal-d3{transition-delay:.36s}
+/* RESPONSIVE */
+@media(max-width:960px){
+  .philo-grid,.founder-grid{grid-template-columns:1fr;gap:2.6rem}
+  .philo-img img{height:380px}.founder-img img{height:420px}
+  .foot-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:760px){
+  .nav-links{position:fixed;top:0;right:-100%;width:72%;max-width:320px;height:100svh;background:var(--ivory);flex-direction:column;justify-content:center;align-items:center;gap:2.2rem;transition:right .4s ease;box-shadow:-20px 0 60px rgba(0,0,0,.12);z-index:99}
+  .nav-links.open{right:0}
+  .burger{display:flex;z-index:100}
+  .burger.open span:nth-child(1){transform:translateY(7.5px) rotate(45deg)}
+  .burger.open span:nth-child(2){opacity:0}
+  .burger.open span:nth-child(3){transform:translateY(-7.5px) rotate(-45deg)}
+  .nav-cta .btn{display:none}
+  section{padding:4.5rem 0}
+  .hero-proof{gap:1.6rem}
+  .foot-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<header id="header">
+  <div class="container nav">
+    <a href="#top" class="logo">Rejuvv<span>.</span></a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#treatments">Treatments</a></li>
+      <li><a href="#philosophy">Philosophy</a></li>
+      <li><a href="#founder">Founder</a></li>
+      <li><a href="#faq">FAQ</a></li>
+    </ul>
+    <div class="nav-cta">
+      <a href="tel:+17868990120" class="btn btn-gold" style="padding:.8rem 1.6rem">Book Now</a>
+      <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<section class="hero" id="top">
+  <div class="hero-bg"></div><div class="hero-veil"></div>
+  <div class="hero-inner">
+    <span class="eyebrow reveal visible" style="color:var(--gold-soft)">Miami &middot; 5-Star Rated Medspa</span>
+    <h1 class="reveal visible">Tailored. Timeless. <em>Undetectable.</em></h1>
+    <p class="reveal visible">Personalized injectables, skin, wellness and body treatments in Miami — designed around your features, your goals, and the most natural version of you.</p>
+    <div class="hero-btns reveal visible">
+      <a href="tel:+17868990120" class="btn btn-gold">Book Your Consultation</a>
+      <a href="#treatments" class="btn btn-light">Explore Treatments</a>
+    </div>
+    <div class="hero-proof reveal visible">
+      <div><span class="stars">★★★★★</span><strong>5-Star</strong><span>Patient Rating</span></div>
+      <div><strong>Miami, FL</strong><span>11020 SW 88 St &middot; Ste 204</span></div>
+      <div><strong>Personalized</strong><span>Every Treatment Plan</span></div>
+    </div>
+  </div>
+</section>
+
+<div class="trust">
+  <div class="container trust-row">
+    <span>Injectables</span><span class="dot">✦</span><span>Skin</span><span class="dot">✦</span><span>Wellness</span><span class="dot">✦</span><span>Body</span><span class="dot">✦</span><span>Weight Loss</span>
+  </div>
+</div>
+
+<section id="treatments">
+  <div class="container">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Our Treatments</span>
+      <h2>Designed Around <em style="color:var(--gold)">You</em></h2>
+      <p>Every plan begins with listening — your features, your goals, your skin. Nothing generic, nothing overdone.</p>
+    </div>
+    <div class="treat-grid">
+      <div class="treat reveal"><span class="num">01</span><h3>Injectables</h3><p>Subtle, balanced enhancements that keep your natural features at the center.</p><ul><li>Botox &amp; tox treatments</li><li>Lip filler</li><li>Sculptra</li></ul></div>
+      <div class="treat reveal reveal-d1"><span class="num">02</span><h3>Skin</h3><p>Healthy skin takes strategy — customized care for your skin's unique needs.</p><ul><li>Customized facials</li><li>Skincare protocols</li><li>Deep cleansing &amp; balance</li></ul></div>
+      <div class="treat reveal reveal-d2"><span class="num">03</span><h3>Wellness</h3><p>That low-cortisol, well-rested glow — from the inside out.</p><ul><li>Wellness consultations</li><li>Glow &amp; rejuvenation plans</li></ul></div>
+      <div class="treat reveal reveal-d3"><span class="num">04</span><h3>Body</h3><p>Targeted body treatments tailored to your goals.</p><ul><li>Body contouring consults</li><li>Personalized body plans</li></ul></div>
+      <div class="treat reveal"><span class="num">05</span><h3>Weight Loss</h3><p>Supportive, guided programs designed around your lifestyle.</p><ul><li>Guided weight-loss plans</li><li>Ongoing support</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<section class="philo" id="philosophy">
+  <div class="container philo-grid">
+    <div class="philo-img reveal"><img src="https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?auto=format&fit=crop&w=1200&q=70" alt="Serene medspa treatment room" loading="lazy"></div>
+    <div class="reveal reveal-d1">
+      <span class="eyebrow">Our Philosophy</span>
+      <h2 style="font-size:clamp(2.2rem,4.5vw,3.2rem);margin:1rem 0 1rem">Beauty That Whispers,<br><em style="color:var(--gold)">Never Shouts</em></h2>
+      <div class="pillar"><h3>Tailored</h3><p>No two faces — and no two plans — are alike. Your treatment is built around your features and your goals.</p></div>
+      <div class="pillar"><h3>Timeless</h3><p>We enhance, never chase trends. Results designed to look right today and ten years from now.</p></div>
+      <div class="pillar"><h3>Undetectable</h3><p>The best work is the work no one notices. Just you — rested, refreshed, confident.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="founder">
+  <div class="container founder-grid">
+    <div class="founder-copy reveal">
+      <span class="eyebrow">The Founder</span>
+      <h2>Founded by <em style="color:var(--gold)">@lipsbycaro</em></h2>
+      <p><strong>Rejuvv Aesthetics</strong> was founded on a simple belief: real transformation starts with being heard. Every new patient journey begins with a one-on-one assessment — your goals, your concerns, your features — before a single treatment is ever recommended.</p>
+      <p>Known for <strong>natural-looking results</strong> and an honest, personalized approach, Rejuvv has earned a <strong>5-star rating</strong> from patients across Miami who wanted rejuvenation without the "done" look.</p>
+      <a class="ig-pill" href="https://www.instagram.com/rejuvv.aesthetics" target="_blank" rel="noopener">Follow @rejuvv.aesthetics</a>
+    </div>
+    <div class="founder-img reveal reveal-d1"><img src="https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?auto=format&fit=crop&w=800&q=70" alt="Natural beauty aesthetic" loading="lazy"></div>
+  </div>
+</section>
+
+<section class="process">
+  <div class="container">
+    <div class="sec-head reveal">
+      <span class="eyebrow" style="color:var(--gold-soft)">Your Journey</span>
+      <h2 style="color:#fff">From First Visit to <em style="color:var(--gold-soft)">Effortless Glow</em></h2>
+      <p>Come along for a new patient assessment — this is how every Rejuvv journey begins.</p>
+    </div>
+    <div class="steps">
+      <div class="step reveal"><span class="snum">01</span><h3>Assessment</h3><p>We evaluate, listen to your goals, and understand what makes your features uniquely yours.</p></div>
+      <div class="step reveal reveal-d1"><span class="snum">02</span><h3>Personalized Plan</h3><p>A treatment plan created around what's best for you — never a one-size-fits-all menu.</p></div>
+      <div class="step reveal reveal-d2"><span class="snum">03</span><h3>Treatment</h3><p>Precise, gentle treatments delivered with an eye for natural, balanced results.</p></div>
+      <div class="step reveal reveal-d3"><span class="snum">04</span><h3>Glow &amp; Maintain</h3><p>Ongoing guidance and consistency — because healthy, radiant skin is a journey.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="container">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Questions</span>
+      <h2>Everything You're <em style="color:var(--gold)">Wondering</em></h2>
+    </div>
+    <div class="faq-wrap reveal">
+      <div class="faq"><button>Will my results look natural?<span class="plus">+</span></button><div class="answer"><p>That's the entire philosophy. Every treatment is designed to be tailored, timeless and undetectable — enhancing your features while keeping you recognizably you.</p></div></div>
+      <div class="faq"><button>What happens at my first appointment?<span class="plus">+</span></button><div class="answer"><p>Your first visit is a full assessment: we evaluate your skin and features, listen to your goals, and create a personalized treatment plan based on what's best for you.</p></div></div>
+      <div class="faq"><button>Which treatments do you offer?<span class="plus">+</span></button><div class="answer"><p>Injectables (including Botox, lip filler and Sculptra), customized facials and skincare, wellness, body treatments and guided weight-loss programs.</p></div></div>
+      <div class="faq"><button>Where are you located?<span class="plus">+</span></button><div class="answer"><p>You'll find us at 11020 SW 88 Street, Suite 204, Miami, Florida 33176. Call (786) 899-0120 to book your visit.</p></div></div>
+      <div class="faq"><button>How do I book?<span class="plus">+</span></button><div class="answer"><p>Simply call or text (786) 899-0120, or reach out through Instagram @rejuvv.aesthetics. We'll take care of the rest.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="booking">
+  <div class="booking-bg"></div><div class="booking-veil"></div>
+  <div class="container booking-inner reveal">
+    <span class="eyebrow" style="color:var(--gold-soft)">Begin Today</span>
+    <h2>Your Most <em>Radiant Self</em> Is Waiting</h2>
+    <p>Book your personalized assessment and discover what tailored, timeless &amp; undetectable results look like on you.</p>
+    <a href="tel:+17868990120" class="btn btn-gold">Call (786) 899-0120</a>
+    <div class="book-cards">
+      <a class="book-card" href="tel:+17868990120"><small>Call or Text</small><strong>(786) 899-0120</strong></a>
+      <a class="book-card" href="https://www.instagram.com/rejuvv.aesthetics" target="_blank" rel="noopener"><small>Instagram</small><strong>@rejuvv.aesthetics</strong></a>
+      <div class="book-card"><small>Visit Us</small><strong>11020 SW 88 St, Ste 204, Miami</strong></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="foot-grid">
+      <div><h4>Rejuvv<span style="color:var(--gold)">.</span></h4><p>Tailored, timeless &amp; undetectable results in Miami.<br>Injectables &middot; Skin &middot; Wellness &middot; Body &middot; Weight Loss</p></div>
+      <div><h4>Visit</h4><p>11020 SW 88 Street, Suite 204<br>Miami, Florida 33176<br><a href="tel:+17868990120">(786) 899-0120</a></p></div>
+      <div><h4>Follow</h4><p><a href="https://www.instagram.com/rejuvv.aesthetics" target="_blank" rel="noopener">@rejuvv.aesthetics</a><br>Founded by @lipsbycaro</p></div>
+    </div>
+    <div class="foot-bottom"><span>&copy; 2026 Rejuvv Aesthetics. All rights reserved.</span><span>Design concept preview</span></div>
+  </div>
+</footer>
+
+<script>
+const header=document.getElementById('header');
+addEventListener('scroll',()=>header.classList.toggle('scrolled',scrollY>40),{passive:true});
+const burger=document.getElementById('burger'),navLinks=document.getElementById('navLinks');
+burger.addEventListener('click',()=>{burger.classList.toggle('open');navLinks.classList.toggle('open');});
+navLinks.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{burger.classList.remove('open');navLinks.classList.remove('open');}));
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target);}}),{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+document.querySelectorAll('.faq').forEach(f=>{
+  const btn=f.querySelector('button'),ans=f.querySelector('.answer');
+  btn.addEventListener('click',()=>{
+    const open=f.classList.contains('open');
+    document.querySelectorAll('.faq.open').forEach(o=>{o.classList.remove('open');o.querySelector('.answer').style.maxHeight=null;});
+    if(!open){f.classList.add('open');ans.style.maxHeight=ans.scrollHeight+'px';}
+  });
+});
+</script>
+</body>
+</html>
