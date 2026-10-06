@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ZULEX Facility Services | Commercial & Residential Cleaning in Miami</title>
+<meta name="description" content="ZULEX Facility Services — reliable residential and commercial cleaning throughout Miami. Offices, clinics & businesses. Regular & deep cleaning. Free quote: (786) 989-5196.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy-950:#04121f; --navy-900:#061b2e; --navy-800:#0a2740; --navy-700:#103452;
+  --aqua-500:#22d3c0; --aqua-400:#2ee6d3; --aqua-600:#14b8a6;
+  --ink:#0b1c2c; --muted:#5b6b7c; --line:#e6edf3;
+  --bg:#ffffff; --bg-soft:#f4f8fb; --bg-tint:#eef6f9;
+  --radius:18px; --radius-lg:26px;
+  --shadow-sm:0 2px 10px rgba(6,27,46,.07);
+  --shadow-md:0 14px 40px -12px rgba(6,27,46,.22);
+  --shadow-lg:0 30px 70px -20px rgba(6,27,46,.35);
+  --font-display:'Space Grotesk',sans-serif; --font-body:'Inter',sans-serif;
+  --ease:cubic-bezier(.22,.8,.28,1);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:var(--font-body);color:var(--ink);background:var(--bg);line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{display:block;max-width:100%}
+a{text-decoration:none;color:inherit}
+::selection{background:var(--aqua-500);color:var(--navy-950)}
+.wrap{max-width:1200px;margin:0 auto;padding:0 28px}
+section{position:relative}
+
+/* ---------- reveal ---------- */
+.rv{opacity:0;transform:translateY(28px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
+.rv.in{opacity:1;transform:none}
+.rv-d1{transition-delay:.08s}.rv-d2{transition-delay:.16s}.rv-d3{transition-delay:.24s}.rv-d4{transition-delay:.32s}
+@media (prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
+
+/* ---------- header ---------- */
+header{position:fixed;inset:0 0 auto 0;z-index:100;transition:background .35s var(--ease),box-shadow .35s var(--ease),backdrop-filter .35s}
+header .bar{display:flex;align-items:center;justify-content:space-between;height:76px}
+.brand{display:flex;align-items:center;gap:12px}
+.brand-mark{width:42px;height:42px;border-radius:12px;background:linear-gradient(135deg,var(--aqua-400),var(--aqua-600));display:grid;place-items:center;font-family:var(--font-display);font-weight:700;font-size:22px;color:var(--navy-950);box-shadow:0 6px 18px -6px rgba(34,211,192,.7);transition:transform .3s var(--ease)}
+.brand:hover .brand-mark{transform:rotate(-8deg) scale(1.06)}
+.brand-name{font-family:var(--font-display);font-weight:700;font-size:19px;letter-spacing:.5px;color:#fff;line-height:1.15}
+.brand-name small{display:block;font-family:var(--font-body);font-weight:500;font-size:11px;letter-spacing:2.4px;color:var(--aqua-400);text-transform:uppercase}
+nav.links{display:flex;gap:30px}
+nav.links a{color:rgba(255,255,255,.82);font-size:14.5px;font-weight:500;position:relative;padding:6px 0;transition:color .25s}
+nav.links a::after{content:"";position:absolute;left:0;bottom:0;height:2px;width:0;background:var(--aqua-400);border-radius:2px;transition:width .3s var(--ease)}
+nav.links a:hover{color:#fff}
+nav.links a:hover::after{width:100%}
+header.solid{background:rgba(6,27,46,.92);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);box-shadow:0 10px 30px -12px rgba(0,0,0,.5)}
+header.solid .bar{height:66px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;font-weight:600;font-size:15px;border-radius:999px;padding:15px 30px;cursor:pointer;border:0;transition:transform .28s var(--ease),box-shadow .28s var(--ease),background .28s,color .28s;white-space:nowrap}
+.btn svg{width:17px;height:17px;flex:none}
+.btn-aqua{background:linear-gradient(135deg,var(--aqua-400),var(--aqua-600));color:var(--navy-950);box-shadow:0 12px 28px -10px rgba(34,211,192,.65)}
+.btn-aqua:hover{transform:translateY(-3px);box-shadow:0 20px 38px -10px rgba(34,211,192,.75)}
+.btn-outline-w{border:1.5px solid rgba(255,255,255,.55);color:#fff;background:rgba(255,255,255,.06);backdrop-filter:blur(4px)}
+.btn-outline-w:hover{transform:translateY(-3px);background:rgba(255,255,255,.14);border-color:#fff}
+.btn-navy{background:var(--navy-900);color:#fff;box-shadow:var(--shadow-md)}
+.btn-navy:hover{transform:translateY(-3px);background:var(--navy-700)}
+.btn-sm{padding:11px 22px;font-size:14px}
+.burger{display:none;background:none;border:0;color:#fff;cursor:pointer;padding:8px}
+.burger svg{width:26px;height:26px}
+.mobile-nav{display:none}
+
+/* ---------- hero ---------- */
+.hero{min-height:100svh;display:flex;align-items:center;color:#fff;overflow:hidden}
+.hero-bg{position:absolute;inset:0}
+.hero-bg img{width:100%;height:100%;object-fit:cover;transform:scale(1.06);animation:heroZoom 14s var(--ease) forwards}
+@keyframes heroZoom{to{transform:scale(1)}}
+.hero-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(100deg,rgba(4,18,31,.92) 0%,rgba(4,18,31,.72) 42%,rgba(4,18,31,.28) 75%,rgba(4,18,31,.12) 100%)}
+.hero-bg::before{content:"";position:absolute;inset:auto 0 0 0;height:34%;background:linear-gradient(to top,rgba(4,18,31,.85),transparent);z-index:1}
+.hero-inner{position:relative;z-index:2;padding:150px 0 110px;max-width:1200px;margin:0 auto;width:100%}
+.hero-copy{max-width:660px}
+.eyebrow{display:inline-flex;align-items:center;gap:9px;background:rgba(34,211,192,.14);border:1px solid rgba(34,211,192,.45);color:var(--aqua-400);font-size:12.5px;font-weight:600;letter-spacing:2px;text-transform:uppercase;padding:9px 18px;border-radius:999px;margin-bottom:26px;backdrop-filter:blur(6px)}
+.eyebrow .dot{width:7px;height:7px;border-radius:50%;background:var(--aqua-400);box-shadow:0 0 12px var(--aqua-400);animation:pulse 2.2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
+.hero h1{font-family:var(--font-display);font-size:clamp(42px,6.2vw,78px);line-height:1.04;font-weight:700;letter-spacing:-1px;margin-bottom:22px}
+.hero h1 .grad{background:linear-gradient(120deg,var(--aqua-400),#7df0e2);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p.lead{font-size:clamp(16px,1.8vw,19px);color:rgba(255,255,255,.85);max-width:540px;margin-bottom:38px;font-weight:400}
+.hero-ctas{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:44px}
+.hero-proof{display:flex;gap:34px;flex-wrap:wrap}
+.hero-proof .hp{display:flex;align-items:center;gap:11px;font-size:14px;color:rgba(255,255,255,.78);font-weight:500}
+.hp .tick{width:24px;height:24px;border-radius:50%;background:rgba(34,211,192,.18);border:1px solid rgba(34,211,192,.5);display:grid;place-items:center;flex:none}
+.hp .tick svg{width:12px;height:12px;stroke:var(--aqua-400);stroke-width:3;fill:none}
+.scroll-hint{position:absolute;left:50%;bottom:26px;transform:translateX(-50%);z-index:2;color:rgba(255,255,255,.6);font-size:11px;letter-spacing:3px;text-transform:uppercase;display:flex;flex-direction:column;align-items:center;gap:10px}
+.scroll-hint::after{content:"";width:1.5px;height:38px;background:linear-gradient(to bottom,var(--aqua-400),transparent);animation:drip 1.8s var(--ease) infinite}
+@keyframes drip{0%{transform:scaleY(0);transform-origin:top}55%{transform:scaleY(1);transform-origin:top}56%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+
+/* ---------- trust ribbon ---------- */
+.ribbon{background:var(--navy-950);border-top:1px solid rgba(34,211,192,.25);border-bottom:1px solid rgba(34,211,192,.25);overflow:hidden;padding:20px 0}
+.ribbon-track{display:flex;gap:56px;width:max-content;animation:marquee 28s linear infinite}
+.ribbon:hover .ribbon-track{animation-play-state:paused}
+@keyframes marquee{to{transform:translateX(-50%)}}
+.ribbon-track span{display:flex;align-items:center;gap:12px;color:#fff;font-family:var(--font-display);font-size:14.5px;font-weight:600;letter-spacing:2.2px;text-transform:uppercase;white-space:nowrap}
+.ribbon-track span i{width:8px;height:8px;border-radius:50%;background:var(--aqua-400);flex:none}
+
+/* ---------- sections common ---------- */
+.sec{padding:110px 0}
+.kicker{display:inline-flex;align-items:center;gap:10px;color:var(--aqua-600);font-size:12.5px;font-weight:700;letter-spacing:2.6px;text-transform:uppercase;margin-bottom:16px}
+.kicker::before{content:"";width:34px;height:2.5px;background:var(--aqua-500);border-radius:2px}
+h2{font-family:var(--font-display);font-size:clamp(30px,4vw,48px);line-height:1.12;letter-spacing:-.6px;font-weight:700;margin-bottom:18px}
+.sub{color:var(--muted);font-size:17px;max-width:620px}
+.center{text-align:center}
+.center .kicker::before{display:none}
+.center .sub{margin:0 auto}
+
+/* ---------- stats ---------- */
+.stats{background:var(--navy-900);color:#fff;padding:84px 0;position:relative;overflow:hidden}
+.stats::before{content:"";position:absolute;inset:0;background:radial-gradient(700px 320px at 85% 10%,rgba(34,211,192,.14),transparent 60%)}
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;position:relative}
+.stat{padding:30px 26px;border:1px solid rgba(255,255,255,.1);border-radius:var(--radius);background:rgba(255,255,255,.03);transition:transform .3s var(--ease),border-color .3s,background .3s}
+.stat:hover{transform:translateY(-6px);border-color:rgba(34,211,192,.5);background:rgba(34,211,192,.06)}
+.stat b{display:block;font-family:var(--font-display);font-size:clamp(34px,3.6vw,48px);font-weight:700;color:var(--aqua-400);letter-spacing:-1px;margin-bottom:6px}
+.stat span{font-size:14.5px;color:rgba(255,255,255,.72)}
+
+/* ---------- services ---------- */
+.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:56px}
+.svc{background:#fff;border:1px solid var(--line);border-radius:var(--radius-lg);padding:38px 32px;position:relative;overflow:hidden;transition:transform .32s var(--ease),box-shadow .32s var(--ease),border-color .32s}
+.svc::before{content:"";position:absolute;inset:0 0 auto 0;height:4px;background:linear-gradient(90deg,var(--aqua-400),var(--aqua-600));transform:scaleX(0);transform-origin:left;transition:transform .4s var(--ease)}
+.svc:hover{transform:translateY(-8px);box-shadow:var(--shadow-md);border-color:rgba(34,211,192,.4)}
+.svc:hover::before{transform:scaleX(1)}
+.svc-ico{width:58px;height:58px;border-radius:16px;background:linear-gradient(135deg,var(--navy-900),var(--navy-700));display:grid;place-items:center;margin-bottom:24px;transition:transform .3s var(--ease),background .3s}
+.svc:hover .svc-ico{transform:scale(1.08) rotate(-6deg);background:linear-gradient(135deg,var(--aqua-400),var(--aqua-600))}
+.svc-ico svg{width:27px;height:27px;stroke:#fff;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;transition:stroke .3s}
+.svc:hover .svc-ico svg{stroke:var(--navy-950)}
+.svc h3{font-family:var(--font-display);font-size:20px;font-weight:700;margin-bottom:10px;letter-spacing:-.2px}
+.svc p{color:var(--muted);font-size:15px;margin-bottom:18px}
+.svc a.more{display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:600;color:var(--aqua-600)}
+.svc a.more svg{width:15px;height:15px;stroke:currentColor;fill:none;stroke-width:2;transition:transform .28s var(--ease)}
+.svc a.more:hover svg{transform:translateX(5px)}
+
+/* ---------- commercial feature block ---------- */
+.comm{margin-top:26px;border-radius:30px;overflow:hidden;display:grid;grid-template-columns:1.05fr .95fr;background:var(--navy-900);color:#fff;box-shadow:var(--shadow-lg);position:relative}
+.comm::before{content:"";position:absolute;inset:0;background:radial-gradient(600px 300px at 12% 90%,rgba(34,211,192,.16),transparent 60%);pointer-events:none}
+.comm-copy{padding:64px 58px;position:relative}
+.comm-copy .flag{display:inline-block;background:linear-gradient(135deg,var(--aqua-400),var(--aqua-600));color:var(--navy-950);font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:8px 18px;border-radius:999px;margin-bottom:22px}
+.comm-copy h3{font-family:var(--font-display);font-size:clamp(26px,3vw,36px);line-height:1.15;letter-spacing:-.5px;margin-bottom:16px}
+.comm-copy h3 em{font-style:normal;color:var(--aqua-400)}
+.comm-copy>p{color:rgba(255,255,255,.75);font-size:16px;margin-bottom:30px;max-width:440px}
+.comm-list{list-style:none;display:grid;gap:16px;margin-bottom:38px}
+.comm-list li{display:flex;gap:14px;align-items:flex-start;font-size:15px;color:rgba(255,255,255,.88)}
+.comm-list .ck{width:26px;height:26px;flex:none;border-radius:50%;background:rgba(34,211,192,.15);border:1px solid rgba(34,211,192,.5);display:grid;place-items:center;margin-top:1px}
+.comm-list .ck svg{width:12px;height:12px;stroke:var(--aqua-400);stroke-width:3;fill:none}
+.comm-img{position:relative;min-height:380px}
+.comm-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.comm-img::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,var(--navy-900) 0%,transparent 32%)}
+
+/* ---------- process ---------- */
+.process{background:var(--bg-soft)}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:56px;counter-reset:step}
+.step{background:#fff;border:1px solid var(--line);border-radius:var(--radius-lg);padding:38px 30px;position:relative;transition:transform .32s var(--ease),box-shadow .32s var(--ease)}
+.step:hover{transform:translateY(-8px);box-shadow:var(--shadow-md)}
+.step .num{font-family:var(--font-display);font-size:15px;font-weight:700;color:var(--aqua-600);letter-spacing:1px;margin-bottom:16px;display:flex;align-items:center;gap:12px}
+.step .num::after{content:"";flex:1;height:1.5px;background:linear-gradient(90deg,var(--aqua-500),transparent)}
+.step h3{font-family:var(--font-display);font-size:19px;font-weight:700;margin-bottom:10px}
+.step p{color:var(--muted);font-size:14.5px}
+.step .big{position:absolute;top:22px;right:26px;font-family:var(--font-display);font-size:64px;font-weight:700;color:var(--bg-tint);line-height:1;z-index:0}
+.step>*:not(.big){position:relative;z-index:1}
+
+/* ---------- quality / image feature ---------- */
+.quality{display:grid;grid-template-columns:.95fr 1.05fr;gap:70px;align-items:center}
+.q-img{position:relative}
+.q-img .main{border-radius:30px;overflow:hidden;box-shadow:var(--shadow-lg)}
+.q-img .main img{width:100%;height:560px;object-fit:cover;transition:transform 1.2s var(--ease)}
+.q-img:hover .main img{transform:scale(1.04)}
+.q-badge{position:absolute;left:-26px;bottom:44px;background:#fff;border-radius:20px;box-shadow:var(--shadow-md);padding:22px 26px;display:flex;align-items:center;gap:16px;border:1px solid var(--line)}
+.q-badge .qb-ico{width:52px;height:52px;border-radius:14px;background:linear-gradient(135deg,var(--aqua-400),var(--aqua-600));display:grid;place-items:center;flex:none}
+.q-badge .qb-ico svg{width:25px;height:25px;stroke:var(--navy-950);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.q-badge b{display:block;font-family:var(--font-display);font-size:17px}
+.q-badge span{font-size:13px;color:var(--muted)}
+.q-list{list-style:none;margin:32px 0 40px;display:grid;gap:20px}
+.q-list li{display:flex;gap:16px;align-items:flex-start}
+.q-list .n{width:34px;height:34px;flex:none;border-radius:10px;background:var(--navy-900);color:var(--aqua-400);font-family:var(--font-display);font-weight:700;font-size:14px;display:grid;place-items:center}
+.q-list b{display:block;font-size:16px;margin-bottom:3px}
+.q-list p{color:var(--muted);font-size:14.5px}
+
+/* ---------- testimonials ---------- */
+.testi{background:var(--navy-900);color:#fff;overflow:hidden;position:relative}
+.testi::before{content:"“";position:absolute;top:40px;left:4%;font-family:var(--font-display);font-size:340px;line-height:1;color:rgba(34,211,192,.07);pointer-events:none}
+.t-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:56px;position:relative}
+.t-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:var(--radius-lg);padding:36px 32px;transition:transform .32s var(--ease),border-color .32s,background .32s;display:flex;flex-direction:column}
+.t-card:hover{transform:translateY(-8px);border-color:rgba(34,211,192,.5);background:rgba(34,211,192,.05)}
+.stars{display:flex;gap:5px;margin-bottom:20px}
+.stars svg{width:17px;height:17px;fill:var(--aqua-400)}
+.t-card p{color:rgba(255,255,255,.82);font-size:15.5px;flex:1;margin-bottom:26px;font-style:italic}
+.t-who{display:flex;align-items:center;gap:14px}
+.t-ava{width:48px;height:48px;border-radius:50%;background:linear-gradient(135deg,var(--aqua-400),var(--navy-700));display:grid;place-items:center;font-family:var(--font-display);font-weight:700;color:#fff;font-size:17px;flex:none}
+.t-who b{display:block;font-size:15px}
+.t-who span{font-size:13px;color:rgba(255,255,255,.6)}
+
+/* ---------- pricing ---------- */
+.plans{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;margin-top:56px;align-items:stretch}
+.plan{background:#fff;border:1px solid var(--line);border-radius:26px;padding:44px 38px;display:flex;flex-direction:column;position:relative;transition:transform .32s var(--ease),box-shadow .32s var(--ease),border-color .32s}
+.plan:hover{transform:translateY(-10px);box-shadow:var(--shadow-lg)}
+.plan.feat{background:var(--navy-900);color:#fff;border-color:var(--navy-900);box-shadow:var(--shadow-lg);transform:scale(1.035)}
+.plan.feat:hover{transform:scale(1.035) translateY(-10px)}
+.plan .tag{position:absolute;top:-15px;left:50%;transform:translateX(-50%);background:linear-gradient(135deg,var(--aqua-400),var(--aqua-600));color:var(--navy-950);font-size:11.5px;font-weight:700;letter-spacing:1.6px;text-transform:uppercase;padding:8px 20px;border-radius:999px;white-space:nowrap;box-shadow:0 8px 20px -6px rgba(34,211,192,.7)}
+.plan h3{font-family:var(--font-display);font-size:20px;font-weight:700;margin-bottom:6px}
+.plan .for{font-size:14px;color:var(--muted);margin-bottom:24px}
+.plan.feat .for{color:rgba(255,255,255,.65)}
+.price{font-family:var(--font-display);font-size:46px;font-weight:700;letter-spacing:-1.5px;margin-bottom:4px}
+.price small{font-size:15px;font-family:var(--font-body);font-weight:500;color:var(--muted);letter-spacing:0}
+.plan.feat .price small{color:rgba(255,255,255,.65)}
+.price-note{font-size:13px;color:var(--muted);margin-bottom:28px}
+.plan.feat .price-note{color:rgba(255,255,255,.6)}
+.plan ul{list-style:none;display:grid;gap:13px;margin-bottom:36px;flex:1}
+.plan ul li{display:flex;gap:12px;align-items:flex-start;font-size:14.5px;color:inherit}
+.plan ul li svg{width:17px;height:17px;flex:none;stroke:var(--aqua-600);stroke-width:2.6;fill:none;margin-top:3px}
+.plan.feat ul li svg{stroke:var(--aqua-400)}
+.plan .btn{width:100%}
+.plans-note{text-align:center;color:var(--muted);font-size:13.5px;margin-top:30px}
+
+/* ---------- faq ---------- */
+.faq{background:var(--bg-soft)}
+.faq-list{max-width:820px;margin:52px auto 0;display:grid;gap:16px}
+.faq-item{background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;transition:box-shadow .3s,border-color .3s}
+.faq-item.open{box-shadow:var(--shadow-md);border-color:rgba(34,211,192,.45)}
+.faq-q{width:100%;background:none;border:0;display:flex;justify-content:space-between;align-items:center;gap:18px;padding:24px 28px;cursor:pointer;font-family:var(--font-display);font-size:17px;font-weight:600;color:var(--ink);text-align:left;transition:color .25s}
+.faq-q:hover{color:var(--aqua-600)}
+.faq-x{width:34px;height:34px;flex:none;border-radius:50%;background:var(--bg-tint);display:grid;place-items:center;transition:transform .35s var(--ease),background .3s}
+.faq-x svg{width:15px;height:15px;stroke:var(--navy-900);stroke-width:2.4;fill:none}
+.faq-item.open .faq-x{transform:rotate(45deg);background:var(--aqua-500)}
+.faq-item.open .faq-x svg{stroke:var(--navy-950)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .45s var(--ease)}
+.faq-a p{padding:0 28px 26px;color:var(--muted);font-size:15px}
+
+/* ---------- contact ---------- */
+.contact{background:linear-gradient(135deg,var(--navy-950),var(--navy-800));color:#fff;overflow:hidden;position:relative}
+.contact::before{content:"";position:absolute;inset:0;background:radial-gradient(800px 400px at 80% 20%,rgba(34,211,192,.16),transparent 60%)}
+.contact-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:70px;position:relative;align-items:center}
+.contact h2{color:#fff}
+.contact h2 .grad{color:var(--aqua-400)}
+.contact .sub{color:rgba(255,255,255,.72)}
+.c-methods{display:grid;gap:18px;margin-top:40px}
+.c-card{display:flex;align-items:center;gap:20px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:20px;padding:22px 26px;transition:transform .3s var(--ease),border-color .3s,background .3s}
+.c-card:hover{transform:translateX(8px);border-color:rgba(34,211,192,.55);background:rgba(34,211,192,.07)}
+.c-ico{width:56px;height:56px;flex:none;border-radius:16px;background:linear-gradient(135deg,var(--aqua-400),var(--aqua-600));display:grid;place-items:center}
+.c-ico svg{width:25px;height:25px;stroke:var(--navy-950);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.c-card small{display:block;font-size:12px;letter-spacing:1.8px;text-transform:uppercase;color:rgba(255,255,255,.55);margin-bottom:2px}
+.c-card b{font-family:var(--font-display);font-size:20px;font-weight:700}
+.quote-form{background:#fff;border-radius:26px;padding:44px 40px;color:var(--ink);box-shadow:var(--shadow-lg)}
+.quote-form h3{font-family:var(--font-display);font-size:24px;margin-bottom:8px;letter-spacing:-.4px}
+.quote-form>p{color:var(--muted);font-size:14.5px;margin-bottom:28px}
+.field{margin-bottom:18px}
+.field label{display:block;font-size:13px;font-weight:600;margin-bottom:8px;color:var(--navy-800)}
+.field input,.field select,.field textarea{width:100%;border:1.5px solid var(--line);border-radius:13px;padding:14px 17px;font-size:15px;font-family:var(--font-body);color:var(--ink);background:#fbfdfe;transition:border-color .25s,box-shadow .25s;appearance:none}
+.field input:focus,.field select:focus,.field textarea:focus{outline:0;border-color:var(--aqua-500);box-shadow:0 0 0 4px rgba(34,211,192,.16)}
+.field textarea{resize:vertical;min-height:96px}
+.f-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.form-ok{display:none;text-align:center;padding:26px 10px}
+.form-ok .ok-ico{width:64px;height:64px;border-radius:50%;background:linear-gradient(135deg,var(--aqua-400),var(--aqua-600));display:grid;place-items:center;margin:0 auto 18px}
+.form-ok .ok-ico svg{width:28px;height:28px;stroke:var(--navy-950);stroke-width:3;fill:none}
+.form-ok h4{font-family:var(--font-display);font-size:21px;margin-bottom:8px}
+.form-ok p{color:var(--muted);font-size:14.5px}
+
+/* ---------- final cta ---------- */
+.final{padding:0}
+.final-band{position:relative;border-radius:0;overflow:hidden;color:#fff;text-align:center;padding:120px 28px}
+.final-band .fb-bg{position:absolute;inset:0}
+.final-band .fb-bg img{width:100%;height:100%;object-fit:cover}
+.final-band .fb-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(4,18,31,.88),rgba(4,18,31,.78))}
+.final-band .inner{position:relative;max-width:720px;margin:0 auto}
+.final-band h2{color:#fff;margin-bottom:16px}
+.final-band p{color:rgba(255,255,255,.8);font-size:17px;margin-bottom:38px}
+.final-band .hero-ctas{justify-content:center;margin-bottom:0}
+
+/* ---------- footer ---------- */
+footer{background:var(--navy-950);color:rgba(255,255,255,.65);padding:64px 0 34px;font-size:14.5px}
+.f-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:44px;margin-bottom:48px}
+.f-brand .brand-name{color:#fff}
+.f-brand p{margin:18px 0 24px;max-width:340px;font-size:14.5px}
+.f-col h4{font-family:var(--font-display);color:#fff;font-size:15px;letter-spacing:1px;text-transform:uppercase;margin-bottom:20px}
+.f-col ul{list-style:none;display:grid;gap:12px}
+.f-col a{transition:color .25s,padding-left .25s}
+.f-col a:hover{color:var(--aqua-400);padding-left:6px}
+.f-bottom{border-top:1px solid rgba(255,255,255,.1);padding-top:28px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:13px;color:rgba(255,255,255,.45)}
+
+/* ---------- mobile sticky bar ---------- */
+.mbar{display:none;position:fixed;left:14px;right:14px;bottom:14px;z-index:90;background:rgba(6,27,46,.96);backdrop-filter:blur(12px);border:1px solid rgba(34,211,192,.35);border-radius:20px;padding:10px;grid-template-columns:1fr 1fr;gap:10px;box-shadow:0 18px 44px -10px rgba(0,0,0,.55)}
+.mbar a{display:flex;align-items:center;justify-content:center;gap:9px;font-weight:700;font-size:14.5px;border-radius:13px;padding:14px 8px}
+.mbar a svg{width:17px;height:17px}
+.mbar .m-call{background:linear-gradient(135deg,var(--aqua-400),var(--aqua-600));color:var(--navy-950)}
+.mbar .m-quote{border:1.5px solid rgba(255,255,255,.35);color:#fff}
+
+/* ---------- responsive ---------- */
+@media(max-width:1020px){
+  .svc-grid{grid-template-columns:1fr 1fr}
+  .steps{grid-template-columns:1fr 1fr}
+  .stats-grid{grid-template-columns:1fr 1fr}
+  .t-grid{grid-template-columns:1fr}
+  .plans{grid-template-columns:1fr;max-width:520px;margin-left:auto;margin-right:auto}
+  .plan.feat{transform:none}
+  .plan.feat:hover{transform:translateY(-10px)}
+  .comm{grid-template-columns:1fr}
+  .comm-img{min-height:300px}
+  .comm-img::after{background:linear-gradient(180deg,var(--navy-900) 0%,transparent 30%)}
+  .quality{grid-template-columns:1fr;gap:50px}
+  .q-badge{left:14px}
+  .contact-grid{grid-template-columns:1fr;gap:50px}
+}
+@media(max-width:760px){
+  .wrap{padding:0 20px}
+  .sec{padding:80px 0}
+  .hero h1{font-size:clamp(32px,8.8vw,44px);letter-spacing:-.5px}
+  nav.links{display:none}
+  header .btn{display:none}
+  .burger{display:block}
+  .mobile-nav{position:fixed;inset:0;z-index:120;background:rgba(4,18,31,.98);backdrop-filter:blur(10px);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;opacity:0;pointer-events:none;transition:opacity .35s var(--ease)}
+  .mobile-nav.open{opacity:1;pointer-events:auto}
+  .mobile-nav a{color:#fff;font-family:var(--font-display);font-size:26px;font-weight:700;padding:12px;transition:color .25s}
+  .mobile-nav a:hover{color:var(--aqua-400)}
+  .mobile-nav .close{position:absolute;top:22px;right:24px;background:none;border:0;color:#fff;font-size:15px;letter-spacing:2px;text-transform:uppercase;cursor:pointer}
+  .svc-grid{grid-template-columns:1fr}
+  .steps{grid-template-columns:1fr}
+  .hero-inner{padding:130px 0 120px}
+  .hero-proof{gap:12px 16px}
+  .hero-proof .hp{font-size:13px}
+  .comm-copy{padding:44px 30px}
+  .q-img .main img{height:400px}
+  .q-badge{left:10px;right:10px;bottom:20px;padding:18px 20px}
+  .quote-form{padding:34px 26px}
+  .f-row{grid-template-columns:1fr}
+  .f-grid{grid-template-columns:1fr;gap:34px}
+  .scroll-hint{display:none}
+  .mbar{display:grid}
+  footer{padding-bottom:110px}
+  .final-band{padding:90px 22px}
+}
+</style>
+</head>
+<body>
+
+<header id="hdr">
+  <div class="wrap bar">
+    <a class="brand" href="#top" aria-label="ZULEX Facility Services — home">
+      <span class="brand-mark">Z</span>
+      <span class="brand-name">ZULEX<small>Facility Services</small></span>
+    </a>
+    <nav class="links" aria-label="Primary">
+      <a href="#services">Services</a>
+      <a href="#commercial">Commercial</a>
+      <a href="#process">How it works</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <a class="btn btn-aqua btn-sm" href="tel:+17869895196">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.13.96.36 1.9.7 2.8a2 2 0 0 1-.45 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.25a2 2 0 0 1 2.1-.45c.9.34 1.84.57 2.8.7A2 2 0 0 1 22 16.9z"/></svg>
+      (786) 989-5196
+    </a>
+    <button class="burger" id="burger" aria-label="Open menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+    </button>
+  </div>
+</header>
+
+<div class="mobile-nav" id="mnav">
+  <button class="close" id="mclose">Close ✕</button>
+  <a href="#services">Services</a>
+  <a href="#commercial">Commercial</a>
+  <a href="#process">How it works</a>
+  <a href="#pricing">Pricing</a>
+  <a href="#faq">FAQ</a>
+  <a href="tel:+17869895196" style="color:var(--aqua-400)">(786) 989-5196</a>
+</div>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="hero-bg"><img src="images/zx-hero.jpg" alt="ZULEX professional cleaning team in a bright modern Miami office lobby" fetchpriority="high"></div>
+  <div class="hero-inner wrap">
+    <div class="hero-copy">
+      <span class="eyebrow rv"><span class="dot"></span>Miami · Residential & Commercial</span>
+      <h1 class="rv rv-d1">A spotless space,<br><span class="grad">every single time.</span></h1>
+      <p class="lead rv rv-d2">ZULEX Facility Services keeps Miami homes, offices, clinics and small businesses immaculate — with regular and deep cleaning you can count on.</p>
+      <div class="hero-ctas rv rv-d3">
+        <a class="btn btn-aqua" href="tel:+17869895196">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.13.96.36 1.9.7 2.8a2 2 0 0 1-.45 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.25a2 2 0 0 1 2.1-.45c.9.34 1.84.57 2.8.7A2 2 0 0 1 22 16.9z"/></svg>
+          Call (786) 989-5196
+        </a>
+        <a class="btn btn-outline-w" href="#quote">
+          Get My Free Quote
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </div>
+      <div class="hero-proof rv rv-d4">
+        <span class="hp"><span class="tick"><svg viewBox="0 0 24 24"><path d="M4 12.5l5 5L20 6.5"/></svg></span>Houses & apartments</span>
+        <span class="hp"><span class="tick"><svg viewBox="0 0 24 24"><path d="M4 12.5l5 5L20 6.5"/></svg></span>Offices & small businesses</span>
+        <span class="hp"><span class="tick"><svg viewBox="0 0 24 24"><path d="M4 12.5l5 5L20 6.5"/></svg></span>Regular & deep cleaning</span>
+      </div>
+    </div>
+  </div>
+  <div class="scroll-hint">Scroll</div>
+</section>
+
+<!-- RIBBON -->
+<div class="ribbon" aria-hidden="true">
+  <div class="ribbon-track">
+    <span><i></i>Residential Cleaning</span><span><i></i>Commercial Cleaning</span><span><i></i>Offices & Clinics</span><span><i></i>Deep Cleaning</span><span><i></i>Miami, FL</span><span><i></i>Free Quotes</span>
+    <span><i></i>Residential Cleaning</span><span><i></i>Commercial Cleaning</span><span><i></i>Offices & Clinics</span><span><i></i>Deep Cleaning</span><span><i></i>Miami, FL</span><span><i></i>Free Quotes</span>
+  </div>
+</div>
+
+<!-- STATS -->
+<section class="stats">
+  <div class="wrap">
+    <div class="stats-grid">
+      <div class="stat rv"><b data-count="120">0</b><span>Happy clients across Miami</span></div>
+      <div class="stat rv rv-d1"><b data-count="15">0</b><span>Businesses on recurring plans</span></div>
+      <div class="stat rv rv-d2"><b data-count="24">0</b><span>Hour response on every quote request</span></div>
+      <div class="stat rv rv-d3"><b data-count="100">0</b><span>% focus on spotless, reliable results</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="sec" id="services">
+  <div class="wrap">
+    <div class="center">
+      <span class="kicker rv">What we clean</span>
+      <h2 class="rv rv-d1">One team for your home<br>and your business</h2>
+      <p class="sub rv rv-d2">From weekly office service to a full deep clean of your home — professional equipment, trained staff, and the same standard every visit.</p>
+    </div>
+    <div class="svc-grid">
+      <div class="svc rv">
+        <div class="svc-ico"><svg viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M3 12h18"/></svg></div>
+        <h3>Office Cleaning</h3>
+        <p>Desks, lobbies, restrooms and common areas kept guest-ready — daily, weekly or on your schedule.</p>
+        <a class="more" href="#quote">Get a quote <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+      <div class="svc rv rv-d1">
+        <div class="svc-ico"><svg viewBox="0 0 24 24"><path d="M12 3v18M5 8h14"/><rect x="4" y="4" width="16" height="16" rx="3"/></svg></div>
+        <h3>Clinics & Medical Spaces</h3>
+        <p>Detail-oriented cleaning for clinics and professional practices where hygiene is non-negotiable.</p>
+        <a class="more" href="#quote">Get a quote <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+      <div class="svc rv rv-d2">
+        <div class="svc-ico"><svg viewBox="0 0 24 24"><path d="M3 9l9-6 9 6v11a1 1 0 0 1-1 1h-5v-7h-6v7H4a1 1 0 0 1-1-1z"/></svg></div>
+        <h3>Residential Cleaning</h3>
+        <p>Houses and apartments across Miami — regular upkeep that keeps your home effortlessly clean.</p>
+        <a class="more" href="#quote">Get a quote <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+      <div class="svc rv">
+        <div class="svc-ico"><svg viewBox="0 0 24 24"><path d="M12 3l1.9 4.6L18.5 9l-4.6 1.4L12 15l-1.9-4.6L5.5 9l4.6-1.4zM19 15l.9 2.1 2.1.9-2.1.9L19 21l-.9-2.1-2.1-.9 2.1-.9zM5 16l.7 1.8 1.8.7-1.8.7L5 21l-.7-1.8-1.8-.7 1.8-.7z"/></svg></div>
+        <h3>Deep Cleaning</h3>
+        <p>Top-to-bottom detailing for kitchens, bathrooms and hard-to-reach areas. The reset your space needs.</p>
+        <a class="more" href="#quote">Get a quote <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+      <div class="svc rv rv-d1">
+        <div class="svc-ico"><svg viewBox="0 0 24 24"><path d="M21 8l-9-5-9 5v8l9 5 9-5zM3.3 8.5L12 13l8.7-4.5M12 13v9"/></svg></div>
+        <h3>Move-In / Move-Out</h3>
+        <p>Empty-unit deep cleans for tenants, landlords and property managers — ready for the next occupant.</p>
+        <a class="more" href="#quote">Get a quote <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+      <div class="svc rv rv-d2">
+        <div class="svc-ico"><svg viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 7h8M8 11h8M8 15h5"/></svg></div>
+        <h3>Small Business Plans</h3>
+        <p>Retail, salons, restaurants and studios — recurring plans sized for small businesses, not big contracts.</p>
+        <a class="more" href="#commercial">See commercial plans <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+    </div>
+
+    <!-- COMMERCIAL FEATURE -->
+    <div class="comm rv" id="commercial">
+      <div class="comm-copy">
+        <span class="flag">Commercial Contracts</span>
+        <h3>Your office, cleaned on <em>autopilot.</em></h3>
+        <p>Recurring commercial service for offices and small businesses across Miami. One agreement, zero micromanaging — we show up, we clean, you work.</p>
+        <ul class="comm-list">
+          <li><span class="ck"><svg viewBox="0 0 24 24"><path d="M4 12.5l5 5L20 6.5"/></svg></span>Daily, weekly or bi-weekly janitorial service</li>
+          <li><span class="ck"><svg viewBox="0 0 24 24"><path d="M4 12.5l5 5L20 6.5"/></svg></span>Restrooms, lobbies, kitchens & high-touch areas</li>
+          <li><span class="ck"><svg viewBox="0 0 24 24"><path d="M4 12.5l5 5L20 6.5"/></svg></span>After-hours & weekend scheduling available</li>
+          <li><span class="ck"><svg viewBox="0 0 24 24"><path d="M4 12.5l5 5L20 6.5"/></svg></span>Single point of contact — no rotating strangers</li>
+        </ul>
+        <a class="btn btn-aqua" href="tel:+17869895196">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.13.96.36 1.9.7 2.8a2 2 0 0 1-.45 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.25a2 2 0 0 1 2.1-.45c.9.34 1.84.57 2.8.7A2 2 0 0 1 22 16.9z"/></svg>
+          Discuss Your Contract
+        </a>
+      </div>
+      <div class="comm-img">
+        <img src="images/zx-office.jpg" alt="ZULEX cleaner polishing a glass conference room wall in a modern Miami office" loading="lazy">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="sec process" id="process">
+  <div class="wrap">
+    <div class="center">
+      <span class="kicker rv">How it works</span>
+      <h2 class="rv rv-d1">Clean space in 4 easy steps</h2>
+      <p class="sub rv rv-d2">No guesswork, no phone tag. Just message us your ZIP code and what you need cleaned — we handle the rest.</p>
+    </div>
+    <div class="steps">
+      <div class="step rv"><span class="big">01</span><div class="num">STEP ONE</div><h3>Send your ZIP</h3><p>Message us your ZIP code and what you need cleaned — home, office or business.</p></div>
+      <div class="step rv rv-d1"><span class="big">02</span><div class="num">STEP TWO</div><h3>Get your quote</h3><p>We reply fast with a clear, honest quote. No hidden fees, no surprises.</p></div>
+      <div class="step rv rv-d2"><span class="big">03</span><div class="num">STEP THREE</div><h3>We clean</h3><p>Our uniformed team arrives on time with professional equipment and supplies.</p></div>
+      <div class="step rv rv-d3"><span class="big">04</span><div class="num">STEP FOUR</div><h3>Stay spotless</h3><p>Book once, or lock in a recurring plan and never think about cleaning again.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- QUALITY -->
+<section class="sec">
+  <div class="wrap quality">
+    <div class="q-img rv">
+      <div class="main"><img src="images/zx-detail.jpg" alt="Close-up of a ZULEX cleaner detailing a spotless marble countertop" loading="lazy"></div>
+      <div class="q-badge">
+        <span class="qb-ico"><svg viewBox="0 0 24 24"><path d="M12 2l2.6 5.6 6 .7-4.4 4.1 1.1 5.9L12 15.4 6.7 18.3l1.1-5.9L3.4 8.3l6-.7z"/></svg></span>
+        <div><b>Detail-obsessed</b><span>The finish your clients notice</span></div>
+      </div>
+    </div>
+    <div>
+      <span class="kicker rv">The ZULEX standard</span>
+      <h2 class="rv rv-d1">Clean you can see<br>in the details</h2>
+      <p class="sub rv rv-d2">Anyone can run a mop. We finish like it matters — because for your home or your business, it does.</p>
+      <ul class="q-list">
+        <li class="rv"><span class="n">1</span><div><b>Trained, uniformed team</b><p>Professional staff in matching uniforms — you always know who's in your space.</p></div></li>
+        <li class="rv rv-d1"><span class="n">2</span><div><b>Pro equipment & supplies</b><p>Commercial-grade tools and products for a deeper, longer-lasting clean.</p></div></li>
+        <li class="rv rv-d2"><span class="n">3</span><div><b>Consistent checklists</b><p>Every visit follows the same detailed checklist — same result, every time.</p></div></li>
+        <li class="rv rv-d3"><span class="n">4</span><div><b>Reliable scheduling</b><p>We show up when we say we will. Recurring clients get priority booking.</p></div></li>
+      </ul>
+      <a class="btn btn-navy rv" href="#quote">Book Your Cleaning
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="sec testi">
+  <div class="wrap">
+    <div class="center">
+      <span class="kicker rv" style="color:var(--aqua-400)">Client reviews</span>
+      <h2 class="rv rv-d1" style="color:#fff">Miami trusts ZULEX</h2>
+      <p class="sub rv rv-d2" style="color:rgba(255,255,255,.65)">Real feedback from homes and businesses we keep spotless across the city.</p>
+    </div>
+    <div class="t-grid">
+      <div class="t-card rv">
+        <div class="stars" aria-label="5 stars">
+          <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.2 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.2 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.2 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.2 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.2 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8z"/></svg>
+        </div>
+        <p>"They clean our office twice a week and it always looks brand new. Clients literally comment on how fresh the space feels."</p>
+        <div class="t-who"><span class="t-ava">M</span><div><b>Marina D.</b><span>Office Manager, Brickell</span></div></div>
+      </div>
+      <div class="t-card rv rv-d1">
+        <div class="stars" aria-label="5 stars">
+          <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.2 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.2 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.2 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.2 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.2 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8z"/></svg>
+        </div>
+        <p>"Booked a deep clean before moving in. The kitchen and bathrooms looked untouched — I mean that in the best way."</p>
+        <div class="t-who"><span class="t-ava">J</span><div><b>Jonathan R.</b><span>Homeowner, Doral</span></div></div>
+      </div>
+      <div class="t-card rv rv-d2">
+        <div class="stars" aria-label="5 stars">
+          <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.2 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.2 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.2 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.2 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.2 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8z"/></svg>
+        </div>
+        <p>"Fast quote, on-time arrival, zero hassle. Our clinic needs strict hygiene and ZULEX delivers it every visit."</p>
+        <div class="t-who"><span class="t-ava">S</span><div><b>Sofia L.</b><span>Clinic Administrator, Coral Gables</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="sec" id="pricing">
+  <div class="wrap">
+    <div class="center">
+      <span class="kicker rv">Simple pricing</span>
+      <h2 class="rv rv-d1">Plans for every space</h2>
+      <p class="sub rv rv-d2">Transparent starting points. Your final quote depends on your space — message us your ZIP code for an exact price.</p>
+    </div>
+    <div class="plans">
+      <div class="plan rv">
+        <h3>Home Refresh</h3>
+        <div class="for">Regular residential cleaning</div>
+        <div class="price">$129<small> / visit from</small></div>
+        <div class="price-note">Houses & apartments in Miami</div>
+        <ul>
+          <li><svg viewBox="0 0 24 24"><path d="M4 12.5l5 5L20 6.5"/></svg>All rooms, kitchen & bathrooms</li>
+          <li><svg viewBox="0 0 24 24"><path d="M4 12.5l5 5L20 6.5"/></svg>Dusting, mopping & vacuuming</li>
+          <li><svg viewBox="0 0 24 24"><path d="M4 12.5l5 5L20 6.5"/></svg>Weekly or bi-weekly scheduling</li>
+          <li><svg viewBox="0 0 24 24"><path d="M4 12.5l5 5L20 6.5"/></svg>Supplies & equipment included</li>
+        </ul>
+        <a class="btn btn-navy" href="#quote">Get Exact Quote</a>
+      </div>
+      <div class="plan feat rv rv-d1">
+        <span class="tag">Most Popular</span>
+        <h3>Commercial Contract</h3>
+        <div class="for">Recurring office & business cleaning</div>
+        <div class="price">Custom<small> / monthly</small></div>
+        <div class="price-note">Priced by space size & frequency</div>
+        <ul>
+          <li><svg viewBox="0 0 24 24"><path d="M4 12.5l5 5L20 6.5"/></svg>Daily, weekly or bi-weekly service</li>
+          <li><svg viewBox="0 0 24 24"><path d="M4 12.5l5 5L20 6.5"/></svg>Offices, clinics & small businesses</li>
+          <li><svg viewBox="0 0 24 24"><path d="M4 12.5l5 5L20 6.5"/></svg>Restrooms, lobbies & high-touch areas</li>
+          <li><svg viewBox="0 0 24 24"><path d="M4 12.5l5 5L20 6.5"/></svg>After-hours scheduling available</li>
+          <li><svg viewBox="0 0 24 24"><path d="M4 12.5l5 5L20 6.5"/></svg>Dedicated point of contact</li>
+        </ul>
+        <a class="btn btn-aqua" href="tel:+17869895196">Discuss Your Contract</a>
+      </div>
+      <div class="plan rv rv-d2">
+        <h3>Deep Clean</h3>
+        <div class="for">One-time intensive detailing</div>
+        <div class="price">$249<small> / visit from</small></div>
+        <div class="price-note">Residential & move-in/move-out</div>
+        <ul>
+          <li><svg viewBox="0 0 24 24"><path d="M4 12.5l5 5L20 6.5"/></svg>Top-to-bottom detailed clean</li>
+          <li><svg viewBox="0 0 24 24"><path d="M4 12.5l5 5L20 6.5"/></svg>Inside appliances & baseboards</li>
+          <li><svg viewBox="0 0 24 24"><path d="M4 12.5l5 5L20 6.5"/></svg>Grout, fixtures & hard-to-reach areas</li>
+          <li><svg viewBox="0 0 24 24"><path d="M4 12.5l5 5L20 6.5"/></svg>Perfect before events or move-in</li>
+        </ul>
+        <a class="btn btn-navy" href="#quote">Get Exact Quote</a>
+      </div>
+    </div>
+    <p class="plans-note rv">Starting prices shown — every space is different. Send your ZIP code for a free, exact quote.</p>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="sec faq" id="faq">
+  <div class="wrap">
+    <div class="center">
+      <span class="kicker rv">Questions</span>
+      <h2 class="rv rv-d1">Everything you're wondering</h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item rv">
+        <button class="faq-q" aria-expanded="false">Which areas do you serve?<span class="faq-x"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></button>
+        <div class="faq-a"><p>We provide residential and commercial cleaning throughout Miami. Just send us your ZIP code with what you need cleaned and we'll confirm availability and pricing right away.</p></div>
+      </div>
+      <div class="faq-item rv rv-d1">
+        <button class="faq-q" aria-expanded="false">How do I get a quote?<span class="faq-x"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></button>
+        <div class="faq-a"><p>Simple: message us your ZIP code and tell us what you need cleaned — a home, an office, a clinic. We'll reply with a clear quote, usually within 24 hours. Or call (786) 989-5196 for an instant estimate.</p></div>
+      </div>
+      <div class="faq-item rv rv-d2">
+        <button class="faq-q" aria-expanded="false">Do you bring your own supplies and equipment?<span class="faq-x"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></button>
+        <div class="faq-a"><p>Yes. Our uniformed team arrives with professional-grade equipment and all cleaning supplies — you don't need to provide a thing.</p></div>
+      </div>
+      <div class="faq-item rv rv-d3">
+        <button class="faq-q" aria-expanded="false">How do commercial contracts work?<span class="faq-x"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></button>
+        <div class="faq-a"><p>We assess your space, agree on a cleaning checklist and schedule (daily, weekly or bi-weekly), then lock in a flat monthly rate. After-hours and weekend service is available so we never interrupt your workday.</p></div>
+      </div>
+      <div class="faq-item rv rv-d4">
+        <button class="faq-q" aria-expanded="false">What's the difference between regular and deep cleaning?<span class="faq-x"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></button>
+        <div class="faq-a"><p>Regular cleaning keeps your space consistently tidy — surfaces, floors, bathrooms, dusting. Deep cleaning goes further: inside appliances, baseboards, grout, fixtures and every hard-to-reach corner. Many clients start with a deep clean, then maintain it with regular visits.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="sec contact" id="quote">
+  <div class="wrap contact-grid">
+    <div>
+      <span class="kicker rv" style="color:var(--aqua-400)">Free quote</span>
+      <h2 class="rv rv-d1">Get your <span class="grad">free quote</span> today</h2>
+      <p class="sub rv rv-d2">Message us your ZIP code and what you need cleaned — we'll reply with your price. Fast, friendly, no pressure.</p>
+      <div class="c-methods">
+        <a class="c-card rv" href="tel:+17869895196">
+          <span class="c-ico"><svg viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.13.96.36 1.9.7 2.8a2 2 0 0 1-.45 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.25a2 2 0 0 1 2.1-.45c.9.34 1.84.57 2.8.7A2 2 0 0 1 22 16.9z"/></svg></span>
+          <div><small>Call or text</small><b>(786) 989-5196</b></div>
+        </a>
+        <a class="c-card rv rv-d1" href="https://www.facebook.com/search/top?q=ZULEX%20Facility%20Services" target="_blank" rel="noopener">
+          <span class="c-ico"><svg viewBox="0 0 24 24"><path d="M21 11.5a8.5 8.5 0 0 1-12.4 7.5L3 21l2-5.4A8.5 8.5 0 1 1 21 11.5z"/></svg></span>
+          <div><small>Message us</small><b>ZULEX on Facebook</b></div>
+        </a>
+        <div class="c-card rv rv-d2" style="cursor:default">
+          <span class="c-ico"><svg viewBox="0 0 24 24"><path d="M12 21s-7-5.5-7-11a7 7 0 0 1 14 0c0 5.5-7 11-7 11z"/><circle cx="12" cy="10" r="2.6"/></svg></span>
+          <div><small>Service area</small><b>Miami, Florida</b></div>
+        </div>
+      </div>
+    </div>
+    <div class="quote-form rv rv-d1">
+      <form id="qform" novalidate>
+        <h3>Request your free quote</h3>
+        <p>Fill this out and we'll get back to you shortly.</p>
+        <div class="f-row">
+          <div class="field"><label for="fname">Name</label><input id="fname" name="name" type="text" placeholder="Your name" required></div>
+          <div class="field"><label for="fzip">ZIP code</label><input id="fzip" name="zip" type="text" inputmode="numeric" placeholder="e.g. 33130" required></div>
+        </div>
+        <div class="field"><label for="fphone">Phone</label><input id="fphone" name="phone" type="tel" placeholder="(786) 000-0000" required></div>
+        <div class="field"><label for="ftype">What do you need cleaned?</label>
+          <select id="ftype" name="type" required>
+            <option value="" disabled selected>Select a service…</option>
+            <option>Home — regular cleaning</option>
+            <option>Home — deep cleaning</option>
+            <option>Office / commercial contract</option>
+            <option>Clinic / medical space</option>
+            <option>Move-in / move-out</option>
+            <option>Small business plan</option>
+          </select>
+        </div>
+        <div class="field"><label for="fmsg">Details <span style="font-weight:400;color:var(--muted)">(optional)</span></label><textarea id="fmsg" name="message" placeholder="Bedrooms, square footage, frequency…"></textarea></div>
+        <button class="btn btn-aqua" type="submit" style="width:100%">Send My Request
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4z"/></svg>
+        </button>
+      </form>
+      <div class="form-ok" id="formok">
+        <span class="ok-ico"><svg viewBox="0 0 24 24"><path d="M4 12.5l5 5L20 6.5"/></svg></span>
+        <h4>Request received!</h4>
+        <p>Thanks — we'll reach out shortly with your free quote. Need it faster? Call <a href="tel:+17869895196" style="color:var(--aqua-600);font-weight:600">(786) 989-5196</a>.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final">
+  <div class="final-band">
+    <div class="fb-bg"><img src="images/zx-hero.jpg" alt="" loading="lazy" aria-hidden="true"></div>
+    <div class="inner">
+      <h2 class="rv">Your space deserves<br>the ZULEX standard.</h2>
+      <p class="rv rv-d1">Homes, offices, clinics and businesses across Miami — one call and it's handled.</p>
+      <div class="hero-ctas rv rv-d2">
+        <a class="btn btn-aqua" href="tel:+17869895196">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.13.96.36 1.9.7 2.8a2 2 0 0 1-.45 2.1L8.1 9.9a16 16 0 0 1 2.1-.45c.9.34 1.84.57 2.8.7A2 2 0 0 1 22 16.9z"/></svg>
+          Call (786) 989-5196
+        </a>
+        <a class="btn btn-outline-w" href="#quote">Get My Free Quote</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="f-grid">
+      <div class="f-brand">
+        <a class="brand" href="#top"><span class="brand-mark">Z</span><span class="brand-name">ZULEX<small>Facility Services</small></span></a>
+        <p>Reliable residential and commercial cleaning throughout Miami — houses, apartments, offices, clinics and small businesses.</p>
+      </div>
+      <div class="f-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="#services">Office Cleaning</a></li>
+          <li><a href="#services">Residential Cleaning</a></li>
+          <li><a href="#services">Deep Cleaning</a></li>
+          <li><a href="#commercial">Commercial Contracts</a></li>
+        </ul>
+      </div>
+      <div class="f-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="tel:+17869895196">(786) 989-5196</a></li>
+          <li><a href="#quote">Free Quote</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li>Miami, Florida</li>
+        </ul>
+      </div>
+    </div>
+    <div class="f-bottom">
+      <span>© 2026 ZULEX Facility Services. All rights reserved.</span>
+      <span>Miami, FL · Residential & Commercial Cleaning</span>
+    </div>
+  </div>
+</footer>
+
+<!-- mobile sticky bar -->
+<div class="mbar">
+  <a class="m-call" href="tel:+17869895196">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.13.96.36 1.9.7 2.8a2 2 0 0 1-.45 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.25a2 2 0 0 1 2.1-.45c.9.34 1.84.57 2.8.7A2 2 0 0 1 22 16.9z"/></svg>
+    Call Now
+  </a>
+  <a class="m-quote" href="#quote">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 11.5a8.5 8.5 0 0 1-12.4 7.5L3 21l2-5.4A8.5 8.5 0 1 1 21 11.5z"/></svg>
+    Free Quote
+  </a>
+</div>
+
+<script>
+// header solid on scroll
+const hdr=document.getElementById('hdr');
+const onScroll=()=>hdr.classList.toggle('solid',window.scrollY>40);
+window.addEventListener('scroll',onScroll,{passive:true});onScroll();
+
+// mobile nav
+const mnav=document.getElementById('mnav');
+const setNav=o=>{mnav.classList.toggle('open',o);document.body.style.overflow=o?'hidden':''};
+document.getElementById('burger').addEventListener('click',()=>setNav(true));
+document.getElementById('mclose').addEventListener('click',()=>setNav(false));
+mnav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>setNav(false)));
+
+// reveal on scroll
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+
+// animated stat counters
+const cio=new IntersectionObserver(es=>es.forEach(e=>{
+  if(!e.isIntersecting)return;cio.unobserve(e.target);
+  const el=e.target,end=+el.dataset.count,t0=performance.now(),dur=1400;
+  const tick=t=>{const p=Math.min((t-t0)/dur,1),v=Math.round(end*(1-Math.pow(1-p,3)));el.textContent=v+(p===1&&(end===100||end===24)?(end===24?'h':'%'):'');if(p<1)requestAnimationFrame(tick)};
+  requestAnimationFrame(tick);
+}),{threshold:.5});
+document.querySelectorAll('[data-count]').forEach(el=>cio.observe(el));
+
+// faq accordion (single open)
+const items=document.querySelectorAll('.faq-item');
+items.forEach(it=>{
+  const q=it.querySelector('.faq-q'),a=it.querySelector('.faq-a');
+  q.addEventListener('click',()=>{
+    const open=it.classList.contains('open');
+    items.forEach(o=>{o.classList.remove('open');o.querySelector('.faq-a').style.maxHeight=null;o.querySelector('.faq-q').setAttribute('aria-expanded','false')});
+    if(!open){it.classList.add('open');a.style.maxHeight=a.scrollHeight+'px';q.setAttribute('aria-expanded','true')}
+  });
+});
+
+// quote form -> success state (front-end demo)
+document.getElementById('qform').addEventListener('submit',e=>{
+  e.preventDefault();
+  const f=e.target;
+  if(!f.checkValidity()){f.reportValidity();return}
+  f.style.display='none';
+  document.getElementById('formok').style.display='block';
+});
+</script>
+</body>
+</html>

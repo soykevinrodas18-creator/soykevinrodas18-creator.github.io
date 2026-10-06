@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HEFIXCARS — Ray's Mobile Mechanic | Broward, FL</title>
+<meta name="description" content="Mobile mechanic in Broward. Ray comes to you — or you come to him. Starters, alternators, water pumps, suspension, electrical & Sprinter/Promaster van fleet service. Call or text 954-295-9213.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --asphalt:#0b0c0e; --asphalt-2:#121315; --asphalt-3:#1a1c1f;
+  --orange:#ff5c00; --orange-2:#ff7a26; --orange-soft:rgba(255,92,0,.12);
+  --ink:#f5f2ec; --muted:#a7a5a0; --line:rgba(255,255,255,.09);
+  --radius:18px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;overflow-x:clip}
+body{background:var(--asphalt);color:var(--ink);font-family:'Inter',system-ui,sans-serif;overflow-x:clip;-webkit-font-smoothing:antialiased}
+.marquee-wrap{overflow:hidden;padding:1.2rem 0;margin:-1.2rem 0;position:relative;z-index:3}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+.font-display{font-family:'Anton',sans-serif;font-weight:400;letter-spacing:.01em;text-transform:uppercase}
+.kicker{display:inline-flex;align-items:center;gap:.6rem;font-size:.72rem;font-weight:700;letter-spacing:.28em;text-transform:uppercase;color:var(--orange);margin-bottom:1.1rem}
+.kicker::before{content:"";width:34px;height:2px;background:var(--orange);display:inline-block}
+.wrap{width:min(1180px,92%);margin:0 auto}
+section{position:relative}
+
+/* ============ NAV ============ */
+.nav{position:fixed;inset:0 0 auto 0;z-index:60;transition:background .35s,border-color .35s,padding .35s;padding:1.1rem 0;border-bottom:1px solid transparent}
+.nav.scrolled{background:rgba(11,12,14,.9);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-color:var(--line);padding:.65rem 0}
+.nav-inner{width:min(1240px,94%);margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:1rem}
+.brand{display:flex;align-items:center;gap:.65rem}
+.brand-mark{width:40px;height:40px;border-radius:11px;background:linear-gradient(135deg,var(--orange),#c33f00);display:grid;place-items:center;font-family:'Anton',sans-serif;font-size:1.25rem;color:#0b0c0e;box-shadow:0 6px 20px rgba(255,92,0,.35)}
+.brand-name{font-family:'Anton',sans-serif;font-size:1.35rem;letter-spacing:.04em;line-height:1}
+.brand-name small{display:block;font-family:'Inter',system-ui,sans-serif;font-size:.6rem;font-weight:700;letter-spacing:.32em;color:var(--muted)}
+.nav-links{display:flex;gap:1.9rem;font-size:.82rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.nav-links a{transition:color .25s}
+.nav-links a:hover{color:var(--orange)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.55rem;font-weight:800;font-size:.85rem;letter-spacing:.06em;text-transform:uppercase;padding:.95rem 1.7rem;border-radius:999px;border:0;cursor:pointer;white-space:nowrap;transition:transform .25s cubic-bezier(.34,1.56,.64,1),box-shadow .25s,background .25s}
+.btn:active{transform:scale(.97)}
+.btn-orange{background:linear-gradient(135deg,var(--orange-2),var(--orange));color:#0b0c0e;box-shadow:0 10px 30px rgba(255,92,0,.35)}
+.btn-orange:hover{transform:translateY(-3px);box-shadow:0 16px 40px rgba(255,92,0,.5)}
+.btn-ghost{background:rgba(255,255,255,.06);color:var(--ink);border:1px solid var(--line)}
+.btn-ghost:hover{border-color:var(--orange);color:var(--orange);transform:translateY(-3px)}
+.btn-sm{padding:.65rem 1.25rem;font-size:.76rem}
+.nav-cta{display:flex;gap:.6rem;align-items:center}
+@media(max-width:860px){.nav-links{display:none}.btn-sm{padding:.6rem 1rem;font-size:.7rem}}
+
+/* ============ HERO ============ */
+.hero{min-height:100svh;display:flex;align-items:flex-end;overflow:hidden;padding:9rem 0 0}
+.hero-bg{position:absolute;inset:0;z-index:0}
+.hero-bg img{width:100%;height:100%;object-fit:cover;object-position:center 30%;transform:scale(1.06);animation:heroZoom 14s ease-out forwards}
+@keyframes heroZoom{to{transform:scale(1)}}
+.hero-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,12,14,.55) 0%,rgba(11,12,14,.25) 35%,rgba(11,12,14,.82) 72%,var(--asphalt) 100%),radial-gradient(120% 60% at 15% 90%,rgba(255,92,0,.22),transparent 55%)}
+.hero-content{position:relative;z-index:2;padding-bottom:4.5rem;width:100%}
+.hero-tag{display:inline-flex;align-items:center;gap:.6rem;background:rgba(11,12,14,.55);border:1px solid var(--line);backdrop-filter:blur(8px);border-radius:999px;padding:.5rem 1.1rem;font-size:.75rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--ink);margin-bottom:1.6rem}
+.hero-tag .dot{width:8px;height:8px;border-radius:50%;background:var(--orange);box-shadow:0 0 12px var(--orange);animation:pulse 2s infinite}
+@keyframes pulse{50%{opacity:.4}}
+.hero h1{font-size:clamp(3.2rem,9.5vw,7.6rem);line-height:.94;color:var(--ink)}
+.hero h1 .stroke{color:transparent;-webkit-text-stroke:2px var(--orange)}
+.hero-sub{margin-top:1.4rem;max-width:560px;font-size:clamp(1rem,1.6vw,1.2rem);line-height:1.65;color:#d8d5ce}
+.hero-sub strong{color:var(--orange)}
+.hero-actions{display:flex;flex-wrap:wrap;gap:.9rem;margin-top:2.2rem}
+.hero-meta{display:flex;flex-wrap:wrap;gap:1.8rem;margin-top:2.4rem;padding-top:1.6rem;border-top:1px solid var(--line);font-size:.82rem;color:var(--muted);font-weight:600;letter-spacing:.04em}
+.hero-meta span{display:flex;align-items:center;gap:.5rem}
+.hero-meta svg{width:16px;height:16px;stroke:var(--orange);flex:none}
+.hero-scroll{position:absolute;right:3%;bottom:2.2rem;z-index:2;writing-mode:vertical-rl;font-size:.68rem;letter-spacing:.4em;text-transform:uppercase;color:var(--muted);display:flex;align-items:center;gap:.8rem}
+.hero-scroll::after{content:"";width:1px;height:56px;background:linear-gradient(var(--orange),transparent);animation:drop 2s infinite}
+@keyframes drop{0%{transform:translateY(-8px);opacity:0}40%{opacity:1}100%{transform:translateY(14px);opacity:0}}
+@media(max-width:700px){.hero-scroll{display:none}}
+
+/* ============ MARQUEE ============ */
+.marquee{background:var(--orange);color:#0b0c0e;overflow:hidden;padding:.95rem 0;transform:rotate(-1.2deg) scale(1.02);box-shadow:0 20px 60px rgba(255,92,0,.25);position:relative;z-index:3;margin-top:-1px}
+.marquee-track{display:flex;gap:3rem;width:max-content;animation:scrollX 26s linear infinite;font-family:'Anton',sans-serif;font-size:1.15rem;letter-spacing:.06em;text-transform:uppercase;white-space:nowrap}
+.marquee-track span{display:flex;align-items:center;gap:3rem}
+@keyframes scrollX{to{transform:translateX(-50%)}}
+
+/* ============ STATS ============ */
+.stats{padding:5.5rem 0 4.5rem}
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem}
+.stat{background:var(--asphalt-2);border:1px solid var(--line);border-radius:var(--radius);padding:1.8rem 1.4rem;position:relative;overflow:hidden;transition:transform .3s,border-color .3s}
+.stat:hover{transform:translateY(-6px);border-color:rgba(255,92,0,.5)}
+.stat::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--orange),transparent)}
+.stat-num{font-family:'Anton',sans-serif;font-size:2.6rem;color:var(--orange);line-height:1}
+.stat-label{margin-top:.5rem;font-size:.8rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ink)}
+.stat-desc{margin-top:.35rem;font-size:.82rem;color:var(--muted);line-height:1.55}
+@media(max-width:860px){.stats-grid{grid-template-columns:repeat(2,1fr)}}
+
+/* ============ SECTION HEADS ============ */
+.sec{padding:5.5rem 0}
+.sec-head{max-width:720px;margin-bottom:3rem}
+.sec-head h2{font-family:'Anton',sans-serif;font-size:clamp(2.2rem,5vw,3.6rem);line-height:1;text-transform:uppercase}
+.sec-head h2 em{font-style:normal;color:var(--orange)}
+.sec-head p{margin-top:1rem;color:var(--muted);font-size:1.02rem;line-height:1.65}
+
+/* ============ SERVICES ============ */
+.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.1rem}
+.svc{background:var(--asphalt-2);border:1px solid var(--line);border-radius:var(--radius);padding:2rem 1.7rem;transition:transform .3s,border-color .3s,box-shadow .3s;position:relative;overflow:hidden}
+.svc::after{content:"";position:absolute;inset:0;background:radial-gradient(300px 200px at 50% -20%,rgba(255,92,0,.14),transparent);opacity:0;transition:opacity .35s}
+.svc:hover{transform:translateY(-8px);border-color:rgba(255,92,0,.55);box-shadow:0 24px 50px rgba(0,0,0,.45)}
+.svc:hover::after{opacity:1}
+.svc-icon{width:52px;height:52px;border-radius:14px;background:var(--orange-soft);border:1px solid rgba(255,92,0,.3);display:grid;place-items:center;margin-bottom:1.3rem;transition:transform .3s,background .3s}
+.svc:hover .svc-icon{transform:rotate(-8deg) scale(1.08);background:var(--orange)}
+.svc-icon svg{width:26px;height:26px;stroke:var(--orange);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;transition:stroke .3s}
+.svc:hover .svc-icon svg{stroke:#0b0c0e}
+.svc h3{font-family:'Anton',sans-serif;font-size:1.25rem;letter-spacing:.03em;text-transform:uppercase;margin-bottom:.55rem}
+.svc p{font-size:.88rem;color:var(--muted);line-height:1.65}
+@media(max-width:860px){.svc-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.svc-grid{grid-template-columns:1fr}}
+
+/* ============ FLEET BAND ============ */
+.fleet{background:var(--asphalt-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line);overflow:hidden}
+.fleet-inner{display:grid;grid-template-columns:1.05fr 1fr;min-height:520px}
+.fleet-copy{padding:5rem 4rem 5rem 0;display:flex;flex-direction:column;justify-content:center}
+.fleet-badge{display:inline-flex;align-self:flex-start;align-items:center;gap:.5rem;background:var(--orange);color:#0b0c0e;font-weight:800;font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;padding:.55rem 1rem;border-radius:8px;margin-bottom:1.4rem}
+.fleet-copy h2{font-family:'Anton',sans-serif;font-size:clamp(2.4rem,5vw,3.8rem);line-height:.98;text-transform:uppercase;margin-bottom:1.2rem}
+.fleet-copy h2 em{font-style:normal;color:var(--orange)}
+.fleet-copy p{color:var(--muted);line-height:1.7;font-size:1rem;max-width:480px}
+.fleet-list{margin:1.8rem 0 2.2rem;display:grid;gap:.8rem}
+.fleet-list li{list-style:none;display:flex;gap:.8rem;align-items:flex-start;font-size:.92rem;color:#d8d5ce;font-weight:500}
+.fleet-list svg{width:20px;height:20px;stroke:var(--orange);fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;flex:none;margin-top:2px}
+.fleet-img{position:relative;min-height:380px}
+.fleet-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.fleet-img::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,var(--asphalt-2) 0%,transparent 30%),linear-gradient(0deg,rgba(11,12,14,.35),transparent 40%)}
+.fleet-tag{position:absolute;bottom:1.4rem;left:1.4rem;z-index:2;background:rgba(11,12,14,.72);backdrop-filter:blur(8px);border:1px solid var(--line);border-radius:12px;padding:.9rem 1.2rem}
+.fleet-tag b{display:block;font-family:'Anton',sans-serif;font-size:1.05rem;letter-spacing:.04em;color:var(--orange)}
+.fleet-tag small{font-size:.75rem;color:var(--muted);font-weight:600;letter-spacing:.06em}
+@media(max-width:900px){.fleet-inner{grid-template-columns:1fr}.fleet-copy{padding:4rem 0 3rem}.fleet-img{min-height:300px}}
+
+/* ============ PROCESS ============ */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:1.1rem;counter-reset:step}
+.step{background:var(--asphalt-2);border:1px solid var(--line);border-radius:var(--radius);padding:2.4rem 1.8rem;position:relative;overflow:hidden;transition:transform .3s,border-color .3s}
+.step:hover{transform:translateY(-8px);border-color:rgba(255,92,0,.5)}
+.step-num{font-family:'Anton',sans-serif;font-size:4.2rem;line-height:1;color:transparent;-webkit-text-stroke:1.5px rgba(255,92,0,.65);margin-bottom:1.2rem}
+.step h3{font-family:'Anton',sans-serif;font-size:1.3rem;letter-spacing:.03em;text-transform:uppercase;margin-bottom:.6rem}
+.step p{font-size:.9rem;color:var(--muted);line-height:1.65}
+.step p a{color:var(--orange);font-weight:700}
+.step-cta{margin-top:1.1rem;font-size:.85rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--orange);display:inline-flex;align-items:center;gap:.45rem}
+.step-cta svg{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;transition:transform .25s}
+.step:hover .step-cta svg{transform:translateX(5px)}
+@media(max-width:860px){.steps{grid-template-columns:1fr}}
+
+/* ============ DIAGNOSTICS / ABOUT ============ */
+.diag-inner{display:grid;grid-template-columns:1fr 1fr;gap:3.5rem;align-items:center}
+.diag-img{position:relative;border-radius:var(--radius);overflow:hidden;box-shadow:0 30px 70px rgba(0,0,0,.5)}
+.diag-img img{width:100%;height:480px;object-fit:cover;transition:transform .8s ease}
+.diag-img:hover img{transform:scale(1.05)}
+.diag-img::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(11,12,14,.65))}
+.diag-quote{position:absolute;left:1.4rem;right:1.4rem;bottom:1.4rem;z-index:2;font-family:'Anton',sans-serif;font-size:1.5rem;line-height:1.15;text-transform:uppercase}
+.diag-quote em{font-style:normal;color:var(--orange)}
+.diag-copy .kicker{margin-bottom:1.1rem}
+.diag-copy h2{font-family:'Anton',sans-serif;font-size:clamp(2.2rem,4.5vw,3.2rem);line-height:1;text-transform:uppercase;margin-bottom:1.3rem}
+.diag-copy h2 em{font-style:normal;color:var(--orange)}
+.diag-copy p{color:var(--muted);line-height:1.75;margin-bottom:1.1rem;font-size:.98rem}
+.diag-points{display:grid;gap:.7rem;margin:1.6rem 0 2.1rem}
+.diag-points li{list-style:none;display:flex;gap:.75rem;align-items:center;font-size:.92rem;font-weight:600}
+.diag-points svg{width:18px;height:18px;stroke:var(--orange);fill:none;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round;flex:none}
+@media(max-width:900px){.diag-inner{grid-template-columns:1fr;gap:2.2rem}.diag-img img{height:340px}}
+
+/* ============ TESTIMONIALS ============ */
+.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.1rem}
+.testi{background:var(--asphalt-2);border:1px solid var(--line);border-radius:var(--radius);padding:2rem 1.7rem;display:flex;flex-direction:column;gap:1.1rem;transition:transform .3s,border-color .3s}
+.testi:hover{transform:translateY(-8px);border-color:rgba(255,92,0,.5)}
+.stars{display:flex;gap:.25rem}
+.stars svg{width:17px;height:17px;fill:var(--orange)}
+.testi p{font-size:.92rem;line-height:1.7;color:#d8d5ce;flex:1}
+.testi-who{display:flex;align-items:center;gap:.9rem;border-top:1px solid var(--line);padding-top:1.1rem}
+.testi-ava{width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,var(--orange),#a83a00);display:grid;place-items:center;font-family:'Anton',sans-serif;font-size:1.05rem;color:#0b0c0e}
+.testi-who b{display:block;font-size:.88rem}
+.testi-who small{font-size:.76rem;color:var(--muted);letter-spacing:.04em}
+@media(max-width:860px){.testi-grid{grid-template-columns:1fr}}
+
+/* ============ PRICING ============ */
+.price-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.1rem;align-items:stretch}
+.price{background:var(--asphalt-2);border:1px solid var(--line);border-radius:var(--radius);padding:2.4rem 2rem;display:flex;flex-direction:column;position:relative;transition:transform .3s,border-color .3s,box-shadow .3s}
+.price:hover{transform:translateY(-8px);box-shadow:0 24px 50px rgba(0,0,0,.45)}
+.price.hot{border:2px solid var(--orange);background:linear-gradient(180deg,rgba(255,92,0,.1),var(--asphalt-2) 45%);box-shadow:0 20px 60px rgba(255,92,0,.18)}
+.price-flag{position:absolute;top:-14px;left:50%;transform:translateX(-50%);background:var(--orange);color:#0b0c0e;font-size:.68rem;font-weight:800;letter-spacing:.2em;text-transform:uppercase;padding:.45rem 1.1rem;border-radius:999px;white-space:nowrap}
+.price-tier{font-size:.75rem;font-weight:800;letter-spacing:.24em;text-transform:uppercase;color:var(--orange);margin-bottom:.8rem}
+.price h3{font-family:'Anton',sans-serif;font-size:1.7rem;text-transform:uppercase;margin-bottom:.4rem}
+.price-desc{font-size:.86rem;color:var(--muted);line-height:1.6;margin-bottom:1.6rem}
+.price-amount{font-family:'Anton',sans-serif;font-size:3rem;line-height:1;margin-bottom:.3rem}
+.price-amount small{font-size:1rem;color:var(--muted);font-family:'Inter',system-ui,sans-serif;font-weight:600}
+.price-note{font-size:.78rem;color:var(--muted);margin-bottom:1.6rem}
+.price ul{display:grid;gap:.65rem;margin-bottom:2rem;flex:1}
+.price li{list-style:none;font-size:.88rem;color:#d8d5ce;display:flex;gap:.65rem;align-items:flex-start;line-height:1.55}
+.price li svg{width:17px;height:17px;stroke:var(--orange);fill:none;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round;flex:none;margin-top:2px}
+.price .btn{width:100%}
+@media(max-width:860px){.price-grid{grid-template-columns:1fr;max-width:460px;margin:0 auto}}
+
+/* ============ FAQ ============ */
+.faq-list{max-width:780px;margin:0 auto;display:grid;gap:.8rem}
+.faq{background:var(--asphalt-2);border:1px solid var(--line);border-radius:14px;overflow:hidden;transition:border-color .3s}
+.faq.open{border-color:rgba(255,92,0,.55)}
+.faq-q{width:100%;background:none;border:0;color:var(--ink);font-family:'Inter',system-ui,sans-serif;font-weight:700;font-size:.98rem;text-align:left;padding:1.35rem 1.5rem;display:flex;justify-content:space-between;align-items:center;gap:1rem;cursor:pointer}
+.faq-q .plus{width:32px;height:32px;flex:none;border-radius:50%;border:1px solid var(--line);display:grid;place-items:center;transition:transform .35s,background .3s,border-color .3s}
+.faq-q .plus svg{width:14px;height:14px;stroke:var(--orange);stroke-width:2.4;stroke-linecap:round}
+.faq.open .plus{transform:rotate(45deg);background:var(--orange);border-color:var(--orange)}
+.faq.open .plus svg{stroke:#0b0c0e}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .45s cubic-bezier(.4,0,.2,1)}
+.faq-a p{padding:0 1.5rem 1.5rem;color:var(--muted);font-size:.92rem;line-height:1.7}
+.faq-a a{color:var(--orange);font-weight:700}
+
+/* ============ FINAL CTA ============ */
+.final-cta{position:relative;overflow:hidden;border-radius:26px;margin:0 auto 5.5rem;background:var(--asphalt-2);border:1px solid var(--line);max-width:1180px;width:92%}
+.final-bg{position:absolute;inset:0}
+.final-bg img{width:100%;height:100%;object-fit:cover}
+.final-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(100deg,rgba(11,12,14,.96) 20%,rgba(11,12,14,.55) 60%,rgba(255,92,0,.18))}
+.final-inner{position:relative;z-index:2;padding:5rem 4rem;max-width:640px}
+.final-inner h2{font-family:'Anton',sans-serif;font-size:clamp(2.4rem,5.5vw,4rem);line-height:.98;text-transform:uppercase;margin-bottom:1.2rem}
+.final-inner h2 em{font-style:normal;color:var(--orange)}
+.final-inner p{color:#d8d5ce;line-height:1.7;margin-bottom:2rem;font-size:1rem}
+.final-phone{font-family:'Anton',sans-serif;font-size:clamp(1.9rem,4.5vw,2.9rem);color:var(--ink);letter-spacing:.03em;display:inline-block;margin-bottom:2rem;transition:color .25s}
+.final-phone:hover{color:var(--orange)}
+@media(max-width:700px){.final-inner{padding:3.4rem 1.8rem}.final-cta{border-radius:20px}}
+
+/* ============ FOOTER ============ */
+footer{border-top:1px solid var(--line);padding:3.5rem 0 6.5rem;background:#08090b}
+.foot-grid{display:flex;justify-content:space-between;align-items:flex-start;gap:2rem;flex-wrap:wrap}
+.foot-brand .brand{margin-bottom:1rem}
+.foot-brand p{font-size:.85rem;color:var(--muted);max-width:320px;line-height:1.7}
+.foot-links{display:flex;gap:3rem}
+.foot-links h4{font-size:.72rem;font-weight:800;letter-spacing:.24em;text-transform:uppercase;color:var(--orange);margin-bottom:1rem}
+.foot-links a{display:block;font-size:.88rem;color:var(--muted);margin-bottom:.6rem;transition:color .25s}
+.foot-links a:hover{color:var(--ink)}
+.foot-bottom{margin-top:2.5rem;padding-top:1.5rem;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;font-size:.75rem;color:#6d6c68}
+@media(max-width:700px){footer{padding-bottom:8rem}}
+
+/* ============ MOBILE CALL BAR ============ */
+.callbar{position:fixed;left:12px;right:12px;bottom:12px;z-index:70;display:none;gap:.6rem;background:rgba(11,12,14,.92);backdrop-filter:blur(14px);border:1px solid var(--line);border-radius:18px;padding:.6rem;box-shadow:0 18px 50px rgba(0,0,0,.6)}
+.callbar .btn{flex:1;padding:.9rem .5rem;font-size:.78rem}
+@media(max-width:700px){.callbar{display:flex}}
+
+/* ============ REVEAL ============ */
+.rv{opacity:0;transform:translateY(34px);transition:opacity .8s cubic-bezier(.22,1,.36,1),transform .8s cubic-bezier(.22,1,.36,1)}
+.rv.in{opacity:1;transform:none}
+.rv-d1{transition-delay:.1s}.rv-d2{transition-delay:.2s}.rv-d3{transition-delay:.3s}
+@media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}.hero-bg img{animation:none}.marquee-track{animation:none}}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<header class="nav" id="nav">
+  <div class="nav-inner">
+    <a class="brand" href="#top" aria-label="Hefixcars home">
+      <span class="brand-mark">H</span>
+      <span class="brand-name">HEFIXCARS<small>RAY'S MOBILE MECHANIC</small></span>
+    </a>
+    <nav class="nav-links">
+      <a href="#services">Services</a>
+      <a href="#fleet">Fleet</a>
+      <a href="#process">How It Works</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <div class="nav-cta">
+      <a class="btn btn-orange btn-sm" href="tel:+19542959213">Call Now</a>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"><img src="images/hf-hero.jpg" alt="Mobile mechanic Ray working under the hood of a car in a Broward driveway" fetchpriority="high"></div>
+  <div class="hero-content">
+    <div class="wrap">
+      <span class="hero-tag rv"><span class="dot"></span>Mobile Mechanic · Broward, FL</span>
+      <h1 class="font-display rv rv-d1">Your Mechanic.<br><span class="stroke">Wherever</span> You Are.</h1>
+      <p class="hero-sub rv rv-d2">Ray comes <strong>to you</strong> — home, work, or roadside — or you swing by. Starters, alternators, water pumps, suspension, electrical, car audio… and <strong>Sprinter &amp; Promaster fleet vans</strong>. One call handles it all.</p>
+      <div class="hero-actions rv rv-d3">
+        <a class="btn btn-orange" href="tel:+19542959213">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          Call 954-295-9213</a>
+        <a class="btn btn-ghost" href="https://wa.me/19542959213?text=Hi%20Ray%2C%20I%20need%20a%20mobile%20mechanic%20in%20Broward" target="_blank" rel="noopener">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+          WhatsApp Ray</a>
+      </div>
+      <div class="hero-meta rv rv-d3">
+        <span><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>Call or text — your choice</span>
+        <span><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>We come to you, or you come to us</span>
+        <span><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17h-2v-11a1 1 0 0 1 1-1h9v12m-8 0h8m4 0h2v-6l-3-4h-3v10"/><circle cx="7.5" cy="17.5" r="2.5"/><circle cx="17.5" cy="17.5" r="2.5"/></svg>Sprinter &amp; Promaster vans welcome</span>
+      </div>
+    </div>
+  </div>
+  <div class="hero-scroll">Scroll</div>
+</section>
+
+<!-- TRUST MARQUEE -->
+<div class="marquee-wrap">
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track">
+    <span>Starters <i>◆</i> Alternators <i>◆</i> Water Pumps <i>◆</i> Brakes <i>◆</i> Suspension <i>◆</i> Electrical <i>◆</i> Car Audio <i>◆</i> Sprinters <i>◆</i> Promasters <i>◆</i>&nbsp;</span>
+    <span>Starters <i>◆</i> Alternators <i>◆</i> Water Pumps <i>◆</i> Brakes <i>◆</i> Suspension <i>◆</i> Electrical <i>◆</i> Car Audio <i>◆</i> Sprinters <i>◆</i> Promasters <i>◆</i>&nbsp;</span>
+  </div>
+</div>
+</div>
+
+<!-- STATS -->
+<section class="stats">
+  <div class="wrap">
+    <div class="stats-grid">
+      <div class="stat rv"><div class="stat-num">100%</div><div class="stat-label">Mobile Service</div><div class="stat-desc">Real shop-quality repairs in your driveway, at work, or roadside.</div></div>
+      <div class="stat rv rv-d1"><div class="stat-num">2 Ways</div><div class="stat-label">To Get Serviced</div><div class="stat-desc">Ray comes to you — or you come to him. Whatever fits your day.</div></div>
+      <div class="stat rv rv-d2"><div class="stat-num">1 Call</div><div class="stat-label">Does It All</div><div class="stat-desc">No call centers. You talk directly to the mechanic. Call or text.</div></div>
+      <div class="stat rv rv-d3"><div class="stat-num">B2B</div><div class="stat-label">Fleet Ready</div><div class="stat-desc">Sprinter &amp; Promaster work vans — built for businesses that can't stop.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="sec" id="services" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="kicker">What Ray Fixes</span>
+      <h2>Full-Service Repairs, <em>On Wheels</em></h2>
+      <p>Everything a shop does — minus the waiting room. If it rolls, Ray can fix it where it sits.</p>
+    </div>
+    <div class="svc-grid">
+      <div class="svc rv">
+        <div class="svc-icon"><svg viewBox="0 0 24 24"><path d="M12 2v4M12 18v4M4.9 4.9l2.9 2.9M16.2 16.2l2.9 2.9M2 12h4M18 12h4M4.9 19.1l2.9-2.9M16.2 7.8l2.9-2.9"/><circle cx="12" cy="12" r="3.2"/></svg></div>
+        <h3>Starters &amp; Alternators</h3>
+        <p>Car won't crank or battery keeps dying? Ray tests, replaces, and gets you starting strong again.</p>
+      </div>
+      <div class="svc rv rv-d1">
+        <div class="svc-icon"><svg viewBox="0 0 24 24"><path d="M12 2.7l5.7 5.7a8 8 0 1 1-11.3 0z"/><path d="M9 12a3 3 0 0 0 3 3"/></svg></div>
+        <h3>Water Pumps &amp; Cooling</h3>
+        <p>Overheating, coolant leaks, new water pumps installed on-site before a small leak becomes a big bill.</p>
+      </div>
+      <div class="svc rv rv-d2">
+        <div class="svc-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3.5"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3"/></svg></div>
+        <h3>Brakes &amp; Rotors</h3>
+        <p>Squealing, grinding, soft pedal — pads, rotors, and calipers serviced where your car is parked.</p>
+      </div>
+      <div class="svc rv">
+        <div class="svc-icon"><svg viewBox="0 0 24 24"><path d="M4 16v-2l4-6 4 3 4-5 4 6v4"/><path d="M4 20h16"/><circle cx="8" cy="12" r="1.4"/><circle cx="16" cy="12" r="1.4"/></svg></div>
+        <h3>Suspension &amp; Steering</h3>
+        <p>Struts, ball joints, control arms, tie rods — straighten out clunks, pulls, and rough rides.</p>
+      </div>
+      <div class="svc rv rv-d1">
+        <div class="svc-icon"><svg viewBox="0 0 24 24"><path d="M13 2L4.5 13.5H11L10 22l8.5-11.5H12L13 2z"/></svg></div>
+        <h3>Electrical &amp; Car Audio</h3>
+        <p>Wiring gremlins, dead circuits, and full car-audio installs. Power and sound, handled right.</p>
+      </div>
+      <div class="svc rv rv-d2">
+        <div class="svc-icon"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4M7 9h4M7 12.5h7"/></svg></div>
+        <h3>Diagnostics</h3>
+        <p>Check-engine light on? Digital diagnostics pinpoint the real problem — no guessing, no upsells.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FLEET BAND -->
+<section class="fleet" id="fleet">
+  <div class="wrap">
+    <div class="fleet-inner">
+      <div class="fleet-copy rv">
+        <span class="fleet-badge">For Businesses</span>
+        <h2>Sprinter &amp; Promaster <em>Fleet Service</em></h2>
+        <p>Downtime costs money. Hefixcars keeps your work vans rolling with mobile fleet maintenance — serviced at your lot, between jobs, on your schedule.</p>
+        <ul class="fleet-list">
+          <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Mercedes Sprinter &amp; Ram Promaster specialists</li>
+          <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Preventive maintenance to avoid costly breakdowns</li>
+          <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Priority scheduling for fleet accounts</li>
+          <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>One mechanic who knows your vans by name</li>
+        </ul>
+        <div><a class="btn btn-orange" href="https://wa.me/19542959213?text=Hi%20Ray%2C%20I%27m%20interested%20in%20fleet%20service%20for%20my%20vans" target="_blank" rel="noopener">Get a Fleet Quote</a></div>
+      </div>
+      <div class="fleet-img rv rv-d1">
+        <img src="images/hf-van.jpg" alt="Mechanic servicing a white Sprinter work van in a commercial parking lot" loading="lazy">
+        <div class="fleet-tag"><b>FLEET &amp; COMMERCIAL</b><small>Sprinters · Promasters · Work Vans</small></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="sec" id="process">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="kicker">How It Works</span>
+      <h2>Fixed in <em>3 Easy Steps</em></h2>
+      <p>No tow truck. No waiting room. No mystery pricing.</p>
+    </div>
+    <div class="steps">
+      <div class="step rv">
+        <div class="step-num">01</div>
+        <h3>Call or Text</h3>
+        <p>Reach Ray directly at <a href="tel:+19542959213">954-295-9213</a>. Describe the problem — you'll get a straight answer and a fair quote.</p>
+        <a class="step-cta" href="tel:+19542959213">Call now <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+      <div class="step rv rv-d1">
+        <div class="step-num">02</div>
+        <h3>Ray Comes To You</h3>
+        <p>Home, office, or roadside in Broward — the van rolls up with professional tools and parts ready.</p>
+        <a class="step-cta" href="https://wa.me/19542959213?text=Hi%20Ray%2C%20here%27s%20my%20location%20and%20car%20issue" target="_blank" rel="noopener">Send location <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+      <div class="step rv rv-d2">
+        <div class="step-num">03</div>
+        <h3>Fixed On The Spot</h3>
+        <p>Diagnosed, repaired, and road-tested right there. Or come to Ray — your call, your convenience.</p>
+        <a class="step-cta" href="#pricing">See pricing <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DIAGNOSTICS / WHY -->
+<section class="sec" style="padding-top:0">
+  <div class="wrap">
+    <div class="diag-inner">
+      <div class="diag-img rv">
+        <img src="images/hf-engine.jpg" alt="Digital diagnostic tablet at a car engine bay" loading="lazy">
+        <div class="diag-quote">No guessing.<br><em>Just answers.</em></div>
+      </div>
+      <div class="diag-copy rv rv-d1">
+        <span class="kicker">Why Hefixcars</span>
+        <h2>The Shop Comes <em>To You</em></h2>
+        <p>Most breakdowns don't need a tow truck — they need a mechanic with the right tools and the experience to use them. Ray brings the shop to your driveway: digital diagnostics, pro-grade tools, and honest pricing, all without you losing half your day.</p>
+        <ul class="diag-points">
+          <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Digital diagnostics — find the real problem first</li>
+          <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>You deal directly with the mechanic, not a service desk</li>
+          <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Fair, upfront quotes — approved by you before any work</li>
+          <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Cars, trucks, Sprinters &amp; Promasters — all welcome</li>
+        </ul>
+        <a class="btn btn-orange" href="tel:+19542959213">Talk To Ray Directly</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="sec" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="kicker">Word On The Street</span>
+      <h2>Broward <em>Trusts Ray</em></h2>
+      <p>Real reviews from drivers who skipped the tow truck.</p>
+    </div>
+    <div class="testi-grid">
+      <div class="testi rv">
+        <div class="stars" aria-label="5 out of 5 stars"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg></div>
+        <p>"Starter died in my driveway at 7am. Texted Ray, he was here by 10, and I was driving by lunch. Didn't even have to call a tow."</p>
+        <div class="testi-who"><span class="testi-ava">M</span><div><b>Marcus T.</b><small>Hollywood, FL</small></div></div>
+      </div>
+      <div class="testi rv rv-d1">
+        <div class="stars" aria-label="5 out of 5 stars"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg></div>
+        <p>"He maintains our two Sprinters. Shows up at our lot, does the work between routes, vans never miss a day. Game changer for our business."</p>
+        <div class="testi-who"><span class="testi-ava">D</span><div><b>Daniel R.</b><small>Fleet Owner, Fort Lauderdale</small></div></div>
+      </div>
+      <div class="testi rv rv-d2">
+        <div class="stars" aria-label="5 out of 5 stars"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg></div>
+        <p>"Water pump plus full electrical check. Price he quoted on the phone was the price I paid. Straight shooter — I send everyone to him now."</p>
+        <div class="testi-who"><span class="testi-ava">S</span><div><b>Sofia L.</b><small>Pembroke Pines, FL</small></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="sec" id="pricing" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="kicker">Simple Pricing</span>
+      <h2>Know The Price <em>Before</em> The Wrench Turns</h2>
+      <p>Every job starts with a free, honest quote. No surprises, no pressure.</p>
+    </div>
+    <div class="price-grid">
+      <div class="price rv">
+        <div class="price-tier">Step 1</div>
+        <h3>Diagnose</h3>
+        <p class="price-desc">Know exactly what's wrong before spending a dollar on parts.</p>
+        <div class="price-amount">from $60<small> /visit</small></div>
+        <p class="price-note">Waived when you approve the repair.</p>
+        <ul>
+          <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Full digital scan &amp; inspection</li>
+          <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Written quote with parts &amp; labor</li>
+          <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Honest advice — fix it or don't</li>
+        </ul>
+        <a class="btn btn-ghost" href="tel:+19542959213">Book Diagnosis</a>
+      </div>
+      <div class="price hot rv rv-d1">
+        <span class="price-flag">Most Popular</span>
+        <div class="price-tier">Step 2</div>
+        <h3>On-Site Repair</h3>
+        <p class="price-desc">The full fix, done wherever your car is parked.</p>
+        <div class="price-amount">Free<small> quote</small></div>
+        <p class="price-note">You approve the price before any work starts.</p>
+        <ul>
+          <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Starters, alternators, water pumps</li>
+          <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Brakes, suspension &amp; steering</li>
+          <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Electrical &amp; car audio installs</li>
+          <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Road-tested before Ray leaves</li>
+        </ul>
+        <a class="btn btn-orange" href="https://wa.me/19542959213?text=Hi%20Ray%2C%20I%27d%20like%20a%20quote%20for%20a%20repair" target="_blank" rel="noopener">Get My Quote</a>
+      </div>
+      <div class="price rv rv-d2">
+        <div class="price-tier">For Business</div>
+        <h3>Fleet Partner</h3>
+        <p class="price-desc">Keep your Sprinters &amp; Promasters earning, not sitting.</p>
+        <div class="price-amount">Custom<small> plan</small></div>
+        <p class="price-note">Built around your routes and schedule.</p>
+        <ul>
+          <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Scheduled preventive maintenance</li>
+          <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Priority mobile service at your lot</li>
+          <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Per-van service history tracking</li>
+          <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Volume pricing for 2+ vehicles</li>
+        </ul>
+        <a class="btn btn-ghost" href="https://wa.me/19542959213?text=Hi%20Ray%2C%20I%20want%20fleet%20service%20for%20my%20vans" target="_blank" rel="noopener">Talk Fleet</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="sec" id="faq" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head rv" style="text-align:center;margin-left:auto;margin-right:auto">
+      <span class="kicker" style="justify-content:center">Questions</span>
+      <h2>Before You <em>Call</em></h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq rv">
+        <button class="faq-q" aria-expanded="false">Do you really come to my location?<span class="plus"><svg viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14"/></svg></span></button>
+        <div class="faq-a"><p>Yes — that's the whole point. Home, work, or roadside anywhere in Broward, Ray rolls up with a fully equipped van. Prefer to drop it off? You can come to him too. Your call.</p></div>
+      </div>
+      <div class="faq rv">
+        <button class="faq-q" aria-expanded="false">What vehicles do you work on?<span class="plus"><svg viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14"/></svg></span></button>
+        <div class="faq-a"><p>Cars, trucks, and SUVs of all makes — plus commercial vans including Mercedes Sprinters and Ram Promasters. If you're not sure, just <a href="tel:+19542959213">call or text</a> with the year, make, and model.</p></div>
+      </div>
+      <div class="faq rv">
+        <button class="faq-q" aria-expanded="false">How do I get a price?<span class="plus"><svg viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14"/></svg></span></button>
+        <div class="faq-a"><p>Text or call <a href="tel:+19542959213">954-295-9213</a> with what's going on. You'll get a straight quote before any work starts — and nothing happens until you approve it.</p></div>
+      </div>
+      <div class="faq rv">
+        <button class="faq-q" aria-expanded="false">Do you service business fleets?<span class="plus"><svg viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14"/></svg></span></button>
+        <div class="faq-a"><p>Absolutely. Hefixcars offers fleet maintenance for Sprinters, Promasters, and work vans — scheduled service at your lot with priority scheduling and per-van history. <a href="https://wa.me/19542959213?text=Hi%20Ray%2C%20I%20want%20fleet%20service%20for%20my%20vans" target="_blank" rel="noopener">Ask about fleet plans on WhatsApp</a>.</p></div>
+      </div>
+      <div class="faq rv">
+        <button class="faq-q" aria-expanded="false">What if it can't be fixed on-site?<span class="plus"><svg viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14"/></svg></span></button>
+        <div class="faq-a"><p>Most jobs are done where the car sits. For the rare repair that needs a lift or special equipment, Ray will tell you upfront and walk you through the options — no surprises.</p></div>
+      </div>
+      <div class="faq rv">
+        <button class="faq-q" aria-expanded="false">How do I pay?<span class="plus"><svg viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14"/></svg></span></button>
+        <div class="faq-a"><p>Payment is due when the job is done and you're happy with it. Ask Ray about accepted payment methods when you <a href="tel:+19542959213">call or text</a> — he'll keep it simple.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<div class="wrap">
+  <section class="final-cta rv">
+    <div class="final-bg"><img src="images/hf-engine.jpg" alt="Mechanic diagnostic work at an engine bay" loading="lazy"></div>
+    <div class="final-inner">
+      <span class="kicker">Don't Wait For The Tow Truck</span>
+      <h2>Car Trouble?<br><em>Ray's Already Rolling.</em></h2>
+      <p>One call or text gets a real mechanic to your driveway — with the tools, the parts know-how, and a fair price locked in before the work starts.</p>
+      <a class="final-phone" href="tel:+19542959213">954-295-9213</a>
+      <div style="display:flex;flex-wrap:wrap;gap:.9rem">
+        <a class="btn btn-orange" href="tel:+19542959213">Call Ray Now</a>
+        <a class="btn btn-ghost" href="https://wa.me/19542959213?text=Hi%20Ray%2C%20I%20need%20a%20mobile%20mechanic%20in%20Broward" target="_blank" rel="noopener">Text on WhatsApp</a>
+      </div>
+    </div>
+  </section>
+</div>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <a class="brand" href="#top"><span class="brand-mark">H</span><span class="brand-name">HEFIXCARS<small>RAY'S MOBILE MECHANIC</small></span></a>
+        <p>Mobile mechanic serving Broward, FL. We come to you — or you come to us. Cars, trucks, Sprinters &amp; Promasters.</p>
+      </div>
+      <div class="foot-links">
+        <div>
+          <h4>Explore</h4>
+          <a href="#services">Services</a>
+          <a href="#fleet">Fleet &amp; Commercial</a>
+          <a href="#pricing">Pricing</a>
+          <a href="#faq">FAQ</a>
+        </div>
+        <div>
+          <h4>Contact</h4>
+          <a href="tel:+19542959213">954-295-9213</a>
+          <a href="https://wa.me/19542959213" target="_blank" rel="noopener">WhatsApp</a>
+          <a href="#top">Broward County, FL</a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Hefixcars — Ray's Mobile Mechanic. All rights reserved.</span>
+      <span>Preview mockup — content subject to owner's approval.</span>
+    </div>
+  </div>
+</footer>
+
+<!-- MOBILE CALL BAR -->
+<div class="callbar">
+  <a class="btn btn-orange" href="tel:+19542959213">
+    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+    Call Now</a>
+  <a class="btn btn-ghost" href="https://wa.me/19542959213?text=Hi%20Ray%2C%20I%20need%20a%20mobile%20mechanic%20in%20Broward" target="_blank" rel="noopener">
+    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+    WhatsApp</a>
+</div>
+
+<script>
+// Nav shrink on scroll
+const nav = document.getElementById('nav');
+const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 40);
+window.addEventListener('scroll', onScroll, {passive:true}); onScroll();
+
+// Reveal on scroll
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+}, {threshold: 0.12, rootMargin: '0px 0px -40px 0px'});
+document.querySelectorAll('.rv').forEach(el => io.observe(el));
+
+// FAQ accordion (single-open)
+document.querySelectorAll('.faq').forEach(item => {
+  const btn = item.querySelector('.faq-q'), ans = item.querySelector('.faq-a');
+  btn.addEventListener('click', () => {
+    const open = item.classList.contains('open');
+    document.querySelectorAll('.faq.open').forEach(o => {
+      o.classList.remove('open');
+      o.querySelector('.faq-a').style.maxHeight = null;
+      o.querySelector('.faq-q').setAttribute('aria-expanded','false');
+    });
+    if (!open) {
+      item.classList.add('open');
+      ans.style.maxHeight = ans.scrollHeight + 'px';
+      btn.setAttribute('aria-expanded','true');
+    }
+  });
+});
+</script>
+</body>
+</html>
