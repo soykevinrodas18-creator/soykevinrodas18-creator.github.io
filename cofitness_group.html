@@ -21,7 +21,13 @@
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{background:var(--bg);color:var(--ink);font-family:var(--font-b);line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+body::after{content:"";position:fixed;inset:0;z-index:300;pointer-events:none;opacity:.05;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)'/%3E%3C/svg%3E")}
 ::selection{background:var(--volt);color:#0b0b0c}
+::-webkit-scrollbar{width:10px}
+::-webkit-scrollbar-track{background:#0a0a0b}
+::-webkit-scrollbar-thumb{background:#2b2b2e;border-radius:8px;border:2px solid #0a0a0b}
+::-webkit-scrollbar-thumb:hover{background:var(--volt)}
+section[id]{scroll-margin-top:84px}
 img{display:block;max-width:100%}
 a{color:inherit;text-decoration:none}
 .wrap{max-width:var(--max);margin:0 auto;padding:0 var(--pad)}
@@ -34,6 +40,10 @@ h1,h2,h3,.display{font-family:var(--font-d);font-weight:400;line-height:.95;lett
 .h-md{font-size:clamp(30px,4vw,52px)}
 .sub{color:var(--muted);font-size:clamp(16px,1.6vw,19px);max-width:60ch}
 .volt{color:var(--volt)}
+.has-ghost{overflow:hidden}
+.ghost{position:absolute;top:clamp(24px,5vw,64px);left:50%;transform:translateX(-50%);font-family:var(--font-d);font-size:clamp(96px,17vw,230px);line-height:1;letter-spacing:.05em;text-transform:uppercase;color:transparent;-webkit-text-stroke:1px rgba(255,255,255,.08);pointer-events:none;user-select:none;white-space:nowrap;z-index:0}
+@supports not (-webkit-text-stroke:1px #000){.ghost{color:rgba(255,255,255,.05);-webkit-text-stroke:0}}
+section.has-ghost .wrap{position:relative;z-index:1}
 /* ---------- header ---------- */
 header{position:fixed;inset:0 0 auto 0;z-index:100;transition:background .35s,border-color .35s,backdrop-filter .35s;border-bottom:1px solid transparent}
 header.scrolled{background:rgba(11,11,12,.86);backdrop-filter:blur(14px);border-color:var(--line)}
@@ -48,6 +58,9 @@ header.scrolled{background:rgba(11,11,12,.86);backdrop-filter:blur(14px);border-
 .links a:hover::after{width:100%}
 .btn{display:inline-flex;align-items:center;gap:10px;background:var(--volt);color:#0b0b0c;font-weight:800;font-size:14px;letter-spacing:.1em;text-transform:uppercase;padding:15px 28px;border-radius:100px;border:none;cursor:pointer;position:relative;overflow:hidden;transition:transform .25s,box-shadow .25s}
 .btn:hover{transform:translateY(-2px);box-shadow:0 12px 32px rgba(215,255,62,.28)}
+.btn::before{content:"";position:absolute;top:0;left:-90%;width:55%;height:100%;background:linear-gradient(105deg,transparent,rgba(255,255,255,.4),transparent);transform:skewX(-20deg);transition:left .65s ease;pointer-events:none}
+.btn:hover::before{left:140%}
+.btn.ghost::before{background:linear-gradient(105deg,transparent,rgba(215,255,62,.22),transparent)}
 .btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--line)}
 .btn.ghost:hover{border-color:var(--volt);box-shadow:none}
 .burger{display:none;background:none;border:none;cursor:pointer;z-index:110}
@@ -55,7 +68,9 @@ header.scrolled{background:rgba(11,11,12,.86);backdrop-filter:blur(14px);border-
 /* ---------- hero ---------- */
 .hero{min-height:100svh;display:flex;align-items:flex-end;padding:150px 0 0;overflow:hidden}
 .hero-bg{position:absolute;inset:0;z-index:-2}
-.hero-bg img{width:100%;height:100%;object-fit:cover;opacity:.5}
+.hero-bg img{width:100%;height:100%;object-fit:cover;opacity:.5;animation:kb 24s ease-in-out infinite alternate}
+@keyframes kb{from{transform:scale(1)}to{transform:scale(1.09)}}
+.hero-bg::before{content:"";position:absolute;inset:0;z-index:1;background:radial-gradient(55% 42% at 22% 34%,rgba(215,255,62,.12),transparent 70%),radial-gradient(40% 34% at 85% 12%,rgba(215,255,62,.05),transparent 70%)}
 .hero-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,11,12,.55) 0%,rgba(11,11,12,.25) 40%,var(--bg) 96%)}
 .hero .wrap{width:100%;padding-bottom:64px}
 .hero h1 .row{display:block;overflow:hidden}
@@ -66,12 +81,14 @@ header.scrolled{background:rgba(11,11,12,.86);backdrop-filter:blur(14px);border-
 .hero-sub{margin:26px 0 34px;max-width:56ch;color:#d8d8d3;font-size:clamp(16px,1.8vw,20px)}
 .hero-ctas{display:flex;gap:16px;flex-wrap:wrap}
 .proof{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:18px;overflow:hidden;margin-top:56px}
-.proof div{background:rgba(17,17,19,.82);backdrop-filter:blur(8px);padding:26px 28px}
+.proof div{background:rgba(17,17,19,.82);backdrop-filter:blur(8px);padding:26px 28px;transition:background .35s}
+.proof div:hover{background:rgba(215,255,62,.07)}
 .proof b{font-family:var(--font-d);font-weight:400;font-size:clamp(28px,3.4vw,44px);display:block;letter-spacing:.02em}
 .proof b .volt{font-size:.7em}
 .proof span{font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted)}
 /* ---------- ticker ---------- */
-.ticker{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:#0e0e10;overflow:hidden;padding:18px 0;white-space:nowrap}
+.ticker{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:#0e0e10;overflow:hidden;padding:18px 0;white-space:nowrap;-webkit-mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent);mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent)}
+.ticker:hover .ticker-track{animation-play-state:paused}
 .ticker-track{display:inline-flex;gap:0;animation:tick 26s linear infinite}
 .ticker span{font-family:var(--font-d);font-size:22px;letter-spacing:.08em;text-transform:uppercase;padding:0 28px;color:var(--ink)}
 .ticker span i{font-style:normal;color:var(--volt);padding-right:56px}
@@ -80,7 +97,7 @@ header.scrolled{background:rgba(11,11,12,.86);backdrop-filter:blur(14px);border-
 .sec-head{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;margin-bottom:52px;flex-wrap:wrap}
 .class-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
 .class-card{position:relative;border-radius:18px;overflow:hidden;background:var(--card);border:1px solid var(--line);min-height:420px;display:flex;align-items:flex-end;transition:transform .35s,border-color .35s}
-.class-card:hover{transform:translateY(-6px);border-color:rgba(215,255,62,.5)}
+.class-card:hover{transform:translateY(-6px);border-color:rgba(215,255,62,.5);box-shadow:0 22px 55px rgba(215,255,62,.12)}
 .class-card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.55;transition:transform .6s,opacity .4s}
 .class-card:hover img{transform:scale(1.06);opacity:.7}
 .class-card::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 30%,rgba(5,5,6,.92) 100%)}
@@ -89,12 +106,13 @@ header.scrolled{background:rgba(11,11,12,.86);backdrop-filter:blur(14px);border-
 .class-body h3{font-size:30px;margin:10px 0 8px}
 .class-body p{color:#cfcfca;font-size:14.5px}
 .class-body .go{display:inline-flex;align-items:center;gap:8px;margin-top:16px;font-size:13px;font-weight:700;letter-spacing:.12em;text-transform:uppercase}
-.class-body .go svg{transition:transform .3s}
-.class-card:hover .go svg{transform:translateX(6px)}
+.class-body .go svg{transition:transform .35s,background .35s,stroke .35s,border-color .35s;border:1px solid rgba(215,255,62,.45);border-radius:50%;padding:7px;width:32px;height:32px}
+.class-card:hover .go{color:var(--volt)}
+.class-card:hover .go svg{transform:translateX(6px);background:var(--volt);stroke:#0b0b0c;border-color:var(--volt)}
 .classes-note{margin-top:26px;color:var(--muted);font-size:15px}
 .classes-note a{color:var(--volt);font-weight:600;border-bottom:1px solid rgba(215,255,62,.4)}
 /* ---------- open gym band ---------- */
-.band{background:var(--volt);color:#0b0b0c;border-radius:26px;padding:clamp(40px,6vw,72px);display:grid;grid-template-columns:1.2fr .8fr;gap:40px;align-items:center;position:relative;overflow:hidden}
+.band{background:var(--volt);color:#0b0b0c;border-radius:26px;padding:clamp(40px,6vw,72px);display:grid;grid-template-columns:1.2fr .8fr;gap:40px;align-items:center;position:relative;overflow:hidden;box-shadow:0 30px 90px rgba(215,255,62,.14)}
 .band::before{content:"OPEN GYM";position:absolute;right:-20px;bottom:-38px;font-family:var(--font-d);font-size:clamp(120px,18vw,240px);color:rgba(11,11,12,.06);letter-spacing:.02em;pointer-events:none}
 .band h2{font-size:clamp(40px,5.5vw,72px);margin-bottom:16px}
 .band p{font-weight:500;max-width:44ch}
@@ -106,7 +124,7 @@ header.scrolled{background:rgba(11,11,12,.86);backdrop-filter:blur(14px);border-
 /* ---------- coaches ---------- */
 .coach-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
 .coach{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:30px 26px;transition:transform .3s,border-color .3s}
-.coach:hover{transform:translateY(-6px);border-color:rgba(215,255,62,.5)}
+.coach:hover{transform:translateY(-6px);border-color:rgba(215,255,62,.5);box-shadow:0 20px 50px rgba(215,255,62,.1)}
 .coach .init{width:64px;height:64px;border-radius:50%;background:var(--volt-dim);border:1px solid rgba(215,255,62,.45);display:flex;align-items:center;justify-content:center;font-family:var(--font-d);font-size:24px;color:var(--volt);margin-bottom:18px}
 .coach h3{font-size:22px;margin-bottom:6px}
 .coach .role{font-size:12px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--volt);margin-bottom:12px}
@@ -118,7 +136,7 @@ header.scrolled{background:rgba(11,11,12,.86);backdrop-filter:blur(14px);border-
 /* ---------- studios ---------- */
 .studios{display:grid;grid-template-columns:1fr 1fr;gap:22px}
 .studio{border-radius:22px;overflow:hidden;border:1px solid var(--line);background:var(--card);transition:transform .35s,border-color .35s}
-.studio:hover{transform:translateY(-6px);border-color:rgba(215,255,62,.5)}
+.studio:hover{transform:translateY(-6px);border-color:rgba(215,255,62,.5);box-shadow:0 22px 55px rgba(215,255,62,.1)}
 .studio .ph{height:300px;overflow:hidden;position:relative}
 .studio .ph img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
 .studio:hover .ph img{transform:scale(1.05)}
@@ -179,7 +197,13 @@ footer{border-top:1px solid var(--line);padding:56px 0 36px;background:#08080a}
 @media(max-width:768px){
   .links{position:fixed;inset:0;background:rgba(8,8,10,.98);backdrop-filter:blur(10px);flex-direction:column;justify-content:center;gap:34px;transform:translateX(100%);transition:transform .4s;z-index:105}
   .links.open{transform:none}
-  .links a{font-size:20px}
+  .links a{font-size:20px;opacity:0;transform:translateY(16px);transition:opacity .45s ease,transform .45s ease,color .25s}
+  .links.open a{opacity:1;transform:none}
+  .links.open a:nth-child(1){transition-delay:.06s}.links.open a:nth-child(2){transition-delay:.12s}.links.open a:nth-child(3){transition-delay:.18s}.links.open a:nth-child(4){transition-delay:.24s}.links.open a:nth-child(5){transition-delay:.3s}.links.open a:nth-child(6){transition-delay:.36s}
+  .burger.open span:nth-child(1){transform:translateY(8px) rotate(45deg)}
+  .burger.open span:nth-child(2){opacity:0}
+  .burger.open span:nth-child(3){transform:translateY(-8px) rotate(-45deg)}
+  body.menu-open{overflow:hidden}
   .burger{display:block}
   .nav .btn{display:none}
   .proof{grid-template-columns:1fr}
@@ -242,8 +266,9 @@ footer{border-top:1px solid var(--line);padding:56px 0 36px;background:#08080a}
 </div>
 
 <!-- CLASES -->
-<section id="clases">
+<section id="clases" class="has-ghost">
   <div class="wrap">
+    <span class="ghost" aria-hidden="true">Clases</span>
     <div class="sec-head rv">
       <div>
         <p class="eyebrow">Clases semanales</p>
@@ -251,7 +276,7 @@ footer{border-top:1px solid var(--line);padding:56px 0 36px;background:#08080a}
       </div>
       <p class="sub">Cada semana, instructores independientes llenan nuestros estudios de energía. Yoga, baile, jump, pilates con sazón y más.</p>
     </div>
-    <div class="class-grid">
+    <div class="class-grid" data-stagger>
       <article class="class-card rv">
         <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=800&q=70&auto=format&fit=crop" alt="Clase de yoga" loading="lazy" onerror="this.style.display='none'">
         <div class="class-body">
@@ -335,8 +360,9 @@ footer{border-top:1px solid var(--line);padding:56px 0 36px;background:#08080a}
 </section>
 
 <!-- COACHES -->
-<section id="coaches" style="padding-top:0">
+<section id="coaches" class="has-ghost" style="padding-top:0">
   <div class="wrap">
+    <span class="ghost" aria-hidden="true">Coaches</span>
     <div class="sec-head rv">
       <div>
         <p class="eyebrow">Coaches independientes</p>
@@ -344,7 +370,7 @@ footer{border-top:1px solid var(--line);padding:56px 0 36px;background:#08080a}
       </div>
       <p class="sub">CoFitness es casa de entrenadores que viven de su pasión. Elige tu coach y entrena 1-a-1 aquí mismo.</p>
     </div>
-    <div class="coach-grid">
+    <div class="coach-grid" data-stagger>
       <article class="coach rv">
         <div class="init">CC</div>
         <h3>Camilo Cruz</h3>
@@ -385,8 +411,9 @@ footer{border-top:1px solid var(--line);padding:56px 0 36px;background:#08080a}
 </section>
 
 <!-- ESTUDIOS -->
-<section id="estudios" style="padding-top:0">
+<section id="estudios" class="has-ghost" style="padding-top:0">
   <div class="wrap">
+    <span class="ghost" aria-hidden="true">Estudios</span>
     <div class="sec-head rv">
       <div>
         <p class="eyebrow">Para instructores</p>
@@ -394,7 +421,7 @@ footer{border-top:1px solid var(--line);padding:56px 0 36px;background:#08080a}
       </div>
       <p class="sub">¿Tienes la comunidad pero te falta el espacio? Renta un estudio profesional en Edgewater y enseña a tu manera, sin la carga de un local propio.</p>
     </div>
-    <div class="studios">
+    <div class="studios" data-stagger>
       <article class="studio rv">
         <div class="ph">
           <span class="badge">40% off · Tiempo limitado</span>
@@ -432,8 +459,9 @@ footer{border-top:1px solid var(--line);padding:56px 0 36px;background:#08080a}
 </section>
 
 <!-- VISITA -->
-<section id="visita" class="visit">
+<section id="visita" class="visit has-ghost">
   <div class="wrap">
+    <span class="ghost" aria-hidden="true">Edgewater</span>
     <p class="eyebrow rv">Visítanos</p>
     <h2 class="h-lg rv" style="margin-bottom:52px">Una joya escondida<br>en <span class="volt">Edgewater.</span></h2>
     <div class="visit-grid">
@@ -471,8 +499,9 @@ footer{border-top:1px solid var(--line);padding:56px 0 36px;background:#08080a}
 </section>
 
 <!-- FAQ -->
-<section id="faq">
+<section id="faq" class="has-ghost">
   <div class="wrap" style="max-width:900px">
+    <span class="ghost" aria-hidden="true">Dudas</span>
     <p class="eyebrow rv">Preguntas frecuentes</p>
     <h2 class="h-md rv" style="margin-bottom:40px">Antes de <span class="volt">venir.</span></h2>
     <div class="rv">
@@ -556,10 +585,20 @@ footer{border-top:1px solid var(--line);padding:56px 0 36px;background:#08080a}
   var hdr=document.getElementById('hdr');
   addEventListener('scroll',function(){hdr.classList.toggle('scrolled',scrollY>40)},{passive:true});
   var burger=document.getElementById('burger'),menu=document.getElementById('menu');
-  burger.addEventListener('click',function(){menu.classList.toggle('open')});
-  menu.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){menu.classList.remove('open')})});
-  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12,rootMargin:'0px 0px -40px 0px'});
+  burger.addEventListener('click',function(){var open=menu.classList.toggle('open');burger.classList.toggle('open',open);document.body.classList.toggle('menu-open',open)});
+  menu.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){menu.classList.remove('open');burger.classList.remove('open');document.body.classList.remove('menu-open')})});
+  addEventListener('keydown',function(e){if(e.key==='Escape'){menu.classList.remove('open');burger.classList.remove('open');document.body.classList.remove('menu-open')}});
+  document.querySelectorAll('[data-stagger]').forEach(function(grid){
+    var kids=grid.querySelectorAll(':scope > .rv');
+    kids.forEach(function(k,i){k.dataset.rd=(i*0.09).toFixed(2)});
+  });
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){var t=e.target;if(t.dataset.rd)t.style.transitionDelay=t.dataset.rd+'s';t.classList.add('in');io.unobserve(t);setTimeout(function(){t.style.transitionDelay=''},1000)}})},{threshold:.12,rootMargin:'0px 0px -40px 0px'});
   document.querySelectorAll('.rv').forEach(function(el){io.observe(el)});
+  var fine=matchMedia('(pointer:fine)').matches,calm=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(fine&&!calm){document.querySelectorAll('.btn').forEach(function(b){
+    b.addEventListener('mousemove',function(e){var r=b.getBoundingClientRect(),x=e.clientX-r.left-r.width/2,y=e.clientY-r.top-r.height/2;b.style.transform='translate('+(x*0.09).toFixed(1)+'px,'+(y*0.14).toFixed(1)+'px)'});
+    b.addEventListener('mouseleave',function(){b.style.transform=''});
+  });}
   document.querySelectorAll('.faq-q').forEach(function(btn){
     btn.addEventListener('click',function(){
       var item=btn.parentElement,ans=item.querySelector('.faq-a'),open=item.classList.contains('open');
