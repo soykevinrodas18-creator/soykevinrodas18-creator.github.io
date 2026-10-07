@@ -22,6 +22,7 @@
   --line:rgba(242,239,232,.09);
   --serif:'Instrument Serif',serif; --sans:'Archivo',sans-serif;
   --pad:clamp(20px,5vw,88px);
+  --sec:clamp(96px,11vw,168px);
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
@@ -42,7 +43,7 @@ h1,h2{font-weight:900;text-transform:uppercase;letter-spacing:-.015em;line-heigh
 h2{font-size:clamp(38px,5.4vw,76px)}
 h2 em, h1 em{font-family:var(--serif);font-style:italic;font-weight:400;text-transform:none;letter-spacing:0;color:var(--accent)}
 .lede{color:var(--muted);font-size:clamp(15px,1.4vw,18px);max-width:56ch}
-section{padding:clamp(84px,10vw,150px) 0;position:relative}
+section{padding:var(--sec) 0;position:relative}
 section[id],header[id]{scroll-margin-top:84px}
 .sec-head{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;margin-bottom:clamp(40px,5vw,72px);flex-wrap:wrap}
 nav{position:fixed;top:0;left:0;right:0;z-index:1000;transition:background .35s,border-color .35s;border-bottom:1px solid transparent}
@@ -66,7 +67,7 @@ nav.scrolled{background:rgba(10,10,11,.82);backdrop-filter:blur(14px);-webkit-ba
 .hero::before{content:"";position:absolute;inset:0;z-index:-1;background:radial-gradient(700px 380px at 85% 12%,rgba(232,98,44,.06),transparent 65%);pointer-events:none}
 .hero-ghost{position:absolute;top:110px;left:50%;transform:translateX(-50%);font-weight:900;font-size:clamp(90px,17vw,260px);letter-spacing:.02em;color:transparent;-webkit-text-stroke:1px rgba(242,239,232,.12);white-space:nowrap;z-index:-1;user-select:none;-webkit-mask-image:linear-gradient(180deg,#000 55%,transparent 98%);mask-image:linear-gradient(180deg,#000 55%,transparent 98%)}
 .hero-inner{padding-bottom:clamp(48px,6vw,90px);width:100%}
-.hero h1{font-size:clamp(52px,9.2vw,138px);margin:26px 0 24px}
+.hero h1{font-size:clamp(46px,9.2vw,138px);margin:26px 0 24px;overflow-wrap:break-word}
 .hero h1 .row{display:block;overflow:hidden}
 .hero h1 .row>span{display:inline-block;animation:riseUp 1s cubic-bezier(.19,1,.22,1) both}
 .hero h1 .row:nth-child(2)>span{animation-delay:.12s}
@@ -92,9 +93,18 @@ nav.scrolled{background:rgba(10,10,11,.82);backdrop-filter:blur(14px);-webkit-ba
 .marquee span{font-size:13px;font-weight:700;letter-spacing:.3em;text-transform:uppercase;color:var(--muted);white-space:nowrap}
 .marquee span i{font-family:var(--serif);font-style:italic;color:var(--accent);letter-spacing:.05em;text-transform:none;font-size:16px}
 @keyframes scroll{to{transform:translateX(-50%)}}
-.about-grid{display:grid;grid-template-columns:1fr 1.05fr;gap:clamp(40px,6vw,100px);align-items:center}
-.about-img{position:relative}
-.about-img img{border-radius:4px;filter:grayscale(20%) contrast(1.03);aspect-ratio:4/5;object-fit:cover;width:100%}
+.about-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:clamp(32px,4vw,64px);align-items:start}
+.about-img{position:relative;grid-column:1/7}
+.about-img img{border-radius:4px;filter:grayscale(20%) sepia(.12) contrast(1.03);aspect-ratio:4/5;object-fit:cover;width:100%}
+.about-copy{grid-column:7/13;padding-top:clamp(8px,3.5vw,56px)}
+/* editorial pull-quote — broken grid, right offset */
+.about-quote{margin-top:clamp(56px,7vw,110px);max-width:880px;margin-left:auto;margin-right:4%;border-top:1px solid var(--line);padding-top:clamp(28px,3.5vw,48px)}
+.about-quote blockquote{font-family:var(--serif);font-style:italic;font-size:clamp(28px,4vw,52px);line-height:1.25;text-wrap:balance;hanging-punctuation:first}
+.about-quote blockquote em{color:var(--accent)}
+.about-quote figcaption{margin-top:18px;font-size:11px;font-weight:700;letter-spacing:.3em;text-transform:uppercase;color:var(--faint)}
+/* cinematic clip-path image reveals (hooks into .reveal) */
+.reveal .clip{clip-path:inset(0 0 100% 0);transition:clip-path 1.15s cubic-bezier(.19,1,.22,1) .12s}
+.reveal.in .clip{clip-path:inset(0 0 0% 0)}
 .about-img::before{content:"";position:absolute;inset:18px -18px -18px 18px;border:1px solid var(--accent);border-radius:4px;z-index:-1}
 .about-badge{position:absolute;left:-24px;bottom:36px;background:var(--accent);color:#0a0a0b;padding:20px 26px;border-radius:4px}
 .about-badge b{display:block;font-size:34px;font-weight:900;line-height:1}
@@ -112,13 +122,21 @@ nav.scrolled{background:rgba(10,10,11,.82);backdrop-filter:blur(14px);-webkit-ba
 .phil-card h3{font-size:clamp(21px,2.2vw,28px);font-weight:800;text-transform:uppercase;letter-spacing:.01em;margin:16px 0 14px;line-height:1.15}
 .phil-card p{color:var(--muted);font-size:14.5px}
 .phil-card .quote-mark{position:absolute;top:22px;right:28px;font-family:var(--serif);font-size:52px;color:rgba(242,239,232,.07);line-height:1}
+.phil-card::after{content:"";position:absolute;top:0;left:0;height:2px;width:0;background:linear-gradient(90deg,var(--accent),#ff8a3d);transition:width .6s cubic-bezier(.19,1,.22,1)}
+.phil-card:hover::after{width:100%}
+/* sticky editorial rail for programs */
+.prog-layout{display:grid;grid-template-columns:96px 1fr;gap:clamp(24px,3vw,48px);margin-top:clamp(40px,5vw,72px);align-items:start}
+.prog-layout .prog-grid{margin-top:0}
+.prog-rail{position:sticky;top:110px;display:flex;flex-direction:column;align-items:center;gap:18px;padding-top:6px}
+.rail-num{font-family:var(--serif);font-style:italic;font-size:46px;line-height:1;color:var(--accent)}
+.rail-line{width:1px;height:140px;background:linear-gradient(180deg,var(--accent),transparent)}
 .prog-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(20px,3vw,40px);margin-top:56px}
 .prog{border:1px solid var(--line);border-radius:6px;overflow:hidden;background:var(--panel);transition:transform .35s,border-color .35s,box-shadow .35s}
 .prog:hover{transform:translateY(-8px);border-color:rgba(232,98,44,.5);box-shadow:0 30px 60px -30px rgba(0,0,0,.8)}
 .prog-img{height:260px;overflow:hidden;position:relative}
 .prog-img::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(10,10,11,.45));opacity:0;transition:opacity .5s;pointer-events:none}
 .prog:hover .prog-img::after{opacity:1}
-.prog-img img{width:100%;height:100%;object-fit:cover;filter:grayscale(30%);transition:transform .8s cubic-bezier(.19,1,.22,1),filter .5s}
+.prog-img img{width:100%;height:100%;object-fit:cover;filter:grayscale(30%) sepia(.14) contrast(1.04);transition:transform .8s cubic-bezier(.19,1,.22,1),filter .5s}
 .prog:hover .prog-img img{transform:scale(1.06);filter:grayscale(0%)}
 .prog-tag{position:absolute;top:18px;left:18px;background:rgba(10,10,11,.75);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);font-size:10px;font-weight:800;letter-spacing:.24em;text-transform:uppercase;padding:9px 16px;border-radius:100px;border:1px solid var(--line)}
 .prog-body{padding:clamp(26px,3vw,40px)}
@@ -144,7 +162,7 @@ nav.scrolled{background:rgba(10,10,11,.82);backdrop-filter:blur(14px);-webkit-ba
 .step p{color:var(--muted);font-size:14px}
 .results{text-align:center;overflow:hidden}
 .results .ghost{font-weight:900;font-size:clamp(70px,13vw,200px);line-height:1;color:transparent;-webkit-text-stroke:1px rgba(242,239,232,.08);text-transform:uppercase;user-select:none;margin-bottom:-10px;-webkit-mask-image:linear-gradient(180deg,#000 60%,transparent 96%);mask-image:linear-gradient(180deg,#000 60%,transparent 96%)}
-.results blockquote{font-family:var(--serif);font-style:italic;font-size:clamp(30px,4.6vw,58px);line-height:1.25;max-width:22ch;margin:0 auto;text-wrap:balance}
+.results blockquote{font-family:var(--serif);font-style:italic;font-size:clamp(34px,5.4vw,68px);line-height:1.22;max-width:24ch;margin:0 auto;text-wrap:balance;hanging-punctuation:first;letter-spacing:.002em}
 .results blockquote b{color:var(--accent);font-weight:400}
 .results p{color:var(--muted);margin:26px auto 0;max-width:60ch}
 .faq-list{max-width:820px;margin:48px auto 0;border-top:1px solid var(--line)}
@@ -162,12 +180,14 @@ nav.scrolled{background:rgba(10,10,11,.82);backdrop-filter:blur(14px);-webkit-ba
 .final .lede{margin:24px auto 0;text-align:center}
 .final-ctas{display:flex;gap:16px;justify-content:center;margin-top:40px;flex-wrap:wrap;position:relative;z-index:1}
 .final small{display:block;margin-top:28px;color:var(--faint);font-size:12px;letter-spacing:.2em;text-transform:uppercase}
-footer{border-top:1px solid var(--line);padding:56px 0 40px}
-.foot{display:flex;justify-content:space-between;gap:32px;flex-wrap:wrap;align-items:flex-start}
+footer{border-top:1px solid var(--line);padding:clamp(56px,7vw,96px) 0 40px}
+.foot{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:clamp(32px,4vw,64px);align-items:start}
+.foot h5{font-size:11px;font-weight:700;letter-spacing:.3em;text-transform:uppercase;color:var(--faint);margin-bottom:20px}
+.foot-links{display:grid;gap:13px;list-style:none;padding:0}
 .foot-brand{font-weight:900;letter-spacing:.14em;text-transform:uppercase;font-size:15px}
 .foot-brand span{color:var(--accent)}
 .foot p{color:var(--faint);font-size:13px;margin-top:10px;max-width:38ch}
-.foot-links{display:flex;gap:28px;list-style:none}
+.foot-horas{color:var(--faint);font-size:13px;margin-top:16px}
 .foot-links a{font-size:12px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
 .foot-links a:hover{color:var(--accent)}
 .foot-base{margin-top:44px;padding-top:24px;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;color:var(--faint);font-size:12px}
@@ -176,12 +196,21 @@ footer{border-top:1px solid var(--line);padding:56px 0 40px}
 .reveal{opacity:0;transform:translateY(36px);transition:opacity .9s cubic-bezier(.19,1,.22,1),transform .9s cubic-bezier(.19,1,.22,1)}
 .reveal.in{opacity:1;transform:none}
 .reveal[data-d="1"]{transition-delay:.1s}.reveal[data-d="2"]{transition-delay:.2s}.reveal[data-d="3"]{transition-delay:.3s}.reveal[data-d="4"]{transition-delay:.4s}
-@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition-delay:0s}.marquee-track{animation:none}.hero h1 .row>span{animation:none}.hero-bg img{animation:none}.nav-links.open li{animation:none}.btn-solid::after{display:none}}
+@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition-delay:0s}.reveal .clip{clip-path:none!important;transition:none!important}.marquee-track{animation:none}.hero h1 .row>span{animation:none}.hero-bg img{animation:none}.nav-links.open li{animation:none}.btn-solid::after{display:none}}
 @media(max-width:1020px){
   .about-grid{grid-template-columns:1fr}
-  .about-img{max-width:520px}
+  .about-img{grid-column:1/-1;max-width:520px}
+  .about-copy{grid-column:1/-1;padding-top:0}
   .steps{grid-template-columns:1fr 1fr}
   .phil-grid{grid-template-columns:1fr}
+  .prog-layout{grid-template-columns:1fr}
+  .prog-rail{display:none}
+}
+/* desktop-only editorial stagger for philosophy cards */
+@media(min-width:1021px){
+  .phil-grid{align-items:start}
+  .phil-grid .phil-card:nth-child(2){margin-top:52px}
+  .phil-grid .phil-card:nth-child(3){margin-top:104px}
 }
 @media(max-width:860px){
   .nav-links{position:fixed;top:76px;left:0;right:0;background:rgba(10,10,11,.97);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);flex-direction:column;padding:28px var(--pad) 36px;gap:6px;border-bottom:1px solid var(--line);transform:translateY(-130%);transition:transform .4s cubic-bezier(.19,1,.22,1)}
@@ -208,6 +237,9 @@ footer{border-top:1px solid var(--line);padding:56px 0 40px}
   .btn{width:100%;justify-content:center}
   .schedule-strip{flex-direction:column;align-items:stretch;text-align:center}
   .about-badge{left:8px}
+  .foot{grid-template-columns:1fr;gap:36px}
+  .about-quote{margin-right:0}
+  .results blockquote{font-size:clamp(30px,8.6vw,44px)}
 }
 /* ===== NEON EMBER ELEVATION — $5K+ agency layer ===== */
 .hero h1 em.neon{background:linear-gradient(100deg,#e8622c 15%,#ff8a3d 35%,#ffe9c9 50%,#ff8a3d 65%,#e8622c 85%);background-size:230% auto;-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent;animation:shimmer 5.5s linear infinite;filter:drop-shadow(0 0 16px rgba(232,98,44,.5))}
@@ -272,7 +304,7 @@ footer{border-top:1px solid var(--line);padding:56px 0 40px}
 
 <header class="hero" id="top">
   <div class="hero-bg"><img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=2000&auto=format&fit=crop" alt="Entrenamiento de fuerza en gimnasio" fetchpriority="high"></div>
-  <div class="hero-ghost">FIGUEROA</div>
+  <div class="hero-ghost" data-plx="0.06" data-plx-base="translateX(-50%) ">FIGUEROA</div>
   <div class="wrap hero-inner">
     <span class="eyebrow">Hialeah, Miami · Entrenamiento personal</span>
     <h1>
@@ -304,8 +336,8 @@ footer{border-top:1px solid var(--line);padding:56px 0 40px}
 <section id="entrenador">
   <div class="wrap about-grid">
     <div class="about-img reveal">
-      <img src="https://images.unsplash.com/photo-1541534741688-6078c6bfb5c5?q=80&w=1200&auto=format&fit=crop" alt="Edward Figueroa entrenando con pesas" loading="lazy" onerror="this.style.display='none'">
-      <div class="about-badge"><b><span data-count="20">20</span>+</b><small>Años enseñando</small></div>
+      <img class="clip" src="https://images.unsplash.com/photo-1541534741688-6078c6bfb5c5?q=80&w=1200&auto=format&fit=crop" alt="Edward Figueroa entrenando con pesas" loading="lazy" onerror="this.style.display='none'">
+      <div class="about-badge" data-plx="0.05"><b><span data-count="20">20</span>+</b><small>Años enseñando</small></div>
     </div>
     <div class="about-copy reveal">
       <span class="secnum">01 — El entrenador</span>
@@ -319,6 +351,12 @@ footer{border-top:1px solid var(--line);padding:56px 0 40px}
         <li>Hombres y mujeres · Hialeah, Florida</li>
       </ul>
     </div>
+  </div>
+  <div class="wrap">
+    <figure class="about-quote reveal">
+      <blockquote>“La disciplina abre la puerta. La <em>constancia</em> hace el resto.”</blockquote>
+      <figcaption>El método Figueroa</figcaption>
+    </figure>
   </div>
 </section>
 
@@ -363,11 +401,14 @@ footer{border-top:1px solid var(--line);padding:56px 0 40px}
       </div>
       <p class="lede">Dos formatos, el mismo estándar: atención real, técnica cuidada y progresión planificada.</p>
     </div>
+    <div class="prog-layout">
+      <div class="prog-rail" aria-hidden="true"><span class="rail-num">03</span><span class="rail-line"></span></div>
+      <div class="prog-main">
     <div class="prog-grid">
       <article class="prog reveal" data-d="1">
         <div class="prog-img">
           <span class="prog-tag">Más popular</span>
-          <img src="https://images.unsplash.com/photo-1517963879433-6ad2b056d712?q=80&w=1200&auto=format&fit=crop" alt="Entrenamiento personal con barra" loading="lazy" onerror="this.style.display='none'">
+          <img class="clip" src="https://images.unsplash.com/photo-1517963879433-6ad2b056d712?q=80&w=1200&auto=format&fit=crop" alt="Entrenamiento personal con barra" loading="lazy" onerror="this.style.display='none'">
         </div>
         <div class="prog-body">
           <h3>Entrenamiento <em>personal</em></h3>
@@ -384,7 +425,7 @@ footer{border-top:1px solid var(--line);padding:56px 0 40px}
       <article class="prog reveal" data-d="2">
         <div class="prog-img">
           <span class="prog-tag">Grupos reducidos</span>
-          <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?q=80&w=1200&auto=format&fit=crop" alt="Entrenamiento en grupo pequeño" loading="lazy" onerror="this.style.display='none'">
+          <img class="clip" src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?q=80&w=1200&auto=format&fit=crop" alt="Entrenamiento en grupo pequeño" loading="lazy" onerror="this.style.display='none'">
         </div>
         <div class="prog-body">
           <h3>Grupos <em>pequeños</em></h3>
@@ -402,6 +443,8 @@ footer{border-top:1px solid var(--line);padding:56px 0 40px}
     <div class="schedule-strip reveal">
       <p><b>Cupos disponibles:</b> lunes a viernes · 6:00 AM – 12:00 PM · Hialeah, Miami</p>
       <a class="btn btn-solid" href="https://wa.me/17864860051?text=Hola%20Edward%2C%20quiero%20apartar%20mi%20cupo." target="_blank" rel="noopener">Apartar mi cupo</a>
+    </div>
+      </div>
     </div>
   </div>
 </section>
@@ -426,7 +469,7 @@ footer{border-top:1px solid var(--line);padding:56px 0 40px}
 
 <section class="results">
   <div class="wrap reveal">
-    <div class="ghost" aria-hidden="true">Figueroa</div>
+    <div class="ghost" aria-hidden="true" data-plx="-0.045">Figueroa</div>
     <span class="eyebrow" style="justify-content:center">El estándar</span>
     <blockquote style="margin-top:24px">“Los resultados no se <b>prometen.</b> Se <b>construyen.</b>”</blockquote>
     <p>Veinte años no se improvisan. Si estás listo para entrenar en serio — con técnica, con intención y con alguien que ha dedicado su vida a esto — este es tu lugar.</p>
@@ -486,11 +529,24 @@ footer{border-top:1px solid var(--line);padding:56px 0 40px}
         <div class="foot-brand">Edward <span>Figueroa</span></div>
         <p>Fitness trainer en Hialeah, Miami. 20+ años de experiencia. Disciplina. Constancia. Resultados.</p>
       </div>
-      <ul class="foot-links">
-        <li><a href="https://wa.me/17864860051" target="_blank" rel="noopener">WhatsApp</a></li>
-        <li><a href="tel:+17864860051">Llamar</a></li>
-        <li><a href="https://www.instagram.com/edwardfitnesstrainer" target="_blank" rel="noopener">Instagram</a></li>
-      </ul>
+      <div>
+        <h5>Explora</h5>
+        <ul class="foot-links">
+          <li><a href="#entrenador">El entrenador</a></li>
+          <li><a href="#filosofia">Filosofía</a></li>
+          <li><a href="#programas">Programas</a></li>
+          <li><a href="#faq">Preguntas</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Contacto</h5>
+        <ul class="foot-links">
+          <li><a href="https://wa.me/17864860051" target="_blank" rel="noopener">WhatsApp</a></li>
+          <li><a href="tel:+17864860051">Llamar · 786-486-0051</a></li>
+          <li><a href="https://www.instagram.com/edwardfitnesstrainer" target="_blank" rel="noopener">Instagram</a></li>
+        </ul>
+        <p class="foot-horas">L–V 6:00 AM – 12:00 PM · Hialeah, FL</p>
+      </div>
     </div>
     <div class="foot-base">
       <span>Hialeah, Florida · L–V 6:00 AM – 12:00 PM</span>
@@ -508,12 +564,21 @@ footer{border-top:1px solid var(--line);padding:56px 0 40px}
   var nav=document.getElementById('nav'),heroBg=document.querySelector('.hero-bg');
   var reduceMotion=matchMedia('(prefers-reduced-motion: reduce)').matches;
   var ticking=false;
+  var plxEls=Array.prototype.slice.call(document.querySelectorAll('[data-plx]'));
   addEventListener('scroll',function(){
     nav.classList.toggle('scrolled',scrollY>40);
-    if(!reduceMotion&&heroBg&&scrollY<innerHeight*1.2&&!ticking){
-      ticking=true;
-      requestAnimationFrame(function(){heroBg.style.transform='translate3d(0,'+(scrollY*.16)+'px,0)';ticking=false});
-    }
+    if(reduceMotion||ticking)return;
+    ticking=true;
+    requestAnimationFrame(function(){
+      if(heroBg&&scrollY<innerHeight*1.2){heroBg.style.transform='translate3d(0,'+(scrollY*.16)+'px,0)'}
+      plxEls.forEach(function(el){
+        var s=parseFloat(el.getAttribute('data-plx'))||0;
+        var r=el.getBoundingClientRect();
+        var off=((r.top+r.height/2-innerHeight/2)*s).toFixed(1);
+        el.style.transform=(el.getAttribute('data-plx-base')||'')+'translate3d(0,'+off+'px,0)';
+      });
+      ticking=false;
+    });
   },{passive:true});
   var burger=document.getElementById('burger'),links=document.getElementById('navLinks');
   burger.addEventListener('click',function(){

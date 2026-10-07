@@ -23,6 +23,10 @@
   --ease:cubic-bezier(.22,.8,.28,1);
   --gold-deep:#a8854a;
   --grain-op:.05;
+  /* design-mastery spacing system */
+  --sp-xs:.75rem; --sp-sm:1.25rem; --sp-md:2.5rem; --sp-lg:4.5rem; --sp-xl:6.5rem;
+  --frame-r:1.4rem;
+  --hairline:1px solid var(--line);
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
@@ -92,7 +96,7 @@ header.scrolled{background:rgba(250,249,246,.92);backdrop-filter:blur(14px);-web
 .hero-proof div b{font-family:var(--serif);font-size:1.35rem;font-weight:500;display:block}
 .hero-proof div span{font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:var(--ink-soft)}
 .hero-media{position:relative}
-.hero-media .frame{border-radius:2rem;overflow:hidden;box-shadow:0 40px 80px -30px rgba(34,48,44,.35),inset 0 0 0 1px rgba(255,255,255,.4);aspect-ratio:4/5;border:1px solid rgba(194,161,100,.28)}
+.hero-media .frame{border-radius:var(--frame-r);overflow:hidden;box-shadow:0 40px 80px -30px rgba(34,48,44,.35),inset 0 0 0 1px rgba(255,255,255,.4);aspect-ratio:4/5;border:1px solid rgba(194,161,100,.28)}
 .hero-media img{width:100%;height:100%;object-fit:cover;transform:scale(1.02)}
 .hero-card{position:absolute;left:-2.2rem;bottom:2.4rem;background:rgba(255,255,255,.94);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid var(--line);border-top:3px solid var(--gold);border-radius:1.2rem;padding:1.3rem 1.6rem;box-shadow:0 24px 50px -20px rgba(34,48,44,.3);max-width:16rem;animation:floaty 7s ease-in-out infinite}
 @keyframes floaty{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}
@@ -202,6 +206,83 @@ footer{background:var(--ink);color:rgba(242,239,232,.72);padding:4.5rem 0 2rem;f
 .wa-float svg{width:1.7rem;height:1.7rem;fill:#fff}
 .to-top{position:fixed;right:1.7rem;bottom:5.6rem;z-index:90;width:3rem;height:3rem;border-radius:50%;background:var(--ink);color:#fff;border:0;cursor:pointer;display:grid;place-items:center;opacity:0;pointer-events:none;transition:opacity .4s;font-size:1.1rem}
 .to-top.show{opacity:1;pointer-events:auto}
+/* ---------- DESIGN MASTERY LAYER — art direction, not effects ---------- */
+/* chapter headers: roman numeral + hairline */
+.chapter{display:flex;align-items:baseline;gap:1.1rem;margin-bottom:1.1rem;font-size:.72rem;letter-spacing:.34em;text-transform:uppercase;color:var(--sage-deep);font-weight:500}
+.chapter .num{font-family:var(--serif);font-style:italic;font-size:1rem;letter-spacing:0;color:var(--gold-deep)}
+.chapter::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,var(--line),transparent);max-width:16rem}
+.chapter.on-dark{color:var(--gold-soft)}
+.chapter.on-dark::after{background:linear-gradient(90deg,rgba(233,220,195,.35),transparent)}
+.chapter.center{justify-content:center}
+.chapter.center::after{display:none}
+/* refined hanging quote for the philosophy block */
+.filo blockquote{quotes:"“" "”"}
+.filo blockquote::before{content:open-quote;display:inline;font-size:1em;color:var(--gold-deep);margin-left:-.55em;padding-right:.06em}
+/* editorial hero: ghost word + overlap + index */
+.hero .ghost-word{position:absolute;left:0;right:0;top:8%;text-align:center;font-family:var(--serif);font-style:italic;font-weight:300;font-size:clamp(5rem,13vw,11rem);line-height:1;color:transparent;-webkit-text-stroke:1px rgba(194,161,100,.34);white-space:nowrap;pointer-events:none;user-select:none;z-index:0}
+.hero .wrap{position:relative;z-index:1}
+@media(min-width:1021px){
+  .hero-grid{grid-template-columns:1fr 1fr;gap:0}
+  .hero-copy{padding-right:3rem}
+  .hero-media{margin-left:-5.5rem;z-index:2}
+  .hero-media .frame{aspect-ratio:4/5.2}
+}
+.hero-cap{display:flex;align-items:center;gap:.9rem;margin-top:1.1rem;font-size:.72rem;letter-spacing:.26em;text-transform:uppercase;color:var(--ink-soft)}
+.hero-cap::before{content:"";width:2.6rem;height:1px;background:var(--gold)}
+.hero-index{display:flex;gap:2.6rem;margin-top:3.4rem;padding-top:1.6rem;border-top:var(--hairline);flex-wrap:wrap}
+.hero-index a{display:flex;align-items:baseline;gap:.7rem;font-size:.74rem;letter-spacing:.24em;text-transform:uppercase;color:var(--ink-soft);transition:color .3s}
+.hero-index a:hover{color:var(--ink)}
+.hero-index .n{font-family:var(--serif);font-style:italic;color:var(--gold-deep);font-size:1rem;letter-spacing:0}
+/* gallery-grade frames + warm grade + clip reveals */
+.frame-grade{position:relative}
+.frame-grade img{filter:sepia(.14) saturate(1.06) contrast(1.01)}
+.frame-grade::after{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;background:linear-gradient(180deg,rgba(233,220,195,.14),transparent 35%,transparent 70%,rgba(60,52,36,.16));box-shadow:inset 0 0 0 1px rgba(255,255,255,.28)}
+.clip-reveal{clip-path:inset(8% 6% 8% 6% round var(--frame-r));opacity:0;transition:clip-path 1.1s var(--ease),opacity .9s var(--ease)}
+.clip-reveal.in{clip-path:inset(0 0 0 0 round var(--frame-r));opacity:1}
+.frame-cap{font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:var(--ink-soft);margin-top:1rem;display:flex;gap:.8rem;align-items:center}
+.frame-cap::before{content:"";width:1.8rem;height:1px;background:var(--gold)}
+/* oversized italic pull line */
+.pull-line{font-family:var(--serif);font-style:italic;font-weight:300;font-size:clamp(1.7rem,3.6vw,2.7rem);line-height:1.35;color:var(--ink);max-width:34rem;text-wrap:balance}
+.pull-line em{font-style:italic;color:var(--gold-deep)}
+/* art-directed TV: overlap + index caption */
+@media(min-width:1021px){
+  .tv .wrap{grid-template-columns:1fr 1.15fr}
+  .tv-copy{padding-right:2.5rem}
+  .tv-frame{margin-left:-3.5rem}
+}
+.tv-index{display:flex;gap:2rem;margin-top:2.2rem;font-size:.72rem;letter-spacing:.26em;text-transform:uppercase;color:rgba(233,220,195,.7);flex-wrap:wrap}
+.tv-index span b{font-family:var(--serif);font-style:italic;color:var(--gold-soft);font-weight:400;letter-spacing:0;font-size:1rem;margin-right:.5rem}
+/* art-directed diff: overlap caption card */
+.diff{overflow:hidden}
+@media(min-width:1021px){
+  .diff-grid{grid-template-columns:1fr 1.15fr;gap:0}
+  .diff-fig{margin-right:-4.5rem;z-index:2;position:relative}
+  .diff-copy{padding-left:4rem}
+}
+.diff-quote{margin-top:2.4rem;padding-left:1.4rem;border-left:2px solid var(--gold);font-family:var(--serif);font-style:italic;font-size:1.25rem;line-height:1.55;color:var(--ink)}
+/* refined steps: connecting hairline, thinner numerals */
+.steps{position:relative}
+.steps::before{content:"";position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--line) 15%,var(--line) 85%,transparent)}
+.step{border-top:0;padding-top:1.6rem}
+.step::before{font-size:1.7rem;font-weight:300;color:var(--gold-deep);margin-bottom:.9rem}
+.step b{font-size:1.12rem;letter-spacing:.01em}
+/* layered parallax primitives (GPU only) */
+[data-plx]{will-change:transform}
+/* refined footer */
+footer{padding:5.5rem 0 2rem}
+.foot-grid{margin-bottom:3.5rem;padding-bottom:3rem;border-bottom:1px solid rgba(255,255,255,.1)}
+.foot-grid h4{font-size:.78rem;letter-spacing:.3em;text-transform:uppercase;font-family:var(--sans);font-weight:500;color:var(--gold-soft);margin-bottom:1.3rem}
+.foot-brand{font-size:2rem}
+.copy{border-top:0;padding-top:0;margin-top:2rem}
+@media(max-width:1020px){
+  .hero .ghost-word{font-size:4.6rem;top:5%}
+  .hero-index{gap:1.6rem}
+}
+@media(max-width:390px){
+  .hero .ghost-word{font-size:3.4rem}
+  .hero-index{display:none}
+  .pull-line{font-size:1.55rem}
+}
 /* ---------- LUX LAYER — luminous expensive details ---------- */
 .progress-hairline{position:fixed;top:0;left:0;height:2px;width:0;z-index:2100;background:linear-gradient(90deg,var(--gold-deep),#f0dfb8,var(--gold));box-shadow:0 0 12px rgba(194,161,100,.9);pointer-events:none}
 .hero .skylight{position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,rgba(255,255,255,.55),rgba(255,255,255,0) 34%);animation:skyBreathe 8s ease-in-out infinite}
@@ -236,7 +317,7 @@ footer{background:var(--ink);color:rgba(242,239,232,.72);padding:4.5rem 0 2rem;f
 .rv{opacity:0;transform:translateY(34px);filter:blur(7px);transition:opacity .9s var(--ease),transform .9s var(--ease),filter .9s var(--ease)}
 .rv.in{opacity:1;transform:none;filter:blur(0)}
 .rv-d1{transition-delay:.12s}.rv-d2{transition-delay:.24s}.rv-d3{transition-delay:.36s}
-@media (prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;filter:none;transition:none}.marquee-track{animation:none}body::after{display:none}.hero::after,.molecule,.hero-card,.tv-frame .onair,.wa-float::before{animation:none}.btn-gold::after,.tv-badge::after{display:none}.progress-hairline,.dust-layer,.hero .skylight,.hero-media::before,.aurora,.booking .wash,.wa-float::after{display:none!important}.brand,.hero h1 .gold-i,.tv-badge,.btn-gold{animation:none}}
+@media (prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;filter:none;transition:none}.clip-reveal{clip-path:none;opacity:1;transition:none}.marquee-track{animation:none}body::after{display:none}.hero::after,.molecule,.hero-card,.tv-frame .onair,.wa-float::before{animation:none}.btn-gold::after,.tv-badge::after{display:none}.progress-hairline,.dust-layer,.hero .skylight,.hero-media::before,.aurora,.booking .wash,.wa-float::after{display:none!important}.brand,.hero h1 .gold-i,.tv-badge,.btn-gold{animation:none}[data-plx]{will-change:auto}}
 /* ---------- responsive ---------- */
 @media(max-width:1020px){
   .dust-layer{display:none}
@@ -305,12 +386,13 @@ footer{background:var(--ink);color:rgba(242,239,232,.72);padding:4.5rem 0 2rem;f
 <section class="hero" id="inicio">
   <div class="skylight" aria-hidden="true"></div>
   <div class="dust-layer" id="dustLayer" aria-hidden="true"></div>
+  <div class="ghost-word" aria-hidden="true" data-plx="0.06">clínica</div>
   <svg class="molecule" style="top:12%;right:6%;width:120px" viewBox="0 0 100 100" fill="none" stroke="#c2a164" stroke-width="1.2">
     <circle cx="20" cy="30" r="6"/><circle cx="80" cy="30" r="6"/><circle cx="50" cy="70" r="8"/>
     <path d="M25 34 45 64M75 34 55 64M26 30h48"/>
   </svg>
   <div class="wrap hero-grid">
-    <div>
+    <div class="hero-copy">
       <span class="tv-badge rv"><span class="play">▶</span> Como vista en Desiguales · Univision</span>
       <p class="eyebrow rv">Skincare clínico · Doral, Miami</p>
       <h1 class="rv">Donde la <em>ciencia</em> se encuentra con <span class="gold-i">tu piel.</span></h1>
@@ -326,7 +408,8 @@ footer{background:var(--ink);color:rgba(242,239,232,.72);padding:4.5rem 0 2rem;f
       </div>
     </div>
     <div class="hero-media rv rv-d1">
-      <div class="frame"><img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=1200&q=70" alt="Tratamiento facial profesional" loading="eager"></div>
+      <div class="frame frame-grade clip-reveal"><img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=1200&q=70" alt="Tratamiento facial profesional" loading="eager"></div>
+      <p class="hero-cap">Protocolos clínicos · Doral, Miami</p>
       <div class="hero-card">
         <div class="dna">🧬</div>
         <b>Enfoque clínico real</b>
@@ -334,6 +417,12 @@ footer{background:var(--ink);color:rgba(242,239,232,.72);padding:4.5rem 0 2rem;f
       </div>
     </div>
   </div>
+  <div class="wrap"><nav class="hero-index rv rv-d3" aria-label="Índice">
+    <a href="#tratamientos"><span class="n">01</span> Tratamientos</a>
+    <a href="#nosotros"><span class="n">02</span> La diferencia</a>
+    <a href="#proceso"><span class="n">03</span> Proceso</a>
+    <a href="#contacto"><span class="n">04</span> Reservar</a>
+  </nav></div>
 </section>
 
 <div class="marquee" aria-hidden="true">
@@ -345,9 +434,12 @@ footer{background:var(--ink);color:rgba(242,239,232,.72);padding:4.5rem 0 2rem;f
 
 <section class="diff" id="nosotros">
   <div class="wrap diff-grid">
-    <div class="diff-media rv"><img src="https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?w=1200&q=70" alt="Cuidado facial clínico" loading="lazy"></div>
-    <div>
-      <p class="eyebrow rv">La diferencia MC</p>
+    <div class="diff-fig">
+      <div class="diff-media frame-grade clip-reveal rv"><img src="https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?w=1200&q=70" alt="Cuidado facial clínico" loading="lazy"></div>
+      <p class="frame-cap rv rv-d1">El ritual MC · Cuidado con criterio clínico</p>
+    </div>
+    <div class="diff-copy">
+      <p class="chapter rv"><span class="num">i.</span> La diferencia MC</p>
       <h2 class="rv">No es estética común.<br>Es <em>cuidado con criterio clínico.</em></h2>
       <p class="dropcap rv rv-d1" style="margin-top:1.4rem;color:var(--ink-soft)">Detrás de MC Beauty Health hay una bioanalista que entiende tu piel a nivel celular. Aquí no se aplican tratamientos al azar: se estudia, se planifica y se acompaña. Por eso hablamos de resultados responsables y progresivos — y por eso Univision nos invitó a hablar de skincare en Desiguales.</p>
       <ul class="diff-list">
@@ -355,15 +447,16 @@ footer{background:var(--ink);color:rgba(242,239,232,.72);padding:4.5rem 0 2rem;f
         <li class="rv rv-d1"><span class="n">✦</span><div><b>Planes 100% personalizados</b><p>Todo inicia con una valoración: tus objetivos definen tu tratamiento, no al revés.</p></div></li>
         <li class="rv rv-d2"><span class="n">✦</span><div><b>Seguimiento de verdad</b><p>Acompañamiento continuo para ajustar tu plan y cuidar tu progreso.</p></div></li>
       </ul>
+      <p class="diff-quote rv rv-d2">La piel no se adivina.<br>Se estudia.</p>
     </div>
   </div>
 </section>
 <section id="tratamientos">
   <div class="aurora" style="top:-4rem;left:-8rem" aria-hidden="true"></div>
   <div class="wrap">
-    <p class="eyebrow rv">Tratamientos</p>
+    <p class="chapter rv"><span class="num">ii.</span> Tratamientos</p>
     <h2 class="rv">Protocolos clínicos para <em>cada necesidad.</em></h2>
-    <p class="lead rv rv-d1">Faciales, corporales y control de peso. Cada tratamiento se adapta a tu piel, tu cuerpo y tus objetivos después de una valoración profesional.</p>
+    <p class="pull-line rv rv-d1" style="margin-top:1.6rem">Faciales, corporales y control de peso — <em>cada tratamiento se adapta a ti</em> después de una valoración profesional.</p>
     <div class="trat-grid">
       <article class="trat rv" data-n="01">
         <div class="icon">💉</div>
@@ -408,13 +501,14 @@ footer{background:var(--ink);color:rgba(242,239,232,.72);padding:4.5rem 0 2rem;f
 
 <section class="tv">
   <div class="wrap">
-    <div>
-      <p class="eyebrow rv">Prensa &amp; medios</p>
+    <div class="tv-copy">
+      <p class="chapter on-dark rv"><span class="num">iii.</span> Prensa &amp; medios</p>
       <h2 class="rv">Hablamos de skincare en <em>televisión nacional.</em></h2>
       <p class="rv rv-d1" style="margin-top:1.2rem">MC Beauty Health fue invitada al programa <strong style="color:#fff">Desiguales</strong> de Univision para hablar de cuidado de la piel — un respaldo que pocos centros de estética pueden mostrar.</p>
       <div class="rv rv-d2" style="margin-top:2rem"><a class="btn btn-gold" href="https://www.instagram.com/mcbeautyhealth" target="_blank" rel="noopener">Ver en Instagram</a></div>
+      <div class="tv-index rv rv-d3"><span><b>i.</b> Desiguales</span><span><b>ii.</b> Univision</span><span><b>iii.</b> Skincare clínico</span></div>
     </div>
-    <div class="tv-frame rv rv-d1">
+    <div class="tv-frame frame-grade clip-reveal rv rv-d1">
       <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=1200&q=70" alt="MC Beauty Health en Desiguales" loading="lazy">
       <span class="onair">● Al aire</span>
       <div class="cap">Desiguales · Univision — Skincare con criterio profesional</div>
@@ -425,7 +519,7 @@ footer{background:var(--ink);color:rgba(242,239,232,.72);padding:4.5rem 0 2rem;f
 <section id="proceso">
   <div class="aurora" style="bottom:-6rem;right:-10rem" aria-hidden="true"></div>
   <div class="wrap">
-    <p class="eyebrow rv">Cómo funciona</p>
+    <p class="chapter rv"><span class="num">iv.</span> Cómo funciona</p>
     <h2 class="rv">Tu transformación, <em>paso a paso.</em></h2>
     <div class="steps">
       <div class="step rv"><b>Valoración inicial</b><p>Escuchamos tus objetivos y evaluamos tu piel y tus necesidades.</p></div>
@@ -438,7 +532,7 @@ footer{background:var(--ink);color:rgba(242,239,232,.72);padding:4.5rem 0 2rem;f
 
 <section class="filo">
   <div class="wrap">
-    <p class="eyebrow rv" style="justify-content:center;display:inline-flex">Filosofía</p>
+    <p class="chapter center rv"><span class="num">v.</span> Filosofía</p>
     <blockquote class="rv">No se trata solamente de bajar números en la balanza o de cambiar una apariencia: se trata de trabajar de manera responsable, progresiva y con un plan adecuado para ti.</blockquote>
     <cite class="rv rv-d1">— La filosofía MC Beauty Health</cite>
     <div class="filo-grid">
@@ -450,7 +544,7 @@ footer{background:var(--ink);color:rgba(242,239,232,.72);padding:4.5rem 0 2rem;f
 </section>
 <section id="faq">
   <div class="wrap">
-    <p class="eyebrow rv" style="justify-content:center;display:inline-flex">Preguntas frecuentes</p>
+    <p class="chapter center rv"><span class="num">vi.</span> Preguntas frecuentes</p>
     <h2 class="rv" style="text-align:center">Lo que nos <em>preguntan siempre.</em></h2>
     <div class="faq-list">
       <div class="faq rv"><button>¿Cómo sé qué tratamiento necesito?<span class="pm">+</span></button><div class="a"><p>Todo comienza con una valoración inicial: evaluamos tu piel, escuchamos tus objetivos y a partir de ahí diseñamos un protocolo personalizado. Nunca recomendamos un tratamiento sin conocerte primero.</p></div></div>
@@ -548,6 +642,25 @@ footer{background:var(--ink);color:rgba(242,239,232,.72);padding:4.5rem 0 2rem;f
   });
   var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12,rootMargin:'0px 0px -6% 0px'});
   document.querySelectorAll('.rv').forEach(function(el){io.observe(el)});
+  /* gallery-grade clip-path reveals */
+  var io2=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io2.unobserve(e.target)}})},{threshold:.2,rootMargin:'0px 0px -8% 0px'});
+  document.querySelectorAll('.clip-reveal').forEach(function(el){io2.observe(el)});
+  /* layered parallax — GPU-friendly transforms only */
+  var plxEls=Array.prototype.slice.call(document.querySelectorAll('[data-plx]'));
+  if(!reduceMotion&&plxEls.length&&window.matchMedia('(min-width:1021px)').matches){
+    var pTick=false;
+    window.addEventListener('scroll',function(){
+      if(pTick)return;pTick=true;
+      requestAnimationFrame(function(){
+        var y=window.scrollY;
+        plxEls.forEach(function(el){
+          var sp=parseFloat(el.getAttribute('data-plx'))||0.05;
+          el.style.transform='translate3d(0,'+(y*sp).toFixed(1)+'px,0)';
+        });
+        pTick=false;
+      });
+    },{passive:true});
+  }
   document.getElementById('yr').textContent=new Date().getFullYear();
   /* gentle hero parallax */
   var reduceMotion=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
