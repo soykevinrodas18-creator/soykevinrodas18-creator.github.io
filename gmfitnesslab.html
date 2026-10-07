@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GM Fitness Lab | Inclusive Fitness en Doral, FL — Desde 2012</title>
+<meta name="description" content="GM Fitness Lab — Inclusive Fitness en Doral, FL desde 2012. Zumba, entrenamiento funcional, artes marciales, yoga, pilates y entrenamiento adaptativo para todas las edades y habilidades. Hablamos español.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"ExerciseGym","name":"GM Fitness Lab","slogan":"Inclusive Fitness — Doral, FL","foundingDate":"2012","address":{"@type":"PostalAddress","streetAddress":"10474 NW 31 Ter","addressLocality":"Doral","addressRegion":"FL","postalCode":"33178","addressCountry":"US"},"telephone":"+1-305-922-5281","sameAs":["https://www.instagram.com/gmfitnesslab"]}
+</script>
+<style>
+:root{
+  --navy:#0c1425; --navy-2:#12203a; --navy-3:#1a2c4e;
+  --coral:#ff6a3d; --coral-deep:#e8542a; --amber:#ffb020;
+  --ivory:#faf7f1; --paper:#ffffff; --ink:#182234; --muted:#5c6779;
+  --line:rgba(12,20,37,.1);
+  --radius:18px;
+  --shadow:0 24px 60px -24px rgba(12,20,37,.35);
+  --font-display:'Archivo Black',sans-serif; --font-body:'Inter',sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:var(--font-body);color:var(--ink);background:var(--ivory);line-height:1.6;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{text-decoration:none;color:inherit}
+.container{width:min(1180px,92%);margin:0 auto}
+.eyebrow{display:inline-flex;align-items:center;gap:.6rem;font-size:.78rem;font-weight:800;letter-spacing:.22em;text-transform:uppercase;color:var(--coral)}
+.eyebrow::before{content:"";width:34px;height:3px;background:var(--coral);border-radius:2px}
+h1,h2,h3{font-family:var(--font-display);line-height:1.05;letter-spacing:-.01em}
+.section{padding:104px 0}
+.section-head{max-width:720px;margin-bottom:56px}
+.section-head h2{font-size:clamp(2rem,4.4vw,3.2rem);margin:.9rem 0 1rem}
+.section-head p{color:var(--muted);font-size:1.08rem}
+/* ---------- top bar ---------- */
+.topbar{background:var(--navy);color:#dbe3f0;font-size:.82rem;padding:.55rem 0}
+.topbar .container{display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap}
+.topbar a:hover{color:#fff}
+.topbar .tb-right{display:flex;gap:1.2rem;align-items:center}
+.tb-dot{width:7px;height:7px;border-radius:50%;background:#37d67a;display:inline-block;margin-right:.4rem;box-shadow:0 0 0 4px rgba(55,214,122,.18)}
+/* ---------- nav ---------- */
+header.nav{position:sticky;top:0;z-index:60;background:rgba(250,247,241,.92);backdrop-filter:blur(14px);border-bottom:1px solid var(--line);transition:box-shadow .3s}
+header.nav.scrolled{box-shadow:0 10px 30px -18px rgba(12,20,37,.35)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;padding:1rem 0}
+.brand{display:flex;align-items:center;gap:.7rem}
+.brand-mark{width:44px;height:44px;border-radius:12px;background:linear-gradient(135deg,var(--navy),var(--navy-3));color:#fff;display:grid;place-items:center;font-family:var(--font-display);font-size:1.05rem;letter-spacing:.02em;box-shadow:var(--shadow)}
+.brand-mark span{color:var(--coral)}
+.brand-name{font-family:var(--font-display);font-size:1.02rem;line-height:1.1}
+.brand-name small{display:block;font-family:var(--font-body);font-weight:700;font-size:.62rem;letter-spacing:.28em;color:var(--muted)}
+.nav-links{display:flex;gap:2rem;align-items:center;font-weight:600;font-size:.95rem}
+.nav-links a{position:relative;padding:.3rem 0}
+.nav-links a::after{content:"";position:absolute;left:0;bottom:-2px;width:0;height:3px;border-radius:2px;background:var(--coral);transition:width .28s ease}
+.nav-links a:hover::after{width:100%}
+.btn{display:inline-flex;align-items:center;gap:.6rem;font-weight:800;font-size:.95rem;padding:.95rem 1.7rem;border-radius:999px;transition:transform .25s ease,box-shadow .25s ease,background .25s ease;cursor:pointer;border:none}
+.btn:hover{transform:translateY(-2px)}
+.btn-coral{background:linear-gradient(135deg,var(--coral),var(--coral-deep));color:#fff;box-shadow:0 14px 30px -12px rgba(255,106,61,.65)}
+.btn-coral:hover{box-shadow:0 18px 36px -12px rgba(255,106,61,.8)}
+.btn-ghost{border:2px solid rgba(255,255,255,.55);color:#fff;background:rgba(255,255,255,.06);backdrop-filter:blur(6px)}
+.btn-ghost:hover{background:rgba(255,255,255,.16)}
+.btn-outline{border:2px solid var(--navy);color:var(--navy);background:transparent}
+.btn-outline:hover{background:var(--navy);color:#fff}
+.burger{display:none;background:none;border:none;cursor:pointer;padding:.4rem}
+.burger span{display:block;width:26px;height:3px;background:var(--navy);border-radius:2px;margin:5px 0;transition:.3s}
+/* ---------- hero ---------- */
+.hero{position:relative;min-height:92vh;display:flex;align-items:flex-end;color:#fff;overflow:hidden;background:var(--navy)}
+.hero-bg{position:absolute;inset:0}
+.hero-bg img{width:100%;height:100%;object-fit:cover;transform:scale(1.06);animation:heroZoom 14s ease-in-out infinite alternate}
+@keyframes heroZoom{to{transform:scale(1.14)}}
+.hero-veil{position:absolute;inset:0;background:linear-gradient(180deg,rgba(12,20,37,.55) 0%,rgba(12,20,37,.25) 40%,rgba(12,20,37,.88) 100%)}
+.hero-content{position:relative;padding:0 0 96px;width:100%}
+.hero-badge{display:inline-flex;align-items:center;gap:.7rem;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.25);backdrop-filter:blur(8px);padding:.55rem 1.1rem;border-radius:999px;font-size:.8rem;font-weight:800;letter-spacing:.18em;text-transform:uppercase;margin-bottom:1.4rem}
+.hero-badge .pulse{width:9px;height:9px;border-radius:50%;background:var(--amber);box-shadow:0 0 0 0 rgba(255,176,32,.6);animation:pulse 2s infinite}
+@keyframes pulse{70%{box-shadow:0 0 0 12px rgba(255,176,32,0)}100%{box-shadow:0 0 0 0 rgba(255,176,32,0)}}
+.hero h1{font-size:clamp(2.7rem,7.2vw,5.4rem);max-width:14ch;margin-bottom:1.2rem}
+.hero h1 .accent{color:var(--coral)}
+.hero h1 .stroke{-webkit-text-stroke:2px #fff;color:transparent}
+.hero-sub{max-width:620px;font-size:clamp(1.02rem,1.6vw,1.22rem);color:#e8edf6;margin-bottom:2.2rem}
+.hero-ctas{display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:3rem}
+.hero-proof{display:flex;gap:2.6rem;flex-wrap:wrap;border-top:1px solid rgba(255,255,255,.22);padding-top:1.8rem}
+.proof-item b{display:block;font-family:var(--font-display);font-size:1.5rem}
+.proof-item span{font-size:.85rem;color:#c6d0e2;letter-spacing:.06em;text-transform:uppercase;font-weight:600}
+/* ---------- marquee ---------- */
+.marquee{background:var(--coral);color:#fff;overflow:hidden;padding:1rem 0;transform:rotate(-1.2deg) scale(1.02);margin: -14px 0 0}
+.marquee-track{display:flex;gap:3rem;width:max-content;animation:scrollX 26s linear infinite;font-family:var(--font-display);font-size:1.05rem;letter-spacing:.12em;text-transform:uppercase;white-space:nowrap}
+@keyframes scrollX{to{transform:translateX(-50%)}}
+/* ---------- programs ---------- */
+.programs-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.6rem}
+.program{position:relative;border-radius:var(--radius);overflow:hidden;background:var(--paper);box-shadow:0 10px 34px -18px rgba(12,20,37,.28);transition:transform .35s cubic-bezier(.2,.7,.3,1.2),box-shadow .35s;display:flex;flex-direction:column}
+.program:hover{transform:translateY(-10px);box-shadow:var(--shadow)}
+.program-media{position:relative;height:210px;overflow:hidden}
+.program-media img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease}
+.program:hover .program-media img{transform:scale(1.08)}
+.program-tag{position:absolute;top:14px;left:14px;background:rgba(12,20,37,.82);color:#fff;font-size:.72rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase;padding:.45rem .9rem;border-radius:999px;backdrop-filter:blur(6px)}
+.program-body{padding:1.6rem 1.6rem 1.8rem;display:flex;flex-direction:column;gap:.7rem;flex:1}
+.program-body h3{font-size:1.35rem}
+.program-body p{color:var(--muted);font-size:.95rem;flex:1}
+.program-link{display:inline-flex;align-items:center;gap:.5rem;font-weight:800;color:var(--coral-deep);font-size:.92rem}
+.program-link .arrow{transition:transform .25s}
+.program:hover .program-link .arrow{transform:translateX(6px)}
+/* ---------- inclusive spotlight ---------- */
+.inclusive{background:linear-gradient(135deg,var(--navy) 0%,var(--navy-2) 60%,#1b2f56 100%);color:#fff;position:relative;overflow:hidden}
+.inclusive::before{content:"INCLUSIVO";position:absolute;top:40px;right:-30px;font-family:var(--font-display);font-size:clamp(4rem,12vw,10rem);color:rgba(255,255,255,.045);letter-spacing:.05em;pointer-events:none}
+.inclusive-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:4rem;align-items:center;position:relative}
+.inclusive h2{font-size:clamp(2rem,4.4vw,3.2rem);margin:.9rem 0 1.2rem}
+.inclusive h2 .accent{color:var(--amber)}
+.inclusive p.lead{color:#cfd9ea;font-size:1.08rem;margin-bottom:2rem}
+.check-list{list-style:none;display:grid;gap:1rem;margin-bottom:2.4rem}
+.check-list li{display:flex;gap:.9rem;align-items:flex-start;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);padding:1rem 1.2rem;border-radius:14px;backdrop-filter:blur(6px)}
+.check-list .tick{flex:none;width:28px;height:28px;border-radius:50%;background:linear-gradient(135deg,#37d67a,#1fae5c);display:grid;place-items:center;color:#fff;font-weight:900;font-size:.9rem}
+.check-list b{display:block;font-size:.98rem}
+.check-list span{font-size:.88rem;color:#b9c5da}
+.inclusive-media{position:relative;border-radius:22px;overflow:hidden;box-shadow:var(--shadow)}
+.inclusive-media img{width:100%;height:560px;object-fit:cover}
+.inclusive-card{position:absolute;left:20px;right:20px;bottom:20px;background:rgba(250,247,241,.97);color:var(--ink);border-radius:16px;padding:1.3rem 1.5rem;display:flex;gap:1rem;align-items:center}
+.inclusive-card .big{font-family:var(--font-display);font-size:2rem;color:var(--coral-deep);line-height:1}
+/* ---------- heritage ---------- */
+.heritage{background:var(--ivory)}
+.heritage-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:4rem;align-items:center}
+.heritage-years{font-family:var(--font-display);font-size:clamp(4.5rem,10vw,8rem);line-height:1;color:var(--navy);position:relative}
+.heritage-years .since{display:block;font-size:1rem;font-family:var(--font-body);font-weight:800;letter-spacing:.3em;color:var(--coral);margin-top:.6rem}
+.heritage-copy p{color:var(--muted);margin-bottom:1.2rem;font-size:1.05rem}
+.heritage-copy p b{color:var(--ink)}
+.values{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;margin-top:2rem}
+.value{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:1.3rem;text-align:center;transition:transform .3s,box-shadow .3s}
+.value:hover{transform:translateY(-6px);box-shadow:var(--shadow)}
+.value .ico{font-size:1.7rem;margin-bottom:.5rem}
+.value b{display:block;font-size:.95rem}
+.value span{font-size:.82rem;color:var(--muted)}
+/* ---------- visit ---------- */
+.visit{background:var(--paper);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.visit-grid{display:grid;grid-template-columns:1fr 1fr;gap:3.5rem;align-items:start}
+.info-card{background:var(--ivory);border:1px solid var(--line);border-radius:var(--radius);padding:2.2rem;display:grid;gap:1.4rem}
+.info-row{display:flex;gap:1rem;align-items:flex-start}
+.info-row .ico{flex:none;width:46px;height:46px;border-radius:14px;background:linear-gradient(135deg,var(--navy),var(--navy-3));color:#fff;display:grid;place-items:center;font-size:1.2rem}
+.info-row b{display:block;font-size:.95rem}
+.info-row span,.info-row a{color:var(--muted);font-size:.95rem}
+.info-row a:hover{color:var(--coral-deep)}
+.hours-note{background:linear-gradient(135deg,#fff8ec,#ffefd6);border:1px dashed var(--amber);border-radius:14px;padding:1.2rem 1.4rem;font-size:.93rem;color:#7a5a17}
+/* ---------- faq ---------- */
+.faq-item{background:var(--paper);border:1px solid var(--line);border-radius:14px;margin-bottom:1rem;overflow:hidden;transition:box-shadow .3s}
+.faq-item.open{box-shadow:var(--shadow)}
+.faq-q{width:100%;background:none;border:none;text-align:left;font-family:var(--font-body);font-weight:800;font-size:1.02rem;padding:1.3rem 1.5rem;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:1rem;color:var(--ink)}
+.faq-q .plus{flex:none;width:30px;height:30px;border-radius:50%;background:var(--navy);color:#fff;display:grid;place-items:center;font-size:1.1rem;transition:transform .3s,background .3s}
+.faq-item.open .plus{transform:rotate(45deg);background:var(--coral)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .4s ease;color:var(--muted);font-size:.96rem}
+.faq-a p{padding:0 1.5rem 1.4rem}
+/* ---------- final cta ---------- */
+.final{background:linear-gradient(120deg,var(--coral-deep),var(--coral) 60%,#ff8a4d);color:#fff;text-align:center;position:relative;overflow:hidden}
+.final::before{content:"";position:absolute;inset:0;background:radial-gradient(600px 300px at 20% 20%,rgba(255,255,255,.22),transparent 60%),radial-gradient(500px 260px at 85% 80%,rgba(12,20,37,.25),transparent 60%)}
+.final .container{position:relative}
+.final h2{font-size:clamp(2.1rem,5vw,3.6rem);margin-bottom:1rem;max-width:20ch;margin-left:auto;margin-right:auto}
+.final p{color:#ffe9df;max-width:560px;margin:0 auto 2.2rem;font-size:1.08rem}
+.final .btn-ghost{border-color:#fff}
+.final-ctas{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+/* ---------- footer ---------- */
+footer{background:var(--navy);color:#aeb9cf;padding:3.5rem 0 2rem;font-size:.92rem}
+.foot-grid{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:2.5rem;margin-bottom:2.5rem}
+.foot-brand .brand-name{color:#fff}
+.foot-grid h4{color:#fff;font-size:.85rem;letter-spacing:.18em;text-transform:uppercase;margin-bottom:1rem}
+.foot-grid ul{list-style:none;display:grid;gap:.6rem}
+.foot-grid a:hover{color:#fff}
+.foot-bottom{border-top:1px solid rgba(255,255,255,.12);padding-top:1.6rem;display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;font-size:.82rem}
+/* ---------- whatsapp float ---------- */
+.wa-float{position:fixed;right:22px;bottom:22px;z-index:70;width:60px;height:60px;border-radius:50%;background:#25d366;display:grid;place-items:center;box-shadow:0 16px 34px -10px rgba(37,211,102,.7);transition:transform .25s}
+.wa-float:hover{transform:scale(1.1) rotate(6deg)}
+.wa-float svg{width:30px;height:30px;fill:#fff}
+/* ---------- reveal ---------- */
+.reveal{opacity:0;transform:translateY(34px);transition:opacity .8s ease,transform .8s cubic-bezier(.2,.7,.3,1)}
+.reveal.visible{opacity:1;transform:none}
+.reveal-d1{transition-delay:.12s}.reveal-d2{transition-delay:.24s}.reveal-d3{transition-delay:.36s}
+/* ---------- responsive ---------- */
+@media(max-width:960px){
+  .programs-grid{grid-template-columns:repeat(2,1fr)}
+  .inclusive-grid,.heritage-grid,.visit-grid{grid-template-columns:1fr;gap:2.5rem}
+  .inclusive-media img{height:420px}
+  .nav-links{position:fixed;inset:0;background:var(--navy);flex-direction:column;justify-content:center;gap:2.2rem;font-size:1.3rem;color:#fff;transform:translateX(100%);transition:transform .4s ease;z-index:59}
+  .nav-links.open{transform:none}
+  .nav-links .btn{font-size:1.05rem}
+  .burger{display:block;z-index:60;position:relative}
+  .burger.open span{background:#fff}
+  .burger.open span:nth-child(1){transform:translateY(8px) rotate(45deg)}
+  .burger.open span:nth-child(2){opacity:0}
+  .burger.open span:nth-child(3){transform:translateY(-8px) rotate(-45deg)}
+  .topbar .tb-hide{display:none}
+}
+@media(max-width:640px){
+  .section{padding:72px 0}
+  .programs-grid{grid-template-columns:1fr}
+  .values{grid-template-columns:1fr 1fr}
+  .hero-proof{gap:1.4rem}
+  .foot-grid{grid-template-columns:1fr}
+  .hero{padding-top:40px}
+}
+</style>
+</head>
+<body>
+<!-- top bar -->
+<div class="topbar">
+  <div class="container">
+    <span>📍 10474 NW 31 Ter, Doral, FL 33178</span>
+    <span class="tb-right">
+      <span class="tb-hide"><span class="tb-dot"></span>Clases activas esta semana</span>
+      <a href="tel:+13059225281">📞 (305) 922-5281</a>
+      <span class="tb-hide">🇪🇸 Hablamos español</span>
+    </span>
+  </div>
+</div>
+
+<!-- nav -->
+<header class="nav" id="nav">
+  <div class="container nav-inner">
+    <a class="brand" href="#inicio" aria-label="GM Fitness Lab inicio">
+      <span class="brand-mark">GM<span>·</span></span>
+      <span class="brand-name">GM FITNESS LAB<small>INCLUSIVE FITNESS</small></span>
+    </a>
+    <nav class="nav-links" id="navLinks">
+      <a href="#programas">Programas</a>
+      <a href="#inclusivo">Inclusivo</a>
+      <a href="#nosotros">Nosotros</a>
+      <a href="#contacto">Contacto</a>
+      <a class="btn btn-coral" href="https://wa.me/13059225281?text=Hola%20GM%20Fitness%20Lab%2C%20quiero%20probar%20una%20clase%20gratis.%20%C2%BFPueden%20darme%20info%3F" target="_blank" rel="noopener">Prueba una clase</a>
+    </nav>
+    <button class="burger" id="burger" aria-label="Abrir menú"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<!-- hero -->
+<section class="hero" id="inicio">
+  <div class="hero-bg"><img src="https://images.unsplash.com/photo-1518611012118-696072aa579a?w=1600&q=80" alt="Clase grupal de fitness en GM Fitness Lab" onerror="this.style.display='none'"></div>
+  <div class="hero-veil"></div>
+  <div class="container hero-content">
+    <span class="hero-badge"><span class="pulse"></span> EST. 2012 · Doral, FL</span>
+    <h1>El fitness <span class="accent">es para</span> <span class="stroke">todos.</span></h1>
+    <p class="hero-sub">Zumba, entrenamiento funcional, artes marciales, yoga y entrenamiento adaptativo — en una comunidad donde vienes real, vienes con ganas, y sales mejor de como entraste.</p>
+    <div class="hero-ctas">
+      <a class="btn btn-coral" href="https://wa.me/13059225281?text=Hola%20GM%20Fitness%20Lab%2C%20quiero%20probar%20una%20clase.%20%C2%BFPueden%20darme%20info%3F" target="_blank" rel="noopener">💬 Agenda tu clase de prueba</a>
+      <a class="btn btn-ghost" href="#programas">Ver programas</a>
+    </div>
+    <div class="hero-proof">
+      <div class="proof-item"><b>2012</b><span>En Doral desde</span></div>
+      <div class="proof-item"><b>7+</b><span>Programas activos</span></div>
+      <div class="proof-item"><b>+1.6K</b><span>Comunidad en Instagram</span></div>
+      <div class="proof-item"><b>ES / EN</b><span>Hablamos español</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- marquee -->
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track">
+    <span>Zumba 💃</span><span>·</span><span>Entrenamiento Funcional 🏋️</span><span>·</span><span>Taekwondo 🥋</span><span>·</span><span>Yoga 🤰</span><span>·</span><span>Pilates 🧘</span><span>·</span><span>Nutrición 🥤</span><span>·</span><span>Fitness Adaptativo 💪</span><span>·</span>
+    <span>Zumba 💃</span><span>·</span><span>Entrenamiento Funcional 🏋️</span><span>·</span><span>Taekwondo 🥋</span><span>·</span><span>Yoga 🤰</span><span>·</span><span>Pilates 🧘</span><span>·</span><span>Nutrición 🥤</span><span>·</span><span>Fitness Adaptativo 💪</span><span>·</span>
+  </div>
+</div>
+
+<!-- programs -->
+<section class="section" id="programas">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Programas</span>
+      <h2>Encuentra tu manera de moverte</h2>
+      <p>Siete programas activos, una misma filosofía: moverte, reírte, sudar y sentirte bien — sin presión y sin juicios.</p>
+    </div>
+    <div class="programs-grid">
+      <article class="program reveal">
+        <div class="program-media"><img src="https://images.unsplash.com/photo-1534258936925-c58bed479fcb?w=1200&q=80" alt="Clase de Zumba" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1518611012118-696072aa579a?w=1200&q=80'"><span class="program-tag">El favorito</span></div>
+        <div class="program-body">
+          <h3>Zumba</h3>
+          <p>El famoso "Madhouse": tu cita contigo, tu ratito feliz. Baile, tonificación y stretching para mujeres reales, con vida real y cero presión.</p>
+          <a class="program-link" href="https://wa.me/13059225281?text=Hola%2C%20quiero%20info%20de%20las%20clases%20de%20Zumba" target="_blank" rel="noopener">Pedir info <span class="arrow">→</span></a>
+        </div>
+      </article>
+      <article class="program reveal reveal-d1">
+        <div class="program-media"><img src="https://images.unsplash.com/photo-1599058917212-d750089bc07e?w=1200&q=80" alt="Entrenamiento funcional" loading="lazy" onerror="this.style.display='none'"><span class="program-tag">Fuerza real</span></div>
+        <div class="program-body">
+          <h3>Entrenamiento Funcional</h3>
+          <p>Fuerza, movilidad y condición para la vida diaria. Movimientos que se sienten bien y un cuerpo que responde cuando lo necesitas.</p>
+          <a class="program-link" href="https://wa.me/13059225281?text=Hola%2C%20quiero%20info%20del%20entrenamiento%20funcional" target="_blank" rel="noopener">Pedir info <span class="arrow">→</span></a>
+        </div>
+      </article>
+      <article class="program reveal reveal-d2">
+        <div class="program-media"><img src="https://images.unsplash.com/photo-1571902943202-507ec2618e8f?w=1200&q=80" alt="Entrenamiento adaptativo" loading="lazy" onerror="this.style.display='none'"><span class="program-tag">Para todos</span></div>
+        <div class="program-body">
+          <h3>Fitness Adaptativo</h3>
+          <p>Nuestro programa inclusivo para niños, jóvenes y adultos de todas las habilidades. Grupos pequeños, a tu ritmo, en ambiente positivo.</p>
+          <a class="program-link" href="#inclusivo">Conocer más <span class="arrow">→</span></a>
+        </div>
+      </article>
+      <article class="program reveal">
+        <div class="program-media"><img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=1200&q=80" alt="Yoga pre-natal" loading="lazy" onerror="this.style.display='none'"><span class="program-tag">Mente y cuerpo</span></div>
+        <div class="program-body">
+          <h3>Yoga &amp; Pilates</h3>
+          <p>Yoga pre-natal, vinyasa y nuevas clases de pilates para fuerza, movilidad, balance y un core sólido. Movimiento que se siente bien.</p>
+          <a class="program-link" href="https://wa.me/13059225281?text=Hola%2C%20quiero%20info%20de%20las%20clases%20de%20yoga%20y%20pilates" target="_blank" rel="noopener">Pedir info <span class="arrow">→</span></a>
+        </div>
+      </article>
+      <article class="program reveal reveal-d1">
+        <div class="program-media"><img src="https://images.unsplash.com/photo-1574680096145-d05b474e2155?w=1200&q=80" alt="Artes marciales" loading="lazy" onerror="this.style.display='none'"><span class="program-tag">Disciplina</span></div>
+        <div class="program-body">
+          <h3>Artes Marciales</h3>
+          <p>Taekwondo con el Sensei Freddy: disciplina, constancia y esfuerzo. Celebraciones de cambio de cinta y una escuela de verdad en Miami.</p>
+          <a class="program-link" href="https://wa.me/13059225281?text=Hola%2C%20quiero%20info%20de%20las%20clases%20de%20taekwondo" target="_blank" rel="noopener">Pedir info <span class="arrow">→</span></a>
+        </div>
+      </article>
+      <article class="program reveal reveal-d2">
+        <div class="program-media"><img src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=1200&q=80" alt="Nutrición saludable" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1552196563-55cd4e45efb3?w=1200&q=80'"><span class="program-tag">Desde adentro</span></div>
+        <div class="program-body">
+          <h3>Nutrición</h3>
+          <p>Guía nutricional práctica para acompañar tu entrenamiento: hábitos saludables, energía real y bienestar que se nota por dentro y por fuera.</p>
+          <a class="program-link" href="https://wa.me/13059225281?text=Hola%2C%20quiero%20info%20del%20programa%20de%20nutrici%C3%B3n" target="_blank" rel="noopener">Pedir info <span class="arrow">→</span></a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+<!-- inclusive spotlight -->
+<section class="section inclusive" id="inclusivo">
+  <div class="container inclusive-grid">
+    <div class="reveal">
+      <span class="eyebrow" style="color:var(--amber)">Nuestro diferencial</span>
+      <h2>Fitness inclusivo <span class="accent">de verdad.</span></h2>
+      <p class="lead">No todos los gimnasios pueden decirlo — nosotros lo vivimos todos los días. Un programa diseñado para que niños, jóvenes y adultos de todas las habilidades entrenen con confianza.</p>
+      <ul class="check-list">
+        <li><span class="tick">✓</span><div><b>Todas las edades y habilidades</b><span>Actividades adaptadas para que cada persona participe cómodamente y a su propio ritmo.</span></div></li>
+        <li><span class="tick">✓</span><div><b>Instructor con 25+ años de experiencia</b><span>En fitness inclusivo y adaptativo. Aquí estás en buenas manos.</span></div></li>
+        <li><span class="tick">✓</span><div><b>Grupos pequeños, ambiente positivo</b><span>Fuerza, coordinación, confianza y hábitos saludables — sin presión.</span></div></li>
+        <li><span class="tick">✓</span><div><b>Proveedor aprobado Step Up For Students</b><span>Aceptamos Direct Pay vía EMA Marketplace. Pregúntanos cómo aplicar.</span></div></li>
+      </ul>
+      <a class="btn btn-coral" href="https://wa.me/13059225281?text=Hola%2C%20quiero%20info%20del%20programa%20de%20fitness%20inclusivo" target="_blank" rel="noopener">💬 Preguntar por el programa</a>
+    </div>
+    <div class="reveal reveal-d1">
+      <div class="inclusive-media">
+        <img src="https://images.unsplash.com/photo-1571902943202-507ec2618e8f?w=1200&q=80" alt="Entrenamiento inclusivo en GM Fitness Lab" loading="lazy" onerror="this.style.display='none'">
+        <div class="inclusive-card">
+          <span class="big">❄️</span>
+          <div><b>Entrenamiento bajo techo</b><br><span style="color:var(--muted);font-size:.9rem">Instalaciones climatizadas en Doral — entrena cómodo todo el año.</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- heritage -->
+<section class="section heritage" id="nosotros">
+  <div class="container heritage-grid">
+    <div class="reveal">
+      <div class="heritage-years">2012<span class="since">— Doral, FL —</span></div>
+    </div>
+    <div class="heritage-copy reveal reveal-d1">
+      <span class="eyebrow">Nuestra historia</span>
+      <h2 style="font-size:clamp(2rem,4.4vw,3.2rem);margin:.9rem 0 1.2rem">Más de una década formando comunidad</h2>
+      <p>Desde <b>2012</b>, GM Fitness Lab es el punto de encuentro fitness de Doral. Lo que empezó como un gimnasio de barrio se convirtió en una <b>comunidad</b> donde la gente viene por los resultados y se queda por la gente.</p>
+      <p>Aquí no vienes perfecto — <b>vienes real</b>. Entrenas a tu ritmo, te ríes, sudas y sales más feliz de como entraste. Esa es la filosofía que nos mantiene fuertes después de más de diez años.</p>
+      <div class="values">
+        <div class="value"><div class="ico">🤝</div><b>Comunidad</b><span>Cero juicios, puro apoyo</span></div>
+        <div class="value"><div class="ico">💙</div><b>Inclusión</b><span>Todos son bienvenidos</span></div>
+        <div class="value"><div class="ico">🔥</div><b>Constancia</b><span>Resultados reales</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- visit / contact -->
+<section class="section visit" id="contacto">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Visítanos</span>
+      <h2>Tu primera clase te está esperando</h2>
+      <p>Escríbenos por WhatsApp o DM y te ayudamos a elegir el programa ideal para ti. Hablamos español.</p>
+    </div>
+    <div class="visit-grid">
+      <div class="info-card reveal">
+        <div class="info-row"><span class="ico">📍</span><div><b>Dirección</b><a href="https://maps.app.goo.gl/pLMCWi9nPg7XcYhU7?g_st=ic" target="_blank" rel="noopener">10474 NW 31 Ter, Doral, FL 33178<br><span style="color:var(--coral-deep);font-weight:700">Ver en Google Maps →</span></a></div></div>
+        <div class="info-row"><span class="ico">📞</span><div><b>Teléfono / WhatsApp</b><a href="tel:+13059225281">(305) 922-5281</a></div></div>
+        <div class="info-row"><span class="ico">📸</span><div><b>Instagram</b><a href="https://www.instagram.com/gmfitnesslab" target="_blank" rel="noopener">@gmfitnesslab</a></div></div>
+        <div class="hours-note">💡 <b>¿Cómo reservo?</b> Mándanos un WhatsApp o un DM en Instagram con el programa que te interesa y te confirmamos tu espacio.</div>
+        <a class="btn btn-coral" href="https://wa.me/13059225281?text=Hola%20GM%20Fitness%20Lab%2C%20quiero%20agendar%20mi%20primera%20clase.%20%C2%BFPueden%20ayudarme%3F" target="_blank" rel="noopener" style="justify-content:center">💬 Agendar por WhatsApp</a>
+      </div>
+      <div class="reveal reveal-d1">
+        <div class="section-head" style="margin-bottom:1.5rem"><h3 style="font-size:1.5rem">Preguntas frecuentes</h3></div>
+        <div class="faq-item">
+          <button class="faq-q">¿Necesito experiencia previa para empezar?<span class="plus">+</span></button>
+          <div class="faq-a"><p>No. Nuestros programas están diseñados para todos los niveles — vienes real, vienes con ganas, y los entrenadores te guían desde el primer día.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">¿Las clases son en español?<span class="plus">+</span></button>
+          <div class="faq-a"><p>Sí — hablamos español. Gran parte de nuestra comunidad es hispana y te sentirás en casa desde el primer momento.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">¿Tienen programas para niños?<span class="plus">+</span></button>
+          <div class="faq-a"><p>Sí. Nuestro programa de fitness inclusivo recibe niños, jóvenes y adultos de todas las habilidades, con grupos pequeños y atención personalizada.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">¿Cómo pruebo una clase?<span class="plus">+</span></button>
+          <div class="faq-a"><p>Escríbenos por WhatsApp al (305) 922-5281 o por DM en Instagram y coordinamos tu primera visita. Sin compromiso.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- final cta -->
+<section class="section final">
+  <div class="container reveal">
+    <h2>Deja de pensarlo. Empieza a moverte.</h2>
+    <p>Únete a la comunidad fitness de Doral que lleva activa desde 2012. Tu primera clase está a un mensaje de distancia.</p>
+    <div class="final-ctas">
+      <a class="btn btn-ghost" href="https://wa.me/13059225281?text=Hola%20GM%20Fitness%20Lab%2C%20quiero%20empezar%20esta%20semana." target="_blank" rel="noopener" style="background:#fff;color:var(--navy);border:none;font-weight:800">💬 Escríbenos por WhatsApp</a>
+      <a class="btn btn-ghost" href="https://www.instagram.com/gmfitnesslab" target="_blank" rel="noopener">📸 Síguenos en Instagram</a>
+    </div>
+  </div>
+</section>
+
+<!-- footer -->
+<footer>
+  <div class="container">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <a class="brand" href="#inicio"><span class="brand-mark">GM<span>·</span></span><span class="brand-name">GM FITNESS LAB<small style="color:#8b96ab">INCLUSIVE FITNESS</small></span></a>
+        <p style="margin-top:1rem;max-width:34ch">Inclusive Fitness en Doral, FL desde 2012. Una comunidad donde el fitness es para todos.</p>
+      </div>
+      <div>
+        <h4>Programas</h4>
+        <ul>
+          <li><a href="#programas">Zumba</a></li>
+          <li><a href="#programas">Entrenamiento Funcional</a></li>
+          <li><a href="#programas">Fitness Adaptativo</a></li>
+          <li><a href="#programas">Yoga &amp; Pilates</a></li>
+          <li><a href="#programas">Artes Marciales</a></li>
+          <li><a href="#programas">Nutrición</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contacto</h4>
+        <ul>
+          <li>10474 NW 31 Ter, Doral, FL 33178</li>
+          <li><a href="tel:+13059225281">(305) 922-5281</a></li>
+          <li><a href="https://www.instagram.com/gmfitnesslab" target="_blank" rel="noopener">@gmfitnesslab</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 GM Fitness Lab · Doral, FL</span>
+      <span>Vista previa de concepto — diseño web</span>
+    </div>
+  </div>
+</footer>
+
+<!-- whatsapp float -->
+<a class="wa-float" href="https://wa.me/13059225281?text=Hola%20GM%20Fitness%20Lab%2C%20quiero%20info%20de%20sus%20programas." target="_blank" rel="noopener" aria-label="WhatsApp">
+  <svg viewBox="0 0 32 32"><path d="M16 0C7.16 0 0 7.16 0 16c0 2.82.74 5.57 2.14 8L0 32l8.3-2.06A15.93 15.93 0 0 0 16 32c8.84 0 16-7.16 16-16S24.84 0 16 0zm0 29.2a13.2 13.2 0 0 1-6.74-1.85l-.48-.29-4.93 1.22 1.25-4.8-.31-.5A13.17 13.17 0 0 1 2.8 16C2.8 8.72 8.72 2.8 16 2.8S29.2 8.72 29.2 16 23.28 29.2 16 29.2zm7.2-9.86c-.4-.2-2.34-1.15-2.7-1.29-.36-.13-.63-.2-.89.2-.27.4-1.02 1.29-1.25 1.55-.23.27-.46.3-.86.1-.4-.2-1.68-.62-3.2-1.98-1.18-1.06-1.98-2.36-2.21-2.76-.23-.4-.02-.62.17-.82.17-.17.4-.46.6-.69.2-.23.26-.4.4-.66.13-.27.06-.5-.03-.7-.1-.2-.9-2.16-1.23-2.96-.32-.78-.65-.67-.89-.68h-.76c-.27 0-.7.1-1.06.5-.36.4-1.39 1.36-1.39 3.31 0 1.95 1.42 3.84 1.62 4.1.2.27 2.79 4.26 6.77 5.97.95.41 1.68.65 2.26.84.95.3 1.81.26 2.49.16.76-.11 2.34-.96 2.67-1.88.33-.93.33-1.72.23-1.88-.1-.17-.36-.27-.76-.47z"/></svg>
+</a>
+
+<script>
+// sticky nav shadow
+const nav=document.getElementById('nav');
+addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>10),{passive:true});
+// mobile menu
+const burger=document.getElementById('burger'),links=document.getElementById('navLinks');
+burger.addEventListener('click',()=>{
+  const open=links.classList.toggle('open');
+  burger.classList.toggle('open',open);
+  document.body.style.overflow=open?'hidden':'';
+});
+links.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{links.classList.remove('open');burger.classList.remove('open');document.body.style.overflow='';}));
+// scroll reveal
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target)}}),{threshold:.12,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+// faq accordion
+document.querySelectorAll('.faq-item').forEach(item=>{
+  const q=item.querySelector('.faq-q'),a=item.querySelector('.faq-a');
+  q.addEventListener('click',()=>{
+    const isOpen=item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(o=>{o.classList.remove('open');o.querySelector('.faq-a').style.maxHeight=null});
+    if(!isOpen){item.classList.add('open');a.style.maxHeight=a.scrollHeight+'px'}
+  });
+});
+</script>
+</body>
+</html>

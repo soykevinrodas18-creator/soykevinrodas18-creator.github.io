@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Luis Fernandez Detailing | Ceramic Coating & Full Detail en Miami</title>
+<meta name="description" content="Ceramic coating, full details interior y exterior y protección premium. Servicio 100% móvil en Miami, FL. Reserva por DM.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"AutomotiveBusiness","name":"Luis Fernandez Detailing","description":"Ceramic coating, full detailing interior y exterior y wax protection. Servicio móvil en Miami, FL.","areaServed":{"@type":"City","name":"Miami, FL"},"sameAs":["https://www.instagram.com/lfernandez_detailing"]}
+</script>
+<style>
+:root{
+  --bg:#0a0b0d; --bg2:#101215; --bg3:#16181d;
+  --gold:#c8a15e; --gold-soft:#e2c48f; --ivory:#f2ecdf;
+  --muted:#9a958a; --line:rgba(200,161,94,.16);
+  --ease:cubic-bezier(.22,.8,.24,1);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+::selection{background:var(--gold);color:#0a0b0d}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ivory);font-family:'Archivo',sans-serif;line-height:1.65;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:2000;opacity:.05;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1240px;margin:0 auto;padding:0 28px}
+.eyebrow{display:inline-flex;align-items:center;gap:12px;font-size:11px;letter-spacing:.34em;text-transform:uppercase;color:var(--gold);font-weight:600}
+.eyebrow::before{content:"";width:38px;height:1px;background:var(--gold)}
+.sec-num{font-family:'Cormorant Garamond',serif;font-style:italic;color:var(--gold);font-size:20px;letter-spacing:.1em}
+h1,h2{font-weight:800;line-height:1.02;letter-spacing:-.015em}
+h1{font-size:clamp(46px,8.4vw,118px);text-transform:uppercase}
+h2{font-size:clamp(34px,4.6vw,64px);text-transform:uppercase}
+h2 .serif,.serif{font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:500;text-transform:none;letter-spacing:0;color:var(--gold-soft)}
+.lead{color:var(--muted);font-size:clamp(15px,1.6vw,18px);max-width:56ch}
+section{padding:110px 0;position:relative}
+.btn{display:inline-flex;align-items:center;gap:12px;padding:17px 34px;font-size:12px;font-weight:700;letter-spacing:.24em;text-transform:uppercase;border:1px solid var(--gold);position:relative;overflow:hidden;transition:color .35s var(--ease);cursor:pointer;background:transparent;color:var(--ivory)}
+.btn::before{content:"";position:absolute;inset:0;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform .45s var(--ease);z-index:0}
+.btn:hover::before{transform:scaleX(1)}
+.btn:hover{color:#0a0b0d}
+.btn span{position:relative;z-index:1}
+.btn.solid{background:var(--gold);color:#0a0b0d}
+.btn.solid::before{background:var(--ivory)}
+/* ---------- preloader ---------- */
+#loader{position:fixed;inset:0;background:var(--bg);z-index:3000;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:18px;transition:opacity .7s var(--ease),visibility .7s}
+#loader.done{opacity:0;visibility:hidden}
+#loader .mark{font-weight:900;font-size:30px;letter-spacing:.28em;text-transform:uppercase}
+#loader .mark em{font-family:'Cormorant Garamond',serif;font-style:italic;color:var(--gold);letter-spacing:.05em}
+#loader .bar{width:180px;height:1px;background:rgba(255,255,255,.12);overflow:hidden}
+#loader .bar i{display:block;height:100%;width:40%;background:var(--gold);animation:slide 1s var(--ease) infinite}
+@keyframes slide{0%{transform:translateX(-100%)}100%{transform:translateX(450%)}}
+/* ---------- nav ---------- */
+nav{position:fixed;top:0;left:0;right:0;z-index:1000;transition:background .4s,border-color .4s,padding .4s;border-bottom:1px solid transparent;padding:22px 0}
+nav.scrolled{background:rgba(10,11,13,.86);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-color:var(--line);padding:14px 0}
+.nav-in{display:flex;align-items:center;justify-content:space-between}
+.logo{font-weight:900;letter-spacing:.22em;font-size:15px;text-transform:uppercase}
+.logo em{font-family:'Cormorant Garamond',serif;font-style:italic;color:var(--gold);letter-spacing:.04em;font-size:17px}
+.nav-links{display:flex;gap:38px;align-items:center}
+.nav-links a{font-size:11px;letter-spacing:.26em;text-transform:uppercase;color:var(--muted);transition:color .3s;position:relative}
+.nav-links a::after{content:"";position:absolute;left:0;bottom:-6px;width:0;height:1px;background:var(--gold);transition:width .35s var(--ease)}
+.nav-links a:hover{color:var(--ivory)}
+.nav-links a:hover::after{width:100%}
+.nav-cta{padding:12px 26px}
+#burger{display:none;background:none;border:0;cursor:pointer;z-index:1101;padding:8px}
+#burger span{display:block;width:26px;height:2px;background:var(--ivory);margin:6px 0;transition:.35s var(--ease)}
+#mobileMenu{position:fixed;inset:0;background:rgba(10,11,13,.97);backdrop-filter:blur(10px);z-index:1100;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:30px;opacity:0;visibility:hidden;transition:.45s var(--ease)}
+#mobileMenu.open{opacity:1;visibility:visible}
+#mobileMenu a{font-size:26px;font-weight:800;letter-spacing:.12em;text-transform:uppercase}
+#mobileMenu a:hover{color:var(--gold)}
+/* ---------- hero ---------- */
+.hero{min-height:100svh;display:flex;align-items:flex-end;padding:0 0 90px;overflow:hidden}
+.hero-bg{position:absolute;inset:0;z-index:-2}
+.hero-bg img{width:100%;height:100%;object-fit:cover;transform:scale(1.06);animation:heroSettle 2.4s var(--ease) forwards}
+@keyframes heroSettle{to{transform:scale(1)}}
+.hero-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,11,13,.62) 0%,rgba(10,11,13,.28) 42%,rgba(10,11,13,.94) 100%),linear-gradient(90deg,rgba(10,11,13,.72) 0%,transparent 60%)}
+.hero-content{position:relative}
+.hero h1 .line{display:block;overflow:hidden}
+.hero h1 .line>span{display:inline-block;transform:translateY(110%);animation:riseUp 1s var(--ease) forwards}
+.hero h1 .line:nth-child(2)>span{animation-delay:.14s}
+@keyframes riseUp{to{transform:translateY(0)}}
+.hero-sub{margin:30px 0 40px;max-width:52ch;color:#d8d2c4;font-size:clamp(15px,1.7vw,19px)}
+.hero-ctas{display:flex;gap:18px;flex-wrap:wrap}
+.hero-meta{margin-top:64px;display:grid;grid-template-columns:repeat(4,auto);gap:0;border-top:1px solid var(--line);justify-content:start}
+.hero-meta div{padding:22px 44px 0 0;margin-right:44px;border-right:1px solid var(--line)}
+.hero-meta div:last-child{border:0}
+.hero-meta b{display:block;font-size:22px;font-weight:800;letter-spacing:.02em}
+.hero-meta small{color:var(--muted);font-size:10.5px;letter-spacing:.24em;text-transform:uppercase}
+/* ---------- marquee ---------- */
+.marquee{border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:20px 0;overflow:hidden;background:var(--bg2)}
+.marquee-track{display:flex;gap:56px;width:max-content;animation:mq 26s linear infinite}
+.marquee span{font-size:13px;font-weight:700;letter-spacing:.34em;text-transform:uppercase;color:var(--muted);white-space:nowrap}
+.marquee span i{color:var(--gold);font-style:normal;margin-right:56px}
+@keyframes mq{to{transform:translateX(-50%)}}
+/* ---------- services ---------- */
+.sec-head{display:flex;align-items:flex-end;justify-content:space-between;gap:30px;margin-bottom:64px;flex-wrap:wrap}
+.sec-head p{max-width:44ch;color:var(--muted)}
+.svc-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:2px;background:var(--line);border:1px solid var(--line)}
+.svc{background:var(--bg);padding:52px 46px;position:relative;overflow:hidden;transition:background .5s var(--ease)}
+.svc::before{content:"";position:absolute;top:0;left:0;width:100%;height:2px;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform .55s var(--ease)}
+.svc:hover{background:var(--bg2)}
+.svc:hover::before{transform:scaleX(1)}
+.svc .n{font-family:'Cormorant Garamond',serif;font-style:italic;color:var(--gold);font-size:18px;letter-spacing:.12em}
+.svc h3{font-size:clamp(22px,2.4vw,30px);font-weight:800;text-transform:uppercase;letter-spacing:.02em;margin:16px 0 14px}
+.svc p{color:var(--muted);font-size:15px;max-width:42ch}
+.svc .tag{display:inline-block;margin-top:22px;font-size:10.5px;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);border-bottom:1px solid var(--gold);padding-bottom:5px;transition:.3s}
+.svc:hover .tag{color:var(--gold-soft);border-color:var(--gold-soft);letter-spacing:.34em}
+.svc.featured{background:linear-gradient(160deg,#14161b,#0d0e11)}
+/* ---------- process ---------- */
+.process{background:var(--bg2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:70px}
+.step{padding:10px 36px 0 0;margin-right:36px;border-right:1px solid var(--line);position:relative}
+.step:last-child{border:0;margin:0}
+.step .k{font-size:64px;font-weight:900;color:transparent;-webkit-text-stroke:1px var(--gold);line-height:1;opacity:.85}
+.step h4{font-size:14px;font-weight:800;letter-spacing:.22em;text-transform:uppercase;margin:22px 0 12px}
+.step p{color:var(--muted);font-size:14.5px}
+/* ---------- gallery ---------- */
+.gal-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:60px}
+.gal{position:relative;overflow:hidden;aspect-ratio:3/4;background:var(--bg3)}
+.gal img{width:100%;height:100%;object-fit:cover;transition:transform .9s var(--ease),filter .9s;filter:saturate(.82) contrast(1.05)}
+.gal::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 45%,rgba(10,11,13,.88));opacity:.9}
+.gal:hover img{transform:scale(1.07);filter:saturate(1.05) contrast(1.08)}
+.gal figcaption{position:absolute;left:22px;bottom:20px;z-index:2;font-size:11px;letter-spacing:.26em;text-transform:uppercase;font-weight:600}
+.gal figcaption small{display:block;color:var(--gold);margin-top:6px;letter-spacing:.2em;font-weight:500}
+/* ---------- why ---------- */
+.why-grid{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:start;margin-top:60px}
+.why-img{position:relative;overflow:hidden}
+.why-img img{width:100%;aspect-ratio:4/5;object-fit:cover;filter:saturate(.85)}
+.why-img::after{content:"";position:absolute;inset:0;border:1px solid var(--line);pointer-events:none}
+.why-list{display:flex;flex-direction:column}
+.why-item{padding:34px 0;border-bottom:1px solid var(--line);display:flex;gap:26px;align-items:flex-start}
+.why-item:first-child{border-top:1px solid var(--line)}
+.why-item .ic{flex:0 0 46px;height:46px;border:1px solid var(--gold);display:flex;align-items:center;justify-content:center;color:var(--gold);font-size:18px}
+.why-item h4{font-size:16px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;margin-bottom:8px}
+.why-item p{color:var(--muted);font-size:15px;max-width:46ch}
+/* ---------- booking ---------- */
+.book{background:linear-gradient(150deg,#15171c 0%,#0b0c0e 70%);border-top:1px solid var(--line);border-bottom:1px solid var(--line);text-align:center;overflow:hidden;position:relative}
+.book::before{content:"LF";position:absolute;top:50%;left:50%;transform:translate(-50%,-54%);font-size:clamp(200px,32vw,460px);font-weight:900;color:transparent;-webkit-text-stroke:1px rgba(200,161,94,.09);letter-spacing:.05em;pointer-events:none;line-height:1}
+.book h2{position:relative}
+.book p{position:relative;color:var(--muted);max-width:52ch;margin:24px auto 42px}
+.book .hero-ctas{justify-content:center;position:relative}
+.book .dm-note{position:relative;margin-top:26px;font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold)}
+/* ---------- faq ---------- */
+.faq-list{margin-top:56px;border-top:1px solid var(--line)}
+.faq{border-bottom:1px solid var(--line)}
+.faq button{width:100%;background:none;border:0;color:var(--ivory);display:flex;justify-content:space-between;align-items:center;gap:24px;padding:28px 4px;cursor:pointer;text-align:left;font-family:'Archivo',sans-serif;font-size:16px;font-weight:700;letter-spacing:.04em}
+.faq button .pl{flex:0 0 auto;width:34px;height:34px;border:1px solid var(--gold);color:var(--gold);display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:400;transition:.35s var(--ease)}
+.faq.open button .pl{transform:rotate(45deg);background:var(--gold);color:#0a0b0d}
+.faq .a{max-height:0;overflow:hidden;transition:max-height .5s var(--ease)}
+.faq .a p{padding:0 4px 30px;color:var(--muted);font-size:15px;max-width:68ch}
+/* ---------- footer ---------- */
+footer{padding:70px 0 40px;background:#07080a}
+.foot-grid{display:flex;justify-content:space-between;gap:40px;flex-wrap:wrap;margin-bottom:50px}
+.foot-grid h5{font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);margin-bottom:18px}
+.foot-grid p,.foot-grid a{color:var(--muted);font-size:14px;display:block;margin-bottom:10px;transition:color .3s}
+.foot-grid a:hover{color:var(--ivory)}
+.foot-base{border-top:1px solid var(--line);padding-top:28px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;color:#5c5850;font-size:12px;letter-spacing:.14em;text-transform:uppercase}
+/* ---------- reveal ---------- */
+.rv{opacity:0;transform:translateY(34px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+.rv.in{opacity:1;transform:none}
+.rv.d1{transition-delay:.1s}.rv.d2{transition-delay:.2s}.rv.d3{transition-delay:.3s}
+/* ---------- responsive ---------- */
+@media(max-width:960px){
+  .svc-grid{grid-template-columns:1fr}
+  .steps{grid-template-columns:1fr 1fr;gap:44px 0}
+  .step:nth-child(2){border:0}
+  .gal-grid{grid-template-columns:1fr 1fr}
+  .why-grid{grid-template-columns:1fr;gap:44px}
+  section{padding:84px 0}
+}
+@media(max-width:640px){
+  .nav-links{display:none}
+  #burger{display:block}
+  .hero-meta{grid-template-columns:1fr 1fr;gap:0}
+  .hero-meta div{padding:16px 20px 0 0;margin:0 20px 18px 0}
+  .hero-meta div:nth-child(2){border:0}
+  .steps{grid-template-columns:1fr}
+  .step{border:0;border-left:1px solid var(--line);padding:0 0 0 26px;margin:0 0 34px}
+  .gal-grid{grid-template-columns:1fr}
+  .gal{aspect-ratio:16/10}
+  .sec-head{margin-bottom:44px}
+}
+</style>
+</head>
+<body>
+
+<div id="loader" aria-hidden="true">
+  <div class="mark">LF <em>Detailing</em></div>
+  <div class="bar"><i></i></div>
+</div>
+
+<nav id="nav">
+  <div class="wrap nav-in">
+    <a class="logo" href="#top">LF <em>Detailing</em></a>
+    <div class="nav-links">
+      <a href="#servicios">Servicios</a>
+      <a href="#proceso">Proceso</a>
+      <a href="#galeria">Galería</a>
+      <a href="#faq">FAQ</a>
+      <a class="btn nav-cta" href="https://ig.me/m/lfernandez_detailing" target="_blank" rel="noopener"><span>Reservar</span></a>
+    </div>
+    <button id="burger" aria-label="Menú"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<div id="mobileMenu">
+  <a href="#servicios">Servicios</a>
+  <a href="#proceso">Proceso</a>
+  <a href="#galeria">Galería</a>
+  <a href="#faq">FAQ</a>
+  <a href="https://ig.me/m/lfernandez_detailing" target="_blank" rel="noopener" style="color:var(--gold)">Reservar por DM</a>
+</div>
+
+<header class="hero" id="top">
+  <div class="hero-bg">
+    <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=2000&auto=format&fit=crop" alt="Auto deportivo de noche en Miami" onerror="this.style.display='none'">
+  </div>
+  <div class="wrap hero-content">
+    <span class="eyebrow rv in">Ceramic Coating · Miami, FL</span>
+    <h1 style="margin-top:26px">
+      <span class="line"><span>El brillo</span></span>
+      <span class="line"><span>no se lava. <span class="serif">Se construye.</span></span></span>
+    </h1>
+    <p class="hero-sub">Ceramic coating, full details interior y exterior y protección premium — servicio 100% móvil en Miami. Para quienes cuidan su carro antes de que se ensucie.</p>
+    <div class="hero-ctas">
+      <a class="btn solid" href="https://ig.me/m/lfernandez_detailing" target="_blank" rel="noopener"><span>Reservar por DM</span></a>
+      <a class="btn" href="#servicios"><span>Ver servicios</span></a>
+    </div>
+    <div class="hero-meta">
+      <div><b>4.4K</b><small>Comunidad en Instagram</small></div>
+      <div><b>100% móvil</b><small>Vamos hasta ti</small></div>
+      <div><b>Miami</b><small>Servicio local</small></div>
+      <div><b>Premium</b><small>Ceramic coating</small></div>
+    </div>
+  </div>
+</header>
+
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track">
+    <span><i>◆</i>Ceramic Coating</span><span><i>◆</i>Full Detail</span><span><i>◆</i>Wax Protection</span><span><i>◆</i>Mobile Service</span><span><i>◆</i>Maintenance Program</span>
+    <span><i>◆</i>Ceramic Coating</span><span><i>◆</i>Full Detail</span><span><i>◆</i>Wax Protection</span><span><i>◆</i>Mobile Service</span><span><i>◆</i>Maintenance Program</span>
+  </div>
+</div>
+
+<section id="servicios">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div>
+        <span class="sec-num">01 —</span>
+        <h2 style="margin-top:14px">Servicios <span class="serif">de otro nivel</span></h2>
+      </div>
+      <p>Cada servicio se hace a domicilio, con técnica de taller y obsesión por el detalle. Sin atajos.</p>
+    </div>
+    <div class="svc-grid">
+      <article class="svc featured rv">
+        <span class="n">/ 01</span>
+        <h3>Ceramic Coating</h3>
+        <p>Nuestra especialidad estrella: protección cerámica que sella la pintura, intensifica el brillo y facilita el mantenimiento por mucho más tiempo que una cera tradicional.</p>
+        <a class="tag" href="https://ig.me/m/lfernandez_detailing" target="_blank" rel="noopener">Cotizar por DM</a>
+      </article>
+      <article class="svc rv d1">
+        <span class="n">/ 02</span>
+        <h3>Full Detail Interior &amp; Exterior</h3>
+        <p>Limpieza profunda por dentro y por fuera: interior detallado al milímetro y exterior con acabado de exhibición. El reset completo para tu carro.</p>
+        <a class="tag" href="https://ig.me/m/lfernandez_detailing" target="_blank" rel="noopener">Cotizar por DM</a>
+      </article>
+      <article class="svc rv">
+        <span class="n">/ 03</span>
+        <h3>Wax Protection</h3>
+        <p>Protección con cera premium para quienes quieren brillo y defensa inmediata. Ideal como mantenimiento entre servicios mayores.</p>
+        <a class="tag" href="https://ig.me/m/lfernandez_detailing" target="_blank" rel="noopener">Cotizar por DM</a>
+      </article>
+      <article class="svc rv d1">
+        <span class="n">/ 04</span>
+        <h3>Maintenance Program</h3>
+        <p>El objetivo no es restaurar tu carro cada pocos meses — es no dejar que llegue ahí. Planes semanales, quincenales y mensuales con cupos limitados.</p>
+        <a class="tag" href="https://ig.me/m/lfernandez_detailing" target="_blank" rel="noopener">Escríbenos “Maintenance”</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="process" id="proceso">
+  <div class="wrap">
+    <div class="rv">
+      <span class="sec-num">02 —</span>
+      <h2 style="margin-top:14px">El proceso <span class="serif">LF</span></h2>
+      <p class="lead" style="margin-top:18px">La misma disciplina de preparación que usamos con talleres de wrap: limpieza impecable antes de cualquier instalación o protección.</p>
+    </div>
+    <div class="steps">
+      <div class="step rv"><div class="k">01</div><h4>Evaluación</h4><p>Revisamos tu vehículo y definimos el servicio exacto que necesita. Sin venderte de más.</p></div>
+      <div class="step rv d1"><div class="k">02</div><h4>Preparación</h4><p>Descontaminación y limpieza profunda: la base de todo buen resultado empieza aquí.</p></div>
+      <div class="step rv d2"><div class="k">03</div><h4>Corrección &amp; aplicación</h4><p>Detailing minucioso y aplicación precisa del recubrimiento o protección elegida.</p></div>
+      <div class="step rv d3"><div class="k">04</div><h4>Protección continua</h4><p>Entrega impecable y opción de Maintenance Program para que nunca pierda el brillo.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="galeria">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div>
+        <span class="sec-num">03 —</span>
+        <h2 style="margin-top:14px">Trabajo <span class="serif">que habla solo</span></h2>
+      </div>
+      <p>Una muestra del estándar LF: luxury, performance y daily drivers, todos tratados igual.</p>
+    </div>
+    <div class="gal-grid">
+      <figure class="gal rv"><img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?q=80&w=900&auto=format&fit=crop" alt="Detalle exterior premium" loading="lazy" onerror="this.closest('.gal').style.display='none'"><figcaption>Exterior Detail<small>Ceramic Finish</small></figcaption></figure>
+      <figure class="gal rv d1"><img src="https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?q=80&w=900&auto=format&fit=crop" alt="Acabado de pintura corregida" loading="lazy" onerror="this.closest('.gal').style.display='none'"><figcaption>Paint Correction<small>Gloss Restored</small></figcaption></figure>
+      <figure class="gal rv d2"><img src="https://images.unsplash.com/photo-1553440569-bcc63803a83d?q=80&w=900&auto=format&fit=crop" alt="Vehículo premium detallado" loading="lazy" onerror="this.closest('.gal').style.display='none'"><figcaption>Full Detail<small>Inside &amp; Out</small></figcaption></figure>
+      <figure class="gal rv d3"><img src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?q=80&w=900&auto=format&fit=crop" alt="Clásico con brillo de exhibición" loading="lazy" onerror="this.closest('.gal').style.display='none'"><figcaption>Showroom Shine<small>Wax Protection</small></figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section id="nosotros" style="padding-top:0">
+  <div class="wrap">
+    <div class="why-grid">
+      <div class="why-img rv">
+        <img src="https://images.unsplash.com/photo-1601362840469-51e4d8d58785?q=80&w=1000&auto=format&fit=crop" alt="Detalle artesanal de vehículo" loading="lazy" onerror="this.style.display='none'">
+      </div>
+      <div>
+        <span class="sec-num rv">04 —</span>
+        <h2 class="rv" style="margin-top:14px">Por qué <span class="serif">LF Detailing</span></h2>
+        <div class="why-list" style="margin-top:10px">
+          <div class="why-item rv"><div class="ic">◈</div><div><h4>100% móvil</h4><p>Vamos hasta donde estés en Miami. Tú no te mueves — nosotros sí.</p></div></div>
+          <div class="why-item rv d1"><div class="ic">⬣</div><div><h4>Maintenance Program</h4><p>Planes semanales, quincenales y mensuales para dueños que quieren su carro siempre impecable, sin pensar en agendar.</p></div></div>
+          <div class="why-item rv d2"><div class="ic">✦</div><div><h4>Confianza de talleres</h4><p>Trabajamos con wrap shops del sur de la Florida en preparación pre-instalación: limpieza precisa, tiempos rápidos.</p></div></div>
+          <div class="why-item rv d3"><div class="ic">⬔</div><div><h4>Todos los niveles</h4><p>Luxury, performance y daily drivers — cada vehículo recibe la misma obsesión por el detalle.</p></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="book" id="reservar">
+  <div class="wrap">
+    <span class="eyebrow rv" style="justify-content:center">Reserva directa</span>
+    <h2 class="rv" style="margin-top:20px">Tu carro, <span class="serif">siempre impecable.</span></h2>
+    <p class="rv">Escríbenos por DM y agenda tu servicio. Cupos limitados en el Maintenance Program.</p>
+    <div class="hero-ctas rv">
+      <a class="btn solid" href="https://ig.me/m/lfernandez_detailing" target="_blank" rel="noopener"><span>Abrir chat de Instagram</span></a>
+    </div>
+    <p class="dm-note rv">Escríbenos “Maintenance” o “Quote” por DM</p>
+  </div>
+</section>
+
+<section id="faq" style="padding-bottom:120px">
+  <div class="wrap" style="max-width:860px">
+    <div class="rv" style="text-align:center">
+      <span class="sec-num">05 —</span>
+      <h2 style="margin-top:14px">Preguntas <span class="serif">frecuentes</span></h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq rv"><button>¿El servicio es a domicilio?<span class="pl">+</span></button><div class="a"><p>Sí. Somos un servicio 100% móvil en Miami, FL: llevamos todo lo necesario hasta donde esté tu vehículo.</p></div></div>
+      <div class="faq rv"><button>¿Qué es el ceramic coating?<span class="pl">+</span></button><div class="a"><p>Es un recubrimiento de protección avanzada para la pintura: sella la superficie, potencia el brillo y hace mucho más fácil el mantenimiento comparado con una cera tradicional. Escríbenos por DM y te asesoramos según tu carro.</p></div></div>
+      <div class="faq rv"><button>¿Cómo funciona el Maintenance Program?<span class="pl">+</span></button><div class="a"><p>Son planes recurrentes — semanales, quincenales o mensuales — pensados para mantener tu vehículo consistentemente limpio y protegido sin que tengas que agendar cada vez. Los cupos son limitados.</p></div></div>
+      <div class="faq rv"><button>¿Cómo reservo?<span class="pl">+</span></button><div class="a"><p>Todo se coordina por DM en Instagram: escríbenos “Quote” para una cotización o “Maintenance” para entrar al programa de mantenimiento.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <h5>Luis Fernandez Detailing</h5>
+        <p>Ceramic coating · Full details<br>Miami, Florida</p>
+      </div>
+      <div>
+        <h5>Servicios</h5>
+        <p>Ceramic Coating<br>Full Detail Interior &amp; Exterior<br>Wax Protection<br>Maintenance Program</p>
+      </div>
+      <div>
+        <h5>Reserva</h5>
+        <a href="https://ig.me/m/lfernandez_detailing" target="_blank" rel="noopener">DM en Instagram</a>
+        <a href="https://www.instagram.com/lfernandez_detailing" target="_blank" rel="noopener">@lfernandez_detailing</a>
+      </div>
+    </div>
+    <div class="foot-base">
+      <span>© <span id="yr">2026</span> LF Detailing · Miami, FL</span>
+      <span>Vista previa de concepto</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var loader=document.getElementById('loader');
+  window.addEventListener('load',function(){setTimeout(function(){loader.classList.add('done')},700)});
+  setTimeout(function(){loader.classList.add('done')},2600);
+
+  var nav=document.getElementById('nav');
+  function onScroll(){nav.classList.toggle('scrolled',window.scrollY>40)}
+  window.addEventListener('scroll',onScroll,{passive:true});onScroll();
+
+  var burger=document.getElementById('burger'),menu=document.getElementById('mobileMenu');
+  burger.addEventListener('click',function(){
+    var open=menu.classList.toggle('open');
+    burger.children[0].style.transform=open?'translateY(8px) rotate(45deg)':'';
+    burger.children[1].style.opacity=open?'0':'1';
+    burger.children[2].style.transform=open?'translateY(-8px) rotate(-45deg)':'';
+    document.body.style.overflow=open?'hidden':'';
+  });
+  menu.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){menu.classList.remove('open');document.body.style.overflow='';burger.children[0].style.transform='';burger.children[1].style.opacity='1';burger.children[2].style.transform=''})});
+
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12,rootMargin:'0px 0px -6% 0px'});
+  document.querySelectorAll('.rv').forEach(function(el){io.observe(el)});
+
+  document.querySelectorAll('.faq').forEach(function(f){
+    var btn=f.querySelector('button'),a=f.querySelector('.a');
+    btn.addEventListener('click',function(){
+      var open=f.classList.contains('open');
+      document.querySelectorAll('.faq.open').forEach(function(o){o.classList.remove('open');o.querySelector('.a').style.maxHeight=null});
+      if(!open){f.classList.add('open');a.style.maxHeight=a.scrollHeight+'px'}
+    });
+  });
+
+  document.getElementById('yr').textContent=new Date().getFullYear();
+})();
+</script>
+</body>
+</html>
