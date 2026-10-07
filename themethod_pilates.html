@@ -179,6 +179,30 @@ footer{background:var(--ink);color:var(--bone);padding:clamp(60px,7vw,100px) 0 3
 .rv{opacity:0;transform:translateY(44px);transition:opacity 1s cubic-bezier(.2,.7,.2,1),transform 1s cubic-bezier(.2,.7,.2,1)}
 .rv.in{opacity:1;transform:none}
 .rv.d1{transition-delay:.12s}.rv.d2{transition-delay:.24s}.rv.d3{transition-delay:.36s}
+/* --- motion typography: meditative word reveals --- */
+.ww{display:inline-block;opacity:0;transform:translateY(.45em);filter:blur(9px);
+  transition:opacity 1.4s ease,transform 1.4s cubic-bezier(.16,.7,.2,1),filter 1.4s ease;
+  transition-delay:var(--d,0s);will-change:opacity,transform,filter}
+.rv.in .ww{opacity:1;transform:none;filter:blur(0)}
+/* soft light drifting across key words */
+.shine{background:linear-gradient(105deg,currentColor 28%,#fff8ea 48%,currentColor 68%);
+  background-size:240% auto;-webkit-background-clip:text;background-clip:text;
+  -webkit-text-fill-color:transparent;color:transparent;animation:drift 8s ease-in-out infinite}
+@keyframes drift{0%,100%{background-position:0% center}50%{background-position:100% center}}
+/* elegant slow marquee of the six principles */
+.marq{overflow:hidden;border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--card);padding:26px 0;position:relative}
+.marq-track{display:flex;width:max-content;animation:marq 58s linear infinite}
+.marq:hover .marq-track{animation-play-state:paused}
+.marq-track span{font-family:var(--fd);font-style:italic;font-size:clamp(22px,2.6vw,34px);color:var(--muted);white-space:nowrap;padding:0 36px}
+.marq-track b{color:var(--amber-d);font-style:normal;font-weight:400}
+@keyframes marq{to{transform:translateX(-50%)}}
+/* gallery numerals fill with amber as they enter view */
+.roomnum{background-image:linear-gradient(180deg,var(--amber-l),var(--amber-d));background-repeat:no-repeat;
+  background-size:100% 0%;background-position:50% 100%;-webkit-background-clip:text;background-clip:text;
+  transition:background-size 2.4s cubic-bezier(.2,.7,.2,1) .25s;will-change:background-size}
+.roomnum.in{background-size:100% 100%}
+.men::after{animation:ghostdrift 14s ease-in-out infinite}
+@keyframes ghostdrift{0%,100%{transform:translateY(0)}50%{transform:translateY(-24px)}}
 @media(max-width:1024px){
   .pair{grid-template-columns:1fr}
   .pair.flip .pair-media{order:0}
@@ -202,6 +226,9 @@ footer{background:var(--ink);color:var(--bone);padding:clamp(60px,7vw,100px) 0 3
 @media(prefers-reduced-motion:reduce){
   *,*::before,*::after{animation:none!important;transition:none!important}
   .rv{opacity:1;transform:none}
+  .ww{opacity:1!important;transform:none!important;filter:none!important}
+  .marq-track{animation:none!important}
+  .roomnum{background-size:100% 100%}
   html{scroll-behavior:auto}
 }
 ::-webkit-scrollbar{width:10px}
@@ -232,7 +259,7 @@ footer{background:var(--ink);color:var(--bone);padding:clamp(60px,7vw,100px) 0 3
   <div class="hero-bg"><img id="heroImg" src="https://images.unsplash.com/photo-1518310383802-640c2de311b2?w=1800&q=72&auto=format&fit=crop" alt="Pilates class in motion at The Method, Miami Beach" onerror="this.style.display='none'"></div>
   <div class="wrap hero-inner">
     <p class="hero-kicker rv">Boutique Pilates · Miami Beach</p>
-    <h1 class="h-giant rv d1">Your body.<br><em>Your method.</em></h1>
+    <h1 class="h-giant rv d1" data-words>Your body.<br><em class="shine">Your method.</em></h1>
     <div class="hero-foot rv d2">
       <p>Two instructors in every class. 24+ years of expertise. A group class that never feels like one.</p>
       <div class="hero-ctas">
@@ -249,10 +276,18 @@ footer{background:var(--ink);color:var(--bone);padding:clamp(60px,7vw,100px) 0 3
   <div class="roomnum" aria-hidden="true">01</div>
   <div class="wrap">
     <p class="label rv">The Method</p>
-    <blockquote class="rv d1">A group class that <em>never</em> feels like one.</blockquote>
+    <blockquote class="rv d1" data-words>A group class that <em>never</em> feels like one.</blockquote>
     <p class="byline rv d2">Personalized · Precise · Elevated</p>
   </div>
 </section>
+
+<!-- PRINCIPLES MARQUEE — slow meditative drift -->
+<div class="marq" aria-hidden="true">
+  <div class="marq-track">
+    <span>Breathing <b>✦</b></span><span>Concentration <b>✦</b></span><span>Centering <b>✦</b></span><span>Control <b>✦</b></span><span>Precision <b>✦</b></span><span>Flow <b>✦</b></span>
+    <span>Breathing <b>✦</b></span><span>Concentration <b>✦</b></span><span>Centering <b>✦</b></span><span>Control <b>✦</b></span><span>Precision <b>✦</b></span><span>Flow <b>✦</b></span>
+  </div>
+</div>
 
 <!-- DIFFERENCE — dark monumental rows -->
 <section class="room dark" id="method">
@@ -351,7 +386,7 @@ footer{background:var(--ink);color:var(--bone);padding:clamp(60px,7vw,100px) 0 3
   <div class="band-bg"><img id="bandImg" src="https://images.unsplash.com/photo-1545205597-3d9d02c29597?w=1800&q=72&auto=format&fit=crop" alt="Serene atmosphere inside The Method studio" loading="lazy" onerror="this.style.display='none'"></div>
   <div class="wrap band-inner">
     <p class="label rv" style="color:var(--amber-l)">The experience</p>
-    <h2 class="rv d1">Move. Breathe. <em>Feel.</em></h2>
+    <h2 class="rv d1" data-words>Move. Breathe. <em>Feel.</em></h2>
     <p class="rv d2">At The Method, every detail matters — the movement, the space, the energy… even the scent.</p>
     <div class="band-list rv d3">
       <div><b>A space</b><span>Designed to connect — you feel it the moment you walk in.</span></div>
@@ -364,7 +399,7 @@ footer{background:var(--ink);color:var(--bone);padding:clamp(60px,7vw,100px) 0 3
 <!-- TEMPLES QUOTE -->
 <section class="room" style="text-align:center">
   <div class="wrap">
-    <blockquote class="h-xl rv" style="font-weight:300;max-width:18ch;margin:0 auto">There are temples. And then there's <em class="it" style="color:var(--amber-d)">ours.</em></blockquote>
+    <blockquote class="h-xl rv" data-words style="font-weight:300;max-width:18ch;margin:0 auto">There are temples. And then there's <em class="it" style="color:var(--amber-d)">ours.</em></blockquote>
     <p class="rv d1" style="margin-top:34px;font-size:11px;letter-spacing:.4em;text-transform:uppercase;color:var(--muted)">MTHD — Miami Beach</p>
   </div>
 </section>
@@ -419,7 +454,7 @@ footer{background:var(--ink);color:var(--bone);padding:clamp(60px,7vw,100px) 0 3
 <section class="room final" id="visit" style="padding-top:0">
   <div class="wrap">
     <p class="label rv" style="justify-content:center">Begin</p>
-    <h2 class="rv d1">Your body.<br><em>Your method.</em></h2>
+    <h2 class="rv d1" data-words>Your body.<br><em class="shine">Your method.</em></h2>
     <p class="rv d2">Your first class is one decision away. Come feel what two instructors, 24+ years of craft and a room full of energy can do.</p>
     <div class="row rv d3">
       <a class="btn amber" href="https://tinyurl.com/yc82w2mn" target="_blank" rel="noopener">Book a class</a>
@@ -482,6 +517,7 @@ footer{background:var(--ink);color:var(--bone);padding:clamp(60px,7vw,100px) 0 3
       if(hi)hi.style.transform='translate3d(0,'+(scrollY*0.28)+'px,0)';
       var bi=document.getElementById('bandImg');
       if(bi){var r=bi.getBoundingClientRect();bi.style.transform='translate3d(0,'+(-r.top*0.12)+'px,0)'}
+      for(var ri=0;ri<roomnums.length;ri++){var rr=roomnums[ri].getBoundingClientRect();roomnums[ri].style.transform='translate3d(0,'+(-rr.top*0.07).toFixed(1)+'px,0)'}
     }
   },{passive:true});
   var burger=document.getElementById('burger'),menu=document.getElementById('menu');
@@ -492,6 +528,28 @@ footer{background:var(--ink);color:var(--bone);padding:clamp(60px,7vw,100px) 0 3
   menu.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){menu.classList.remove('open')})});
   var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12,rootMargin:'0px 0px -40px 0px'});
   document.querySelectorAll('.rv,.pair-media').forEach(function(el){io.observe(el)});
+  /* gallery numerals: fill with amber as they enter view + gentle parallax */
+  var roomnums=Array.prototype.slice.call(document.querySelectorAll('.roomnum'));
+  roomnums.forEach(function(el){io.observe(el)});
+  /* meditative word-by-word reveals */
+  function splitWords(el){
+    var i=0;
+    function walk(node){
+      Array.prototype.slice.call(node.childNodes).forEach(function(ch){
+        if(ch.nodeType===3){
+          var frag=document.createDocumentFragment();
+          ch.textContent.split(/(\s+)/).forEach(function(part){
+            if(!part)return;
+            if(/^\s+$/.test(part)){frag.appendChild(document.createTextNode(' '))}
+            else{var s=document.createElement('span');s.className='ww';s.style.setProperty('--d',(i*0.16).toFixed(2)+'s');s.textContent=part;frag.appendChild(s);i++}
+          });
+          node.replaceChild(frag,ch);
+        }else if(ch.nodeType===1&&ch.tagName!=='BR'){walk(ch)}
+      });
+    }
+    walk(el);
+  }
+  if(!reduce)document.querySelectorAll('[data-words]').forEach(splitWords);
   var cio=new IntersectionObserver(function(es){es.forEach(function(e){
     if(!e.isIntersecting)return;cio.unobserve(e.target);
     var el=e.target,end=parseInt(el.dataset.count,10),t0=null;
