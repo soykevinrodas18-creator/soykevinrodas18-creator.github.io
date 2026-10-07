@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Empanadas Factory — Las empanadas más crunchy de Miami</title>
+<meta name="description" content="Empanadas venezolanas fritas al momento en Miami. Creadores de la empanada de pabellón. Doral y Wynwood, de 7am a 2pm.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Restaurant",
+  "name": "Empanadas Factory",
+  "description": "Empanadas venezolanas fritas al momento en Miami. Creadores de la empanada de pabellón.",
+  "servesCuisine": ["Venezuelan", "Latin American"],
+  "telephone": "+1 786-893-1161",
+  "email": "empanadasfactorycafe@gmail.com",
+  "sameAs": ["https://www.instagram.com/empanadasfactorycafe/"],
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "6475 NW 87th Ave",
+    "addressLocality": "Miami",
+    "addressRegion": "FL",
+    "postalCode": "33178",
+    "addressCountry": "US"
+  },
+  "openingHours": "Mo-Su 07:00-14:00"
+}
+</script>
+<style>
+:root{
+  --bg:#150c06;
+  --bg2:#20100a;
+  --bg3:#2a1409;
+  --cream:#fff7ea;
+  --cream-dim:#f3e3c8;
+  --gold:#f6a91c;
+  --gold-lt:#ffd166;
+  --gold-dk:#c07f0e;
+  --red:#d8262f;
+  --red-dk:#8e1019;
+  --green:#3fae5f;
+  --green-dk:#1d6b37;
+  --ink:#1d100a;
+  --line:rgba(255,247,234,.14);
+  --display:'Anton',Impact,sans-serif;
+  --body:'Archivo',system-ui,sans-serif;
+  --hand:'Caveat',cursive;
+  --ease:cubic-bezier(.16,1,.3,1);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:var(--body);
+  background:var(--bg);
+  color:var(--cream);
+  overflow-x:hidden;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+/* film-grain / crispy texture overlay */
+body::after{
+  content:"";position:fixed;inset:0;pointer-events:none;z-index:2000;opacity:.5;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 .85 0 0 0 0 .5 0 0 0 .05 0'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+::selection{background:var(--gold);color:var(--ink)}
+img{max-width:100%;display:block}
+a{color:inherit}
+.wrap{width:min(1180px,92vw);margin:0 auto}
+.skip{position:absolute;left:-999px;top:0;background:var(--gold);color:var(--ink);padding:.6rem 1rem;z-index:3000;font-weight:800}
+.skip:focus{left:0}
+/* ============ NAV ============ */
+.nav{position:fixed;top:0;left:0;right:0;z-index:1000;transition:background .35s,box-shadow .35s,backdrop-filter .35s}
+.nav.scrolled{background:rgba(21,12,6,.86);backdrop-filter:blur(14px);box-shadow:0 8px 30px rgba(0,0,0,.45)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;padding:1rem 0}
+.brand{display:flex;align-items:center;gap:.6rem;text-decoration:none}
+.brand-mark{width:42px;height:42px;border-radius:50%;background:radial-gradient(circle at 35% 30%,var(--gold-lt),var(--gold) 55%,var(--gold-dk));display:grid;place-items:center;box-shadow:0 0 0 3px rgba(246,169,28,.25),0 6px 18px rgba(246,169,28,.35);position:relative}
+.brand-mark::after{content:"";position:absolute;inset:-7px;border-radius:50%;border:1.5px dashed rgba(246,169,28,.5);animation:spin 14s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.brand-mark svg{width:22px;height:22px}
+.brand-name{font-family:var(--display);font-size:1.05rem;letter-spacing:.06em;line-height:1.05}
+.brand-name small{display:block;font-family:var(--body);font-weight:700;font-size:.58rem;letter-spacing:.34em;color:var(--gold)}
+.nav-links{display:flex;gap:1.9rem;list-style:none}
+.nav-links a{text-decoration:none;font-weight:700;font-size:.82rem;letter-spacing:.12em;text-transform:uppercase;color:var(--cream-dim);position:relative;padding:.3rem 0}
+.nav-links a::after{content:"";position:absolute;left:0;bottom:0;height:2px;width:0;background:var(--gold);transition:width .3s var(--ease)}
+.nav-links a:hover::after,.nav-links a:focus-visible::after{width:100%}
+.btn{display:inline-flex;align-items:center;gap:.55rem;text-decoration:none;font-weight:800;letter-spacing:.08em;text-transform:uppercase;font-size:.85rem;padding:1rem 1.7rem;border-radius:999px;border:none;cursor:pointer;transition:transform .25s var(--ease),box-shadow .25s}
+.btn-fire{background:linear-gradient(135deg,var(--gold-lt),var(--gold) 60%,var(--gold-dk));color:var(--ink);box-shadow:0 10px 28px rgba(246,169,28,.35)}
+.btn-fire:hover,.btn-fire:focus-visible{transform:translateY(-3px) scale(1.02)}
+.btn-outline{border:2px solid var(--cream);color:var(--cream);background:transparent}
+.btn-outline:hover,.btn-outline:focus-visible{border-color:var(--gold);color:var(--gold-lt);transform:translateY(-3px)}
+.btn-nav{padding:.75rem 1.35rem;font-size:.78rem}
+.sizzle{animation:sizzle 2.6s ease-in-out infinite}
+@keyframes sizzle{
+  0%,100%{box-shadow:0 10px 28px rgba(246,169,28,.35),0 0 0 0 rgba(246,169,28,.45)}
+  50%{box-shadow:0 10px 34px rgba(246,169,28,.55),0 0 0 14px rgba(246,169,28,0)}
+}
+/* ============ HERO ============ */
+.hero{position:relative;min-height:100svh;display:flex;align-items:center;padding:8.5rem 0 5rem;overflow:hidden;
+  background:
+    radial-gradient(1100px 500px at 85% -5%,rgba(216,38,47,.22),transparent 60%),
+    radial-gradient(900px 480px at 8% 108%,rgba(63,174,95,.14),transparent 60%),
+    radial-gradient(700px 380px at 50% 40%,rgba(246,169,28,.10),transparent 65%),
+    var(--bg);
+}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:3.5rem;align-items:center;position:relative;z-index:2}
+.eyebrow{display:inline-flex;align-items:center;gap:.6rem;font-size:.75rem;font-weight:800;letter-spacing:.28em;text-transform:uppercase;color:var(--gold-lt);border:1px solid rgba(246,169,28,.4);border-radius:999px;padding:.5rem 1.1rem;background:rgba(246,169,28,.07)}
+.eyebrow .dot{width:8px;height:8px;border-radius:50%;background:var(--red);box-shadow:0 0 12px var(--red);animation:blink 1.6s infinite}
+@keyframes blink{50%{opacity:.35}}
+h1.hero-title{font-family:var(--display);font-size:clamp(3rem,7.4vw,6.4rem);line-height:.95;letter-spacing:.01em;margin:1.4rem 0 1.2rem;text-transform:uppercase}
+h1 .w{display:inline-block;overflow:hidden;vertical-align:bottom;padding-bottom:.08em;margin-bottom:-.08em}
+h1 .w>span{display:inline-block;transform:translateY(110%) rotate(6deg) scale(.7);opacity:0;transition:transform .7s var(--ease),opacity .5s}
+h1.loaded .w>span{transform:none;opacity:1}
+.crunch-word{color:var(--gold);text-shadow:0 0 34px rgba(246,169,28,.55),0 4px 0 var(--red-dk);position:relative}
+.hero-sub{font-size:1.12rem;color:var(--cream-dim);max-width:34rem}
+.hero-sub strong{color:var(--cream)}
+.hero-ctas{display:flex;gap:1rem;margin-top:2rem;flex-wrap:wrap}
+.hero-meta{display:flex;gap:1.6rem;margin-top:2.2rem;flex-wrap:wrap;font-size:.85rem;color:var(--cream-dim)}
+.hero-meta div{display:flex;align-items:center;gap:.5rem}
+.hero-meta svg{width:18px;height:18px;stroke:var(--gold);flex:none}
+.hero-visual{position:relative}
+.hero-photo{position:relative;transform:rotate(2.5deg);border-radius:22px;overflow:hidden;box-shadow:0 30px 80px rgba(0,0,0,.55),0 0 0 1px rgba(246,169,28,.25);will-change:transform}
+.hero-photo img{width:100%;height:min(62vh,560px);object-fit:cover;transform:scale(1.06)}
+.hero-photo::after{content:"";position:absolute;inset:0;background:linear-gradient(200deg,transparent 55%,rgba(21,12,6,.55));pointer-events:none}
+.stamp{position:absolute;width:132px;height:132px;top:-46px;right:-30px;z-index:3;animation:spin 22s linear infinite}
+.stamp svg{width:100%;height:100%;filter:drop-shadow(0 8px 18px rgba(0,0,0,.5))}
+.stamp .core{position:absolute;inset:0;display:grid;place-items:center;animation:spin 22s linear infinite reverse}
+.stamp .core span{font-family:var(--display);font-size:1.5rem;color:var(--gold-lt);text-shadow:0 2px 8px rgba(0,0,0,.7)}
+.hero-note{position:absolute;left:-24px;bottom:34px;background:var(--red);color:#fff;font-family:var(--hand);font-size:1.5rem;padding:.4rem 1.2rem;transform:rotate(-4deg);border-radius:6px;box-shadow:0 12px 30px rgba(0,0,0,.5);z-index:3}
+.scroll-hint{position:absolute;bottom:1.6rem;left:50%;transform:translateX(-50%);font-size:.7rem;letter-spacing:.4em;text-transform:uppercase;color:var(--cream-dim);display:flex;flex-direction:column;align-items:center;gap:.6rem;z-index:2}
+.scroll-hint::after{content:"";width:1px;height:44px;background:linear-gradient(var(--gold),transparent);animation:drip 1.8s var(--ease) infinite}
+@keyframes drip{0%{transform:scaleY(0);transform-origin:top}55%{transform:scaleY(1);transform-origin:top}56%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+/* ============ TICKER ============ */
+.ticker{background:var(--gold);color:var(--ink);overflow:hidden;white-space:nowrap;border-block:4px solid var(--ink);transform:rotate(-1.2deg) scale(1.02);position:relative;z-index:5}
+.ticker.red{background:var(--red);color:#fff;transform:rotate(1deg) scale(1.02)}
+.ticker-track{display:inline-flex;align-items:center;gap:2.6rem;padding:.85rem 1.3rem;animation:tick 26s linear infinite;font-family:var(--display);font-size:1.35rem;letter-spacing:.08em;text-transform:uppercase}
+.ticker.red .ticker-track{animation-duration:32s;animation-direction:reverse}
+@keyframes tick{to{transform:translateX(-50%)}}
+.ticker .sep{font-size:1rem}
+/* ============ SECTIONS ============ */
+section{padding:7rem 0;position:relative}
+.kicker{font-family:var(--hand);font-size:1.7rem;color:var(--gold-lt);margin-bottom:.4rem}
+h2.sec-title{font-family:var(--display);font-size:clamp(2.4rem,5.2vw,4.2rem);line-height:1;text-transform:uppercase;letter-spacing:.01em;margin-bottom:1rem}
+.sec-title .accent{color:var(--gold)}
+.sec-lede{color:var(--cream-dim);max-width:40rem;font-size:1.08rem}
+.reveal{opacity:0;transform:translateY(36px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
+.reveal.in{opacity:1;transform:none}
+/* signature */
+.sig{background:linear-gradient(180deg,var(--bg) 0%,var(--bg2) 100%)}
+.sig-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:4rem;align-items:center;margin-top:3.5rem}
+.sig-photo{position:relative;transform:rotate(-2deg)}
+.sig-photo img{border-radius:20px;box-shadow:0 26px 70px rgba(0,0,0,.5)}
+.sig-photo .tag{position:absolute;top:1.1rem;left:1.1rem;background:var(--gold);color:var(--ink);font-weight:800;font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;padding:.55rem 1rem;border-radius:999px;box-shadow:0 8px 20px rgba(0,0,0,.4)}
+.big-year{font-family:var(--display);font-size:clamp(4.5rem,10vw,8.5rem);line-height:1;color:transparent;-webkit-text-stroke:2px rgba(246,169,28,.5);margin-bottom:.6rem}
+.sig-copy h3{font-family:var(--display);font-size:clamp(1.8rem,3.4vw,2.8rem);text-transform:uppercase;margin-bottom:1rem}
+.sig-copy p{color:var(--cream-dim);margin-bottom:1rem}
+.fill-list{list-style:none;margin:1.6rem 0;display:grid;grid-template-columns:1fr 1fr;gap:.8rem}
+.fill-list li{display:flex;align-items:center;gap:.7rem;background:rgba(255,247,234,.05);border:1px solid var(--line);border-radius:14px;padding:.85rem 1rem;font-weight:700}
+.fill-list .n{font-family:var(--display);color:var(--gold);font-size:1.1rem}
+/* menu */
+.menu{background:var(--bg)}
+.menu-head{display:flex;align-items:flex-end;justify-content:space-between;gap:2rem;flex-wrap:wrap}
+.menu-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.6rem;margin-top:3.2rem}
+.dish{position:relative;background:linear-gradient(160deg,var(--bg3),var(--bg2));border:1px solid var(--line);border-radius:22px;padding:2rem 1.8rem;overflow:hidden;transition:transform .35s var(--ease),box-shadow .35s,border-color .35s}
+.dish:nth-child(odd){transform:rotate(-1deg)}
+.dish:nth-child(even){transform:rotate(1deg)}
+.dish:hover,.dish:focus-within{transform:rotate(0) translateY(-8px);box-shadow:0 24px 60px rgba(0,0,0,.5);border-color:rgba(246,169,28,.5)}
+.dish::before{content:"";position:absolute;inset:0;background:radial-gradient(240px 160px at 80% -10%,rgba(246,169,28,.18),transparent 70%);pointer-events:none}
+.dish .num{font-family:var(--display);font-size:2.6rem;color:transparent;-webkit-text-stroke:1.5px var(--gold);line-height:1}
+.dish h3{font-family:var(--display);font-size:1.5rem;text-transform:uppercase;margin:.8rem 0 .5rem;letter-spacing:.02em}
+.dish p{color:var(--cream-dim);font-size:.95rem}
+.dish .flag{display:inline-block;margin-top:1rem;font-size:.68rem;font-weight:800;letter-spacing:.22em;text-transform:uppercase;color:var(--ink);background:var(--gold-lt);border-radius:999px;padding:.35rem .9rem}
+.dish.star{border-color:rgba(216,38,47,.55);background:linear-gradient(160deg,#3a0f0c,var(--bg2))}
+.dish.star .flag{background:var(--red);color:#fff}
+.menu-extra{margin-top:2.4rem;display:flex;align-items:center;gap:1rem;background:rgba(63,174,95,.08);border:1px dashed rgba(63,174,95,.5);border-radius:18px;padding:1.4rem 1.8rem;flex-wrap:wrap}
+.menu-extra svg{width:30px;height:30px;stroke:var(--green);flex:none}
+.menu-extra p{color:var(--cream-dim)}
+.menu-extra strong{color:var(--cream)}
+/* family */
+.family{background:linear-gradient(180deg,var(--bg2),#241108 60%,var(--bg));overflow:hidden}
+.fam-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:4rem;align-items:center;margin-top:3rem}
+.timeline{list-style:none;margin-top:2rem;position:relative;padding-left:2.2rem}
+.timeline::before{content:"";position:absolute;left:8px;top:6px;bottom:6px;width:2px;background:linear-gradient(var(--gold),var(--red),var(--green))}
+.timeline li{position:relative;margin-bottom:1.8rem}
+.timeline li::before{content:"";position:absolute;left:-2.2rem;top:.35rem;width:14px;height:14px;border-radius:50%;background:var(--gold);box-shadow:0 0 0 5px rgba(246,169,28,.18)}
+.timeline li:nth-child(2)::before{background:var(--red);box-shadow:0 0 0 5px rgba(216,38,47,.18)}
+.timeline li:nth-child(3)::before{background:var(--green);box-shadow:0 0 0 5px rgba(63,174,95,.18)}
+.timeline .yr{font-family:var(--display);color:var(--gold-lt);letter-spacing:.1em;font-size:1rem}
+.timeline p{color:var(--cream-dim)}
+.timeline strong{color:var(--cream)}
+.fam-photo{position:relative}
+.fam-photo img{border-radius:20px;transform:rotate(2deg);box-shadow:0 26px 70px rgba(0,0,0,.5)}
+.fam-caption{position:absolute;bottom:-1.2rem;right:1.4rem;background:var(--cream);color:var(--ink);font-family:var(--hand);font-size:1.4rem;padding:.5rem 1.3rem;transform:rotate(-3deg);border-radius:8px;box-shadow:0 12px 30px rgba(0,0,0,.45)}
+/* crunch process */
+.crunch{background:var(--bg)}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:1.6rem;margin-top:3rem}
+.step{position:relative;border:1px solid var(--line);border-radius:22px;overflow:hidden;background:var(--bg2);transition:transform .35s var(--ease)}
+.step:hover{transform:translateY(-8px)}
+.step img{height:230px;width:100%;object-fit:cover}
+.step .pad{padding:1.8rem}
+.step .snum{font-family:var(--display);font-size:3rem;color:transparent;-webkit-text-stroke:1.5px var(--gold);line-height:1}
+.step h3{font-family:var(--display);font-size:1.35rem;text-transform:uppercase;margin:.7rem 0 .5rem}
+.step p{color:var(--cream-dim);font-size:.95rem}
+/* locations */
+.visit{background:linear-gradient(180deg,var(--bg),var(--bg2))}
+.loc-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.8rem;margin-top:3rem}
+.loc{position:relative;border-radius:24px;padding:2.6rem 2.2rem;overflow:hidden;border:1px solid var(--line);transition:transform .35s var(--ease),box-shadow .35s}
+.loc:hover{transform:translateY(-6px);box-shadow:0 26px 60px rgba(0,0,0,.5)}
+.loc.doral{background:linear-gradient(150deg,#3a1c08,var(--bg2) 70%)}
+.loc.wyn{background:linear-gradient(150deg,#2b0d10,var(--bg2) 70%)}
+.loc .hood{font-size:.72rem;font-weight:800;letter-spacing:.3em;text-transform:uppercase;color:var(--gold-lt)}
+.loc h3{font-family:var(--display);font-size:2.2rem;text-transform:uppercase;margin:.5rem 0 .8rem}
+.loc address{font-style:normal;color:var(--cream-dim);font-size:1.02rem}
+.loc .hours{margin-top:1.2rem;display:inline-flex;align-items:center;gap:.6rem;background:rgba(255,247,234,.07);border:1px solid var(--line);padding:.6rem 1.1rem;border-radius:999px;font-weight:700;font-size:.9rem}
+.loc .hours svg{width:16px;height:16px;stroke:var(--gold)}
+.loc .note{margin-top:1rem;font-size:.88rem;color:var(--cream-dim)}
+.contact-strip{margin-top:2rem;display:flex;gap:1rem;flex-wrap:wrap}
+.pill{display:inline-flex;align-items:center;gap:.6rem;text-decoration:none;border:1px solid var(--line);border-radius:999px;padding:.8rem 1.4rem;font-weight:700;transition:border-color .3s,color .3s,transform .3s var(--ease)}
+.pill:hover{border-color:var(--gold);color:var(--gold-lt);transform:translateY(-2px)}
+.pill svg{width:17px;height:17px;stroke:var(--gold)}
+/* final cta */
+.final{background:radial-gradient(800px 400px at 50% 0%,rgba(246,169,28,.16),transparent 65%),var(--bg2);text-align:center;overflow:hidden}
+.final h2{font-family:var(--display);font-size:clamp(2.8rem,7vw,5.6rem);text-transform:uppercase;line-height:1}
+.final h2 .accent{color:var(--gold);text-shadow:0 0 40px rgba(246,169,28,.5)}
+.final p{color:var(--cream-dim);max-width:36rem;margin:1.2rem auto 2.2rem}
+.final .hero-ctas{justify-content:center}
+/* footer */
+footer{background:#0e0704;border-top:1px solid var(--line);padding:3.5rem 0 2rem}
+.foot-grid{display:flex;justify-content:space-between;gap:2.5rem;flex-wrap:wrap;align-items:flex-start}
+.foot-brand{font-family:var(--display);font-size:1.4rem;letter-spacing:.05em}
+.foot-brand small{display:block;font-family:var(--body);font-weight:600;font-size:.7rem;letter-spacing:.3em;color:var(--gold);margin-top:.3rem}
+.foot-col h4{font-size:.72rem;letter-spacing:.28em;text-transform:uppercase;color:var(--cream-dim);margin-bottom:1rem}
+.foot-col p,.foot-col a{font-size:.92rem;color:var(--cream-dim);text-decoration:none}
+.foot-col a:hover{color:var(--gold-lt)}
+.socials{display:flex;gap:.8rem;margin-top:1.2rem}
+.soc{width:46px;height:46px;border-radius:50%;display:grid;place-items:center;border:1.5px solid rgba(246,169,28,.45);background:rgba(246,169,28,.06);transition:transform .3s var(--ease),background .3s,box-shadow .3s}
+.soc:hover{transform:translateY(-4px) rotate(-6deg);background:rgba(246,169,28,.18);box-shadow:0 10px 24px rgba(246,169,28,.3)}
+.soc svg{width:21px;height:21px;fill:var(--gold-lt)}
+.foot-base{margin-top:2.6rem;padding-top:1.6rem;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;font-size:.8rem;color:rgba(243,227,200,.55)}
+/* reveal helpers */
+.stagger>*{opacity:0;transform:translateY(30px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
+.stagger.in>*{opacity:1;transform:none}
+.stagger.in>*:nth-child(1){transition-delay:.05s}.stagger.in>*:nth-child(2){transition-delay:.15s}
+.stagger.in>*:nth-child(3){transition-delay:.25s}.stagger.in>*:nth-child(4){transition-delay:.35s}
+.stagger.in>*:nth-child(5){transition-delay:.45s}.stagger.in>*:nth-child(6){transition-delay:.55s}
+/* ============ RESPONSIVE ============ */
+@media (max-width:960px){
+  .nav-links{display:none}
+  .hero-grid{grid-template-columns:1fr;gap:2.6rem}
+  .hero{padding-top:7rem}
+  .hero-photo img{height:44vh}
+  .stamp{width:104px;height:104px;top:-34px;right:6px}
+  .hero-note{left:8px;bottom:18px;font-size:1.2rem}
+  .sig-grid,.fam-grid{grid-template-columns:1fr;gap:2.6rem}
+  .menu-grid{grid-template-columns:1fr 1fr}
+  .steps{grid-template-columns:1fr}
+  .step img{height:200px}
+  .loc-grid{grid-template-columns:1fr}
+  section{padding:5rem 0}
+}
+@media (max-width:560px){
+  .menu-grid{grid-template-columns:1fr}
+  .fill-list{grid-template-columns:1fr}
+  .btn-nav{display:none}
+  h1.hero-title{font-size:3.1rem}
+  .hero-meta{gap:1rem}
+  .ticker-track{font-size:1.05rem}
+}
+/* ============ REDUCED MOTION ============ */
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  html{scroll-behavior:auto}
+  h1 .w>span{transform:none;opacity:1}
+  .reveal,.stagger>*{opacity:1;transform:none}
+  .ticker-track{animation:none;flex-wrap:wrap;white-space:normal}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#contenido">Saltar al contenido</a>
+
+<nav class="nav" id="nav" aria-label="Navegación principal">
+  <div class="wrap nav-inner">
+    <a class="brand" href="#top" aria-label="Empanadas Factory — inicio">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#1d100a" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2c1 4-3 5-3 9a5 5 0 0 0 10 0c0-2-1-3-1-3s3 1 3 5a8 8 0 0 1-16 0C5 8 9 6 12 2z"/></svg>
+      </span>
+      <span class="brand-name">EMPANADAS FACTORY<small>VENEZOLANAS · MIAMI</small></span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#pabellon">La de Pabellón</a></li>
+      <li><a href="#carta">La Carta</a></li>
+      <li><a href="#familia">La Familia</a></li>
+      <li><a href="#visitanos">Visítanos</a></li>
+    </ul>
+    <a class="btn btn-fire btn-nav sizzle" href="https://ig.me/m/empanadasfactorycafe" target="_blank" rel="noopener">Escríbenos</a>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap hero-grid" id="contenido">
+    <div class="hero-copy">
+      <span class="eyebrow"><span class="dot" aria-hidden="true"></span>Doral · Wynwood — Miami, FL</span>
+      <h1 class="hero-title" id="heroTitle" aria-label="Las empanadas más crunchy de Miami"></h1>
+      <p class="hero-sub">Empanadas <strong>venezolanas fritas al momento</strong>, con masa finita y relleno de verdad. Somos los <strong>creadores de la empanada de pabellón</strong> — y suenan como se ven: <strong>crunchy</strong>.</p>
+      <div class="hero-ctas">
+        <a class="btn btn-fire sizzle" href="https://ig.me/m/empanadasfactorycafe" target="_blank" rel="noopener">Pídela por DM</a>
+        <a class="btn btn-outline" href="#visitanos">Dónde encontrarnos</a>
+      </div>
+      <div class="hero-meta">
+        <div><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>Lun–Dom · 7am a 2pm</div>
+        <div><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-5.5-7-11a7 7 0 0 1 14 0c0 5.5-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>2 sedes en Miami</div>
+        <div><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 8h14l-1.2 12.1a1 1 0 0 1-1 .9H7.2a1 1 0 0 1-1-.9L5 8z"/><path d="M8 10V6a4 4 0 0 1 8 0v4"/></svg>También en Uber Eats</div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="stamp" aria-hidden="true">
+        <svg viewBox="0 0 132 132"><defs><path id="circ" d="M66,66 m-48,0 a48,48 0 1,1 96,0 a48,48 0 1,1 -96,0"/></defs><circle cx="66" cy="66" r="63" fill="#8e1019"/><text fill="#ffd166" font-size="13.5" font-family="Anton,sans-serif" letter-spacing="3"><textPath href="#circ">DESDE 1978 · BARQUISIMETO · VENEZUELA ·</textPath></text></svg>
+        <span class="core"><span>🔥</span></span>
+      </div>
+      <figure class="hero-photo" id="heroPhoto">
+        <img src="https://images.pexels.com/photos/32025992/pexels-photo-32025992.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Empanadas doradas y crujientes servidas en un plato" fetchpriority="high">
+      </figure>
+      <p class="hero-note">¡suena el crunch!</p>
+    </div>
+  </div>
+  <div class="scroll-hint" aria-hidden="true">baja</div>
+</header>
+
+<div class="ticker" aria-hidden="true">
+  <div class="ticker-track" id="tick1"></div>
+</div>
+
+<section class="sig" id="pabellon">
+  <div class="wrap">
+    <div class="reveal">
+      <p class="kicker">la insignia de la casa</p>
+      <h2 class="sec-title">La de <span class="accent">Pabellón</span></h2>
+      <p class="sec-lede">La que lo empezó todo. Todo el plato típico venezolano — carne mechada, caraotas, queso y plátano maduro — dentro de una masa finita, con su toque ligeramente dulce y relleno generoso.</p>
+    </div>
+    <div class="sig-grid">
+      <figure class="sig-photo reveal">
+        <img src="https://images.unsplash.com/photo-1593897973305-cbb6f0f81dbc?w=1200&q=80&auto=format&fit=crop" alt="Empanada venezolana de maíz recién frita" loading="lazy">
+        <span class="tag">Receta original</span>
+      </figure>
+      <div class="sig-copy reveal">
+        <div class="big-year" aria-hidden="true">1978</div>
+        <h3>Creadores de la empanada de pabellón</h3>
+        <p>Nació en la cocina de nuestra familia en <strong>Barquisimeto, Venezuela</strong>: la abuela reunió en una sola empanada todos los rellenos que tenía a la mano. Fue un éxito inmediato que hasta ganó premios gastronómicos.</p>
+        <p>Décadas después, esa misma receta cruzó el mar con nosotros y hoy se fríe cada mañana en Miami, igual que el primer día.</p>
+        <ul class="fill-list">
+          <li><span class="n">01</span>Carne mechada</li>
+          <li><span class="n">02</span>Caraotas negras</li>
+          <li><span class="n">03</span>Queso fundido</li>
+          <li><span class="n">04</span>Plátano maduro</li>
+        </ul>
+        <a class="btn btn-fire" href="https://ig.me/m/empanadasfactorycafe" target="_blank" rel="noopener">La quiero probar</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="ticker red" aria-hidden="true">
+  <div class="ticker-track" id="tick2"></div>
+</div>
+
+<section class="menu" id="carta">
+  <div class="wrap">
+    <div class="menu-head reveal">
+      <div>
+        <p class="kicker">fritas al momento, sin apuro</p>
+        <h2 class="sec-title">La <span class="accent">Carta</span></h2>
+        <p class="sec-lede">Rellenos de verdad, masa finita y ese dorado que solo da la fritura al momento. Pregúntanos por DM qué hay hoy en la freidora.</p>
+      </div>
+    </div>
+    <div class="menu-grid stagger" id="menuGrid">
+      <article class="dish star">
+        <div class="num">01</div>
+        <h3>De Pabellón</h3>
+        <p>La creadora de todo: carne mechada, caraotas, queso y plátano maduro en una sola mordida.</p>
+        <span class="flag">La insignia</span>
+      </article>
+      <article class="dish">
+        <div class="num">02</div>
+        <h3>Caraota con Queso</h3>
+        <p>La favorita de la casa: caraotas cremosas con queso fundido que se estira en cada mordisco.</p>
+        <span class="flag">La más pedida</span>
+      </article>
+      <article class="dish">
+        <div class="num">03</div>
+        <h3>De Queso</h3>
+        <p>La empanadita de queso que no puede faltar: simple, dorada y peligrosamente adictiva.</p>
+        <span class="flag">Clásica</span>
+      </article>
+      <article class="dish">
+        <div class="num">04</div>
+        <h3>Carne Molida</h3>
+        <p>Jugosa, bien sazonada y con ese sofrito que huele a casa desde la acera.</p>
+        <span class="flag">De siempre</span>
+      </article>
+      <article class="dish">
+        <div class="num">05</div>
+        <h3>De Cazón</h3>
+        <p>La del mar: cazón desmenuzado con el sazón del oriente, en masa crujiente de maíz.</p>
+        <span class="flag">Del mar</span>
+      </article>
+      <article class="dish">
+        <div class="num">06</div>
+        <h3>La Sorpresa</h3>
+        <p>Cada semana sale un relleno especial de la cocina. Escríbenos y te contamos cuál está hoy.</p>
+        <span class="flag">Pregunta por DM</span>
+      </article>
+    </div>
+    <div class="menu-extra reveal">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 8h1a4 4 0 1 1 0 8h-1"/><path d="M3 8h14v6a5 5 0 0 1-5 5H8a5 5 0 0 1-5-5V8z"/><path d="M7 2v2M11 2v2M15 2v2"/></svg>
+      <p><strong>El combo perfecto:</strong> empanada crunchy + café recién hecho o jugo natural. Así se desayuna en Miami.</p>
+    </div>
+  </div>
+</section>
+
+<section class="family" id="familia">
+  <div class="wrap">
+    <div class="reveal">
+      <p class="kicker">la familia detrás del crunch</p>
+      <h2 class="sec-title">De <span class="accent">Barquisimeto</span> a Miami</h2>
+    </div>
+    <div class="fam-grid">
+      <div class="reveal">
+        <p class="sec-lede">No somos una franquicia ni una moda: somos una <strong>familia venezolana</strong> que lleva la empanada en la sangre desde 1978.</p>
+        <ol class="timeline">
+          <li>
+            <span class="yr">1978 · Barquisimeto</span>
+            <p>En la cocina de la familia, la <strong>abuela</strong> tuvo una idea por pura casualidad: meter en una sola empanada todos los rellenos que había en la cocina. Nació la <strong>empanada de pabellón</strong> — y ganó premios gastronómicos.</p>
+          </li>
+          <li>
+            <span class="yr">El legado viaja</span>
+            <p>La receta original cruzó el mar con la familia hasta Miami, donde se mantiene <strong>intacta</strong>: masa finita, relleno generoso y fritura al momento.</p>
+          </li>
+          <li>
+            <span class="yr">Hoy · Miami</span>
+            <p>Con <strong>Ana Victoria entre sus fundadores</strong>, la familia fríe cada mañana en <strong>Doral</strong> —compartiendo casa con Kamalunch, su proyecto hermano de comida venezolana— y en <strong>Wynwood</strong>.</p>
+          </li>
+        </ol>
+      </div>
+      <figure class="fam-photo reveal">
+        <img src="https://images.pexels.com/photos/37135682/pexels-photo-37135682.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Empanadas recién hechas sobre una bandeja, listas para servir" loading="lazy">
+        <figcaption class="fam-caption">¡recién salidas!</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section class="crunch" id="crunch">
+  <div class="wrap">
+    <div class="reveal">
+      <p class="kicker">anatomía del crunch</p>
+      <h2 class="sec-title">Por qué suenan <span class="accent">así</span></h2>
+      <p class="sec-lede">El crunch no es suerte: es técnica. Tres cosas que hacemos distinto cada mañana.</p>
+    </div>
+    <div class="steps stagger" id="stepsGrid">
+      <article class="step">
+        <img src="https://images.pexels.com/photos/37087025/pexels-photo-37087025.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Empanada friéndose en aceite caliente, burbujeante" loading="lazy">
+        <div class="pad">
+          <div class="snum">01</div>
+          <h3>Masa finita de maíz</h3>
+          <p>Delgada, con su toque ligeramente dulce. La base de todo: si la masa es gruesa, no hay crunch que valga.</p>
+        </div>
+      </article>
+      <article class="step">
+        <img src="https://images.pexels.com/photos/37049939/pexels-photo-37049939.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Empanadas dorándose en la freidora" loading="lazy">
+        <div class="pad">
+          <div class="snum">02</div>
+          <h3>Relleno generoso</h3>
+          <p>Nada de empanadas vacías: cada una va cargada de verdad, como las hacía la abuela en el 78.</p>
+        </div>
+      </article>
+      <article class="step">
+        <img src="https://images.unsplash.com/photo-1593897973305-cbb6f0f81dbc?w=1200&q=80&auto=format&fit=crop" alt="Empanada venezolana dorada lista para comer" loading="lazy">
+        <div class="pad">
+          <div class="snum">03</div>
+          <h3>Fritura al momento</h3>
+          <p>Recién hechas, no reposadas: del aceite a tu mano. Por eso suenan cuando las muerdes.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="visit" id="visitanos">
+  <div class="wrap">
+    <div class="reveal">
+      <p class="kicker">pásate por el crunch</p>
+      <h2 class="sec-title">Dos sedes, <span class="accent">un mismo fuego</span></h2>
+      <p class="sec-lede">De lunes a domingo, de 7am a 2pm. Llega temprano: las de pabellón vuelan.</p>
+    </div>
+    <div class="loc-grid stagger" id="locGrid">
+      <article class="loc doral">
+        <p class="hood">Food truck · Doral</p>
+        <h3>Doral</h3>
+        <address>6475 NW 87th Ave<br>Miami, FL 33178</address>
+        <div><span class="hours"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>Lun–Dom · 7am – 2pm</span></div>
+        <p class="note">Junto a Kamalunch, nuestro proyecto hermano de comida venezolana.</p>
+      </article>
+      <article class="loc wyn">
+        <p class="hood">Wynwood</p>
+        <h3>Wynwood</h3>
+        <address>4401 NW 2nd Ave<br>Miami, FL 33127</address>
+        <div><span class="hours"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>Lun–Dom · 7am – 2pm</span></div>
+        <p class="note">El crunch también vive entre murales: pásate antes o después del paseo.</p>
+      </article>
+    </div>
+    <div class="contact-strip reveal">
+      <a class="pill" href="tel:+17868931161"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.13.96.36 1.9.7 2.8a2 2 0 0 1-.45 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.45c.9.34 1.84.57 2.8.7A2 2 0 0 1 22 16.9z"/></svg>(786) 893-1161</a>
+      <a class="pill" href="mailto:empanadasfactorycafe@gmail.com"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>empanadasfactorycafe@gmail.com</a>
+      <a class="pill" href="https://ig.me/m/empanadasfactorycafe" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-8.5 8.4 8.6 8.6 0 0 1-3.8-.9L3 21l2-5.4a8.3 8.3 0 0 1-1-4.1A8.4 8.4 0 0 1 12.5 3 8.4 8.4 0 0 1 21 11.5z"/></svg>Escríbenos por DM</a>
+    </div>
+  </div>
+</section>
+
+<section class="final">
+  <div class="wrap reveal">
+    <p class="kicker">¿antojo de crunch?</p>
+    <h2>Mañana a las 7am<br><span class="accent">ya están friendo</span></h2>
+    <p>Escríbenos por DM, pregunta qué hay hoy en la freidora y aparta las tuyas. Las de pabellón no esperan a nadie.</p>
+    <div class="hero-ctas">
+      <a class="btn btn-fire sizzle" href="https://ig.me/m/empanadasfactorycafe" target="_blank" rel="noopener">Escríbenos por DM</a>
+      <a class="btn btn-outline" href="https://www.instagram.com/empanadasfactorycafe/" target="_blank" rel="noopener">Ver el Instagram</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <p class="foot-brand">EMPANADAS FACTORY<small>LAS MÁS CRUNCHY DE MIAMI</small></p>
+        <div class="socials">
+          <a class="soc" href="https://www.instagram.com/empanadasfactorycafe/" target="_blank" rel="noopener" aria-label="Instagram de Empanadas Factory">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 1.2.1 1.8.2 2.2.4.6.2 1 .5 1.4.9.4.4.7.8.9 1.4.2.4.4 1 .4 2.2.1 1.3.1 1.7.1 4.9s0 3.6-.1 4.9c-.1 1.2-.2 1.8-.4 2.2-.2.6-.5 1-.9 1.4-.4.4-.8.7-1.4.9-.4.2-1 .4-2.2.4-1.3.1-1.7.1-4.9.1s-3.6 0-4.9-.1c-1.2-.1-1.8-.2-2.2-.4-.6-.2-1-.5-1.4-.9-.4-.4-.7-.8-.9-1.4-.2-.4-.4-1-.4-2.2-.1-1.3-.1-1.7-.1-4.9s0-3.6.1-4.9c.1-1.2.2-1.8.4-2.2.2-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.4-.2 1-.4 2.2-.4 1.3-.1 1.7-.1 4.9-.1zm0 2c-3.1 0-3.5 0-4.8.1-1.1.1-1.5.2-1.9.3-.5.2-.8.4-1.1.7-.3.3-.5.6-.7 1.1-.1.4-.3.8-.3 1.9-.1 1.3-.1 1.6-.1 4.8s0 3.5.1 4.8c.1 1.1.2 1.5.3 1.9.2.5.4.8.7 1.1.3.3.6.5 1.1.7.4.1.8.3 1.9.3 1.3.1 1.6.1 4.8.1s3.5 0 4.8-.1c1.1-.1 1.5-.2 1.9-.3.5-.2.8-.4 1.1-.7.3-.3.5-.6.7-1.1.1-.4.3-.8.3-1.9.1-1.3.1-1.6.1-4.8s0-3.5-.1-4.8c-.1-1.1-.2-1.5-.3-1.9-.2-.5-.4-.8-.7-1.1-.3-.3-.6-.5-1.1-.7-.4-.1-.8-.3-1.9-.3-1.3-.1-1.6-.1-4.8-.1zm0 3.4a5.4 5.4 0 1 1 0 10.8 5.4 5.4 0 0 1 0-10.8zm0 8.9a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7zm6.9-9.1a1.3 1.3 0 1 1-2.6 0 1.3 1.3 0 0 1 2.6 0z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="foot-col">
+        <h4>Doral</h4>
+        <p>6475 NW 87th Ave<br>Miami, FL 33178<br>Lun–Dom · 7am – 2pm</p>
+      </div>
+      <div class="foot-col">
+        <h4>Wynwood</h4>
+        <p>4401 NW 2nd Ave<br>Miami, FL 33127<br>Lun–Dom · 7am – 2pm</p>
+      </div>
+      <div class="foot-col">
+        <h4>Contacto</h4>
+        <p><a href="tel:+17868931161">(786) 893-1161</a><br><a href="mailto:empanadasfactorycafe@gmail.com">empanadasfactorycafe@gmail.com</a><br>También en Uber Eats</p>
+      </div>
+    </div>
+    <div class="foot-base">
+      <span>© <span id="yr">2026</span> Empanadas Factory · Hecho con masa, fuego y familia en Miami.</span>
+      <span>Creadores de la empanada de pabellón 🇻🇪</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+  var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  /* ---- Hero title: crunchy snap-in word reveals ---- */
+  var words = [
+    {t:"LAS", c:""},
+    {t:"EMPANADAS", c:""},
+    {t:"MÁS", c:""},
+    {t:"CRUNCHY", c:"crunch-word"},
+    {t:"DE MIAMI", c:""}
+  ];
+  var h1 = document.getElementById("heroTitle");
+  words.forEach(function(w, i){
+    var wrap = document.createElement("span");
+    wrap.className = "w";
+    wrap.setAttribute("aria-hidden", "true");
+    var inner = document.createElement("span");
+    inner.textContent = w.t;
+    if (w.c) inner.className = w.c;
+    inner.style.transitionDelay = (0.08 + i * 0.09) + "s";
+    wrap.appendChild(inner);
+    h1.appendChild(wrap);
+    h1.appendChild(document.createTextNode(" "));
+  });
+  requestAnimationFrame(function(){
+    requestAnimationFrame(function(){ h1.classList.add("loaded"); });
+  });
+
+  /* ---- Tickers ---- */
+  var items1 = ["CRUNCHY","EMPANADA DE PABELLÓN","DORAL","WYNWOOD","7AM – 2PM","FRITAS AL MOMENTO"];
+  var items2 = ["DESDE 1978","BARQUISIMETO","RECETA ORIGINAL","MASA FINITA","RELLENO GENEROSO"];
+  function buildTicker(id, items){
+    var el = document.getElementById(id);
+    if(!el) return;
+    var half = items.map(function(t){
+      return '<span>'+t+'</span><span class="sep" aria-hidden="true">✦</span>';
+    }).join("");
+    el.innerHTML = half + half; /* duplicated for seamless loop */
+  }
+  buildTicker("tick1", items1);
+  buildTicker("tick2", items2);
+
+  /* ---- Scroll reveals ---- */
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){ e.target.classList.add("in"); io.unobserve(e.target); }
+    });
+  }, {threshold: 0.15, rootMargin: "0px 0px -6% 0px"});
+  document.querySelectorAll(".reveal, .stagger").forEach(function(el){ io.observe(el); });
+
+  /* ---- Golden parallax on hero photo ---- */
+  var heroPhoto = document.getElementById("heroPhoto");
+  var ticking = false;
+  function parallax(){
+    ticking = false;
+    var y = window.scrollY;
+    if (y < window.innerHeight && heroPhoto){
+      heroPhoto.style.transform = "rotate(2.5deg) translateY(" + (y * 0.12) + "px)";
+    }
+  }
+  if (!reduceMotion){
+    window.addEventListener("scroll", function(){
+      if(!ticking){ ticking = true; requestAnimationFrame(parallax); }
+    }, {passive:true});
+  }
+
+  /* ---- Nav shadow ---- */
+  var nav = document.getElementById("nav");
+  function onScroll(){ nav.classList.toggle("scrolled", window.scrollY > 40); }
+  window.addEventListener("scroll", onScroll, {passive:true});
+  onScroll();
+
+  /* ---- Footer year ---- */
+  document.getElementById("yr").textContent = new Date().getFullYear();
+})();
+</script>
+</body>
+</html>

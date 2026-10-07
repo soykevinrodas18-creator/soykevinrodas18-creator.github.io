@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ted's Burgers — Smash Burgers in Wynwood, Miami</title>
+<meta name="description" content="Ted's Burgers: award-caliber smash burgers, beef-tallow fries and house wings in Wynwood, Miami. From our backyard to your neighborhood, with love. Sun–Thu 11am–10pm · Fri–Sat 11am–2am.">
+<meta property="og:title" content="Ted's Burgers — Wynwood, Miami">
+<meta property="og:description" content="Smash burgers from a backyard dream to 315 NW 25th St, Wynwood. OKC Smash · tallow fries · house wings.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bungee&family=Bitter:ital,wght@0,500;0,700;0,900;1,600&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Restaurant",
+  "name": "Ted's Burgers",
+  "servesCuisine": ["American", "Burgers"],
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "315 NW 25th St",
+    "addressLocality": "Miami",
+    "addressRegion": "FL",
+    "postalCode": "33127",
+    "addressCountry": "US"
+  },
+  "telephone": "+1-305-434-0090",
+  "email": "friends@Teds-Burgers.com",
+  "sameAs": ["https://www.instagram.com/teds_burgers/"],
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Sunday","Monday","Tuesday","Wednesday","Thursday"],
+      "opens": "11:00",
+      "closes": "22:00"
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Friday","Saturday"],
+      "opens": "11:00",
+      "closes": "02:00"
+    }
+  ]
+}
+</script>
+<style>
+:root{
+  --char:#14100c;
+  --char-2:#1d1610;
+  --ember:#ff5c0a;
+  --flame:#ff8a2a;
+  --red:#d63a1e;
+  --cream:#f6ead3;
+  --cream-dim:#d9c9a8;
+  --mustard:#ffb627;
+  --smoke:rgba(246,234,211,.06);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  background:var(--char);
+  color:var(--cream);
+  font-family:"Work Sans",system-ui,sans-serif;
+  overflow-x:hidden;
+  line-height:1.6;
+}
+::selection{background:var(--ember);color:var(--char)}
+img{max-width:100%;display:block}
+/* film grain + smoke drift background layers */
+.grain{
+  position:fixed;inset:0;pointer-events:none;z-index:60;opacity:.07;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+}
+.smoke-layer{position:fixed;inset:-20% 0;pointer-events:none;z-index:1;opacity:.5;
+  background:
+    radial-gradient(600px 380px at 12% 88%, rgba(255,92,10,.10), transparent 60%),
+    radial-gradient(700px 420px at 88% 12%, rgba(214,58,30,.12), transparent 60%),
+    radial-gradient(500px 500px at 50% 50%, rgba(246,234,211,.03), transparent 60%);
+  animation:smokeDrift 22s ease-in-out infinite alternate;
+  will-change:transform;
+}
+@keyframes smokeDrift{
+  0%{transform:translate3d(0,0,0) scale(1)}
+  50%{transform:translate3d(-2.5%, -3%, 0) scale(1.05)}
+  100%{transform:translate3d(2.5%, -5%, 0) scale(1.08)}
+}
+/* ---------- nav ---------- */
+.nav{
+  position:fixed;top:0;left:0;right:0;z-index:50;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:1rem clamp(1rem,4vw,2.5rem);
+  background:linear-gradient(to bottom, rgba(20,16,12,.92), rgba(20,16,12,0));
+  transition:background .3s ease;
+}
+.nav.scrolled{background:rgba(20,16,12,.94);backdrop-filter:blur(8px);border-bottom:1px solid rgba(255,92,10,.18)}
+.brand{font-family:"Bungee",cursive;font-size:1.35rem;color:var(--cream);text-decoration:none;letter-spacing:.02em}
+.brand em{font-style:normal;color:var(--ember)}
+.nav-links{display:flex;gap:1.6rem;align-items:center}
+.nav-links a{color:var(--cream-dim);text-decoration:none;font-size:.85rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase}
+.nav-links a:hover{color:var(--flame)}
+/* buttons — btn + btn-outline variants (never btn+ghost) */
+.btn{
+  display:inline-block;font-family:"Bungee",cursive;font-size:.95rem;
+  color:var(--char);background:linear-gradient(135deg,var(--flame),var(--ember) 60%,var(--red));
+  padding:.95rem 1.9rem;border-radius:999px;text-decoration:none;letter-spacing:.03em;
+  box-shadow:0 0 0 rgba(255,92,10,0);
+  animation:emberPulse 2.6s ease-in-out infinite;
+  transition:transform .25s ease, box-shadow .25s ease;
+  border:none;cursor:pointer;
+}
+@keyframes emberPulse{
+  0%,100%{box-shadow:0 0 18px rgba(255,92,10,.35), 0 0 44px rgba(214,58,30,.15)}
+  50%{box-shadow:0 0 34px rgba(255,92,10,.65), 0 0 90px rgba(214,58,30,.3)}
+}
+.btn:hover{transform:translateY(-3px) scale(1.02);animation-play-state:paused;box-shadow:0 0 44px rgba(255,92,10,.8), 0 14px 34px rgba(0,0,0,.5)}
+.btn-outline{
+  display:inline-block;font-family:"Bungee",cursive;font-size:.95rem;
+  color:var(--cream);background:transparent;padding:.95rem 1.9rem;border-radius:999px;
+  text-decoration:none;letter-spacing:.03em;border:2px solid var(--ember);
+  transition:all .25s ease;cursor:pointer;
+}
+.btn-outline:hover{background:rgba(255,92,10,.12);border-color:var(--flame);transform:translateY(-3px)}
+.btn-sm{padding:.6rem 1.2rem;font-size:.8rem}
+/* ---------- hero ---------- */
+.hero{
+  position:relative;min-height:100svh;display:flex;flex-direction:column;justify-content:flex-end;
+  overflow:hidden;isolation:isolate;
+}
+.hero-bg{position:absolute;inset:0;z-index:-2}
+.hero-bg img{width:100%;height:100%;object-fit:cover;transform:scale(1.08);animation:heroSettle 8s ease-out forwards}
+@keyframes heroSettle{to{transform:scale(1)}}
+.hero-veil{position:absolute;inset:0;z-index:-1;
+  background:
+    linear-gradient(to top, var(--char) 6%, rgba(20,16,12,.55) 45%, rgba(20,16,12,.25) 100%),
+    radial-gradient(80% 60% at 50% 100%, rgba(255,92,10,.22), transparent 65%);
+}
+.hero-inner{position:relative;z-index:2;padding:0 clamp(1rem,5vw,4rem) clamp(3rem,7vh,4.5rem);max-width:1400px}
+.eyebrow{
+  display:inline-flex;align-items:center;gap:.6rem;font-size:.78rem;font-weight:700;
+  letter-spacing:.32em;text-transform:uppercase;color:var(--mustard);margin-bottom:1.2rem;
+}
+.eyebrow::before,.eyebrow::after{content:"";width:34px;height:2px;background:var(--ember)}
+.hero-title{
+  font-family:"Bungee",cursive;line-height:.92;color:var(--cream);
+  font-size:clamp(3.2rem, 11vw, 9.5rem);
+  text-transform:uppercase;letter-spacing:-.01em;
+}
+.hero-title .word{display:inline-block;overflow:hidden;vertical-align:bottom;padding-bottom:.06em;margin-bottom:-.06em}
+.hero-title .word > span{
+  display:inline-block;transform:translateY(115%) rotate(4deg);opacity:0;
+  animation:sizzleIn .9s cubic-bezier(.2,.9,.25,1.15) forwards;
+}
+@keyframes sizzleIn{
+  0%{transform:translateY(115%) rotate(4deg);opacity:0;text-shadow:0 0 0 rgba(255,92,10,0)}
+  40%{opacity:1;text-shadow:0 0 26px rgba(255,138,42,.95), 0 0 60px rgba(214,58,30,.6)}
+  100%{transform:translateY(0) rotate(0);opacity:1;text-shadow:0 0 12px rgba(255,92,10,.35)}
+}
+.hero-title .hl{
+  background:linear-gradient(120deg,var(--mustard) 10%,var(--flame) 45%,var(--red) 90%);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+  filter:drop-shadow(0 0 22px rgba(255,92,10,.45));
+}
+.hero-sub{max-width:34rem;margin:1.4rem 0 2rem;color:var(--cream-dim);font-size:clamp(1rem,1.6vw,1.2rem);font-weight:500}
+.hero-ctas{display:flex;gap:1rem;flex-wrap:wrap}
+/* ---------- marquee ticker ---------- */
+.ticker{
+  position:relative;z-index:2;background:var(--ember);color:var(--char);
+  overflow:hidden;white-space:nowrap;border-top:3px solid var(--char);border-bottom:3px solid var(--char);
+  transform:rotate(-1.2deg) scale(1.02);margin:2.5rem -1rem 0;
+}
+.ticker-track{display:inline-flex;align-items:center;gap:2.2rem;padding:.85rem 1.1rem;
+  animation:tickerScroll 26s linear infinite;will-change:transform}
+.ticker-track span{font-family:"Bungee",cursive;font-size:1.05rem;letter-spacing:.04em}
+.ticker-track .dot{font-size:1.4rem}
+@keyframes tickerScroll{to{transform:translateX(-50%)}}
+/* ---------- sections ---------- */
+section{position:relative;z-index:2}
+.wrap{max-width:1200px;margin:0 auto;padding:clamp(4rem,9vw,7rem) clamp(1rem,5vw,3rem)}
+.kicker{font-size:.78rem;font-weight:700;letter-spacing:.34em;text-transform:uppercase;color:var(--ember);margin-bottom:1rem;display:block}
+.h2{font-family:"Bungee",cursive;font-size:clamp(2rem,5.4vw,4rem);line-height:1.02;text-transform:uppercase;color:var(--cream)}
+.h2 .hl{background:linear-gradient(120deg,var(--flame),var(--red));-webkit-background-clip:text;background-clip:text;color:transparent}
+.lede{color:var(--cream-dim);max-width:38rem;margin-top:1.2rem;font-size:1.08rem}
+/* reveal on scroll */
+.rv{opacity:0;transform:translateY(36px);transition:opacity .8s ease, transform .8s cubic-bezier(.2,.7,.2,1)}
+.rv.in{opacity:1;transform:none}
+/* ---------- origin / broken grid ---------- */
+.origin{background:linear-gradient(180deg,var(--char),var(--char-2))}
+.origin-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(2rem,5vw,4rem);align-items:center;margin-top:2.6rem}
+.origin-copy p{color:var(--cream-dim);margin-bottom:1.2rem;font-size:1.05rem}
+.origin-copy p strong{color:var(--cream)}
+.origin-copy .sig{font-family:"Bitter",serif;font-style:italic;font-weight:600;color:var(--flame);font-size:1.25rem}
+.img-stack{position:relative}
+.img-main{border-radius:14px;overflow:hidden;box-shadow:0 30px 70px rgba(0,0,0,.55), 0 0 0 1px rgba(255,92,10,.22)}
+.img-main img{width:100%;height:clamp(300px,44vw,480px);object-fit:cover;transition:transform .6s ease}
+.img-stack:hover .img-main img{transform:scale(1.045)}
+.stamp{
+  position:absolute;top:-34px;right:-14px;width:132px;height:132px;border-radius:50%;
+  background:radial-gradient(circle at 35% 30%, var(--flame), var(--ember) 55%, var(--red));
+  color:var(--char);display:flex;align-items:center;justify-content:center;text-align:center;
+  font-family:"Bungee",cursive;font-size:.72rem;line-height:1.35;padding:1rem;
+  transform:rotate(12deg);box-shadow:0 14px 34px rgba(214,58,30,.45);
+  animation:stampBob 5s ease-in-out infinite;
+}
+@keyframes stampBob{0%,100%{transform:rotate(12deg) translateY(0)}50%{transform:rotate(6deg) translateY(-8px)}}
+.strip{margin-top:-3.5rem;margin-left:8%;width:62%;border-radius:12px;overflow:hidden;border:3px solid var(--char);box-shadow:0 22px 50px rgba(0,0,0,.6)}
+.strip img{height:170px;width:100%;object-fit:cover}
+/* ---------- menu ---------- */
+.menu{background:var(--char-2);overflow:hidden}
+.menu-head{display:flex;justify-content:space-between;align-items:flex-end;gap:2rem;flex-wrap:wrap}
+.menu-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem;margin-top:3rem}
+.dish{
+  position:relative;border-radius:16px;overflow:hidden;min-height:380px;display:flex;align-items:flex-end;
+  background:#0d0a08;box-shadow:0 0 0 1px rgba(246,234,211,.08);
+  transition:transform .35s ease, box-shadow .35s ease;
+}
+.dish:hover{transform:translateY(-8px) rotate(-.6deg);box-shadow:0 30px 60px rgba(0,0,0,.55), 0 0 34px rgba(255,92,10,.25)}
+.dish img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .7s ease;filter:saturate(1.08)}
+.dish:hover img{transform:scale(1.07)}
+.dish::after{content:"";position:absolute;inset:0;background:linear-gradient(to top, rgba(10,7,5,.94) 8%, rgba(10,7,5,.35) 55%, transparent 85%)}
+.dish-body{position:relative;z-index:1;padding:1.6rem;width:100%}
+.dish-tag{font-size:.7rem;font-weight:700;letter-spacing:.26em;text-transform:uppercase;color:var(--mustard);margin-bottom:.5rem;display:block}
+.dish h3{font-family:"Bitter",serif;font-weight:900;font-size:1.6rem;line-height:1.1;color:var(--cream);margin-bottom:.45rem}
+.dish p{color:var(--cream-dim);font-size:.92rem}
+.dish .flame-ico{position:absolute;top:1.1rem;right:1.2rem;z-index:2;font-size:1.5rem;filter:drop-shadow(0 0 8px rgba(255,92,10,.8))}
+.menu-note{margin-top:2.2rem;padding:1.4rem 1.6rem;border:1px dashed rgba(255,182,39,.5);border-radius:12px;background:rgba(255,182,39,.05);color:var(--cream-dim);font-size:.98rem}
+.menu-note strong{color:var(--mustard)}
+/* gallery strip */
+.gallery{display:flex;gap:1rem;overflow-x:auto;margin-top:3rem;padding-bottom:.6rem;scroll-snap-type:x mandatory;scrollbar-width:none}
+.gallery::-webkit-scrollbar{display:none}
+.gallery figure{flex:0 0 clamp(240px,32vw,360px);scroll-snap-align:start;border-radius:12px;overflow:hidden;position:relative}
+.gallery img{height:220px;width:100%;object-fit:cover;transition:transform .6s ease}
+.gallery figure:hover img{transform:scale(1.06)}
+/* ---------- founder ---------- */
+.founder{background:linear-gradient(180deg,var(--char-2),var(--char));position:relative;overflow:hidden}
+.founder-card{
+  display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(2rem,5vw,4rem);align-items:center;
+  margin-top:2.6rem;background:rgba(246,234,211,.035);border:1px solid rgba(255,92,10,.22);
+  border-radius:20px;padding:clamp(1.6rem,4vw,3rem);
+  box-shadow:0 30px 80px rgba(0,0,0,.5), inset 0 0 60px rgba(255,92,10,.05);
+}
+.founder-photo{border-radius:14px;overflow:hidden;transform:rotate(-2deg);box-shadow:0 24px 60px rgba(0,0,0,.6)}
+.founder-photo img{height:clamp(320px,40vw,440px);width:100%;object-fit:cover}
+.founder-copy blockquote{font-family:"Bitter",serif;font-size:clamp(1.25rem,2.4vw,1.7rem);line-height:1.45;color:var(--cream);font-style:italic;margin-bottom:1.4rem}
+.founder-copy blockquote::before{content:"“";color:var(--ember);font-size:2.2em;line-height:0;vertical-align:-.35em;margin-right:.1em}
+.founder-copy p{color:var(--cream-dim);margin-bottom:1rem}
+.founder-name{font-family:"Bungee",cursive;color:var(--flame);font-size:1.3rem;margin-top:1.2rem}
+.founder-role{font-size:.8rem;letter-spacing:.26em;text-transform:uppercase;color:var(--cream-dim)}
+/* ---------- community ---------- */
+.community{background:var(--char)}
+.comm-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem;margin-top:3rem}
+.comm-card{background:rgba(246,234,211,.03);border:1px solid rgba(246,234,211,.1);border-radius:16px;padding:1.8rem;transition:transform .3s ease, border-color .3s ease, box-shadow .3s ease}
+.comm-card:hover{transform:translateY(-6px);border-color:rgba(255,92,10,.5);box-shadow:0 22px 50px rgba(0,0,0,.45), 0 0 24px rgba(255,92,10,.12)}
+.comm-num{font-family:"Bungee",cursive;font-size:2.4rem;color:var(--ember);line-height:1}
+.comm-card h3{font-family:"Bitter",serif;font-weight:900;font-size:1.25rem;margin:.9rem 0 .5rem;color:var(--cream)}
+.comm-card p{color:var(--cream-dim);font-size:.95rem}
+/* ---------- visit ---------- */
+.visit{background:linear-gradient(180deg,var(--char),#0f0b08)}
+.visit-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(2rem,5vw,4rem);margin-top:2.8rem;align-items:start}
+.hours{border-radius:18px;overflow:hidden;border:1px solid rgba(255,92,10,.25);background:#100c09}
+.hours-head{background:linear-gradient(135deg,var(--ember),var(--red));color:var(--char);padding:1.1rem 1.6rem;font-family:"Bungee",cursive;font-size:1.05rem;display:flex;justify-content:space-between;align-items:center}
+.hours-row{display:flex;justify-content:space-between;align-items:center;padding:1.05rem 1.6rem;border-bottom:1px solid rgba(246,234,211,.08)}
+.hours-row:last-child{border-bottom:none}
+.hours-row .days{font-weight:700;color:var(--cream)}
+.hours-row .time{font-family:"Bitter",serif;font-weight:700;color:var(--flame);font-size:1.05rem}
+.hours-row.today{background:rgba(255,92,10,.08)}
+.hours-row.today .days::after{content:"TODAY";margin-left:.6rem;font-size:.62rem;font-weight:700;letter-spacing:.2em;background:var(--ember);color:var(--char);padding:.18rem .55rem;border-radius:99px}
+.visit-info h3{font-family:"Bitter",serif;font-weight:900;font-size:1.4rem;margin:1.6rem 0 .4rem;color:var(--cream)}
+.visit-info h3:first-child{margin-top:0}
+.visit-info p, .visit-info a{color:var(--cream-dim)}
+.visit-info a{color:var(--flame);text-decoration:none;font-weight:600}
+.visit-info a:hover{color:var(--mustard);text-decoration:underline}
+.map-link{display:inline-flex;align-items:center;gap:.5rem;margin-top:1rem}
+/* ---------- footer CTA ---------- */
+.final{background:#0d0a07;text-align:center;overflow:hidden}
+.final .h2{font-size:clamp(2.4rem,7vw,5.5rem)}
+.final-ctas{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-top:2rem}
+footer{background:#0b0806;padding:2.6rem clamp(1rem,5vw,3rem);border-top:1px solid rgba(255,92,10,.16)}
+.foot{display:flex;justify-content:space-between;align-items:center;gap:1.4rem;flex-wrap:wrap;max-width:1200px;margin:0 auto}
+.foot small{color:var(--cream-dim);font-size:.82rem}
+.socials{display:flex;gap:.9rem}
+.soc{
+  width:46px;height:46px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+  border:1.5px solid rgba(255,92,10,.5);color:var(--flame);
+  transition:all .3s ease;text-decoration:none;
+}
+.soc:hover{background:var(--ember);border-color:var(--ember);color:var(--char);transform:translateY(-4px) rotate(-8deg);box-shadow:0 10px 24px rgba(255,92,10,.4)}
+.soc svg{width:22px;height:22px;fill:currentColor}
+/* skip link */
+.skip{position:absolute;left:-999px;top:0;background:var(--ember);color:var(--char);padding:.8rem 1.2rem;z-index:100;font-weight:700}
+.skip:focus{left:0}
+/* ---------- responsive ---------- */
+@media (max-width:900px){
+  .origin-grid,.founder-card,.visit-grid{grid-template-columns:1fr}
+  .menu-grid{grid-template-columns:repeat(2,1fr)}
+  .comm-grid{grid-template-columns:1fr}
+  .stamp{width:112px;height:112px;font-size:.62rem;top:-26px;right:0}
+  .nav-links a:not(.btn-sm){display:none}
+}
+@media (max-width:560px){
+  .menu-grid{grid-template-columns:1fr}
+  .hero-ctas .btn,.hero-ctas .btn-outline{width:100%;text-align:center}
+  .strip{width:80%}
+}
+/* ---------- reduced motion ---------- */
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  html{scroll-behavior:auto}
+  .hero-title .word > span{transform:none;opacity:1}
+  .rv{opacity:1;transform:none}
+  .smoke-layer{opacity:.25}
+  .hero-bg img{transform:none}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div class="smoke-layer" aria-hidden="true"></div>
+<div class="grain" aria-hidden="true"></div>
+
+<nav class="nav" id="nav" aria-label="Main navigation">
+  <a class="brand" href="#top">TED<em>’</em>S</a>
+  <div class="nav-links">
+    <a href="#story">Story</a>
+    <a href="#menu">Menu</a>
+    <a href="#ted">Ted</a>
+    <a href="#visit">Visit</a>
+    <a class="btn btn-sm" href="https://ig.me/m/teds_burgers" target="_blank" rel="noopener">Order Now</a>
+  </div>
+</nav>
+<main id="main">
+<!-- ================= HERO ================= -->
+<header class="hero" id="top">
+  <div class="hero-bg" aria-hidden="true">
+    <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=1800&q=80&auto=format&fit=crop" alt="" fetchpriority="high">
+  </div>
+  <div class="hero-veil" aria-hidden="true"></div>
+  <div class="hero-inner">
+    <span class="eyebrow">Wynwood · Miami, FL</span>
+    <h1 class="hero-title" data-sizzle>Smashed with <span class="hl">love</span> in the backyard</h1>
+    <p class="hero-sub">Award-caliber smash burgers, beef-tallow fries and house wings — from a backyard grill to 315 NW 25th St. This is Ted&rsquo;s Burgers. Pull up.</p>
+    <div class="hero-ctas">
+      <a class="btn" href="https://ig.me/m/teds_burgers" target="_blank" rel="noopener">Order the Sizzle</a>
+      <a class="btn-outline" href="#menu">See the Menu</a>
+    </div>
+  </div>
+  <div class="ticker" aria-hidden="true">
+    <div class="ticker-track" id="tickerTrack">
+      <span>OKC Smash</span><span class="dot">★</span>
+      <span>Beef-Tallow Fries</span><span class="dot">★</span>
+      <span>Wynwood · Miami</span><span class="dot">★</span>
+      <span>House Wings</span><span class="dot">★</span>
+      <span>Locally Owned</span><span class="dot">★</span>
+      <span>Open 7 Days</span><span class="dot">★</span>
+      <span>Loaded Fries</span><span class="dot">★</span>
+      <span>Secret Menu</span><span class="dot">★</span>
+    </div>
+  </div>
+</header>
+
+<!-- ================= STORY ================= -->
+<section class="origin" id="story" aria-labelledby="story-h">
+  <div class="wrap">
+    <span class="kicker rv">The origin</span>
+    <h2 class="h2 rv" id="story-h">From our backyard<br>to <span class="hl">your neighborhood</span></h2>
+    <div class="origin-grid">
+      <div class="origin-copy rv">
+        <p>Ted&rsquo;s didn&rsquo;t start in a boardroom. It started in a <strong>backyard</strong> — one flat-top, one dream, and a smash technique the neighborhood couldn&rsquo;t stop talking about.</p>
+        <p>Word spread the way it always does in Miami: one bite at a time. The little backyard operation grew into a full Wynwood spot at <strong>315 NW 25th St</strong>, and the line never really stopped.</p>
+        <p>Same hands on the spatula. Same love in every smash. <span class="sig">— Ted</span></p>
+        <a class="btn-outline" href="https://ig.me/m/teds_burgers" target="_blank" rel="noopener">Slide In — Say Hi</a>
+      </div>
+      <div class="img-stack rv">
+        <div class="stamp" aria-hidden="true">Locally<br>Owned<br>★ Wynwood ★</div>
+        <div class="img-main">
+          <img src="https://images.unsplash.com/photo-1550547660-d9450f859349?w=1400&q=80&auto=format&fit=crop" alt="Burger searing on a hot backyard grill" loading="lazy">
+        </div>
+        <div class="strip" aria-hidden="true">
+          <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=1000&q=80&auto=format&fit=crop" alt="" loading="lazy">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= MENU ================= -->
+<section class="menu" id="menu" aria-labelledby="menu-h">
+  <div class="wrap">
+    <div class="menu-head">
+      <div>
+        <span class="kicker rv">The goods</span>
+        <h2 class="h2 rv" id="menu-h">What we <span class="hl">smash</span></h2>
+        <p class="lede rv">Oklahoma-style smash burgers with lacy, crispy edges. Fries fried in beef tallow. Wings dry-rubbed in-house. Nothing fancy on paper — everything serious on the flat-top.</p>
+      </div>
+      <a class="btn rv" href="https://ig.me/m/teds_burgers" target="_blank" rel="noopener">Order Now</a>
+    </div>
+    <div class="menu-grid">
+      <article class="dish rv">
+        <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=1200&q=80&auto=format&fit=crop" alt="Double OKC smash burger with melted cheese" loading="lazy">
+        <span class="flame-ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" style="fill:#ff8a2a;filter:drop-shadow(0 0 8px rgba(255,92,10,.9))"><path d="M13.5.67s.74 2.65.74 4.8c0 2.06-1.35 3.73-3.41 3.73-2.07 0-3.63-1.67-3.63-3.73l.03-.36C5.21 7.51 4 10.62 4 14c0 4.42 3.58 8 8 8s8-3.58 8-8C20 8.61 17.41 3.8 13.5.67zM11.71 19c-1.78 0-3.22-1.4-3.22-3.14 0-1.62 1.05-2.76 2.81-3.12 1.77-.36 3.6-1.21 4.62-2.58.39 1.29.59 2.65.59 4.04 0 2.65-2.15 4.8-4.8 4.8z"/></svg></span>
+        <div class="dish-body">
+          <span class="dish-tag">The Legend</span>
+          <h3>Double OKC</h3>
+          <p>Two Oklahoma-style smash patties with crispy lacy edges, melted American cheese, all the way.</p>
+        </div>
+      </article>
+      <article class="dish rv">
+        <img src="https://images.unsplash.com/photo-1553979459-d2229ba7433b?w=1200&q=80&auto=format&fit=crop" alt="Classic OKC smash burger" loading="lazy">
+        <span class="flame-ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" style="fill:#ff8a2a;filter:drop-shadow(0 0 8px rgba(255,92,10,.9))"><path d="M13.5.67s.74 2.65.74 4.8c0 2.06-1.35 3.73-3.41 3.73-2.07 0-3.63-1.67-3.63-3.73l.03-.36C5.21 7.51 4 10.62 4 14c0 4.42 3.58 8 8 8s8-3.58 8-8C20 8.61 17.41 3.8 13.5.67zM11.71 19c-1.78 0-3.22-1.4-3.22-3.14 0-1.62 1.05-2.76 2.81-3.12 1.77-.36 3.6-1.21 4.62-2.58.39 1.29.59 2.65.59 4.04 0 2.65-2.15 4.8-4.8 4.8z"/></svg></span>
+        <div class="dish-body">
+          <span class="dish-tag">The Classic</span>
+          <h3>OKC Smash</h3>
+          <p>The original. Smashed thin on the flat-top, onions pressed in, cheese melted through.</p>
+        </div>
+      </article>
+      <article class="dish rv">
+        <img src="https://images.unsplash.com/photo-1573080496219-bb080dd4f877?w=1200&q=80&auto=format&fit=crop" alt="Crispy fries fried in beef tallow" loading="lazy">
+        <div class="dish-body">
+          <span class="dish-tag">The Upgrade</span>
+          <h3>Tallow Fries</h3>
+          <p>Crispy fries done in beef tallow — the way fries were meant to taste. The base of every loaded order.</p>
+        </div>
+      </article>
+      <article class="dish rv">
+        <img src="https://images.unsplash.com/photo-1594212699903-ec8a3eca50f5?w=1200&q=80&auto=format&fit=crop" alt="Chopped cheese loaded fries" loading="lazy">
+        <div class="dish-body">
+          <span class="dish-tag">Heavy Hitter</span>
+          <h3>Chopped Cheese Loaded Fries</h3>
+          <p>Seasoned chopped beef, caramelized onions, American cheese over tallow fries, finished with ketchup &amp; mayo.</p>
+        </div>
+      </article>
+      <article class="dish rv">
+        <img src="https://images.unsplash.com/photo-1608039755401-742074f0548d?w=1200&q=80&auto=format&fit=crop" alt="House bone-in wings, dry-rubbed" loading="lazy">
+        <div class="dish-body">
+          <span class="dish-tag">Not Just Burgers</span>
+          <h3>House Bone-In Wings</h3>
+          <p>Non-breaded, dry-rubbed in-house. Come for the burger, stay for the wings.</p>
+        </div>
+      </article>
+      <article class="dish rv">
+        <img src="https://images.unsplash.com/photo-1571091718767-18b5b1457add?w=1200&q=80&auto=format&fit=crop" alt="Loaded fries with burger" loading="lazy">
+        <div class="dish-body">
+          <span class="dish-tag">Ask About It</span>
+          <h3>The Secret Menu</h3>
+          <p>There&rsquo;s more on deck than the board shows. Ask Ted — if you know, you know.</p>
+        </div>
+      </article>
+    </div>
+    <div class="menu-note rv">
+      <strong>Combo meals</strong> come single or double, in-store or on Uber Eats. Delivery is <strong>exclusively on Uber Eats</strong> — search &ldquo;Ted&rsquo;s Burgers&rdquo; and the sizzle comes to you.
+    </div>
+    <div class="gallery" aria-label="From the flat-top">
+      <figure><img src="https://images.unsplash.com/photo-1550547660-d9450f859349?w=800&q=70&auto=format&fit=crop" alt="Smash burger on the grill" loading="lazy"></figure>
+      <figure><img src="https://images.unsplash.com/photo-1553979459-d2229ba7433b?w=800&q=70&auto=format&fit=crop" alt="Burger with melted cheese" loading="lazy"></figure>
+      <figure><img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=800&q=70&auto=format&fit=crop" alt="Flames over the grill" loading="lazy"></figure>
+      <figure><img src="https://images.unsplash.com/photo-1573080496219-bb080dd4f877?w=800&q=70&auto=format&fit=crop" alt="Golden crispy fries" loading="lazy"></figure>
+      <figure><img src="https://images.unsplash.com/photo-1594212699903-ec8a3eca50f5?w=800&q=70&auto=format&fit=crop" alt="Burger and loaded fries" loading="lazy"></figure>
+      <figure><img src="https://images.unsplash.com/photo-1608039755401-742074f0548d?w=800&q=70&auto=format&fit=crop" alt="House wings" loading="lazy"></figure>
+    </div>
+  </div>
+</section>
+<!-- ================= FOUNDER ================= -->
+<section class="founder" id="ted" aria-labelledby="ted-h">
+  <div class="wrap">
+    <span class="kicker rv">The man behind the flat-top</span>
+    <h2 class="h2 rv" id="ted-h">Meet <span class="hl">Ted</span></h2>
+    <div class="founder-card rv">
+      <div class="founder-photo">
+        <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=1200&q=80&auto=format&fit=crop" alt="Flames rising over Ted's grill" loading="lazy">
+      </div>
+      <div class="founder-copy">
+        <blockquote>I just kid — we make some absolute gas out here, and that&rsquo;s a promise.</blockquote>
+        <p>Ted is the first voice you hear on every post. He signs every caption himself — <strong>&ldquo;Much love ❤️ -Ted&rdquo;</strong> — because Ted&rsquo;s Burgers was never a brand first. It was a guy, a backyard, and a flat-top that wouldn&rsquo;t quit.</p>
+        <p>He calls himself &ldquo;this little dude trying to make it happen,&rdquo; but the neighborhood knows better: sneaker raffles in-store, a 4th of July burger-and-wings eating contest, collabs with Miami food royalty, and a line out the door seven days a week.</p>
+        <p>Come have a burger — he&rsquo;ll promise to make you smile.</p>
+        <div class="founder-name">Ted</div>
+        <div class="founder-role">Founder · Chief Smasher · Wynwood</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= COMMUNITY ================= -->
+<section class="community" aria-labelledby="comm-h">
+  <div class="wrap">
+    <span class="kicker rv">More than burgers</span>
+    <h2 class="h2 rv" id="comm-h">The block <span class="hl">loves us back</span></h2>
+    <p class="lede rv">Ted&rsquo;s isn&rsquo;t just a spot — it&rsquo;s a neighborhood ritual. Here&rsquo;s what goes down when the grill&rsquo;s hot and the community pulls up.</p>
+    <div class="comm-grid">
+      <article class="comm-card rv">
+        <div class="comm-num">01</div>
+        <h3>Backyard Roots</h3>
+        <p>Born in a backyard, built on word of mouth. &ldquo;From our backyard to your neighborhood, with love&rdquo; isn&rsquo;t a slogan — it&rsquo;s the whole business plan.</p>
+      </article>
+      <article class="comm-card rv">
+        <div class="comm-num">02</div>
+        <h3>Events &amp; Collabs</h3>
+        <p>From an in-store sneaker raffle with Nike SB to the 1st annual 4th of July burger-and-wings eating contest — and a National Cheeseburger Day collab with Burger Beast.</p>
+      </article>
+      <article class="comm-card rv">
+        <div class="comm-num">03</div>
+        <h3>Local Love</h3>
+        <p>A locally owned Wynwood staple shouting out &ldquo;the homies showing local support&rdquo; — because in Dade County, the community is the marketing.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ================= VISIT ================= -->
+<section class="visit" id="visit" aria-labelledby="visit-h">
+  <div class="wrap">
+    <span class="kicker rv">Pull up</span>
+    <h2 class="h2 rv" id="visit-h">Find the <span class="hl">sizzle</span></h2>
+    <div class="visit-grid">
+      <div class="hours rv" role="table" aria-label="Opening hours">
+        <div class="hours-head"><span>Hours</span><span>7 days a week</span></div>
+        <div class="hours-row" data-days="0,1,2,3,4"><span class="days">Sun – Thu</span><span class="time">11am – 10pm</span></div>
+        <div class="hours-row" data-days="5,6"><span class="days">Fri – Sat</span><span class="time">11am – 2am</span></div>
+      </div>
+      <div class="visit-info rv">
+        <h3>The Spot</h3>
+        <p>315 NW 25th St<br>Miami, FL 33127</p>
+        <p class="map-link">→ <a href="https://www.google.com/maps/search/?api=1&query=Ted%27s+Burgers+315+NW+25th+St+Miami+FL+33127" target="_blank" rel="noopener">Get directions</a></p>
+        <h3>Holler</h3>
+        <p>Call: <a href="tel:+13054340090">(305) 434-0090</a><br>
+        Email: <a href="mailto:friends@Teds-Burgers.com">friends@Teds-Burgers.com</a></p>
+        <h3>Delivery</h3>
+        <p>Exclusively on Uber Eats — search &ldquo;Ted&rsquo;s Burgers.&rdquo;</p>
+        <div style="margin-top:1.8rem">
+          <a class="btn" href="https://ig.me/m/teds_burgers" target="_blank" rel="noopener">DM Us Your Order</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FINAL CTA ================= -->
+<section class="final" aria-labelledby="final-h">
+  <div class="wrap">
+    <span class="kicker rv">The grill&rsquo;s already hot</span>
+    <h2 class="h2 rv" id="final-h">Hungry?<br><span class="hl">Slide in.</span></h2>
+    <div class="final-ctas rv">
+      <a class="btn" href="https://ig.me/m/teds_burgers" target="_blank" rel="noopener">Message Ted&rsquo;s</a>
+      <a class="btn-outline" href="https://www.instagram.com/teds_burgers/" target="_blank" rel="noopener">Follow @teds_burgers</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="foot">
+    <small>© 2026 Ted&rsquo;s Burgers · 315 NW 25th St, Miami, FL · Concept mockup</small>
+    <div class="socials">
+      <a class="soc" href="https://www.instagram.com/teds_burgers/" target="_blank" rel="noopener" aria-label="Ted's Burgers on Instagram">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zm0 10.162a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
+      </a>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+  var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  /* Sizzle split: wrap each word of the hero title for the reveal */
+  document.querySelectorAll("[data-sizzle]").forEach(function(h){
+    var nodes = Array.prototype.slice.call(h.childNodes);
+    h.innerHTML = "";
+    var i = 0;
+    nodes.forEach(function(n){
+      if(n.nodeType === 3){
+        n.textContent.split(/\s+/).filter(Boolean).forEach(function(w){
+          var wrap = document.createElement("span");
+          wrap.className = "word";
+          var inner = document.createElement("span");
+          inner.textContent = w;
+          inner.style.animationDelay = (i * 0.09) + "s";
+          wrap.appendChild(inner);
+          h.appendChild(wrap);
+          h.appendChild(document.createTextNode(" "));
+          i++;
+        });
+      } else if(n.nodeType === 1){
+        var wrap = document.createElement("span");
+        wrap.className = "word";
+        var inner = document.createElement("span");
+        inner.appendChild(n);
+        inner.style.animationDelay = (i * 0.09) + "s";
+        wrap.appendChild(inner);
+        h.appendChild(wrap);
+        h.appendChild(document.createTextNode(" "));
+        i++;
+      }
+    });
+  });
+
+  /* Duplicate ticker content for a seamless loop */
+  var track = document.getElementById("tickerTrack");
+  if(track){ track.innerHTML += track.innerHTML; }
+
+  /* Scroll reveals */
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){ e.target.classList.add("in"); io.unobserve(e.target); }
+    });
+  }, {threshold: 0.12, rootMargin: "0px 0px -6% 0px"});
+  document.querySelectorAll(".rv").forEach(function(el){ io.observe(el); });
+
+  /* Sticky nav state */
+  var nav = document.getElementById("nav");
+  window.addEventListener("scroll", function(){
+    nav.classList.toggle("scrolled", window.scrollY > 40);
+  }, {passive: true});
+
+  /* "Today" highlight on hours rows */
+  var today = new Date().getDay();
+  document.querySelectorAll(".hours-row").forEach(function(row){
+    var days = (row.getAttribute("data-days") || "").split(",");
+    if(days.indexOf(String(today)) !== -1){ row.classList.add("today"); }
+  });
+
+  /* Smoke parallax: drift the smoke layer gently with scroll */
+  if(!reduceMotion){
+    var smoke = document.querySelector(".smoke-layer");
+    var ticking = false;
+    window.addEventListener("scroll", function(){
+      if(!ticking){
+        window.requestAnimationFrame(function(){
+          var y = window.scrollY || 0;
+          smoke.style.transform = "translate3d(0," + (y * -0.04) + "px,0)";
+          ticking = false;
+        });
+        ticking = true;
+      }
+    }, {passive: true});
+  }
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Santo Dulce! — Churros &amp; Helado next-level en Miami | Nacido en MIA</title>
+<meta name="description" content="Santo Dulce! — churros hechos al momento y helado en Miami. La casa de los churrocones, el Halo y el Santo Sundae. Opciones GF, non-dairy y clásicos. Encuentra el truck, ordena o pide catering.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:ital,wght@0,400;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FoodEstablishment",
+  "name": "Santo Dulce! Churros & Ice Cream",
+  "slogan": "Next-level churros & ice cream — nacido en Miami",
+  "servesCuisine": ["Churros", "Helado", "Postres", "Café", "Matcha"],
+  "url": "https://order.santodulcechurros.com",
+  "telephone": "+1-786-858-4242",
+  "sameAs": ["https://www.instagram.com/santodulcechurros/"],
+  "address": [
+    { "@type": "PostalAddress", "addressLocality": "Miami", "addressRegion": "FL", "addressCountry": "US" },
+    { "@type": "PostalAddress", "addressLocality": "Doral", "addressRegion": "FL", "addressCountry": "US" }
+  ]
+}
+</script>
+<style>
+/* ============ TOKENS ============ */
+:root{
+  --choc-950:#170b04; --choc-900:#221106; --choc-800:#2e170a; --choc-700:#40210e;
+  --cream:#fff6e9; --cream-soft:#ffedd2; --cream-deep:#f7dcb4;
+  --caramel:#c98a3b; --gold:#f4b942; --gold-soft:#ffd98a;
+  --sunset:#ff8a3d; --pink:#ff3d7f; --pink-soft:#ff8fb8; --berry:#8f1d4e;
+  --ink:#2a1608; --ink-soft:#5b3a22;
+  --radius:26px; --radius-s:16px;
+  --font-d:'Fredoka',system-ui,sans-serif;
+  --font-b:'Nunito',system-ui,sans-serif;
+  --bounce:cubic-bezier(.34,1.56,.5,1);
+  --ease:cubic-bezier(.22,.9,.28,1);
+  --shadow-warm:0 24px 60px -18px rgba(23,11,4,.55);
+  --glow-pink:0 0 24px rgba(255,61,127,.45);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:var(--font-b);background:var(--choc-950);color:var(--cream);overflow-x:hidden;line-height:1.6;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:inherit}
+::selection{background:var(--pink);color:#fff}
+.wrap{max-width:1180px;margin:0 auto;padding:0 clamp(20px,4vw,48px)}
+
+/* ============ LOADER ============ */
+#loader{position:fixed;inset:0;z-index:200;background:var(--choc-950);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:18px;transition:opacity .6s var(--ease),visibility .6s}
+#loader.done{opacity:0;visibility:hidden}
+.loader-churro{width:74px;height:74px;animation:loaderBounce 1s var(--bounce) infinite}
+@keyframes loaderBounce{0%,100%{transform:translateY(0) rotate(-8deg)}50%{transform:translateY(-16px) rotate(8deg)}}
+.loader-word{font-family:var(--font-d);font-weight:600;font-size:1.25rem;letter-spacing:.28em;color:var(--gold);text-transform:uppercase}
+
+/* ============ HEADER ============ */
+header{position:fixed;top:0;left:0;right:0;z-index:100;transition:background .35s,box-shadow .35s,backdrop-filter .35s}
+header.scrolled{background:rgba(23,11,4,.82);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);box-shadow:0 10px 40px rgba(0,0,0,.4)}
+.nav{display:flex;align-items:center;justify-content:space-between;padding:16px 0}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none}
+.brand-mark{width:44px;height:44px;flex:none;filter:drop-shadow(0 4px 12px rgba(244,185,66,.4))}
+.brand-name{font-family:var(--font-d);font-weight:700;font-size:1.35rem;letter-spacing:.01em;line-height:1}
+.brand-name small{display:block;font-family:var(--font-b);font-weight:700;font-size:.62rem;letter-spacing:.3em;color:var(--gold);text-transform:uppercase;margin-top:3px}
+.nav-links{display:flex;gap:34px;list-style:none}
+.nav-links a{text-decoration:none;font-weight:700;font-size:.95rem;color:var(--cream-soft);position:relative;padding:4px 0}
+.nav-links a::after{content:"";position:absolute;left:0;bottom:-2px;height:3px;width:0;border-radius:3px;background:linear-gradient(90deg,var(--gold),var(--pink));transition:width .3s var(--ease)}
+.nav-links a:hover::after{width:100%}
+
+/* ============ BUTTONS ============ */
+.cta{display:inline-flex;align-items:center;gap:10px;font-family:var(--font-d);font-weight:600;font-size:1.02rem;text-decoration:none;border:none;cursor:pointer;padding:16px 32px;border-radius:999px;background:linear-gradient(135deg,var(--gold) 0%,var(--sunset) 55%,var(--pink) 130%);color:#2a1204;box-shadow:0 12px 32px -8px rgba(255,138,61,.55),inset 0 2px 0 rgba(255,255,255,.4);transition:transform .25s var(--bounce),box-shadow .25s}
+.cta:hover{transform:translateY(-3px) scale(1.03);box-shadow:0 18px 44px -8px rgba(255,61,127,.55),inset 0 2px 0 rgba(255,255,255,.4)}
+.cta svg{width:18px;height:18px;flex:none}
+.cta--outline{background:transparent;color:var(--cream);border:2px solid rgba(255,246,233,.35);box-shadow:none}
+.cta--outline:hover{border-color:var(--pink);box-shadow:var(--glow-pink)}
+.cta--small{padding:12px 24px;font-size:.95rem}
+.hero-ctas{display:flex;gap:16px;flex-wrap:wrap;margin-top:34px}
+
+/* ============ HERO ============ */
+.hero{position:relative;min-height:100svh;display:flex;align-items:center;padding:130px 0 90px;overflow:hidden;
+  background:
+    radial-gradient(900px 520px at 85% 8%,rgba(255,61,127,.16),transparent 60%),
+    radial-gradient(760px 560px at 8% 90%,rgba(255,138,61,.14),transparent 60%),
+    radial-gradient(520px 420px at 55% 45%,rgba(244,185,66,.08),transparent 65%),
+    linear-gradient(180deg,var(--choc-900),var(--choc-950))}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(30px,5vw,70px);align-items:center;position:relative;z-index:2}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;font-weight:800;font-size:.78rem;letter-spacing:.26em;text-transform:uppercase;color:var(--gold);background:rgba(244,185,66,.1);border:1px solid rgba(244,185,66,.35);padding:10px 20px;border-radius:999px;margin-bottom:26px}
+.eyebrow .dot{width:8px;height:8px;border-radius:50%;background:var(--pink);box-shadow:0 0 12px var(--pink);animation:pulseDot 2s infinite}
+@keyframes pulseDot{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.5);opacity:.6}}
+.hero h1{font-family:var(--font-d);font-weight:700;font-size:clamp(2.9rem,7vw,5.4rem);line-height:1.02;letter-spacing:-.01em}
+.hero h1 .w{display:inline-block;overflow:hidden;vertical-align:bottom;padding-bottom:.08em;margin-bottom:-.08em}
+.hero h1 .w>span{display:inline-block;transform:translateY(115%) rotate(5deg);opacity:0;transition:transform .7s var(--bounce),opacity .5s}
+.hero h1.in .w>span{transform:translateY(0) rotate(0);opacity:1}
+.grad{background:linear-gradient(100deg,var(--gold) 10%,var(--sunset) 45%,var(--pink) 90%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero-sub{margin-top:24px;font-size:clamp(1.05rem,1.6vw,1.25rem);color:var(--cream-soft);max-width:34rem}
+.hero-sub strong{color:var(--gold)}
+.diet-chips{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px}
+.chip{font-family:var(--font-d);font-weight:500;font-size:.92rem;padding:9px 18px;border-radius:999px;background:rgba(255,246,233,.07);border:1px dashed rgba(244,185,66,.5);color:var(--cream-deep);display:inline-flex;align-items:center;gap:8px}
+.chip svg{width:15px;height:15px}
+
+/* hero visual */
+.hero-visual{position:relative}
+.dish-frame{position:relative;border-radius:34px;overflow:hidden;box-shadow:var(--shadow-warm),0 0 0 1px rgba(244,185,66,.25);transform:rotate(2deg)}
+.dish-frame img{width:100%;height:clamp(380px,52vw,560px);object-fit:cover}
+.dish-frame::after{content:"";position:absolute;inset:0;background:linear-gradient(200deg,transparent 55%,rgba(23,11,4,.55));pointer-events:none}
+.steam{position:absolute;left:18%;right:18%;top:-8px;height:130px;pointer-events:none;z-index:3}
+.steam i{position:absolute;bottom:0;width:26px;height:90px;border-radius:50%;background:radial-gradient(ellipse at center,rgba(255,246,233,.5),transparent 70%);filter:blur(10px);opacity:0;animation:steamUp 4.5s ease-in-out infinite}
+.steam i:nth-child(1){left:12%;animation-delay:0s}
+.steam i:nth-child(2){left:46%;animation-delay:1.6s}
+.steam i:nth-child(3){left:76%;animation-delay:3s}
+@keyframes steamUp{0%{transform:translateY(30px) scaleX(1);opacity:0}30%{opacity:.85}100%{transform:translateY(-70px) translateX(14px) scaleX(1.8);opacity:0}}
+.sticker{position:absolute;font-family:var(--font-d);font-weight:600;color:#2a1204;background:linear-gradient(135deg,var(--gold),var(--sunset));padding:12px 22px;border-radius:999px;box-shadow:0 14px 30px -8px rgba(0,0,0,.5);z-index:4;white-space:nowrap}
+.sticker--a{top:8%;left:-34px;transform:rotate(-10deg);animation:floaty 5s ease-in-out infinite}
+.sticker--b{bottom:10%;right:-24px;transform:rotate(7deg);background:linear-gradient(135deg,var(--pink),var(--berry));color:#fff;animation:floaty 6s ease-in-out 1s infinite}
+@keyframes floaty{0%,100%{translate:0 0}50%{translate:0 -12px}}
+#sugar{position:absolute;inset:0;z-index:1;pointer-events:none}
+.scroll-hint{position:absolute;bottom:26px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:8px;color:var(--cream-deep);font-size:.72rem;letter-spacing:.3em;text-transform:uppercase;opacity:.7;z-index:2}
+.scroll-hint svg{width:20px;height:20px;animation:hintDrop 1.8s ease-in-out infinite}
+@keyframes hintDrop{0%,100%{transform:translateY(0);opacity:.5}50%{transform:translateY(8px);opacity:1}}
+
+/* ============ MARQUEE ============ */
+.marquee{background:linear-gradient(90deg,var(--pink),var(--sunset) 50%,var(--pink));padding:18px 0;overflow:hidden;transform:rotate(-1.2deg) scale(1.02);box-shadow:0 18px 50px -12px rgba(255,61,127,.4);position:relative;z-index:3}
+.marquee-track{display:flex;gap:0;width:max-content;animation:tick 26s linear infinite}
+.marquee:hover .marquee-track{animation-play-state:paused}
+.marquee-track span{font-family:var(--font-d);font-weight:700;font-size:1.35rem;letter-spacing:.12em;color:#fff;text-transform:uppercase;padding:0 26px;white-space:nowrap;display:flex;align-items:center;gap:52px}
+.marquee-track svg{width:22px;height:22px;flex:none}
+@keyframes tick{to{transform:translateX(-50%)}}
+
+/* ============ SECTIONS ============ */
+section{position:relative}
+.sec{padding:clamp(80px,10vw,130px) 0}
+.kicker{font-family:var(--font-d);font-weight:500;font-size:.85rem;letter-spacing:.32em;text-transform:uppercase;color:var(--pink-soft);margin-bottom:16px;display:flex;align-items:center;gap:12px}
+.kicker::before{content:"";width:38px;height:3px;border-radius:3px;background:linear-gradient(90deg,var(--pink),var(--sunset))}
+.sec h2{font-family:var(--font-d);font-weight:700;font-size:clamp(2.1rem,4.6vw,3.4rem);line-height:1.08;letter-spacing:-.01em}
+.sec-lead{margin-top:18px;font-size:1.12rem;color:var(--cream-soft);max-width:38rem}
+.reveal{opacity:0;transform:translateY(36px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
+.reveal.in{opacity:1;transform:none}
+.reveal[data-d="1"]{transition-delay:.12s}.reveal[data-d="2"]{transition-delay:.24s}.reveal[data-d="3"]{transition-delay:.36s}
+
+/* signatures */
+.signatures{background:var(--choc-900)}
+.sig-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;margin-top:54px}
+.sig-card{background:linear-gradient(165deg,var(--choc-800),var(--choc-950));border:1px solid rgba(244,185,66,.16);border-radius:var(--radius);padding:30px 26px;position:relative;overflow:hidden;transition:transform .4s var(--bounce),box-shadow .4s,border-color .4s;transform-style:preserve-3d}
+.sig-card:hover{transform:translateY(-10px);border-color:rgba(255,61,127,.5);box-shadow:var(--shadow-warm),var(--glow-pink)}
+.sig-num{position:absolute;top:14px;right:20px;font-family:var(--font-d);font-weight:700;font-size:3.2rem;color:transparent;-webkit-text-stroke:1.5px rgba(244,185,66,.3);line-height:1}
+.sig-ico{width:58px;height:58px;border-radius:18px;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,rgba(244,185,66,.18),rgba(255,61,127,.18));border:1px solid rgba(244,185,66,.3);margin-bottom:20px}
+.sig-ico svg{width:30px;height:30px}
+.sig-card h3{font-family:var(--font-d);font-weight:600;font-size:1.4rem;margin-bottom:10px}
+.sig-card p{font-size:.98rem;color:var(--cream-soft)}
+.sig-card .tag{display:inline-block;margin-top:16px;font-size:.72rem;font-weight:800;letter-spacing:.22em;text-transform:uppercase;color:var(--gold)}
+
+/* menu strip */
+.menu{background:var(--cream);color:var(--ink);border-radius:44px 44px 0 0;margin-top:-30px}
+.menu .kicker{color:var(--berry)}
+.menu .sec-lead{color:var(--ink-soft)}
+.menu-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:54px}
+.menu-card{position:relative;border-radius:var(--radius);overflow:hidden;background:#fff;box-shadow:0 20px 50px -20px rgba(64,33,14,.35);transition:transform .45s var(--bounce),box-shadow .45s}
+.menu-card:hover{transform:translateY(-10px) rotate(-.6deg);box-shadow:0 30px 70px -20px rgba(143,29,78,.4)}
+.menu-card img{height:250px;width:100%;object-fit:cover;transition:transform .8s var(--ease)}
+.menu-card:hover img{transform:scale(1.07)}
+.menu-body{padding:26px 26px 30px}
+.menu-body h3{font-family:var(--font-d);font-weight:600;font-size:1.5rem;margin-bottom:8px}
+.menu-body p{color:var(--ink-soft);font-size:1rem}
+.menu-flag{position:absolute;top:18px;left:18px;font-family:var(--font-d);font-weight:600;font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;background:var(--ink);color:var(--gold-soft);padding:8px 16px;border-radius:999px}
+.menu-note{margin-top:44px;display:flex;align-items:center;gap:18px;background:linear-gradient(135deg,#fff,var(--cream-soft));border:2px dashed var(--caramel);border-radius:var(--radius-s);padding:22px 28px;font-weight:700;color:var(--ink)}
+.menu-note svg{width:34px;height:34px;flex:none}
+
+/* founders */
+.founders{background:linear-gradient(180deg,var(--choc-950),#100702);overflow:hidden}
+.founders-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(36px,6vw,80px);align-items:center}
+.founders-copy blockquote{font-family:var(--font-d);font-weight:500;font-size:clamp(1.4rem,2.6vw,1.9rem);line-height:1.35;color:var(--cream);margin:28px 0;padding-left:26px;border-left:4px solid var(--pink)}
+.founders-copy p{color:var(--cream-soft);font-size:1.08rem;margin-bottom:16px}
+.founders-copy p strong{color:var(--gold)}
+.founder-names{display:flex;gap:14px;flex-wrap:wrap;margin-top:26px}
+.founder-pill{display:inline-flex;align-items:center;gap:12px;background:rgba(255,246,233,.06);border:1px solid rgba(244,185,66,.35);border-radius:999px;padding:10px 22px 10px 12px;font-weight:800}
+.founder-pill .avatar{width:38px;height:38px;border-radius:50%;background:linear-gradient(135deg,var(--gold),var(--pink));display:flex;align-items:center;justify-content:center;font-family:var(--font-d);font-weight:700;color:#2a1204;font-size:1.05rem}
+.founders-visual{position:relative}
+.founders-visual img{border-radius:34px;box-shadow:var(--shadow-warm);height:clamp(340px,44vw,520px);width:100%;object-fit:cover;transform:rotate(-1.5deg)}
+.year-badge{position:absolute;bottom:-24px;left:-14px;background:linear-gradient(135deg,var(--pink),var(--berry));color:#fff;border-radius:22px;padding:20px 30px;box-shadow:var(--glow-pink);transform:rotate(3deg);text-align:center}
+.year-badge b{display:block;font-family:var(--font-d);font-weight:700;font-size:2.2rem;line-height:1}
+.year-badge span{font-size:.72rem;font-weight:800;letter-spacing:.24em;text-transform:uppercase;opacity:.85}
+
+/* truck / locations */
+.truck{background:var(--choc-900)}
+.truck-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(36px,6vw,70px);align-items:center}
+.truck-visual{position:relative;order:-1}
+.truck-visual img{border-radius:34px;height:clamp(340px,44vw,520px);width:100%;object-fit:cover;box-shadow:var(--shadow-warm);transform:rotate(1.5deg)}
+.loc-list{list-style:none;margin-top:34px;display:grid;gap:16px}
+.loc-list li{display:flex;gap:18px;align-items:flex-start;background:rgba(255,246,233,.05);border:1px solid rgba(244,185,66,.2);border-radius:var(--radius-s);padding:20px 24px;transition:border-color .3s,transform .3s var(--bounce)}
+.loc-list li:hover{border-color:var(--pink);transform:translateX(8px)}
+.loc-list svg{width:30px;height:30px;flex:none;margin-top:2px}
+.loc-list b{font-family:var(--font-d);font-weight:600;font-size:1.15rem;display:block}
+.loc-list small{color:var(--cream-soft);font-size:.95rem}
+.truck-ctas{display:flex;gap:16px;flex-wrap:wrap;margin-top:36px}
+
+/* catering banner */
+.catering{padding:0 0 clamp(80px,10vw,130px);background:var(--choc-900)}
+.catering-banner{position:relative;border-radius:38px;overflow:hidden;padding:clamp(48px,7vw,90px) clamp(28px,6vw,80px);background:linear-gradient(120deg,#3d0f28,#7a1746 45%,#c22a63 75%,var(--sunset));box-shadow:var(--shadow-warm),0 0 80px -20px rgba(255,61,127,.5);text-align:center}
+.catering-banner::before{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.16) 1.6px,transparent 1.6px);background-size:26px 26px;pointer-events:none}
+.catering-banner h2{color:#fff;position:relative}
+.catering-banner p{color:#ffe9f2;max-width:36rem;margin:18px auto 0;position:relative;font-size:1.12rem}
+.catering-banner .hero-ctas{justify-content:center;position:relative}
+.catering-banner .cta{background:#fff;color:#7a1746;box-shadow:0 14px 34px -10px rgba(0,0,0,.45)}
+.catering-banner .cta--outline{color:#fff;border-color:rgba(255,255,255,.55)}
+.catering-banner .cta--outline:hover{border-color:#fff;box-shadow:0 0 24px rgba(255,255,255,.4)}
+
+/* social strip */
+.social-strip{background:var(--cream);color:var(--ink);text-align:center;padding:clamp(70px,8vw,110px) 0}
+.social-strip h2{margin-bottom:14px}
+.social-strip p{color:var(--ink-soft);max-width:34rem;margin:0 auto}
+.ig-handle{display:inline-flex;align-items:center;gap:14px;margin-top:30px;font-family:var(--font-d);font-weight:700;font-size:clamp(1.4rem,3vw,2rem);text-decoration:none;background:linear-gradient(100deg,var(--berry),var(--pink) 60%,var(--sunset));-webkit-background-clip:text;background-clip:text;color:transparent}
+.ig-handle svg{width:40px;height:40px}
+
+/* footer */
+footer{background:#0d0603;padding:70px 0 34px;border-top:1px solid rgba(244,185,66,.15)}
+.foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px;margin-bottom:50px}
+.foot-brand p{color:var(--cream-soft);font-size:.98rem;margin-top:16px;max-width:22rem}
+.foot-col h4{font-family:var(--font-d);font-weight:600;font-size:1rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:18px}
+.foot-col ul{list-style:none;display:grid;gap:12px}
+.foot-col a{color:var(--cream-soft);text-decoration:none;font-weight:600;font-size:.98rem;transition:color .25s}
+.foot-col a:hover{color:var(--pink-soft)}
+.socials{display:flex;gap:14px;margin-top:22px}
+.socials a{width:48px;height:48px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:rgba(255,246,233,.07);border:1px solid rgba(244,185,66,.35);transition:transform .3s var(--bounce),box-shadow .3s,background .3s}
+.socials a:hover{transform:translateY(-4px) scale(1.06);background:linear-gradient(135deg,var(--pink),var(--sunset));box-shadow:var(--glow-pink)}
+.socials svg{width:22px;height:22px;fill:var(--cream)}
+.foot-bottom{border-top:1px solid rgba(244,185,66,.12);padding-top:28px;display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;color:rgba(255,246,233,.55);font-size:.88rem}
+.foot-bottom .mock{font-style:italic}
+
+/* ============ RESPONSIVE ============ */
+@media(max-width:1020px){
+  .sig-grid{grid-template-columns:repeat(2,1fr)}
+  .menu-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:880px){
+  .nav-links{display:none}
+  .hero{padding:120px 0 70px}
+  .hero-grid,.founders-grid,.truck-grid{grid-template-columns:1fr}
+  .hero-visual{max-width:520px}
+  .sticker--a{left:6px}.sticker--b{right:6px}
+  .dish-frame img{height:380px}
+  .truck-visual{order:0}
+  .menu{border-radius:30px 30px 0 0}
+  .foot-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:560px){
+  .sig-grid,.menu-grid{grid-template-columns:1fr}
+  .cta{width:100%;justify-content:center}
+  .nav .cta--small{width:auto}
+  .marquee-track span{font-size:1.05rem}
+  .year-badge{left:8px}
+  .foot-grid{grid-template-columns:1fr}
+  .loc-list li:hover{transform:none}
+}
+
+/* ============ REDUCED MOTION ============ */
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  #loader{display:none}
+  #sugar{display:none}
+  .steam{display:none}
+  .hero h1 .w>span{transform:none;opacity:1}
+  .reveal{opacity:1;transform:none}
+  .marquee-track{animation:none;flex-wrap:wrap;width:auto}
+  .dish-frame,.founders-visual img,.truck-visual img{transform:none}
+  .sticker{animation:none}
+}
+</style>
+</head>
+<body>
+
+<!-- LOADER -->
+<div id="loader" aria-hidden="true">
+  <svg class="loader-churro" viewBox="0 0 64 64" fill="none" aria-hidden="true">
+    <path d="M14 46c8-2 12-10 20-10s10 8 18 6" stroke="#f4b942" stroke-width="7" stroke-linecap="round"/>
+    <path d="M14 46c8-2 12-10 20-10s10 8 18 6" stroke="#ff8a3d" stroke-width="7" stroke-linecap="round" stroke-dasharray="4 9" opacity=".7"/>
+    <circle cx="48" cy="18" r="4" fill="#ff3d7f"/>
+    <circle cx="16" cy="16" r="3" fill="#ff8a3d"/>
+  </svg>
+  <div class="loader-word">Santo Dulce</div>
+</div>
+
+<!-- HEADER -->
+<header id="header">
+  <div class="wrap nav">
+    <a class="brand" href="#top" aria-label="Santo Dulce — inicio">
+      <svg class="brand-mark" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+        <circle cx="24" cy="24" r="22" fill="#2e170a" stroke="#f4b942" stroke-width="2.5"/>
+        <path d="M13 30c6-1.5 9-8 15-8s8 6.5 13.5 5" stroke="#f4b942" stroke-width="4.5" stroke-linecap="round"/>
+        <path d="M13 30c6-1.5 9-8 15-8s8 6.5 13.5 5" stroke="#ff3d7f" stroke-width="4.5" stroke-linecap="round" stroke-dasharray="3 7"/>
+        <circle cx="33" cy="14" r="3" fill="#ff3d7f"/>
+      </svg>
+      <span class="brand-name">Santo Dulce!<small>churros &amp; helado</small></span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#sabores">Sabores</a></li>
+      <li><a href="#historia">Historia</a></li>
+      <li><a href="#truck">El truck</a></li>
+      <li><a href="#catering">Catering</a></li>
+    </ul>
+    <a class="cta cta--small" href="https://order.santodulcechurros.com" target="_blank" rel="noopener">Ordenar</a>
+  </div>
+</header>
+
+<main id="top">
+<!-- HERO -->
+<section class="hero" aria-label="Presentación">
+  <canvas id="sugar" aria-hidden="true"></canvas>
+  <div class="wrap hero-grid">
+    <div>
+      <span class="eyebrow"><span class="dot"></span>Nacido en Miami · Hecho al momento</span>
+      <h1 data-split>El churro se puso de <span class="grad">fiesta.</span></h1>
+      <p class="hero-sub">Churros <strong>next-level</strong> y helado, hechos al momento en el corazón de Miami. Crujientes por fuera, pura alegría por dentro — con opciones <strong>GF</strong>, <strong>non-dairy</strong> y los clásicos de siempre.</p>
+      <div class="diet-chips">
+        <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="#f4b942" stroke-width="2.4" aria-hidden="true"><path d="M12 2l2.6 6.2L21 9l-5 4.4L17.5 20 12 16.6 6.5 20 8 13.4 3 9l6.4-.8z"/></svg>GF disponible</span>
+        <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="#f4b942" stroke-width="2.4" aria-hidden="true"><path d="M12 21c-5 0-8-3.5-8-8 0-6 5-10 8-11 3 1 8 5 8 11 0 4.5-3 8-8 8z"/></svg>Non-dairy</span>
+        <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="#f4b942" stroke-width="2.4" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.5 2.5L16 9.5"/></svg>Clásicos</span>
+      </div>
+      <div class="hero-ctas">
+        <a class="cta magnetic" href="https://order.santodulcechurros.com" target="_blank" rel="noopener">Ordenar ahora
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a class="cta cta--outline magnetic" href="https://ig.me/m/santodulcechurros" target="_blank" rel="noopener">Escríbenos por DM</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="steam" aria-hidden="true"><i></i><i></i><i></i></div>
+      <div class="dish-frame" data-parallax="0.06">
+        <img src="https://images.pexels.com/photos/6310077/pexels-photo-6310077.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="Churros dorados con salsa de chocolate, servidos al momento" fetchpriority="high">
+      </div>
+      <span class="sticker sticker--a">¡Recién hechos!</span>
+      <span class="sticker sticker--b">La casa de los churrocones</span>
+    </div>
+  </div>
+  <div class="scroll-hint" aria-hidden="true">Desliza
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 4v14M6 12l6 6 6-6"/></svg>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track" id="ticker">
+    <span>Churrocones <svg viewBox="0 0 24 24" fill="#fff"><path d="M12 2l2.4 7.6L22 12l-7.6 2.4L12 22l-2.4-7.6L2 12l7.6-2.4z"/></svg></span>
+    <span>Santo Sundae <svg viewBox="0 0 24 24" fill="#fff"><path d="M12 2l2.4 7.6L22 12l-7.6 2.4L12 22l-2.4-7.6L2 12l7.6-2.4z"/></svg></span>
+    <span>Hecho al momento <svg viewBox="0 0 24 24" fill="#fff"><path d="M12 2l2.4 7.6L22 12l-7.6 2.4L12 22l-2.4-7.6L2 12l7.6-2.4z"/></svg></span>
+    <span>Dulce de leche <svg viewBox="0 0 24 24" fill="#fff"><path d="M12 2l2.4 7.6L22 12l-7.6 2.4L12 22l-2.4-7.6L2 12l7.6-2.4z"/></svg></span>
+    <span>Matcha <svg viewBox="0 0 24 24" fill="#fff"><path d="M12 2l2.4 7.6L22 12l-7.6 2.4L12 22l-2.4-7.6L2 12l7.6-2.4z"/></svg></span>
+    <span>Nacido en MIA <svg viewBox="0 0 24 24" fill="#fff"><path d="M12 2l2.4 7.6L22 12l-7.6 2.4L12 22l-2.4-7.6L2 12l7.6-2.4z"/></svg></span>
+  </div>
+</div>
+
+<!-- SIGNATURES -->
+<section class="sec signatures" id="sabores" aria-label="Especialidades">
+  <div class="wrap">
+    <p class="kicker reveal">Nuestras estrellas</p>
+    <h2 class="reveal" data-d="1">Lo que nos hizo <span class="grad">famosos</span></h2>
+    <p class="sec-lead reveal" data-d="2">El churro clásico que todos aman, reinventado con sabor latino y espíritu de Miami. Todo se hace desde cero y al momento.</p>
+    <div class="sig-grid">
+      <article class="sig-card reveal tilt" data-d="1">
+        <span class="sig-num">01</span>
+        <div class="sig-ico"><svg viewBox="0 0 24 24" fill="none" stroke="#f4b942" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3.5"/></svg></div>
+        <h3>El Halo</h3>
+        <p>Nuestro churro insignia: doblado en su forma redonda característica y personalizado con glaseados y toppings gourmet.</p>
+        <span class="tag">El original</span>
+      </article>
+      <article class="sig-card reveal tilt" data-d="2">
+        <span class="sig-num">02</span>
+        <div class="sig-ico"><svg viewBox="0 0 24 24" fill="none" stroke="#ff3d7f" stroke-width="2" aria-hidden="true"><path d="M7 10h10l-1.5 9.5a1.5 1.5 0 01-1.5 1.3H10a1.5 1.5 0 01-1.5-1.3L7 10z"/><path d="M12 10V6M9 4.5c1-1.5 5-1.5 6 0"/></svg></div>
+        <h3>Santo Sundae</h3>
+        <p>Un Halo tibio y crujiente coronando una copa de helado cremoso. Frío, caliente, imposible de olvidar.</p>
+        <span class="tag">El favorito</span>
+      </article>
+      <article class="sig-card reveal tilt" data-d="3">
+        <span class="sig-num">03</span>
+        <div class="sig-ico"><svg viewBox="0 0 24 24" fill="none" stroke="#ff8a3d" stroke-width="2" aria-hidden="true"><path d="M12 3L5 20h14L12 3z"/><path d="M12 3v17"/></svg></div>
+        <h3>Churrocones</h3>
+        <p>Somos la casa de los churrocones: cono de churro relleno de helado. Dos antojos, una sola obra maestra.</p>
+        <span class="tag">El icónico</span>
+      </article>
+      <article class="sig-card reveal tilt" data-d="3">
+        <span class="sig-num">04</span>
+        <div class="sig-ico"><svg viewBox="0 0 24 24" fill="none" stroke="#f4b942" stroke-width="2" aria-hidden="true"><path d="M6 8h9a4 4 0 014 4v8H6z"/><path d="M6 8V6a2 2 0 012-2h4"/></svg></div>
+        <h3>Clásicos &amp; dips</h3>
+        <p>Churros con azúcar y canela, para mojar en chocolate, dulce de leche o Nutella. Como en casa, pero mejor.</p>
+        <span class="tag">El de siempre</span>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- MENU -->
+<section class="sec menu" aria-label="Menú">
+  <div class="wrap">
+    <p class="kicker reveal">El menú</p>
+    <h2 class="reveal" data-d="1">Antojos con <span class="grad">nombre propio</span></h2>
+    <p class="sec-lead reveal" data-d="2">Además de los churros: helados, malteadas, limonadas, café y matcha. Todo con ese toque Santo Dulce.</p>
+    <div class="menu-grid">
+      <article class="menu-card reveal" data-d="1">
+        <span class="menu-flag">De la casa</span>
+        <img src="https://images.pexels.com/photos/372886/pexels-photo-372886.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="Churros clásicos con chocolate para mojar" loading="lazy">
+        <div class="menu-body">
+          <h3>Churros clásicos</h3>
+          <p>Dorados, crujientes y espolvoreados con azúcar y canela. Pídelos con tu dip favorito.</p>
+        </div>
+      </article>
+      <article class="menu-card reveal" data-d="2">
+        <span class="menu-flag">Refrescante</span>
+        <img src="https://images.unsplash.com/photo-1501443762994-82bd5dace89a?q=80&w=900&auto=format&fit=crop" alt="Conos de helado con frutas frescas" loading="lazy">
+        <div class="menu-body">
+          <h3>Helados &amp; churrocones</h3>
+          <p>Helado cremoso — también en opciones non-dairy — servido en cono de churro o en copa.</p>
+        </div>
+      </article>
+      <article class="menu-card reveal" data-d="3">
+        <span class="menu-flag">Indulgente</span>
+        <img src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?q=80&w=900&auto=format&fit=crop" alt="Copa de helado de chocolate con toppings" loading="lazy">
+        <div class="menu-body">
+          <h3>Sundaes &amp; malteadas</h3>
+          <p>El Santo Sundae y malteadas cremosas — pregunta por la de especialidad de la temporada.</p>
+        </div>
+      </article>
+    </div>
+    <div class="menu-note reveal">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#8f1d4e" stroke-width="2" aria-hidden="true"><path d="M4 10h12v3a5 5 0 01-5 5H9a5 5 0 01-5-5v-3z"/><path d="M16 11h2a3 3 0 010 6h-2M7 6c0-1 .8-1 .8-2M11 6c0-1 .8-1 .8-2"/></svg>
+      <p>Amantes del matcha y el café: también servimos iced latte bombón y nuestra famosa Piña Colada Matcha. Pregunta por las bebidas de temporada en el truck.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOUNDERS -->
+<section class="sec founders" id="historia" aria-label="Nuestra historia">
+  <div class="wrap founders-grid">
+    <div class="founders-copy">
+      <p class="kicker reveal">Nuestra historia</p>
+      <h2 class="reveal" data-d="1">Dos amigas, un sueño <span class="grad">bien dulce</span></h2>
+      <blockquote class="reveal" data-d="2">“Trajimos el sabor de nuestra tierra y lo mezclamos con la energía de Miami.”</blockquote>
+      <p class="reveal" data-d="2"><strong>Yule Nunez y Laura Luque</strong> se conocieron en Colombia y llegaron al sur de la Florida con espíritu emprendedor. En <strong>2018</strong> nació <strong>Santo Dulce!</strong> en Miami: su propia interpretación del churro tradicional, con sabores nuevos, frescos e inesperados.</p>
+      <p class="reveal" data-d="3">El choque de culturas que es Miami — y sus raíces hispanas — inspira cada textura, color y combinación. Por eso cada Halo, cada sundae y cada churrocón sabe a fiesta.</p>
+      <div class="founder-names reveal" data-d="3">
+        <span class="founder-pill"><span class="avatar">Y</span>Yule Nunez · Fundadora</span>
+        <span class="founder-pill"><span class="avatar">L</span>Laura Luque · Fundadora</span>
+      </div>
+    </div>
+    <div class="founders-visual reveal" data-d="2">
+      <img src="https://images.unsplash.com/photo-1506966953602-c20cc11f75e3?q=80&w=1200&auto=format&fit=crop" alt="Vista aérea de Miami, la ciudad donde nació Santo Dulce" loading="lazy" data-parallax="0.05">
+      <div class="year-badge"><b>2018</b><span>Nacido en MIA</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUCK -->
+<section class="sec truck" id="truck" aria-label="Dónde encontrarnos">
+  <div class="wrap truck-grid">
+    <div class="truck-visual reveal">
+      <img src="https://images.unsplash.com/photo-1533106497176-45ae19e68ba2?q=80&w=1200&auto=format&fit=crop" alt="Miami de noche con luces de neón" loading="lazy" data-parallax="0.05">
+    </div>
+    <div>
+      <p class="kicker reveal">El truck</p>
+      <h2 class="reveal" data-d="1">Síguenos la <span class="grad">pista</span></h2>
+      <p class="sec-lead reveal" data-d="2">Nuestro truck rueda por todo Miami. Cada semana publicamos el lineup con paradas, locaciones y horarios — guárdalo para no perdernos.</p>
+      <ul class="loc-list">
+        <li class="reveal" data-d="1">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#f4b942" stroke-width="2" aria-hidden="true"><path d="M12 21s-7-5.5-7-11a7 7 0 0114 0c0 5.5-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
+          <div><b>Doral Yard</b><small>Nuestra casa en Doral — pásate por tu antojo.</small></div>
+        </li>
+        <li class="reveal" data-d="2">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#ff3d7f" stroke-width="2" aria-hidden="true"><path d="M12 21s-7-5.5-7-11a7 7 0 0114 0c0 5.5-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
+          <div><b>Miami Shores</b><small>Parada fija del truck — síguenos para el horario de la semana.</small></div>
+        </li>
+        <li class="reveal" data-d="3">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#ff8a3d" stroke-width="2" aria-hidden="true"><path d="M3 16V8h11v8M14 10h4l3 3v3"/><circle cx="7" cy="18" r="1.8"/><circle cx="17" cy="18" r="1.8"/></svg>
+          <div><b>Pop-ups por todo el 305</b><small>Eventos y activaciones en toda la ciudad. Delivery disponible todos los días.</small></div>
+        </li>
+      </ul>
+      <div class="truck-ctas reveal" data-d="3">
+        <a class="cta magnetic" href="https://order.santodulcechurros.com" target="_blank" rel="noopener">Ordenar para recoger
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a class="cta cta--outline magnetic" href="https://www.instagram.com/santodulcechurros/" target="_blank" rel="noopener">Ver el lineup semanal</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CATERING -->
+<section class="catering" id="catering" aria-label="Catering">
+  <div class="wrap">
+    <div class="catering-banner reveal">
+      <p class="kicker" style="justify-content:center;color:#ffd9e8">Catering &amp; eventos</p>
+      <h2>Lleva la fiesta a tu evento</h2>
+      <p>Bodas, cumpleaños, activaciones de marca y fiestas de empresa: el truck de Santo Dulce convierte cualquier evento en el más dulce. Escríbenos con 7 días de anticipación y lo planeamos juntos.</p>
+      <div class="hero-ctas">
+        <a class="cta magnetic" href="https://ig.me/m/santodulcechurros" target="_blank" rel="noopener">Cotizar por DM
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a class="cta cta--outline magnetic" href="tel:+17868584242">Llamar al (786) 858-4242</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SOCIAL -->
+<section class="social-strip" aria-label="Instagram">
+  <div class="wrap">
+    <p class="kicker reveal" style="justify-content:center">Únete a la fiesta</p>
+    <h2 class="reveal" data-d="1">El antojo se comparte</h2>
+    <p class="reveal" data-d="2">Lineup semanal, detrás de cámaras y antojos diarios. Todo pasa primero en nuestro Instagram.</p>
+    <a class="ig-handle reveal magnetic" data-d="3" href="https://www.instagram.com/santodulcechurros/" target="_blank" rel="noopener" aria-label="Santo Dulce en Instagram">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1.4" fill="currentColor" stroke="none"/></svg>
+      @santodulcechurros
+    </a>
+  </div>
+</section>
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <a class="brand" href="#top" aria-label="Santo Dulce — inicio">
+          <svg class="brand-mark" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+            <circle cx="24" cy="24" r="22" fill="#2e170a" stroke="#f4b942" stroke-width="2.5"/>
+            <path d="M13 30c6-1.5 9-8 15-8s8 6.5 13.5 5" stroke="#f4b942" stroke-width="4.5" stroke-linecap="round"/>
+            <path d="M13 30c6-1.5 9-8 15-8s8 6.5 13.5 5" stroke="#ff3d7f" stroke-width="4.5" stroke-linecap="round" stroke-dasharray="3 7"/>
+            <circle cx="33" cy="14" r="3" fill="#ff3d7f"/>
+          </svg>
+          <span class="brand-name">Santo Dulce!<small>churros &amp; helado</small></span>
+        </a>
+        <p>Next-level churros &amp; helado, hechos al momento. Nacido en Miami — hecho para celebrar.</p>
+        <div class="socials">
+          <a href="https://www.instagram.com/santodulcechurros/" target="_blank" rel="noopener" aria-label="Instagram de Santo Dulce">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.2c3.2 0 3.6 0 4.8.1 1.2.1 1.8.2 2.2.4.6.2 1 .5 1.4.9.4.4.7.8.9 1.4.2.4.4 1 .4 2.2.1 1.2.1 1.6.1 4.8s0 3.6-.1 4.8c-.1 1.2-.2 1.8-.4 2.2-.2.6-.5 1-.9 1.4-.4.4-.8.7-1.4.9-.4.2-1 .4-2.2.4-1.2.1-1.6.1-4.8.1s-3.6 0-4.8-.1c-1.2-.1-1.8-.2-2.2-.4-.6-.2-1-.5-1.4-.9-.4-.4-.7-.8-.9-1.4-.2-.4-.4-1-.4-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.8c.1-1.2.2-1.8.4-2.2.2-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.4-.2 1-.4 2.2-.4C8.4 2.2 8.8 2.2 12 2.2zm0 3.6a6.2 6.2 0 100 12.4 6.2 6.2 0 000-12.4zm0 10.2a4 4 0 110-8 4 4 0 010 8zm6.4-10.5a1.4 1.4 0 100 2.9 1.4 1.4 0 000-2.9z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="foot-col">
+        <h4>Explora</h4>
+        <ul>
+          <li><a href="#sabores">Especialidades</a></li>
+          <li><a href="#historia">Nuestra historia</a></li>
+          <li><a href="#truck">El truck</a></li>
+          <li><a href="#catering">Catering</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h4>Ordena</h4>
+        <ul>
+          <li><a href="https://order.santodulcechurros.com" target="_blank" rel="noopener">Ordenar en línea</a></li>
+          <li><a href="https://ig.me/m/santodulcechurros" target="_blank" rel="noopener">Escríbenos por DM</a></li>
+          <li><a href="tel:+17868584242">(786) 858-4242</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Santo Dulce! Churros &amp; Ice Cream · Miami, FL</span>
+      <span class="mock">Mockup conceptual — imágenes referenciales</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+  var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  /* Loader */
+  var loader = document.getElementById("loader");
+  function hideLoader(){ if(loader){ loader.classList.add("done"); setTimeout(function(){ loader.remove(); }, 700); } }
+  window.addEventListener("load", function(){ setTimeout(hideLoader, 500); });
+  setTimeout(hideLoader, 3500); /* safety */
+
+  /* Header scroll */
+  var header = document.getElementById("header");
+  function onScrollHeader(){ header.classList.toggle("scrolled", window.scrollY > 24); }
+  window.addEventListener("scroll", onScrollHeader, {passive:true});
+  onScrollHeader();
+
+  /* Word-split bounce reveal */
+  document.querySelectorAll("[data-split]").forEach(function(el){
+    var frag = document.createDocumentFragment();
+    var delay = 0;
+    el.childNodes.forEach(function(node){
+      if(node.nodeType === 3){
+        node.textContent.split(/(\s+)/).forEach(function(part){
+          if(!part) return;
+          if(/^\s+$/.test(part)){ frag.appendChild(document.createTextNode(" ")); return; }
+          var w = document.createElement("span"); w.className = "w";
+          var inner = document.createElement("span"); inner.textContent = part;
+          inner.style.transitionDelay = (delay += 0.06) + "s";
+          w.appendChild(inner); frag.appendChild(w);
+        });
+      } else if(node.nodeType === 1){
+        var w = document.createElement("span"); w.className = "w";
+        var inner = document.createElement("span");
+        inner.appendChild(node.cloneNode(true));
+        inner.style.transitionDelay = (delay += 0.06) + "s";
+        w.appendChild(inner); frag.appendChild(w);
+      }
+    });
+    el.innerHTML = ""; el.appendChild(frag);
+    requestAnimationFrame(function(){ requestAnimationFrame(function(){ el.classList.add("in"); }); });
+  });
+
+  /* Scroll reveals */
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add("in"); io.unobserve(e.target); } });
+  }, {threshold: 0.15, rootMargin: "0px 0px -40px 0px"});
+  document.querySelectorAll(".reveal").forEach(function(el){ io.observe(el); });
+
+  /* Marquee: duplicate track for seamless loop */
+  var ticker = document.getElementById("ticker");
+  if(ticker && !reduced){ ticker.innerHTML += ticker.innerHTML; }
+
+  /* Parallax */
+  var px = document.querySelectorAll("[data-parallax]");
+  if(px.length && !reduced){
+    var ticking = false;
+    window.addEventListener("scroll", function(){
+      if(!ticking){
+        ticking = true;
+        requestAnimationFrame(function(){
+          px.forEach(function(el){
+            var r = el.getBoundingClientRect();
+            var off = (r.top + r.height/2 - window.innerHeight/2) * parseFloat(el.dataset.parallax);
+            el.style.transform = "translateY(" + (-off).toFixed(1) + "px)";
+          });
+          ticking = false;
+        });
+      }
+    }, {passive:true});
+  }
+
+  /* Tilt cards (fine pointers only) */
+  if(window.matchMedia("(pointer: fine)").matches && !reduced){
+    document.querySelectorAll(".tilt").forEach(function(card){
+      card.addEventListener("mousemove", function(ev){
+        var r = card.getBoundingClientRect();
+        var x = (ev.clientX - r.left)/r.width - 0.5, y = (ev.clientY - r.top)/r.height - 0.5;
+        card.style.transform = "translateY(-10px) rotateX(" + (-y*7).toFixed(2) + "deg) rotateY(" + (x*7).toFixed(2) + "deg)";
+      });
+      card.addEventListener("mouseleave", function(){ card.style.transform = ""; });
+    });
+    /* Magnetic buttons */
+    document.querySelectorAll(".magnetic").forEach(function(btn){
+      btn.addEventListener("mousemove", function(ev){
+        var r = btn.getBoundingClientRect();
+        var x = ev.clientX - r.left - r.width/2, y = ev.clientY - r.top - r.height/2;
+        btn.style.transform = "translate(" + (x*0.14).toFixed(1) + "px," + (y*0.18).toFixed(1) + "px)";
+      });
+      btn.addEventListener("mouseleave", function(){ btn.style.transform = ""; });
+    });
+  }
+
+  /* Sugar particle canvas */
+  var canvas = document.getElementById("sugar");
+  if(canvas && !reduced){
+    var ctx = canvas.getContext("2d");
+    var W, H, parts = [];
+    var COLORS = ["#f4b942", "#ff8a3d", "#ff3d7f", "#fff6e9", "#ffd98a"];
+    function size(){ var hero = canvas.parentElement; W = canvas.width = hero.offsetWidth; H = canvas.height = hero.offsetHeight; }
+    function make(seed){
+      return { x: Math.random()*W, y: seed ? Math.random()*H : H + 10,
+        r: 1 + Math.random()*2.6, s: 0.35 + Math.random()*0.9,
+        ph: Math.random()*Math.PI*2, sw: 0.3 + Math.random()*0.9,
+        c: COLORS[(Math.random()*COLORS.length)|0], a: 0.35 + Math.random()*0.55 };
+    }
+    function init(){ size(); parts = []; for(var i=0;i<46;i++){ parts.push(make(true)); } }
+    init();
+    window.addEventListener("resize", init);
+    (function loop(t){
+      ctx.clearRect(0,0,W,H);
+      parts.forEach(function(p, i){
+        p.y -= p.s; p.ph += 0.02;
+        p.x += Math.sin(p.ph) * p.sw * 0.4;
+        var tw = 0.55 + 0.45*Math.sin(p.ph*2.2);
+        ctx.globalAlpha = p.a * tw;
+        ctx.fillStyle = p.c;
+        ctx.beginPath(); ctx.arc(p.x, p.y, p.r, 0, Math.PI*2); ctx.fill();
+        if(p.y < -12){ parts[i] = make(false); }
+      });
+      ctx.globalAlpha = 1;
+      requestAnimationFrame(loop);
+    })();
+  }
+})();
+</script>
+</body>
+</html>
