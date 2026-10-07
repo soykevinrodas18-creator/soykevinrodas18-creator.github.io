@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Golden Cosmetic Center | Medicina Estética en Miami — Dra. Liagnys García</title>
+<meta name="description" content="Golden Cosmetic Center en Miami: Botox, rellenos, láser, faciales, Morpheus8, Endolift, IV Therapy y más. Liderado por la Dra. Liagnys García. Agenda por DM.">
+<meta name="theme-color" content="#faf6ee">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,300;1,9..144,400;1,9..144,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"MedicalClinic","name":"Golden Cosmetic Center","address":{"@type":"PostalAddress","streetAddress":"5965 SW 8 Street, Suite B","addressLocality":"Miami","addressRegion":"FL","postalCode":"33144","addressCountry":"US"},"telephone":"+1-305-267-5317","sameAs":["https://www.instagram.com/golden_cosmetic_center"]}
+</script>
+<style>
+:root{
+  --ivory:#faf6ee; --ivory-2:#f3ecdd; --ink:#241c12; --ink-soft:#4d4132; --muted:#8a7a63;
+  --gold:#b8892f; --gold-2:#e3c47c; --gold-soft:rgba(184,137,47,.14); --sage:#7d8b74;
+  --line:rgba(36,28,18,.14); --max:1280px; --pad:clamp(20px,4vw,52px);
+  --serif:'Fraunces',Georgia,serif; --sans:'Inter',system-ui,sans-serif;
+  --sp-s:clamp(64px,8vw,112px); --sp-m:clamp(96px,11vw,160px);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--ivory);color:var(--ink);font-family:var(--sans);line-height:1.65;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+::selection{background:var(--gold-2);color:var(--ink)}
+::-webkit-scrollbar{width:11px}
+::-webkit-scrollbar-track{background:var(--ivory-2)}
+::-webkit-scrollbar-thumb{background:linear-gradient(180deg,var(--gold-2),var(--gold));border-radius:8px;border:2px solid var(--ivory-2)}
+::-webkit-scrollbar-thumb:hover{box-shadow:0 0 12px rgba(184,137,47,.55)}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 var(--pad)}
+section{padding:var(--sp-m) 0;position:relative;scroll-margin-top:90px}
+/* grain */
+body::after{content:"";position:fixed;inset:0;z-index:200;pointer-events:none;opacity:.05;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='0.6'/%3E%3C/svg%3E")}
+/* progress */
+#progress{position:fixed;top:0;left:0;height:3px;width:0;z-index:300;background:linear-gradient(90deg,var(--gold),var(--gold-2));box-shadow:0 0 10px rgba(184,137,47,.7)}
+/* type */
+.eyebrow{display:inline-flex;align-items:center;gap:12px;font-size:11.5px;font-weight:700;letter-spacing:.32em;text-transform:uppercase;color:var(--gold);margin-bottom:24px}
+.eyebrow::before{content:"";width:38px;height:1px;background:linear-gradient(90deg,var(--gold),transparent);box-shadow:0 0 8px rgba(184,137,47,.6)}
+h1,h2,.serif-d{font-family:var(--serif);font-weight:400;line-height:1.04;letter-spacing:-.015em;text-wrap:balance}
+.h-hero{font-size:clamp(52px,8.2vw,124px)}
+.h-sec{font-size:clamp(40px,5.4vw,76px)}
+.h-sec em,.h-hero em{font-style:italic;font-weight:300;
+  background:linear-gradient(100deg,#8a6420 0%,var(--gold) 30%,#f4e2ae 50%,var(--gold) 70%,#8a6420 100%);
+  background-size:220% auto;-webkit-background-clip:text;background-clip:text;color:transparent;
+  animation:shimmer 7s linear infinite}
+@keyframes shimmer{to{background-position:220% center}}
+.sub{color:var(--ink-soft);font-size:clamp(16px,1.6vw,19px);max-width:58ch}
+.ghost{position:absolute;font-family:var(--serif);font-style:italic;font-weight:300;color:transparent;
+  -webkit-text-stroke:1px rgba(184,137,47,.28);pointer-events:none;user-select:none;white-space:nowrap;z-index:0}
+/* header */
+header{position:fixed;inset:0 0 auto 0;z-index:100;transition:background .35s,box-shadow .35s,backdrop-filter .35s}
+header.scrolled{background:rgba(250,246,238,.88);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);box-shadow:0 1px 0 var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:78px;max-width:var(--max);margin:0 auto;padding:0 var(--pad)}
+.brand{font-family:var(--serif);font-size:25px;letter-spacing:.14em;font-weight:500}
+.brand em{font-style:italic;color:var(--gold);font-weight:300}
+.brand small{display:block;font-family:var(--sans);font-size:9.5px;font-weight:600;letter-spacing:.4em;color:var(--muted);margin-top:2px}
+.links{display:flex;gap:32px;align-items:center}
+.links a{font-size:12.5px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-soft);position:relative;transition:color .25s}
+.links a::after{content:"";position:absolute;left:0;bottom:-6px;width:0;height:1px;background:var(--gold);transition:width .3s}
+.links a:hover{color:var(--ink)}
+.links a:hover::after{width:100%}
+.btn{display:inline-flex;align-items:center;gap:10px;background:var(--ink);color:var(--ivory);font-weight:600;font-size:13.5px;letter-spacing:.12em;text-transform:uppercase;padding:17px 32px;border-radius:100px;border:none;cursor:pointer;position:relative;overflow:hidden;transition:transform .3s,box-shadow .3s}
+.btn::before{content:"";position:absolute;top:0;left:-80%;width:50%;height:100%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.35),transparent);transform:skewX(-20deg);transition:left .6s}
+.btn:hover{transform:translateY(-2px);box-shadow:0 14px 34px rgba(36,28,18,.25)}
+.btn:hover::before{left:130%}
+.btn.gold{background:linear-gradient(120deg,#a5771f,var(--gold) 55%,#d9b968);color:#fff;box-shadow:0 10px 30px rgba(184,137,47,.35)}
+.btn.gold:hover{box-shadow:0 16px 40px rgba(184,137,47,.5)}
+.btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--line)}
+.btn.ghost:hover{border-color:var(--gold);box-shadow:none}
+.burger{display:none;background:none;border:none;cursor:pointer;z-index:110;flex-direction:column;gap:6px;padding:8px}
+.burger span{display:block;width:26px;height:2px;background:var(--ink);transition:.3s}
+/* hero */
+.hero{min-height:100svh;display:flex;align-items:center;padding:130px 0 70px;overflow:hidden;
+  background:radial-gradient(1100px 520px at 78% 8%,rgba(227,196,124,.28),transparent 60%),radial-gradient(800px 500px at 8% 90%,rgba(125,139,116,.16),transparent 60%),var(--ivory)}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(32px,5vw,80px);align-items:center;position:relative;z-index:2;width:100%}
+.hero-copy .kicker{margin-bottom:26px}
+.hero h1{margin-bottom:26px}
+.hero-sub{margin-bottom:36px}
+.hero-ctas{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:44px}
+.hero-proof{display:flex;gap:0;border-top:1px solid var(--line);padding-top:26px;flex-wrap:wrap}
+.hero-proof div{padding-right:34px;margin-right:34px;border-right:1px solid var(--line)}
+.hero-proof div:last-child{border:none}
+.hero-proof b{font-family:var(--serif);font-size:clamp(26px,2.6vw,38px);font-weight:500;display:block;text-shadow:0 0 26px rgba(184,137,47,.25)}
+.hero-proof span{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted)}
+.hero-media{position:relative}
+.hero-frame{border-radius:26px;overflow:hidden;border:1px solid rgba(184,137,47,.45);box-shadow:0 40px 80px rgba(36,28,18,.18),inset 0 0 0 8px rgba(255,255,255,.5);position:relative}
+.hero-frame::after{content:"";position:absolute;inset:0;box-shadow:inset 0 0 60px rgba(184,137,47,.18);pointer-events:none}
+.hero-frame img{width:100%;height:clamp(420px,52vw,600px);object-fit:cover;filter:sepia(.14) saturate(1.02)}
+.hero-halo{position:absolute;inset:-40px;background:radial-gradient(closest-side,rgba(227,196,124,.5),transparent 70%);filter:blur(30px);z-index:-1;animation:halo 6s ease-in-out infinite alternate}
+@keyframes halo{from{opacity:.6;transform:scale(.96)}to{opacity:1;transform:scale(1.04)}}
+.float-card{position:absolute;left:-34px;bottom:38px;background:rgba(250,246,238,.92);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border:1px solid rgba(184,137,47,.4);border-radius:18px;padding:18px 22px;box-shadow:0 20px 50px rgba(36,28,18,.16);animation:floaty 7s ease-in-out infinite}
+.float-card::before{content:"";position:absolute;top:0;left:22px;right:22px;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+.float-card b{font-family:var(--serif);font-size:19px;font-weight:500;display:block}
+.float-card span{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+@keyframes floaty{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+.hero-cap{margin-top:16px;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);display:flex;align-items:center;gap:12px}
+.hero-cap::before{content:"";width:26px;height:1px;background:var(--gold)}
+.hero .ghost{font-size:clamp(140px,20vw,300px);top:2%;right:-2%;opacity:.9}
+.dust{position:absolute;border-radius:50%;background:radial-gradient(circle,rgba(227,196,124,.9),transparent 70%);pointer-events:none;z-index:1}
+/* marquee */
+.marquee{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--ivory-2);overflow:hidden;padding:20px 0;white-space:nowrap;position:relative}
+.marquee::before,.marquee::after{content:"";position:absolute;top:0;bottom:0;width:120px;z-index:2;pointer-events:none}
+.marquee::before{left:0;background:linear-gradient(90deg,var(--ivory-2),transparent)}
+.marquee::after{right:0;background:linear-gradient(-90deg,var(--ivory-2),transparent)}
+.mq-track{display:inline-flex;animation:mq 30s linear infinite}
+.mq-track span{font-family:var(--serif);font-style:italic;font-size:24px;letter-spacing:.04em;padding:0 30px;color:var(--ink-soft)}
+.mq-track span i{font-style:normal;color:var(--gold);padding-right:60px;text-shadow:0 0 12px rgba(184,137,47,.5)}
+@keyframes mq{to{transform:translateX(-50%)}}
+/* chapter headers */
+.chapter{display:flex;align-items:baseline;gap:18px;margin-bottom:14px}
+.chapter .rn{font-family:var(--serif);font-style:italic;font-size:15px;color:var(--gold);letter-spacing:.1em}
+.chapter .rule{flex:1;height:1px;background:linear-gradient(90deg,var(--line),transparent)}
+.chapter .lbl{font-size:11px;font-weight:700;letter-spacing:.3em;text-transform:uppercase;color:var(--muted)}
+/* treatments bento */
+.tx-head{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:end;margin-bottom:56px}
+.bento{display:grid;grid-template-columns:repeat(12,1fr);gap:20px}
+.tcard{background:#fffdf8;border:1px solid var(--line);border-radius:20px;padding:32px 30px;position:relative;overflow:hidden;transition:transform .35s,box-shadow .35s,border-color .35s;min-height:230px;display:flex;flex-direction:column;justify-content:flex-end}
+.tcard::before{content:"";position:absolute;top:0;left:30px;right:30px;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);transform:scaleX(0);transition:transform .5s;transform-origin:left}
+.tcard:hover{transform:translateY(-7px);border-color:rgba(184,137,47,.55);box-shadow:0 26px 60px rgba(184,137,47,.16),0 8px 24px rgba(36,28,18,.08)}
+.tcard:hover::before{transform:scaleX(1)}
+.tcard .num{font-family:var(--serif);font-style:italic;font-size:15px;color:var(--gold);margin-bottom:auto;letter-spacing:.08em}
+.tcard h3{font-family:var(--serif);font-size:clamp(24px,2.4vw,32px);font-weight:500;margin:14px 0 10px}
+.tcard p{font-size:14.5px;color:var(--ink-soft)}
+.tcard .tag{position:absolute;top:22px;right:24px;font-size:10.5px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);border:1px solid rgba(184,137,47,.4);border-radius:100px;padding:6px 14px}
+.s1{grid-column:1/8}.s2{grid-column:8/13}.s3{grid-column:1/6;margin-top:44px}.s4{grid-column:6/10;margin-top:-10px}.s5{grid-column:10/13;margin-top:44px}.s6{grid-column:1/7}.s7{grid-column:7/13}.s8{grid-column:1/8}.s9{grid-column:8/13}
+.tx-note{margin-top:44px;display:flex;gap:18px;align-items:center;flex-wrap:wrap}
+.tx-note p{color:var(--muted);font-size:15px}
+.tx-note a{color:var(--gold);font-weight:600;border-bottom:1px solid rgba(184,137,47,.4)}
+/* doctor — art-directed */
+.doc{background:linear-gradient(180deg,var(--ivory) 0%,var(--ivory-2) 100%);overflow:hidden}
+.doc .ghost{font-size:clamp(120px,17vw,260px);bottom:4%;left:-1%}
+.doc-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(36px,6vw,90px);align-items:center;position:relative;z-index:2}
+.doc-media{position:relative;margin-right:-40px}
+.doc-frame{border-radius:24px;overflow:hidden;border:1px solid rgba(184,137,47,.4);box-shadow:0 34px 70px rgba(36,28,18,.16)}
+.doc-frame img{width:100%;height:clamp(440px,50vw,600px);object-fit:cover;filter:sepia(.13) saturate(1.03)}
+.doc-badge{position:absolute;right:-24px;top:44px;background:var(--ink);color:var(--ivory);border-radius:16px;padding:20px 24px;box-shadow:0 20px 44px rgba(36,28,18,.3);animation:floaty 8s ease-in-out infinite}
+.doc-badge b{font-family:var(--serif);font-style:italic;font-weight:400;font-size:22px;color:var(--gold-2);display:block}
+.doc-badge span{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#cbbfa8}
+.doc-copy h2{margin-bottom:22px}
+.doc-copy .lead{font-family:var(--serif);font-size:clamp(20px,2.2vw,26px);font-style:italic;color:var(--ink-soft);margin:26px 0;padding-left:26px;border-left:2px solid var(--gold);line-height:1.5}
+.doc-copy p.body{color:var(--ink-soft);margin-bottom:18px;max-width:52ch}
+.doc-index{display:flex;gap:26px;margin-top:32px;flex-wrap:wrap}
+.doc-index div{font-size:11.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted)}
+.doc-index div b{display:block;font-family:var(--serif);font-style:italic;font-size:17px;letter-spacing:0;text-transform:none;color:var(--gold);margin-bottom:4px}
+/* process */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:56px;position:relative}
+.steps::before{content:"";position:absolute;top:34px;left:6%;right:6%;height:1px;background:linear-gradient(90deg,transparent,var(--gold),var(--gold),transparent);opacity:.5}
+.step{padding:0 34px;position:relative}
+.step .n{width:68px;height:68px;border-radius:50%;background:var(--ivory);border:1px solid rgba(184,137,47,.5);display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-style:italic;font-size:24px;color:var(--gold);margin-bottom:24px;box-shadow:0 0 0 10px var(--ivory),0 0 26px rgba(184,137,47,.25);position:relative;z-index:1}
+.step h3{font-family:var(--serif);font-size:26px;font-weight:500;margin-bottom:10px}
+.step p{color:var(--ink-soft);font-size:15.5px}
+/* faq */
+.faq-wrap{max-width:880px;margin:0 auto}
+.faq-item{border-bottom:1px solid var(--line);transition:background .3s}
+.faq-item.open{background:linear-gradient(90deg,rgba(184,137,47,.07),transparent)}
+.faq-q{width:100%;background:none;border:none;color:var(--ink);font-family:var(--sans);font-size:17.5px;font-weight:600;text-align:left;padding:26px 10px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:20px}
+.faq-q .pm{flex:none;width:36px;height:36px;border:1px solid rgba(184,137,47,.5);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:20px;color:var(--gold);transition:transform .35s,background .35s,color .35s}
+.faq-item.open .pm{transform:rotate(45deg);background:var(--gold);color:#fff;border-color:var(--gold)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .45s ease;color:var(--ink-soft);font-size:15.5px}
+.faq-a p{padding:0 10px 28px;max-width:66ch}
+.faq-a a{color:var(--gold);font-weight:600}
+/* visit */
+.visit-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(40px,6vw,90px);align-items:start}
+.info-row{display:flex;gap:20px;padding:24px 0;border-bottom:1px solid var(--line);align-items:flex-start}
+.info-row:last-child{border:none}
+.info-ic{width:52px;height:52px;flex:none;border-radius:16px;background:var(--gold-soft);border:1px solid rgba(184,137,47,.4);display:flex;align-items:center;justify-content:center;font-size:21px}
+.info-row h4{font-size:11.5px;letter-spacing:.26em;text-transform:uppercase;color:var(--gold);margin-bottom:6px}
+.info-row p{font-size:17px;font-weight:500}
+.info-row a.hl{color:var(--gold);font-weight:600}
+.book-panel{background:linear-gradient(150deg,#2b2114,#1c150c);color:var(--ivory);border-radius:26px;padding:clamp(34px,4vw,52px);position:relative;overflow:hidden;box-shadow:0 34px 70px rgba(36,28,18,.3);isolation:isolate}
+.book-panel::before{content:"";position:absolute;inset:-60px;background:radial-gradient(closest-side,rgba(227,196,124,.22),transparent 70%);z-index:-1}
+.book-panel h3{font-family:var(--serif);font-size:clamp(30px,3.4vw,44px);font-weight:400;margin-bottom:14px}
+.book-panel h3 em{font-style:italic;color:var(--gold-2)}
+.book-panel p{color:#d8cdb6;margin-bottom:28px;max-width:44ch}
+.book-panel .btn{width:100%;justify-content:center;margin-bottom:14px}
+/* final cta */
+.final{text-align:center;overflow:hidden}
+.final .ghost{font-size:clamp(160px,24vw,360px);top:50%;left:50%;transform:translate(-50%,-50%)}
+.final h2{margin-bottom:20px;position:relative;z-index:2}
+.final .sub{margin:0 auto 38px;position:relative;z-index:2}
+.final .hero-ctas{justify-content:center;position:relative;z-index:2}
+.cta-ring{position:relative;display:inline-block}
+.cta-ring::before{content:"";position:absolute;inset:-3px;border-radius:100px;padding:3px;background:conic-gradient(from var(--ra,0deg),var(--gold-2),transparent 30%,var(--gold) 50%,transparent 70%,var(--gold-2));-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;animation:spin 5s linear infinite;pointer-events:none}
+@property --ra{syntax:'<angle>';initial-value:0deg;inherits:false}
+@keyframes spin{to{--ra:360deg}}
+/* footer */
+footer{background:#171208;color:#e8dfc9;padding:70px 0 34px}
+.foot-top{display:flex;justify-content:space-between;align-items:flex-end;gap:30px;flex-wrap:wrap;padding-bottom:40px;border-bottom:1px solid rgba(227,196,124,.18);margin-bottom:40px}
+.foot-brand{font-family:var(--serif);font-size:34px;letter-spacing:.12em}
+.foot-brand em{font-style:italic;color:var(--gold-2)}
+.foot{display:flex;justify-content:space-between;gap:36px;flex-wrap:wrap;margin-bottom:44px}
+.foot p{color:#a99a76;font-size:14.5px;max-width:36ch}
+.foot h5{font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--gold-2);margin-bottom:18px}
+.foot ul{list-style:none;display:grid;gap:10px;font-size:15px}
+.foot a:hover{color:var(--gold-2)}
+.copy{border-top:1px solid rgba(227,196,124,.18);padding-top:28px;display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;color:#8a7c5c;font-size:13px}
+/* wa float */
+.wa-float{position:fixed;right:22px;bottom:22px;z-index:90;width:62px;height:62px;border-radius:50%;background:#25d366;display:flex;align-items:center;justify-content:center;box-shadow:0 12px 32px rgba(37,211,102,.42);transition:transform .25s}
+.wa-float:hover{transform:scale(1.08)}
+/* reveals */
+.rv{opacity:0;transform:translateY(38px);filter:blur(7px);transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1),filter .9s cubic-bezier(.2,.7,.2,1)}
+.rv.in{opacity:1;transform:none;filter:blur(0)}
+.rv.d1{transition-delay:.1s}.rv.d2{transition-delay:.2s}.rv.d3{transition-delay:.3s}
+.clip{clip-path:inset(12% 8% 12% 8%);transition:clip-path 1.1s cubic-bezier(.2,.7,.2,1)}
+.clip.in{clip-path:inset(0 0 0 0)}
+.clip img{transform:scale(1.14);transition:transform 1.4s cubic-bezier(.2,.7,.2,1)}
+.clip.in img{transform:scale(1)}
+/* responsive */
+@media(max-width:1020px){
+  .hero-grid{grid-template-columns:1fr}
+  .hero-media{max-width:640px}
+  .tx-head{grid-template-columns:1fr}
+  .doc-grid{grid-template-columns:1fr}
+  .doc-media{margin-right:0}
+  .doc-badge{right:12px}
+  .visit-grid{grid-template-columns:1fr}
+  .s1,.s2,.s3,.s4,.s5,.s6,.s7,.s8,.s9{grid-column:1/13;margin-top:0}
+  .steps{grid-template-columns:1fr;gap:40px}
+  .steps::before{display:none}
+  .step{padding:0}
+  .float-card{left:12px}
+}
+@media(max-width:768px){
+  .links{position:fixed;inset:0;background:rgba(250,246,238,.98);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);flex-direction:column;justify-content:center;gap:32px;transform:translateX(100%);transition:transform .4s;z-index:105}
+  .links.open{transform:none}
+  .links a{font-size:19px}
+  .burger{display:flex}
+  .nav .btn{display:none}
+  .hero{padding-top:110px}
+}
+@media(max-width:520px){
+  .hero-proof div{padding-right:20px;margin-right:20px;margin-bottom:14px}
+  .tcard{min-height:0}
+  .float-card{padding:14px 18px}
+  .float-card b{font-size:16px}
+}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .rv{opacity:1;transform:none;filter:none}
+  .clip{clip-path:none}.clip img{transform:none}
+  html{scroll-behavior:auto}
+  .dust{display:none}#progress{display:none}
+}
+</style>
+</head>
+<body>
+<div id="progress"></div>
+
+<header id="hdr">
+  <nav class="nav">
+    <a class="brand" href="#top">GOLDEN<em>&nbsp;·</em><small>COSMETIC CENTER · MIAMI</small></a>
+    <div class="links" id="menu">
+      <a href="#tratamientos">Tratamientos</a>
+      <a href="#doctora">La Doctora</a>
+      <a href="#proceso">Proceso</a>
+      <a href="#visita">Visítanos</a>
+      <a class="btn gold" href="https://ig.me/m/golden_cosmetic_center" target="_blank" rel="noopener">Agendar</a>
+    </div>
+    <button class="burger" id="burger" aria-label="Menú" aria-expanded="false"><span></span><span></span><span></span></button>
+  </nav>
+</header>
+
+<main id="top">
+<!-- HERO -->
+<section class="hero">
+  <span class="ghost" data-plx="0.05" aria-hidden="true">Golden</span>
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <p class="eyebrow kicker rv">Medicina estética · Miami</p>
+      <h1 class="h-hero rv d1">Belleza que se nota.<br><em>Cuidado que se siente.</em></h1>
+      <p class="sub hero-sub rv d2">Botox, rellenos, láser, faciales, Morpheus8, Endolift, IV Therapy y cirugía plástica — todo bajo un mismo techo, con atención médica profesional y trato cálido.</p>
+      <div class="hero-ctas rv d2">
+        <a class="btn gold" href="https://ig.me/m/golden_cosmetic_center" target="_blank" rel="noopener">Agendar por DM</a>
+        <a class="btn ghost" href="tel:+13052675317">305-267-5317</a>
+      </div>
+      <div class="hero-proof rv d3">
+        <div><b><span data-count="33">0</span>K+</b><span>Comunidad en Instagram</span></div>
+        <div><b>Dra. García</b><span>Dirección médica</span></div>
+        <div><b>Miami, FL</b><span>Calle 8 · Suite B</span></div>
+      </div>
+    </div>
+    <div class="hero-media rv d1" data-plx="0.08">
+      <div class="hero-halo"></div>
+      <div class="hero-frame clip" data-clip>
+        <img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=1000&q=70&auto=format&fit=crop" alt="Tratamiento facial en Golden Cosmetic Center" onerror="this.style.display='none'">
+      </div>
+      <div class="float-card">
+        <b>Dra. Liagnys García</b>
+        <span>Golden Cosmetic Center</span>
+      </div>
+      <p class="hero-cap">Medicina estética · Miami</p>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee" aria-hidden="true">
+  <div class="mq-track">
+    <span>Botox <i>·</i></span><span>Rellenos <i>·</i></span><span>Láser <i>·</i></span><span>Morpheus8 <i>·</i></span><span>Faciales <i>·</i></span><span>Endolift <i>·</i></span><span>IV Therapy <i>·</i></span><span>PRP <i>·</i></span>
+    <span>Botox <i>·</i></span><span>Rellenos <i>·</i></span><span>Láser <i>·</i></span><span>Morpheus8 <i>·</i></span><span>Faciales <i>·</i></span><span>Endolift <i>·</i></span><span>IV Therapy <i>·</i></span><span>PRP <i>·</i></span>
+  </div>
+</div>
+<!-- TRATAMIENTOS -->
+<section id="tratamientos">
+  <div class="wrap">
+    <div class="chapter rv"><span class="rn">i.</span><span class="rule"></span><span class="lbl">Tratamientos</span></div>
+    <div class="tx-head">
+      <h2 class="h-sec rv">Un menú completo<br>para <em>tu mejor versión.</em></h2>
+      <p class="sub rv d1">Del facial de mantenimiento a la cirugía plástica: cada tratamiento se indica según tu caso, con valoración profesional antes de empezar.</p>
+    </div>
+    <div class="bento">
+      <article class="tcard s1 rv"><span class="tag">Rostro</span><span class="num">01</span><h3>Botox &amp; Rellenos</h3><p>Realce sutil y de apariencia natural: labios hidratados, volumen en mejillas y suavizado de líneas de expresión.</p></article>
+      <article class="tcard s2 rv d1"><span class="tag">Piel</span><span class="num">02</span><h3>Láser &amp; Lumecca IPL</h3><p>Tecnología de luz para manchas del sol, hiperpigmentación, rosácea y textura — temporada de láser todo el año.</p></article>
+      <article class="tcard s3 rv"><span class="tag">Glow</span><span class="num">03</span><h3>Faciales de Lujo</h3><p>Hydro Jelly Masks, Golden Star Peel y LED Light Therapy: el ritual favorito para una piel luminosa.</p></article>
+      <article class="tcard s4 rv d1"><span class="tag">Firmeza</span><span class="num">04</span><h3>Morpheus8</h3><p>Radiofrecuencia con microagujas para rostro y cuerpo: firmeza y textura sin cirugía.</p></article>
+      <article class="tcard s5 rv d2"><span class="tag">Contorno</span><span class="num">05</span><h3>Endolift</h3><p>Redefine el contorno del rostro y el cuello con un procedimiento mínimamente invasivo.</p></article>
+      <article class="tcard s6 rv"><span class="tag">Bienestar</span><span class="num">06</span><h3>IV Therapy</h3><p>Hidratación y aporte de nutrientes por vía intravenosa, según tus necesidades y valoración médica.</p></article>
+      <article class="tcard s7 rv d1"><span class="tag">Regenerativo</span><span class="num">07</span><h3>PRP</h3><p>Plasma rico en plaquetas para facial y estímulo capilar, con protocolos personalizados.</p></article>
+      <article class="tcard s8 rv"><span class="tag">Cuerpo</span><span class="num">08</span><h3>Pérdida de Peso</h3><p>Programas de control de peso con acompañamiento profesional, adaptados a tu caso.</p></article>
+      <article class="tcard s9 rv d1"><span class="tag">Quirúrgico</span><span class="num">09</span><h3>Cirugía Plástica</h3><p>Procedimientos quirúrgicos con el equipo médico de Golden. Escríbenos para una valoración.</p></article>
+    </div>
+    <div class="tx-note rv">
+      <p>¿No sabes por dónde empezar? <a href="https://ig.me/m/golden_cosmetic_center" target="_blank" rel="noopener">Escríbenos por DM</a> y te orientamos según lo que buscas.</p>
+    </div>
+  </div>
+</section>
+
+<!-- DOCTORA -->
+<section id="doctora" class="doc">
+  <span class="ghost" data-plx="-0.04" aria-hidden="true">clínica</span>
+  <div class="wrap">
+    <div class="chapter rv"><span class="rn">ii.</span><span class="rule"></span><span class="lbl">La doctora</span></div>
+    <div class="doc-grid">
+      <div class="doc-media rv" data-plx="0.06">
+        <div class="doc-frame clip" data-clip>
+          <img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=1000&q=70&auto=format&fit=crop" alt="Ambiente de tratamiento en Golden Cosmetic Center" loading="lazy" onerror="this.style.display='none'">
+        </div>
+        <div class="doc-badge"><b>Dra. García</b><span>Golden Cosmetic Center</span></div>
+      </div>
+      <div class="doc-copy">
+        <p class="eyebrow rv">Dirección médica</p>
+        <h2 class="h-sec rv d1">La <em>Dra. Liagnys García</em><br>lidera tu tratamiento.</h2>
+        <p class="lead rv d2">Cuidarte no es vanidad — es amor propio.</p>
+        <p class="body rv d2">En Golden Cosmetic Center cada plan empieza con una valoración: la doctora y su equipo te escuchan, evalúan tu caso y te recomiendan solo lo que realmente necesitas.</p>
+        <p class="body rv d3">Miles de pacientes en Miami confían su rostro y su bienestar a Golden — del retoque sutil al cambio completo, siempre con criterio médico.</p>
+        <div class="doc-index rv d3">
+          <div><b>Valoración</b>Antes de tratar</div>
+          <div><b>Acompañamiento</b>En cada paso</div>
+          <div><b>Miami</b>Calle 8</div>
+        </div>
+        <div class="hero-ctas rv d3" style="margin-top:34px;margin-bottom:0">
+          <a class="btn gold" href="https://ig.me/m/golden_cosmetic_center" target="_blank" rel="noopener">Agendar evaluación</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- PROCESO -->
+<section id="proceso">
+  <div class="wrap">
+    <div class="chapter rv"><span class="rn">iii.</span><span class="rule"></span><span class="lbl">Cómo empezar</span></div>
+    <h2 class="h-sec rv" style="margin-bottom:14px">Tan fácil como <em>escribirnos.</em></h2>
+    <p class="sub rv d1">Sin formularios eternos ni llamadas en espera: tu cita se agenda por mensaje directo.</p>
+    <div class="steps">
+      <div class="step rv"><div class="n">1</div><h3>Escríbenos por DM</h3><p>Cuéntanos qué te gustaría mejorar o qué tratamiento te interesa. Respondemos personalmente.</p></div>
+      <div class="step rv d1"><div class="n">2</div><h3>Tu evaluación</h3><p>Valoramos tu caso y te recomendamos el plan ideal para ti — sin compromiso.</p></div>
+      <div class="step rv d2"><div class="n">3</div><h3>Tu tratamiento</h3><p>Agenda tu sesión en nuestro centro en la Calle 8 y empieza tu cambio con acompañamiento profesional.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" style="background:var(--ivory-2)">
+  <div class="wrap">
+    <div class="chapter rv"><span class="rn">iv.</span><span class="rule"></span><span class="lbl">Preguntas frecuentes</span></div>
+    <h2 class="h-sec rv" style="margin-bottom:44px">Antes de <em>venir.</em></h2>
+    <div class="faq-wrap rv">
+      <div class="faq-item">
+        <button class="faq-q">¿Cómo agendo mi cita?<span class="pm">+</span></button>
+        <div class="faq-a"><p>Escríbenos por <a href="https://ig.me/m/golden_cosmetic_center" target="_blank" rel="noopener">mensaje directo en Instagram</a> o llámanos al <a href="tel:+13052675317">305-267-5317</a>. Te orientamos y agendamos tu cita.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">¿Dónde están ubicados?<span class="pm">+</span></button>
+        <div class="faq-a"><p>En 5965 SW 8 Street, Suite B, Miami, FL 33144 — sobre la Calle 8.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">¿La primera evaluación tiene costo?<span class="pm">+</span></button>
+        <div class="faq-a"><p>Escríbenos por DM y te contamos cómo funciona la evaluación inicial según el tratamiento que te interese.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">¿Atienden en español?<span class="pm">+</span></button>
+        <div class="faq-a"><p>Sí — todo nuestro equipo te atiende en español.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">¿Qué tratamientos ofrecen?<span class="pm">+</span></button>
+        <div class="faq-a"><p>Botox, rellenos, láser y Lumecca IPL, faciales, Morpheus8, Endolift, IV Therapy, PRP, programas de pérdida de peso y cirugía plástica.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- VISITA -->
+<section id="visita">
+  <div class="wrap">
+    <div class="chapter rv"><span class="rn">v.</span><span class="rule"></span><span class="lbl">Visítanos</span></div>
+    <h2 class="h-sec rv" style="margin-bottom:52px">En el corazón de <em>la Calle 8.</em></h2>
+    <div class="visit-grid">
+      <div class="rv">
+        <div class="info-row">
+          <div class="info-ic">📍</div>
+          <div><h4>Dirección</h4><p>5965 SW 8 Street, Suite B<br>Miami, FL 33144</p></div>
+        </div>
+        <div class="info-row">
+          <div class="info-ic">📞</div>
+          <div><h4>Teléfono</h4><p><a class="hl" href="tel:+13052675317">305-267-5317</a></p></div>
+        </div>
+        <div class="info-row">
+          <div class="info-ic">💬</div>
+          <div><h4>Instagram</h4><p><a class="hl" href="https://www.instagram.com/golden_cosmetic_center" target="_blank" rel="noopener">@golden_cosmetic_center</a> · 33K seguidores</p></div>
+        </div>
+      </div>
+      <div class="book-panel rv d1">
+        <h3>Tu mejor versión<br>empieza con <em>un mensaje.</em></h3>
+        <p>Escríbenos por DM, cuéntanos qué buscas y agenda tu evaluación con nuestro equipo médico.</p>
+        <a class="btn gold" href="https://ig.me/m/golden_cosmetic_center" target="_blank" rel="noopener">Abrir chat de Instagram</a>
+        <a class="btn ghost" style="color:#e8dfc9;border-color:rgba(227,196,124,.35)" href="tel:+13052675317">Llamar ahora</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final">
+  <span class="ghost" aria-hidden="true">✦</span>
+  <div class="wrap">
+    <p class="eyebrow rv" style="justify-content:center">Golden Cosmetic Center</p>
+    <h2 class="h-sec rv" style="font-size:clamp(48px,7.5vw,104px)">Regálate ese momento<br><em>para ti.</em></h2>
+    <p class="sub rv d1">Tu piel también merece un momento de atención. Escríbenos hoy.</p>
+    <div class="hero-ctas rv d2">
+      <span class="cta-ring"><a class="btn gold" href="https://ig.me/m/golden_cosmetic_center" target="_blank" rel="noopener">Agendar por DM</a></span>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-brand">GOLDEN<em> ·</em></div>
+      <p style="color:#a99a76;font-size:14px;max-width:40ch">Medicina estética en Miami — Botox, rellenos, láser, faciales, Morpheus8, Endolift, IV Therapy y más.</p>
+    </div>
+    <div class="foot">
+      <div>
+        <h5>Explora</h5>
+        <ul>
+          <li><a href="#tratamientos">Tratamientos</a></li>
+          <li><a href="#doctora">La Doctora</a></li>
+          <li><a href="#proceso">Cómo empezar</a></li>
+          <li><a href="#visita">Visítanos</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Contacto</h5>
+        <ul>
+          <li>5965 SW 8 Street, Suite B, Miami, FL 33144</li>
+          <li><a href="tel:+13052675317">305-267-5317</a></li>
+          <li><a href="https://www.instagram.com/golden_cosmetic_center" target="_blank" rel="noopener">@golden_cosmetic_center</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Agenda</h5>
+        <ul>
+          <li><a href="https://ig.me/m/golden_cosmetic_center" target="_blank" rel="noopener">Mensaje directo</a></li>
+          <li><a href="tel:+13052675317">Llamada</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="copy">
+      <span>© 2026 Golden Cosmetic Center · Miami, FL</span>
+      <span>Vista previa de concepto — no es el sitio oficial</span>
+    </div>
+  </div>
+</footer>
+
+<a class="wa-float" href="https://ig.me/m/golden_cosmetic_center" target="_blank" rel="noopener" aria-label="Instagram DM" style="background:linear-gradient(135deg,#b8892f,#e3c47c)">
+  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1.2" fill="#fff" stroke="none"/></svg>
+</a>
+<script>
+(function(){
+  var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var hdr=document.getElementById('hdr');
+  var prog=document.getElementById('progress');
+  addEventListener('scroll',function(){hdr.classList.toggle('scrolled',scrollY>40)},{passive:true});
+  var burger=document.getElementById('burger'),menu=document.getElementById('menu');
+  burger.addEventListener('click',function(){var o=menu.classList.toggle('open');burger.setAttribute('aria-expanded',o)});
+  menu.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){menu.classList.remove('open');burger.setAttribute('aria-expanded','false')})});
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12,rootMargin:'0px 0px -40px 0px'});
+  document.querySelectorAll('.rv').forEach(function(el){io.observe(el)});
+  var io2=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io2.unobserve(e.target)}})},{threshold:.2});
+  document.querySelectorAll('[data-clip]').forEach(function(el){io2.observe(el)});
+  var counted=false;
+  var cio=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting&&!counted){counted=true;cio.disconnect();
+    document.querySelectorAll('[data-count]').forEach(function(el){var t=+el.dataset.count;
+      if(reduce){el.textContent=t;return}
+      var st=null;
+      function step(ts){if(!st)st=ts;var p=Math.min((ts-st)/1400,1),v=Math.round(t*(1-Math.pow(1-p,3)));el.textContent=v;if(p<1)requestAnimationFrame(step)}
+      requestAnimationFrame(step)})}})},{threshold:.4});
+  var hp=document.querySelector('.hero-proof');if(hp)cio.observe(hp);
+  var plx=document.querySelectorAll('[data-plx]');
+  function onScroll(){
+    var y=scrollY,h=document.documentElement.scrollHeight-innerHeight;
+    prog.style.width=(h>0?(y/h*100):0)+'%';
+  }
+  if(!reduce&&plx.length&&matchMedia('(min-width:1021px)').matches){
+    var ticking=false;
+    addEventListener('scroll',function(){
+      if(!ticking){ticking=true;requestAnimationFrame(function(){
+        var y=scrollY;
+        plx.forEach(function(el){var sp=parseFloat(el.dataset.plx)||0;el.style.transform='translate3d(0,'+(y*sp).toFixed(1)+'px,0)'});
+        onScroll();ticking=false})}
+    },{passive:true});
+  }else{
+    addEventListener('scroll',onScroll,{passive:true});
+  }
+  if(!reduce&&matchMedia('(min-width:1024px)').matches){
+    var hero=document.querySelector('.hero');
+    for(var i=0;i<14;i++){
+      var d=document.createElement('span');d.className='dust';
+      var s=4+Math.random()*8;d.style.width=d.style.height=s+'px';
+      d.style.left=(Math.random()*100)+'%';d.style.top=(20+Math.random()*70)+'%';
+      var op=(.25+Math.random()*.45).toFixed(2);d.style.opacity=op;
+      d.animate([{transform:'translateY(0)',opacity:op},{transform:'translateY(-'+(40+Math.random()*80).toFixed(0)+'px)',opacity:0}],{duration:6000+Math.random()*7000,iterations:Infinity,delay:Math.random()*6000,easing:'ease-in-out'});
+      hero.appendChild(d);
+    }
+  }
+  document.querySelectorAll('.faq-q').forEach(function(btn){
+    btn.addEventListener('click',function(){
+      var item=btn.parentElement,ans=item.querySelector('.faq-a'),open=item.classList.contains('open');
+      document.querySelectorAll('.faq-item.open').forEach(function(o){o.classList.remove('open');o.querySelector('.faq-a').style.maxHeight=null});
+      if(!open){item.classList.add('open');ans.style.maxHeight=ans.scrollHeight+'px'}
+    });
+  });
+})();
+</script>
+</body>
+</html>

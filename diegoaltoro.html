@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Diego Avila — Brickell Barber & Educator | Miami, FL</title>
+<meta name="description" content="Diego Avila (@diegoaltoro): Brickell barber & educator in Miami. Sharp fades, transformations, and the RBM blueprint helping barbers cut better, get booked & charge more.">
+<meta name="theme-color" content="#0a0908">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@1,500;1,600&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BarberShop","name":"Diego Avila — Brickell Barber & Educator","address":{"@type":"PostalAddress","addressLocality":"Miami","addressRegion":"FL","addressCountry":"US"},"sameAs":["https://www.instagram.com/diegoaltoro"],"url":"https://dblends.booksy.com/k/"}
+</script>
+<style>
+:root{
+  --bg:#0a0908; --bg2:#100e0c; --card:#14110d; --ink:#f5efe2; --muted:#a89e88;
+  --gold:#e3b34c; --gold-soft:#f0d189; --gold-dim:rgba(227,179,76,.14);
+  --line:rgba(227,179,76,.16); --line2:rgba(245,239,226,.08);
+  --max:1280px; --pad:clamp(20px,4vw,52px);
+  --font-d:'Anton',Impact,sans-serif; --font-b:'Inter',system-ui,sans-serif; --font-s:'Playfair Display',Georgia,serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:var(--font-b);line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+body::after{content:"";position:fixed;inset:0;z-index:2000;pointer-events:none;opacity:.05;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='.55'/%3E%3C/svg%3E")}
+::selection{background:var(--gold);color:#0a0908}
+::-webkit-scrollbar{width:10px}
+::-webkit-scrollbar-track{background:#0a0908}
+::-webkit-scrollbar-thumb{background:linear-gradient(180deg,var(--gold),#8a6a2a);border-radius:8px}
+::-webkit-scrollbar-thumb:hover{box-shadow:0 0 12px rgba(227,179,76,.7)}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 var(--pad)}
+section{padding:clamp(88px,10vw,150px) 0;position:relative;scroll-margin-top:70px}
+.eyebrow{display:inline-flex;align-items:center;gap:12px;font-size:11px;font-weight:700;letter-spacing:.38em;text-transform:uppercase;color:var(--gold);margin-bottom:24px;text-shadow:0 0 18px rgba(227,179,76,.55)}
+.eyebrow::before{content:"";width:38px;height:1px;background:linear-gradient(90deg,transparent,var(--gold));box-shadow:0 0 10px rgba(227,179,76,.8)}
+h1,h2,h3,.display{font-family:var(--font-d);font-weight:400;line-height:.94;letter-spacing:.005em;text-transform:uppercase;text-wrap:balance}
+.h-xl{font-size:clamp(58px,10.5vw,150px)}
+.h-lg{font-size:clamp(42px,6.4vw,88px)}
+.h-md{font-size:clamp(30px,4vw,54px)}
+.serif{font-family:var(--font-s);font-style:italic;text-transform:none;letter-spacing:0}
+.gold{color:var(--gold)}
+.sub{color:var(--muted);font-size:clamp(16px,1.6vw,19px);max-width:60ch}
+.kicker{display:flex;align-items:center;gap:14px;margin-bottom:26px}
+.kicker .num{font-family:var(--font-d);font-size:13px;letter-spacing:.1em;color:#0a0908;background:var(--gold);border-radius:100px;padding:6px 14px;box-shadow:0 0 18px rgba(227,179,76,.55)}
+.kicker .rule{flex:1;height:1px;background:linear-gradient(90deg,var(--line),transparent)}
+.kicker .lbl{font-size:11px;font-weight:700;letter-spacing:.34em;text-transform:uppercase;color:var(--gold)}
+/* progress */
+#progress{position:fixed;top:0;left:0;height:2px;width:0;z-index:1500;background:linear-gradient(90deg,#8a6a2a,var(--gold),var(--gold-soft));box-shadow:0 0 14px rgba(227,179,76,.9)}
+/* cursor light */
+#cursorLight{position:fixed;width:520px;height:520px;border-radius:50%;pointer-events:none;z-index:1;
+  background:radial-gradient(circle,rgba(227,179,76,.09) 0%,transparent 60%);transform:translate(-50%,-50%);mix-blend-mode:screen}
+/* header */
+header{position:fixed;inset:0 0 auto 0;z-index:1000;transition:background .35s,border-color .35s;border-bottom:1px solid transparent}
+header.scrolled{background:rgba(10,9,8,.88);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-color:var(--line2)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:74px;max-width:var(--max);margin:0 auto;padding:0 var(--pad)}
+.brand{font-family:var(--font-d);font-size:24px;letter-spacing:.05em;line-height:1;text-shadow:0 0 22px rgba(227,179,76,.45)}
+.brand em{font-style:normal;color:var(--gold)}
+.brand small{display:block;font-family:var(--font-b);font-size:9px;font-weight:700;letter-spacing:.4em;color:var(--muted);margin-top:4px}
+.links{display:flex;gap:32px;align-items:center}
+.links a{font-size:12.5px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);transition:color .25s;position:relative}
+.links a::after{content:"";position:absolute;left:0;bottom:-6px;width:0;height:1px;background:var(--gold);box-shadow:0 0 8px rgba(227,179,76,.9);transition:width .3s}
+.links a:hover{color:var(--ink)}
+.links a:hover::after{width:100%}
+.btn{display:inline-flex;align-items:center;gap:10px;background:linear-gradient(135deg,var(--gold-soft),var(--gold) 55%,#c99a35);color:#0a0908;font-weight:800;font-size:13.5px;letter-spacing:.12em;text-transform:uppercase;padding:16px 30px;border-radius:100px;border:none;cursor:pointer;position:relative;overflow:hidden;transition:transform .25s,box-shadow .25s;box-shadow:0 0 0 rgba(227,179,76,0)}
+.btn::before{content:"";position:absolute;top:0;left:-80%;width:60%;height:100%;background:linear-gradient(105deg,transparent,rgba(255,255,255,.5),transparent);transform:skewX(-20deg);transition:left .6s}
+.btn:hover{transform:translateY(-2px);box-shadow:0 10px 34px rgba(227,179,76,.4)}
+.btn:hover::before{left:130%}
+.btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--line)}
+.btn.ghost:hover{border-color:var(--gold);box-shadow:0 0 24px rgba(227,179,76,.25)}
+.burger{display:none;background:none;border:none;cursor:pointer;z-index:1010}
+.burger span{display:block;width:28px;height:2px;background:var(--ink);margin:6px 0;transition:.3s}
+/* hero */
+.hero{min-height:100svh;display:flex;align-items:flex-end;padding:140px 0 0;overflow:hidden;position:relative}
+.hero-bg{position:absolute;inset:0;z-index:-3;will-change:transform}
+.hero-bg img{width:100%;height:112%;object-fit:cover;opacity:.42;filter:sepia(.18) contrast(1.06)}
+.hero-veil{position:absolute;inset:0;z-index:-2;background:
+  radial-gradient(900px 480px at 78% 12%,rgba(227,179,76,.16),transparent 60%),
+  radial-gradient(700px 500px at 12% 88%,rgba(227,179,76,.1),transparent 60%),
+  linear-gradient(180deg,rgba(10,9,8,.62) 0%,rgba(10,9,8,.28) 42%,var(--bg) 96%)}
+.hero .wrap{width:100%;padding-bottom:70px;position:relative;z-index:2}
+.hero h1 .row{display:block;overflow:hidden;padding-bottom:.06em}
+.hero h1 .row>span{display:inline-block}
+.hero h1 .row>span.lit{color:var(--gold-soft);text-shadow:0 0 14px rgba(240,209,137,.85),0 0 46px rgba(227,179,76,.5),0 0 90px rgba(227,179,76,.28)}
+.hero h1 .row>span.shimmer{background:linear-gradient(100deg,var(--ink) 30%,var(--gold-soft) 48%,var(--ink) 66%);background-size:220% auto;-webkit-background-clip:text;background-clip:text;color:transparent;animation:shimmer 7.5s linear infinite}
+@keyframes shimmer{to{background-position:220% center}}
+.hero-sub{margin:28px 0 36px;max-width:58ch;color:#d9d0ba;font-size:clamp(16px,1.8vw,20px)}
+.hero-sub b{color:var(--gold-soft);font-weight:700}
+.hero-ctas{display:flex;gap:16px;flex-wrap:wrap}
+.hero-meta{display:flex;gap:0;margin-top:60px;border:1px solid var(--line2);border-radius:18px;overflow:hidden;background:rgba(16,14,12,.72);backdrop-filter:blur(8px)}
+.hero-meta div{flex:1;padding:24px 28px;border-left:1px solid var(--line2)}
+.hero-meta div:first-child{border-left:none}
+.hero-meta b{font-family:var(--font-d);font-weight:400;font-size:clamp(30px,3.6vw,48px);display:block;letter-spacing:.02em;font-variant-numeric:tabular-nums}
+.hero-meta b .gold{font-size:.62em}
+.hero-meta span{font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--muted)}
+.scroll-hint{position:absolute;right:var(--pad);bottom:70px;z-index:2;display:flex;flex-direction:column;align-items:center;gap:12px;color:var(--muted);font-size:10px;letter-spacing:.34em;text-transform:uppercase;writing-mode:vertical-rl}
+.scroll-hint::after{content:"";width:1px;height:64px;background:linear-gradient(180deg,var(--gold),transparent);box-shadow:0 0 10px rgba(227,179,76,.8);animation:drip 2.2s ease-in-out infinite}
+@keyframes drip{0%{transform:scaleY(0);transform-origin:top}45%{transform:scaleY(1);transform-origin:top}55%{transform:scaleY(1);transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+/* ticker */
+.ticker{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:#0d0b09;overflow:hidden;padding:20px 0;white-space:nowrap;position:relative}
+.ticker::before,.ticker::after{content:"";position:absolute;top:0;bottom:0;width:120px;z-index:2;pointer-events:none}
+.ticker::before{left:0;background:linear-gradient(90deg,#0d0b09,transparent)}
+.ticker::after{right:0;background:linear-gradient(-90deg,#0d0b09,transparent)}
+.ticker-track{display:inline-flex;animation:tick 28s linear infinite}
+.ticker:hover .ticker-track{animation-play-state:paused}
+.ticker span{font-family:var(--font-d);font-size:24px;letter-spacing:.06em;text-transform:uppercase;padding:0 30px;color:var(--ink);text-shadow:0 0 16px rgba(227,179,76,.25)}
+.ticker span i{font-style:normal;color:var(--gold);padding-right:60px;text-shadow:0 0 14px rgba(227,179,76,.8)}
+@keyframes tick{to{transform:translateX(-50%)}}
+/* services broken grid */
+.svc-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:24px;margin-top:56px}
+.svc{border:1px solid var(--line2);border-radius:20px;overflow:hidden;background:var(--card);position:relative;transition:transform .4s,border-color .4s,box-shadow .4s}
+.svc:hover{transform:translateY(-8px);border-color:rgba(227,179,76,.55);box-shadow:0 24px 60px rgba(0,0,0,.5),0 0 40px rgba(227,179,76,.12)}
+.svc .ph{height:300px;overflow:hidden;position:relative}
+.svc .ph img{width:100%;height:100%;object-fit:cover;filter:sepia(.14) contrast(1.05);transition:transform .7s}
+.svc:hover .ph img{transform:scale(1.07)}
+.svc .ph::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(10,9,8,.9));pointer-events:none}
+.svc .tx{padding:32px 30px}
+.svc .idx{font-family:var(--font-d);font-size:13px;letter-spacing:.2em;color:var(--gold);margin-bottom:12px;text-shadow:0 0 12px rgba(227,179,76,.6)}
+.svc h3{font-size:clamp(26px,3vw,40px);margin-bottom:12px}
+.svc p{color:var(--muted);font-size:15.5px;margin-bottom:20px}
+.svc .go{display:inline-flex;align-items:center;gap:10px;font-size:12.5px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--gold-soft)}
+.svc .go svg{transition:transform .3s}
+.svc:hover .go svg{transform:translateX(6px)}
+.svc-a{grid-column:1/8}
+.svc-b{grid-column:8/13;margin-top:88px}
+.svc-c{grid-column:1/7;margin-top:-40px}
+.svc-d{grid-column:7/13;margin-top:48px}
+/* about editorial */
+.about-grid{display:grid;grid-template-columns:1.02fr .98fr;gap:96px;align-items:start;margin-top:56px}
+.about-sticky{position:sticky;top:110px}
+.about-frame{border-radius:22px;overflow:hidden;border:1px solid var(--line);position:relative;box-shadow:0 30px 80px rgba(0,0,0,.55)}
+.about-frame img{width:100%;height:560px;object-fit:cover;filter:sepia(.16) contrast(1.06)}
+.about-frame::after{content:"";position:absolute;inset:0;border:1px solid rgba(227,179,76,.35);border-radius:22px;pointer-events:none;box-shadow:inset 0 0 60px rgba(227,179,76,.08)}
+.about-cap{margin-top:14px;font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted)}
+.about-cap b{color:var(--gold)}
+.about-copy .rowline{display:flex;gap:22px;padding:26px 0;border-bottom:1px solid var(--line2)}
+.about-copy .rowline:last-child{border:none}
+.about-copy .rl-num{font-family:var(--font-d);color:var(--gold);font-size:15px;letter-spacing:.1em;flex:none;padding-top:4px;text-shadow:0 0 12px rgba(227,179,76,.6)}
+.about-copy h4{font-size:19px;font-weight:700;margin-bottom:8px}
+.about-copy p{color:var(--muted);font-size:15.5px}
+.pull{margin:70px 0 0;position:relative;padding-left:8px}
+.pull blockquote{font-family:var(--font-s);font-style:italic;font-size:clamp(26px,3.4vw,44px);line-height:1.3;color:var(--ink);max-width:22ch}
+.pull blockquote::before{content:"\201C";position:absolute;left:-34px;top:-30px;font-family:var(--font-s);font-size:110px;color:var(--gold);opacity:.5;line-height:1}
+.pull cite{display:block;margin-top:18px;font-style:normal;font-size:12px;letter-spacing:.28em;text-transform:uppercase;color:var(--muted)}
+/* education band */
+.edu{background:linear-gradient(135deg,#171208,#0d0b09 60%);border-top:1px solid var(--line);border-bottom:1px solid var(--line);overflow:hidden;position:relative}
+.edu::before{content:"RBM";position:absolute;right:-30px;top:50%;transform:translateY(-50%);font-family:var(--font-d);font-size:clamp(160px,24vw,340px);color:transparent;-webkit-text-stroke:1px rgba(227,179,76,.14);pointer-events:none;letter-spacing:.02em}
+.edu-grid{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center;position:relative;z-index:2}
+.edu-list{display:grid;gap:0;margin-top:30px}
+.edu-list .er{display:flex;gap:20px;padding:20px 0;border-bottom:1px solid var(--line2);align-items:flex-start}
+.edu-list .er:last-child{border:none}
+.edu-list .dot{flex:none;width:10px;height:10px;border-radius:50%;background:var(--gold);margin-top:8px;box-shadow:0 0 14px rgba(227,179,76,.9)}
+.edu-list h4{font-size:17px;font-weight:700}
+.edu-list p{color:var(--muted);font-size:15px}
+/* gallery */
+.gal{display:grid;grid-template-columns:repeat(12,1fr);gap:20px;margin-top:56px}
+.gal figure{border-radius:16px;overflow:hidden;position:relative;border:1px solid var(--line2)}
+.gal img{width:100%;height:100%;object-fit:cover;filter:sepia(.14) contrast(1.05);transition:transform .7s,filter .5s}
+.gal figure:hover img{transform:scale(1.06);filter:sepia(.05) contrast(1.08)}
+.g1{grid-column:1/6;height:420px}.g2{grid-column:6/13;height:420px;margin-top:56px}
+.g3{grid-column:1/8;height:360px;margin-top:-20px}.g4{grid-column:8/13;height:420px}
+.gal figcaption{position:absolute;left:0;right:0;bottom:0;padding:22px;background:linear-gradient(180deg,transparent,rgba(8,7,6,.92));font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold-soft);transform:translateY(8px);opacity:.92}
+/* faq */
+.faq-item{border-bottom:1px solid var(--line2)}
+.faq-q{width:100%;background:none;border:none;color:var(--ink);font-family:var(--font-b);font-size:18px;font-weight:700;text-align:left;padding:26px 8px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:20px}
+.faq-q .pm{flex:none;width:36px;height:36px;border:1px solid var(--line);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:20px;color:var(--gold);transition:transform .3s,background .3s,box-shadow .3s}
+.faq-item.open .pm{transform:rotate(45deg);background:var(--gold);color:#0a0908;border-color:var(--gold);box-shadow:0 0 18px rgba(227,179,76,.7)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .45s ease;color:var(--muted);font-size:16px}
+.faq-a p{padding:0 8px 28px;max-width:70ch}
+.faq-a a{color:var(--gold-soft);font-weight:600;border-bottom:1px solid rgba(227,179,76,.4)}
+/* final cta */
+.final{text-align:center;overflow:hidden}
+.final .ghost{position:absolute;left:50%;top:44%;transform:translate(-50%,-50%);font-family:var(--font-d);font-size:clamp(120px,20vw,300px);color:transparent;-webkit-text-stroke:1px rgba(227,179,76,.1);pointer-events:none;white-space:nowrap;letter-spacing:.04em}
+.final h2{position:relative;z-index:2}
+.final .cta-ring{position:relative;display:inline-block;margin-top:40px}
+.final .cta-ring::before{content:"";position:absolute;inset:-4px;border-radius:100px;padding:2px;background:conic-gradient(from var(--ang,0deg),transparent 0 70%,var(--gold) 85%,transparent 100%);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;animation:spin 4s linear infinite;filter:blur(1px)}
+@property --ang{syntax:'<angle>';initial-value:0deg;inherits:false}
+@keyframes spin{to{--ang:360deg}}
+/* footer */
+footer{border-top:1px solid var(--line);padding:70px 0 36px;background:#070605}
+.foot-mast{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;padding-bottom:40px;border-bottom:1px solid var(--line2);margin-bottom:44px}
+.foot-mast .brand{font-size:44px}
+.foot{display:flex;justify-content:space-between;gap:32px;flex-wrap:wrap;margin-bottom:44px}
+.foot p{color:var(--muted);font-size:14.5px;max-width:38ch}
+.foot h5{font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);margin-bottom:18px}
+.foot ul{list-style:none;display:grid;gap:10px;font-size:15px}
+.foot a{transition:color .25s}
+.foot a:hover{color:var(--gold-soft)}
+.copy{border-top:1px solid var(--line2);padding-top:28px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;color:var(--muted);font-size:13px}
+/* floating book */
+.book-float{position:fixed;right:22px;bottom:22px;z-index:900;display:inline-flex;align-items:center;gap:10px;background:linear-gradient(135deg,var(--gold-soft),var(--gold));color:#0a0908;font-weight:800;font-size:13px;letter-spacing:.1em;text-transform:uppercase;padding:16px 24px;border-radius:100px;box-shadow:0 12px 34px rgba(227,179,76,.35);transition:transform .25s}
+.book-float:hover{transform:scale(1.06)}
+/* reveals */
+.rv{opacity:0;transform:translateY(40px);transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1)}
+.rv.in{opacity:1;transform:none}
+.rv.d1{transition-delay:.1s}.rv.d2{transition-delay:.2s}.rv.d3{transition-delay:.3s}
+.mask{clip-path:inset(12% 8% 12% 8%);transition:clip-path 1.1s cubic-bezier(.2,.7,.2,1)}
+.mask.in{clip-path:inset(0 0 0 0)}
+/* responsive */
+@media(max-width:1024px){
+  .svc-a{grid-column:1/13}.svc-b{grid-column:1/13;margin-top:0}
+  .svc-c{grid-column:1/13;margin-top:0}.svc-d{grid-column:1/13;margin-top:0}
+  .about-grid{grid-template-columns:1fr;gap:48px}
+  .about-sticky{position:static}
+  .about-frame img{height:440px}
+  .edu-grid{grid-template-columns:1fr;gap:48px}
+  .g1{grid-column:1/13;height:340px}.g2{grid-column:1/13;height:340px;margin-top:0}
+  .g3{grid-column:1/13;height:320px;margin-top:0}.g4{grid-column:1/13;height:340px}
+}
+@media(max-width:768px){
+  .links{position:fixed;inset:0;background:rgba(7,6,5,.98);backdrop-filter:blur(12px);flex-direction:column;justify-content:center;gap:36px;transform:translateX(100%);transition:transform .4s;z-index:1005}
+  .links.open{transform:none}
+  .links a{font-size:20px}
+  .burger{display:block}
+  .nav .btn{display:none}
+  .hero-meta{flex-direction:column}
+  .hero-meta div{border-left:none;border-top:1px solid var(--line2)}
+  .hero-meta div:first-child{border-top:none}
+  .scroll-hint{display:none}
+  #cursorLight{display:none}
+}
+@media(max-width:520px){
+  .hero-ctas .btn{width:100%;justify-content:center}
+  .book-float{right:16px;bottom:16px;padding:14px 20px}
+}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .rv{opacity:1;transform:none}
+  .mask{clip-path:inset(0 0 0 0)}
+  html{scroll-behavior:auto}
+}
+</style>
+</head>
+<body>
+<div id="progress"></div>
+<div id="cursorLight" aria-hidden="true"></div>
+
+<header id="hdr">
+  <nav class="nav">
+    <a class="brand" href="#top">DIEGO<em>AVILA</em><small>BRICKELL · MIAMI</small></a>
+    <div class="links" id="menu">
+      <a href="#services">Services</a>
+      <a href="#about">About</a>
+      <a href="#education">Education</a>
+      <a href="#work">Work</a>
+      <a href="#faq">FAQ</a>
+      <a class="btn" href="https://dblends.booksy.com/k/" target="_blank" rel="noopener">Book Now</a>
+    </div>
+    <button class="burger" id="burger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  </nav>
+</header>
+
+<main id="top">
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg" id="heroBg"><img src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?w=1800&q=70&auto=format&fit=crop" alt="Diego Avila cutting hair in Miami" onerror="this.style.display='none'"></div>
+  <div class="hero-veil"></div>
+  <div class="wrap">
+    <p class="eyebrow rv">Brickell · Miami — Barber &amp; Educator</p>
+    <h1 class="h-xl" id="heroTitle">
+      <span class="row"><span>Cut sharp.</span></span>
+      <span class="row"><span class="shimmer">Get booked.</span></span>
+      <span class="row"><span class="lit" id="neonWord">Charge more.</span></span>
+    </h1>
+    <p class="hero-sub rv d1">I'm <b>Diego Avila</b> — the Brickell barber behind <b>@diegoaltoro</b> (180K). I cut in Miami and teach barbers everywhere how to cut better, get booked &amp; charge more.</p>
+    <div class="hero-ctas rv d2">
+      <a class="btn" href="https://dblends.booksy.com/k/" target="_blank" rel="noopener">Book a Cut</a>
+      <a class="btn ghost" href="https://ig.me/m/diegoaltoro" target="_blank" rel="noopener">Learn From Me</a>
+    </div>
+    <div class="hero-meta rv d3">
+      <div><b><span class="count" data-to="180" data-suffix="K">0</span></b><span>Community on Instagram</span></div>
+      <div><b><span class="count" data-to="823">0</span></b><span>Posts of the craft</span></div>
+      <div><b>El Paso <span class="gold">→</span> Miami</b><span>The journey</span></div>
+    </div>
+  </div>
+  <div class="scroll-hint" aria-hidden="true">Scroll</div>
+</section>
+
+<!-- TICKER -->
+<div class="ticker" aria-hidden="true">
+  <div class="ticker-track">
+    <span>Sharp Fades <i>✦</i></span><span>Transformations <i>✦</i></span><span>Scissor Work <i>✦</i></span><span>RBM Mastermind <i>✦</i></span><span>The Blueprint <i>✦</i></span><span>Brickell · Miami <i>✦</i></span>
+    <span>Sharp Fades <i>✦</i></span><span>Transformations <i>✦</i></span><span>Scissor Work <i>✦</i></span><span>RBM Mastermind <i>✦</i></span><span>The Blueprint <i>✦</i></span><span>Brickell · Miami <i>✦</i></span>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="wrap">
+    <div class="kicker rv"><span class="num">01</span><span class="rule"></span><span class="lbl">Services</span></div>
+    <h2 class="h-lg rv">Two chairs.<br><span class="serif gold">One standard: sharp.</span></h2>
+    <p class="sub rv d1" style="margin-top:20px">In the chair, you get the cut. Behind the scenes, you get the system. Pick your lane.</p>
+    <div class="svc-grid">
+      <article class="svc svc-a rv">
+        <div class="ph"><img src="https://images.unsplash.com/photo-1605497788044-5a32c7078486?w=1000&q=70&auto=format&fit=crop" alt="Precision fade haircut" loading="lazy" onerror="this.style.display='none'"></div>
+        <div class="tx">
+          <p class="idx">A — THE CHAIR</p>
+          <h3>Signature Cuts</h3>
+          <p>Skin fades, tapers, scissor work and full transformations — the cuts that built 180K followers. Demand keeps rising, so book ahead.</p>
+          <a class="go" href="https://dblends.booksy.com/k/" target="_blank" rel="noopener">Book on Booksy <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#e3b34c" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </div>
+      </article>
+      <article class="svc svc-b rv d1">
+        <div class="ph"><img src="https://images.unsplash.com/photo-1585747860715-2ba37e788b70?w=1000&q=70&auto=format&fit=crop" alt="Barbershop interior" loading="lazy" onerror="this.style.display='none'"></div>
+        <div class="tx">
+          <p class="idx">B — THE CRAFT</p>
+          <h3>1:1 Coaching</h3>
+          <p>Private students fly out to Miami to learn the business behind the brand — pricing, content, bookings, systems. DM to apply.</p>
+          <a class="go" href="https://ig.me/m/diegoaltoro" target="_blank" rel="noopener">DM "Coach" <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#e3b34c" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </div>
+      </article>
+      <article class="svc svc-c rv">
+        <div class="ph"><img src="https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?w=1000&q=70&auto=format&fit=crop" alt="Barber tools and setup" loading="lazy" onerror="this.style.display='none'"></div>
+        <div class="tx">
+          <p class="idx">C — RBM MASTERMIND</p>
+          <h3>Miami Mastermind</h3>
+          <p>An in-person experience with barbers running real businesses — celebrating wins and learning how to run a barber business the right way.</p>
+          <a class="go" href="https://ig.me/m/diegoaltoro" target="_blank" rel="noopener">Get Notified <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#e3b34c" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </div>
+      </article>
+      <article class="svc svc-d rv d1">
+        <div class="ph"><img src="https://images.unsplash.com/photo-1621605815971-fbc98d665033?w=1000&q=70&auto=format&fit=crop" alt="Straight razor detail work" loading="lazy" onerror="this.style.display='none'"></div>
+        <div class="tx">
+          <p class="idx">D — THE BLUEPRINT</p>
+          <h3>Content System</h3>
+          <p>The exact posting blueprint behind the growth — from El Paso to viral in months. Structure behind every post, not just talent.</p>
+          <a class="go" href="https://ig.me/m/diegoaltoro" target="_blank" rel="noopener">DM "Blueprint" <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#e3b34c" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" style="padding-top:0">
+  <div class="wrap">
+    <div class="kicker rv"><span class="num">02</span><span class="rule"></span><span class="lbl">The Barber</span></div>
+    <div class="about-grid">
+      <div class="about-sticky rv">
+        <div class="about-frame mask" data-mask>
+          <img src="https://images.unsplash.com/photo-1493256338651-d82f7acb2b38?w=900&q=70&auto=format&fit=crop" alt="Diego Avila — barber tools of the trade" loading="lazy" onerror="this.style.display='none'">
+        </div>
+        <p class="about-cap"><b>@diegoaltoro</b> · Brickell, Miami</p>
+      </div>
+      <div class="about-copy">
+        <h2 class="h-lg rv">From El Paso<br>to <span class="gold">Brickell.</span></h2>
+        <div style="margin-top:36px">
+          <div class="rowline rv">
+            <span class="rl-num">I.</span>
+            <div><h4>The grind</h4><p>Cutting all week in El Paso, posting whenever I could — views came, bookings didn't. It was never a talent problem. There was no structure behind any of it.</p></div>
+          </div>
+          <div class="rowline rv d1">
+            <span class="rl-num">II.</span>
+            <div><h4>The turn</h4><p>Once I built a real plan behind the brand, everything changed. Three months of structured posting — and it went viral.</p></div>
+          </div>
+          <div class="rowline rv d2">
+            <span class="rl-num">III.</span>
+            <div><h4>Miami</h4><p>Now I cut in Brickell, Miami — demand keeps rising — and I teach barbers the business side most never learn: getting booked and charging more.</p></div>
+          </div>
+          <div class="rowline rv d3">
+            <span class="rl-num">IV.</span>
+            <div><h4>The mission</h4><p>Helping barbers cut better, get booked &amp; charge more. All glory to God.</p></div>
+          </div>
+        </div>
+        <div class="pull rv">
+          <blockquote>It was never a talent problem. I just had no structure behind any of it.</blockquote>
+          <cite>— Diego Avila</cite>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education" class="edu">
+  <div class="wrap">
+    <div class="edu-grid">
+      <div>
+        <div class="kicker rv"><span class="num">03</span><span class="rule"></span><span class="lbl">Education</span></div>
+        <h2 class="h-lg rv">Stop guessing.<br><span class="serif gold">Start charging.</span></h2>
+        <p class="sub rv d1" style="margin-top:20px">Most barbers cut all week and post whenever they can — with no plan behind the business. I teach the structure: brand, content, bookings, pricing.</p>
+        <div class="edu-list">
+          <div class="er rv"><span class="dot"></span><div><h4>RBM Miami Mastermind</h4><p>In-person: private students fly out to celebrate wins and learn the business the right way.</p></div></div>
+          <div class="er rv d1"><span class="dot"></span><div><h4>1:1 Private Coaching</h4><p>Direct work on your craft, your content and your pricing — tailored to where you are.</p></div></div>
+          <div class="er rv d2"><span class="dot"></span><div><h4>The Blueprint</h4><p>The posting system behind the growth — what to post, when, and why it books clients.</p></div></div>
+          <div class="er rv d3"><span class="dot"></span><div><h4>YouTube Breakdowns</h4><p>Free value weekly — techniques, business talk and the mindset behind the chair.</p></div></div>
+        </div>
+        <div class="rv d3" style="margin-top:36px">
+          <a class="btn" href="https://ig.me/m/diegoaltoro" target="_blank" rel="noopener">DM "Learn"</a>
+        </div>
+      </div>
+      <div class="rv d1">
+        <div class="about-frame mask" data-mask>
+          <img src="https://images.unsplash.com/photo-1567894340315-735d7c361db0?w=900&q=70&auto=format&fit=crop" alt="Barber educator teaching the craft" loading="lazy" onerror="this.style.display='none'">
+        </div>
+        <p class="about-cap"><b>Educator</b> · Miami, FL</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WORK -->
+<section id="work" style="padding-top:0">
+  <div class="wrap">
+    <div class="kicker rv"><span class="num">04</span><span class="rule"></span><span class="lbl">Selected Work</span></div>
+    <h2 class="h-lg rv">The proof is<br>in the <span class="gold">chair.</span></h2>
+    <p class="sub rv d1" style="margin-top:20px">Fades, transformations, scissor work — <a href="https://www.instagram.com/diegoaltoro" target="_blank" rel="noopener" style="color:var(--gold-soft);font-weight:600;border-bottom:1px solid rgba(227,179,76,.4)">@diegoaltoro</a> for the daily drops.</p>
+    <div class="gal">
+      <figure class="g1 rv"><img src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?w=900&q=70&auto=format&fit=crop" alt="Sharp fade haircut" loading="lazy" onerror="this.style.display='none'"><figcaption>Skin Fade</figcaption></figure>
+      <figure class="g2 rv d1"><img src="https://images.unsplash.com/photo-1605497788044-5a32c7078486?w=1100&q=70&auto=format&fit=crop" alt="Precision taper cut" loading="lazy" onerror="this.style.display='none'"><figcaption>Taper Detail</figcaption></figure>
+      <figure class="g3 rv"><img src="https://images.unsplash.com/photo-1622286342621-4bd786c2447c?w=1100&q=70&auto=format&fit=crop" alt="Barber styling hair" loading="lazy" onerror="this.style.display='none'"><figcaption>Scissor Work</figcaption></figure>
+      <figure class="g4 rv d1"><img src="https://images.unsplash.com/photo-1621605815971-fbc98d665033?w=900&q=70&auto=format&fit=crop" alt="Razor lineup detail" loading="lazy" onerror="this.style.display='none'"><figcaption>Lineup</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" style="padding-top:0">
+  <div class="wrap" style="max-width:920px">
+    <div class="kicker rv"><span class="num">05</span><span class="rule"></span><span class="lbl">FAQ</span></div>
+    <h2 class="h-md rv" style="margin-bottom:44px">Before you <span class="gold">book.</span></h2>
+    <div class="rv">
+      <div class="faq-item">
+        <button class="faq-q">How do I book a haircut?<span class="pm">+</span></button>
+        <div class="faq-a"><p>Tap the <a href="https://dblends.booksy.com/k/" target="_blank" rel="noopener">Book Now</a> button — it takes you straight to the Booksy booking page. Demand is high, so grab your slot early.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Where are you located?<span class="pm">+</span></button>
+        <div class="faq-a"><p>Brickell, Miami, Florida. Exact booking details are confirmed through Booksy when you reserve.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Do you teach other barbers?<span class="pm">+</span></button>
+        <div class="faq-a"><p>Yes — that's half the mission. RBM Mastermind in Miami, 1:1 private coaching, and the content Blueprint. <a href="https://ig.me/m/diegoaltoro" target="_blank" rel="noopener">DM "Learn"</a> on Instagram to start.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Why did prices go up?<span class="pm">+</span></button>
+        <div class="faq-a"><p>Demand for the chair kept rising. Higher demand, higher standard — every cut still gets the full detail.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">What's the fastest way to reach you?<span class="pm">+</span></button>
+        <div class="faq-a"><p>Instagram DM at <a href="https://www.instagram.com/diegoaltoro" target="_blank" rel="noopener">@diegoaltoro</a> — for cuts, coaching, or anything business.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final">
+  <div class="ghost" aria-hidden="true">DIEGO</div>
+  <div class="wrap">
+    <p class="eyebrow rv" style="justify-content:center">Brickell · Miami</p>
+    <h2 class="h-lg rv">Your chair is<br><span class="gold">waiting.</span></h2>
+    <p class="sub rv d1" style="margin:24px auto 0">Cuts book out. Students level up. Pick your lane.</p>
+    <div class="rv d2">
+      <span class="cta-ring"><a class="btn" href="https://dblends.booksy.com/k/" target="_blank" rel="noopener">Book Your Cut</a></span>
+    </div>
+    <div class="rv d3" style="margin-top:22px">
+      <a href="https://ig.me/m/diegoaltoro" target="_blank" rel="noopener" style="font-size:13px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)">Or DM "Learn" →</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-mast">
+      <a class="brand" href="#top">DIEGO<em>AVILA</em><small>BRICKELL · MIAMI</small></a>
+      <p class="eyebrow" style="margin:0">Barber &amp; Educator</p>
+    </div>
+    <div class="foot">
+      <div>
+        <h5>Move</h5>
+        <ul>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#education">Education</a></li>
+          <li><a href="#work">Work</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Book</h5>
+        <ul>
+          <li><a href="https://dblends.booksy.com/k/" target="_blank" rel="noopener">Booksy — Book a Cut</a></li>
+          <li><a href="https://ig.me/m/diegoaltoro" target="_blank" rel="noopener">Instagram DM</a></li>
+          <li><a href="https://www.instagram.com/diegoaltoro" target="_blank" rel="noopener">@diegoaltoro</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>The Standard</h5>
+        <p>Cut better. Get booked. Charge more.<br>Brickell, Miami, Florida.</p>
+      </div>
+    </div>
+    <div class="copy">
+      <span>© 2026 Diego Avila · @diegoaltoro</span>
+      <span>Concept preview — not the official site</span>
+    </div>
+  </div>
+</footer>
+
+<a class="book-float" href="https://dblends.booksy.com/k/" target="_blank" rel="noopener" aria-label="Book a cut">✂ Book</a>
+
+<script>
+(function(){
+  var reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var hdr=document.getElementById('hdr');
+  addEventListener('scroll',function(){hdr.classList.toggle('scrolled',scrollY>40)},{passive:true});
+  var burger=document.getElementById('burger'),menu=document.getElementById('menu');
+  burger.addEventListener('click',function(){
+    var open=menu.classList.toggle('open');
+    burger.setAttribute('aria-expanded',open);
+    document.body.style.overflow=open?'hidden':'';
+  });
+  menu.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){menu.classList.remove('open');document.body.style.overflow='';burger.setAttribute('aria-expanded','false')})});
+  /* progress */
+  var prog=document.getElementById('progress');
+  addEventListener('scroll',function(){
+    var h=document.documentElement, p=h.scrollTop/(h.scrollHeight-h.clientHeight)*100;
+    prog.style.width=p+'%';
+  },{passive:true});
+  /* cursor light */
+  var cl=document.getElementById('cursorLight'),cx=innerWidth/2,cy=innerHeight/2,tx=cx,ty=cy;
+  if(matchMedia('(pointer:fine)').matches && !reduceMotion){
+    addEventListener('mousemove',function(e){tx=e.clientX;ty=e.clientY},{passive:true});
+    (function loop(){cx+=(tx-cx)*.08;cy+=(ty-cy)*.08;cl.style.left=cx+'px';cl.style.top=cy+'px';requestAnimationFrame(loop)})();
+  } else { cl.style.display='none'; }
+  /* neon flicker-in for hero word */
+  var nw=document.getElementById('neonWord');
+  if(nw && !reduceMotion){
+    var txt=nw.textContent; nw.textContent='';
+    txt.split('').forEach(function(ch,i){
+      var s=document.createElement('span'); s.textContent=ch;
+      s.style.opacity='0';
+      s.style.animation='neonIn .5s ease forwards';
+      s.style.animationDelay=(0.45+i*0.045)+'s';
+      nw.appendChild(s);
+    });
+  }
+  var st=document.createElement('style');
+  st.textContent='@keyframes neonIn{0%{opacity:0;text-shadow:none}55%{opacity:1;text-shadow:0 0 22px rgba(240,209,137,.95),0 0 60px rgba(227,179,76,.6)}100%{opacity:1}}';
+  document.head.appendChild(st);
+  /* hero parallax */
+  var heroBg=document.getElementById('heroBg'), heroSec=document.querySelector('.hero');
+  if(!reduceMotion){
+    addEventListener('scroll',function(){
+      var r=heroSec.getBoundingClientRect();
+      if(r.bottom>0){ heroBg.style.transform='translate3d(0,'+(-scrollY*0.22)+'px,0)'; }
+    },{passive:true});
+  }
+  /* reveals */
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12,rootMargin:'0px 0px -40px 0px'});
+  document.querySelectorAll('.rv').forEach(function(el){io.observe(el)});
+  var io2=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io2.unobserve(e.target)}})},{threshold:.2});
+  document.querySelectorAll('[data-mask]').forEach(function(el){io2.observe(el)});
+  /* count-up */
+  var cio=new IntersectionObserver(function(es){es.forEach(function(e){
+    if(!e.isIntersecting) return; cio.unobserve(e.target);
+    var el=e.target,to=parseFloat(el.dataset.to),suf=el.dataset.suffix||'';
+    if(reduceMotion){el.textContent=to+suf;return}
+    var t0=null;
+    function step(t){if(!t0)t0=t;var p=Math.min((t-t0)/1600,1),ez=1-Math.pow(1-p,3);
+      el.textContent=Math.round(to*ez)+suf;if(p<1)requestAnimationFrame(step)}
+    requestAnimationFrame(step);
+  })},{threshold:.5});
+  document.querySelectorAll('.count').forEach(function(el){cio.observe(el)});
+  /* faq */
+  document.querySelectorAll('.faq-q').forEach(function(btn){
+    btn.addEventListener('click',function(){
+      var item=btn.parentElement,ans=item.querySelector('.faq-a'),open=item.classList.contains('open');
+      document.querySelectorAll('.faq-item.open').forEach(function(o){o.classList.remove('open');o.querySelector('.faq-a').style.maxHeight=null});
+      if(!open){item.classList.add('open');ans.style.maxHeight=ans.scrollHeight+'px'}
+    });
+  });
+})();
+</script>
+</body>
+</html>
