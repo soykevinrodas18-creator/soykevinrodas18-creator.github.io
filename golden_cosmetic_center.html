@@ -156,6 +156,23 @@ a[href^="tel:"]{max-width:100%;overflow-wrap:anywhere}
 .tcard p{font-size:14.5px;color:var(--ink-soft)}
 .tcard .tag{position:absolute;top:22px;right:24px;font-size:10.5px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);border:1px solid rgba(184,137,47,.4);border-radius:100px;padding:6px 14px}
 .s1{grid-column:1/8}.s2{grid-column:8/13}.s3{grid-column:1/6;margin-top:44px}.s4{grid-column:6/10;margin-top:-10px}.s5{grid-column:10/13;margin-top:44px}.s6{grid-column:1/7}.s7{grid-column:7/13}.s8{grid-column:1/8}.s9{grid-column:8/13}
+/* image-led treatment cards — photos show the work */
+.tcard .ph{margin:-32px -30px 24px;height:200px;overflow:hidden;border-radius:16px 16px 0 0;position:relative;background:linear-gradient(140deg,#e9dcc0,#c9a95c)}
+.tcard .ph img{width:100%;height:100%;object-fit:cover;filter:sepia(.16) saturate(1.05);transition:transform .8s cubic-bezier(.2,.7,.2,1)}
+.tcard:hover .ph img{transform:scale(1.08)}
+.tcard .ph::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(36,28,18,.3));pointer-events:none}
+.tcard .tag{background:rgba(24,17,9,.5);color:#f4e2ae;border-color:rgba(227,196,124,.55);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
+.tcard:has(.ph) .ic{display:none}
+.tcard{min-height:0}
+/* work gallery strip */
+.work-strip{margin-top:60px}
+.ws-lbl{font-size:11px;font-weight:700;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);margin-bottom:20px;display:flex;align-items:center;gap:12px}
+.ws-lbl::before{content:"";width:30px;height:1px;background:var(--gold);box-shadow:0 0 8px rgba(184,137,47,.5)}
+.ws-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.ws-grid figure{border-radius:16px;overflow:hidden;position:relative;height:230px;background:linear-gradient(140deg,#e9dcc0,#c9a95c);border:1px solid var(--line);margin:0}
+.ws-grid img{width:100%;height:100%;object-fit:cover;filter:sepia(.16) saturate(1.05);transition:transform .8s cubic-bezier(.2,.7,.2,1)}
+.ws-grid figure:hover img{transform:scale(1.06)}
+.ws-grid figcaption{position:absolute;left:0;right:0;bottom:0;padding:36px 16px 14px;font-size:11.5px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:#faf6ee;background:linear-gradient(180deg,transparent,rgba(24,17,9,.78))}
 /* featured treatment card — Botox & Rellenos */
 .tcard.feat{color:#faf6ee;border-color:rgba(227,196,124,.45);background:#241a0e url('https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?w=800&q=65&auto=format&fit=crop') center 22%/cover}
 .tcard.feat::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(24,17,9,.02) 15%,rgba(24,17,9,.8) 90%),linear-gradient(180deg,rgba(184,137,47,.14),transparent 42%);pointer-events:none}
@@ -284,6 +301,10 @@ footer{background:#171208;color:#e8dfc9;padding:70px 0 34px}
   .step{padding:0}
   .float-card{left:12px}
 }
+@media(max-width:1020px){
+  .ws-grid{grid-template-columns:repeat(2,1fr)}
+  .ws-grid figure{height:200px}
+}
 @media(max-width:768px){
   .links{position:fixed;inset:0;background:rgba(250,246,238,.98);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);flex-direction:column;justify-content:center;gap:32px;transform:translateX(100%);transition:transform .4s;z-index:105}
   .links.open{transform:none}
@@ -382,17 +403,26 @@ footer{background:#171208;color:#e8dfc9;padding:70px 0 34px}
     </div>
     <div class="bento">
       <article class="tcard s1 feat rv"><span class="tag">Rostro</span><span class="num">01</span><h3>Botox &amp; Rellenos</h3><p>Realce sutil y de apariencia natural: labios hidratados, volumen en mejillas y suavizado de líneas de expresión.</p></article>
-      <article class="tcard s2 rv d1"><span class="tag">Piel</span><span class="num">02</span><h3>Láser &amp; Lumecca IPL</h3><p>Tecnología de luz para manchas del sol, hiperpigmentación, rosácea y textura — temporada de láser todo el año.</p></article>
-      <article class="tcard s3 rv"><span class="tag">Glow</span><span class="num">03</span><h3>Faciales de Lujo</h3><p>Hydro Jelly Masks, Golden Star Peel y LED Light Therapy: el ritual favorito para una piel luminosa.</p></article>
-      <article class="tcard s4 rv d1"><span class="tag">Firmeza</span><span class="num">04</span><h3>Morpheus8</h3><p>Radiofrecuencia con microagujas para rostro y cuerpo: firmeza y textura sin cirugía.</p></article>
-      <article class="tcard s5 rv d2"><span class="tag">Contorno</span><span class="num">05</span><h3>Endolift</h3><p>Redefine el contorno del rostro y el cuello con un procedimiento mínimamente invasivo.</p></article>
-      <article class="tcard s6 rv"><span class="tag">Bienestar</span><span class="num">06</span><h3>IV Therapy</h3><p>Hidratación y aporte de nutrientes por vía intravenosa, según tus necesidades y valoración médica.</p></article>
-      <article class="tcard s7 rv d1"><span class="tag">Regenerativo</span><span class="num">07</span><h3>PRP</h3><p>Plasma rico en plaquetas para facial y estímulo capilar, con protocolos personalizados.</p></article>
-      <article class="tcard s8 rv"><span class="tag">Cuerpo</span><span class="num">08</span><h3>Pérdida de Peso</h3><p>Programas de control de peso con acompañamiento profesional, adaptados a tu caso.</p></article>
-      <article class="tcard s9 rv d1"><span class="tag">Quirúrgico</span><span class="num">09</span><h3>Cirugía Plástica</h3><p>Procedimientos quirúrgicos con el equipo médico de Golden. Escríbenos para una valoración.</p></article>
+      <article class="tcard s2 rv d1"><div class="ph"><img src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=800&q=70&auto=format&fit=crop" alt="Cuidado de la piel con tecnología de luz" loading="lazy" onerror="this.style.display='none'"></div><span class="tag">Piel</span><span class="num">02</span><h3>Láser &amp; Lumecca IPL</h3><p>Tecnología de luz para manchas del sol, hiperpigmentación, rosácea y textura — temporada de láser todo el año.</p></article>
+      <article class="tcard s3 rv"><div class="ph"><img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=800&q=70&auto=format&fit=crop" alt="Ritual de facial de lujo en spa" loading="lazy" onerror="this.style.display='none'"></div><span class="tag">Glow</span><span class="num">03</span><h3>Faciales de Lujo</h3><p>Hydro Jelly Masks, Golden Star Peel y LED Light Therapy: el ritual favorito para una piel luminosa.</p></article>
+      <article class="tcard s4 rv d1"><div class="ph"><img src="https://images.unsplash.com/photo-1556228453-efd6c1ff04f6?w=800&q=70&auto=format&fit=crop" alt="Cuidado clínico avanzado de la piel" loading="lazy" onerror="this.style.display='none'"></div><span class="tag">Firmeza</span><span class="num">04</span><h3>Morpheus8</h3><p>Radiofrecuencia con microagujas para rostro y cuerpo: firmeza y textura sin cirugía.</p></article>
+      <article class="tcard s5 rv d2"><div class="ph"><img src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=800&q=70&auto=format&fit=crop" alt="Perfil facial definido y elegante" loading="lazy" onerror="this.style.display='none'"></div><span class="tag">Contorno</span><span class="num">05</span><h3>Endolift</h3><p>Redefine el contorno del rostro y el cuello con un procedimiento mínimamente invasivo.</p></article>
+      <article class="tcard s6 rv"><div class="ph"><img src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=800&q=70&auto=format&fit=crop" alt="Bienestar y relajación profunda" loading="lazy" onerror="this.style.display='none'"></div><span class="tag">Bienestar</span><span class="num">06</span><h3>IV Therapy</h3><p>Hidratación y aporte de nutrientes por vía intravenosa, según tus necesidades y valoración médica.</p></article>
+      <article class="tcard s7 rv d1"><div class="ph"><img src="https://images.unsplash.com/photo-1571781926291-c477ebfd024b?w=800&q=70&auto=format&fit=crop" alt="Cuidado regenerativo de la piel" loading="lazy" onerror="this.style.display='none'"></div><span class="tag">Regenerativo</span><span class="num">07</span><h3>PRP</h3><p>Plasma rico en plaquetas para facial y estímulo capilar, con protocolos personalizados.</p></article>
+      <article class="tcard s8 rv"><div class="ph"><img src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=800&q=70&auto=format&fit=crop" alt="Alimentación saludable y balanceada" loading="lazy" onerror="this.style.display='none'"></div><span class="tag">Cuerpo</span><span class="num">08</span><h3>Pérdida de Peso</h3><p>Programas de control de peso con acompañamiento profesional, adaptados a tu caso.</p></article>
+      <article class="tcard s9 rv d1"><div class="ph"><img src="https://images.unsplash.com/photo-1594744803329-e58b31de8bf5?w=800&q=70&auto=format&fit=crop" alt="Belleza natural y elegante" loading="lazy" onerror="this.style.display='none'"></div><span class="tag">Quirúrgico</span><span class="num">09</span><h3>Cirugía Plástica</h3><p>Procedimientos quirúrgicos con el equipo médico de Golden. Escríbenos para una valoración.</p></article>
     </div>
     <div class="tx-note rv">
       <p>¿No sabes por dónde empezar? <a href="https://ig.me/m/golden_cosmetic_center" target="_blank" rel="noopener">Escríbenos por DM</a> y te orientamos según lo que buscas.</p>
+    </div>
+    <div class="work-strip rv">
+      <p class="ws-lbl">Tratamientos Golden</p>
+      <div class="ws-grid">
+        <figure><img src="https://images.unsplash.com/photo-1596704017254-9b121068fb31?w=700&q=70&auto=format&fit=crop" alt="Ritual facial Golden" loading="lazy" onerror="this.style.display='none'"><figcaption>Ritual facial</figcaption></figure>
+        <figure><img src="https://images.unsplash.com/photo-1515377905703-c4788e51af15?w=700&q=70&auto=format&fit=crop" alt="Ambiente Golden" loading="lazy" onerror="this.style.display='none'"><figcaption>Ambiente Golden</figcaption></figure>
+        <figure><img src="https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?w=700&q=70&auto=format&fit=crop" alt="Cuidado de la piel" loading="lazy" onerror="this.style.display='none'"><figcaption>Cuidado de la piel</figcaption></figure>
+        <figure><img src="https://images.unsplash.com/photo-1600334089648-b0d9d3028eb2?w=700&q=70&auto=format&fit=crop" alt="Bienestar Golden" loading="lazy" onerror="this.style.display='none'"><figcaption>Bienestar</figcaption></figure>
+      </div>
     </div>
   </div>
 </section>
