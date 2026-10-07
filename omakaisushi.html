@@ -272,6 +272,14 @@ footer .f-note{font-size:.68rem;letter-spacing:.3em;text-transform:uppercase;col
 footer .f-links{display:flex;gap:1.6rem}
 footer .f-links a{font-size:.68rem;letter-spacing:.3em;text-transform:uppercase;color:var(--gray-light);transition:color .4s}
 footer .f-links a:hover{color:var(--vermillion)}
+/* ---------- social icons ---------- */
+.f-icons{display:flex;gap:.7rem;align-items:center}
+.f-ico{width:42px;height:42px;border:1px solid var(--line-dark);border-radius:50%;display:grid;place-items:center;color:var(--washi);transition:transform .35s cubic-bezier(.2,.7,.3,1.2),border-color .35s,color .35s,box-shadow .35s}
+.f-ico svg{width:19px;height:19px;display:block}
+.f-ico:hover{transform:translateY(-3px);border-color:var(--vermillion);color:var(--vermillion);box-shadow:0 0 18px rgba(210,60,28,.45)}
+.f-ico:focus-visible{outline:2px solid var(--vermillion);outline-offset:3px}
+.rm .f-ico{transition:none}
+.rm .f-ico:hover{transform:none;box-shadow:none}
 .mockup-note{width:100%;margin-top:1rem;font-size:.62rem;letter-spacing:.18em;color:#5b5348;text-transform:uppercase}
 
 /* ---------- responsive ---------- */
@@ -547,6 +555,10 @@ footer .f-links a:hover{color:var(--vermillion)}
   <div>
     <p class="f-brand">OMAKAI</p>
     <p class="f-note" style="margin-top:.5rem">Sushi · Miami</p>
+  </div>
+  <div class="f-icons">
+    <a class="f-ico" href="https://www.instagram.com/omakaisushi/" target="_blank" rel="noopener" aria-label="OMAKAI sushi on Instagram" title="@omakaisushi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><rect x="2.6" y="2.6" width="18.8" height="18.8" rx="5.4"/><circle cx="12" cy="12" r="4.1"/><circle cx="17.3" cy="6.7" r="1.25" fill="currentColor" stroke="none"/></svg></a>
+    <a class="f-ico" href="https://www.instagram.com/omakaihandrollbar/" target="_blank" rel="noopener" aria-label="OMAKAI hand roll bar on Instagram" title="@omakaihandrollbar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><rect x="2.6" y="2.6" width="18.8" height="18.8" rx="5.4"/><circle cx="12" cy="12" r="4.1"/><circle cx="17.3" cy="6.7" r="1.25" fill="currentColor" stroke="none"/></svg></a>
   </div>
   <div class="f-links">
     <a href="https://www.instagram.com/omakaisushi" target="_blank" rel="noopener">Instagram</a>

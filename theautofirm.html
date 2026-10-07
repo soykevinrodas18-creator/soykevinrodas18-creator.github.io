@@ -280,6 +280,12 @@ footer{border-top:1px solid var(--line);padding:68px 0 38px;background:#030304}
 .foot ul{list-style:none;display:grid;gap:10px;font-size:15px}
 .foot a:hover{color:#fff}
 .copy{border-top:1px solid var(--line);padding-top:30px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;color:var(--muted);font-size:12.5px;font-family:var(--fm);letter-spacing:.08em}
+.socials{display:flex;align-items:center;gap:16px;margin-bottom:40px}
+.socials span{font-family:var(--fm);font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--muted)}
+.soc{width:48px;height:48px;display:grid;place-items:center;border:1px solid rgba(255,106,0,.5);clip-path:polygon(12px 0,100% 0,100% calc(100% - 12px),calc(100% - 12px) 100%,0 100%,0 12px);background:rgba(255,106,0,.06);transition:transform .3s,box-shadow .3s,background .3s}
+.soc svg{width:20px;height:20px;fill:var(--papaya);transition:fill .3s}
+.soc:hover{background:linear-gradient(120deg,var(--papaya-deep),var(--papaya));transform:translateY(-3px);box-shadow:0 12px 30px rgba(255,106,0,.45)}
+.soc:hover svg{fill:#0a0500}
 /* dm float */
 .dm-float{position:fixed;right:22px;bottom:22px;z-index:90;width:64px;height:64px;border-radius:50%;
   background:linear-gradient(180deg,#ff7d1f,#c24e00);display:flex;align-items:center;justify-content:center;
@@ -666,6 +672,15 @@ footer{border-top:1px solid var(--line);padding:68px 0 38px;background:#030304}
           <li><a href="https://www.instagram.com/theautofirm" target="_blank" rel="noopener">@theautofirm</a></li>
         </ul>
       </div>
+    </div>
+    <div class="socials">
+      <span>Follow the firm</span>
+      <a class="soc" href="https://www.instagram.com/theautofirm" target="_blank" rel="noopener" aria-label="The Auto Firm on Instagram">
+        <svg viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 3.3.1 4.8 1.7 4.9 4.9.1 1.3.1 1.6.1 4.8s0 3.6-.1 4.8c-.1 3.2-1.7 4.8-4.9 4.9-1.3.1-1.6.1-4.9.1s-3.6 0-4.9-.1c-3.3-.1-4.8-1.7-4.9-4.9-.1-1.3-.1-1.6-.1-4.8s0-3.6.1-4.8C2.4 4 4 2.4 7.2 2.3c1.2-.1 1.6-.1 4.8-.1zM12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm0 8.2a3.2 3.2 0 1 1 0-6.4 3.2 3.2 0 0 1 0 6.4zm5.2-9.6a1.2 1.2 0 1 0 0 2.4 1.2 1.2 0 0 0 0-2.4z"/></svg>
+      </a>
+      <a class="soc" href="https://www.youtube.com/channel/UCFu3SJLVI5wNVAK0N1fX_Rg" target="_blank" rel="noopener" aria-label="The Auto Firm on YouTube">
+        <svg viewBox="0 0 24 24"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31.3 31.3 0 0 0 0 12a31.3 31.3 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31.3 31.3 0 0 0 24 12a31.3 31.3 0 0 0-.5-5.8zM9.6 15.6V8.4L15.8 12l-6.2 3.6z"/></svg>
+      </a>
     </div>
     <div class="copy">
       <span>© 2026 THE AUTO FIRM · MIAMI, FL</span>

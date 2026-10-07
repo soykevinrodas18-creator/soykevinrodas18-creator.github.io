@@ -256,6 +256,11 @@ footer{background:var(--cocoa);color:var(--cream);padding:4.5rem 0 2rem;position
 .foot-bottom a{color:var(--gold);text-decoration:none;font-weight:700}
 .foot-bottom a:hover{text-decoration:underline}
 .xoxo{font-family:'Fraunces',serif;font-style:italic;color:rgba(250,245,234,.75)}
+/* ---------- social icons ---------- */
+.foot-social{display:flex;gap:.9rem;align-items:center}
+.social-ico{width:46px;height:46px;border-radius:50%;display:grid;place-items:center;border:1.5px solid rgba(250,245,234,.32);color:var(--gold);transition:transform .35s ease,background .35s,color .35s,box-shadow .35s,border-color .35s}
+.social-ico svg{width:20px;height:20px}
+.social-ico:hover{transform:translateY(-4px);background:var(--gold);color:var(--cocoa);border-color:var(--gold);box-shadow:0 12px 26px rgba(0,0,0,.35)}
 /* ---------- reveal motion ---------- */
 .rv{opacity:0;transform:translateY(34px);transition:opacity .9s ease,transform .9s cubic-bezier(.2,.7,.2,1)}
 .rv.in{opacity:1;transform:none}
@@ -522,7 +527,10 @@ footer{background:var(--cocoa);color:var(--cream);padding:4.5rem 0 2rem;position
     <div class="foot-bottom">
       <span>© 2026 The Oats Guy · Micro Bakery · Miami, FL</span>
       <span class="xoxo">XOXO, The Oats Guy Team</span>
-      <a href="https://www.instagram.com/theoatsguy" target="_blank" rel="noopener">@theoatsguy</a>
+      <span class="foot-social">
+        <a class="social-ico" href="https://www.instagram.com/theoatsguy" target="_blank" rel="noopener" aria-label="The Oats Guy on Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg></a>
+        <a href="https://www.instagram.com/theoatsguy" target="_blank" rel="noopener">@theoatsguy</a>
+      </span>
     </div>
   </div>
 </footer>

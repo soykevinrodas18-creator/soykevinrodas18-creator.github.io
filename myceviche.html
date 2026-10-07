@@ -328,6 +328,14 @@ footer{background:#02191B;color:rgba(255,255,255,.72);padding:70px 0 34px}
 .foot-col a:hover{color:var(--lime-300)}
 .foot-bottom{border-top:1px solid rgba(255,255,255,.12);padding-top:26px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:.85rem}
 .foot-bottom .concept{opacity:.55}
+/* social icons */
+.soc{display:flex;gap:.7rem;margin-top:20px}
+.soc-btn{width:42px;height:42px;border:1px solid rgba(255,255,255,.28);border-radius:50%;display:grid;place-items:center;color:#fff;transition:transform .35s cubic-bezier(.2,.7,.3,1.2),background .35s,color .35s,border-color .35s,box-shadow .35s}
+.soc-btn svg{width:19px;height:19px;display:block}
+.soc-btn:hover{transform:translateY(-3px) rotate(-6deg);background:var(--lime-400);border-color:var(--lime-400);color:#04262A;box-shadow:0 0 20px rgba(203,241,75,.5)}
+.soc-btn:focus-visible{outline:2px solid var(--lime-300);outline-offset:3px}
+.rm .soc-btn{transition:none}
+.rm .soc-btn:hover{transform:none;box-shadow:none}
 
 /* ============ RESPONSIVE ============ */
 @media(max-width:960px){
@@ -646,6 +654,9 @@ footer{background:#02191B;color:rgba(255,255,255,.72);padding:70px 0 34px}
       <div class="foot-brand">
         <a class="logo" href="#top" aria-label="My Ceviche home"><span class="logo-mark" aria-hidden="true">&#128031;</span>My Ceviche</a>
         <p>Fresh ceviche, poke, burritos, tacos &amp; bowls in South Beach and Miami International Airport. Bursting with flavor, every single day.</p>
+        <div class="soc">
+          <a class="soc-btn" href="https://www.instagram.com/myceviche/" target="_blank" rel="noopener" aria-label="My Ceviche on Instagram" title="@myceviche"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><rect x="2.6" y="2.6" width="18.8" height="18.8" rx="5.4"/><circle cx="12" cy="12" r="4.1"/><circle cx="17.3" cy="6.7" r="1.25" fill="currentColor" stroke="none"/></svg></a>
+        </div>
       </div>
       <div class="foot-col">
         <h4>Explore</h4>

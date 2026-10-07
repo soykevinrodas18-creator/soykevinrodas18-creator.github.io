@@ -308,6 +308,12 @@ footer{background:#060607;border-top:3px solid var(--mustard);padding:60px 0 40p
 .foot-links a:hover{color:var(--mustard)}
 .foot-base{margin-top:44px;padding-top:24px;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-family:'Space Mono';font-size:.7rem;letter-spacing:.1em;color:#6f6a5c;text-transform:uppercase}
 
+/* ---------- social icons ---------- */
+.social-row{display:flex;gap:14px;margin-top:26px}
+.social-ico{width:46px;height:46px;display:grid;place-items:center;border:2px solid #2b2b30;border-radius:12px;color:#b9b3a1;transition:transform .3s ease,border-color .3s,color .3s,box-shadow .3s}
+.social-ico svg{width:20px;height:20px}
+.social-ico:hover{transform:translateY(-4px) rotate(-4deg);border-color:var(--mustard);color:var(--mustard);box-shadow:0 0 20px rgba(255,176,0,.35)}
+
 /* ---------- reveal on scroll ---------- */
 .rv{opacity:0;transform:translateY(36px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.9,.3,1)}
 .rv.in{opacity:1;transform:none}
@@ -651,6 +657,9 @@ footer{background:#060607;border-top:3px solid var(--mustard);padding:60px 0 40p
       <div>
         <div class="foot-brand">Crispy <em>Streets</em></div>
         <div class="foot-tag">Korean corndogs · Latin fusion · Miami FL</div>
+        <div class="social-row" aria-label="Social media">
+          <a class="social-ico" href="https://www.instagram.com/crispystreets" target="_blank" rel="noopener" aria-label="Crispy Streets on Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg></a>
+        </div>
       </div>
       <div class="foot-links">
         <a href="https://crispystreets.iposeats.com" target="_blank" rel="noopener">Order</a>
