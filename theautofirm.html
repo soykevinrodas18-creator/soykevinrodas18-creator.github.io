@@ -5,240 +5,324 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>The Auto Firm | Personalizing the World's Finest Automobiles — Miami</title>
 <meta name="description" content="The Auto Firm by Alex Vega: luxury car customization in Miami — PPF, wraps, Avorza forged wheels, collision center. As recreated by Hot Wheels.">
-<meta name="theme-color" content="#0a0a0b">
+<meta name="theme-color" content="#050506">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700;800&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,100..900;1,62..125,100..900&family=Inter:wght@400;500;600;700;800&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"AutoBodyShop","name":"The Auto Firm","founder":{"@type":"Person","name":"Alex Vega"},"address":{"@type":"PostalAddress","streetAddress":"12248 SW 133 Ct","addressLocality":"Miami","addressRegion":"FL","postalCode":"33186","addressCountry":"US"},"sameAs":["https://www.instagram.com/theautofirm"]}
 </script>
 <style>
 :root{
-  --bg:#0a0a0b; --bg2:#101012; --card:#141416; --ink:#f2f0ea; --muted:#a3a099;
-  --gold:#d9a441; --gold-soft:rgba(217,164,65,.14); --red:#e10600;
-  --line:rgba(255,255,255,.09); --max:1280px; --pad:clamp(20px,4vw,52px);
-  --fd:'Anton',Impact,sans-serif; --fb:'Inter',system-ui,sans-serif; --fs:'Instrument Serif',serif;
+  --bg:#050506; --bg2:#0a0a0d; --card:#0e0e12; --ink:#f5f5f7; --muted:#8f8f99;
+  --papaya:#ff6a00; --papaya-deep:#b84a00; --papaya-soft:rgba(255,106,0,.12);
+  --line:rgba(255,255,255,.08); --max:1360px; --pad:clamp(20px,4vw,56px);
+  --fd:'Archivo',Impact,sans-serif; --fb:'Inter',system-ui,sans-serif;
+  --fs:'Instrument Serif',serif; --fm:'JetBrains Mono',monospace;
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{background:var(--bg);color:var(--ink);font-family:var(--fb);line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased}
-body::after{content:"";position:fixed;inset:0;z-index:2000;pointer-events:none;opacity:.05;
+body::after{content:"";position:fixed;inset:0;z-index:2000;pointer-events:none;opacity:.06;
   background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='.6'/%3E%3C/svg%3E")}
-::selection{background:var(--gold);color:#0a0a0b}
+::selection{background:var(--papaya);color:#0a0500}
 ::-webkit-scrollbar{width:10px}
-::-webkit-scrollbar-track{background:#0a0a0b}
-::-webkit-scrollbar-thumb{background:linear-gradient(180deg,var(--gold),#8a6420);border-radius:8px}
-::-webkit-scrollbar-thumb:hover{box-shadow:0 0 12px rgba(217,164,65,.7)}
+::-webkit-scrollbar-track{background:#050506}
+::-webkit-scrollbar-thumb{background:linear-gradient(180deg,#3d3f46,#141519);border-radius:8px;border:1px solid rgba(255,255,255,.07)}
+::-webkit-scrollbar-thumb:hover{background:linear-gradient(180deg,var(--papaya),var(--papaya-deep))}
 img{display:block;max-width:100%}
 a{color:inherit;text-decoration:none}
 .wrap{max-width:var(--max);margin:0 auto;padding:0 var(--pad)}
-section{padding:clamp(84px,10vw,150px) 0;position:relative;scroll-margin-top:80px}
-.eyebrow{display:inline-flex;align-items:center;gap:12px;font-size:11px;font-weight:800;letter-spacing:.34em;text-transform:uppercase;color:var(--gold);margin-bottom:24px;text-shadow:0 0 18px rgba(217,164,65,.55)}
-.eyebrow::before{content:"";width:36px;height:2px;background:var(--gold);box-shadow:0 0 10px rgba(217,164,65,.8)}
-h1,h2,.display{font-family:var(--fd);font-weight:400;line-height:.94;letter-spacing:.005em;text-transform:uppercase;text-wrap:balance}
-.h-xl{font-size:clamp(58px,10.5vw,152px)}
-.h-lg{font-size:clamp(42px,6.4vw,88px)}
-.h-md{font-size:clamp(30px,4vw,54px)}
-.serif-it{font-family:var(--fs);font-style:italic;text-transform:none;letter-spacing:0}
+section{padding:clamp(96px,12vw,170px) 0;position:relative;scroll-margin-top:84px}
+/* ---------- chrome display type ---------- */
+h1,h2,.display{font-family:var(--fd);font-stretch:118%;font-weight:850;line-height:.94;letter-spacing:-.015em;text-transform:uppercase;text-wrap:balance}
+.chrome{background:linear-gradient(180deg,#ffffff 0%,#d9dce2 26%,#878c96 47%,#f5f6f9 51%,#a8adb7 74%,#ffffff 100%);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+  filter:drop-shadow(0 3px 22px rgba(255,255,255,.07))}
+.h-xl{font-size:clamp(66px,12.5vw,184px)}
+.h-lg{font-size:clamp(46px,7vw,100px)}
+.h-md{font-size:clamp(30px,4.4vw,58px)}
+.serif-it{font-family:var(--fs);font-style:italic;text-transform:none;letter-spacing:0;font-weight:400}
+.mono{font-family:var(--fm)}
 .sub{color:var(--muted);font-size:clamp(15px,1.6vw,18px);max-width:62ch}
-.gold{color:var(--gold)}
+.accent{color:var(--papaya)}
+/* section label */
+.slabel{display:flex;align-items:center;gap:18px;margin-bottom:30px}
+.slabel .code{font-family:var(--fm);font-size:11px;font-weight:700;letter-spacing:.3em;color:#0a0500;background:var(--papaya);
+  padding:9px 16px;clip-path:polygon(8px 0,100% 0,calc(100% - 8px) 100%,0 100%);box-shadow:0 0 26px rgba(255,106,0,.35)}
+.slabel .rule{flex:1;height:1px;background:linear-gradient(90deg,rgba(255,106,0,.5),transparent)}
+.slabel .lbl{font-family:var(--fm);font-size:11px;letter-spacing:.32em;text-transform:uppercase;color:var(--muted)}
 /* progress */
-#progress{position:fixed;top:0;left:0;height:3px;width:0;z-index:1200;background:linear-gradient(90deg,var(--gold),#ffe9b8);box-shadow:0 0 14px rgba(217,164,65,.9)}
-/* cursor light */
-#cursorLight{position:fixed;width:520px;height:520px;border-radius:50%;pointer-events:none;z-index:1;
-  background:radial-gradient(circle,rgba(217,164,65,.10),transparent 65%);transform:translate(-50%,-50%);mix-blend-mode:screen}
-/* header */
+#progress{position:fixed;top:0;left:0;height:3px;width:0;z-index:1200;background:linear-gradient(90deg,var(--papaya-deep),var(--papaya),#ffd2a8);box-shadow:0 0 16px rgba(255,106,0,.9)}
+/* ---------- rev-counter loader ---------- */
+#loader{position:fixed;inset:0;z-index:3000;background:#050506;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:20px;transition:opacity .8s,visibility .8s}
+#loader.done{opacity:0;visibility:hidden}
+#loader .rpm{font-family:var(--fd);font-stretch:120%;font-weight:900;font-size:clamp(72px,14vw,160px);line-height:1;font-variant-numeric:tabular-nums}
+#loader .rpm small{font-size:.32em;color:var(--papaya);vertical-align:.35em;margin-left:10px;letter-spacing:.1em}
+#loader .l-word{font-family:var(--fm);font-size:11px;letter-spacing:.5em;text-transform:uppercase;color:var(--muted)}
+#loader .l-word b{color:var(--ink)}
+#loader .l-ticks{display:flex;gap:6px}
+#loader .l-ticks i{width:26px;height:4px;background:rgba(255,255,255,.12);transform:skewX(-24deg)}
+#loader .l-ticks i.on{background:var(--papaya);box-shadow:0 0 12px rgba(255,106,0,.8)}
+/* cursor aura */
+#cursorAura{position:fixed;width:520px;height:520px;border-radius:50%;pointer-events:none;z-index:1;
+  background:radial-gradient(circle,rgba(255,106,0,.07),transparent 65%);transform:translate(-50%,-50%)}
+/* ---------- header ---------- */
 header{position:fixed;inset:0 0 auto 0;z-index:100;transition:background .35s,border-color .35s;border-bottom:1px solid transparent}
-header.scrolled{background:rgba(10,10,11,.88);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-color:var(--line)}
-.nav{display:flex;align-items:center;justify-content:space-between;height:76px;max-width:var(--max);margin:0 auto;padding:0 var(--pad)}
-.brand{font-family:var(--fd);font-size:24px;letter-spacing:.05em}
-.brand em{font-style:normal;color:var(--gold);text-shadow:0 0 16px rgba(217,164,65,.6)}
-.brand small{display:block;font-family:var(--fb);font-size:9px;font-weight:700;letter-spacing:.34em;color:var(--muted)}
-.links{display:flex;gap:32px;align-items:center}
-.links a{font-size:12.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);transition:color .25s;position:relative}
-.links a::after{content:"";position:absolute;left:0;bottom:-6px;width:0;height:2px;background:var(--gold);box-shadow:0 0 8px rgba(217,164,65,.8);transition:width .3s}
+header.scrolled{background:rgba(5,5,6,.92);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-color:var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:80px;max-width:var(--max);margin:0 auto;padding:0 var(--pad)}
+.brand{font-family:var(--fd);font-stretch:115%;font-weight:800;font-size:24px;letter-spacing:.02em}
+.brand em{font-style:normal;color:var(--papaya);text-shadow:0 0 20px rgba(255,106,0,.6)}
+.brand small{display:block;font-family:var(--fm);font-size:9px;font-weight:500;letter-spacing:.38em;color:var(--muted);margin-top:2px}
+.links{display:flex;gap:34px;align-items:center}
+.links a{font-family:var(--fm);font-size:12px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);transition:color .25s;position:relative}
+.links a::after{content:"";position:absolute;left:0;bottom:-7px;width:0;height:2px;background:var(--papaya);box-shadow:0 0 12px rgba(255,106,0,.9);transition:width .3s}
 .links a:hover{color:var(--ink)}
 .links a:hover::after{width:100%}
-.btn{display:inline-flex;align-items:center;gap:10px;background:var(--gold);color:#0a0a0b;font-weight:800;font-size:13.5px;letter-spacing:.1em;text-transform:uppercase;padding:16px 30px;border-radius:100px;border:none;cursor:pointer;position:relative;overflow:hidden;transition:transform .25s,box-shadow .25s}
+.btn{display:inline-flex;align-items:center;gap:10px;background:linear-gradient(180deg,#ff7d1f,#d15400);color:#0d0600;font-weight:800;font-size:13.5px;letter-spacing:.1em;text-transform:uppercase;padding:17px 34px;border:none;cursor:pointer;position:relative;overflow:hidden;transition:transform .25s,box-shadow .25s;clip-path:polygon(10px 0,100% 0,calc(100% - 10px) 100%,0 100%);box-shadow:0 10px 34px rgba(255,106,0,.3)}
 .btn::before{content:"";position:absolute;top:0;left:-70%;width:45%;height:100%;background:linear-gradient(105deg,transparent,rgba(255,255,255,.55),transparent);transform:skewX(-20deg);transition:left .6s}
-.btn:hover{transform:translateY(-2px);box-shadow:0 12px 34px rgba(217,164,65,.35)}
+.btn:hover{transform:translateY(-2px);box-shadow:0 16px 44px rgba(255,106,0,.5)}
 .btn:hover::before{left:130%}
-.btn-ghost{background:transparent;color:var(--ink);border:1px solid var(--line)}
-.btn-ghost:hover{border-color:var(--gold);box-shadow:0 0 24px rgba(217,164,65,.25)}
+.btn-line{background:transparent;color:var(--ink);border:1px solid rgba(255,255,255,.25);box-shadow:none}
+.btn-line:hover{border-color:var(--papaya);box-shadow:0 0 28px rgba(255,106,0,.32)}
 .burger{display:none;background:none;border:none;cursor:pointer;z-index:110}
 .burger span{display:block;width:28px;height:2px;background:var(--ink);margin:6px 0;transition:.3s}
-/* hero */
-.hero{min-height:100svh;display:flex;align-items:flex-end;padding:150px 0 0;overflow:hidden}
-.hero-bg{position:absolute;inset:0;z-index:-2}
-.hero-bg img{width:100%;height:100%;object-fit:cover;opacity:.5;transform:scale(1.08)}
+
+/* ---------- HERO : reveal film ---------- */
+.hero{min-height:100svh;display:flex;align-items:flex-end;padding:170px 0 0;overflow:hidden;background:#030304;position:relative}
+.hero-bg{position:absolute;inset:0;z-index:0}
+.hero-bg img{width:100%;height:100%;object-fit:cover;opacity:0;transform:scale(1.12);filter:saturate(1.15) contrast(1.1);
+  animation:heroIn 2.4s cubic-bezier(.16,.8,.24,1) .35s forwards}
+@keyframes heroIn{to{opacity:.6;transform:scale(1.02)}}
 .hero-bg::after{content:"";position:absolute;inset:0;background:
-  radial-gradient(60% 45% at 78% 18%,rgba(217,164,65,.20),transparent 70%),
-  radial-gradient(45% 40% at 12% 82%,rgba(225,6,0,.10),transparent 70%),
-  linear-gradient(180deg,rgba(10,10,11,.62) 0%,rgba(10,10,11,.30) 42%,var(--bg) 97%)}
-.hero .wrap{width:100%;padding-bottom:70px;position:relative;z-index:2}
-.hero h1 .row{display:block;overflow:hidden}
-.hero h1 .row>span{display:inline-block;animation:riseUp 1.05s cubic-bezier(.2,.7,.2,1) both}
-.hero h1 .row:nth-child(2)>span{animation-delay:.12s}
-.hero h1 .row:nth-child(3)>span{animation-delay:.24s}
-@keyframes riseUp{from{transform:translateY(112%)}to{transform:translateY(0)}}
-.neon-gold{color:var(--gold);text-shadow:0 0 14px rgba(217,164,65,.9),0 0 44px rgba(217,164,65,.45)}
-.hw-badge{display:inline-flex;align-items:center;gap:10px;margin-top:26px;padding:12px 22px;border:1px solid rgba(217,164,65,.45);border-radius:100px;background:rgba(217,164,65,.07);font-size:12.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;box-shadow:0 0 26px rgba(217,164,65,.18)}
-.hw-badge .dot{width:9px;height:9px;border-radius:50%;background:var(--gold);box-shadow:0 0 12px var(--gold);animation:pulse 2.2s infinite}
-@keyframes pulse{50%{opacity:.4}}
-.hero-sub{margin:28px 0 34px;max-width:58ch;color:#d6d2c8;font-size:clamp(16px,1.8vw,20px)}
+  radial-gradient(60% 45% at 72% 22%,rgba(255,106,0,.13),transparent 70%),
+  linear-gradient(180deg,rgba(3,3,4,.6) 0%,rgba(3,3,4,.18) 42%,var(--bg) 98%)}
+/* cinematic letterbox */
+.letterbox{position:absolute;left:0;right:0;height:clamp(40px,7vh,72px);background:#000;z-index:4}
+.letterbox.top{top:0}.letterbox.bottom{bottom:0}
+/* reveal slit sweep */
+.slit{position:absolute;top:0;bottom:0;width:130px;z-index:2;pointer-events:none;opacity:0;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.28) 35%,rgba(255,150,60,.75) 50%,rgba(255,255,255,.28) 65%,transparent);
+  filter:blur(10px);transform:skewX(-14deg);animation:slit 1.8s cubic-bezier(.4,.1,.3,1) .5s}
+@keyframes slit{0%{left:-12%;opacity:0}12%{opacity:1}88%{opacity:1}100%{left:106%;opacity:0}}
+.hero .wrap{width:100%;padding-bottom:76px;position:relative;z-index:5}
+.hero-meta{display:flex;gap:28px;flex-wrap:wrap;margin-bottom:28px}
+.hero-meta span{font-family:var(--fm);font-size:11px;letter-spacing:.32em;text-transform:uppercase;color:var(--muted)}
+.hero-meta span b{color:var(--papaya);font-weight:700}
+.hero h1 .row{display:block;overflow:hidden;padding-bottom:.07em;margin-bottom:-.07em}
+.hero h1 .row>span{display:inline-block;animation:riseUp 1.15s cubic-bezier(.16,.8,.24,1) both}
+.hero h1 .row:nth-child(2)>span{animation-delay:.16s}
+.hero h1 .row:nth-child(3)>span{animation-delay:.32s}
+@keyframes riseUp{from{transform:translateY(114%)}to{transform:translateY(0)}}
+.hero h1 .papaya-word{color:var(--papaya);filter:drop-shadow(0 0 30px rgba(255,106,0,.55))}
+.hero-sub{margin:32px 0 38px;max-width:60ch;color:#d2d2d9;font-size:clamp(16px,1.8vw,20px)}
+.hero-sub .serif-it{color:var(--ink);font-size:1.14em}
 .hero-ctas{display:flex;gap:16px;flex-wrap:wrap}
-.proof{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:18px;overflow:hidden;margin-top:58px}
-.proof div{background:rgba(16,16,18,.85);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);padding:26px 28px}
-.proof b{font-family:var(--fd);font-weight:400;font-size:clamp(30px,3.6vw,48px);display:block;letter-spacing:.02em;font-variant-numeric:tabular-nums}
-.proof span{font-size:11.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted)}
-.scroll-hint{position:absolute;right:var(--pad);bottom:70px;display:flex;flex-direction:column;align-items:center;gap:12px;color:var(--muted);font-size:10.5px;letter-spacing:.3em;text-transform:uppercase}
-.scroll-hint .drip{width:2px;height:56px;background:linear-gradient(180deg,var(--gold),transparent);box-shadow:0 0 10px rgba(217,164,65,.7);animation:drip 1.8s ease-in-out infinite}
+.hero-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin-top:64px;max-width:880px}
+.hero-stats div{background:rgba(7,7,9,.8);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);padding:26px 30px;position:relative;overflow:hidden}
+.hero-stats div::before{content:"";position:absolute;top:0;left:0;width:100%;height:2px;background:linear-gradient(90deg,var(--papaya),transparent);transform:scaleX(0);transform-origin:left;transition:transform .5s}
+.hero-stats div:hover::before{transform:scaleX(1)}
+.hero-stats b{font-family:var(--fd);font-stretch:115%;font-weight:800;font-size:clamp(32px,3.8vw,52px);display:block;font-variant-numeric:tabular-nums}
+.hero-stats b .accent{font-size:.6em;vertical-align:.3em;margin-left:3px}
+.hero-stats span{font-family:var(--fm);font-size:10.5px;letter-spacing:.26em;text-transform:uppercase;color:var(--muted)}
+.scroll-hint{position:absolute;right:var(--pad);bottom:76px;display:flex;flex-direction:column;align-items:center;gap:12px;color:var(--muted);font-family:var(--fm);font-size:10px;letter-spacing:.36em;text-transform:uppercase;z-index:5}
+.scroll-hint .drip{width:2px;height:60px;background:linear-gradient(180deg,var(--papaya),transparent);box-shadow:0 0 12px rgba(255,106,0,.8);animation:drip 2s ease-in-out infinite}
 @keyframes drip{0%{transform:scaleY(0);transform-origin:top}55%{transform:scaleY(1);transform-origin:top}56%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
-/* ghost */
-.ghost{position:absolute;font-family:var(--fd);text-transform:uppercase;color:transparent;-webkit-text-stroke:1px rgba(255,255,255,.10);pointer-events:none;user-select:none;line-height:1;white-space:nowrap;z-index:0}
-.has-ghost{overflow:hidden}
-/* ticker */
-.ticker{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:#0d0d0f;overflow:hidden;padding:18px 0;white-space:nowrap;position:relative}
-.ticker::before,.ticker::after{content:"";position:absolute;top:0;bottom:0;width:120px;z-index:2;pointer-events:none}
-.ticker::before{left:0;background:linear-gradient(90deg,#0d0d0f,transparent)}
-.ticker::after{right:0;background:linear-gradient(-90deg,#0d0d0f,transparent)}
-.ticker-track{display:inline-flex;animation:tick 30s linear infinite}
-.ticker:hover .ticker-track{animation-play-state:paused}
-.ticker span{font-family:var(--fd);font-size:22px;letter-spacing:.08em;text-transform:uppercase;padding:0 30px;color:var(--ink);text-shadow:0 0 14px rgba(217,164,65,.25)}
-.ticker span i{font-style:normal;color:var(--gold);padding-right:60px;text-shadow:0 0 12px rgba(217,164,65,.8)}
+/* ---------- marquee ---------- */
+.marquee{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:#070708;overflow:hidden;padding:22px 0;white-space:nowrap;position:relative}
+.marquee::before,.marquee::after{content:"";position:absolute;top:0;bottom:0;width:140px;z-index:2;pointer-events:none}
+.marquee::before{left:0;background:linear-gradient(90deg,#070708,transparent)}
+.marquee::after{right:0;background:linear-gradient(-90deg,#070708,transparent)}
+.mq-track{display:inline-flex;animation:tick 34s linear infinite}
+.marquee:hover .mq-track{animation-play-state:paused}
+.mq-track span{font-family:var(--fm);font-size:13px;letter-spacing:.34em;text-transform:uppercase;padding:0 36px;color:var(--muted)}
+.mq-track span i{font-style:normal;color:var(--papaya);padding-right:72px;text-shadow:0 0 12px rgba(255,106,0,.8)}
 @keyframes tick{to{transform:translateX(-50%)}}
-/* numbered kickers */
-.sec-head{margin-bottom:54px}
-.kicker{display:flex;align-items:center;gap:16px;margin-bottom:22px}
-.kicker .num{display:inline-flex;align-items:center;justify-content:center;min-width:44px;height:28px;padding:0 12px;border:1px solid rgba(217,164,65,.5);border-radius:100px;font-size:12px;font-weight:800;letter-spacing:.1em;color:var(--gold);box-shadow:0 0 16px rgba(217,164,65,.25)}
-.kicker .rule{flex:1;height:1px;background:linear-gradient(90deg,rgba(217,164,65,.6),transparent)}
-.kicker .lbl{font-size:11px;font-weight:800;letter-spacing:.3em;text-transform:uppercase;color:var(--gold)}
-/* builds */
-.build-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:24px}
-.build{position:relative;border-radius:20px;overflow:hidden;border:1px solid var(--line);background:var(--card);min-height:380px;display:flex;align-items:flex-end;transition:transform .4s,border-color .4s,box-shadow .4s}
-.build:hover{transform:translateY(-6px);border-color:rgba(217,164,65,.55);box-shadow:0 24px 60px rgba(0,0,0,.5),0 0 40px rgba(217,164,65,.12)}
-.build .ph{position:absolute;inset:0;background:linear-gradient(135deg,#1a1a1e,#0c0c0e)}
-.build .ph img{width:100%;height:100%;object-fit:cover;opacity:.62;filter:sepia(.18) saturate(1.05) contrast(1.06);transition:transform .7s,opacity .5s,filter .5s}
-.build:hover .ph img{transform:scale(1.07);opacity:.78;filter:sepia(.1) saturate(1.15) contrast(1.08)}
-.build::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 34%,rgba(5,5,6,.94) 100%)}
-.build .tx{position:relative;z-index:2;padding:30px;width:100%}
-.build .tag{font-size:10.5px;font-weight:800;letter-spacing:.26em;text-transform:uppercase;color:var(--gold);text-shadow:0 0 12px rgba(217,164,65,.5)}
-.build h3{font-family:var(--fd);font-size:clamp(24px,2.6vw,38px);text-transform:uppercase;margin:10px 0 8px;line-height:1}
-.build p{color:#cfcbc2;font-size:14.5px;max-width:44ch}
-.b1{grid-column:1/8;min-height:460px}
-.b2{grid-column:8/13;min-height:460px}
-.b3{grid-column:1/6}
-.b4{grid-column:6/13}
-.build .reveal-mask{position:absolute;inset:0;z-index:3}
-/* services */
-.svc-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:22px}
-.svc{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:36px 32px;position:relative;overflow:hidden;transition:transform .35s,border-color .35s,box-shadow .35s}
-.svc::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--gold),transparent);transform:scaleX(0);transform-origin:left;transition:transform .5s}
-.svc:hover{transform:translateY(-6px);border-color:rgba(217,164,65,.5);box-shadow:0 20px 50px rgba(0,0,0,.45),0 0 34px rgba(217,164,65,.10)}
-.svc:hover::before{transform:scaleX(1)}
-.svc .idx{font-family:var(--fd);font-size:15px;color:var(--gold);letter-spacing:.14em;margin-bottom:18px;text-shadow:0 0 12px rgba(217,164,65,.5)}
-.svc h3{font-family:var(--fd);font-size:clamp(22px,2.4vw,32px);text-transform:uppercase;margin-bottom:12px;line-height:1.05}
-.svc p{color:var(--muted);font-size:14.5px}
-.s1{grid-column:1/8}.s2{grid-column:8/13}.s3{grid-column:1/6}.s4{grid-column:6/13}.s5{grid-column:1/7}.s6{grid-column:7/13}
-/* collab band */
-.collab{background:linear-gradient(135deg,#111114,#0a0a0b);border:1px solid rgba(217,164,65,.3);border-radius:28px;padding:clamp(48px,6vw,84px);position:relative;overflow:hidden;text-align:center}
-.collab::before{content:"";position:absolute;inset:-2px;border-radius:28px;padding:2px;background:conic-gradient(from var(--a,0deg),transparent 0 70%,rgba(217,164,65,.7) 85%,transparent 100%);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;animation:spin 7s linear infinite;pointer-events:none}
-@property --a{syntax:'<angle>';initial-value:0deg;inherits:false}
-@keyframes spin{to{--a:360deg}}
-.collab .orb{position:absolute;width:420px;height:420px;border-radius:50%;background:radial-gradient(circle,rgba(217,164,65,.16),transparent 65%);filter:blur(10px);top:-140px;right:-100px;animation:drift 11s ease-in-out infinite alternate}
-@keyframes drift{to{transform:translate(-60px,50px)}}
-.collab h2{font-size:clamp(36px,5.4vw,72px);margin-bottom:18px;position:relative}
-.collab p{color:var(--muted);max-width:60ch;margin:0 auto 30px;position:relative}
-/* process */
-.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
-.step{border-top:1px solid var(--line);padding-top:28px;position:relative;transition:border-color .3s}
-.step::before{content:"";position:absolute;top:-1px;left:0;width:0;height:1px;background:var(--gold);box-shadow:0 0 10px rgba(217,164,65,.8);transition:width .5s}
-.step:hover::before{width:100%}
-.step .n{font-family:var(--fd);font-size:44px;color:transparent;-webkit-text-stroke:1px rgba(217,164,65,.65);margin-bottom:14px}
-.step h3{font-size:19px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;margin-bottom:10px}
-.step p{color:var(--muted);font-size:14.5px}
-/* visit */
+/* ---------- THE COLLECTION : museum ---------- */
+.collection{background:radial-gradient(80% 60% at 50% 0%,#0c0a08 0%,var(--bg) 70%)}
+.exhibit{position:relative;margin-bottom:clamp(80px,9vw,140px)}
+.exhibit:last-child{margin-bottom:0}
+/* spotlight cone from above */
+.exhibit .cone{position:absolute;top:-30px;left:50%;transform:translateX(-50%);width:min(760px,92%);height:440px;z-index:1;pointer-events:none;
+  background:conic-gradient(from 180deg at 50% 0%,transparent 40%,rgba(255,190,130,.09) 50%,transparent 60%);filter:blur(8px)}
+.exhibit .frame{position:relative;z-index:2;border-radius:10px;overflow:hidden;border:1px solid rgba(255,255,255,.1);
+  box-shadow:0 50px 110px rgba(0,0,0,.7),0 0 70px rgba(255,106,0,.05)}
+.exhibit .frame img{width:100%;height:clamp(340px,54vw,640px);object-fit:cover;filter:saturate(1.14) contrast(1.1);transition:transform .9s cubic-bezier(.16,.8,.24,1)}
+.exhibit:hover .frame img{transform:scale(1.04)}
+.exhibit .frame::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(2,2,3,.9) 100%)}
+/* museum placard */
+.placard{position:relative;z-index:2;display:grid;grid-template-columns:130px 1fr;gap:clamp(22px,4vw,56px);margin-top:30px;align-items:start}
+.placard .p-no{font-family:var(--fm);font-size:13px;font-weight:700;letter-spacing:.24em;color:var(--papaya);
+  border:1px solid rgba(255,106,0,.5);padding:12px 0;text-align:center;background:rgba(255,106,0,.05);
+  clip-path:polygon(10px 0,100% 0,calc(100% - 10px) 100%,0 100%);box-shadow:0 0 20px rgba(255,106,0,.16)}
+.placard h3{font-family:var(--fd);font-stretch:115%;font-weight:800;font-size:clamp(32px,4.6vw,68px);text-transform:uppercase;line-height:.98;margin-bottom:14px}
+.placard h3 .accent{color:var(--papaya);filter:drop-shadow(0 0 22px rgba(255,106,0,.5))}
+.placard p{color:var(--muted);font-size:clamp(14.5px,1.5vw,17px);max-width:66ch}
+.placard .specs{display:flex;gap:0;flex-wrap:wrap;margin-top:20px;border-top:1px solid var(--line)}
+.placard .specs span{font-family:var(--fm);font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);
+  padding:14px 22px 14px 0;margin-right:22px;border-right:1px solid var(--line)}
+.placard .specs span:last-child{border-right:none}
+.exhibit.flip .placard{grid-template-columns:1fr 130px;text-align:right}
+.exhibit.flip .placard .p-no{order:2}
+.exhibit.flip .placard p{margin-left:auto}
+.exhibit.flip .placard .specs{justify-content:flex-end}
+.exhibit.flip .placard .specs span{padding:14px 0 14px 22px;margin-right:0;margin-left:22px;border-right:none;border-left:1px solid var(--line)}
+.exhibit.flip .placard .specs span:last-child{border-left:none}
+
+/* ---------- HOT WHEELS : ignition feature ---------- */
+.hw{background:#0b0603;position:relative;overflow:hidden;border-top:1px solid rgba(255,106,0,.28);border-bottom:1px solid rgba(255,106,0,.28)}
+.hw::before{content:"";position:absolute;inset:0;background:
+  radial-gradient(55% 65% at 50% 105%,rgba(255,106,0,.18),transparent 70%),
+  repeating-linear-gradient(115deg,transparent 0 54px,rgba(255,106,0,.05) 54px 56px)}
+.hw .wrap{position:relative;z-index:2;text-align:center}
+.hw-badge{display:inline-flex;align-items:center;gap:12px;font-family:var(--fm);font-size:12px;font-weight:700;letter-spacing:.3em;text-transform:uppercase;
+  color:#0d0600;background:linear-gradient(180deg,#ff7d1f,#d15400);padding:15px 32px;margin-bottom:32px;
+  clip-path:polygon(12px 0,100% 0,calc(100% - 12px) 100%,0 100%);box-shadow:0 12px 44px rgba(255,106,0,.42)}
+.hw-badge .dot{width:9px;height:9px;border-radius:50%;background:#0d0600;animation:pulse 2s infinite}
+@keyframes pulse{50%{opacity:.3}}
+.hw h2{margin-bottom:22px}
+.hw h2 .serif-it{color:var(--papaya);filter:drop-shadow(0 0 26px rgba(255,106,0,.5))}
+.hw p{color:#cfc6bd;max-width:64ch;margin:0 auto 36px}
+/* ---------- ATELIER : service index ---------- */
+.svc-row{display:grid;grid-template-columns:120px 1fr auto;gap:clamp(18px,3.6vw,48px);align-items:center;
+  padding:38px 12px;border-top:1px solid var(--line);position:relative;overflow:hidden;transition:background .35s}
+.svc-row:last-child{border-bottom:1px solid var(--line)}
+.svc-row::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:linear-gradient(180deg,var(--papaya),transparent);
+  transform:scaleY(0);transform-origin:top;transition:transform .45s;box-shadow:0 0 18px rgba(255,106,0,.85)}
+.svc-row:hover::before{transform:scaleY(1)}
+.svc-row:hover{background:linear-gradient(90deg,rgba(255,106,0,.055),transparent 65%)}
+.svc-row .idx{font-family:var(--fm);font-size:13px;letter-spacing:.22em;color:var(--muted);transition:color .3s}
+.svc-row:hover .idx{color:var(--papaya)}
+.svc-row h3{font-family:var(--fd);font-stretch:115%;font-weight:800;font-size:clamp(28px,3.8vw,56px);text-transform:uppercase;line-height:1;transition:transform .35s}
+.svc-row:hover h3{transform:translateX(12px)}
+.svc-row p{color:var(--muted);font-size:14.5px;max-width:54ch;margin-top:10px}
+.svc-row .go{width:60px;height:60px;flex:none;border:1px solid rgba(255,255,255,.2);border-radius:50%;display:flex;align-items:center;justify-content:center;transition:.35s}
+.svc-row:hover .go{border-color:var(--papaya);box-shadow:0 0 26px rgba(255,106,0,.45);transform:rotate(-45deg)}
+/* ---------- PROTOCOL ---------- */
+.proto{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.proto-step{padding:44px 34px;background:var(--card);position:relative;transition:background .35s}
+.proto-step:hover{background:#121015}
+.proto-step .pn{font-family:var(--fm);font-size:12px;font-weight:700;letter-spacing:.3em;color:var(--papaya);margin-bottom:20px}
+.proto-step h3{font-family:var(--fd);font-stretch:112%;font-weight:800;font-size:clamp(24px,2.6vw,34px);text-transform:uppercase;margin-bottom:14px}
+.proto-step p{color:var(--muted);font-size:14.5px}
+.proto-step::after{content:"";position:absolute;left:0;right:0;bottom:0;height:3px;background:linear-gradient(90deg,var(--papaya),transparent);transform:scaleX(0);transform-origin:left;transition:transform .5s}
+.proto-step:hover::after{transform:scaleX(1)}
+/* ---------- FOUNDER ---------- */
+.founder{background:linear-gradient(180deg,var(--bg),#0d0a07 100%);overflow:hidden}
+.founder-grid{display:grid;grid-template-columns:1fr 1.15fr;gap:clamp(40px,6vw,96px);align-items:center}
+.founder .portrait{position:relative;border-radius:12px;overflow:hidden;border:1px solid rgba(255,255,255,.1);box-shadow:0 50px 100px rgba(0,0,0,.65)}
+.founder .portrait img{width:100%;height:clamp(400px,48vw,580px);object-fit:cover;filter:saturate(1.08) contrast(1.1)}
+.founder .portrait::after{content:"";position:absolute;inset:0;background:linear-gradient(205deg,transparent 55%,rgba(255,106,0,.16));pointer-events:none}
+.founder .stamp{position:absolute;left:24px;bottom:24px;font-family:var(--fm);font-size:11px;letter-spacing:.28em;text-transform:uppercase;
+  background:rgba(5,5,6,.78);backdrop-filter:blur(8px);border:1px solid rgba(255,106,0,.55);color:#fff;padding:13px 22px;
+  clip-path:polygon(10px 0,100% 0,calc(100% - 10px) 100%,0 100%)}
+.founder blockquote{font-family:var(--fs);font-style:italic;font-size:clamp(28px,3.6vw,46px);line-height:1.28;color:var(--ink);margin:28px 0 32px;hanging-punctuation:first}
+.founder blockquote::before{content:"\201C";color:var(--papaya);margin-right:8px}
+.founder .sig{font-family:var(--fm);font-size:12px;letter-spacing:.32em;text-transform:uppercase;color:var(--muted)}
+.founder .sig b{color:var(--ink)}
+/* ---------- VISIT ---------- */
 .visit{background:var(--bg2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-.visit-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start}
-.info-row{display:flex;gap:18px;padding:22px 0;border-bottom:1px solid var(--line);align-items:flex-start}
+.visit-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(40px,6vw,76px);align-items:start}
+.info-row{display:flex;gap:20px;padding:26px 0;border-bottom:1px solid var(--line);align-items:flex-start}
 .info-row:last-child{border:none}
-.info-ic{width:48px;height:48px;flex:none;border-radius:14px;background:var(--gold-soft);border:1px solid rgba(217,164,65,.4);display:flex;align-items:center;justify-content:center;font-size:19px;box-shadow:0 0 18px rgba(217,164,65,.12)}
-.info-row h4{font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:6px}
-.info-row p{font-size:16.5px;font-weight:500}
-.info-row a.hl{color:var(--gold);font-weight:600}
-.quote-card{background:var(--card);border:1px solid rgba(217,164,65,.35);border-radius:22px;padding:40px;position:sticky;top:110px;box-shadow:0 0 50px rgba(217,164,65,.08)}
-.quote-card h3{font-family:var(--fd);font-size:clamp(26px,3vw,38px);text-transform:uppercase;margin-bottom:14px}
-.quote-card p{color:var(--muted);margin-bottom:26px;font-size:15.5px}
+.info-ic{width:52px;height:52px;flex:none;border-radius:10px;background:var(--papaya-soft);border:1px solid rgba(255,106,0,.45);
+  display:flex;align-items:center;justify-content:center;font-size:20px;box-shadow:0 0 22px rgba(255,106,0,.14)}
+.info-row h4{font-family:var(--fm);font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--papaya);margin-bottom:8px}
+.info-row p{font-size:17px;font-weight:500}
+.info-row a.hl{color:#fff;font-weight:600;border-bottom:1px solid rgba(255,106,0,.65)}
+.quote-card{background:linear-gradient(160deg,#131316,#0a0a0d);border:1px solid rgba(255,106,0,.38);border-radius:14px;padding:48px;position:sticky;top:112px;
+  box-shadow:0 34px 90px rgba(0,0,0,.55),0 0 70px rgba(255,106,0,.08);overflow:hidden}
+.quote-card::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--papaya),transparent);box-shadow:0 0 20px rgba(255,106,0,.85)}
+.quote-card h3{font-family:var(--fd);font-stretch:114%;font-weight:800;font-size:clamp(32px,3.6vw,48px);text-transform:uppercase;margin-bottom:16px;line-height:1}
+.quote-card p{color:var(--muted);margin-bottom:30px;font-size:15.5px}
 .quote-card .btn{width:100%;justify-content:center;margin-bottom:12px}
-/* faq */
+/* ---------- FAQ ---------- */
 .faq-item{border-bottom:1px solid var(--line)}
-.faq-q{width:100%;background:none;border:none;color:var(--ink);font-family:var(--fb);font-size:17.5px;font-weight:700;text-align:left;padding:26px 8px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:20px}
-.faq-q .pm{flex:none;width:34px;height:34px;border:1px solid var(--line);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:20px;color:var(--gold);transition:transform .3s,background .3s}
-.faq-item.open .pm{transform:rotate(45deg);background:var(--gold);color:#0a0a0b;border-color:var(--gold)}
-.faq-a{max-height:0;overflow:hidden;transition:max-height .4s ease;color:var(--muted);font-size:15.5px}
-.faq-a p{padding:0 8px 28px;max-width:72ch}
-/* final */
-.final{text-align:center;position:relative;overflow:hidden}
-.final .ghost{font-size:clamp(120px,22vw,320px);left:50%;top:50%;transform:translate(-50%,-50%);opacity:.5}
-.final h2{font-size:clamp(50px,8vw,108px);margin-bottom:20px;position:relative}
-.final .sub{margin:0 auto 36px;position:relative}
-/* footer */
-footer{border-top:1px solid var(--line);padding:60px 0 36px;background:#08080a}
-.foot-top{display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap;margin-bottom:44px}
-.foot{display:flex;justify-content:space-between;gap:32px;flex-wrap:wrap;margin-bottom:40px}
-.foot p{color:var(--muted);font-size:14.5px;max-width:38ch}
-.foot h5{font-size:11.5px;letter-spacing:.24em;text-transform:uppercase;color:var(--gold);margin-bottom:16px}
+.faq-q{width:100%;background:none;border:none;color:var(--ink);font-family:var(--fb);font-size:18px;font-weight:700;text-align:left;padding:30px 8px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:20px}
+.faq-q .pm{flex:none;width:38px;height:38px;border:1px solid rgba(255,255,255,.2);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:20px;color:var(--papaya);transition:transform .3s,background .3s,border-color .3s}
+.faq-item.open .pm{transform:rotate(45deg);background:var(--papaya);color:#0d0600;border-color:var(--papaya);box-shadow:0 0 20px rgba(255,106,0,.65)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .45s ease;color:var(--muted);font-size:15.5px}
+.faq-a p{padding:0 8px 32px;max-width:74ch}
+/* ---------- FINAL ---------- */
+.final{text-align:center;overflow:hidden;background:radial-gradient(65% 85% at 50% 112%,rgba(255,106,0,.13),transparent 70%)}
+.final .ghostline{font-family:var(--fd);font-stretch:120%;font-weight:900;font-size:clamp(96px,18vw,250px);text-transform:uppercase;line-height:1;
+  color:transparent;-webkit-text-stroke:1px rgba(255,255,255,.09);white-space:nowrap;user-select:none;pointer-events:none;margin-bottom:14px}
+.final h2{margin-bottom:22px}
+.final .sub{margin:0 auto 40px}
+/* ---------- footer ---------- */
+footer{border-top:1px solid var(--line);padding:68px 0 38px;background:#030304}
+.foot-top{display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap;margin-bottom:48px;padding-bottom:36px;border-bottom:1px solid var(--line)}
+.foot{display:flex;justify-content:space-between;gap:32px;flex-wrap:wrap;margin-bottom:44px}
+.foot p{color:var(--muted);font-size:14.5px;max-width:42ch}
+.foot h5{font-family:var(--fm);font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--papaya);margin-bottom:18px}
 .foot ul{list-style:none;display:grid;gap:10px;font-size:15px}
-.foot a:hover{color:var(--gold)}
-.copy{border-top:1px solid var(--line);padding-top:28px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;color:var(--muted);font-size:13px}
-/* wa float */
-.wa-float{position:fixed;right:22px;bottom:22px;z-index:90;width:60px;height:60px;border-radius:50%;background:#25d366;display:flex;align-items:center;justify-content:center;box-shadow:0 10px 30px rgba(37,211,102,.4),0 0 0 0 rgba(37,211,102,.5);animation:waping 2.6s infinite;transition:transform .25s}
-.wa-float:hover{transform:scale(1.1)}
-@keyframes waping{70%{box-shadow:0 10px 30px rgba(37,211,102,.4),0 0 0 16px rgba(37,211,102,0)}100%{box-shadow:0 10px 30px rgba(37,211,102,.4),0 0 0 0 rgba(37,211,102,0)}}
-/* reveal */
-.rv{opacity:0;transform:translateY(38px);transition:opacity .85s cubic-bezier(.2,.7,.2,1),transform .85s cubic-bezier(.2,.7,.2,1)}
+.foot a:hover{color:#fff}
+.copy{border-top:1px solid var(--line);padding-top:30px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;color:var(--muted);font-size:12.5px;font-family:var(--fm);letter-spacing:.08em}
+/* dm float */
+.dm-float{position:fixed;right:22px;bottom:22px;z-index:90;width:64px;height:64px;border-radius:50%;
+  background:linear-gradient(180deg,#ff7d1f,#c24e00);display:flex;align-items:center;justify-content:center;
+  box-shadow:0 14px 38px rgba(255,106,0,.5);transition:transform .25s;animation:dmring 3s infinite}
+.dm-float:hover{transform:scale(1.1)}
+@keyframes dmring{0%{box-shadow:0 14px 38px rgba(255,106,0,.5),0 0 0 0 rgba(255,106,0,.5)}70%{box-shadow:0 14px 38px rgba(255,106,0,.5),0 0 0 20px rgba(255,106,0,0)}100%{box-shadow:0 14px 38px rgba(255,106,0,.5),0 0 0 0 rgba(255,106,0,0)}}
+/* reveal system */
+.rv{opacity:0;transform:translateY(42px);transition:opacity .95s cubic-bezier(.16,.8,.24,1),transform .95s cubic-bezier(.16,.8,.24,1)}
 .rv.in{opacity:1;transform:none}
 .rv.d1{transition-delay:.1s}.rv.d2{transition-delay:.2s}.rv.d3{transition-delay:.3s}
-.mask{clip-path:inset(14% 9% 14% 9%);transition:clip-path 1.1s cubic-bezier(.2,.7,.2,1)}
+.mask{clip-path:inset(12% 7% 12% 7%);transition:clip-path 1.2s cubic-bezier(.16,.8,.24,1)}
 .mask.in{clip-path:inset(0 0 0 0)}
 /* responsive */
 @media(max-width:1024px){
-  .b1,.b2,.b3,.b4{grid-column:1/13;min-height:360px}
-  .s1,.s2,.s3,.s4,.s5,.s6{grid-column:1/13}
-  .steps{grid-template-columns:repeat(2,1fr)}
-  .visit-grid{grid-template-columns:1fr;gap:40px}
+  .proto{grid-template-columns:repeat(2,1fr)}
+  .proto-step{border-bottom:1px solid var(--line)}
+  .founder-grid{grid-template-columns:1fr}
+  .visit-grid{grid-template-columns:1fr;gap:48px}
   .quote-card{position:static}
   .scroll-hint{display:none}
+  .svc-row{grid-template-columns:80px 1fr;gap:20px}
+  .svc-row .go{display:none}
 }
 @media(max-width:768px){
-  .links{position:fixed;inset:0;background:rgba(8,8,10,.98);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);flex-direction:column;justify-content:center;gap:34px;transform:translateX(100%);transition:transform .4s;z-index:105}
+  .links{position:fixed;inset:0;background:rgba(3,3,4,.98);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);flex-direction:column;justify-content:center;gap:38px;transform:translateX(100%);transition:transform .45s;z-index:105}
   .links.open{transform:none}
   .links a{font-size:20px}
   .burger{display:block}
   .nav .btn{display:none}
-  .proof{grid-template-columns:1fr}
-  .steps{grid-template-columns:1fr}
-  #cursorLight{display:none}
+  .hero-stats{grid-template-columns:1fr;max-width:none}
+  .proto{grid-template-columns:1fr}
+  .placard{grid-template-columns:1fr!important;text-align:left!important}
+  .placard .p-no{order:0!important;justify-self:start}
+  .placard p{margin-left:0!important}
+  .placard .specs{justify-content:flex-start!important}
+  .placard .specs span{border-right:1px solid var(--line)!important;border-left:none!important;padding:14px 22px 14px 0!important;margin:0 22px 0 0!important}
+  .letterbox{height:34px}
+  #cursorAura{display:none}
 }
 @media(prefers-reduced-motion:reduce){
   *,*::before,*::after{animation:none!important;transition:none!important}
   .rv{opacity:1;transform:none}
   .mask{clip-path:inset(0 0 0 0)}
+  #loader{display:none}
+  .hero-bg img{opacity:.6;transform:scale(1.02)}
   html{scroll-behavior:auto}
 }
 </style>
 </head>
 <body>
+<div id="loader" aria-hidden="true">
+  <div class="rpm"><span id="rpmNum">0</span><small>RPM</small></div>
+  <div class="l-ticks" id="rpmTicks"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+  <div class="l-word"><b>THE AUTO FIRM</b> · IGNITION</div>
+</div>
 <div id="progress"></div>
-<div id="cursorLight" aria-hidden="true"></div>
+<div id="cursorAura" aria-hidden="true"></div>
 
 <header id="hdr">
   <nav class="nav">
     <a class="brand" href="#top">THE AUTO <em>FIRM</em><small>MIAMI · FL</small></a>
     <div class="links" id="menu">
-      <a href="#builds">Builds</a>
-      <a href="#services">Services</a>
-      <a href="#collab">Collabs</a>
+      <a href="#collection">Collection</a>
+      <a href="#atelier">Atelier</a>
+      <a href="#protocol">Protocol</a>
       <a href="#visit">Visit</a>
       <a class="btn" href="https://ig.me/m/theautofirm" target="_blank" rel="noopener">Get a Quote</a>
     </div>
@@ -247,153 +331,195 @@ footer{border-top:1px solid var(--line);padding:60px 0 36px;background:#08080a}
 </header>
 
 <main id="top">
-<!-- HERO -->
-<section class="hero has-ghost">
-  <div class="hero-bg" data-plx="0.22"><img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=1800&q=70&auto=format&fit=crop" alt="Customized sports car at night" onerror="this.style.display='none'"></div>
-  <span class="ghost" style="font-size:clamp(140px,24vw,340px);right:-2%;bottom:6%" data-plx="-0.05" aria-hidden="true">VEGA</span>
-  <div class="wrap" data-plx="0.08">
-    <p class="eyebrow rv">Miami, Florida — 35 Years of Craft</p>
-    <h1 class="h-xl">
-      <span class="row"><span>Personalizing</span></span>
-      <span class="row"><span>the <span class="neon-gold">world's finest</span></span></span>
-      <span class="row"><span>automobiles.</span></span>
-    </h1>
-    <div class="hw-badge rv d1"><span class="dot"></span> As recreated by Hot Wheels®</div>
-    <p class="hero-sub rv d2">The Auto Firm by Alex Vega — luxury customization, paint protection film, forged wheels and a state-of-the-art collision center. From daily drivers to exotics, every build leaves as a piece of art.</p>
-    <div class="hero-ctas rv d2">
-      <a class="btn" href="https://ig.me/m/theautofirm" target="_blank" rel="noopener">Get a Quote</a>
-      <a class="btn btn-ghost" href="https://youtu.be/03de-CspgZg?is=aRSI_OPl6o_Odhay" target="_blank" rel="noopener">Watch on YouTube</a>
+<!-- HERO : the reveal -->
+<section class="hero">
+  <div class="letterbox top" aria-hidden="true"></div>
+  <div class="letterbox bottom" aria-hidden="true"></div>
+  <div class="hero-bg" data-plx="0.18"><img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=1800&q=70&auto=format&fit=crop" alt="Customized sports car revealed at night" onerror="this.style.display='none'"></div>
+  <div class="slit" aria-hidden="true"></div>
+  <div class="wrap" data-plx="0.06">
+    <div class="hero-meta rv">
+      <span><b>EST.</b> 35 YEARS OF CRAFT</span>
+      <span><b>BASE.</b> MIAMI, FLORIDA</span>
+      <span><b>AUD.</b> 398K COMMUNITY</span>
     </div>
-    <div class="proof rv d3">
-      <div><b><span data-count="398">0</span>K<span class="gold">+</span></b><span>Community on Instagram</span></div>
-      <div><b><span data-count="35">0</span> <span class="gold">yrs</span></b><span>Customizing Cars</span></div>
-      <div><b>Miami<span class="gold">, FL</span></b><span>Kendall — 133rd Ct</span></div>
+    <h1 class="h-xl">
+      <span class="row"><span class="chrome">Personalizing</span></span>
+      <span class="row"><span class="chrome">the world's</span></span>
+      <span class="row"><span class="papaya-word">finest.</span></span>
+    </h1>
+    <p class="hero-sub rv d1">The Auto Firm by Alex Vega — a private atelier for luxury customization: paint protection film, bespoke wraps, Avorza forged wheels and a state-of-the-art collision center. <span class="serif-it">As recreated by Hot Wheels.</span></p>
+    <div class="hero-ctas rv d2">
+      <a class="btn" href="https://ig.me/m/theautofirm" target="_blank" rel="noopener">Start Your Build</a>
+      <a class="btn btn-line" href="https://youtu.be/03de-CspgZg?is=aRSI_OPl6o_Odhay" target="_blank" rel="noopener">Watch the Films</a>
+    </div>
+    <div class="hero-stats rv d3">
+      <div><b><span data-count="398">0</span><span class="accent">K+</span></b><span>Instagram community</span></div>
+      <div><b><span data-count="35">0</span><span class="accent">yrs</span></b><span>Customizing cars</span></div>
+      <div><b>Hot<span class="accent">®</span></b><span>Wheels official collab</span></div>
     </div>
   </div>
-  <div class="scroll-hint" aria-hidden="true"><span>Scroll</span><span class="drip"></span></div>
+  <div class="scroll-hint" aria-hidden="true"><span>Reveal</span><span class="drip"></span></div>
 </section>
-<!-- TICKER -->
-<div class="ticker" aria-hidden="true">
-  <div class="ticker-track">
-    <span>Paint Protection Film <i>✦</i></span><span>Custom Wraps <i>✦</i></span><span>Avorza Forged Wheels <i>✦</i></span><span>Collision Center <i>✦</i></span><span>Offroad Builds <i>✦</i></span><span>Miami, Florida <i>✦</i></span>
-    <span>Paint Protection Film <i>✦</i></span><span>Custom Wraps <i>✦</i></span><span>Avorza Forged Wheels <i>✦</i></span><span>Collision Center <i>✦</i></span><span>Offroad Builds <i>✦</i></span><span>Miami, Florida <i>✦</i></span>
+
+<!-- MARQUEE -->
+<div class="marquee" aria-hidden="true">
+  <div class="mq-track">
+    <span>Paint Protection Film <i>///</i></span><span>Bespoke Wraps <i>///</i></span><span>Avorza Forged Wheels <i>///</i></span><span>Collision Center <i>///</i></span><span>Offroad Builds <i>///</i></span><span>Caliper Painting <i>///</i></span>
+    <span>Paint Protection Film <i>///</i></span><span>Bespoke Wraps <i>///</i></span><span>Avorza Forged Wheels <i>///</i></span><span>Collision Center <i>///</i></span><span>Offroad Builds <i>///</i></span><span>Caliper Painting <i>///</i></span>
   </div>
 </div>
 
-<!-- BUILDS -->
-<section id="builds" class="has-ghost">
-  <span class="ghost" style="font-size:clamp(110px,18vw,260px);left:-1%;top:40px" data-plx="0.06" aria-hidden="true">Builds</span>
-  <div class="wrap" style="position:relative;z-index:1">
-    <div class="sec-head rv">
-      <div class="kicker"><span class="num">01</span><span class="rule"></span><span class="lbl">Signature Builds</span></div>
-      <h2 class="h-lg">Machines that<br>became <span class="gold">art.</span></h2>
-      <p class="sub" style="margin-top:18px">A few of the builds that rolled out of the shop — from a Hot Wheels legend to exotics and full offroad transformations.</p>
+<!-- THE COLLECTION -->
+<section id="collection" class="collection">
+  <div class="wrap">
+    <div class="rv" style="margin-bottom:clamp(56px,7vw,100px)">
+      <div class="slabel"><span class="code">EXHIBITION</span><span class="rule"></span><span class="lbl">The Collection</span></div>
+      <h2 class="h-lg"><span class="chrome">Machines,</span><br>curated like <span class="serif-it accent">art.</span></h2>
+      <p class="sub" style="margin-top:22px">Step into the gallery. Every build below rolled out of the Kendall shop — from a Hot Wheels legend to exotics and full offroad transformations.</p>
     </div>
-    <div class="build-grid">
-      <article class="build b1 rv mask">
-        <div class="ph"><img src="https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?w=1200&q=70&auto=format&fit=crop" alt="Custom Ford Bronco offroad build" loading="lazy" onerror="this.style.display='none'"></div>
-        <div class="tx">
-          <p class="tag">Hot Wheels® Collaboration</p>
-          <h3>The LF Bronco — Avorza Edition</h3>
-          <p>Personalized for Luis Fonsi with Avorza wheels — then recreated by Hot Wheels as an official die-cast. A dream build, immortalized.</p>
+
+    <article class="exhibit rv">
+      <div class="cone" aria-hidden="true"></div>
+      <div class="frame mask"><img src="https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?w=1400&q=70&auto=format&fit=crop" alt="Custom Ford Bronco offroad build" loading="lazy" onerror="this.style.display='none'"></div>
+      <div class="placard">
+        <span class="p-no">N°001</span>
+        <div>
+          <h3>The LF Bronco — <span class="accent">Avorza Edition</span></h3>
+          <p>Personalized for Luis Fonsi with Avorza wheels — then recreated by Hot Wheels as an official die-cast edition. A dream build, immortalized on the toy shelf.</p>
+          <div class="specs"><span>Hot Wheels® collab</span><span>Avorza forged wheels</span><span>Full custom build</span></div>
         </div>
-      </article>
-      <article class="build b2 rv d1 mask">
-        <div class="ph"><img src="https://images.unsplash.com/photo-1555215695-3004980ad54e?w=1200&q=70&auto=format&fit=crop" alt="Porsche with custom wrap and wheels" loading="lazy" onerror="this.style.display='none'"></div>
-        <div class="tx">
-          <p class="tag">Exotics</p>
-          <h3>Porsche, Perfected</h3>
-          <p>Brown special colored PPF, sky-blue calipers, gold powder-coated wheels — exotics leave here wearing art.</p>
+      </div>
+    </article>
+
+    <article class="exhibit flip rv">
+      <div class="cone" aria-hidden="true"></div>
+      <div class="frame mask"><img src="https://images.unsplash.com/photo-1555215695-3004980ad54e?w=1400&q=70&auto=format&fit=crop" alt="Porsche with bespoke wrap and custom wheels" loading="lazy" onerror="this.style.display='none'"></div>
+      <div class="placard">
+        <span class="p-no">N°002</span>
+        <div>
+          <h3>Porsche, <span class="accent">perfected</span></h3>
+          <p>Brown special colored PPF, sky-blue calipers, gold powder-coated wheels — exotics leave this shop wearing art, not paint.</p>
+          <div class="specs"><span>Colored PPF</span><span>Custom calipers</span><span>Powder-coated wheels</span></div>
         </div>
-      </article>
-      <article class="build b3 rv mask">
-        <div class="ph"><img src="https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?w=1000&q=70&auto=format&fit=crop" alt="Offroad 4x4 vehicle build" loading="lazy" onerror="this.style.display='none'"></div>
-        <div class="tx">
-          <p class="tag">Offroad</p>
-          <h3>Defender Octa — 23" Avorza</h3>
-          <p>Land Rover Defender sitting on 23-inch Avorza AV71 forged wheels. Presence you feel before you see.</p>
+      </div>
+    </article>
+
+    <article class="exhibit rv">
+      <div class="cone" aria-hidden="true"></div>
+      <div class="frame mask"><img src="https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?w=1400&q=70&auto=format&fit=crop" alt="Offroad 4x4 build on forged wheels" loading="lazy" onerror="this.style.display='none'"></div>
+      <div class="placard">
+        <span class="p-no">N°003</span>
+        <div>
+          <h3>Defender Octa — <span class="accent">23" Avorza</span></h3>
+          <p>Land Rover Defender sitting on 23-inch Avorza AV71 forged wheels. Presence you feel before you see it.</p>
+          <div class="specs"><span>Offroad build</span><span>23" Avorza AV71</span><span>Lifted &amp; kitted</span></div>
         </div>
-      </article>
-      <article class="build b4 rv d1 mask">
-        <div class="ph"><img src="https://images.unsplash.com/photo-1542362567-b07e54358753?w=1200&q=70&auto=format&fit=crop" alt="Custom sports car with unique finish" loading="lazy" onerror="this.style.display='none'"></div>
-        <div class="tx">
-          <p class="tag">Fleet & Community</p>
-          <h3>Built for Those Who Serve</h3>
+      </div>
+    </article>
+
+    <article class="exhibit flip rv">
+      <div class="cone" aria-hidden="true"></div>
+      <div class="frame mask"><img src="https://images.unsplash.com/photo-1542362567-b07e54358753?w=1400&q=70&auto=format&fit=crop" alt="Custom sports car with unique finish" loading="lazy" onerror="this.style.display='none'"></div>
+      <div class="placard">
+        <span class="p-no">N°004</span>
+        <div>
+          <h3>Built for those <span class="accent">who serve</span></h3>
           <p>From Miami Springs PD patrol cars to Ocean Reef Fire Rescue rigs — trusted with the vehicles that protect Miami.</p>
+          <div class="specs"><span>Fleet builds</span><span>PD &amp; Fire Rescue</span><span>Community trusted</span></div>
         </div>
-      </article>
-    </div>
+      </div>
+    </article>
   </div>
 </section>
 
-<!-- SERVICES -->
-<section id="services" style="padding-top:0">
+<!-- HOT WHEELS -->
+<section class="hw">
   <div class="wrap">
-    <div class="sec-head rv">
-      <div class="kicker"><span class="num">02</span><span class="rule"></span><span class="lbl">Services</span></div>
-      <h2 class="h-lg">Everything your car<br>needs to <span class="gold">stand out.</span></h2>
-    </div>
-    <div class="svc-grid">
-      <article class="svc s1 rv">
-        <p class="idx">/ 01</p>
-        <h3>Paint Protection Film</h3>
-        <p>Protect your investment with premium PPF — invisible armor against rock chips, scratches and road wear. Call for an appointment.</p>
-      </article>
-      <article class="svc s2 rv d1">
-        <p class="idx">/ 02</p>
-        <h3>Custom Wraps</h3>
-        <p>Special colored PPF and full wraps that transform the car without touching the factory paint. Red or grey — you choose.</p>
-      </article>
-      <article class="svc s3 rv">
-        <p class="idx">/ 03</p>
-        <h3>Avorza Forged Wheels</h3>
-        <p>The wheels behind the builds — forged Avorza sets, custom finishes, powder-coated to match your vision.</p>
-      </article>
-      <article class="svc s4 rv d1">
-        <p class="idx">/ 04</p>
-        <h3>Calipers & Powder Coating</h3>
-        <p>Sky-blue calipers, gold wheels — the details that separate a car from a statement. Painted and coated in-house.</p>
-      </article>
-      <article class="svc s5 rv">
-        <p class="idx">/ 05</p>
-        <h3>Collision Center</h3>
-        <p>When accidents happen, your vehicle ends up in the right place — a state-of-the-art collision center that handles the insurance process with you.</p>
-      </article>
-      <article class="svc s6 rv d1">
-        <p class="idx">/ 06</p>
-        <h3>Offroad & 4x4</h3>
-        <p>Defenders, Jeeps, Broncos — lifted, kitted and wheeled for the trail without losing the luxury feel.</p>
-      </article>
-    </div>
-  </div>
-</section>
-
-<!-- COLLAB -->
-<section id="collab" style="padding-top:0">
-  <div class="wrap">
-    <div class="collab rv">
-      <div class="orb" aria-hidden="true"></div>
-      <p class="eyebrow" style="justify-content:center">Collaborations</p>
-      <h2>From the shop<br>to the <span class="serif-it gold">toy shelf.</span></h2>
-      <p>Hot Wheels recreated the Luis Fonsi Bronco — with the actual Avorza wheels personalized at The Auto Firm — as an official die-cast edition. When the biggest name in toys knocks, you know the work speaks.</p>
-      <div class="hero-ctas" style="justify-content:center;position:relative">
+    <div class="rv">
+      <span class="hw-badge"><span class="dot"></span> Official Collaboration</span>
+      <h2 class="h-lg">From the shop<br>to the <span class="serif-it">toy shelf.</span></h2>
+      <p>Hot Wheels recreated the Luis Fonsi Bronco — with the actual Avorza wheels personalized at The Auto Firm — as an official die-cast edition. When the biggest name in toys knocks on your door, the work has already spoken.</p>
+      <div class="hero-ctas" style="justify-content:center">
         <a class="btn" href="https://ig.me/m/theautofirm" target="_blank" rel="noopener">Start Your Build</a>
       </div>
     </div>
   </div>
 </section>
-<!-- PROCESS -->
-<section id="process" style="padding-top:0">
+
+<!-- ATELIER -->
+<section id="atelier">
   <div class="wrap">
-    <div class="sec-head rv">
-      <div class="kicker"><span class="num">03</span><span class="rule"></span><span class="lbl">The Process</span></div>
-      <h2 class="h-lg">From vision<br>to <span class="gold">reveal.</span></h2>
+    <div class="rv" style="margin-bottom:clamp(48px,5vw,76px)">
+      <div class="slabel"><span class="code">ATELIER</span><span class="rule"></span><span class="lbl">Service Index</span></div>
+      <h2 class="h-lg"><span class="chrome">Choose your</span><br>transformation.</h2>
     </div>
-    <div class="steps">
-      <div class="step rv"><p class="n">01</p><h3>Consult</h3><p>DM or call — tell us the car and the vision. We scope the build together.</p></div>
-      <div class="step rv d1"><p class="n">02</p><h3>Design</h3><p>Colors, wheels, film, finish — every detail planned before a single panel is touched.</p></div>
-      <div class="step rv d2"><p class="n">03</p><h3>Build</h3><p>PPF, wraps, wheels, paint — executed in-house by a crew that's done it for 35 years.</p></div>
-      <div class="step rv d3"><p class="n">04</p><h3>Reveal</h3><p>You pick up a piece of art. Then the whole internet sees it.</p></div>
+    <div class="rv">
+      <div class="svc-row">
+        <span class="idx">/ 01</span>
+        <div><h3>Paint Protection Film</h3><p>Invisible armor against rock chips, scratches and road wear — premium PPF in clear and special colors. Call for an appointment.</p></div>
+        <span class="go" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ff6a00" stroke-width="2"><path d="M7 17L17 7M9 7h8v8"/></svg></span>
+      </div>
+      <div class="svc-row">
+        <span class="idx">/ 02</span>
+        <div><h3>Bespoke Wraps</h3><p>Special colored PPF and full wraps that transform the car without touching the factory paint. Red or grey — you choose.</p></div>
+        <span class="go" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ff6a00" stroke-width="2"><path d="M7 17L17 7M9 7h8v8"/></svg></span>
+      </div>
+      <div class="svc-row">
+        <span class="idx">/ 03</span>
+        <div><h3>Avorza Forged Wheels</h3><p>The wheels behind the builds — forged Avorza sets, custom finishes, powder-coated to match your vision.</p></div>
+        <span class="go" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ff6a00" stroke-width="2"><path d="M7 17L17 7M9 7h8v8"/></svg></span>
+      </div>
+      <div class="svc-row">
+        <span class="idx">/ 04</span>
+        <div><h3>Calipers &amp; Powder Coating</h3><p>Sky-blue calipers, gold wheels — the details that separate a car from a statement. Painted and coated in-house.</p></div>
+        <span class="go" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ff6a00" stroke-width="2"><path d="M7 17L17 7M9 7h8v8"/></svg></span>
+      </div>
+      <div class="svc-row">
+        <span class="idx">/ 05</span>
+        <div><h3>Collision Center</h3><p>When accidents happen, your vehicle ends up in the right place — a state-of-the-art collision center that personally assists you with the insurance process.</p></div>
+        <span class="go" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ff6a00" stroke-width="2"><path d="M7 17L17 7M9 7h8v8"/></svg></span>
+      </div>
+      <div class="svc-row">
+        <span class="idx">/ 06</span>
+        <div><h3>Offroad &amp; 4x4</h3><p>Defenders, Jeeps, Broncos — lifted, kitted and wheeled for the trail without losing the luxury feel.</p></div>
+        <span class="go" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ff6a00" stroke-width="2"><path d="M7 17L17 7M9 7h8v8"/></svg></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROTOCOL -->
+<section id="protocol" style="padding-top:0">
+  <div class="wrap">
+    <div class="rv" style="margin-bottom:clamp(48px,5vw,76px)">
+      <div class="slabel"><span class="code">PROTOCOL</span><span class="rule"></span><span class="lbl">The Process</span></div>
+      <h2 class="h-lg">From vision<br>to <span class="chrome">reveal.</span></h2>
+    </div>
+    <div class="proto rv">
+      <div class="proto-step"><p class="pn">STEP 01</p><h3>Consult</h3><p>DM or call — tell us the car and the vision. We scope the build together.</p></div>
+      <div class="proto-step"><p class="pn">STEP 02</p><h3>Design</h3><p>Colors, wheels, film, finish — every detail planned before a single panel is touched.</p></div>
+      <div class="proto-step"><p class="pn">STEP 03</p><h3>Build</h3><p>PPF, wraps, wheels, paint — executed in-house by a crew that's done it for 35 years.</p></div>
+      <div class="proto-step"><p class="pn">STEP 04</p><h3>Reveal</h3><p>You pick up a piece of art. Then the whole internet sees it.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- FOUNDER -->
+<section class="founder">
+  <div class="wrap">
+    <div class="founder-grid">
+      <div class="portrait rv mask">
+        <img src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=1200&q=70&auto=format&fit=crop" alt="Classic sports car — the craft Alex Vega grew up with" loading="lazy" onerror="this.style.display='none'">
+        <span class="stamp">Alex Vega · Founder</span>
+      </div>
+      <div class="rv d1">
+        <div class="slabel"><span class="code">FOUNDER</span><span class="rule"></span><span class="lbl">35 Years</span></div>
+        <h2 class="h-md"><span class="chrome">It started with</span><br>a kid and a dream.</h2>
+        <blockquote>35 years ago, I was just a kid with a dream of customizing cars.</blockquote>
+        <p class="sub">That kid became Alex Vega — and the dream became The Auto Firm: Miami's private atelier where the world's finest automobiles get personalized, protected and reborn.</p>
+        <p class="sig" style="margin-top:30px"><b>ALEX VEGA</b> — FOUNDER, THE AUTO FIRM</p>
+      </div>
     </div>
   </div>
 </section>
@@ -401,9 +527,9 @@ footer{border-top:1px solid var(--line);padding:60px 0 36px;background:#08080a}
 <!-- VISIT -->
 <section id="visit" class="visit">
   <div class="wrap">
-    <div class="sec-head rv">
-      <div class="kicker"><span class="num">04</span><span class="rule"></span><span class="lbl">Visit the Shop</span></div>
-      <h2 class="h-lg">Pull up.<br>Let's talk <span class="gold">cars.</span></h2>
+    <div class="rv" style="margin-bottom:clamp(48px,5vw,76px)">
+      <div class="slabel"><span class="code">THE SHOP</span><span class="rule"></span><span class="lbl">Visit</span></div>
+      <h2 class="h-lg">Pull up.<br>Let's talk <span class="chrome">cars.</span></h2>
     </div>
     <div class="visit-grid">
       <div class="rv">
@@ -417,18 +543,18 @@ footer{border-top:1px solid var(--line);padding:60px 0 36px;background:#08080a}
         </div>
         <div class="info-row">
           <div class="info-ic">▶️</div>
-          <div><h4>YouTube</h4><p><a class="hl" href="https://youtu.be/03de-CspgZg?is=aRSI_OPl6o_Odhay" target="_blank" rel="noopener">Full build videos on YouTube</a></p></div>
+          <div><h4>YouTube</h4><p><a class="hl" href="https://youtu.be/03de-CspgZg?is=aRSI_OPl6o_Odhay" target="_blank" rel="noopener">Full build films on YouTube</a></p></div>
         </div>
         <div class="info-row">
-          <div class="info-ic">👑</div>
+          <div class="info-ic">🔥</div>
           <div><h4>Founder</h4><p>Alex Vega — 35 years personalizing cars</p></div>
         </div>
       </div>
       <div class="quote-card rv d1">
-        <h3>Ready for<br>your <span class="gold">build?</span></h3>
+        <h3>Ready for<br>your <span class="accent">build?</span></h3>
         <p>PPF, wraps, wheels, collision repair — DM us with your car and what you're dreaming of. We reply fast.</p>
         <a class="btn" href="https://ig.me/m/theautofirm" target="_blank" rel="noopener">DM on Instagram</a>
-        <a class="btn btn-ghost" href="https://www.google.com/maps/search/?api=1&query=12248+SW+133+Ct+Miami+FL+33186" target="_blank" rel="noopener">Get Directions</a>
+        <a class="btn btn-line" href="https://www.google.com/maps/search/?api=1&query=12248+SW+133+Ct+Miami+FL+33186" target="_blank" rel="noopener">Get Directions</a>
       </div>
     </div>
   </div>
@@ -437,9 +563,9 @@ footer{border-top:1px solid var(--line);padding:60px 0 36px;background:#08080a}
 <!-- FAQ -->
 <section id="faq">
   <div class="wrap" style="max-width:920px">
-    <div class="sec-head rv">
-      <div class="kicker"><span class="num">05</span><span class="rule"></span><span class="lbl">FAQ</span></div>
-      <h2 class="h-md">Before you <span class="gold">roll in.</span></h2>
+    <div class="rv" style="margin-bottom:44px">
+      <div class="slabel"><span class="code">INTEL</span><span class="rule"></span><span class="lbl">FAQ</span></div>
+      <h2 class="h-md">Before you <span class="chrome">roll in.</span></h2>
     </div>
     <div class="rv">
       <div class="faq-item">
@@ -467,15 +593,15 @@ footer{border-top:1px solid var(--line);padding:60px 0 36px;background:#08080a}
 </section>
 
 <!-- FINAL -->
-<section class="final has-ghost">
-  <span class="ghost" aria-hidden="true">FIRM</span>
+<section class="final">
   <div class="wrap">
-    <p class="eyebrow rv" style="justify-content:center">The Auto Firm</p>
-    <h2 class="rv">Your car.<br><span class="serif-it gold">Reimagined.</span></h2>
-    <p class="sub rv d1">Thirty-five years of craft. One shop. Zero generic builds.</p>
+    <div class="ghostline rv" aria-hidden="true">AUTO FIRM</div>
+    <p class="mono rv" style="font-size:11px;letter-spacing:.36em;text-transform:uppercase;color:var(--papaya);margin-bottom:24px">The Auto Firm · Miami</p>
+    <h2 class="h-lg rv"><span class="chrome">Your car.</span><br><span class="serif-it accent">Reimagined.</span></h2>
+    <p class="sub rv d1" style="margin:24px auto 42px">Thirty-five years of craft. One shop. Zero generic builds.</p>
     <div class="hero-ctas rv d2" style="justify-content:center">
       <a class="btn" href="https://ig.me/m/theautofirm" target="_blank" rel="noopener">Start Your Build</a>
-      <a class="btn btn-ghost" href="https://www.instagram.com/theautofirm" target="_blank" rel="noopener">Instagram</a>
+      <a class="btn btn-line" href="https://www.instagram.com/theautofirm" target="_blank" rel="noopener">Instagram</a>
     </div>
   </div>
 </section>
@@ -485,7 +611,7 @@ footer{border-top:1px solid var(--line);padding:60px 0 36px;background:#08080a}
   <div class="wrap">
     <div class="foot-top">
       <a class="brand" href="#top">THE AUTO <em>FIRM</em><small>MIAMI · FL</small></a>
-      <a href="#top" style="font-size:12px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)">Back to top ↑</a>
+      <a href="#top" style="font-family:var(--fm);font-size:11px;letter-spacing:.26em;text-transform:uppercase;color:var(--muted)">Back to top ↑</a>
     </div>
     <div class="foot">
       <div>
@@ -495,9 +621,9 @@ footer{border-top:1px solid var(--line);padding:60px 0 36px;background:#08080a}
       <div>
         <h5>Explore</h5>
         <ul>
-          <li><a href="#builds">Builds</a></li>
-          <li><a href="#services">Services</a></li>
-          <li><a href="#collab">Collabs</a></li>
+          <li><a href="#collection">Collection</a></li>
+          <li><a href="#atelier">Atelier</a></li>
+          <li><a href="#protocol">Protocol</a></li>
           <li><a href="#visit">Visit</a></li>
         </ul>
       </div>
@@ -512,19 +638,35 @@ footer{border-top:1px solid var(--line);padding:60px 0 36px;background:#08080a}
       </div>
     </div>
     <div class="copy">
-      <span>© 2026 The Auto Firm · Miami, FL</span>
-      <span>Concept preview — not the official site</span>
+      <span>© 2026 THE AUTO FIRM · MIAMI, FL</span>
+      <span>CONCEPT PREVIEW — NOT THE OFFICIAL SITE</span>
     </div>
   </div>
 </footer>
 
-<a class="wa-float" href="https://ig.me/m/theautofirm" target="_blank" rel="noopener" aria-label="Instagram DM">
+<a class="dm-float" href="https://ig.me/m/theautofirm" target="_blank" rel="noopener" aria-label="Instagram DM">
   <svg width="28" height="28" viewBox="0 0 24 24" fill="#fff"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 3.3.1 4.8 1.7 4.9 4.9.1 1.3.1 1.6.1 4.8s0 3.6-.1 4.8c-.1 3.2-1.7 4.8-4.9 4.9-1.3.1-1.6.1-4.9.1s-3.6 0-4.9-.1c-3.3-.1-4.8-1.7-4.9-4.9-.1-1.3-.1-1.6-.1-4.8s0-3.6.1-4.8C2.4 4 4 2.4 7.2 2.3c1.2-.1 1.6-.1 4.8-.1zM12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm0 8.2a3.2 3.2 0 1 1 0-6.4 3.2 3.2 0 0 1 0 6.4zm5.2-9.6a1.2 1.2 0 1 0 0 2.4 1.2 1.2 0 0 0 0-2.4z"/></svg>
 </a>
 
 <script>
 (function(){
   var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  /* rev-counter loader */
+  var loader=document.getElementById('loader'),rpmNum=document.getElementById('rpmNum'),ticks=document.getElementById('rpmTicks').children;
+  function hideLoader(){loader.classList.add('done')}
+  if(reduce){hideLoader()}
+  else{
+    var t0=null;
+    function rev(t){if(!t0)t0=t;var p=Math.min((t-t0)/1400,1);
+      var v=Math.round(100*(1-Math.pow(1-p,3)));
+      rpmNum.textContent=v;
+      var lit=Math.round(v/10);
+      for(var i=0;i<ticks.length;i++){ticks[i].className=i<lit?'on':''}
+      if(p<1)requestAnimationFrame(rev);else setTimeout(hideLoader,250);
+    }
+    requestAnimationFrame(rev);
+  }
+  setTimeout(hideLoader,4000);
   var hdr=document.getElementById('hdr');
   addEventListener('scroll',function(){hdr.classList.toggle('scrolled',scrollY>40)},{passive:true});
   var prog=document.getElementById('progress');
@@ -541,7 +683,7 @@ footer{border-top:1px solid var(--line);padding:60px 0 36px;background:#08080a}
       if(!open){item.classList.add('open');ans.style.maxHeight=ans.scrollHeight+'px'}
     });
   });
-  // count-up
+  /* count-up */
   var cio=new IntersectionObserver(function(es){es.forEach(function(e){
     if(!e.isIntersecting)return;cio.unobserve(e.target);
     var el=e.target,end=parseFloat(el.dataset.count),t0=null;
@@ -550,7 +692,7 @@ footer{border-top:1px solid var(--line);padding:60px 0 36px;background:#08080a}
     requestAnimationFrame(step);
   })},{threshold:.5});
   document.querySelectorAll('[data-count]').forEach(function(el){cio.observe(el)});
-  // parallax
+  /* parallax */
   if(!reduce){
     var plx=document.querySelectorAll('[data-plx]');
     var ticking=false;
@@ -566,14 +708,14 @@ footer{border-top:1px solid var(--line);padding:60px 0 36px;background:#08080a}
       });
     },{passive:true});
   }
-  // cursor light
-  var cl=document.getElementById('cursorLight');
+  /* cursor aura */
+  var cl=document.getElementById('cursorAura');
   if(!reduce&&matchMedia('(pointer:fine)').matches){
     var cx=innerWidth/2,cy=200,tx=cx,ty=cy;
     addEventListener('mousemove',function(e){tx=e.clientX;ty=e.clientY},{passive:true});
     (function loop(){cx+=(tx-cx)*.08;cy+=(ty-cy)*.08;cl.style.left=cx+'px';cl.style.top=cy+'px';requestAnimationFrame(loop)})();
   } else { cl.style.display='none'; }
-  // magnetic buttons (desktop)
+  /* magnetic buttons */
   if(!reduce&&matchMedia('(pointer:fine)').matches){
     document.querySelectorAll('.btn').forEach(function(b){
       b.addEventListener('mousemove',function(e){
