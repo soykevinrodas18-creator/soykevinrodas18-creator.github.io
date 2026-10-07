@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OMAKAI sushi — Leave It Up To Us | Omakase in Miami</title>
+<meta name="description" content="OMAKAI sushi — omakase in Miami. Warm rice. Crispy nori. Kind service. Wynwood, Coconut Grove, Aventura, Doral.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Restaurant",
+  "name": "OMAKAI sushi",
+  "servesCuisine": ["Sushi", "Japanese"],
+  "url": "https://bit.ly/omakaisushi",
+  "sameAs": ["https://www.instagram.com/omakaisushi"],
+  "areaServed": "Miami, FL",
+  "slogan": "LEAVE IT UP TO US — warm rice. crispy nori. kind service."
+}
+</script>
+<style>
+:root{
+  --ink:#0c0a08;
+  --ink-2:#14110d;
+  --washi:#f7f2e9;
+  --washi-dim:#efe7d7;
+  --vermillion:#d23c1c;
+  --vermillion-deep:#a82c12;
+  --line-dark:rgba(247,242,233,.14);
+  --line-light:rgba(12,10,8,.14);
+  --gray-dark:#8d8375;
+  --gray-light:#a89c8a;
+  --serif:'Cormorant Garamond',Georgia,serif;
+  --sans:'Jost',Helvetica,Arial,sans-serif;
+  --ease:cubic-bezier(.19,1,.22,1);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+html.rm{scroll-behavior:auto}
+body{
+  font-family:var(--sans);
+  background:var(--ink);
+  color:var(--washi);
+  font-weight:300;
+  letter-spacing:.02em;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+::selection{background:var(--vermillion);color:var(--washi)}
+
+/* ---------- ghost drift typography ---------- */
+.ghost{
+  position:absolute;
+  font-family:var(--serif);
+  font-weight:300;
+  color:transparent;
+  -webkit-text-stroke:1px rgba(247,242,233,.10);
+  white-space:nowrap;
+  pointer-events:none;
+  user-select:none;
+  line-height:1;
+  animation:inkdrift 70s linear infinite;
+  z-index:0;
+}
+.ghost.on-light{-webkit-text-stroke:1px rgba(12,10,8,.10)}
+@keyframes inkdrift{
+  0%{transform:translateX(4vw)}
+  50%{transform:translateX(-6vw)}
+  100%{transform:translateX(4vw)}
+}
+
+/* ---------- nav ---------- */
+.nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:1.4rem clamp(1.2rem,4vw,3rem);
+  transition:background .6s var(--ease),padding .6s var(--ease),border-color .6s;
+  border-bottom:1px solid transparent;
+}
+.nav.scrolled{background:rgba(12,10,8,.86);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);padding:.9rem clamp(1.2rem,4vw,3rem);border-bottom-color:var(--line-dark)}
+.brand{display:flex;align-items:center;gap:.7rem}
+.hanko{
+  width:2.1rem;height:2.1rem;background:var(--vermillion);color:var(--washi);
+  display:grid;place-items:center;font-family:var(--serif);font-size:1.15rem;
+  border-radius:2px;transform:rotate(-3deg);
+}
+.brand-name{font-family:var(--serif);font-size:1.5rem;letter-spacing:.28em;font-weight:400}
+.brand-name small{display:block;font-family:var(--sans);font-size:.55rem;letter-spacing:.5em;color:var(--gray-light);font-weight:300}
+.nav-links{display:flex;gap:clamp(1rem,2.6vw,2.4rem);list-style:none}
+.nav-links a{font-size:.72rem;letter-spacing:.32em;text-transform:uppercase;color:var(--gray-light);transition:color .4s;position:relative}
+.nav-links a::after{content:"";position:absolute;left:0;bottom:-6px;height:1px;width:0;background:var(--vermillion);transition:width .5s var(--ease)}
+.nav-links a:hover{color:var(--washi)}
+.nav-links a:hover::after{width:100%}
+.cta{
+  display:inline-flex;align-items:center;gap:.7rem;
+  font-size:.72rem;letter-spacing:.3em;text-transform:uppercase;
+  padding:1rem 1.9rem;border:1px solid var(--vermillion);
+  color:var(--washi);position:relative;overflow:hidden;
+  transition:color .5s var(--ease);cursor:pointer;background:transparent;
+}
+.cta::before{content:"";position:absolute;inset:0;background:var(--vermillion);transform:scaleX(0);transform-origin:left;transition:transform .55s var(--ease);z-index:-1}
+.cta:hover::before{transform:scaleX(1)}
+.cta:hover{color:#fff}
+.cta--line{border-color:var(--line-dark)}
+.cta--line::before{background:var(--washi)}
+.cta--line:hover{color:var(--ink)}
+.nav .cta{padding:.8rem 1.4rem}
+
+/* ---------- hero ---------- */
+.hero{
+  min-height:100svh;position:relative;display:flex;align-items:flex-end;
+  padding:clamp(6rem,10vh,8rem) clamp(1.2rem,4vw,3rem) clamp(2.5rem,6vh,4rem);
+  overflow:hidden;
+}
+.hero-bg{position:absolute;inset:0;z-index:0}
+.hero-bg img{width:100%;height:100%;object-fit:cover;transform:scale(1.06);animation:heroSettle 9s var(--ease) forwards}
+@keyframes heroSettle{to{transform:scale(1)}}
+.hero-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(12,10,8,.62) 0%,rgba(12,10,8,.34) 42%,rgba(12,10,8,.88) 100%)}
+.hero .ghost{font-size:clamp(10rem,32vw,30rem);top:6%;right:-2%}
+.hero-inner{position:relative;z-index:2;max-width:1100px}
+.eyebrow{
+  display:flex;align-items:center;gap:1rem;
+  font-size:.7rem;letter-spacing:.5em;text-transform:uppercase;color:var(--gray-light);
+  margin-bottom:1.6rem;
+}
+.eyebrow .rule{width:64px;height:1px;background:var(--vermillion)}
+.mask{display:block;overflow:hidden}
+.line-text{display:block;transform:translateY(112%);animation:brushUp 1.4s var(--ease) forwards}
+.mask:nth-of-type(2) .line-text{animation-delay:.18s}
+.mask:nth-of-type(3) .line-text{animation-delay:.36s}
+@keyframes brushUp{to{transform:translateY(0)}}
+h1.hero-title{
+  font-family:var(--serif);font-weight:300;
+  font-size:clamp(3rem,9.5vw,8.2rem);line-height:1.02;letter-spacing:.01em;
+}
+h1.hero-title em{font-style:italic;color:var(--washi)}
+.brush-stroke{display:block;height:3px;background:var(--vermillion);margin-top:1.4rem;transform:scaleX(0);transform-origin:left;animation:strokeDraw 1.6s var(--ease) .9s forwards;max-width:520px}
+@keyframes strokeDraw{to{transform:scaleX(1)}}
+.hero-sub{margin-top:1.6rem;max-width:560px;color:#d9d0c0;font-size:clamp(.95rem,1.6vw,1.12rem);line-height:1.9;opacity:0;animation:fadeUp 1.2s var(--ease) 1.15s forwards}
+@keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
+.hero-meta{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:2rem;opacity:0;animation:fadeUp 1.2s var(--ease) 1.35s forwards}
+.pill{font-size:.68rem;letter-spacing:.3em;text-transform:uppercase;border:1px solid var(--line-dark);padding:.6rem 1.1rem;color:var(--gray-light)}
+.pill.hot{border-color:var(--vermillion);color:var(--washi)}
+.hero-ctas{display:flex;flex-wrap:wrap;gap:1rem;margin-top:2.4rem;opacity:0;animation:fadeUp 1.2s var(--ease) 1.55s forwards}
+.scroll-hint{
+  position:absolute;right:clamp(1.2rem,4vw,3rem);bottom:clamp(2.5rem,6vh,4rem);z-index:2;
+  display:flex;flex-direction:column;align-items:center;gap:.8rem;
+  font-size:.62rem;letter-spacing:.4em;text-transform:uppercase;color:var(--gray-light);
+  writing-mode:vertical-rl;
+}
+.scroll-hint .stem{width:1px;height:64px;background:var(--line-dark);position:relative;overflow:hidden}
+.scroll-hint .stem::after{content:"";position:absolute;top:-40%;left:0;width:100%;height:40%;background:var(--vermillion);animation:stemDrop 2.4s var(--ease) infinite}
+@keyframes stemDrop{to{top:110%}}
+
+/* ---------- marquee ---------- */
+.marquee{border-top:1px solid var(--line-dark);border-bottom:1px solid var(--line-dark);overflow:hidden;padding:1.35rem 0;background:var(--ink)}
+.marquee-track{display:flex;gap:0;width:max-content;animation:marq 55s linear infinite}
+.marquee:hover .marquee-track{animation-play-state:paused}
+@keyframes marq{to{transform:translateX(-50%)}}
+.marquee span{
+  font-family:var(--serif);font-size:clamp(1.2rem,2.6vw,1.9rem);letter-spacing:.34em;
+  text-transform:uppercase;color:var(--gray-light);padding:0 2.2rem;white-space:nowrap;
+}
+.marquee span i{font-style:normal;color:var(--vermillion);padding-right:4.4rem}
+
+/* ---------- sections shared ---------- */
+section{position:relative}
+.wrap{max-width:1200px;margin:0 auto;padding:clamp(4.5rem,9vw,8rem) clamp(1.2rem,4vw,3rem)}
+.sec-head{display:flex;align-items:baseline;gap:1.4rem;margin-bottom:clamp(2.5rem,5vw,4rem)}
+.sec-no{font-family:var(--serif);font-style:italic;color:var(--vermillion);font-size:1.1rem}
+.sec-kicker{font-size:.7rem;letter-spacing:.5em;text-transform:uppercase;color:var(--gray-dark)}
+h2.sec-title{font-family:var(--serif);font-weight:300;font-size:clamp(2.2rem,5.4vw,4.4rem);line-height:1.08;letter-spacing:.01em}
+.sec-title em{font-style:italic}
+.reveal{opacity:0;transform:translateY(42px);transition:opacity 1.1s var(--ease),transform 1.1s var(--ease)}
+.reveal.in{opacity:1;transform:none}
+.reveal-words .w{display:inline-block;opacity:0;transform:translateY(.6em);transition:opacity .8s var(--ease),transform .8s var(--ease)}
+.reveal-words.in .w{opacity:1;transform:none}
+
+/* ---------- omakase (washi light) ---------- */
+.omakase{background:var(--washi);color:var(--ink);overflow:hidden}
+.omakase .sec-kicker{color:#9b8f7c}
+.omakase .ghost{font-size:clamp(9rem,26vw,24rem);bottom:-4%;left:-3%}
+.courses{border-top:1px solid var(--line-light);position:relative;z-index:1}
+.course{
+  display:grid;grid-template-columns:110px 1fr 1fr auto;gap:clamp(1rem,3vw,2.5rem);
+  align-items:center;padding:2.6rem 0;border-bottom:1px solid var(--line-light);
+  transition:background .5s var(--ease),padding .5s var(--ease);
+}
+.course:hover{background:rgba(12,10,8,.028);padding-left:1rem;padding-right:1rem}
+.course-num{font-family:var(--serif);font-style:italic;font-size:1rem;color:var(--vermillion);letter-spacing:.1em}
+.course h3{font-family:var(--serif);font-weight:400;font-size:clamp(1.6rem,3.2vw,2.5rem);letter-spacing:.02em}
+.course h3 .jp{display:block;font-size:.95rem;color:#9b8f7c;letter-spacing:.42em;margin-top:.3rem;font-family:var(--sans);font-weight:300}
+.course p{color:#5c554a;line-height:1.85;font-size:.98rem;max-width:34ch}
+.course-img{width:150px;height:150px;border-radius:50%;object-fit:cover;filter:saturate(.92);transition:transform .8s var(--ease);box-shadow:0 18px 44px rgba(12,10,8,.16)}
+.course:hover .course-img{transform:scale(1.07) rotate(2deg)}
+.course-tag{font-size:.62rem;letter-spacing:.34em;text-transform:uppercase;color:#9b8f7c;display:block;margin-top:.7rem}
+
+/* ---------- hand roll bar (ink) ---------- */
+.handroll{background:var(--ink);overflow:hidden}
+.handroll-grid{display:grid;grid-template-columns:1.05fr 1fr;gap:clamp(2rem,5vw,4.5rem);align-items:center}
+.handroll-copy p{color:#cfc6b6;line-height:2;font-size:1.02rem;margin-top:1.8rem;max-width:44ch}
+.hr-facts{display:flex;flex-wrap:wrap;gap:.7rem;margin-top:2.2rem}
+.hr-facts .pill{color:#cfc6b6}
+.handroll-media{position:relative}
+.handroll-media img.main{width:100%;height:clamp(420px,52vw,620px);object-fit:cover;filter:saturate(.9)}
+.frame{position:relative}
+.frame::before{content:"";position:absolute;inset:14px;border:1px solid rgba(247,242,233,.22);pointer-events:none;z-index:2}
+.frame .seal{
+  position:absolute;bottom:-1.6rem;right:1.6rem;width:5.2rem;height:5.2rem;border-radius:50%;
+  background:var(--vermillion);color:var(--washi);display:grid;place-items:center;
+  font-family:var(--serif);font-size:1.5rem;transform:rotate(-8deg);
+  box-shadow:0 14px 34px rgba(210,60,28,.35);z-index:3;
+}
+
+/* ---------- sake (washi) ---------- */
+.sake{background:var(--washi);color:var(--ink);overflow:hidden}
+.sake .ghost{font-size:clamp(11rem,30vw,26rem);top:-6%;right:-4%}
+.sake-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,5vw,4.5rem);margin-top:1rem;position:relative;z-index:1}
+.sake-card{border:1px solid var(--line-light);padding:clamp(1.8rem,3.4vw,2.8rem);position:relative;background:rgba(255,255,255,.35);transition:transform .6s var(--ease),box-shadow .6s var(--ease)}
+.sake-card:hover{transform:translateY(-8px);box-shadow:0 26px 60px rgba(12,10,8,.10)}
+.sake-card .kana{font-family:var(--serif);font-size:2.2rem;color:var(--vermillion);display:block;margin-bottom:1rem}
+.sake-card h3{font-family:var(--serif);font-weight:400;font-size:clamp(1.5rem,2.8vw,2.1rem);margin-bottom:1rem}
+.sake-card p{color:#5c554a;line-height:1.9;font-size:.98rem}
+.sake-card .fine{margin-top:1.4rem;font-size:.72rem;letter-spacing:.24em;text-transform:uppercase;color:#9b8f7c}
+.sake-note{margin-top:2.6rem;display:flex;align-items:center;gap:1.2rem;color:#5c554a;font-size:.95rem;line-height:1.8}
+.sake-note .rule{width:56px;height:1px;background:var(--vermillion);flex:none}
+
+/* ---------- gallery ---------- */
+.gallery{background:var(--ink);padding:clamp(4rem,7vw,6rem) 0;overflow:hidden}
+.g-strip{display:flex;gap:1.4rem;overflow-x:auto;padding:0 clamp(1.2rem,4vw,3rem) 1rem;scroll-snap-type:x mandatory;scrollbar-width:none}
+.g-strip::-webkit-scrollbar{display:none}
+.g-item{flex:0 0 clamp(240px,32vw,400px);scroll-snap-align:start;position:relative;overflow:hidden}
+.g-item img{width:100%;height:clamp(300px,40vw,480px);object-fit:cover;filter:saturate(.9);transition:transform 1.2s var(--ease)}
+.g-item:hover img{transform:scale(1.06)}
+.g-item figcaption{position:absolute;left:0;right:0;bottom:0;padding:1.4rem;font-size:.68rem;letter-spacing:.34em;text-transform:uppercase;color:var(--washi);background:linear-gradient(transparent,rgba(12,10,8,.78))}
+
+/* ---------- locations (ink) ---------- */
+.locations{background:var(--ink-2);border-top:1px solid var(--line-dark);overflow:hidden}
+.locations .ghost{font-size:clamp(9rem,24vw,22rem);top:2%;left:-2%}
+.loc-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line-dark);border:1px solid var(--line-dark);position:relative;z-index:1}
+.loc{background:var(--ink-2);padding:2.6rem 2rem;transition:background .5s var(--ease)}
+.loc:hover{background:#171310}
+.loc h3{font-family:var(--serif);font-weight:400;font-size:1.7rem;letter-spacing:.04em;margin-bottom:.6rem}
+.loc .jp-loc{font-size:.72rem;letter-spacing:.4em;color:var(--gray-light);text-transform:uppercase}
+.loc .status{margin-top:1.6rem;font-size:.66rem;letter-spacing:.32em;text-transform:uppercase;color:var(--vermillion)}
+.soon{margin-top:3rem;display:flex;flex-wrap:wrap;gap:.7rem;align-items:center;position:relative;z-index:1}
+.soon-label{font-size:.7rem;letter-spacing:.4em;text-transform:uppercase;color:var(--gray-light);margin-right:.6rem}
+
+/* ---------- visit / cta ---------- */
+.visit{background:var(--washi);color:var(--ink);text-align:center;overflow:hidden}
+.visit .ghost{font-size:clamp(10rem,28vw,26rem);bottom:-8%;left:50%;transform:translateX(-50%)}
+.visit-inner{position:relative;z-index:1;max-width:760px;margin:0 auto}
+.visit h2{font-family:var(--serif);font-weight:300;font-size:clamp(2.6rem,6.4vw,5.2rem);line-height:1.06}
+.visit h2 em{font-style:italic;color:var(--vermillion-deep)}
+.visit p.lead{margin:1.8rem auto 0;max-width:52ch;color:#5c554a;line-height:2;font-size:1.02rem}
+.visit-ctas{display:flex;flex-wrap:wrap;gap:1rem;justify-content:center;margin-top:2.8rem}
+.visit .cta{color:var(--ink)}
+.visit .cta:hover{color:#fff}
+.visit .cta--line{border-color:rgba(12,10,8,.3)}
+.visit .cta--line::before{background:var(--ink)}
+.visit .cta--line:hover{color:var(--washi)}
+.social-proof{margin-top:2.4rem;font-size:.72rem;letter-spacing:.36em;text-transform:uppercase;color:#9b8f7c}
+
+/* ---------- footer ---------- */
+footer{background:var(--ink);border-top:1px solid var(--line-dark);padding:3rem clamp(1.2rem,4vw,3rem);display:flex;flex-wrap:wrap;gap:2rem;align-items:center;justify-content:space-between}
+footer .f-brand{font-family:var(--serif);font-size:1.3rem;letter-spacing:.3em}
+footer .f-note{font-size:.68rem;letter-spacing:.3em;text-transform:uppercase;color:var(--gray-light)}
+footer .f-links{display:flex;gap:1.6rem}
+footer .f-links a{font-size:.68rem;letter-spacing:.3em;text-transform:uppercase;color:var(--gray-light);transition:color .4s}
+footer .f-links a:hover{color:var(--vermillion)}
+.mockup-note{width:100%;margin-top:1rem;font-size:.62rem;letter-spacing:.18em;color:#5b5348;text-transform:uppercase}
+
+/* ---------- responsive ---------- */
+@media(max-width:900px){
+  .nav-links{display:none}
+  .course{grid-template-columns:64px 1fr;grid-template-areas:"num title" "num desc"}
+  .course-num{grid-area:num}
+  .course h3{grid-area:title}
+  .course p{grid-area:desc}
+  .course-img{display:none}
+  .handroll-grid,.sake-grid{grid-template-columns:1fr}
+  .loc-grid{grid-template-columns:1fr 1fr}
+  .scroll-hint{display:none}
+}
+@media(max-width:480px){
+  .loc-grid{grid-template-columns:1fr}
+  .hero-ctas .cta,.visit-ctas .cta{width:100%;justify-content:center}
+}
+</style>
+</head>
+<body>
+<nav class="nav" id="nav" aria-label="Primary">
+  <a class="brand" href="#top" aria-label="OMAKAI sushi home">
+    <span class="hanko" aria-hidden="true">お</span>
+    <span class="brand-name">OMAKAI<small>SUSHI · MIAMI</small></span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#omakase">Omakase</a></li>
+    <li><a href="#handroll">Hand Roll Bar</a></li>
+    <li><a href="#sake">Sake</a></li>
+    <li><a href="#locations">Locations</a></li>
+  </ul>
+  <a class="cta" href="https://ig.me/m/omakaisushi" target="_blank" rel="noopener">DM to Reserve</a>
+</nav>
+
+<header class="hero" id="top">
+  <div class="hero-bg">
+    <img src="https://images.unsplash.com/photo-1579871494447-9811cf80d66c?auto=format&fit=crop&w=2000&q=70"
+         alt="Omakase sashimi selection presented over ice"
+         onerror="this.onerror=null;this.src='data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%272000%27 height=%271200%27%3E%3Crect width=%27100%25%27 height=%27100%25%27 fill=%27%230c0a08%27/%3E%3Ctext x=%2750%25%27 y=%2750%25%27 fill=%27%23f7f2e9%27 font-family=%27serif%27 font-size=%2796%27 text-anchor=%27middle%27%3EOMAKAI%3C/text%3E%3C/svg%3E'">
+  </div>
+  <div class="ghost" aria-hidden="true">おまかせ</div>
+  <div class="hero-inner">
+    <p class="eyebrow"><span class="rule"></span>Omakase · Miami</p>
+    <h1 class="hero-title">
+      <span class="mask"><span class="line-text">Leave it</span></span>
+      <span class="mask"><span class="line-text"><em>up to us.</em></span></span>
+    </h1>
+    <span class="brush-stroke" aria-hidden="true"></span>
+    <p class="hero-sub">Warm rice. Crispy nori. Kind service. A quiet counter in the middle of Miami — where the chef decides, and every bite arrives exactly as it should.</p>
+    <div class="hero-meta">
+      <span class="pill">Wynwood</span>
+      <span class="pill">Coconut Grove</span>
+      <span class="pill">Aventura</span>
+      <span class="pill">Doral</span>
+      <span class="pill hot">Chicago — coming soon</span>
+    </div>
+    <div class="hero-ctas">
+      <a class="cta" href="https://ig.me/m/omakaisushi" target="_blank" rel="noopener">Message us on Instagram</a>
+      <a class="cta cta--line" href="#omakase">Explore the courses</a>
+    </div>
+  </div>
+  <div class="scroll-hint" aria-hidden="true">Scroll<span class="stem"></span></div>
+</header>
+
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track" id="marqueeTrack">
+    <span>Warm rice <i>·</i></span><span>Crispy nori <i>·</i></span><span>Kind service <i>·</i></span><span>Omakai sushi <i>·</i></span><span>Miami <i>·</i></span>
+  </div>
+</div>
+
+<section class="omakase" id="omakase">
+  <div class="ghost on-light" aria-hidden="true">お任せ</div>
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-no">一</span>
+      <div>
+        <p class="sec-kicker">The omakase</p>
+        <h2 class="sec-title">A tasting, <em>course by course</em></h2>
+      </div>
+    </div>
+    <p class="reveal reveal-words" data-split style="max-width:58ch;color:#5c554a;line-height:2;margin-bottom:3rem;font-size:1.02rem">Omakase means trusting the chef. At OMAKAI, the menu unfolds the way a kaiseki dinner does — one precise course at a time, from the first warm grain of rice to the last crisp bite of nori.</p>
+
+    <div class="courses">
+      <article class="course reveal">
+        <span class="course-num">01</span>
+        <h3>The OMA Deluxe <span class="jp">デラックス</span><span class="course-tag">Signature set</span></h3>
+        <p>The house signature. The full OMAKAI experience in one sitting — built for those who leave it up to us.</p>
+        <img class="course-img" src="https://images.unsplash.com/photo-1564489563601-c53cfc451e93?auto=format&fit=crop&w=400&q=60" alt="Signature sushi platter, the OMA Deluxe" loading="lazy"
+             onerror="this.onerror=null;this.src='data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%27400%27 height=%27400%27%3E%3Crect width=%27100%25%27 height=%27100%25%27 fill=%27%23efe7d7%27/%3E%3Ctext x=%2750%25%27 y=%2750%25%27 fill=%27%230c0a08%27 font-family=%27serif%27 font-size=%2736%27 text-anchor=%27middle%27%3EOMAKAI%3C/text%3E%3C/svg%3E'">
+      </article>
+      <article class="course reveal">
+        <span class="course-num">02</span>
+        <h3>Salmon Belly <span class="jp">サーモン</span><span class="course-tag">Torched to perfection</span></h3>
+        <p>Torched until the edges caramelize. Guaranteed to melt in your mouth.</p>
+        <img class="course-img" src="https://images.unsplash.com/photo-1553621042-f6e147245754?auto=format&fit=crop&w=400&q=60" alt="Plated sushi rolls with salmon" loading="lazy"
+             onerror="this.onerror=null;this.src='data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%27400%27 height=%27400%27%3E%3Crect width=%27100%25%27 height=%27100%25%27 fill=%27%23efe7d7%27/%3E%3Ctext x=%2750%25%27 y=%2750%25%27 fill=%27%230c0a08%27 font-family=%27serif%27 font-size=%2736%27 text-anchor=%27middle%27%3EOMAKAI%3C/text%3E%3C/svg%3E'">
+      </article>
+      <article class="course reveal">
+        <span class="course-num">03</span>
+        <h3>Albacore <span class="jp">ビンチョウ</span><span class="course-tag">Hand roll or sashimi</span></h3>
+        <p>Smoky and sweet — the one that always brings you back. Hand roll, or sashimi.</p>
+        <img class="course-img" src="https://images.unsplash.com/photo-1580822184713-fc5400e7fe10?auto=format&fit=crop&w=400&q=60" alt="Fresh nigiri sushi pieces" loading="lazy"
+             onerror="this.onerror=null;this.src='data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%27400%27 height=%27400%27%3E%3Crect width=%27100%25%27 height=%27100%25%27 fill=%27%23efe7d7%27/%3E%3Ctext x=%2750%25%27 y=%2750%25%27 fill=%27%230c0a08%27 font-family=%27serif%27 font-size=%2736%27 text-anchor=%27middle%27%3EOMAKAI%3C/text%3E%3C/svg%3E'">
+      </article>
+      <article class="course reveal">
+        <span class="course-num">04</span>
+        <h3>Soba Noodles <span class="jp">そば</span><span class="course-tag">Cold, with tsuyu broth</span></h3>
+        <p>Cold soba with tsuyu broth, scallions, and wasabi on the side. Chef's tip: mix the wasabi into the broth for the perfect bite.</p>
+        <img class="course-img" src="https://images.unsplash.com/photo-1569718212165-3a8278d5f624?auto=format&fit=crop&w=400&q=60" alt="Hand rolls wrapped in crisp nori" loading="lazy"
+             onerror="this.onerror=null;this.src='data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%27400%27 height=%27400%27%3E%3Crect width=%27100%25%27 height=%27100%25%27 fill=%27%23efe7d7%27/%3E%3Ctext x=%2750%25%27 y=%2750%25%27 fill=%27%230c0a08%27 font-family=%27serif%27 font-size=%2736%27 text-anchor=%27middle%27%3EOMAKAI%3C/text%3E%3C/svg%3E'">
+      </article>
+      <article class="course reveal">
+        <span class="course-num">05</span>
+        <h3>Vegan OMA Deluxe <span class="jp">ビーガン</span><span class="course-tag">Colorful &amp; rich in flavor</span></h3>
+        <p>A colorful, rich-in-flavor vegan take on the signature — never an afterthought.</p>
+        <img class="course-img" src="https://images.unsplash.com/photo-1617196034796-73dfa7b1fd56?auto=format&fit=crop&w=400&q=60" alt="Vegan omakase course plating" loading="lazy"
+             onerror="this.onerror=null;this.src='data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%27400%27 height=%27400%27%3E%3Crect width=%27100%25%27 height=%27100%25%27 fill=%27%23efe7d7%27/%3E%3Ctext x=%2750%25%27 y=%2750%25%27 fill=%27%230c0a08%27 font-family=%27serif%27 font-size=%2736%27 text-anchor=%27middle%27%3EOMAKAI%3C/text%3E%3C/svg%3E'">
+      </article>
+    </div>
+  </div>
+</section>
+<section class="handroll" id="handroll">
+  <div class="wrap">
+    <div class="handroll-grid">
+      <div class="handroll-copy">
+        <div class="sec-head reveal" style="margin-bottom:0">
+          <span class="sec-no">二</span>
+          <div>
+            <p class="sec-kicker" style="color:#a89c8a">The hand roll bar</p>
+            <h2 class="sec-title">Crisp nori, <em>eaten now</em></h2>
+          </div>
+        </div>
+        <p class="reveal reveal-words" data-split>A hand roll has one rule: it must be eaten the second it leaves the counter. That is why the OMAKAI hand roll bar serves them one at a time — warm rice, crackling nori, handed straight to you.</p>
+        <div class="hr-facts reveal">
+          <span class="pill">Walk-ins welcome</span>
+          <span class="pill">Open 11:30 AM daily</span>
+          <span class="pill">Homeakase boxes to go</span>
+        </div>
+        <div class="hero-ctas reveal" style="opacity:1">
+          <a class="cta" href="https://ig.me/m/omakaisushi" target="_blank" rel="noopener">@omakaihandrollbar</a>
+        </div>
+      </div>
+      <div class="handroll-media reveal">
+        <div class="frame">
+          <img class="main" src="https://images.unsplash.com/photo-1611143669185-af224c5e3252?auto=format&fit=crop&w=1200&q=70" alt="Chef preparing sushi at the counter" loading="lazy"
+               onerror="this.onerror=null;this.src='data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%271200%27 height=%27800%27%3E%3Crect width=%27100%25%27 height=%27100%25%27 fill=%27%230c0a08%27/%3E%3Ctext x=%2750%25%27 y=%2750%25%27 fill=%27%23f7f2e9%27 font-family=%27serif%27 font-size=%2764%27 text-anchor=%27middle%27%3EOMAKAI%3C/text%3E%3C/svg%3E'">
+          <span class="seal" aria-hidden="true">鮨</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sake" id="sake">
+  <div class="ghost on-light" aria-hidden="true">日本酒</div>
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-no">三</span>
+      <div>
+        <p class="sec-kicker">The sake program</p>
+        <h2 class="sec-title">Poured to <em>pair</em></h2>
+      </div>
+    </div>
+    <div class="sake-grid">
+      <article class="sake-card reveal">
+        <span class="kana" aria-hidden="true">🍶</span>
+        <h3>World Sake Month</h3>
+        <p>October is World Sake Month at OMAKAI. Enjoy the OMA Deluxe with a complimentary SOTO Junmai can — or a SOTO Junmai Daiginjo bottle with two.</p>
+        <p class="fine">Celebrated through October</p>
+      </article>
+      <article class="sake-card reveal">
+        <span class="kana" aria-hidden="true">少</span>
+        <h3>Shōjō's Dojo, now at OMAKAI</h3>
+        <p>Florida's first and only sake brewery pours at OMAKAI. Upgrade your omakase with a glass or bottle of Shōjō's Dojo — brewed locally, made for Miami.</p>
+        <p class="fine">Locally brewed in Florida</p>
+      </article>
+    </div>
+    <div class="sake-note reveal"><span class="rule"></span><span>Sake and sushi were made for each other. Ask your server for the pour that matches your course.</span></div>
+  </div>
+</section>
+
+<section class="gallery" aria-label="Gallery">
+  <div class="g-strip reveal" id="gStrip">
+    <figure class="g-item">
+      <img src="https://images.unsplash.com/photo-1579871494447-9811cf80d66c?auto=format&fit=crop&w=800&q=60" alt="Omakase sashimi over ice" loading="lazy"
+           onerror="this.onerror=null;this.style.display='none'">
+      <figcaption>From the counter</figcaption>
+    </figure>
+    <figure class="g-item">
+      <img src="https://images.unsplash.com/photo-1564489563601-c53cfc451e93?auto=format&fit=crop&w=800&q=60" alt="Signature sushi platter" loading="lazy"
+           onerror="this.onerror=null;this.style.display='none'">
+      <figcaption>The signature</figcaption>
+    </figure>
+    <figure class="g-item">
+      <img src="https://images.unsplash.com/photo-1580822184713-fc5400e7fe10?auto=format&fit=crop&w=800&q=60" alt="Nigiri sushi pieces" loading="lazy"
+           onerror="this.onerror=null;this.style.display='none'">
+      <figcaption>Nigiri, by hand</figcaption>
+    </figure>
+    <figure class="g-item">
+      <img src="https://images.unsplash.com/photo-1553621042-f6e147245754?auto=format&fit=crop&w=800&q=60" alt="Sushi rolls plated" loading="lazy"
+           onerror="this.onerror=null;this.style.display='none'">
+      <figcaption>Rolls, precisely cut</figcaption>
+    </figure>
+    <figure class="g-item">
+      <img src="https://images.unsplash.com/photo-1611143669185-af224c5e3252?auto=format&fit=crop&w=800&q=60" alt="Chef at the sushi counter" loading="lazy"
+           onerror="this.onerror=null;this.style.display='none'">
+      <figcaption>Behind the counter</figcaption>
+    </figure>
+    <figure class="g-item">
+      <img src="https://images.unsplash.com/photo-1617196034796-73dfa7b1fd56?auto=format&fit=crop&w=800&q=60" alt="Omakase course plating" loading="lazy"
+           onerror="this.onerror=null;this.style.display='none'">
+      <figcaption>Course by course</figcaption>
+    </figure>
+  </div>
+</section>
+<section class="locations" id="locations">
+  <div class="ghost" aria-hidden="true">マイアミ</div>
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-no">四</span>
+      <div>
+        <p class="sec-kicker" style="color:#a89c8a">Find us</p>
+        <h2 class="sec-title">Four counters, <em>one ritual</em></h2>
+      </div>
+    </div>
+    <div class="loc-grid">
+      <div class="loc reveal">
+        <h3>Wynwood</h3>
+        <p class="jp-loc">ウィンウッド</p>
+        <p class="status">Open now</p>
+      </div>
+      <div class="loc reveal">
+        <h3>Coconut Grove</h3>
+        <p class="jp-loc">ココナッツグローブ</p>
+        <p class="status">Open now</p>
+      </div>
+      <div class="loc reveal">
+        <h3>Aventura</h3>
+        <p class="jp-loc">アベンチュラ</p>
+        <p class="status">Open now</p>
+      </div>
+      <div class="loc reveal">
+        <h3>Doral</h3>
+        <p class="jp-loc">ドラル</p>
+        <p class="status">Open now</p>
+      </div>
+    </div>
+    <div class="soon reveal">
+      <span class="soon-label">Coming soon</span>
+      <span class="pill hot">Chicago</span>
+      <span class="pill">Orlando</span>
+      <span class="pill">Brickell</span>
+    </div>
+  </div>
+</section>
+
+<section class="visit" id="visit">
+  <div class="ghost on-light" aria-hidden="true">お待ちしています</div>
+  <div class="wrap visit-inner">
+    <p class="sec-kicker reveal" style="margin-bottom:1.4rem">Reserve your seat</p>
+    <h2 class="reveal reveal-words" data-split>Sit down. <em>Breathe.</em> Leave it up to us.</h2>
+    <p class="lead reveal">Walk-ins are always welcome — or message us on Instagram and we will hold a seat at the counter for you.</p>
+    <div class="visit-ctas reveal">
+      <a class="cta" href="https://ig.me/m/omakaisushi" target="_blank" rel="noopener">DM @omakaisushi</a>
+      <a class="cta cta--line" href="https://bit.ly/omakaisushi" target="_blank" rel="noopener">Link in bio</a>
+    </div>
+    <p class="social-proof reveal">35.3K on Instagram · @omakaihandrollbar</p>
+  </div>
+</section>
+
+<footer>
+  <div>
+    <p class="f-brand">OMAKAI</p>
+    <p class="f-note" style="margin-top:.5rem">Sushi · Miami</p>
+  </div>
+  <div class="f-links">
+    <a href="https://www.instagram.com/omakaisushi" target="_blank" rel="noopener">Instagram</a>
+    <a href="https://ig.me/m/omakaisushi" target="_blank" rel="noopener">DM us</a>
+    <a href="https://bit.ly/omakaisushi" target="_blank" rel="noopener">Link in bio</a>
+  </div>
+  <p class="mockup-note">Design mockup concept — not affiliated with OMAKAI sushi. All facts sourced from @omakaisushi on Instagram.</p>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+  var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (reduce) { document.documentElement.classList.add("rm"); }
+
+  /* word-by-word serene reveals */
+  function splitWords(el){
+    var full = el.textContent.trim().replace(/\s+/g, " ");
+    el.setAttribute("aria-label", full);
+    var nodes = Array.prototype.slice.call(el.childNodes);
+    el.innerHTML = "";
+    var n = 0;
+    function addWord(word){
+      var s = document.createElement("span");
+      s.className = "w";
+      s.textContent = word;
+      s.style.transitionDelay = (n * 70) + "ms";
+      el.appendChild(s);
+      n++;
+    }
+    nodes.forEach(function(node, ni){
+      if (node.nodeType === 3) {
+        node.textContent.trim().replace(/\s+/g, " ").split(" ").forEach(function(word, wi, arr){
+          if (word) addWord(word);
+          if (wi < arr.length - 1) el.appendChild(document.createTextNode(" "));
+        });
+      } else {
+        /* keep inline elements (em, etc.) intact, revealed as one word */
+        var wrap = document.createElement("span");
+        wrap.className = "w";
+        wrap.style.transitionDelay = (n * 70) + "ms";
+        wrap.appendChild(node);
+        el.appendChild(wrap);
+        n++;
+      }
+      if (ni < nodes.length - 1) el.appendChild(document.createTextNode(" "));
+    });
+  }
+  document.querySelectorAll("[data-split]").forEach(function(el){ splitWords(el); });
+
+  /* duplicate marquee track for a seamless loop */
+  var track = document.getElementById("marqueeTrack");
+  if (track) { track.innerHTML += track.innerHTML; }
+
+  /* nav shrink on scroll */
+  var nav = document.getElementById("nav");
+  function onScroll(){
+    if (window.scrollY > 40) nav.classList.add("scrolled");
+    else nav.classList.remove("scrolled");
+  }
+  window.addEventListener("scroll", onScroll, { passive: true });
+  onScroll();
+
+  if (reduce) {
+    document.querySelectorAll(".reveal, .reveal-words").forEach(function(el){ el.classList.add("in"); });
+    return;
+  }
+
+  /* IntersectionObserver reveals */
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if (e.isIntersecting) {
+        e.target.classList.add("in");
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: "0px 0px -8% 0px" });
+
+  document.querySelectorAll(".reveal, .reveal-words").forEach(function(el){ io.observe(el); });
+})();
+</script>
+</body>
+</html>

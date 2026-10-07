@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Ceviche — Fresh Ceviche, Poke, Burritos, Tacos &amp; Bowls | South Beach + MIA Airport</title>
+<meta name="description" content="My Ceviche serves fresh ceviche, poke bowls, burritos, tacos and bowls in South Beach and Miami International Airport. Bursting with flavor, made fresh daily.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Restaurant",
+  "name": "My Ceviche",
+  "servesCuisine": ["Ceviche", "Poke", "Burritos", "Tacos", "Bowls"],
+  "telephone": "+1-305-669-5000",
+  "email": "info@myceviche.com",
+  "sameAs": [
+    "https://www.instagram.com/myceviche",
+    "https://linktr.ee/myceviche"
+  ],
+  "address": [
+    { "@type": "PostalAddress", "addressLocality": "Miami Beach", "addressRegion": "FL", "addressCountry": "US" },
+    { "@type": "PostalAddress", "addressLocality": "Miami", "addressRegion": "FL", "addressCountry": "US" }
+  ]
+}
+</script>
+<style>
+/* ============ TOKENS ============ */
+:root{
+  --teal-950:#04262A;
+  --teal-900:#07393D;
+  --teal-700:#0C5453;
+  --teal-500:#14918C;
+  --teal-200:#A9DCD3;
+  --lime-500:#B9E62E;
+  --lime-400:#CBF14B;
+  --lime-300:#DFFA7E;
+  --sand-50:#FDF9EE;
+  --sand-100:#FAF2DF;
+  --sand-200:#F0E3C2;
+  --ink:#0B2B2E;
+  --coral:#FF7A3D;
+  --white:#FFFFFF;
+  --font-display:'Bricolage Grotesque',system-ui,sans-serif;
+  --font-body:'Plus Jakarta Sans',system-ui,sans-serif;
+  --radius:22px;
+  --shadow-lg:0 30px 60px -18px rgba(4,38,42,.35);
+  --shadow-md:0 18px 40px -14px rgba(4,38,42,.28);
+  --ease:cubic-bezier(.22,1,.36,1);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:var(--font-body);
+  color:var(--ink);
+  background:var(--sand-50);
+  line-height:1.6;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+.wrap{width:min(1180px,92vw);margin:0 auto}
+section{position:relative}
+
+/* ============ NAV ============ */
+.nav{
+  position:fixed;inset:0 0 auto 0;z-index:100;
+  transition:background .35s ease,box-shadow .35s ease,backdrop-filter .35s ease;
+}
+.nav.scrolled{background:rgba(4,38,42,.86);backdrop-filter:blur(14px);box-shadow:0 10px 30px rgba(0,0,0,.25)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;padding:18px 0}
+.logo{display:flex;align-items:center;gap:10px;color:#fff;font-family:var(--font-display);font-weight:800;font-size:1.35rem;letter-spacing:-.01em}
+.logo-mark{
+  width:40px;height:40px;border-radius:50%;
+  background:conic-gradient(from 20deg,var(--lime-400),var(--teal-500),var(--lime-400));
+  display:grid;place-items:center;font-size:1.2rem;
+  box-shadow:0 6px 16px rgba(203,241,75,.4);
+}
+.nav-links{display:flex;gap:34px;list-style:none}
+.nav-links a{color:#fff;font-weight:600;font-size:.95rem;position:relative;padding:4px 0}
+.nav-links a::after{
+  content:"";position:absolute;left:0;bottom:-2px;height:3px;width:0;
+  background:var(--lime-400);border-radius:3px;transition:width .3s var(--ease);
+}
+.nav-links a:hover::after{width:100%}
+.nav-cta{display:flex;align-items:center;gap:14px}
+.burger{display:none;background:none;border:0;cursor:pointer;padding:8px}
+.burger span{display:block;width:26px;height:3px;background:#fff;border-radius:3px;margin:5px 0;transition:.3s var(--ease)}
+
+/* ============ BUTTONS ============ */
+.btn{
+  display:inline-flex;align-items:center;gap:10px;
+  font-family:var(--font-body);font-weight:700;font-size:1rem;
+  padding:16px 32px;border-radius:999px;border:0;cursor:pointer;
+  transition:transform .3s var(--ease),box-shadow .3s var(--ease),background .3s ease;
+  position:relative;overflow:hidden;white-space:nowrap;
+}
+.btn-primary{background:var(--lime-400);color:var(--teal-950);box-shadow:0 14px 30px -8px rgba(203,241,75,.55)}
+.btn-primary:hover{transform:translateY(-3px) scale(1.02);box-shadow:0 22px 40px -10px rgba(203,241,75,.65)}
+.btn-outline{background:rgba(255,255,255,.08);color:#fff;border:2px solid rgba(255,255,255,.55);backdrop-filter:blur(6px)}
+.btn-outline:hover{transform:translateY(-3px);border-color:var(--lime-400);color:var(--lime-300)}
+.btn-dark{background:var(--teal-950);color:#fff;box-shadow:var(--shadow-md)}
+.btn-dark:hover{transform:translateY(-3px);background:var(--teal-700)}
+
+/* ============ HERO ============ */
+.hero{min-height:100svh;display:flex;align-items:flex-end;color:#fff;overflow:hidden;background:var(--teal-950)}
+.hero-bg{position:absolute;inset:0}
+.hero-bg img{width:100%;height:100%;object-fit:cover;transform:scale(1.08);animation:heroDrift 22s ease-in-out infinite alternate}
+@keyframes heroDrift{from{transform:scale(1.08) translateY(0)}to{transform:scale(1.14) translateY(-2.5%)}}
+.hero-shade{position:absolute;inset:0;background:
+  linear-gradient(180deg,rgba(4,38,42,.62) 0%,rgba(4,38,42,.18) 38%,rgba(4,38,42,.78) 100%),
+  radial-gradient(90% 60% at 18% 78%,rgba(20,145,140,.5),transparent 60%)}
+.hero-content{position:relative;z-index:2;padding:120px 0 90px;width:100%}
+.eyebrow{
+  display:inline-flex;align-items:center;gap:10px;
+  background:rgba(203,241,75,.14);border:1px solid rgba(203,241,75,.5);color:var(--lime-300);
+  font-weight:700;font-size:.82rem;letter-spacing:.16em;text-transform:uppercase;
+  padding:10px 20px;border-radius:999px;margin-bottom:26px;backdrop-filter:blur(8px);
+}
+.eyebrow .dot{width:8px;height:8px;border-radius:50%;background:var(--lime-400);box-shadow:0 0 12px var(--lime-400);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.5);opacity:.6}}
+.hero h1{
+  font-family:var(--font-display);font-weight:800;
+  font-size:clamp(3rem,9vw,7.2rem);line-height:.98;letter-spacing:-.03em;
+  max-width:14ch;margin-bottom:24px;
+}
+.hero h1 .w{display:inline-block;opacity:0;transform:translateY(110%) rotate(4deg)}
+body.loaded .hero h1 .w{animation:wordUp .9s var(--ease) forwards;animation-delay:calc(var(--i)*.12s + .15s)}
+@keyframes wordUp{to{opacity:1;transform:translateY(0) rotate(0)}}
+.hl{position:relative;display:inline-block;z-index:1;padding:0 .12em}
+.hl::before{
+  content:"";position:absolute;inset:.06em -.06em;z-index:-1;
+  background:var(--lime-400);border-radius:.18em;transform:skew(-8deg) scaleX(0);
+  transform-origin:left center;
+}
+body.loaded .hl::before{animation:hlSwipe .7s var(--ease) forwards;animation-delay:1s}
+@keyframes hlSwipe{to{transform:skew(-8deg) scaleX(1)}}
+.hl{color:var(--teal-950)}
+.hero-sub{font-size:clamp(1.05rem,2vw,1.3rem);max-width:52ch;color:rgba(255,255,255,.88);margin-bottom:36px;font-weight:500}
+.hero-ctas{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:44px}
+.hero-meta{display:flex;gap:14px;flex-wrap:wrap}
+.meta-chip{
+  display:inline-flex;align-items:center;gap:10px;
+  background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.22);
+  padding:10px 18px;border-radius:999px;font-size:.9rem;font-weight:600;backdrop-filter:blur(8px);
+}
+.meta-chip strong{color:var(--lime-300)}
+.citrus-badge{
+  position:absolute;right:6vw;top:20vh;z-index:3;width:130px;height:130px;border-radius:50%;
+  background:
+    radial-gradient(circle at 50% 50%,rgba(255,255,255,.9) 0 8%,transparent 8%),
+    repeating-conic-gradient(from 0deg,rgba(255,255,255,.85) 0 6deg,transparent 6deg 30deg),
+    radial-gradient(circle,#FFE45E 0 62%,#F5B301 62% 78%,#E08E00 78% 100%);
+  box-shadow:0 20px 50px rgba(0,0,0,.35),inset 0 0 0 6px rgba(255,255,255,.35);
+  animation:spinSlow 26s linear infinite;
+  display:grid;place-items:center;
+}
+.citrus-badge span{
+  font-family:var(--font-display);font-weight:800;font-size:.72rem;letter-spacing:.14em;
+  color:var(--teal-950);background:var(--lime-400);padding:8px 12px;border-radius:999px;
+  animation:spinSlowRev 26s linear infinite;text-transform:uppercase;
+}
+@keyframes spinSlow{to{transform:rotate(360deg)}}
+@keyframes spinSlowRev{to{transform:rotate(-360deg)}}
+.scroll-hint{
+  position:absolute;left:50%;bottom:26px;transform:translateX(-50%);z-index:3;
+  color:rgba(255,255,255,.75);font-size:.78rem;letter-spacing:.22em;text-transform:uppercase;font-weight:600;
+  display:flex;flex-direction:column;align-items:center;gap:8px;
+}
+.scroll-hint::after{content:"";width:2px;height:34px;background:linear-gradient(var(--lime-400),transparent);animation:hintDrop 1.8s var(--ease) infinite}
+@keyframes hintDrop{0%{transform:scaleY(0);transform-origin:top}45%{transform:scaleY(1);transform-origin:top}55%{transform:scaleY(1);transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+
+/* ============ WAVE DIVIDER ============ */
+.wave{display:block;width:100%;height:90px;margin-bottom:-1px}
+.wave path{fill:var(--sand-50)}
+.wave.on-teal path{fill:var(--teal-950)}
+.wave.on-lime path{fill:var(--lime-400)}
+
+/* ============ MARQUEE ============ */
+.marquee-band{background:var(--lime-400);transform:rotate(-1.4deg) scale(1.02);margin:34px 0;box-shadow:var(--shadow-md);position:relative;z-index:5}
+.marquee{overflow:hidden;white-space:nowrap;padding:20px 0}
+.marquee-track{display:inline-flex;align-items:center;gap:0;animation:marquee 26s linear infinite;will-change:transform}
+.marquee:hover .marquee-track{animation-play-state:paused}
+.marquee-track span{
+  font-family:var(--font-display);font-weight:800;font-size:clamp(1.3rem,3vw,2.1rem);
+  letter-spacing:-.01em;color:var(--teal-950);padding:0 18px;text-transform:uppercase;
+}
+.marquee-track .sep{color:var(--teal-700);font-size:1.4em}
+@keyframes marquee{to{transform:translateX(-50%)}}
+
+/* ============ SECTION BASICS ============ */
+.section{padding:110px 0}
+.sec-head{max-width:760px;margin-bottom:60px}
+.sec-eyebrow{
+  display:inline-block;font-weight:700;font-size:.8rem;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--teal-500);margin-bottom:16px;
+}
+.sec-title{
+  font-family:var(--font-display);font-weight:800;letter-spacing:-.025em;
+  font-size:clamp(2.2rem,5.4vw,4rem);line-height:1.02;margin-bottom:18px;
+}
+.sec-title .w{display:inline-block}
+.sec-lead{font-size:1.12rem;color:#3E5A5C;max-width:56ch}
+
+/* reveal on scroll */
+.reveal{opacity:0;transform:translateY(46px);transition:opacity .9s var(--ease),transform .9s var(--ease);transition-delay:var(--d,0s)}
+.reveal.in{opacity:1;transform:none}
+.reveal-splash{opacity:0;transform:translateY(60px) scale(.94);transition:opacity 1s var(--ease),transform 1s var(--ease);transition-delay:var(--d,0s)}
+.reveal-splash.in{opacity:1;transform:none}
+
+/* ============ MENU GRID ============ */
+.menu-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.card{
+  background:#fff;border-radius:var(--radius);overflow:hidden;box-shadow:0 10px 30px -12px rgba(4,38,42,.18);
+  transition:transform .45s var(--ease),box-shadow .45s var(--ease);
+  display:flex;flex-direction:column;
+}
+.card:hover{transform:translateY(-10px) rotate(-.4deg);box-shadow:var(--shadow-lg)}
+.card-img{position:relative;aspect-ratio:4/3;overflow:hidden}
+.card-img img{width:100%;height:100%;object-fit:cover;transition:transform .8s var(--ease)}
+.card:hover .card-img img{transform:scale(1.08)}
+.card-tag{
+  position:absolute;top:14px;left:14px;background:var(--teal-950);color:var(--lime-300);
+  font-size:.72rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+  padding:8px 14px;border-radius:999px;
+}
+.card-body{padding:28px 28px 30px;display:flex;flex-direction:column;gap:12px;flex:1}
+.card-body h3{font-family:var(--font-display);font-weight:800;font-size:1.55rem;letter-spacing:-.02em}
+.card-body p{color:#415E60;font-size:.98rem}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px}
+.chip{
+  font-size:.78rem;font-weight:600;background:var(--sand-100);border:1px solid var(--sand-200);
+  color:var(--teal-700);padding:7px 13px;border-radius:999px;transition:.3s var(--ease);
+}
+.card:hover .chip{background:var(--lime-300);border-color:var(--lime-500);color:var(--teal-950)}
+.card-link{margin-top:auto;padding-top:8px;font-weight:700;color:var(--teal-700);display:inline-flex;align-items:center;gap:8px}
+.card-link .arr{transition:transform .3s var(--ease)}
+.card:hover .card-link .arr{transform:translateX(6px)}
+.card-wide{grid-column:span 2;display:grid;grid-template-columns:1.15fr 1fr}
+.card-wide .card-img{aspect-ratio:auto;min-height:100%}
+
+/* ============ FRESH / EDITORIAL ============ */
+.fresh{background:var(--teal-950);color:#fff;overflow:hidden}
+.fresh .sec-eyebrow{color:var(--lime-400)}
+.fresh .sec-title{color:#fff}
+.fresh .sec-lead{color:rgba(255,255,255,.78)}
+.fresh-grid{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center}
+.arch{border-radius:230px 230px var(--radius) var(--radius);overflow:hidden;box-shadow:var(--shadow-lg);position:relative}
+.arch img{width:100%;height:560px;object-fit:cover;transition:transform 1s var(--ease)}
+.arch:hover img{transform:scale(1.05)}
+.arch::after{
+  content:"MADE FRESH DAILY";position:absolute;bottom:26px;left:50%;transform:translateX(-50%) rotate(-2deg);
+  background:var(--lime-400);color:var(--teal-950);font-family:var(--font-display);font-weight:800;
+  font-size:.85rem;letter-spacing:.18em;padding:12px 24px;border-radius:999px;white-space:nowrap;
+  box-shadow:0 12px 30px rgba(0,0,0,.3);
+}
+.fresh-list{list-style:none;margin:34px 0;display:grid;gap:18px}
+.fresh-list li{display:flex;gap:16px;align-items:flex-start;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:16px;padding:18px 20px;transition:.35s var(--ease)}
+.fresh-list li:hover{background:rgba(203,241,75,.1);border-color:rgba(203,241,75,.45);transform:translateX(8px)}
+.fresh-list .tick{
+  flex:none;width:34px;height:34px;border-radius:50%;background:var(--lime-400);color:var(--teal-950);
+  display:grid;place-items:center;font-weight:800;font-size:1rem;
+}
+.fresh-list strong{display:block;font-size:1.02rem;margin-bottom:2px}
+.fresh-list small{color:rgba(255,255,255,.65);font-size:.9rem}
+
+/* ============ SPLASH BAND ============ */
+.splash{position:relative;min-height:72vh;display:flex;align-items:center;overflow:hidden;background:var(--teal-950)}
+.splash img.splash-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.splash-shade{position:absolute;inset:0;background:linear-gradient(100deg,rgba(4,38,42,.88) 20%,rgba(4,38,42,.25) 65%,transparent)}
+.splash-inner{position:relative;z-index:2;color:#fff;max-width:640px}
+.splash-inner h2{font-family:var(--font-display);font-weight:800;font-size:clamp(2.6rem,6.5vw,5rem);line-height:1;letter-spacing:-.03em;margin-bottom:20px}
+.splash-inner h2 em{font-style:normal;color:var(--lime-400)}
+.splash-inner p{font-size:1.15rem;color:rgba(255,255,255,.85);margin-bottom:30px;max-width:44ch}
+
+/* ============ ORDER STRIP ============ */
+.order-strip{background:var(--sand-100)}
+.order-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
+.order-card{
+  background:var(--teal-900);color:#fff;border-radius:var(--radius);padding:38px 32px;
+  position:relative;overflow:hidden;transition:transform .4s var(--ease),box-shadow .4s var(--ease);
+}
+.order-card::before{
+  content:"";position:absolute;top:-46px;right:-46px;width:150px;height:150px;border-radius:50%;
+  background:radial-gradient(circle,rgba(203,241,75,.35),transparent 70%);
+}
+.order-card:hover{transform:translateY(-8px);box-shadow:var(--shadow-lg)}
+.order-card .ico{font-size:2.2rem;margin-bottom:16px;display:block}
+.order-card h3{font-family:var(--font-display);font-weight:800;font-size:1.4rem;margin-bottom:10px}
+.order-card p{color:rgba(255,255,255,.72);font-size:.96rem;margin-bottom:20px}
+.order-card a{color:var(--lime-300);font-weight:700;display:inline-flex;align-items:center;gap:8px}
+.order-card a:hover{gap:14px}
+
+/* ============ LOCATIONS ============ */
+.loc-panel{position:relative;border-radius:28px;overflow:hidden;min-height:480px;display:flex;align-items:flex-end;box-shadow:var(--shadow-lg)}
+.loc-panel>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.loc-shade{position:absolute;inset:0;background:linear-gradient(180deg,transparent 30%,rgba(4,38,42,.88) 100%)}
+.loc-content{position:relative;z-index:2;padding:44px;color:#fff;width:100%;display:flex;justify-content:space-between;align-items:flex-end;gap:30px;flex-wrap:wrap}
+.loc-content h2{font-family:var(--font-display);font-weight:800;font-size:clamp(2rem,4.5vw,3.2rem);letter-spacing:-.02em;line-height:1.05;margin-bottom:14px}
+.loc-chips{display:flex;gap:12px;flex-wrap:wrap}
+.loc-chip{display:inline-flex;align-items:center;gap:10px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.3);backdrop-filter:blur(10px);padding:12px 22px;border-radius:999px;font-weight:700}
+.loc-chip .pin{color:var(--lime-400)}
+.loc-side{text-align:right}
+.loc-contact{display:flex;flex-direction:column;gap:10px;margin-bottom:22px}
+.loc-contact a{font-weight:700;color:#fff;font-size:1.05rem}
+.loc-contact a:hover{color:var(--lime-300)}
+
+/* ============ CTA BAND ============ */
+.cta-band{position:relative;overflow:hidden;background:var(--teal-950);color:#fff;text-align:center;padding:130px 0}
+.cta-band>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.32}
+.cta-shade{position:absolute;inset:0;background:radial-gradient(70% 90% at 50% 50%,rgba(4,38,42,.55),rgba(4,38,42,.92))}
+.cta-inner{position:relative;z-index:2}
+.cta-inner h2{font-family:var(--font-display);font-weight:800;font-size:clamp(2.6rem,7vw,5.4rem);letter-spacing:-.03em;line-height:1;margin-bottom:20px}
+.cta-inner h2 .w{display:inline-block}
+.cta-inner p{font-size:1.15rem;color:rgba(255,255,255,.8);margin-bottom:36px}
+.cta-ctas{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+
+/* ============ FOOTER ============ */
+footer{background:#02191B;color:rgba(255,255,255,.72);padding:70px 0 34px}
+.foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px;margin-bottom:50px}
+.foot-brand p{max-width:36ch;font-size:.95rem;margin-top:14px}
+.foot-col h4{color:#fff;font-family:var(--font-display);font-size:1.05rem;margin-bottom:16px;letter-spacing:.02em}
+.foot-col ul{list-style:none;display:grid;gap:10px}
+.foot-col a{font-size:.95rem}
+.foot-col a:hover{color:var(--lime-300)}
+.foot-bottom{border-top:1px solid rgba(255,255,255,.12);padding-top:26px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:.85rem}
+.foot-bottom .concept{opacity:.55}
+
+/* ============ RESPONSIVE ============ */
+@media(max-width:960px){
+  .menu-grid{grid-template-columns:1fr 1fr}
+  .card-wide{grid-column:span 2}
+  .fresh-grid{grid-template-columns:1fr;gap:44px}
+  .arch img{height:420px}
+  .order-cards{grid-template-columns:1fr}
+  .nav-links{display:none}
+  .burger{display:block}
+  .nav-cta .btn{display:none}
+}
+@media(max-width:640px){
+  .menu-grid{grid-template-columns:1fr}
+  .card-wide{grid-column:span 1;grid-template-columns:1fr}
+  .card-wide .card-img{aspect-ratio:4/3;min-height:0}
+  .section{padding:80px 0}
+  .citrus-badge{display:none}
+  .loc-content{flex-direction:column;align-items:flex-start}
+  .loc-side{text-align:left}
+  .foot-grid{grid-template-columns:1fr}
+  .hero-content{padding:110px 0 80px}
+}
+.mobile-menu{
+  position:fixed;inset:0;z-index:99;background:rgba(4,38,42,.97);backdrop-filter:blur(10px);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:26px;
+  opacity:0;pointer-events:none;transition:opacity .35s ease;
+}
+.mobile-menu.open{opacity:1;pointer-events:auto}
+.mobile-menu a{color:#fff;font-family:var(--font-display);font-weight:800;font-size:2rem}
+.mobile-menu a:hover{color:var(--lime-400)}
+
+/* ============ REDUCED MOTION ============ */
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+  .hero-bg img{transform:none}
+  .hero h1 .w{opacity:1;transform:none}
+  .hl::before{transform:skew(-8deg) scaleX(1)}
+  .marquee-track{animation:none;flex-wrap:wrap;white-space:normal}
+  .reveal,.reveal-splash{opacity:1;transform:none}
+  .citrus-badge{animation:none}
+}
+</style>
+</head>
+<body>
+
+<!-- ================= NAV ================= -->
+<header class="nav" id="nav">
+  <div class="wrap nav-inner">
+    <a class="logo" href="#top" aria-label="My Ceviche home"><span class="logo-mark" aria-hidden="true">&#128031;</span>My Ceviche</a>
+    <nav aria-label="Primary">
+      <ul class="nav-links">
+        <li><a href="#menu">Menu</a></li>
+        <li><a href="#fresh">Fresh Daily</a></li>
+        <li><a href="#order">Order</a></li>
+        <li><a href="#locations">Locations</a></li>
+      </ul>
+    </nav>
+    <div class="nav-cta">
+      <a class="btn btn-primary" href="https://ig.me/m/myceviche" target="_blank" rel="noopener" style="padding:12px 26px;font-size:.92rem">Order Ahead</a>
+      <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#menu">Menu</a>
+  <a href="#fresh">Fresh Daily</a>
+  <a href="#order">Order</a>
+  <a href="#locations">Locations</a>
+  <a href="https://ig.me/m/myceviche" target="_blank" rel="noopener" style="color:var(--lime-400)">Order Ahead</a>
+</div>
+
+<!-- ================= HERO ================= -->
+<section class="hero" id="top">
+  <div class="hero-bg">
+    <img src="https://images.unsplash.com/photo-1535399831218-d5bd36d1a6b3?q=80&w=1800&auto=format&fit=crop" alt="Peruvian-style ceviche with fresh white fish, red onion, sweet potato and corn" fetchpriority="high" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1587496679742-bad502958fbf?q=80&w=1600&auto=format&fit=crop'">
+  </div>
+  <div class="hero-shade"></div>
+  <div class="citrus-badge" aria-hidden="true"><span>100% Fresh</span></div>
+  <div class="wrap hero-content">
+    <span class="eyebrow"><span class="dot"></span>South Beach &middot; MIA Airport</span>
+    <h1>
+      <span class="w" style="--i:0">Fresh.</span>
+      <span class="w" style="--i:1">Zesty.</span><br>
+      <span class="w" style="--i:2"><span class="hl">Miami.</span></span>
+    </h1>
+    <p class="hero-sub">Ceviche, poke, burritos, tacos &amp; bowls &mdash; bursting with flavor and fully packed with your favorite ingredients. Made fresh, served fast, finished with lime.</p>
+    <div class="hero-ctas">
+      <a class="btn btn-primary" href="https://ig.me/m/myceviche" target="_blank" rel="noopener">Start an Order <span aria-hidden="true">&rarr;</span></a>
+      <a class="btn btn-outline" href="#menu">Explore the Menu</a>
+    </div>
+    <div class="hero-meta">
+      <span class="meta-chip"><strong>17.6K</strong>&nbsp;Instagram community</span>
+      <span class="meta-chip">&#129680; Ceviche &middot; Poke &middot; Burritos &middot; Tacos &middot; Bowls</span>
+    </div>
+  </div>
+  <div class="scroll-hint" aria-hidden="true">Scroll</div>
+</section>
+
+<!-- ================= MARQUEE ================= -->
+<div class="marquee-band" aria-hidden="true">
+  <div class="marquee">
+    <div class="marquee-track">
+      <span>Veggie</span><span class="sep">&#10022;</span><span>Chicken</span><span class="sep">&#10022;</span><span>Blackened Fish</span><span class="sep">&#10022;</span><span>Grilled Shrimp</span><span class="sep">&#10022;</span><span>Filet Mignon</span><span class="sep">&#10022;</span><span>Seared Ahi Tuna</span><span class="sep">&#10022;</span><span>Charred Octopus</span><span class="sep">&#10022;</span>
+      <span>Veggie</span><span class="sep">&#10022;</span><span>Chicken</span><span class="sep">&#10022;</span><span>Blackened Fish</span><span class="sep">&#10022;</span><span>Grilled Shrimp</span><span class="sep">&#10022;</span><span>Filet Mignon</span><span class="sep">&#10022;</span><span>Seared Ahi Tuna</span><span class="sep">&#10022;</span><span>Charred Octopus</span><span class="sep">&#10022;</span>
+    </div>
+  </div>
+</div>
+<svg class="wave" viewBox="0 0 1440 90" preserveAspectRatio="none" aria-hidden="true"><path d="M0,40 C240,90 480,0 720,35 C960,70 1200,10 1440,45 L1440,90 L0,90 Z"/></svg>
+
+<!-- ================= MENU ================= -->
+<section class="section" id="menu">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-eyebrow">The Menu</span>
+      <h2 class="sec-title">Pick your craving.<br>We&rsquo;ll handle the lime.</h2>
+      <p class="sec-lead">Five ways to do fresh &mdash; every plate built around bright citrus, crunchy veggies and your favorite protein.</p>
+    </div>
+    <div class="menu-grid">
+      <article class="card card-wide reveal-splash" style="--d:.05s">
+        <div class="card-img">
+          <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=1000&auto=format&fit=crop" alt="Colorful poke bowl with fresh vegetables and seared protein" loading="lazy" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1587496679742-bad502958fbf?q=80&w=900&auto=format&fit=crop'">
+          <span class="card-tag">Fan Favorite</span>
+        </div>
+        <div class="card-body">
+          <h3>Poke Bowls</h3>
+          <p>A whole lot of options to choose from &mdash; fresh fish, crunchy toppings and zesty sauces over a hearty base.</p>
+          <div class="chips"><span class="chip">Seared Ahi Tuna</span><span class="chip">Grilled Shrimp</span><span class="chip">Blackened Fish</span></div>
+          <a class="card-link" href="https://ig.me/m/myceviche" target="_blank" rel="noopener">Build yours <span class="arr" aria-hidden="true">&rarr;</span></a>
+        </div>
+      </article>
+      <article class="card reveal-splash" style="--d:.15s">
+        <div class="card-img">
+          <img src="https://images.unsplash.com/photo-1626700051175-6818013e1d4f?q=80&w=900&auto=format&fit=crop" alt="Grilled burrito wraps stuffed with chicken, cabbage and cilantro, served with lime" loading="lazy" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1587496679742-bad502958fbf?q=80&w=900&auto=format&fit=crop'">
+        </div>
+        <div class="card-body">
+          <h3>Burritos</h3>
+          <p>Fully packed with your favorite ingredients and your choice of protein, wrapped tight.</p>
+          <div class="chips"><span class="chip">Veggie</span><span class="chip">Chicken</span><span class="chip">Filet Mignon</span><span class="chip">Charred Octopus</span></div>
+          <a class="card-link" href="https://ig.me/m/myceviche" target="_blank" rel="noopener">Pick a protein <span class="arr" aria-hidden="true">&rarr;</span></a>
+        </div>
+      </article>
+      <article class="card reveal-splash" style="--d:.05s">
+        <div class="card-img">
+          <img src="https://images.unsplash.com/photo-1551504734-5ee1c4a1479b?q=80&w=900&auto=format&fit=crop" alt="Street-style tacos with fresh toppings and a lime wedge on a turquoise table" loading="lazy" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1587496679742-bad502958fbf?q=80&w=900&auto=format&fit=crop'">
+        </div>
+        <div class="card-body">
+          <h3>Tacos</h3>
+          <p>Your choice of protein with fresh pico, cilantro and lime &mdash; street-style and gone in seconds.</p>
+          <div class="chips"><span class="chip">Chicken</span><span class="chip">Fish</span><span class="chip">Shrimp</span><span class="chip">Tuna</span></div>
+          <a class="card-link" href="https://ig.me/m/myceviche" target="_blank" rel="noopener">Taco time <span class="arr" aria-hidden="true">&rarr;</span></a>
+        </div>
+      </article>
+      <article class="card reveal-splash" style="--d:.15s">
+        <div class="card-img">
+          <img src="https://images.unsplash.com/photo-1512058564366-18510be2db19?q=80&w=900&auto=format&fit=crop" alt="Seafood rice bowl with lemon wedges and fresh cilantro" loading="lazy" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1587496679742-bad502958fbf?q=80&w=900&auto=format&fit=crop'">
+        </div>
+        <div class="card-body">
+          <h3>Bowls</h3>
+          <p>Hearty, colorful and loaded &mdash; the freshest way to fuel your South Beach day.</p>
+          <div class="chips"><span class="chip">Seafood</span><span class="chip">Veggie</span><span class="chip">Chicken</span></div>
+          <a class="card-link" href="https://ig.me/m/myceviche" target="_blank" rel="noopener">Fuel up <span class="arr" aria-hidden="true">&rarr;</span></a>
+        </div>
+      </article>
+      <article class="card reveal-splash" style="--d:.25s">
+        <div class="card-img">
+          <img src="https://images.unsplash.com/photo-1603046891726-36bfd957e0bf?q=80&w=900&auto=format&fit=crop" alt="Avocado toasts topped with cherry tomatoes, sesame and a lemon half" loading="lazy" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1587496679742-bad502958fbf?q=80&w=900&auto=format&fit=crop'">
+        </div>
+        <div class="card-body">
+          <h3>Avocado Toast</h3>
+          <p>Creamy avocado on toasted bread &mdash; pick the style that matches your mood.</p>
+          <div class="chips"><span class="chip">Creamy</span><span class="chip">Mexican</span><span class="chip">Peruvian</span><span class="chip">Hawaiian</span></div>
+          <a class="card-link" href="https://ig.me/m/myceviche" target="_blank" rel="noopener">Choose a style <span class="arr" aria-hidden="true">&rarr;</span></a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<svg class="wave on-teal" viewBox="0 0 1440 90" preserveAspectRatio="none" aria-hidden="true" style="background:var(--sand-50)"><path d="M0,40 C240,90 480,0 720,35 C960,70 1200,10 1440,45 L1440,90 L0,90 Z"/></svg>
+
+<!-- ================= FRESH DAILY ================= -->
+<section class="section fresh" id="fresh">
+  <div class="wrap">
+    <div class="fresh-grid">
+      <div class="reveal-splash">
+        <div class="arch">
+          <img src="https://images.unsplash.com/photo-1551218808-94e220e084d2?q=80&w=1000&auto=format&fit=crop" alt="Chef chopping fresh vegetables and raw fish in the kitchen" loading="lazy" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1587496679742-bad502958fbf?q=80&w=900&auto=format&fit=crop'">
+        </div>
+      </div>
+      <div>
+        <div class="sec-head reveal" style="margin-bottom:0">
+          <span class="sec-eyebrow">Fresh Daily</span>
+          <h2 class="sec-title">Chopped, squeezed &amp; served &mdash; never boring.</h2>
+          <p class="sec-lead">Everything starts fresh every morning: crisp veggies, ripe avocado and citrus squeezed to order. Then we add the extras people come back for.</p>
+        </div>
+        <ul class="fresh-list">
+          <li class="reveal" style="--d:.05s">
+            <span class="tick" aria-hidden="true">&#10022;</span>
+            <div><strong>Lime-Spiced Chips</strong><small>Our signature crunch &mdash; made for scooping ceviche.</small></div>
+          </li>
+          <li class="reveal" style="--d:.12s">
+            <span class="tick" aria-hidden="true">&#10022;</span>
+            <div><strong>Lime-Spiced Popcorn</strong><small>A customer favorite with that extra zing.</small></div>
+          </li>
+          <li class="reveal" style="--d:.19s">
+            <span class="tick" aria-hidden="true">&#10022;</span>
+            <div><strong>Extra Guac</strong><small>Because there&rsquo;s no such thing as too much avocado.</small></div>
+          </li>
+          <li class="reveal" style="--d:.26s">
+            <span class="tick" aria-hidden="true">&#10022;</span>
+            <div><strong>Ice-Cold Jarritos</strong><small>Everybody has a favorite &mdash; what&rsquo;s yours?</small></div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= SPLASH BAND ================= -->
+<section class="splash">
+  <img class="splash-bg" src="https://images.unsplash.com/photo-1565299585323-38d6b0865b47?q=80&w=1600&auto=format&fit=crop" alt="Fresh lime juice being squeezed over colorful tacos" loading="lazy" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1587496679742-bad502958fbf?q=80&w=1600&auto=format&fit=crop'">
+  <div class="splash-shade"></div>
+  <div class="wrap splash-inner">
+    <h2 class="reveal">Squeeze the <em>day.</em></h2>
+    <p class="reveal" style="--d:.1s">Real lime, real flavor, zero shortcuts. That bright, zesty finish on everything is kind of our thing.</p>
+    <div class="reveal" style="--d:.2s">
+      <a class="btn btn-primary" href="https://ig.me/m/myceviche" target="_blank" rel="noopener">Taste the Fresh <span aria-hidden="true">&rarr;</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ORDER STRIP ================= -->
+<section class="section order-strip" id="order">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-eyebrow">Easy Ordering</span>
+      <h2 class="sec-title">Hungry now? We&rsquo;ve got you.</h2>
+      <p class="sec-lead">Order ahead to skip the line &mdash; dine-in, pick-up or delivery. However the craving hits, we&rsquo;re ready.</p>
+    </div>
+    <div class="order-cards">
+      <article class="order-card reveal-splash" style="--d:.05s">
+        <span class="ico" aria-hidden="true">&#9889;</span>
+        <h3>Order Ahead</h3>
+        <p>Skip the line for dine-in, pick-up or delivery. Build your bowl, burrito or tacos in seconds.</p>
+        <a href="https://ig.me/m/myceviche" target="_blank" rel="noopener">Start an order <span aria-hidden="true">&rarr;</span></a>
+      </article>
+      <article class="order-card reveal-splash" style="--d:.15s">
+        <span class="ico" aria-hidden="true">&#127881;</span>
+        <h3>We Cater</h3>
+        <p>Feeding a crowd? We&rsquo;d love to cater your next special event &mdash; fresh platters, big flavor.</p>
+        <a href="https://ig.me/m/myceviche" target="_blank" rel="noopener">Ask about catering <span aria-hidden="true">&rarr;</span></a>
+      </article>
+      <article class="order-card reveal-splash" style="--d:.25s">
+        <span class="ico" aria-hidden="true">&#127775;</span>
+        <h3>Rewards App</h3>
+        <p>Download the My Ceviche rewards app and start building rewards with every single order.</p>
+        <a href="https://ig.me/m/myceviche" target="_blank" rel="noopener">Get the app <span aria-hidden="true">&rarr;</span></a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<svg class="wave on-lime" viewBox="0 0 1440 90" preserveAspectRatio="none" aria-hidden="true" style="background:var(--sand-100)"><path d="M0,40 C240,90 480,0 720,35 C960,70 1200,10 1440,45 L1440,90 L0,90 Z"/></svg>
+
+<!-- ================= LOCATIONS ================= -->
+<section class="section" id="locations" style="padding-top:70px">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-eyebrow">Find Us</span>
+      <h2 class="sec-title">Two spots. Same fresh.</h2>
+      <p class="sec-lead">Catch us beachside in South Beach or on the go at Miami International Airport.</p>
+    </div>
+    <div class="loc-panel reveal-splash">
+      <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1600&auto=format&fit=crop" alt="Sunset over turquoise ocean waves on a Miami beach" loading="lazy" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1587496679742-bad502958fbf?q=80&w=1600&auto=format&fit=crop'">
+      <div class="loc-shade"></div>
+      <div class="loc-content">
+        <div>
+          <h2>South Beach<br>&amp; MIA Airport</h2>
+          <div class="loc-chips">
+            <span class="loc-chip"><span class="pin" aria-hidden="true">&#9679;</span> South Beach</span>
+            <span class="loc-chip"><span class="pin" aria-hidden="true">&#9679;</span> MIA Airport</span>
+          </div>
+        </div>
+        <div class="loc-side">
+          <div class="loc-contact">
+            <a href="tel:+13056695000">(305) 669-5000</a>
+            <a href="mailto:info@myceviche.com">info@myceviche.com</a>
+          </div>
+          <a class="btn btn-primary" href="https://ig.me/m/myceviche" target="_blank" rel="noopener">Message Us <span aria-hidden="true">&rarr;</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CTA BAND ================= -->
+<section class="cta-band">
+  <img src="https://images.unsplash.com/photo-1582979512210-99b6a53386f9?q=80&w=1600&auto=format&fit=crop" alt="Pattern of fresh orange slices" loading="lazy" aria-hidden="true" onerror="this.onerror=null;this.style.display='none'">
+  <div class="cta-shade"></div>
+  <div class="wrap cta-inner">
+    <h2 class="reveal"><span class="w">Craving</span> <span class="w">it</span> <span class="w">yet?</span></h2>
+    <p class="reveal" style="--d:.1s">One message and lunch is handled. DM us to order, cater or just say hi.</p>
+    <div class="cta-ctas reveal" style="--d:.2s">
+      <a class="btn btn-primary" href="https://ig.me/m/myceviche" target="_blank" rel="noopener">DM @myceviche <span aria-hidden="true">&rarr;</span></a>
+      <a class="btn btn-outline" href="https://www.instagram.com/myceviche" target="_blank" rel="noopener">Follow on Instagram</a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <a class="logo" href="#top" aria-label="My Ceviche home"><span class="logo-mark" aria-hidden="true">&#128031;</span>My Ceviche</a>
+        <p>Fresh ceviche, poke, burritos, tacos &amp; bowls in South Beach and Miami International Airport. Bursting with flavor, every single day.</p>
+      </div>
+      <div class="foot-col">
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="#menu">Menu</a></li>
+          <li><a href="#fresh">Fresh Daily</a></li>
+          <li><a href="#order">Order Ahead</a></li>
+          <li><a href="#locations">Locations</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="https://ig.me/m/myceviche" target="_blank" rel="noopener">DM on Instagram</a></li>
+          <li><a href="tel:+13056695000">(305) 669-5000</a></li>
+          <li><a href="mailto:info@myceviche.com">info@myceviche.com</a></li>
+          <li><a href="https://www.instagram.com/myceviche" target="_blank" rel="noopener">@myceviche</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>&copy; <span id="year">2026</span> My Ceviche. All rights reserved.</span>
+      <span class="concept">Design concept mockup</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+  var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  /* Sticky nav */
+  var nav = document.getElementById("nav");
+  function onScroll(){ nav.classList.toggle("scrolled", window.scrollY > 40); }
+  window.addEventListener("scroll", onScroll, {passive:true});
+  onScroll();
+
+  /* Mobile menu */
+  var burger = document.getElementById("burger");
+  var mobileMenu = document.getElementById("mobileMenu");
+  function closeMenu(){
+    mobileMenu.classList.remove("open");
+    burger.setAttribute("aria-expanded","false");
+    burger.setAttribute("aria-label","Open menu");
+  }
+  burger.addEventListener("click", function(){
+    var open = mobileMenu.classList.toggle("open");
+    burger.setAttribute("aria-expanded", open ? "true" : "false");
+    burger.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+  });
+  mobileMenu.querySelectorAll("a").forEach(function(a){ a.addEventListener("click", closeMenu); });
+
+  /* Hero entrance */
+  requestAnimationFrame(function(){
+    requestAnimationFrame(function(){ document.body.classList.add("loaded"); });
+  });
+
+  /* Scroll reveals */
+  var revealEls = document.querySelectorAll(".reveal, .reveal-splash");
+  if (reduced || !("IntersectionObserver" in window)) {
+    revealEls.forEach(function(el){ el.classList.add("in"); });
+  } else {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); }
+      });
+    }, {threshold: 0.12, rootMargin: "0px 0px -6% 0px"});
+    revealEls.forEach(function(el){ io.observe(el); });
+  }
+
+  /* Footer year */
+  document.getElementById("year").textContent = new Date().getFullYear();
+})();
+</script>
+</body>
+</html>

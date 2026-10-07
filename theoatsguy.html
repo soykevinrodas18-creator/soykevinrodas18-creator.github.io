@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Oats Guy — Artisanal Oats Bakery · Miami</title>
+<meta name="description" content="A Venezuelan guy baking artisanal oats-based family recipes in Miami. Regular, Vegan, Gluten-Free & Sugar-Free. DM to order.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Nunito:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Bakery",
+  "name": "The Oats Guy",
+  "description": "A Venezuelan guy baking artisanal oats-based family recipes. Regular, Vegan, Gluten-Free & Sugar-Free. Micro bakery — DM to order.",
+  "servesCuisine": ["Bakery", "Desserts"],
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Miami",
+    "addressRegion": "FL",
+    "addressCountry": "US"
+  },
+  "url": "http://linktr.ee/theoatsguy",
+  "sameAs": ["https://www.instagram.com/theoatsguy"],
+  "priceRange": "$$"
+}
+</script>
+<style>
+:root{
+  --cream:#FAF5EA;
+  --cream-2:#F3EAD7;
+  --cream-3:#EDE0C6;
+  --caramel:#C08552;
+  --caramel-deep:#A5662F;
+  --cocoa:#3A2415;
+  --cocoa-soft:#5C3D24;
+  --cocoa-faint:#8A6A4E;
+  --gold:#D9A441;
+  --paper:#FFFDF8;
+  --shadow:0 24px 60px -24px rgba(58,36,21,.35);
+  --radius:22px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Nunito',system-ui,sans-serif;
+  background:var(--cream);
+  color:var(--cocoa);
+  line-height:1.65;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+/* film-grain over everything */
+body::after{
+  content:"";position:fixed;inset:0;pointer-events:none;z-index:200;opacity:.5;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3CfeColorMatrix values='0 0 0 0 0.35 0 0 0 0 0.22 0 0 0 0 0.1 0 0 0 0.05 0'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+::selection{background:var(--caramel);color:var(--cream)}
+img{display:block;max-width:100%}
+a{color:inherit}
+.wrap{max-width:1180px;margin:0 auto;padding:0 clamp(20px,4vw,48px)}
+.serif{font-family:'Fraunces',Georgia,serif}
+.eyebrow{
+  font-size:.78rem;font-weight:700;letter-spacing:.28em;text-transform:uppercase;
+  color:var(--caramel-deep);display:inline-flex;align-items:center;gap:.9em;
+}
+.eyebrow::before{content:"";width:34px;height:1.5px;background:var(--caramel-deep);opacity:.7}
+/* ---------- buttons ---------- */
+.btn{
+  display:inline-flex;align-items:center;gap:.6em;
+  background:var(--cocoa);color:var(--cream);
+  font-weight:700;font-size:.95rem;letter-spacing:.02em;
+  padding:1rem 1.9rem;border-radius:999px;text-decoration:none;border:1px solid var(--cocoa);
+  transition:transform .35s cubic-bezier(.2,.7,.2,1.2),box-shadow .35s,background .35s;
+  box-shadow:0 14px 30px -14px rgba(58,36,21,.5);
+}
+.btn:hover{transform:translateY(-3px) scale(1.02);background:var(--caramel-deep);border-color:var(--caramel-deep);box-shadow:0 20px 40px -14px rgba(165,102,47,.55)}
+.btn-outline{
+  display:inline-flex;align-items:center;gap:.6em;
+  background:transparent;color:var(--cocoa);
+  font-weight:700;font-size:.95rem;
+  padding:1rem 1.9rem;border-radius:999px;text-decoration:none;border:1.5px solid var(--cocoa);
+  transition:transform .35s,background .35s,color .35s;
+}
+.btn-outline:hover{transform:translateY(-3px);background:var(--cocoa);color:var(--cream)}
+/* ---------- nav ---------- */
+.nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  background:rgba(250,245,234,.82);border-bottom:1px solid rgba(165,102,47,.18);
+}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;padding:.9rem 0}
+.brand{display:flex;align-items:center;gap:.7rem;text-decoration:none}
+.brand-mark{
+  width:42px;height:42px;border-radius:50%;flex:none;
+  background:radial-gradient(circle at 32% 30%,var(--gold),var(--caramel-deep) 70%);
+  display:grid;place-items:center;color:var(--cream);
+  font-family:'Fraunces',serif;font-weight:600;font-size:1.25rem;
+  box-shadow:inset 0 0 0 2px rgba(250,245,234,.35),0 8px 18px -8px rgba(165,102,47,.7);
+}
+.brand-name{font-family:'Fraunces',serif;font-weight:600;font-size:1.25rem;letter-spacing:.01em}
+.brand-name em{font-style:italic;color:var(--caramel-deep)}
+.nav-links{display:flex;gap:2rem;list-style:none;font-weight:600;font-size:.92rem}
+.nav-links a{text-decoration:none;opacity:.75;transition:opacity .25s}
+.nav-links a:hover{opacity:1;color:var(--caramel-deep)}
+.nav .btn,.nav .btn-outline{padding:.7rem 1.4rem;font-size:.85rem}
+/* ---------- hero ---------- */
+.hero{position:relative;min-height:100svh;display:flex;align-items:center;padding:9rem 0 6rem;overflow:hidden}
+.hero-bg{position:absolute;inset:0;z-index:-2}
+.hero-bg img{width:100%;height:100%;object-fit:cover;animation:kenburns 26s ease-in-out infinite alternate;filter:saturate(1.05)}
+@keyframes kenburns{from{transform:scale(1)}to{transform:scale(1.12)}}
+.hero-veil{position:absolute;inset:0;z-index:-1;
+  background:
+    radial-gradient(120% 90% at 50% 10%,rgba(250,245,234,0) 30%,rgba(250,245,234,.55) 75%,var(--cream) 100%),
+    linear-gradient(100deg,rgba(250,245,234,.97) 20%,rgba(250,245,234,.82) 45%,rgba(250,245,234,.25) 75%,rgba(250,245,234,.05) 100%);
+}
+.hero-copy{max-width:660px}
+.hero-badge{
+  display:inline-flex;align-items:center;gap:.6em;background:rgba(255,253,248,.7);
+  border:1px solid rgba(165,102,47,.3);border-radius:999px;padding:.5rem 1.1rem;
+  font-size:.82rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--caramel-deep);
+  margin-bottom:1.6rem;backdrop-filter:blur(6px);
+}
+.hero-badge .dot{width:8px;height:8px;border-radius:50%;background:var(--caramel-deep);animation:pulse 2.4s ease-in-out infinite}
+@keyframes pulse{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.5);opacity:.5}}
+.hero h1{
+  font-family:'Fraunces',serif;font-weight:500;
+  font-size:clamp(2.9rem,7.2vw,5.4rem);line-height:1.04;letter-spacing:-.015em;
+  margin-bottom:1.4rem;
+}
+.hero h1 .italic{font-style:italic;color:var(--caramel-deep)}
+.hero h1 .glow{
+  font-style:italic;
+  background:linear-gradient(100deg,var(--caramel-deep),var(--gold),var(--caramel-deep));
+  background-size:220% auto;-webkit-background-clip:text;background-clip:text;color:transparent;
+  animation:shimmer 7s linear infinite;
+  filter:drop-shadow(0 0 14px rgba(217,164,65,.35));
+}
+@keyframes shimmer{to{background-position:220% center}}
+.hero-sub{font-size:clamp(1.02rem,1.6vw,1.2rem);color:var(--cocoa-soft);max-width:34rem;margin-bottom:2.2rem}
+.hero-ctas{display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:2.6rem}
+.hero-meta{display:flex;gap:2.2rem;flex-wrap:wrap;font-size:.9rem;color:var(--cocoa-faint);font-weight:600}
+.hero-meta strong{display:block;font-family:'Fraunces',serif;font-size:1.35rem;color:var(--cocoa);font-weight:600}
+/* steam wisps */
+.steam{position:absolute;bottom:6%;right:6%;width:180px;height:260px;z-index:1;opacity:.55;pointer-events:none}
+.steam path{fill:none;stroke:var(--cream);stroke-width:7;stroke-linecap:round;opacity:0;animation:steam 7s ease-in-out infinite}
+.steam path:nth-child(2){animation-delay:1.8s}
+.steam path:nth-child(3){animation-delay:3.6s}
+.steam path:nth-child(4){animation-delay:5.2s}
+@keyframes steam{
+  0%{opacity:0;transform:translateY(24px)}
+  30%{opacity:.8}
+  100%{opacity:0;transform:translateY(-120px)}
+}
+.scroll-hint{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);font-size:.75rem;letter-spacing:.3em;text-transform:uppercase;color:var(--cocoa-faint);display:flex;flex-direction:column;align-items:center;gap:.6rem}
+.scroll-hint::after{content:"";width:1.5px;height:44px;background:linear-gradient(var(--cocoa-faint),transparent);animation:drip 2.2s ease-in-out infinite}
+@keyframes drip{0%{transform:scaleY(0);transform-origin:top}55%{transform:scaleY(1);transform-origin:top}56%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+/* ---------- marquee ---------- */
+.marquee{background:var(--cocoa);color:var(--cream);overflow:hidden;padding:1.15rem 0;transform:rotate(-1.2deg) scale(1.02);margin:2rem 0 0;box-shadow:var(--shadow)}
+.marquee-track{display:flex;gap:3.2rem;width:max-content;animation:marquee 38s linear infinite;font-family:'Fraunces',serif;font-size:1.15rem;letter-spacing:.06em;white-space:nowrap}
+.marquee-track span{display:flex;align-items:center;gap:3.2rem}
+.marquee-track i{font-style:normal;color:var(--gold)}
+@keyframes marquee{to{transform:translateX(-50%)}}
+/* ---------- sections ---------- */
+section{padding:clamp(4.5rem,9vw,7.5rem) 0}
+.sec-head{max-width:640px;margin-bottom:3.2rem}
+.sec-head h2{font-family:'Fraunces',serif;font-weight:500;font-size:clamp(2rem,4.4vw,3.1rem);line-height:1.12;letter-spacing:-.01em;margin:.9rem 0 1rem}
+.sec-head h2 em{font-style:italic;color:var(--caramel-deep)}
+.sec-head p{color:var(--cocoa-soft);font-size:1.05rem}
+/* ---------- story ---------- */
+.story{background:linear-gradient(var(--cream),var(--cream-2))}
+.story-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(2rem,5vw,4.5rem);align-items:center}
+.story-fig{position:relative}
+.story-fig .frame{
+  border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);
+  transform:rotate(-2deg);border:10px solid var(--paper);
+}
+.story-fig img{width:100%;height:clamp(320px,44vw,520px);object-fit:cover;transition:transform 1.2s ease}
+.story-fig:hover img{transform:scale(1.04)}
+.story-stamp{
+  position:absolute;right:-18px;bottom:-18px;width:128px;height:128px;border-radius:50%;
+  background:var(--cocoa);color:var(--cream);display:grid;place-items:center;text-align:center;
+  font-family:'Fraunces',serif;font-style:italic;font-size:.95rem;line-height:1.3;padding:1rem;
+  transform:rotate(8deg);box-shadow:var(--shadow);animation:spinSlow 24s linear infinite;
+}
+@keyframes spinSlow{to{transform:rotate(368deg)}}
+.story-copy .drop{font-family:'Fraunces',serif}
+.story-copy p{color:var(--cocoa-soft);margin-bottom:1.2rem;font-size:1.06rem}
+.story-copy p strong{color:var(--cocoa)}
+.recipe-note{
+  margin-top:1.8rem;background:var(--paper);border:1.5px dashed rgba(165,102,47,.55);
+  border-radius:14px;padding:1.3rem 1.5rem;position:relative;
+}
+.recipe-note::before{content:"Recipe card";position:absolute;top:-.8em;left:1.2rem;background:var(--caramel-deep);color:var(--cream);font-size:.68rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;padding:.25em .9em;border-radius:999px}
+.recipe-note p{margin:0;font-style:italic;font-family:'Fraunces',serif;font-size:1.08rem;color:var(--cocoa-soft)}
+/* ---------- bakes / menu ---------- */
+.bakes{background:var(--cream)}
+.bakes-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.6rem}
+.bake-card{
+  background:var(--paper);border-radius:var(--radius);overflow:hidden;
+  border:1px solid rgba(165,102,47,.22);box-shadow:0 16px 40px -22px rgba(58,36,21,.35);
+  transition:transform .5s cubic-bezier(.2,.7,.2,1.15),box-shadow .5s;
+  display:flex;flex-direction:column;position:relative;
+}
+.bake-card:hover{transform:translateY(-10px) rotate(-.4deg);box-shadow:var(--shadow)}
+.bake-media{position:relative;overflow:hidden;aspect-ratio:4/3}
+.bake-media img{width:100%;height:100%;object-fit:cover;transition:transform 1.1s ease}
+.bake-card:hover .bake-media img{transform:scale(1.08)}
+.bake-media::after{content:"";position:absolute;inset:0;background:radial-gradient(90% 90% at 50% 20%,transparent 55%,rgba(58,36,21,.28));pointer-events:none}
+.bake-no{
+  position:absolute;top:1rem;left:1rem;z-index:2;
+  font-family:'Fraunces',serif;font-style:italic;font-size:.95rem;
+  background:rgba(250,245,234,.92);color:var(--cocoa);padding:.3rem .95rem;border-radius:999px;
+  border:1px solid rgba(165,102,47,.35);
+}
+.bake-body{padding:1.6rem 1.6rem 1.8rem;display:flex;flex-direction:column;gap:.7rem;flex:1}
+.bake-body h3{font-family:'Fraunces',serif;font-weight:600;font-size:1.42rem;line-height:1.2}
+.bake-tags{display:flex;gap:.5rem;flex-wrap:wrap}
+.tag{font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--caramel-deep);border:1px solid rgba(165,102,47,.5);border-radius:999px;padding:.28em .85em;background:rgba(217,164,65,.12)}
+.bake-body p{color:var(--cocoa-soft);font-size:.96rem;flex:1}
+.bake-order{align-self:flex-start;font-weight:700;font-size:.92rem;color:var(--cocoa);text-decoration:none;border-bottom:2px solid var(--caramel);padding-bottom:2px;transition:color .25s,border-color .25s}
+.bake-order:hover{color:var(--caramel-deep);border-color:var(--caramel-deep)}
+/* ---------- dietary ribbon ---------- */
+.diet{background:var(--cocoa);color:var(--cream);border-radius:calc(var(--radius) + 8px);margin:0 clamp(12px,3vw,40px);padding:clamp(3rem,6vw,4.5rem) clamp(1.5rem,5vw,4rem);position:relative;overflow:hidden}
+.diet::before{content:"";position:absolute;inset:0;opacity:.14;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='0.6'/%3E%3C/svg%3E");}
+.diet h2{font-family:'Fraunces',serif;font-weight:500;font-size:clamp(1.8rem,3.8vw,2.7rem);text-align:center;margin-bottom:.6rem;position:relative}
+.diet h2 em{font-style:italic;color:var(--gold)}
+.diet-sub{text-align:center;color:rgba(250,245,234,.72);max-width:34rem;margin:0 auto 2.4rem;position:relative}
+.diet-row{display:grid;grid-template-columns:repeat(4,1fr);gap:1.2rem;position:relative}
+.diet-card{background:rgba(250,245,234,.06);border:1px solid rgba(217,164,65,.35);border-radius:18px;padding:1.7rem 1.2rem;text-align:center;transition:transform .4s,background .4s}
+.diet-card:hover{transform:translateY(-6px);background:rgba(250,245,234,.1)}
+.diet-card .ico{font-size:1.9rem;display:block;margin-bottom:.6rem}
+.diet-card h3{font-family:'Fraunces',serif;font-size:1.25rem;font-weight:600;margin-bottom:.4rem}
+.diet-card p{font-size:.9rem;color:rgba(250,245,234,.68)}
+/* ---------- how to order ---------- */
+.order{background:linear-gradient(var(--cream-2),var(--cream))}
+.order-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,5vw,4.5rem);align-items:center}
+.order-steps{list-style:none;display:flex;flex-direction:column;gap:1.4rem;margin:2rem 0 2.4rem}
+.order-steps li{display:flex;gap:1.2rem;align-items:flex-start;background:var(--paper);border:1px solid rgba(165,102,47,.25);border-radius:16px;padding:1.3rem 1.4rem;box-shadow:0 12px 28px -18px rgba(58,36,21,.35)}
+.step-no{flex:none;width:46px;height:46px;border-radius:50%;background:var(--caramel-deep);color:var(--cream);font-family:'Fraunces',serif;font-weight:600;font-size:1.2rem;display:grid;place-items:center}
+.order-steps h3{font-family:'Fraunces',serif;font-size:1.15rem;font-weight:600;margin-bottom:.2rem}
+.order-steps p{font-size:.94rem;color:var(--cocoa-soft)}
+.order-fig .frame{border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);border:10px solid var(--paper);transform:rotate(2deg)}
+.order-fig img{width:100%;height:clamp(320px,42vw,500px);object-fit:cover}
+/* ---------- footer ---------- */
+footer{background:var(--cocoa);color:var(--cream);padding:4.5rem 0 2rem;position:relative;overflow:hidden}
+.foot-cta{text-align:center;max-width:620px;margin:0 auto 3.5rem;position:relative}
+.foot-cta h2{font-family:'Fraunces',serif;font-weight:500;font-size:clamp(2rem,4.6vw,3.2rem);line-height:1.12;margin-bottom:1rem}
+.foot-cta h2 em{font-style:italic;color:var(--gold)}
+.foot-cta p{color:rgba(250,245,234,.7);margin-bottom:1.8rem}
+.foot-cta .btn{background:var(--gold);border-color:var(--gold);color:var(--cocoa)}
+.foot-cta .btn:hover{background:var(--caramel);border-color:var(--caramel);color:var(--cream)}
+.foot-bottom{border-top:1px solid rgba(250,245,234,.16);padding-top:1.6rem;display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap;font-size:.88rem;color:rgba(250,245,234,.6);position:relative}
+.foot-bottom a{color:var(--gold);text-decoration:none;font-weight:700}
+.foot-bottom a:hover{text-decoration:underline}
+.xoxo{font-family:'Fraunces',serif;font-style:italic;color:rgba(250,245,234,.75)}
+/* ---------- reveal motion ---------- */
+.rv{opacity:0;transform:translateY(34px);transition:opacity .9s ease,transform .9s cubic-bezier(.2,.7,.2,1)}
+.rv.in{opacity:1;transform:none}
+.w{display:inline-block;opacity:0;transform:translateY(.6em);filter:blur(6px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.7,.2,1),filter .7s ease}
+.w.in{opacity:1;transform:none;filter:blur(0)}
+/* ---------- responsive ---------- */
+@media(max-width:960px){
+  .nav-links{display:none}
+  .bakes-grid{grid-template-columns:repeat(2,1fr)}
+  .diet-row{grid-template-columns:repeat(2,1fr)}
+  .story-grid,.order-grid{grid-template-columns:1fr}
+  .order-fig{order:-1}
+  .story-stamp{width:104px;height:104px;font-size:.82rem;right:-8px}
+}
+@media(max-width:560px){
+  .bakes-grid{grid-template-columns:1fr}
+  .hero{padding-top:7.5rem}
+  .hero-ctas .btn,.hero-ctas .btn-outline{width:100%;justify-content:center}
+  .hero-meta{gap:1.2rem}
+  .steam{right:2%;width:130px}
+  .nav .btn{padding:.6rem 1.1rem;font-size:.8rem}
+  .brand-name{font-size:1.05rem}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  html{scroll-behavior:auto}
+  .rv,.w{opacity:1!important;transform:none!important;filter:none!important}
+  .hero-bg img{transform:none}
+  .marquee-track{animation:none;flex-wrap:wrap;width:auto}
+}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="#top" aria-label="The Oats Guy — home">
+      <span class="brand-mark" aria-hidden="true">O</span>
+      <span class="brand-name">The Oats <em>Guy</em></span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#bakes">Our Bakes</a></li>
+      <li><a href="#story">Our Story</a></li>
+      <li><a href="#order">How to Order</a></li>
+    </ul>
+    <a class="btn" href="https://ig.me/m/theoatsguy" target="_blank" rel="noopener">DM to Order</a>
+  </div>
+</header>
+
+<main id="top">
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="hero-bg" aria-hidden="true">
+    <img src="https://images.unsplash.com/photo-1499636136210-6f4ee915583e?auto=format&fit=crop&w=1600&q=80"
+         onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=1600&q=80'"
+         alt="" loading="eager">
+  </div>
+  <div class="hero-veil" aria-hidden="true"></div>
+  <svg class="steam" viewBox="0 0 180 260" aria-hidden="true">
+    <path d="M40 250 C 30 200, 60 180, 45 130 C 32 85, 55 60, 48 20"/>
+    <path d="M90 250 C 82 195, 108 175, 95 125 C 84 80, 104 55, 98 15"/>
+    <path d="M140 250 C 130 200, 158 180, 145 130 C 133 85, 155 60, 148 20"/>
+    <path d="M65 250 C 58 205, 82 185, 70 140 C 60 100, 78 70, 72 30"/>
+  </svg>
+  <div class="wrap">
+    <div class="hero-copy">
+      <span class="hero-badge"><span class="dot"></span>Micro Bakery · Miami</span>
+      <h1 class="word-reveal">Baked like <span class="italic">family.</span><br>Loved like <span class="glow">dessert.</span></h1>
+      <p class="hero-sub rv">A Venezuelan guy baking artisanal oats-based family recipes — in Regular, Vegan, Gluten-Free &amp; Sugar-Free. Small batches, honest ingredients, made with love.</p>
+      <div class="hero-ctas rv">
+        <a class="btn" href="https://ig.me/m/theoatsguy" target="_blank" rel="noopener">DM to Order
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+        <a class="btn-outline" href="#bakes">See the Bakes</a>
+      </div>
+      <div class="hero-meta rv">
+        <div><strong>Oats-based</strong>every recipe starts with oats</div>
+        <div><strong>4 ways</strong>regular · vegan · GF · SF</div>
+        <div><strong>Made fresh</strong>baked per order, with love</div>
+      </div>
+    </div>
+  </div>
+  <div class="scroll-hint" aria-hidden="true">Scroll</div>
+</section>
+
+<!-- ============ MARQUEE ============ -->
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track">
+    <span>Regular <i>✦</i> Vegan <i>✦</i> Gluten-Free <i>✦</i> Sugar-Free <i>✦</i> Artisanal Oats <i>✦</i> Family Recipes <i>✦</i>&nbsp;</span>
+    <span>Regular <i>✦</i> Vegan <i>✦</i> Gluten-Free <i>✦</i> Sugar-Free <i>✦</i> Artisanal Oats <i>✦</i> Family Recipes <i>✦</i>&nbsp;</span>
+  </div>
+</div>
+<!-- ============ STORY ============ -->
+<section class="story" id="story">
+  <div class="wrap story-grid">
+    <figure class="story-fig rv">
+      <div class="frame">
+        <img src="https://images.unsplash.com/photo-1466637574441-749b8f19452f?auto=format&fit=crop&w=1000&q=80"
+             onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1499636136210-6f4ee915583e?auto=format&fit=crop&w=1000&q=80'"
+             alt="Baking ingredients — oats, flour and eggs — arranged on a rustic wooden table" loading="lazy">
+      </div>
+      <span class="story-stamp" aria-hidden="true">baked<br>with<br>love</span>
+    </figure>
+    <div class="story-copy">
+      <span class="eyebrow rv">Our Story</span>
+      <h2 class="serif word-reveal rv" style="font-size:clamp(2rem,4.4vw,3.1rem);font-weight:500;line-height:1.12;margin:.9rem 0 1.2rem">From a Venezuelan kitchen, <em style="color:var(--caramel-deep)">to Miami's table.</em></h2>
+      <p class="rv">The Oats Guy started with one simple idea: <strong>family recipes, rebuilt around oats</strong> — the humble grain that makes every bite hearty, honest and deeply satisfying.</p>
+      <p class="rv">Every cake, cookie and ring is baked in <strong>small batches</strong>, by hand, in our Miami micro bakery. No shortcuts — just clean ingredients and recipes passed down with love.</p>
+      <div class="recipe-note rv">
+        <p>"Healthy &amp; artisanal desserts made with love — and the cleanest ingredients possible."</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ BAKES ============ -->
+<section class="bakes" id="bakes">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow rv">The Menu</span>
+      <h2 class="word-reveal">Signature bakes, <em>straight from the oven.</em></h2>
+      <p class="rv">As shown on our Instagram — every piece baked fresh to order. Send us a DM and tell us what you're craving.</p>
+    </div>
+    <div class="bakes-grid">
+      <article class="bake-card rv">
+        <div class="bake-media">
+          <span class="bake-no">No. 01</span>
+          <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=800&q=80"
+               onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1499636136210-6f4ee915583e?auto=format&fit=crop&w=800&q=80'"
+               alt="Slice of rich chocolate cookie butter cake" loading="lazy">
+        </div>
+        <div class="bake-body">
+          <h3>Cookie Butter Cake</h3>
+          <div class="bake-tags"><span class="tag">Signature</span></div>
+          <p>Our most-loved celebration cake — rich, indulgent, and unmistakably ours.</p>
+          <a class="bake-order" href="https://ig.me/m/theoatsguy" target="_blank" rel="noopener">Order in the DMs →</a>
+        </div>
+      </article>
+      <article class="bake-card rv">
+        <div class="bake-media">
+          <span class="bake-no">No. 02</span>
+          <img src="https://images.unsplash.com/photo-1464349095431-e9a21285b5f3?auto=format&fit=crop&w=800&q=80"
+               onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1499636136210-6f4ee915583e?auto=format&fit=crop&w=800&q=80'"
+               alt="Celebration cake topped with fresh berries" loading="lazy">
+        </div>
+        <div class="bake-body">
+          <h3>Suntella Cake</h3>
+          <div class="bake-tags"><span class="tag">GF &amp; SF Mini Dozen</span></div>
+          <p>Chocolate-hazelnut joy in cake form — also baked gluten-free &amp; sugar-free by the dozen.</p>
+          <a class="bake-order" href="https://ig.me/m/theoatsguy" target="_blank" rel="noopener">Order in the DMs →</a>
+        </div>
+      </article>
+      <article class="bake-card rv">
+        <div class="bake-media">
+          <span class="bake-no">No. 03</span>
+          <img src="https://images.unsplash.com/photo-1484723091739-30a097e8f929?auto=format&fit=crop&w=800&q=80"
+               onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1499636136210-6f4ee915583e?auto=format&fit=crop&w=800&q=80'"
+               alt="Golden dessert plate with a citrus finish" loading="lazy">
+        </div>
+        <div class="bake-body">
+          <h3>Lemon Meringue Oatmeal Ring</h3>
+          <div class="bake-tags"><span class="tag">Oatmeal Ring</span></div>
+          <p>Bright lemon curd, torched meringue, and our signature oatmeal crumb.</p>
+          <a class="bake-order" href="https://ig.me/m/theoatsguy" target="_blank" rel="noopener">Order in the DMs →</a>
+        </div>
+      </article>
+      <article class="bake-card rv">
+        <div class="bake-media">
+          <span class="bake-no">No. 04</span>
+          <img src="https://images.unsplash.com/photo-1606313564200-e75d5e30476c?auto=format&fit=crop&w=800&q=80"
+               onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1499636136210-6f4ee915583e?auto=format&fit=crop&w=800&q=80'"
+               alt="Assorted artisanal mini cookies" loading="lazy">
+        </div>
+        <div class="bake-body">
+          <h3>GF Mini Dozen</h3>
+          <div class="bake-tags"><span class="tag">Gluten-Free</span></div>
+          <p>Twelve little bites of heaven: Guava-Leche, Raspberry Pistachio &amp; Caramel Crumble.</p>
+          <a class="bake-order" href="https://ig.me/m/theoatsguy" target="_blank" rel="noopener">Order in the DMs →</a>
+        </div>
+      </article>
+      <article class="bake-card rv">
+        <div class="bake-media">
+          <span class="bake-no">No. 05</span>
+          <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=800&q=80"
+               onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1499636136210-6f4ee915583e?auto=format&fit=crop&w=800&q=80'"
+               alt="Rustic homemade loaves fresh from the oven" loading="lazy">
+        </div>
+        <div class="bake-body">
+          <h3>Chocolate Banana Bread</h3>
+          <div class="bake-tags"><span class="tag">Baked Fresh</span></div>
+          <p>Moist, chocolatey, oat-kissed — the loaf that disappears before it cools.</p>
+          <a class="bake-order" href="https://ig.me/m/theoatsguy" target="_blank" rel="noopener">Order in the DMs →</a>
+        </div>
+      </article>
+      <article class="bake-card rv">
+        <div class="bake-media">
+          <span class="bake-no">No. 06</span>
+          <img src="https://images.unsplash.com/photo-1565958011703-44f9829ba187?auto=format&fit=crop&w=800&q=80"
+               onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1499636136210-6f4ee915583e?auto=format&fit=crop&w=800&q=80'"
+               alt="Strawberry dessert with fresh cream" loading="lazy">
+        </div>
+        <div class="bake-body">
+          <h3>Red Velvet Oatmeal Ring</h3>
+          <div class="bake-tags"><span class="tag">Oatmeal Ring</span></div>
+          <p>Velvety, cocoa-kissed and crowned to impress — a true showpiece.</p>
+          <a class="bake-order" href="https://ig.me/m/theoatsguy" target="_blank" rel="noopener">Order in the DMs →</a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ DIETARY ============ -->
+<section style="padding-top:0">
+  <div class="diet rv">
+    <h2>One recipe, <em>four ways.</em></h2>
+    <p class="diet-sub">Everyone deserves dessert. Tell us how you like it — we bake it your way.</p>
+    <div class="diet-row">
+      <div class="diet-card"><span class="ico" aria-hidden="true">🍪</span><h3>Regular</h3><p>The classic — full flavor, family recipe.</p></div>
+      <div class="diet-card"><span class="ico" aria-hidden="true">🌱</span><h3>Vegan</h3><p>Plant-based bakes, zero compromise.</p></div>
+      <div class="diet-card"><span class="ico" aria-hidden="true">🌾</span><h3>Gluten-Free</h3><p>Oat-powered and celiac-friendly.</p></div>
+      <div class="diet-card"><span class="ico" aria-hidden="true">🍯</span><h3>Sugar-Free</h3><p>All the joy, none of the sugar.</p></div>
+    </div>
+  </div>
+</section>
+<!-- ============ HOW TO ORDER ============ -->
+<section class="order" id="order">
+  <div class="wrap order-grid">
+    <div>
+      <span class="eyebrow rv">How to Order</span>
+      <h2 class="serif word-reveal" style="font-size:clamp(2rem,4.4vw,3.1rem);font-weight:500;line-height:1.12;margin:.9rem 0 1rem">Fresh from our oven, <em style="color:var(--caramel-deep)">straight to you.</em></h2>
+      <p class="rv" style="color:var(--cocoa-soft);font-size:1.05rem">We're a micro bakery — everything is baked to order. Just say hello and we'll take it from there.</p>
+      <ol class="order-steps">
+        <li class="rv"><span class="step-no">1</span><div><h3>Say hello in the DMs</h3><p>Message us on Instagram with what you're craving — or ask what's baking this week.</p></div></li>
+        <li class="rv"><span class="step-no">2</span><div><h3>We bake it fresh</h3><p>Your order goes straight into a small batch, made by hand with clean ingredients.</p></div></li>
+        <li class="rv"><span class="step-no">3</span><div><h3>Enjoy warm &amp; honest dessert</h3><p>Pick your line — Regular, Vegan, Gluten-Free or Sugar-Free — and dig in.</p></div></li>
+      </ol>
+      <div class="rv" style="display:flex;gap:1rem;flex-wrap:wrap">
+        <a class="btn" href="https://ig.me/m/theoatsguy" target="_blank" rel="noopener">DM @theoatsguy to Order</a>
+        <a class="btn-outline" href="https://www.instagram.com/theoatsguy" target="_blank" rel="noopener">Follow on Instagram</a>
+      </div>
+    </div>
+    <figure class="order-fig rv">
+      <div class="frame">
+        <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=1000&q=80"
+             onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1499636136210-6f4ee915583e?auto=format&fit=crop&w=1000&q=80'"
+             alt="Warm cup of coffee beside fresh bakes" loading="lazy">
+      </div>
+    </figure>
+  </div>
+</section>
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="wrap">
+    <div class="foot-cta rv">
+      <h2>Craving something <em>sweet?</em></h2>
+      <p>Every order starts with a simple DM. Tell us what you're dreaming of — we'll bake it with love.</p>
+      <a class="btn" href="https://ig.me/m/theoatsguy" target="_blank" rel="noopener">Start Your Order — DM Us
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 The Oats Guy · Micro Bakery · Miami, FL</span>
+      <span class="xoxo">XOXO, The Oats Guy Team</span>
+      <a href="https://www.instagram.com/theoatsguy" target="_blank" rel="noopener">@theoatsguy</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+  var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  /* word-by-word warm reveals */
+  document.querySelectorAll(".word-reveal").forEach(function(el){
+    var nodes = Array.prototype.slice.call(el.childNodes), frag = document.createDocumentFragment(), i = 0;
+    function pushWords(text){
+      text.split(/(\s+)/).forEach(function(part){
+        if(!part) return;
+        if(/^\s+$/.test(part)){ frag.appendChild(document.createTextNode(part)); return; }
+        var s = document.createElement("span");
+        s.className = "w"; s.textContent = part; s.style.transitionDelay = (i * 55) + "ms";
+        frag.appendChild(s); i++;
+      });
+    }
+    nodes.forEach(function(n){
+      if(n.nodeType === 3){ pushWords(n.textContent); }
+      else if(n.nodeType === 1){
+        var wrap = document.createElement(n.tagName.toLowerCase());
+        for(var a = 0; a < n.attributes.length; a++){ wrap.setAttribute(n.attributes[a].name, n.attributes[a].value); }
+        (function inner(src, dst){
+          Array.prototype.slice.call(src.childNodes).forEach(function(c){
+            if(c.nodeType === 3){
+              c.textContent.split(/(\s+)/).forEach(function(part){
+                if(!part) return;
+                if(/^\s+$/.test(part)){ dst.appendChild(document.createTextNode(part)); return; }
+                var s = document.createElement("span");
+                s.className = "w"; s.textContent = part; s.style.transitionDelay = (i * 55) + "ms";
+                dst.appendChild(s); i++;
+              });
+            } else { dst.appendChild(c.cloneNode(true)); }
+          });
+        })(n, wrap);
+        frag.appendChild(wrap);
+      }
+    });
+    el.innerHTML = ""; el.appendChild(frag);
+  });
+
+  /* scroll-triggered reveals */
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(!e.isIntersecting) return;
+      var el = e.target;
+      el.classList.add("in");
+      el.querySelectorAll(".w").forEach(function(w){ w.classList.add("in"); });
+      io.unobserve(el);
+    });
+  }, { threshold: 0.12, rootMargin: "0px 0px -6% 0px" });
+
+  document.querySelectorAll(".rv, .word-reveal").forEach(function(el){
+    if(el.classList.contains("word-reveal")){ io.observe(el); return; }
+    io.observe(el);
+  });
+
+  /* hero headline plays on load */
+  window.addEventListener("load", function(){
+    var hero = document.querySelector(".hero .word-reveal");
+    if(hero){
+      hero.classList.add("in");
+      hero.querySelectorAll(".w").forEach(function(w){ w.classList.add("in"); });
+    }
+    document.querySelectorAll(".hero .rv").forEach(function(el, idx){
+      setTimeout(function(){ el.classList.add("in"); }, reduced ? 0 : 350 + idx * 160);
+    });
+  });
+
+  /* gentle parallax on the hero veil */
+  if(!reduced){
+    var veil = document.querySelector(".hero-veil");
+    var ticking = false;
+    window.addEventListener("scroll", function(){
+      if(ticking) return; ticking = true;
+      requestAnimationFrame(function(){
+        var y = window.scrollY;
+        if(y < window.innerHeight * 1.2 && veil){
+          veil.style.transform = "translateY(" + (y * 0.12) + "px)";
+        }
+        ticking = false;
+      });
+    }, { passive: true });
+  }
+})();
+</script>
+</body>
+</html>

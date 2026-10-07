@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Crispy Streets — Korean Corndogs with Latin Fusion | Miami</title>
+<meta name="description" content="Crispy Streets is Miami's Korean corn dog food truck with Latin fusion. Cheesy, crunchy signature creations, street fries, boba, churros & vegan options. 1405 SW 107th Ave, Miami FL.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Archivo:wght@400;600;800&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FoodEstablishment",
+  "name": "Crispy Streets",
+  "description": "Korean Corndogs with Latin Fusion. Miami's Korean corn dog food truck serving cheesy crispy creations, street fries, boba, churros and vegan options.",
+  "servesCuisine": ["Korean", "Latin Fusion", "Street Food"],
+  "priceRange": "$",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "1405 SW 107th Ave",
+    "addressLocality": "Miami",
+    "addressRegion": "FL",
+    "postalCode": "33174",
+    "addressCountry": "US"
+  },
+  "telephone": "+1-954-378-9380",
+  "email": "crispystreets@gmail.com",
+  "url": "https://www.instagram.com/crispystreets",
+  "sameAs": ["https://www.instagram.com/crispystreets"],
+  "openingHoursSpecification": {
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+    "opens": "17:00",
+    "closes": "22:00"
+  },
+  "acceptsReservations": "False"
+}
+</script>
+<style>
+:root{
+  --asphalt:#0b0b0c;
+  --asphalt2:#141416;
+  --asphalt3:#1c1c1f;
+  --mustard:#ffc900;
+  --mustard-deep:#e0a800;
+  --chili:#ff3b1f;
+  --chili-deep:#c92408;
+  --cream:#fff6e3;
+  --paper:#f5eeda;
+  --ink:#0b0b0c;
+  --line:#2a2a2d;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  background:var(--asphalt);
+  color:var(--cream);
+  font-family:'Archivo',sans-serif;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+::selection{background:var(--mustard);color:var(--ink)}
+img{display:block;max-width:100%}
+a{color:inherit}
+.wrap{max-width:1200px;margin:0 auto;padding:0 22px}
+.display{font-family:'Anton',sans-serif;text-transform:uppercase;letter-spacing:.01em;line-height:.92;font-weight:400}
+.mono{font-family:'Space Mono',monospace}
+
+/* ---------- texture layers ---------- */
+.halftone{background-image:radial-gradient(rgba(255,201,0,.10) 1.5px, transparent 1.6px);background-size:22px 22px}
+.grain::after{
+  content:"";position:fixed;inset:0;pointer-events:none;z-index:200;opacity:.07;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+}
+
+/* ---------- nav ---------- */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:14px 22px;background:rgba(11,11,12,.88);backdrop-filter:blur(10px);
+  border-bottom:3px solid var(--mustard);
+}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+.logo-badge{
+  width:44px;height:44px;background:var(--mustard);color:var(--ink);
+  display:grid;place-items:center;font-family:'Anton';font-size:1.5rem;border-radius:50%;
+  border:3px solid var(--ink);box-shadow:3px 3px 0 var(--chili);transform:rotate(-8deg);
+}
+.logo-name{font-family:'Anton';font-size:1.35rem;letter-spacing:.04em;text-transform:uppercase}
+.logo-name em{font-style:normal;color:var(--mustard)}
+.nav-links{display:flex;gap:26px;align-items:center}
+.nav-links a{font-family:'Space Mono';font-size:.78rem;text-transform:uppercase;letter-spacing:.12em;text-decoration:none;position:relative}
+.nav-links a:not(.nav-cta):hover{color:var(--mustard)}
+.nav-cta{background:var(--chili);color:#fff !important;padding:10px 20px;font-weight:700;transform:rotate(-2deg);box-shadow:3px 3px 0 var(--mustard);text-decoration:none}
+.nav-cta:hover{transform:rotate(1deg) scale(1.05)}
+@media(max-width:860px){.nav-links a:not(.nav-cta){display:none}}
+
+/* ---------- buttons ---------- */
+.btn{
+  display:inline-block;font-family:'Anton';text-transform:uppercase;letter-spacing:.06em;
+  padding:16px 34px;font-size:1.15rem;text-decoration:none;cursor:pointer;border:none;
+  background:var(--mustard);color:var(--ink);transform:rotate(-1.5deg);
+  box-shadow:6px 6px 0 var(--chili);transition:transform .18s ease,box-shadow .18s ease;
+}
+.btn:hover{transform:rotate(1deg) translate(-2px,-2px);box-shadow:9px 9px 0 var(--chili)}
+.btn-outline{
+  display:inline-block;font-family:'Anton';text-transform:uppercase;letter-spacing:.06em;
+  padding:16px 34px;font-size:1.15rem;text-decoration:none;cursor:pointer;
+  background:transparent;color:var(--cream);border:3px solid var(--mustard);transform:rotate(1.5deg);
+  transition:transform .18s ease,background .18s ease;
+}
+.btn-outline:hover{transform:rotate(-1deg) scale(1.04);background:rgba(255,201,0,.12)}
+.btn-red{background:var(--chili);color:#fff;box-shadow:6px 6px 0 var(--mustard)}
+.btn-red:hover{box-shadow:9px 9px 0 var(--mustard)}
+
+/* ---------- hero ---------- */
+.hero{position:relative;min-height:100svh;display:flex;align-items:center;overflow:hidden;padding:120px 0 80px}
+.hero-bg{position:absolute;inset:0;z-index:0}
+.hero-bg img{width:100%;height:100%;object-fit:cover;filter:saturate(1.25) contrast(1.1) brightness(.42)}
+.hero-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(100deg,rgba(11,11,12,.94) 20%,rgba(11,11,12,.55) 55%,rgba(11,11,12,.25) 100%)}
+.hero-inner{position:relative;z-index:2;width:100%}
+.kicker{display:inline-block;font-family:'Space Mono';font-size:.8rem;letter-spacing:.25em;text-transform:uppercase;background:var(--chili);color:#fff;padding:8px 18px;transform:rotate(-2deg);margin-bottom:26px;box-shadow:4px 4px 0 rgba(0,0,0,.5)}
+.hero h1{font-size:clamp(3.4rem,11vw,8.5rem);color:var(--cream)}
+.hero h1 .y{color:var(--mustard)}
+.hero h1 .stroke{color:transparent;-webkit-text-stroke:2.5px var(--mustard)}
+.flicker{animation:flicker 4.2s infinite}
+@keyframes flicker{
+  0%,100%{opacity:1;text-shadow:0 0 18px rgba(255,201,0,.85),0 0 60px rgba(255,201,0,.4)}
+  41%{opacity:1}42%{opacity:.55;text-shadow:none}43%{opacity:1}
+  44%{opacity:.7}45%{opacity:1}78%{opacity:1}79%{opacity:.6;text-shadow:none}80%{opacity:1}
+}
+.hero-sub{max-width:560px;margin:26px 0 36px;font-size:1.12rem;line-height:1.65;color:#e8e2d2}
+.hero-sub strong{color:var(--mustard)}
+.hero-ctas{display:flex;gap:18px;flex-wrap:wrap;align-items:center}
+.hero-meta{display:flex;gap:28px;margin-top:44px;flex-wrap:wrap}
+.meta-chip{font-family:'Space Mono';font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;border:1px dashed rgba(255,246,227,.35);padding:10px 16px;transform:rotate(-1deg)}
+.meta-chip b{color:var(--mustard)}
+.scroll-hint{position:absolute;bottom:26px;left:50%;transform:translateX(-50%);font-family:'Space Mono';font-size:.7rem;letter-spacing:.3em;text-transform:uppercase;color:var(--mustard);z-index:2;animation:bob 2.2s ease-in-out infinite}
+@keyframes bob{0%,100%{transform:translate(-50%,0)}50%{transform:translate(-50%,10px)}}
+
+/* stamp badge */
+.stamp{
+  position:absolute;z-index:3;width:150px;height:150px;border-radius:50%;
+  border:4px double var(--mustard);color:var(--mustard);
+  display:grid;place-items:center;text-align:center;
+  font-family:'Space Mono';font-size:.68rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+  transform:rotate(12deg);background:rgba(11,11,12,.55);backdrop-filter:blur(2px);
+  box-shadow:0 0 30px rgba(255,201,0,.35),inset 0 0 18px rgba(255,201,0,.15);
+  opacity:0;
+}
+.stamp.slam{animation:stampSlam .55s cubic-bezier(.2,2.2,.4,1) forwards}
+@keyframes stampSlam{
+  0%{opacity:0;transform:rotate(12deg) scale(2.6)}
+  60%{opacity:1;transform:rotate(4deg) scale(.94)}
+  100%{opacity:1;transform:rotate(12deg) scale(1)}
+}
+.stamp-a{top:120px;right:6%}
+.stamp-b{bottom:110px;right:16%;width:120px;height:120px;border-color:var(--chili);color:var(--chili);box-shadow:0 0 30px rgba(255,59,31,.35),inset 0 0 18px rgba(255,59,31,.15)}
+@media(max-width:860px){.stamp-a{top:auto;bottom:120px;right:8px;width:110px;height:110px}.stamp-b{display:none}}
+
+/* ---------- tickers ---------- */
+.ticker{overflow:hidden;white-space:nowrap;border-top:3px solid var(--ink);border-bottom:3px solid var(--ink);position:relative;z-index:5}
+.ticker-mustard{background:var(--mustard);color:var(--ink);transform:rotate(-1.2deg) scale(1.02)}
+.ticker-chili{background:var(--chili);color:#fff;transform:rotate(1.2deg) scale(1.02)}
+.ticker-track{display:inline-flex;animation:tick 26s linear infinite;will-change:transform}
+.ticker-chili .ticker-track{animation:tickRev 30s linear infinite}
+.ticker-track span{font-family:'Anton';font-size:clamp(1.3rem,3.4vw,2.2rem);text-transform:uppercase;letter-spacing:.05em;padding:12px 0}
+.ticker-track .sep{padding:12px 22px}
+@keyframes tick{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@keyframes tickRev{from{transform:translateX(-50%)}to{transform:translateX(0)}}
+
+/* ---------- section scaffolding ---------- */
+section{position:relative}
+.sec-head{margin-bottom:54px}
+.sec-tag{font-family:'Space Mono';font-size:.78rem;letter-spacing:.3em;text-transform:uppercase;color:var(--chili);margin-bottom:14px;display:block}
+.sec-title{font-size:clamp(2.4rem,6.5vw,4.6rem);color:var(--cream)}
+.sec-title .y{color:var(--mustard)}
+.sec-sub{max-width:620px;margin-top:16px;line-height:1.7;color:#cfc9b8;font-size:1.05rem}
+
+/* punch-in words */
+.punch{display:inline-block;opacity:0;transform:translateY(.55em) skewX(-8deg);transition:opacity .5s ease,transform .55s cubic-bezier(.2,1.4,.4,1)}
+.punch.in{opacity:1;transform:none}
+
+/* ---------- story / vibe ---------- */
+.vibe{padding:110px 0;background:var(--asphalt)}
+.vibe-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+@media(max-width:900px){.vibe-grid{grid-template-columns:1fr}}
+.sticker-stack{position:relative;min-height:480px}
+.sticker{
+  position:absolute;border:6px solid var(--cream);box-shadow:10px 12px 0 rgba(0,0,0,.55);
+  overflow:hidden;background:var(--asphalt3);
+}
+.sticker img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
+.sticker:hover img{transform:scale(1.07)}
+.sticker-1{width:62%;aspect-ratio:4/3;top:0;left:0;transform:rotate(-4deg);z-index:2}
+.sticker-2{width:52%;aspect-ratio:1/1;bottom:0;right:0;transform:rotate(3.5deg);z-index:3;border-color:var(--mustard)}
+.sticker-3{width:38%;aspect-ratio:1/1;bottom:6%;left:6%;transform:rotate(-8deg);z-index:1;border-color:var(--chili)}
+.sticker-label{position:absolute;bottom:8px;left:8px;background:var(--ink);color:var(--mustard);font-family:'Space Mono';font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;padding:5px 10px;transform:rotate(-3deg)}
+.vibe-copy p{line-height:1.75;color:#d9d3c0;margin-bottom:18px;font-size:1.06rem}
+.vibe-copy p strong{color:var(--mustard)}
+.vibe-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:30px}
+.stat{background:var(--asphalt3);border:2px solid var(--line);padding:18px 12px;text-align:center;transform:rotate(-1deg)}
+.stat:nth-child(2){transform:rotate(1.2deg);border-color:var(--mustard)}
+.stat:nth-child(3){transform:rotate(-.6deg)}
+.stat .n{font-family:'Anton';font-size:1.9rem;color:var(--mustard)}
+.stat .l{font-family:'Space Mono';font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:#b9b3a1;margin-top:6px}
+
+/* ---------- menu ---------- */
+.menu{padding:110px 0 90px;background:var(--asphalt2)}
+.menu-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
+@media(max-width:960px){.menu-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:620px){.menu-grid{grid-template-columns:1fr}}
+.ticket{
+  background:var(--paper);color:var(--ink);position:relative;
+  border-radius:4px;overflow:hidden;transform:rotate(-1deg);
+  box-shadow:8px 10px 0 rgba(0,0,0,.5);transition:transform .25s ease;
+  display:flex;flex-direction:column;
+}
+.ticket:nth-child(2n){transform:rotate(1.1deg)}
+.ticket:nth-child(3n){transform:rotate(-.6deg)}
+.ticket:hover{transform:rotate(0deg) translateY(-8px) scale(1.015)}
+.ticket-img{height:210px;overflow:hidden;position:relative}
+.ticket-img img{width:100%;height:100%;object-fit:cover;filter:saturate(1.2) contrast(1.05)}
+.ticket-flag{position:absolute;top:12px;left:-8px;background:var(--chili);color:#fff;font-family:'Space Mono';font-size:.68rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:7px 16px 7px 20px;transform:rotate(-3deg);box-shadow:3px 3px 0 rgba(0,0,0,.35)}
+.ticket-flag.mustard{background:var(--mustard);color:var(--ink)}
+.ticket-body{padding:24px 24px 20px;flex:1}
+.ticket-name{font-family:'Anton';font-size:1.65rem;text-transform:uppercase;line-height:1;margin-bottom:10px}
+.ticket-desc{font-size:.94rem;line-height:1.6;color:#3d3a33;margin-bottom:16px}
+.ticket-tags{display:flex;flex-wrap:wrap;gap:8px}
+.ticket-tags span{font-family:'Space Mono';font-size:.64rem;letter-spacing:.1em;text-transform:uppercase;border:1.5px solid var(--ink);padding:4px 10px;border-radius:20px}
+/* perforation */
+.perf{position:relative;height:26px;background:var(--paper)}
+.perf::before{content:"";position:absolute;top:50%;left:10px;right:10px;border-top:3px dashed #b9ac8d;transform:translateY(-50%)}
+.perf::after{content:"";position:absolute;inset:0;background:
+  radial-gradient(circle 11px at 0 50%, var(--asphalt2) 98%, transparent 100%),
+  radial-gradient(circle 11px at 100% 50%, var(--asphalt2) 98%, transparent 100%)}
+.ticket-foot{background:var(--paper);padding:14px 24px 22px;display:flex;justify-content:space-between;align-items:center}
+.ticket-foot .code{font-family:'Space Mono';font-size:.72rem;letter-spacing:.18em;color:#6d6552}
+.ticket-foot .admit{font-family:'Anton';font-size:1rem;text-transform:uppercase;color:var(--chili-deep)}
+.menu-note{margin-top:44px;text-align:center;font-family:'Space Mono';font-size:.85rem;letter-spacing:.08em;color:#b9b3a1;line-height:1.8}
+.menu-note a{color:var(--mustard)}
+
+/* ---------- sides strips ---------- */
+.sides{padding:110px 0;background:var(--asphalt)}
+.side-row{display:grid;grid-template-columns:1fr 1fr;gap:0;margin-bottom:70px;border:3px solid var(--line);background:var(--asphalt2);overflow:hidden}
+.side-row:last-child{margin-bottom:0}
+.side-row.rev .side-img{order:2}
+@media(max-width:860px){.side-row{grid-template-columns:1fr}.side-row.rev .side-img{order:0}}
+.side-img{min-height:340px;position:relative;overflow:hidden}
+.side-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:saturate(1.25) contrast(1.08)}
+.side-img::after{content:"";position:absolute;inset:0;background:linear-gradient(120deg,transparent 55%,rgba(255,201,0,.14) 100%)}
+.side-copy{padding:52px 48px;display:flex;flex-direction:column;justify-content:center}
+@media(max-width:560px){.side-copy{padding:36px 26px}}
+.side-copy h3{font-size:clamp(2rem,4.5vw,3rem);margin-bottom:16px}
+.side-copy h3 .y{color:var(--mustard)}
+.side-copy p{line-height:1.7;color:#cfc9b8;margin-bottom:22px}
+.side-list{list-style:none;margin-bottom:28px}
+.side-list li{font-family:'Space Mono';font-size:.82rem;letter-spacing:.06em;padding:10px 0;border-bottom:1px dashed var(--line);display:flex;justify-content:space-between;gap:12px}
+.side-list li b{color:var(--mustard);font-weight:700}
+.side-badge{align-self:flex-start;background:var(--mustard);color:var(--ink);font-family:'Anton';text-transform:uppercase;font-size:.95rem;letter-spacing:.05em;padding:8px 18px;transform:rotate(-2deg);margin-bottom:18px;box-shadow:4px 4px 0 var(--chili)}
+
+/* ---------- build your own ---------- */
+.build{padding:110px 0;background:var(--chili);color:#fff;position:relative;overflow:hidden}
+.build::before{content:"BUILD";position:absolute;top:30px;left:-30px;font-family:'Anton';font-size:clamp(6rem,20vw,16rem);color:rgba(0,0,0,.08);white-space:nowrap;transform:rotate(-4deg);pointer-events:none}
+.build .sec-tag{color:#fff}
+.build .sec-title{color:#fff}
+.build .sec-sub{color:rgba(255,255,255,.85)}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:10px}
+@media(max-width:960px){.steps{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:520px){.steps{grid-template-columns:1fr}}
+.step{background:var(--ink);color:var(--cream);padding:30px 24px;transform:rotate(-1deg);box-shadow:7px 7px 0 rgba(0,0,0,.35);position:relative;transition:transform .25s ease}
+.step:nth-child(2n){transform:rotate(1deg)}
+.step:hover{transform:rotate(0) translateY(-6px)}
+.step .num{font-family:'Anton';font-size:2.6rem;color:var(--mustard);line-height:1}
+.step h4{font-family:'Anton';text-transform:uppercase;font-size:1.25rem;margin:12px 0 8px;letter-spacing:.03em}
+.step p{font-size:.92rem;line-height:1.6;color:#c9c2ae}
+.step .corner{position:absolute;top:-14px;right:-14px;width:52px;height:52px;background:var(--mustard);color:var(--ink);border-radius:50%;display:grid;place-items:center;font-family:'Anton';font-size:1.2rem;transform:rotate(10deg);box-shadow:3px 3px 0 rgba(0,0,0,.4)}
+
+/* ---------- find us ---------- */
+.find{padding:110px 0;background:var(--asphalt)}
+.find-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:50px;align-items:start}
+@media(max-width:900px){.find-grid{grid-template-columns:1fr}}
+.info-card{background:var(--asphalt3);border:2px solid var(--line);padding:36px;transform:rotate(-.8deg)}
+.info-row{display:flex;gap:18px;align-items:flex-start;padding:18px 0;border-bottom:1px dashed var(--line)}
+.info-row:last-child{border-bottom:none}
+.info-ico{flex:0 0 46px;width:46px;height:46px;background:var(--mustard);color:var(--ink);display:grid;place-items:center;font-family:'Anton';font-size:1.3rem;transform:rotate(-4deg)}
+.info-row h4{font-family:'Space Mono';font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:var(--mustard);margin-bottom:6px}
+.info-row p,.info-row a{font-size:1.02rem;line-height:1.55;color:var(--cream);text-decoration:none}
+.info-row a:hover{color:var(--mustard)}
+.hours-card{background:var(--mustard);color:var(--ink);padding:36px;transform:rotate(1deg);box-shadow:8px 8px 0 var(--chili);position:relative}
+.hours-card h3{font-family:'Anton';font-size:2rem;text-transform:uppercase;margin-bottom:6px}
+.hours-card .sub{font-family:'Space Mono';font-size:.78rem;letter-spacing:.1em;margin-bottom:20px}
+.hours-line{display:flex;justify-content:space-between;font-family:'Space Mono';font-size:.9rem;padding:12px 0;border-bottom:2px dashed rgba(11,11,12,.25)}
+.hours-line:last-of-type{border-bottom:none}
+.hours-line b{font-weight:700}
+.hours-note{margin-top:18px;font-size:.88rem;line-height:1.6}
+.find-ctas{display:flex;gap:16px;flex-wrap:wrap;margin-top:36px}
+
+/* ---------- footer ---------- */
+footer{background:#060607;border-top:3px solid var(--mustard);padding:60px 0 40px}
+.foot-grid{display:flex;justify-content:space-between;gap:40px;flex-wrap:wrap;align-items:flex-start}
+.foot-brand{font-family:'Anton';font-size:2.2rem;text-transform:uppercase}
+.foot-brand em{font-style:normal;color:var(--mustard)}
+.foot-tag{font-family:'Space Mono';font-size:.75rem;letter-spacing:.18em;text-transform:uppercase;color:#8f8a7a;margin-top:10px}
+.foot-links{display:flex;gap:34px;flex-wrap:wrap}
+.foot-links a{font-family:'Space Mono';font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;color:#b9b3a1}
+.foot-links a:hover{color:var(--mustard)}
+.foot-base{margin-top:44px;padding-top:24px;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-family:'Space Mono';font-size:.7rem;letter-spacing:.1em;color:#6f6a5c;text-transform:uppercase}
+
+/* ---------- reveal on scroll ---------- */
+.rv{opacity:0;transform:translateY(36px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.9,.3,1)}
+.rv.in{opacity:1;transform:none}
+
+/* ---------- reduced motion ---------- */
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none !important;transition:none !important}
+  .rv,.punch{opacity:1 !important;transform:none !important}
+  .stamp{opacity:1 !important;transform:rotate(12deg) !important}
+  .ticker-track{display:flex;flex-wrap:wrap;white-space:normal}
+  .scroll-hint{display:none}
+}
+</style>
+</head>
+<body class="grain">
+
+<nav>
+  <a class="logo" href="#top" aria-label="Crispy Streets home">
+    <span class="logo-badge">CS</span>
+    <span class="logo-name">Crispy <em>Streets</em></span>
+  </a>
+  <div class="nav-links">
+    <a href="#menu">Menu</a>
+    <a href="#sides">Sides &amp; Sips</a>
+    <a href="#find">Find Us</a>
+    <a class="nav-cta" href="https://crispystreets.iposeats.com" target="_blank" rel="noopener">Order Online</a>
+  </div>
+</nav>
+
+<header class="hero halftone" id="top">
+  <div class="hero-bg">
+    <img src="https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?w=1600&q=75&auto=format&fit=crop"
+         alt="Golden crispy fried snacks on a dark street-food backdrop"
+         onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22800%22 height=%22600%22%3E%3Crect width=%22800%22 height=%22600%22 fill=%22%23141416%22/%3E%3Ctext x=%22400%22 y=%22310%22 font-family=%22sans-serif%22 font-size=%2242%22 fill=%22%23ffc900%22 text-anchor=%22middle%22%3ECRISPY STREETS%3C/text%3E%3C/svg%3E';">
+  </div>
+  <div class="stamp stamp-a" data-stamp>100%<br>CRUNCH<br>GUARANTEED</div>
+  <div class="stamp stamp-b" data-stamp>VEGAN<br>OPTIONS<br>AVAILABLE</div>
+  <div class="hero-inner wrap">
+    <span class="kicker">Miami's Korean Corn Dog Truck</span>
+    <h1 class="display">
+      <span class="punch-line">Korean <span class="y flicker">Corndogs</span></span><br>
+      <span class="punch-line"><span class="stroke">with Latin</span> <span class="y">Fusion</span></span>
+    </h1>
+    <p class="hero-sub">The crunch you hear down the block. Mozzarella pulls for days, <strong>signature crispy creations</strong> loaded with Latin flavor — sweet plantains, garlic aioli, chicharrón crumble — served hot off the truck in Miami.</p>
+    <div class="hero-ctas">
+      <a class="btn" href="https://crispystreets.iposeats.com" target="_blank" rel="noopener">Order Online</a>
+      <a class="btn-outline" href="https://ig.me/m/crispystreets" target="_blank" rel="noopener">DM Us on Instagram</a>
+    </div>
+    <div class="hero-meta">
+      <span class="meta-chip"><b>11.8K</b> followers &amp; counting</span>
+      <span class="meta-chip"><b>1405</b> SW 107th Ave, Miami</span>
+      <span class="meta-chip">Evenings <b>5–10 PM</b></span>
+    </div>
+  </div>
+  <div class="scroll-hint">Scroll for the crunch ↓</div>
+</header>
+
+<div class="ticker ticker-mustard" aria-hidden="true">
+  <div class="ticker-track">
+    <span>Cheese Pulls</span><span class="sep">★</span><span>Cuban Guy</span><span class="sep">★</span><span>Street Fries</span><span class="sep">★</span><span>Boba Tea</span><span class="sep">★</span><span>El Santiago</span><span class="sep">★</span><span>Churros</span><span class="sep">★</span><span>Fried Guavita</span><span class="sep">★</span><span>Flamin' Inu</span><span class="sep">★</span>
+    <span>Cheese Pulls</span><span class="sep">★</span><span>Cuban Guy</span><span class="sep">★</span><span>Street Fries</span><span class="sep">★</span><span>Boba Tea</span><span class="sep">★</span><span>El Santiago</span><span class="sep">★</span><span>Churros</span><span class="sep">★</span><span>Fried Guavita</span><span class="sep">★</span><span>Flamin' Inu</span><span class="sep">★</span>
+  </div>
+</div>
+<div class="ticker ticker-chili" aria-hidden="true">
+  <div class="ticker-track">
+    <span>Crispy</span><span class="sep">✦</span><span>Cheesy</span><span class="sep">✦</span><span>Loaded</span><span class="sep">✦</span><span>Latin-Korean</span><span class="sep">✦</span><span>Miami Nights</span><span class="sep">✦</span><span>Fresh Off The Truck</span><span class="sep">✦</span><span>Vegan Options</span><span class="sep">✦</span>
+    <span>Crispy</span><span class="sep">✦</span><span>Cheesy</span><span class="sep">✦</span><span>Loaded</span><span class="sep">✦</span><span>Latin-Korean</span><span class="sep">✦</span><span>Miami Nights</span><span class="sep">✦</span><span>Fresh Off The Truck</span><span class="sep">✦</span><span>Vegan Options</span><span class="sep">✦</span>
+  </div>
+</div>
+
+<section class="vibe halftone" id="story">
+  <div class="wrap">
+    <div class="vibe-grid">
+      <div class="sticker-stack rv">
+        <div class="sticker sticker-1">
+          <img src="https://images.unsplash.com/photo-1562967914-608f82629710?w=900&q=70&auto=format&fit=crop"
+               alt="Crispy fried snacks served with dipping sauce" loading="lazy"
+               onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22800%22 height=%22600%22%3E%3Crect width=%22800%22 height=%22600%22 fill=%22%231c1c1f%22/%3E%3Ctext x=%22400%22 y=%22310%22 font-family=%22sans-serif%22 font-size=%2238%22 fill=%22%23ffc900%22 text-anchor=%22middle%22%3ECRISPY%3C/text%3E%3C/svg%3E';">
+          <span class="sticker-label">Fresh off the fryer</span>
+        </div>
+        <div class="sticker sticker-2">
+          <img src="https://images.unsplash.com/photo-1619881590738-a111d176d906?w=800&q=70&auto=format&fit=crop"
+               alt="Golden crispy fried bites in a box" loading="lazy"
+               onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22800%22 height=%22800%22%3E%3Crect width=%22800%22 height=%22800%22 fill=%22%231c1c1f%22/%3E%3Ctext x=%22400%22 y=%22410%22 font-family=%22sans-serif%22 font-size=%2238%22 fill=%22%23ffc900%22 text-anchor=%22middle%22%3ECRUNCH%3C/text%3E%3C/svg%3E';">
+          <span class="sticker-label">Golden &amp; loud</span>
+        </div>
+        <div class="sticker sticker-3">
+          <img src="https://images.unsplash.com/photo-1558857563-b371033873b8?w=700&q=70&auto=format&fit=crop"
+               alt="Iced boba milk tea with tapioca pearls" loading="lazy"
+               onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22700%22 height=%22700%22%3E%3Crect width=%22700%22 height=%22700%22 fill=%22%231c1c1f%22/%3E%3Ctext x=%22350%22 y=%22360%22 font-family=%22sans-serif%22 font-size=%2238%22 fill=%22%23ffc900%22 text-anchor=%22middle%22%3EBOBA%3C/text%3E%3C/svg%3E';">
+          <span class="sticker-label">Sip station</span>
+        </div>
+      </div>
+      <div class="vibe-copy">
+        <span class="sec-tag mono">// The story</span>
+        <h2 class="sec-title display rv"><span class="punch-line">Seoul crunch,</span><br><span class="punch-line"><span class="y">Miami soul.</span></span></h2>
+        <p class="rv" style="margin-top:22px">Crispy Streets took the Korean corn dog — that <strong>shattering golden crust</strong> and the legendary <strong>cheese pull</strong> — and ran it through Miami. Sweet plantains. Homemade garlic aioli. Chicharrón crumble. Guava where you least expect it.</p>
+        <p class="rv">Every dog is fried to order, dusted, drizzled and loaded at the window. This isn't fast food. It's <strong>street food with main-character energy</strong> — built for late nights, loud cravings and photos that make your friends jealous.</p>
+        <div class="vibe-stats rv">
+          <div class="stat"><div class="n">11.8K</div><div class="l">IG community</div></div>
+          <div class="stat"><div class="n">100%</div><div class="l">Fried to order</div></div>
+          <div class="stat"><div class="n">V</div><div class="l">Vegan options</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="menu" id="menu">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-tag mono">// The lineup</span>
+      <h2 class="sec-title display"><span class="punch-line">Signature</span> <span class="punch-line"><span class="y">crispy</span></span> <span class="punch-line">creations</span></h2>
+      <p class="sec-sub">The heavy hitters. Each one starts with our golden Korean-style crust, then gets the full Latin treatment. Ask about today's specials and limited drops at the window.</p>
+    </div>
+    <div class="menu-grid">
+      <article class="ticket rv">
+        <div class="ticket-img">
+          <span class="ticket-flag">Fan favorite</span>
+          <img src="https://images.unsplash.com/photo-1562967914-608f82629710?w=800&q=70&auto=format&fit=crop"
+               alt="Cuban Guy corn dog inspiration: crispy fried snacks with dipping sauce" loading="lazy"
+               onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22800%22 height=%22600%22%3E%3Crect width=%22800%22 height=%22600%22 fill=%22%231c1c1f%22/%3E%3Ctext x=%22400%22 y=%22310%22 font-family=%22sans-serif%22 font-size=%2238%22 fill=%22%23ffc900%22 text-anchor=%22middle%22%3ECUBAN GUY%3C/text%3E%3C/svg%3E';">
+        </div>
+        <div class="ticket-body">
+          <h3 class="ticket-name">The Cuban Guy</h3>
+          <p class="ticket-desc">The legend. Homemade garlic aioli, sweet plantains and a crispy chicharrón crumble over our golden crust. Salty, sweet, crunchy — perfect.</p>
+          <div class="ticket-tags"><span>Garlic aioli</span><span>Plantains</span><span>Chicharrón</span></div>
+        </div>
+        <div class="perf" aria-hidden="true"></div>
+        <div class="ticket-foot"><span class="code">Nº 001</span><span class="admit">Admit one craving</span></div>
+      </article>
+      <article class="ticket rv">
+        <div class="ticket-img">
+          <span class="ticket-flag mustard">Classic</span>
+          <img src="https://images.unsplash.com/photo-1619881590738-a111d176d906?w=800&q=70&auto=format&fit=crop"
+               alt="Cheesy Couch Potato inspiration: golden crispy fried bites" loading="lazy"
+               onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22800%22 height=%22600%22%3E%3Crect width=%22800%22 height=%22600%22 fill=%22%231c1c1f%22/%3E%3Ctext x=%22400%22 y=%22310%22 font-family=%22sans-serif%22 font-size=%2238%22 fill=%22%23ffc900%22 text-anchor=%22middle%22%3ECOUCH POTATO%3C/text%3E%3C/svg%3E';">
+        </div>
+        <div class="ticket-body">
+          <h3 class="ticket-name">Cheesy Couch Potato</h3>
+          <p class="ticket-desc">The comfort classic. A potato-crusted corn dog with that molten mozzarella pull — simple ingredients, maximum coziness, zero regrets.</p>
+          <div class="ticket-tags"><span>Potato crust</span><span>Mozzarella pull</span></div>
+        </div>
+        <div class="perf" aria-hidden="true"></div>
+        <div class="ticket-foot"><span class="code">Nº 002</span><span class="admit">Admit one craving</span></div>
+      </article>
+      <article class="ticket rv">
+        <div class="ticket-img">
+          <span class="ticket-flag">Latin fusion</span>
+          <img src="https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?w=800&q=70&auto=format&fit=crop"
+               alt="El Santiago inspiration: dark crispy fried chicken pieces" loading="lazy"
+               onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22800%22 height=%22600%22%3E%3Crect width=%22800%22 height=%22600%22 fill=%22%231c1c1f%22/%3E%3Ctext x=%22400%22 y=%22310%22 font-family=%22sans-serif%22 font-size=%2238%22 fill=%22%23ffc900%22 text-anchor=%22middle%22%3EEL SANTIAGO%3C/text%3E%3C/svg%3E';">
+        </div>
+        <div class="ticket-body">
+          <h3 class="ticket-name">El Santiago</h3>
+          <p class="ticket-desc">Full Latin soul on a stick. Bold seasoning, house sauces and toppings inspired by the flavors Miami grew up on.</p>
+          <div class="ticket-tags"><span>Latin spices</span><span>House sauce</span></div>
+        </div>
+        <div class="perf" aria-hidden="true"></div>
+        <div class="ticket-foot"><span class="code">Nº 003</span><span class="admit">Admit one craving</span></div>
+      </article>
+      <article class="ticket rv">
+        <div class="ticket-img">
+          <span class="ticket-flag mustard">Spicy</span>
+          <img src="https://images.unsplash.com/photo-1541592106381-b31e9677c0e5?w=800&q=70&auto=format&fit=crop"
+               alt="Flamin Inu inspiration: seasoned fries with a spicy kick" loading="lazy"
+               onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22800%22 height=%22600%22%3E%3Crect width=%22800%22 height=%22600%22 fill=%22%231c1c1f%22/%3E%3Ctext x=%22400%22 y=%22310%22 font-family=%22sans-serif%22 font-size=%2238%22 fill=%22%23ffc900%22 text-anchor=%22middle%22%3EFLAMIN INU%3C/text%3E%3C/svg%3E';">
+        </div>
+        <div class="ticket-body">
+          <h3 class="ticket-name">Flamin' Inu</h3>
+          <p class="ticket-desc">For the heat seekers. Wrapped in crispy potato, drizzled with our homemade hot chicka sauce and finished with extra Hot Cheetos crunch.</p>
+          <div class="ticket-tags"><span>Hot Cheetos</span><span>Hot chika sauce</span><span>Spicy</span></div>
+        </div>
+        <div class="perf" aria-hidden="true"></div>
+        <div class="ticket-foot"><span class="code">Nº 004</span><span class="admit">Admit one craving</span></div>
+      </article>
+      <article class="ticket rv">
+        <div class="ticket-img">
+          <span class="ticket-flag">Sweet heat</span>
+          <img src="https://images.unsplash.com/photo-1551024506-0bccd828d307?w=800&q=70&auto=format&fit=crop"
+               alt="Fried Guavita inspiration: dessert with caramel drizzle" loading="lazy"
+               onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22800%22 height=%22600%22%3E%3Crect width=%22800%22 height=%22600%22 fill=%22%231c1c1f%22/%3E%3Ctext x=%22400%22 y=%22310%22 font-family=%22sans-serif%22 font-size=%2238%22 fill=%22%23ffc900%22 text-anchor=%22middle%22%3EGUAVITA%3C/text%3E%3C/svg%3E';">
+        </div>
+        <div class="ticket-body">
+          <h3 class="ticket-name">Fried Guavita</h3>
+          <p class="ticket-desc">Miami in a bite. Guava meets melty cheese inside our signature dough — sweet, tangy, and that cheese pull you came for.</p>
+          <div class="ticket-tags"><span>Guava</span><span>Cheese pull</span></div>
+        </div>
+        <div class="perf" aria-hidden="true"></div>
+        <div class="ticket-foot"><span class="code">Nº 005</span><span class="admit">Admit one craving</span></div>
+      </article>
+      <article class="ticket rv">
+        <div class="ticket-img">
+          <span class="ticket-flag mustard">New drop</span>
+          <img src="https://images.unsplash.com/photo-1573080496219-bb080dd4f877?w=800&q=70&auto=format&fit=crop"
+               alt="Spicy Tina Wina inspiration: loaded fries in a basket" loading="lazy"
+               onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22800%22 height=%22600%22%3E%3Crect width=%22800%22 height=%22600%22 fill=%22%231c1c1f%22/%3E%3Ctext x=%22400%22 y=%22310%22 font-family=%22sans-serif%22 font-size=%2238%22 fill=%22%23ffc900%22 text-anchor=%22middle%22%3ETINA WINA%3C/text%3E%3C/svg%3E';">
+        </div>
+        <div class="ticket-body">
+          <h3 class="ticket-name">Spicy Tina Wina</h3>
+          <p class="ticket-desc">The newest troublemaker. A spicy corn dog build with cheese, heat and crunch stacked in every bite. Ask for it by name.</p>
+          <div class="ticket-tags"><span>Spicy</span><span>Cheesy</span><span>Limited</span></div>
+        </div>
+        <div class="perf" aria-hidden="true"></div>
+        <div class="ticket-foot"><span class="code">Nº 006</span><span class="admit">Admit one craving</span></div>
+      </article>
+    </div>
+    <p class="menu-note rv">Full menu with today's specials lives on our ordering page.<br><a href="https://crispystreets.iposeats.com" target="_blank" rel="noopener">Order ahead → skip the line</a></p>
+  </div>
+</section>
+
+<section class="sides" id="sides">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-tag mono">// Beyond the dog</span>
+      <h2 class="sec-title display"><span class="punch-line">Sides,</span> <span class="punch-line"><span class="y">sips</span></span> <span class="punch-line">&amp; sweets</span></h2>
+      <p class="sec-sub">The supporting cast that steals the show. Loaded fries, real boba and fried desserts — because one craving is never just one.</p>
+    </div>
+
+    <div class="side-row rv">
+      <div class="side-img">
+        <img src="https://images.unsplash.com/photo-1573080496219-bb080dd4f877?w=1000&q=70&auto=format&fit=crop"
+             alt="Loaded street fries served in a basket" loading="lazy"
+             onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%221000%22 height=%22700%22%3E%3Crect width=%221000%22 height=%22700%22 fill=%22%231c1c1f%22/%3E%3Ctext x=%22500%22 y=%22360%22 font-family=%22sans-serif%22 font-size=%2242%22 fill=%22%23ffc900%22 text-anchor=%22middle%22%3ESTREET FRIES%3C/text%3E%3C/svg%3E';">
+      </div>
+      <div class="side-copy">
+        <span class="side-badge">Street fries</span>
+        <h3 class="display">Loaded like <span class="y">you mean it</span></h3>
+        <p>Crispy fries piled high and finished at the window. Go classic or go full chaos with the spicy build.</p>
+        <ul class="side-list">
+          <li><span>Classic street fries</span><b>Loaded</b></li>
+          <li><span>Spicy street fries — Flamin' Hot Cheetos</span><b>Extra heat</b></li>
+          <li><span>House sauces &amp; toppings</span><b>Your call</b></li>
+        </ul>
+        <a class="btn btn-red" href="https://crispystreets.iposeats.com" target="_blank" rel="noopener">Get Fries</a>
+      </div>
+    </div>
+
+    <div class="side-row rev rv">
+      <div class="side-img">
+        <img src="https://images.unsplash.com/photo-1558857563-b371033873b8?w=1000&q=70&auto=format&fit=crop"
+             alt="Iced boba milk tea with tapioca pearls" loading="lazy"
+             onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%221000%22 height=%22700%22%3E%3Crect width=%221000%22 height=%22700%22 fill=%22%231c1c1f%22/%3E%3Ctext x=%22500%22 y=%22360%22 font-family=%22sans-serif%22 font-size=%2242%22 fill=%22%23ffc900%22 text-anchor=%22middle%22%3EBOBA%3C/text%3E%3C/svg%3E';">
+      </div>
+      <div class="side-copy">
+        <span class="side-badge">Boba bar</span>
+        <h3 class="display">Cool down <span class="y">the crunch</span></h3>
+        <p>Real boba, brewed fresh. Milk teas and popping pearls to wash down the heat — the perfect co-star to a spicy dog.</p>
+        <ul class="side-list">
+          <li><span>Milk tea — Taro · Lychee · Mango</span><b>Creamy</b></li>
+          <li><span>Boba tea — Thai tea · Mango · Lychee</span><b>Classic</b></li>
+          <li><span>Popping pearls — Strawberry · Mango · Passionfruit</span><b>Pop</b></li>
+        </ul>
+        <a class="btn" href="https://crispystreets.iposeats.com" target="_blank" rel="noopener">Sip Something</a>
+      </div>
+    </div>
+
+    <div class="side-row rv">
+      <div class="side-img">
+        <img src="https://images.unsplash.com/photo-1624371414361-e670edf4898d?w=1000&q=70&auto=format&fit=crop"
+             alt="Cinnamon churros with chocolate dipping sauce" loading="lazy"
+             onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%221000%22 height=%22700%22%3E%3Crect width=%221000%22 height=%22700%22 fill=%22%231c1c1f%22/%3E%3Ctext x=%22500%22 y=%22360%22 font-family=%22sans-serif%22 font-size=%2242%22 fill=%22%23ffc900%22 text-anchor=%22middle%22%3ECHURROS%3C/text%3E%3C/svg%3E';">
+      </div>
+      <div class="side-copy">
+        <span class="side-badge">Sweet finish</span>
+        <h3 class="display">End on a <span class="y">sugar rush</span></h3>
+        <p>Fried desserts done the Crispy Streets way — cinnamon sugar, chocolate drizzle, and bananas in our signature dough.</p>
+        <ul class="side-list">
+          <li><span>Churros</span><b>Cinnamon sugar</b></li>
+          <li><span>Frie-nana — fried banana in signature dough</span><b>House classic</b></li>
+          <li><span>Seasonal fried drops</span><b>Ask at the window</b></li>
+        </ul>
+        <a class="btn btn-red" href="https://crispystreets.iposeats.com" target="_blank" rel="noopener">Treat Yourself</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="build" id="build">
+  <div class="wrap">
+    <span class="sec-tag mono">// Your rules</span>
+    <h2 class="sec-title display"><span class="punch-line">Build your own</span><br><span class="punch-line">crispy masterpiece</span></h2>
+    <p class="sec-sub">Don't see your dream dog? Create it. Pick a base, load it up, keep it simple — either way you leave wanting more.</p>
+    <div class="steps" style="margin-top:44px">
+      <div class="step rv"><span class="corner">1</span><div class="num">01</div><h4>Pick your base</h4><p>Cheese, hot dog, or half-and-half. Vegan options available — just ask.</p></div>
+      <div class="step rv"><span class="corner">2</span><div class="num">02</div><h4>Choose the crust</h4><p>Classic golden, crispy potato, or crunchy ramen coating for extra bite.</p></div>
+      <div class="step rv"><span class="corner">3</span><div class="num">03</div><h4>Load the toppings</h4><p>Plantains, chicharrón, Hot Cheetos, sauces — stack it as high as you dare.</p></div>
+      <div class="step rv"><span class="corner">4</span><div class="num">04</div><h4>Drizzle &amp; devour</h4><p>Garlic aioli, hot chika, ketchup-mayo-mustard. Then the cheese pull shot.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="find halftone" id="find">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-tag mono">// Pull up</span>
+      <h2 class="sec-title display"><span class="punch-line">Find the</span> <span class="punch-line"><span class="y">truck</span></span></h2>
+      <p class="sec-sub">We're posted up in Miami serving nights. Order ahead online, or just follow the smell of the fryer.</p>
+    </div>
+    <div class="find-grid">
+      <div class="info-card rv">
+        <div class="info-row">
+          <span class="info-ico">⌖</span>
+          <div><h4>Location</h4><p>1405 SW 107th Ave<br>Miami, FL 33174</p></div>
+        </div>
+        <div class="info-row">
+          <span class="info-ico">✆</span>
+          <div><h4>Call / Text</h4><p><a href="tel:+19543789380">+1 (954) 378-9380</a></p></div>
+        </div>
+        <div class="info-row">
+          <span class="info-ico">✉</span>
+          <div><h4>Email</h4><p><a href="mailto:crispystreets@gmail.com">crispystreets@gmail.com</a></p></div>
+        </div>
+        <div class="info-row">
+          <span class="info-ico">@</span>
+          <div><h4>Instagram</h4><p><a href="https://www.instagram.com/crispystreets" target="_blank" rel="noopener">@crispystreets</a> — 11.8K strong</p></div>
+        </div>
+      </div>
+      <div>
+        <div class="hours-card rv">
+          <h3>Truck hours</h3>
+          <p class="sub">Typical schedule — check Instagram for today's status</p>
+          <div class="hours-line"><span>Evenings</span><b>5:00 – 10:00 PM</b></div>
+          <div class="hours-line"><span>Select days</span><b>2:00 – 6:00 PM</b></div>
+          <p class="hours-note">Hours shift with events, weather and pop-ups. DM us or check stories before you roll through.</p>
+        </div>
+        <div class="find-ctas">
+          <a class="btn" href="https://crispystreets.iposeats.com" target="_blank" rel="noopener">Order Online</a>
+          <a class="btn-outline" href="https://ig.me/m/crispystreets" target="_blank" rel="noopener">DM the Truck</a>
+          <a class="btn-outline" href="https://www.google.com/maps/search/?api=1&amp;query=1405+SW+107th+Ave+Miami+FL+33174" target="_blank" rel="noopener">Get Directions</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-brand">Crispy <em>Streets</em></div>
+        <div class="foot-tag">Korean corndogs · Latin fusion · Miami FL</div>
+      </div>
+      <div class="foot-links">
+        <a href="https://crispystreets.iposeats.com" target="_blank" rel="noopener">Order</a>
+        <a href="https://ig.me/m/crispystreets" target="_blank" rel="noopener">DM Us</a>
+        <a href="https://www.instagram.com/crispystreets" target="_blank" rel="noopener">Instagram</a>
+        <a href="tel:+19543789380">Call</a>
+        <a href="mailto:crispystreets@gmail.com">Email</a>
+      </div>
+    </div>
+    <div class="foot-base">
+      <span>© 2026 Crispy Streets · 1405 SW 107th Ave, Miami FL</span>
+      <span>Vegan options · Online ordering available</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* split punch-in lines into word spans */
+  document.querySelectorAll('.punch-line').forEach(function(line){
+    var nodes = Array.prototype.slice.call(line.childNodes);
+    line.innerHTML = '';
+    var i = 0;
+    nodes.forEach(function(n){
+      if(n.nodeType === 3){
+        n.textContent.split(/(\s+)/).forEach(function(part){
+          if(!part) return;
+          if(/^\s+$/.test(part)){ line.appendChild(document.createTextNode(' ')); return; }
+          var s = document.createElement('span');
+          s.className = 'punch'; s.textContent = part;
+          s.style.transitionDelay = (i * 70) + 'ms';
+          line.appendChild(s); i++;
+        });
+      } else if(n.nodeType === 1){
+        var wrap = n.cloneNode(false);
+        n.textContent.split(/(\s+)/).forEach(function(part){
+          if(!part) return;
+          if(/^\s+$/.test(part)){ wrap.appendChild(document.createTextNode(' ')); return; }
+          var s = document.createElement('span');
+          s.className = 'punch ' + (n.className || '');
+          s.textContent = part;
+          s.style.transitionDelay = (i * 70) + 'ms';
+          wrap.appendChild(s); i++;
+        });
+        line.appendChild(wrap);
+      }
+    });
+  });
+
+  function reveal(entries, obs){
+    entries.forEach(function(e){
+      if(e.isIntersecting){
+        e.target.classList.add('in');
+        obs.unobserve(e.target);
+      }
+    });
+  }
+
+  if(reduce || !('IntersectionObserver' in window)){
+    document.querySelectorAll('.rv,.punch').forEach(function(el){ el.classList.add('in'); });
+    document.querySelectorAll('[data-stamp]').forEach(function(el){ el.classList.add('slam'); });
+  } else {
+    var io = new IntersectionObserver(reveal, {threshold: 0.18, rootMargin: '0px 0px -6% 0px'});
+    document.querySelectorAll('.rv').forEach(function(el){ io.observe(el); });
+    var pio = new IntersectionObserver(reveal, {threshold: 0.4});
+    document.querySelectorAll('.punch').forEach(function(el){ pio.observe(el); });
+    var sio = new IntersectionObserver(function(entries, obs){
+      entries.forEach(function(e, idx){
+        if(e.isIntersecting){
+          (function(t, d){ setTimeout(function(){ t.classList.add('slam'); }, d); })(e.target, idx * 350);
+          obs.unobserve(e.target);
+        }
+      });
+    }, {threshold: 0.5});
+    document.querySelectorAll('[data-stamp]').forEach(function(el){ sio.observe(el); });
+  }
+
+  /* hero punch-in on load */
+  window.addEventListener('load', function(){
+    document.querySelectorAll('.hero .punch').forEach(function(el){ el.classList.add('in'); });
+  });
+  setTimeout(function(){
+    document.querySelectorAll('.hero .punch').forEach(function(el){ el.classList.add('in'); });
+  }, 1200);
+})();
+</script>
+</body>
+</html>
