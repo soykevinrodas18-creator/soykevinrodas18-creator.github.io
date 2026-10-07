@@ -287,8 +287,89 @@ section[id]{scroll-margin-top:84px}
   .hero{padding-top:40px}
 }
 </style>
+<style>
+/* ============ NEON EXPENSIVE LAYER — caro, arena-light coral/amber ============ */
+@property --wa-angle{syntax:"<angle>";inherits:false;initial-value:0deg}
+
+/* glowing scroll progress bar */
+.scroll-progress{position:fixed;top:0;left:0;height:3px;width:0;z-index:300;background:linear-gradient(90deg,var(--coral),var(--amber));box-shadow:0 0 12px rgba(255,106,61,.9),0 0 26px rgba(255,176,32,.55)}
+
+/* hero: drifting arena glow orbs */
+.hero-veil{z-index:1}
+.hero::before,.hero::after{content:"";position:absolute;border-radius:50%;filter:blur(90px);pointer-events:none;z-index:1}
+.hero::before{width:560px;height:560px;background:radial-gradient(circle,rgba(255,106,61,.34),transparent 70%);top:-140px;right:4%;animation:driftA 12s ease-in-out infinite alternate}
+.hero::after{width:440px;height:440px;background:radial-gradient(circle,rgba(255,176,32,.22),transparent 70%);bottom:-120px;left:2%;animation:driftB 15s ease-in-out infinite alternate}
+@keyframes driftA{to{transform:translate(-70px,60px) scale(1.18)}}
+@keyframes driftB{to{transform:translate(80px,-50px) scale(1.12)}}
+.hero-content{z-index:2}
+
+/* hero headline: neon flicker-in + animated glow pulse on key word */
+.hero h1 .accent{color:var(--coral);animation:flickOn .8s ease .55s both,neonPulse 3.4s ease-in-out 1.6s infinite}
+.hero h1 .stroke{animation:flickOn .8s ease .78s both}
+@keyframes flickOn{0%{opacity:0}10%{opacity:1}16%{opacity:.25}24%{opacity:1}32%{opacity:.6}42%,100%{opacity:1}}
+@keyframes neonPulse{0%,100%{text-shadow:0 0 16px rgba(255,106,61,.55),0 0 56px rgba(255,106,61,.28)}50%{text-shadow:0 0 30px rgba(255,106,61,.9),0 0 96px rgba(255,106,61,.42)}}
+
+/* hero proof strip: lit top border */
+.hero-proof{border-top:1px solid rgba(255,176,32,.45);box-shadow:0 -8px 24px -12px rgba(255,176,32,.35)}
+
+/* neon-lit 2012 heritage numerals */
+.heritage-years{text-shadow:0 0 22px rgba(255,106,61,.35),0 0 70px rgba(255,176,32,.22);filter:drop-shadow(0 14px 30px rgba(12,20,37,.18)) drop-shadow(0 0 26px rgba(255,106,61,.28))}
+
+/* ghost INCLUSIVO: luminous outline */
+.inclusive::before{text-shadow:0 0 34px rgba(255,176,32,.28),0 0 90px rgba(255,176,32,.14)}
+
+/* halo rings behind inclusive spotlight */
+.inclusive-grid::before{content:"";position:absolute;width:min(680px,86vw);aspect-ratio:1/1;border-radius:50%;border:1px solid rgba(255,176,32,.22);box-shadow:0 0 70px rgba(255,176,32,.16),inset 0 0 90px rgba(255,106,61,.08);top:50%;left:50%;transform:translate(-50%,-50%);pointer-events:none}
+.inclusive-grid::after{content:"";position:absolute;width:min(560px,72vw);aspect-ratio:1/1;border-radius:50%;border:1px dashed rgba(255,106,61,.28);top:50%;left:50%;pointer-events:none;animation:haloSpin 46s linear infinite}
+@keyframes haloSpin{from{transform:translate(-50%,-50%) rotate(0deg)}to{transform:translate(-50%,-50%) rotate(360deg)}}
+
+/* light rays behind section titles */
+.section-head{position:relative}
+.section-head::before{content:"";position:absolute;inset:-80px -60px auto -60px;height:320px;background:repeating-conic-gradient(from -90deg at 28% 0%,rgba(255,176,32,.055) 0deg 5deg,transparent 5deg 13deg);-webkit-mask-image:radial-gradient(300px 190px at 28% 0%,#000,transparent 78%);mask-image:radial-gradient(300px 190px at 28% 0%,#000,transparent 78%);pointer-events:none}
+
+/* glowing amber eyebrow dividers */
+.eyebrow::before{box-shadow:0 0 10px rgba(255,106,61,.9),0 0 22px rgba(255,106,61,.4)}
+
+/* lit marquee */
+.marquee{background:linear-gradient(90deg,var(--coral-deep),var(--coral) 50%,var(--coral-deep));box-shadow:0 0 36px rgba(255,106,61,.5),0 10px 30px -14px rgba(255,106,61,.5)}
+.marquee-track{filter:drop-shadow(0 0 9px rgba(255,255,255,.4))}
+
+/* program cards: neon underglow + luminous edge draw on hover */
+.program{border:1px solid transparent}
+.program::after{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;opacity:0;transition:opacity .45s;box-shadow:inset 0 0 0 1.5px rgba(255,150,90,.65),inset 0 0 28px rgba(255,106,61,.14)}
+.program:hover{box-shadow:0 26px 54px -18px rgba(12,20,37,.42),0 20px 64px -14px rgba(255,106,61,.5)}
+.program:hover::after{opacity:1}
+
+/* buttons: warm glow + shine sweep */
+.btn-coral{position:relative;overflow:hidden;box-shadow:0 14px 30px -12px rgba(255,106,61,.65),0 0 26px rgba(255,106,61,.28)}
+.btn-coral::after{content:"";position:absolute;top:0;left:-90%;width:55%;height:100%;background:linear-gradient(105deg,transparent,rgba(255,255,255,.55),transparent);transform:skewX(-20deg);transition:left .65s ease;pointer-events:none}
+.btn-coral:hover::after{left:140%}
+.btn-coral:hover{box-shadow:0 18px 42px -12px rgba(255,106,61,.85),0 0 46px rgba(255,106,61,.5)}
+
+/* glowing scrollbar */
+::-webkit-scrollbar-thumb{background:linear-gradient(180deg,var(--coral),var(--amber));box-shadow:0 0 10px rgba(255,106,61,.55)}
+::-webkit-scrollbar-thumb:hover{background:linear-gradient(180deg,var(--coral-deep),var(--coral))}
+
+/* whatsapp CTA: gradient-animated glowing ring */
+.wa-float{isolation:isolate}
+.wa-float::before{content:"";position:absolute;inset:-4px;border-radius:50%;background:conic-gradient(from var(--wa-angle),#25d366,#b8f5cd,#25d366,#0d9e4f,#25d366);z-index:-1;animation:waSpin 3.6s linear infinite;filter:drop-shadow(0 0 14px rgba(37,211,102,.75))}
+@keyframes waSpin{to{--wa-angle:360deg}}
+
+/* mobile: reduce glow, keep clean at 390px */
+@media(max-width:640px){
+  .hero h1 .accent{animation:flickOn .8s ease .55s both;text-shadow:0 0 12px rgba(255,106,61,.5)}
+  .hero::before,.hero::after{opacity:.55;filter:blur(70px)}
+  .heritage-years{text-shadow:0 0 12px rgba(255,106,61,.3);filter:drop-shadow(0 10px 22px rgba(12,20,37,.15))}
+  .marquee{box-shadow:0 8px 22px -12px rgba(255,106,61,.45)}
+  .program:hover{box-shadow:var(--shadow)}
+  .inclusive-grid::before,.inclusive-grid::after{opacity:.6}
+  .scroll-progress{box-shadow:0 0 8px rgba(255,106,61,.7)}
+  .section-head::before{opacity:.6}
+}
+</style>
 </head>
 <body>
+<div class="scroll-progress" id="scrollProgress"></div>
 <!-- top bar -->
 <div class="topbar">
   <div class="container">
@@ -577,6 +658,32 @@ document.querySelectorAll('.faq-item').forEach(item=>{
     if(!isOpen){item.classList.add('open');a.style.maxHeight=a.scrollHeight+'px'}
   });
 });
+// glowing scroll progress bar
+const sp=document.getElementById('scrollProgress');
+addEventListener('scroll',()=>{
+  const h=document.documentElement,max=h.scrollHeight-h.clientHeight;
+  sp.style.width=(max>0?(h.scrollTop/max*100):0)+'%';
+},{passive:true});
+// neon count-up hero stats
+(function(){
+  if(reduceMotion) return;
+  const items=document.querySelectorAll('.hero-proof .proof-item b');
+  const specs=[{to:2012,dec:0,pre:'',suf:''},{to:7,dec:0,pre:'',suf:'+'},{to:1.6,dec:1,pre:'+',suf:'K'}];
+  const dur=1700,delay=700;let started=false;
+  function frame(now){
+    if(!started){started=true;frame.t0=now+delay}
+    let done=true;
+    specs.forEach((s,i)=>{
+      const el=items[i];if(!el)return;
+      const p=Math.min(Math.max((now-frame.t0)/dur,0),1);
+      if(p<1)done=false;
+      const e=1-Math.pow(1-p,3);
+      el.textContent=s.pre+(s.to*e).toFixed(s.dec)+s.suf;
+    });
+    if(!done)requestAnimationFrame(frame);
+  }
+  requestAnimationFrame(frame);
+})();
 </script>
 </body>
 </html>

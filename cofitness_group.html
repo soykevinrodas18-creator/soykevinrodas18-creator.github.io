@@ -26,7 +26,52 @@ body::after{content:"";position:fixed;inset:0;z-index:300;pointer-events:none;op
 ::-webkit-scrollbar{width:10px}
 ::-webkit-scrollbar-track{background:#0a0a0b}
 ::-webkit-scrollbar-thumb{background:#2b2b2e;border-radius:8px;border:2px solid #0a0a0b}
+::-webkit-scrollbar-thumb{background:linear-gradient(180deg,#e4ff70,#9dc41f);box-shadow:0 0 10px rgba(215,255,62,.55);border-radius:8px;border:2px solid #0a0a0b}
 ::-webkit-scrollbar-thumb:hover{background:var(--volt)}
+/* ---------- NEON · que se vea CARO ---------- */
+@property --a{syntax:'<angle>';initial-value:0deg;inherits:false}
+.scroll-progress{position:fixed;top:0;left:0;height:3px;width:0;z-index:200;background:linear-gradient(90deg,#9dc41f,var(--volt));box-shadow:0 0 12px rgba(215,255,62,.9),0 0 30px rgba(215,255,62,.45);pointer-events:none}
+/* hero: cinematic volt light shafts */
+.hero::before{content:"";position:absolute;inset:-10% 0;z-index:0;pointer-events:none;background:linear-gradient(104deg,transparent 40%,rgba(215,255,62,.05) 46%,rgba(215,255,62,.13) 50%,rgba(215,255,62,.05) 54%,transparent 60%),linear-gradient(99deg,transparent 58%,rgba(215,255,62,.04) 64%,rgba(215,255,62,.1) 68%,rgba(215,255,62,.04) 72%,transparent 78%);animation:shaftSway 9s ease-in-out infinite alternate}
+@keyframes shaftSway{from{transform:translateX(-2.5%)}to{transform:translateX(2.5%)}}
+.hero .wrap{position:relative;z-index:1}
+/* hero: neon headline with staggered flicker-in */
+.neon .ch{display:inline-block;color:#f2ffb8;text-shadow:0 0 6px rgba(240,255,170,.9),0 0 18px rgba(215,255,62,.75),0 0 44px rgba(215,255,62,.45),0 0 90px rgba(215,255,62,.28);animation:neonIn 1.15s cubic-bezier(.2,.7,.2,1) both}
+@keyframes neonIn{0%{opacity:0}7%{opacity:1}11%{opacity:.15}15%{opacity:1}23%{opacity:.35}29%,100%{opacity:1}}
+/* neon-lit ticker */
+.ticker{box-shadow:inset 0 0 46px rgba(215,255,62,.06),0 0 26px rgba(215,255,62,.06)}
+.ticker span{text-shadow:0 0 14px rgba(215,255,62,.35)}
+.ticker span i{text-shadow:0 0 12px rgba(215,255,62,.9)}
+/* glowing eyebrows + neon volt words in titles */
+.eyebrow{text-shadow:0 0 14px rgba(215,255,62,.45)}
+.eyebrow::before{box-shadow:0 0 10px rgba(215,255,62,.95),0 0 22px rgba(215,255,62,.4)}
+.sec-head .volt,.final .volt,#visita .volt,#faq .volt{text-shadow:0 0 16px rgba(215,255,62,.5),0 0 46px rgba(215,255,62,.22)}
+/* volumetric glow behind section heads */
+.sec-head{position:relative}
+.sec-head::before{content:"";position:absolute;top:-70px;left:-90px;width:360px;height:250px;background:radial-gradient(closest-side,rgba(215,255,62,.1),transparent 72%);filter:blur(12px);pointer-events:none;z-index:0}
+.sec-head>*{position:relative;z-index:1}
+/* class cards: permanent neon edge, intensifies on hover */
+.class-card{box-shadow:0 0 0 1px rgba(215,255,62,.14),0 0 28px rgba(215,255,62,.07)}
+.class-card::before{content:"";position:absolute;top:0;left:0;height:2px;width:0;background:var(--volt);box-shadow:0 0 14px rgba(215,255,62,.95);z-index:3;transition:width .55s cubic-bezier(.2,.7,.2,1)}
+.class-card:hover{border-color:rgba(215,255,62,.65);box-shadow:0 22px 55px rgba(215,255,62,.14),0 0 0 1px rgba(215,255,62,.6),0 0 38px rgba(215,255,62,.3)}
+.class-card:hover::before{width:100%}
+/* glowing grid floor behind the open-gym band */
+#opengym{overflow:hidden}
+#opengym .wrap{position:relative;z-index:1}
+.gridfloor{position:absolute;left:-10%;right:-10%;bottom:-4%;height:52%;pointer-events:none;background-image:linear-gradient(rgba(215,255,62,.16) 1px,transparent 1.5px),linear-gradient(90deg,rgba(215,255,62,.16) 1px,transparent 1.5px);background-size:46px 46px;transform:perspective(700px) rotateX(63deg);transform-origin:bottom center;-webkit-mask-image:linear-gradient(180deg,transparent,#000 42%);mask-image:linear-gradient(180deg,transparent,#000 42%);animation:gridDrift 7s linear infinite;opacity:.8}
+@keyframes gridDrift{to{background-position:0 46px,0 46px}}
+/* buttons: electric glow */
+.btn:hover{box-shadow:0 12px 32px rgba(215,255,62,.35),0 0 26px rgba(215,255,62,.45)}
+/* animated neon border on the main WhatsApp CTA */
+.neon-frame{position:relative;display:inline-block;padding:2.5px;border-radius:100px;background:conic-gradient(from var(--a),rgba(215,255,62,0) 0deg,rgba(215,255,62,.15) 200deg,var(--volt) 300deg,rgba(215,255,62,0) 360deg);animation:frameSpin 4.5s linear infinite;box-shadow:0 0 24px rgba(215,255,62,.35),0 0 60px rgba(215,255,62,.15)}
+@keyframes frameSpin{to{--a:360deg}}
+.neon-frame .btn{margin:0}
+/* custom volt cursor glow — desktop only */
+.cursor-dot,.cursor-halo{position:fixed;top:0;left:0;pointer-events:none;z-index:298;border-radius:50%;display:none}
+@media(pointer:fine){
+  .cursor-dot{display:block;width:10px;height:10px;background:#f2ffb8;box-shadow:0 0 12px 2px rgba(215,255,62,.9),0 0 34px 6px rgba(215,255,62,.35);transform:translate(-50%,-50%)}
+  .cursor-halo{display:block;width:340px;height:340px;background:radial-gradient(circle,rgba(215,255,62,.08),transparent 62%);transform:translate(-50%,-50%)}
+}
 section[id]{scroll-margin-top:84px}
 img{display:block;max-width:100%}
 a{color:inherit;text-decoration:none}
@@ -187,6 +232,14 @@ footer{border-top:1px solid var(--line);padding:56px 0 36px;background:#08080a}
 .rv{opacity:0;transform:translateY(36px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1)}
 .rv.in{opacity:1;transform:none}
 .rv.d1{transition-delay:.1s}.rv.d2{transition-delay:.2s}.rv.d3{transition-delay:.3s}
+/* neon: tone down glow on mobile */
+@media(max-width:768px){
+  .neon .ch{text-shadow:0 0 8px rgba(240,255,170,.7),0 0 20px rgba(215,255,62,.4)}
+  .sec-head .volt,.final .volt,#visita .volt,#faq .volt{text-shadow:0 0 10px rgba(215,255,62,.35)}
+  .sec-head::before{opacity:.6}
+  .gridfloor{opacity:.5;animation-duration:12s}
+  .hero::before{animation:none}
+}
 /* ---------- responsive ---------- */
 @media(max-width:1024px){
   .class-grid{grid-template-columns:repeat(2,1fr)}
@@ -213,10 +266,11 @@ footer{border-top:1px solid var(--line);padding:56px 0 36px;background:#08080a}
   .pt-note{flex-direction:column;align-items:flex-start}
 }
 @media(max-width:520px){.coach-grid{grid-template-columns:1fr}}
-@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}.neon .ch{opacity:1;text-shadow:0 0 10px rgba(215,255,62,.4)}.scroll-progress{display:none}}
 </style>
 </head>
 <body>
+<div class="scroll-progress" aria-hidden="true"></div>
 
 <header id="hdr">
   <nav class="nav">
@@ -242,7 +296,7 @@ footer{border-top:1px solid var(--line);padding:56px 0 36px;background:#08080a}
     <h1 class="h-xl">
       <span class="row"><span>Entrena</span></span>
       <span class="row"><span>a tu</span></span>
-      <span class="row"><span class="volt">manera.</span></span>
+      <span class="row"><span class="volt neon" id="neonWord">manera.</span></span>
     </h1>
     <p class="hero-sub rv d1">Open gym, clases semanales y estudios para coaches en el corazón de Edgewater. Una comunidad donde atletas y entrenadores crecen juntos.</p>
     <div class="hero-ctas rv d2">
@@ -250,9 +304,9 @@ footer{border-top:1px solid var(--line);padding:56px 0 36px;background:#08080a}
       <a class="btn ghost" href="https://wa.me/17869439007?text=Hola%20CoFitness%2C%20quiero%20info" target="_blank" rel="noopener">WhatsApp</a>
     </div>
     <div class="proof rv d3">
-      <div><b>3.7K<span class="volt">+</span></b><span>Comunidad en Instagram</span></div>
-      <div><b>2700</b><span>Biscayne Blvd · Edgewater</span></div>
-      <div><b>3</b><span>Formas de entrenar: gym · clases · estudios</span></div>
+      <div><b data-count="3.7" data-decimals="1" data-mid="K" data-end="+">3.7K<span class="volt">+</span></b><span>Comunidad en Instagram</span></div>
+      <div><b data-count="2700">2700</b><span>Biscayne Blvd · Edgewater</span></div>
+      <div><b data-count="3">3</b><span>Formas de entrenar: gym · clases · estudios</span></div>
     </div>
   </div>
 </section>
@@ -338,6 +392,7 @@ footer{border-top:1px solid var(--line);padding:56px 0 36px;background:#08080a}
 
 <!-- OPEN GYM -->
 <section id="opengym" style="padding-top:0">
+  <div class="gridfloor" aria-hidden="true"></div>
   <div class="wrap">
     <div class="band rv">
       <div>
@@ -536,7 +591,7 @@ footer{border-top:1px solid var(--line);padding:56px 0 36px;background:#08080a}
     <h2 class="rv">Deja de esperar<br>el <span class="volt">momento perfecto.</span></h2>
     <p class="sub rv d1">Tu primer paso puede ser tan simple como aparecer. Te vemos esta semana.</p>
     <div class="hero-ctas rv d2" style="justify-content:center">
-      <a class="btn" href="https://wa.me/17869439007?text=Hola%20CoFitness%2C%20quiero%20empezar%20esta%20semana" target="_blank" rel="noopener">Escríbenos hoy</a>
+      <span class="neon-frame"><a class="btn" href="https://wa.me/17869439007?text=Hola%20CoFitness%2C%20quiero%20empezar%20esta%20semana" target="_blank" rel="noopener">Escríbenos hoy</a></span>
       <a class="btn ghost" href="https://www.instagram.com/cofitness.group" target="_blank" rel="noopener">Instagram</a>
     </div>
   </div>
@@ -595,6 +650,32 @@ footer{border-top:1px solid var(--line);padding:56px 0 36px;background:#08080a}
   var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){var t=e.target;if(t.dataset.rd)t.style.transitionDelay=t.dataset.rd+'s';t.classList.add('in');io.unobserve(t);setTimeout(function(){t.style.transitionDelay=''},1000)}})},{threshold:.12,rootMargin:'0px 0px -40px 0px'});
   document.querySelectorAll('.rv').forEach(function(el){io.observe(el)});
   var fine=matchMedia('(pointer:fine)').matches,calm=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  /* neon headline: staggered flicker-in per letter */
+  var nw=document.getElementById('neonWord');
+  if(nw&&!calm){var _t=nw.textContent;nw.textContent='';_t.split('').forEach(function(c,i){var s=document.createElement('span');s.className='ch';s.textContent=c;s.style.animationDelay=(0.35+i*0.07).toFixed(2)+'s';nw.appendChild(s)});}
+  /* stats count-up */
+  var counters=document.querySelectorAll('.proof b[data-count]');
+  if(counters.length&&!calm){
+    var cio=new IntersectionObserver(function(es){es.forEach(function(e){if(!e.isIntersecting)return;var b=e.target;cio.unobserve(b);
+      var target=parseFloat(b.dataset.count),dec=parseInt(b.dataset.decimals||'0',10),mid=b.dataset.mid||'',end=b.dataset.end||'';
+      var t0=null,dur=1500;
+      function step(ts){if(!t0)t0=ts;var p=Math.min(1,(ts-t0)/dur),ez=1-Math.pow(1-p,3),v=(target*ez).toFixed(dec);
+        b.innerHTML='<span>'+v+mid+'</span>'+(end?'<span class="volt">'+end+'</span>':'');
+        if(p<1)requestAnimationFrame(step);}
+      requestAnimationFrame(step);});},{threshold:.4});
+    counters.forEach(function(b){cio.observe(b)});
+  }
+  /* glowing scroll progress */
+  var sp=document.querySelector('.scroll-progress');
+  if(sp){var pTick=false;addEventListener('scroll',function(){if(pTick)return;pTick=true;requestAnimationFrame(function(){var h=document.documentElement,mx=h.scrollHeight-h.clientHeight;sp.style.width=(mx>0?(h.scrollTop/mx*100):0)+'%';pTick=false})},{passive:true});}
+  /* custom volt cursor glow — desktop only */
+  if(fine&&!calm){
+    var dot=document.createElement('div');dot.className='cursor-dot';document.body.appendChild(dot);
+    var halo=document.createElement('div');halo.className='cursor-halo';document.body.appendChild(halo);
+    var mx2=innerWidth/2,my2=innerHeight/2,hx=mx2,hy=my2;
+    addEventListener('mousemove',function(e){mx2=e.clientX;my2=e.clientY;dot.style.left=mx2+'px';dot.style.top=my2+'px'},{passive:true});
+    (function loop(){hx+=(mx2-hx)*.08;hy+=(my2-hy)*.08;halo.style.left=hx+'px';halo.style.top=hy+'px';requestAnimationFrame(loop)})();
+  }
   if(fine&&!calm){document.querySelectorAll('.btn').forEach(function(b){
     b.addEventListener('mousemove',function(e){var r=b.getBoundingClientRect(),x=e.clientX-r.left-r.width/2,y=e.clientY-r.top-r.height/2;b.style.transform='translate('+(x*0.09).toFixed(1)+'px,'+(y*0.14).toFixed(1)+'px)'});
     b.addEventListener('mouseleave',function(){b.style.transform=''});

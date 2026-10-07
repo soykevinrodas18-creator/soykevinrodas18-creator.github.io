@@ -209,9 +209,53 @@ footer{border-top:1px solid var(--line);padding:56px 0 40px}
   .schedule-strip{flex-direction:column;align-items:stretch;text-align:center}
   .about-badge{left:8px}
 }
+/* ===== NEON EMBER ELEVATION — $5K+ agency layer ===== */
+.hero h1 em.neon{background:linear-gradient(100deg,#e8622c 15%,#ff8a3d 35%,#ffe9c9 50%,#ff8a3d 65%,#e8622c 85%);background-size:230% auto;-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent;animation:shimmer 5.5s linear infinite;filter:drop-shadow(0 0 16px rgba(232,98,44,.5))}
+@keyframes shimmer{to{background-position:230% center}}
+.hero-ghost{-webkit-text-stroke:1.5px rgba(232,98,44,.5);text-shadow:0 0 42px rgba(232,98,44,.4),0 0 130px rgba(232,98,44,.18);animation:ghostPulse 6s ease-in-out infinite}
+@keyframes ghostPulse{50%{-webkit-text-stroke-color:rgba(255,138,61,.9);text-shadow:0 0 70px rgba(232,98,44,.65),0 0 160px rgba(232,98,44,.3)}}
+.hero::after{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background:radial-gradient(660px 420px at 30% 70%,rgba(232,98,44,.22),transparent 65%),linear-gradient(180deg,transparent 68%,rgba(232,98,44,.13) 100%);animation:forge 7s ease-in-out infinite}
+@keyframes forge{50%{opacity:.55}}
+.about-img::after{content:"";position:absolute;inset:-46px -64px -64px -46px;z-index:-2;background:radial-gradient(closest-side,rgba(232,98,44,.3),transparent 70%);filter:blur(12px);animation:ringGlow 6s ease-in-out infinite;pointer-events:none}
+@keyframes ringGlow{50%{opacity:.5}}
+.secnum::after{background:linear-gradient(90deg,var(--accent),rgba(232,98,44,.05));box-shadow:0 0 10px rgba(232,98,44,.85),0 0 28px rgba(232,98,44,.4)}
+.prog{position:relative}
+.prog::before{content:"";position:absolute;inset:0;border-radius:6px;padding:1.5px;background:linear-gradient(135deg,rgba(255,138,61,.85),transparent 32%,transparent 68%,rgba(255,138,61,.6));-webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);-webkit-mask-composite:xor;mask-composite:exclude;opacity:0;transition:opacity .5s;pointer-events:none;z-index:2}
+.prog:hover::before{opacity:1}
+.prog:hover{box-shadow:0 34px 70px -22px rgba(232,98,44,.4),0 0 0 1px rgba(232,98,44,.3)}
+.marquee{border-top-color:rgba(232,98,44,.3);border-bottom-color:rgba(232,98,44,.3)}
+.marquee span i{color:#ff8a3d;text-shadow:0 0 14px rgba(255,138,61,.75)}
+.btn-solid{animation:btnPulse 3.4s ease-in-out infinite}
+@keyframes btnPulse{0%,100%{filter:drop-shadow(0 0 0 rgba(232,98,44,0))}50%{filter:drop-shadow(0 0 22px rgba(232,98,44,.6))}}
+.hero .eyebrow,.hero-sub,.hero-ctas,.hero-meta{animation:fadeUp 1s cubic-bezier(.19,1,.22,1) both}
+.hero .eyebrow{animation-delay:.15s}.hero-sub{animation-delay:.5s}.hero-ctas{animation-delay:.62s}.hero-meta{animation-delay:.8s}
+@keyframes fadeUp{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:none}}
+.schedule-strip{border:1px solid rgba(255,138,61,.55);animation:stripGlow 4s ease-in-out infinite}
+@keyframes stripGlow{50%{box-shadow:0 0 34px rgba(232,98,44,.3),0 0 0 6px rgba(232,98,44,.07),inset 0 0 64px rgba(232,98,44,.14)}}
+.results blockquote b{color:#ff8a3d;text-shadow:0 0 26px rgba(255,138,61,.55)}
+.phil-card:hover{box-shadow:inset 0 1px 0 rgba(255,138,61,.28),0 24px 50px -22px rgba(232,98,44,.28)}
+.final-ctas .btn-solid{animation:ctaGlow 3s ease-in-out infinite,btnPulse 3.4s ease-in-out infinite}
+@keyframes ctaGlow{0%,100%{box-shadow:0 0 0 0 rgba(255,171,94,0),0 18px 40px -12px rgba(232,98,44,.55)}50%{box-shadow:0 0 0 2px rgba(255,171,94,.9),0 0 44px rgba(255,138,61,.75),0 18px 40px -12px rgba(232,98,44,.55)}}
+.scroll-progress{position:fixed;top:0;left:0;height:3px;width:0;z-index:1200;background:linear-gradient(90deg,#e8622c,#ffab5e);box-shadow:0 0 12px rgba(255,138,61,.95),0 0 32px rgba(232,98,44,.55)}
+::-webkit-scrollbar-thumb{background:linear-gradient(180deg,#3d2a1e,#26262a);box-shadow:inset 0 0 8px rgba(232,98,44,.45);border-radius:6px}
+::-webkit-scrollbar-thumb:hover{background:var(--accent);box-shadow:0 0 14px rgba(232,98,44,.9)}
+::selection{background:#ff7a2f;color:#0a0a0b}
+.nav-cta:hover{box-shadow:0 0 22px rgba(232,98,44,.6)}
+.brand span{text-shadow:0 0 14px rgba(232,98,44,.55)}
+.wa-float{animation:waGlow 3.6s ease-in-out infinite}
+@keyframes waGlow{50%{box-shadow:0 14px 34px -8px rgba(232,98,44,.6),0 0 30px rgba(232,98,44,.55)}}
+@media (prefers-reduced-motion:reduce){.hero h1 em.neon,.hero-ghost,.hero::after,.about-img::after,.btn-solid,.schedule-strip,.final-ctas .btn-solid,.wa-float,.hero .eyebrow,.hero-sub,.hero-ctas,.hero-meta{animation:none!important;filter:none!important}.hero h1 em.neon{background:none;color:var(--accent);-webkit-text-fill-color:var(--accent)}.scroll-progress{display:none}}
+@media(max-width:640px){
+  .hero-ghost{text-shadow:none;animation:none;-webkit-text-stroke:1px rgba(232,98,44,.35)}
+  .about-img::after{opacity:.45;animation:none}
+  .hero::after{opacity:.7;animation:none}
+  .btn-solid{animation-duration:5.5s}
+  .marquee span i{text-shadow:0 0 8px rgba(255,138,61,.5)}
+}
 </style>
 </head>
 <body>
+<div class="scroll-progress" aria-hidden="true"></div>
 <nav id="nav">
   <div class="wrap nav-in">
     <a class="brand" href="#top">Edward <span>Figueroa</span></a>
@@ -234,7 +278,7 @@ footer{border-top:1px solid var(--line);padding:56px 0 40px}
     <h1>
       <span class="row"><span>Disciplina.</span></span>
       <span class="row"><span>Constancia.</span></span>
-      <span class="row"><span><em>Resultados.</em></span></span>
+      <span class="row"><span><em class="neon">Resultados.</em></span></span>
     </h1>
     <p class="hero-sub">20+ años formando cuerpos fuertes en Hialeah. Entrenamiento personal y grupos pequeños para hombres y mujeres — con técnica, intención y un proceso que funciona.</p>
     <div class="hero-ctas">
@@ -242,7 +286,7 @@ footer{border-top:1px solid var(--line);padding:56px 0 40px}
       <a class="btn btn-ghost" href="tel:+17864860051">Llamar · 786-486-0051</a>
     </div>
     <div class="hero-meta">
-      <div class="hmeta"><b>20<i>+</i></b><small>Años de experiencia</small></div>
+      <div class="hmeta"><b><span data-count="20">20</span><i>+</i></b><small>Años de experiencia</small></div>
       <div class="hmeta"><b>1<i>-on-</i>1</b><small>Personal + grupos pequeños</small></div>
       <div class="hmeta"><b>L–V</b><small>6 AM – 12 PM · Cupos disponibles</small></div>
       <div class="hmeta"><b>ES<i>/</i>EN</b><small>Entrenamiento bilingüe</small></div>
@@ -261,7 +305,7 @@ footer{border-top:1px solid var(--line);padding:56px 0 40px}
   <div class="wrap about-grid">
     <div class="about-img reveal">
       <img src="https://images.unsplash.com/photo-1541534741688-6078c6bfb5c5?q=80&w=1200&auto=format&fit=crop" alt="Edward Figueroa entrenando con pesas" loading="lazy" onerror="this.style.display='none'">
-      <div class="about-badge"><b>20+</b><small>Años enseñando</small></div>
+      <div class="about-badge"><b><span data-count="20">20</span>+</b><small>Años enseñando</small></div>
     </div>
     <div class="about-copy reveal">
       <span class="secnum">01 — El entrenador</span>
@@ -487,6 +531,18 @@ footer{border-top:1px solid var(--line);padding:56px 0 40px}
   });
   var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12,rootMargin:'0px 0px -40px 0px'});
   document.querySelectorAll('.reveal').forEach(function(el){io.observe(el)});
+  /* neon ember count-up */
+  var counters=document.querySelectorAll('[data-count]');
+  if(!reduceMotion&&counters.length){
+    var cio=new IntersectionObserver(function(es){es.forEach(function(e){
+      if(e.isIntersecting){var el=e.target;cio.unobserve(el);var target=+el.getAttribute('data-count'),t0=null,dur=1700;
+        (function step(ts){if(!t0)t0=ts;var p=Math.min((ts-t0)/dur,1),ease=1-Math.pow(1-p,3);el.textContent=Math.round(target*ease);if(p<1)requestAnimationFrame(step)})(0)}
+    })},{threshold:.6});
+    counters.forEach(function(el){cio.observe(el)});
+  }
+  /* glowing ember progress bar */
+  var sp=document.querySelector('.scroll-progress');
+  if(sp){addEventListener('scroll',function(){var h=document.documentElement;var max=h.scrollHeight-h.clientHeight;sp.style.width=(max>0?(h.scrollTop/max*100):0)+'%'},{passive:true})}
 })();
 </script>
 </body>
