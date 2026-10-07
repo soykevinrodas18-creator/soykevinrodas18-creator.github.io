@@ -46,6 +46,28 @@ h1,h2,.display{font-family:var(--fd);font-stretch:118%;font-weight:850;line-heig
 .mono{font-family:var(--fm)}
 .sub{color:var(--muted);font-size:clamp(15px,1.6vw,18px);max-width:62ch}
 .accent{color:var(--papaya)}
+/* chrome light-sweep — a sheen band crosses display type periodically */
+.chrome-flow{background-image:linear-gradient(105deg,rgba(255,255,255,0) 42%,rgba(255,255,255,.95) 50%,rgba(255,255,255,0) 58%),linear-gradient(180deg,#ffffff 0%,#d9dce2 26%,#878c96 47%,#f5f6f9 51%,#a8adb7 74%,#ffffff 100%);
+  background-size:300% 100%,100% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;
+  animation:chromeSheen 7s ease-in-out infinite}
+@keyframes chromeSheen{0%,52%{background-position:130% 0,0 0}92%,100%{background-position:-130% 0,0 0}}
+.hero h1 .row:nth-child(1) .chrome-flow{animation-delay:1.6s}
+.hero h1 .row:nth-child(2) .chrome-flow{animation-delay:1.9s}
+/* pulsing glow on key phrases */
+.pulse-glow{animation:glowPulse 3.4s ease-in-out infinite}
+@keyframes glowPulse{0%,100%{filter:drop-shadow(0 0 16px rgba(255,106,0,.32))}50%{filter:drop-shadow(0 0 46px rgba(255,106,0,.85))}}
+/* mega outline ticker — giant words scrolling in reverse */
+.mega{overflow:hidden;border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:#070708;padding:16px 0;white-space:nowrap}
+.mega-track{display:inline-flex;align-items:center;animation:tickRev 42s linear infinite}
+.mega:hover .mega-track{animation-play-state:paused}
+.mega-track span{font-family:var(--fd);font-stretch:120%;font-weight:900;font-size:clamp(52px,8.4vw,116px);line-height:1.15;text-transform:uppercase;padding:0 34px;color:transparent;-webkit-text-stroke:1px rgba(255,255,255,.24)}
+.mega-track span.fill{color:var(--papaya);-webkit-text-stroke:0;filter:drop-shadow(0 0 26px rgba(255,106,0,.45))}
+@keyframes tickRev{from{transform:translateX(-50%)}to{transform:translateX(0)}}
+/* masked word-by-word reveals */
+.w{display:inline-block;overflow:hidden;vertical-align:bottom;padding-bottom:.12em;margin-bottom:-.12em}
+.wi{display:inline-block;transform:translateY(120%);transition:transform .85s cubic-bezier(.16,.8,.24,1)}
+.words-in .wi{transform:translateY(0)}
+.final .ghostline span{display:inline-block;white-space:nowrap;will-change:transform}
 /* section label */
 .slabel{display:flex;align-items:center;gap:18px;margin-bottom:30px}
 .slabel .code{font-family:var(--fm);font-size:11px;font-weight:700;letter-spacing:.3em;color:#0a0500;background:var(--papaya);
@@ -344,9 +366,9 @@ footer{border-top:1px solid var(--line);padding:68px 0 38px;background:#030304}
       <span><b>AUD.</b> 398K COMMUNITY</span>
     </div>
     <h1 class="h-xl">
-      <span class="row"><span class="chrome">Personalizing</span></span>
-      <span class="row"><span class="chrome">the world's</span></span>
-      <span class="row"><span class="papaya-word">finest.</span></span>
+      <span class="row"><span class="chrome chrome-flow">Personalizing</span></span>
+      <span class="row"><span class="chrome chrome-flow">the world's</span></span>
+      <span class="row"><span class="papaya-word pulse-glow">finest.</span></span>
     </h1>
     <p class="hero-sub rv d1">The Auto Firm by Alex Vega — a private atelier for luxury customization: paint protection film, bespoke wraps, Avorza forged wheels and a state-of-the-art collision center. <span class="serif-it">As recreated by Hot Wheels.</span></p>
     <div class="hero-ctas rv d2">
@@ -370,12 +392,20 @@ footer{border-top:1px solid var(--line);padding:68px 0 38px;background:#030304}
   </div>
 </div>
 
+<!-- MEGA TICKER : giant outline words, reverse scroll -->
+<div class="mega" aria-hidden="true">
+  <div class="mega-track">
+    <span>PPF</span><span class="fill">Wraps</span><span>Avorza</span><span class="fill">Hot Wheels®</span><span>35 Years</span><span class="fill">Atelier</span>
+    <span>PPF</span><span class="fill">Wraps</span><span>Avorza</span><span class="fill">Hot Wheels®</span><span>35 Years</span><span class="fill">Atelier</span>
+  </div>
+</div>
+
 <!-- THE COLLECTION -->
 <section id="collection" class="collection">
   <div class="wrap">
     <div class="rv" style="margin-bottom:clamp(56px,7vw,100px)">
       <div class="slabel"><span class="code">EXHIBITION</span><span class="rule"></span><span class="lbl">The Collection</span></div>
-      <h2 class="h-lg"><span class="chrome">Machines,</span><br>curated like <span class="serif-it accent">art.</span></h2>
+      <h2 class="h-lg"><span class="chrome chrome-flow">Machines,</span><br>curated like <span class="serif-it accent">art.</span></h2>
       <p class="sub" style="margin-top:22px">Step into the gallery. Every build below rolled out of the Kendall shop — from a Hot Wheels legend to exotics and full offroad transformations.</p>
     </div>
 
@@ -438,7 +468,7 @@ footer{border-top:1px solid var(--line);padding:68px 0 38px;background:#030304}
   <div class="wrap">
     <div class="rv">
       <span class="hw-badge"><span class="dot"></span> Official Collaboration</span>
-      <h2 class="h-lg">From the shop<br>to the <span class="serif-it">toy shelf.</span></h2>
+      <h2 class="h-lg">From the shop<br>to the <span class="serif-it pulse-glow">toy shelf.</span></h2>
       <p>Hot Wheels recreated the Luis Fonsi Bronco — with the actual Avorza wheels personalized at The Auto Firm — as an official die-cast edition. When the biggest name in toys knocks on your door, the work has already spoken.</p>
       <div class="hero-ctas" style="justify-content:center">
         <a class="btn" href="https://ig.me/m/theautofirm" target="_blank" rel="noopener">Start Your Build</a>
@@ -452,7 +482,7 @@ footer{border-top:1px solid var(--line);padding:68px 0 38px;background:#030304}
   <div class="wrap">
     <div class="rv" style="margin-bottom:clamp(48px,5vw,76px)">
       <div class="slabel"><span class="code">ATELIER</span><span class="rule"></span><span class="lbl">Service Index</span></div>
-      <h2 class="h-lg"><span class="chrome">Choose your</span><br>transformation.</h2>
+      <h2 class="h-lg"><span class="chrome chrome-flow">Choose your</span><br>transformation.</h2>
     </div>
     <div class="rv">
       <div class="svc-row">
@@ -494,7 +524,7 @@ footer{border-top:1px solid var(--line);padding:68px 0 38px;background:#030304}
   <div class="wrap">
     <div class="rv" style="margin-bottom:clamp(48px,5vw,76px)">
       <div class="slabel"><span class="code">PROTOCOL</span><span class="rule"></span><span class="lbl">The Process</span></div>
-      <h2 class="h-lg">From vision<br>to <span class="chrome">reveal.</span></h2>
+      <h2 class="h-lg">From vision<br>to <span class="chrome chrome-flow">reveal.</span></h2>
     </div>
     <div class="proto rv">
       <div class="proto-step"><p class="pn">STEP 01</p><h3>Consult</h3><p>DM or call — tell us the car and the vision. We scope the build together.</p></div>
@@ -515,7 +545,7 @@ footer{border-top:1px solid var(--line);padding:68px 0 38px;background:#030304}
       </div>
       <div class="rv d1">
         <div class="slabel"><span class="code">FOUNDER</span><span class="rule"></span><span class="lbl">35 Years</span></div>
-        <h2 class="h-md"><span class="chrome">It started with</span><br>a kid and a dream.</h2>
+        <h2 class="h-md"><span class="chrome chrome-flow">It started with</span><br>a kid and a dream.</h2>
         <blockquote>35 years ago, I was just a kid with a dream of customizing cars.</blockquote>
         <p class="sub">That kid became Alex Vega — and the dream became The Auto Firm: Miami's private atelier where the world's finest automobiles get personalized, protected and reborn.</p>
         <p class="sig" style="margin-top:30px"><b>ALEX VEGA</b> — FOUNDER, THE AUTO FIRM</p>
@@ -529,7 +559,7 @@ footer{border-top:1px solid var(--line);padding:68px 0 38px;background:#030304}
   <div class="wrap">
     <div class="rv" style="margin-bottom:clamp(48px,5vw,76px)">
       <div class="slabel"><span class="code">THE SHOP</span><span class="rule"></span><span class="lbl">Visit</span></div>
-      <h2 class="h-lg">Pull up.<br>Let's talk <span class="chrome">cars.</span></h2>
+      <h2 class="h-lg">Pull up.<br>Let's talk <span class="chrome chrome-flow">cars.</span></h2>
     </div>
     <div class="visit-grid">
       <div class="rv">
@@ -565,7 +595,7 @@ footer{border-top:1px solid var(--line);padding:68px 0 38px;background:#030304}
   <div class="wrap" style="max-width:920px">
     <div class="rv" style="margin-bottom:44px">
       <div class="slabel"><span class="code">INTEL</span><span class="rule"></span><span class="lbl">FAQ</span></div>
-      <h2 class="h-md">Before you <span class="chrome">roll in.</span></h2>
+      <h2 class="h-md">Before you <span class="chrome chrome-flow">roll in.</span></h2>
     </div>
     <div class="rv">
       <div class="faq-item">
@@ -595,9 +625,9 @@ footer{border-top:1px solid var(--line);padding:68px 0 38px;background:#030304}
 <!-- FINAL -->
 <section class="final">
   <div class="wrap">
-    <div class="ghostline rv" aria-hidden="true">AUTO FIRM</div>
+    <div class="ghostline rv" aria-hidden="true"><span id="ghostDrift">AUTO FIRM</span></div>
     <p class="mono rv" style="font-size:11px;letter-spacing:.36em;text-transform:uppercase;color:var(--papaya);margin-bottom:24px">The Auto Firm · Miami</p>
-    <h2 class="h-lg rv"><span class="chrome">Your car.</span><br><span class="serif-it accent">Reimagined.</span></h2>
+    <h2 class="h-lg rv"><span class="chrome chrome-flow">Your car.</span><br><span class="serif-it accent">Reimagined.</span></h2>
     <p class="sub rv d1" style="margin:24px auto 42px">Thirty-five years of craft. One shop. Zero generic builds.</p>
     <div class="hero-ctas rv d2" style="justify-content:center">
       <a class="btn" href="https://ig.me/m/theautofirm" target="_blank" rel="noopener">Start Your Build</a>
@@ -688,13 +718,40 @@ footer{border-top:1px solid var(--line);padding:68px 0 38px;background:#030304}
     if(!e.isIntersecting)return;cio.unobserve(e.target);
     var el=e.target,end=parseFloat(el.dataset.count),t0=null;
     if(reduce){el.textContent=end;return}
-    function step(t){if(!t0)t0=t;var p=Math.min((t-t0)/1600,1);var v=end*(1-Math.pow(1-p,3));el.textContent=Math.round(v);if(p<1)requestAnimationFrame(step)}
+    /* odometer scramble: digits spin like a digital dash, then settle */
+    function step(t){if(!t0)t0=t;var p=Math.min((t-t0)/1700,1);
+      if(p<0.55){el.textContent=Math.floor(Math.random()*end*1.2)}
+      else{var q=(p-0.55)/0.45;var v=end*(1-Math.pow(1-q,3));el.textContent=Math.round(v)}
+      if(p<1)requestAnimationFrame(step);else el.textContent=end}
     requestAnimationFrame(step);
   })},{threshold:.5});
   document.querySelectorAll('[data-count]').forEach(function(el){cio.observe(el)});
+  /* masked word-by-word reveals on headings + exhibit titles */
+  if(!reduce){
+    document.querySelectorAll('h2.h-lg,h2.h-md,.placard h3,.quote-card h3').forEach(function(h){
+      var wis=[];
+      (function walk(node){
+        Array.prototype.slice.call(node.childNodes).forEach(function(c){
+          if(c.nodeType===3){
+            var frag=document.createDocumentFragment();
+            c.textContent.split(/(\s+)/).forEach(function(part){
+              if(!part)return;
+              if(/^\s+$/.test(part)){frag.appendChild(document.createTextNode(' '))}
+              else{var w=document.createElement('span');w.className='w';var wi=document.createElement('span');wi.className='wi';wi.textContent=part;w.appendChild(wi);frag.appendChild(w);wis.push(wi)}
+            });
+            node.replaceChild(frag,c);
+          }else if(c.nodeType===1&&!(/chrome/.test(c.className||''))){walk(c)}
+        });
+      })(h);
+      wis.forEach(function(wi,i){wi.style.transitionDelay=(i*70)+'ms'});
+      var wio=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){h.classList.add('words-in');wio.unobserve(h)}})},{threshold:.3});
+      wio.observe(h);
+    });
+  }
   /* parallax */
   if(!reduce){
     var plx=document.querySelectorAll('[data-plx]');
+    var ghost=document.getElementById('ghostDrift');
     var ticking=false;
     addEventListener('scroll',function(){
       if(ticking)return;ticking=true;
@@ -704,6 +761,10 @@ footer{border-top:1px solid var(--line);padding:68px 0 38px;background:#030304}
           var f=parseFloat(el.dataset.plx);
           el.style.transform='translate3d(0,'+(y*f)+'px,0)';
         });
+        /* ghost typography drifts sideways as the finale scrolls through */
+        if(ghost){var r=ghost.getBoundingClientRect(),vh=innerHeight;
+          var pr=(vh-r.top)/(vh+r.height);pr=Math.max(0,Math.min(1,pr));
+          ghost.style.transform='translateX('+((0.5-pr)*140).toFixed(1)+'px)'}
         ticking=false;
       });
     },{passive:true});

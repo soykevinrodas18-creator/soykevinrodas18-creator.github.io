@@ -206,6 +206,26 @@ footer{background:#0f0b06;color:#bfae90;padding:76px 0 34px}
 .dust{position:absolute;border-radius:50%;background:radial-gradient(circle,rgba(201,162,75,.9),transparent 70%);pointer-events:none;animation:rise2 linear infinite;z-index:2}
 @keyframes rise2{from{transform:translateY(0);opacity:0}12%{opacity:.85}to{transform:translateY(-72vh);opacity:0}}
 #cursorlight{position:fixed;width:520px;height:520px;border-radius:50%;pointer-events:none;z-index:1500;background:radial-gradient(circle,rgba(201,162,75,.13),transparent 65%);transform:translate(-50%,-50%);left:-999px;top:-999px;mix-blend-mode:screen}
+/* ---------- motion typography (wow) ---------- */
+.masthead{position:relative}
+.masthead .mch{display:inline-block;animation:mastIn 1.15s cubic-bezier(.16,.7,.2,1) both;animation-delay:var(--d,0s)}
+@keyframes mastIn{0%{opacity:0;transform:translateY(.95em) rotate(5deg);filter:blur(12px)}55%{opacity:1;filter:blur(0)}100%{opacity:1;transform:translateY(0) rotate(0);filter:blur(0)}}
+.masthead em .mch{background:linear-gradient(100deg,#8a6a2e,#c9a24b 30%,#f6e9c6 50%,#c9a24b 70%,#8a6a2e);background-size:220% auto;-webkit-background-clip:text;background-clip:text;color:transparent;animation:mastIn 1.15s cubic-bezier(.16,.7,.2,1) both,sheen 8s linear infinite;animation-delay:var(--d,0s),0s}
+.mast-sweep{position:absolute;top:-6%;bottom:-6%;left:0;width:55%;background:linear-gradient(100deg,transparent,rgba(246,233,198,.55),transparent);transform:translateX(-170%) skewX(-12deg);pointer-events:none;mix-blend-mode:screen;animation:mastSweep 1.5s .85s cubic-bezier(.4,0,.2,1) forwards}
+@keyframes mastSweep{to{transform:translateX(360%) skewX(-12deg)}}
+.lt-words .w{display:inline-block;overflow:hidden;vertical-align:bottom;padding-bottom:.1em;margin-bottom:-.1em}
+.lt-words .w>span{display:inline-block;transform:translateY(118%);transition:transform 1s cubic-bezier(.16,.7,.2,1);transition-delay:var(--d,0s)}
+.lt-words.in .w>span{transform:translateY(0)}
+.lt-chars .sch{display:inline-block;opacity:0;transform:translateY(.7em) rotate(3deg);filter:blur(7px);transition:opacity .7s ease,transform .85s cubic-bezier(.16,.7,.2,1),filter .7s ease;transition-delay:var(--d,0s)}
+.lt-chars.in .sch{opacity:1;transform:none;filter:blur(0)}
+.gold-i .sch,.gold-i .w>span{background:inherit;-webkit-background-clip:text;background-clip:text;color:transparent}
+.u-num{will-change:transform;transition:color .5s}
+.urow:hover .u-num{color:rgba(201,162,75,.24)}
+.u-body h3{position:relative;display:inline-block;transition:letter-spacing .5s}
+.urow:hover .u-body h3{letter-spacing:.005em}
+.u-body h3::after{content:"";position:absolute;left:0;bottom:-8px;height:2px;width:100%;background:linear-gradient(90deg,var(--gold),rgba(201,162,75,0));transform:scaleX(0);transform-origin:left;transition:transform .7s cubic-bezier(.16,.7,.2,1)}
+.urow:hover .u-body h3::after{transform:scaleX(1)}
+.ticker:hover .tk-track{animation-play-state:paused}
 /* ---------- responsive ---------- */
 @media(max-width:1020px){
   .cover-img,.cover-frame{width:100%;opacity:.32}
@@ -232,7 +252,10 @@ footer{background:#0f0b06;color:#bfae90;padding:76px 0 34px}
   *,*::before,*::after{animation:none!important;transition:none!important}
   .rv{opacity:1;transform:none;filter:none}
   .mask{clip-path:inset(0 0 0 0)}
-  .dust,#cursorlight,.book .ring{display:none}
+  .dust,#cursorlight,.book .ring,.mast-sweep{display:none}
+  .sch{opacity:1;transform:none;filter:none}
+  .lt-words .w>span{transform:none}
+  .u-num{transform:none!important}
   html{scroll-behavior:auto}
 }
 </style>
@@ -263,10 +286,10 @@ footer{background:#0f0b06;color:#bfae90;padding:76px 0 34px}
   <span class="cover-side r">Nº 01 · The Beauty Issue</span>
   <div class="wrap" style="position:relative;z-index:3;width:100%">
     <span class="edition"><span class="dot"></span>Forbes Celebrity Beauty Artist · Edición Miami</span>
-    <h1 class="masthead">DERMA<em>BLESS</em></h1>
+    <h1 class="masthead" id="masthead">DERMA<em>BLESS</em></h1>
     <div class="cover-lines">
       <div>
-        <h2>El universo de la belleza, <span class="it">creado por Mily Ajo.</span></h2>
+        <h2 class="lt-words">El universo de la belleza, <span class="it">creado por Mily Ajo.</span></h2>
       </div>
       <div class="cover-copy">
         <p>Teddy Brows™, Med Spa, Pilates y Academia — un ecosistema de belleza, bienestar y educación que nació en Miami y hoy inspira a miles.</p>
@@ -315,7 +338,7 @@ footer{background:#0f0b06;color:#bfae90;padding:76px 0 34px}
   <div class="wrap">
     <div class="uni-head">
       <p class="kicker rv">El universo</p>
-      <h2 class="h-xl rv">Cuatro mundos,<br>una misma <span class="gold-i">bendición.</span></h2>
+      <h2 class="h-xl rv lt-words">Cuatro mundos,<br>una misma <span class="gold-i">bendición.</span></h2>
     </div>
 
     <article class="urow rv">
@@ -379,7 +402,7 @@ footer{background:#0f0b06;color:#bfae90;padding:76px 0 34px}
       </div>
       <div>
         <p class="kicker rv">La artista</p>
-        <h2 class="rv">Mily <span class="it">Ajo</span></h2>
+        <h2 class="rv lt-chars">Mily <span class="it">Ajo</span></h2>
         <p class="sub lt rv d1">Forbes Celebrity Beauty Artist e International Grand Master. Jueza internacional de micropigmentación y speaker en los campeonatos más importantes del mundo — una artista que convirtió su técnica en un universo.</p>
         <div class="cred-rows rv d1">
           <div class="cred-row"><span class="n">i.</span><b>Forbes</b><span>Celebrity Beauty Artist</span></div>
@@ -449,7 +472,7 @@ footer{background:#0f0b06;color:#bfae90;padding:76px 0 34px}
   <div class="ring" aria-hidden="true"></div>
   <div class="wrap">
     <p class="kicker lt rv" style="justify-content:center">Reserva</p>
-    <h2 class="rv">Tu momento <span class="gold-i">blessed.</span></h2>
+    <h2 class="rv lt-chars">Tu momento <span class="gold-i">blessed.</span></h2>
     <p class="rv d1">Brows, spa, pilates o academia — el universo Dermabless te espera. Escríbenos y reserva tu experiencia.</p>
     <div class="row rv d2">
       <a class="btn" data-mag href="https://ig.me/m/dermabless?text=Hola%20Dermabless%2C%20quiero%20reservar" target="_blank" rel="noopener">Reservar por DM</a>
@@ -539,6 +562,64 @@ footer{background:#0f0b06;color:#bfae90;padding:76px 0 34px}
     var cl=document.getElementById('cursorlight'),cx=-999,cy=-999,tx=-999,ty=-999;
     addEventListener('mousemove',function(e){tx=e.clientX;ty=e.clientY});
     (function loop(){cx+=(tx-cx)*.08;cy+=(ty-cy)*.08;cl.style.left=cx+'px';cl.style.top=cy+'px';requestAnimationFrame(loop)})();
+  /* ---- motion typography ---- */
+  function eachTextChar(el,cls,counter){
+    counter=counter||{i:0};
+    Array.prototype.slice.call(el.childNodes).forEach(function(n){
+      if(n.nodeType===3){
+        var frag=document.createDocumentFragment();
+        Array.prototype.forEach.call(n.textContent,function(c){
+          if(c===' '){frag.appendChild(document.createTextNode(' '));return}
+          var s=document.createElement('span');s.className=cls;s.textContent=c;
+          s.style.setProperty('--d',(counter.i*0.045).toFixed(3)+'s');counter.i++;
+          frag.appendChild(s);
+        });
+        el.replaceChild(frag,n);
+      }else if(n.nodeType===1){eachTextChar(n,cls,counter)}
+    });
+  }
+  function splitWords(el){
+    var counter={i:0};
+    (function walk(node){
+      Array.prototype.slice.call(node.childNodes).forEach(function(n){
+        if(n.nodeType===3){
+          var frag=document.createDocumentFragment();
+          n.textContent.split(/(\s+)/).forEach(function(part){
+            if(!part)return;
+            if(/^\s+$/.test(part)){frag.appendChild(document.createTextNode(' '));return}
+            var w=document.createElement('span');w.className='w';
+            var inner=document.createElement('span');inner.textContent=part;
+            inner.style.setProperty('--d',(counter.i*0.07).toFixed(3)+'s');counter.i++;
+            w.appendChild(inner);frag.appendChild(w);
+          });
+          node.replaceChild(frag,n);
+        }else if(n.nodeType===1){walk(n)}
+      });
+    })(el);
+  }
+  var mh=document.getElementById('masthead');
+  if(mh&&!reduce){
+    eachTextChar(mh,'mch');
+    var sw=document.createElement('span');sw.className='mast-sweep';sw.setAttribute('aria-hidden','true');
+    mh.appendChild(sw);setTimeout(function(){sw.remove()},3400);
+  }
+  if(!reduce){
+    document.querySelectorAll('.lt-chars').forEach(function(el){eachTextChar(el,'sch')});
+    document.querySelectorAll('.lt-words').forEach(function(el){splitWords(el)});
+    var lio=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');lio.unobserve(e.target)}})},{threshold:.3,rootMargin:'0px 0px -8% 0px'});
+    document.querySelectorAll('.lt-chars,.lt-words').forEach(function(el){lio.observe(el)});
+  }
+  var nums=Array.prototype.slice.call(document.querySelectorAll('.u-num'));
+  function numPar(){
+    var vh=innerHeight;
+    for(var k=0;k<nums.length;k++){
+      var r=nums[k].getBoundingClientRect();
+      if(r.bottom<-200||r.top>vh+200)continue;
+      var d=(r.top+r.height/2-vh/2)/vh;
+      nums[k].style.transform='translate3d(0,'+(d*-46).toFixed(1)+'px,0)';
+    }
+  }
+  if(!reduce)numPar();
     var hero=document.querySelector('.cover');
     for(var i=0;i<14;i++){var s=document.createElement('span');s.className='dust';var sz=4+Math.random()*8;s.style.width=s.style.height=sz+'px';s.style.left=(Math.random()*100)+'%';s.style.bottom='-20px';s.style.animationDuration=(9+Math.random()*9)+'s';s.style.animationDelay=(Math.random()*9)+'s';hero.appendChild(s)}
   }
