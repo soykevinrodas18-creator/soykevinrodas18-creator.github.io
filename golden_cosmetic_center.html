@@ -84,8 +84,10 @@ header.scrolled{background:rgba(250,246,238,.88);backdrop-filter:blur(14px);-web
 .tcard .num{text-shadow:0 0 14px rgba(184,137,47,.4)}
 /* soft bloom on chapter dividers */
 .chapter .rule{box-shadow:0 0 12px rgba(184,137,47,.4)}
-.btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--line)}
-.btn.ghost:hover{border-color:var(--gold);box-shadow:none}
+.btn.btn-ghost{background:transparent;color:var(--ink);border:1px solid var(--line)}
+.btn.btn-ghost:hover{border-color:var(--gold);box-shadow:none}
+/* NOTE: .ghost = giant watermark typography; .btn-ghost = outline button variant. Never merge them. */
+a[href^="tel:"]{max-width:100%;overflow-wrap:anywhere}
 .burger{display:none;background:none;border:none;cursor:pointer;z-index:110;flex-direction:column;gap:6px;padding:8px}
 .burger span{display:block;width:26px;height:2px;background:var(--ink);transition:.3s}
 /* hero */
@@ -113,7 +115,7 @@ header.scrolled{background:rgba(250,246,238,.88);backdrop-filter:blur(14px);-web
 .hero-proof b{font-family:var(--serif);font-size:clamp(26px,2.6vw,38px);font-weight:500;display:block;text-shadow:0 0 26px rgba(184,137,47,.25)}
 .hero-proof span{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted)}
 .hero-media{position:relative}
-.hero-frame{border-radius:26px;overflow:hidden;border:1px solid rgba(184,137,47,.55);box-shadow:0 40px 80px rgba(36,28,18,.18),0 0 60px rgba(227,196,124,.28),inset 0 0 0 8px rgba(255,255,255,.5);position:relative}
+.hero-frame{border-radius:26px;overflow:hidden;border:1px solid rgba(184,137,47,.55);box-shadow:0 40px 80px rgba(36,28,18,.18),0 0 60px rgba(227,196,124,.28),inset 0 0 0 8px rgba(255,255,255,.5);position:relative;background:linear-gradient(140deg,#e9dcc0,#c9a95c);min-height:clamp(420px,52vw,600px)}
 .hero-frame::before{content:"";position:absolute;inset:12px;border:1px solid rgba(227,196,124,.6);border-radius:18px;z-index:2;pointer-events:none;box-shadow:0 0 26px rgba(227,196,124,.4),inset 0 0 22px rgba(227,196,124,.28)}
 .hero-frame::after{content:"";position:absolute;inset:0;box-shadow:inset 0 0 70px rgba(184,137,47,.24);pointer-events:none;z-index:3}
 .hero-frame img{width:100%;height:clamp(420px,52vw,600px);object-fit:cover;filter:sepia(.14) saturate(1.02)}
@@ -154,16 +156,38 @@ header.scrolled{background:rgba(250,246,238,.88);backdrop-filter:blur(14px);-web
 .tcard p{font-size:14.5px;color:var(--ink-soft)}
 .tcard .tag{position:absolute;top:22px;right:24px;font-size:10.5px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);border:1px solid rgba(184,137,47,.4);border-radius:100px;padding:6px 14px}
 .s1{grid-column:1/8}.s2{grid-column:8/13}.s3{grid-column:1/6;margin-top:44px}.s4{grid-column:6/10;margin-top:-10px}.s5{grid-column:10/13;margin-top:44px}.s6{grid-column:1/7}.s7{grid-column:7/13}.s8{grid-column:1/8}.s9{grid-column:8/13}
+/* featured treatment card — Botox & Rellenos */
+.tcard.feat{color:#faf6ee;border-color:rgba(227,196,124,.45);background:#241a0e url('https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?w=800&q=65&auto=format&fit=crop') center 22%/cover}
+.tcard.feat::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(24,17,9,.02) 15%,rgba(24,17,9,.8) 90%),linear-gradient(180deg,rgba(184,137,47,.14),transparent 42%);pointer-events:none}
+.tcard.feat>*{position:relative;z-index:1}
+.tcard.feat::before{z-index:2;background:linear-gradient(90deg,transparent,var(--gold-2),transparent)}
+.tcard.feat h3{color:#fff}
+.tcard.feat p{color:#e9dec3}
+.tcard.feat .num{color:var(--gold-2)}
+.tcard.feat .tag{color:var(--gold-2);border-color:rgba(227,196,124,.55);background:rgba(24,17,9,.4)}
+.tcard.feat .ic{color:var(--gold-2)}
 .tx-note{margin-top:44px;display:flex;gap:18px;align-items:center;flex-wrap:wrap}
 .tx-note p{color:var(--muted);font-size:15px}
 .tx-note a{color:var(--gold);font-weight:600;border-bottom:1px solid rgba(184,137,47,.4)}
+/* experience band — full-bleed parallax */
+.xp{position:relative;overflow:hidden;padding:clamp(120px,15vw,200px) 0;color:#faf6ee;text-align:center}
+.xp-bg{position:absolute;inset:-14% 0;z-index:0}
+.xp-bg img{width:100%;height:100%;object-fit:cover;filter:sepia(.22) saturate(1.06) brightness(.58)}
+.xp-bg::after{content:"";position:absolute;inset:0;background:radial-gradient(640px 340px at 50% 42%,rgba(184,137,47,.3),transparent 70%),linear-gradient(180deg,var(--ivory) 0%,rgba(250,246,238,0) 22%,rgba(250,246,238,0) 78%,var(--ivory) 100%)}
+.xp-inner{position:relative;z-index:1}
+.eyebrow.light{color:var(--gold-2)}
+.eyebrow.light::before{background:linear-gradient(90deg,var(--gold-2),transparent);box-shadow:0 0 10px rgba(227,196,124,.7)}
+.xp h2{color:#fff;margin-bottom:56px}
+.xp-stats{display:flex;justify-content:center;gap:clamp(34px,6vw,96px);flex-wrap:wrap}
+.xp-stats b{font-family:var(--serif);font-weight:500;font-size:clamp(44px,5.5vw,76px);display:block;color:#fff;text-shadow:0 0 34px rgba(227,196,124,.5)}
+.xp-stats span{font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:#d8c9a4}
 /* doctor — art-directed */
 .doc{background:linear-gradient(180deg,var(--ivory) 0%,var(--ivory-2) 100%);overflow:hidden}
 .doc::before{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(900px 420px at 50% -6%,rgba(227,196,124,.24),transparent 62%)}
 .doc .ghost{font-size:clamp(120px,17vw,260px);bottom:4%;left:-1%}
 .doc-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(36px,6vw,90px);align-items:center;position:relative;z-index:2}
 .doc-media{position:relative;margin-right:-40px}
-.doc-frame{border-radius:24px;overflow:hidden;border:1px solid rgba(184,137,47,.5);box-shadow:0 34px 70px rgba(36,28,18,.16),0 0 50px rgba(227,196,124,.22);position:relative}
+.doc-frame{border-radius:24px;overflow:hidden;border:1px solid rgba(184,137,47,.5);box-shadow:0 34px 70px rgba(36,28,18,.16),0 0 50px rgba(227,196,124,.22);position:relative;background:linear-gradient(140deg,#e9dcc0,#c9a95c);min-height:clamp(440px,50vw,600px)}
 .doc-frame::before{content:"";position:absolute;inset:12px;border:1px solid rgba(227,196,124,.5);border-radius:16px;z-index:3;pointer-events:none;box-shadow:inset 0 0 20px rgba(227,196,124,.22)}
 .doc-frame::after{content:"";position:absolute;inset:0;box-shadow:inset 0 0 56px rgba(184,137,47,.2);pointer-events:none;z-index:2}
 .doc-frame img{width:100%;height:clamp(440px,50vw,600px);object-fit:cover;filter:sepia(.13) saturate(1.03)}
@@ -204,7 +228,7 @@ header.scrolled{background:rgba(250,246,238,.88);backdrop-filter:blur(14px);-web
 .info-row h4{font-size:11.5px;letter-spacing:.26em;text-transform:uppercase;color:var(--gold);margin-bottom:6px}
 .info-row p{font-size:17px;font-weight:500}
 .info-row a.hl{color:var(--gold);font-weight:600}
-.book-panel{background:linear-gradient(150deg,#2b2114,#1c150c);color:var(--ivory);border-radius:26px;padding:clamp(34px,4vw,52px);position:relative;overflow:hidden;box-shadow:0 34px 70px rgba(36,28,18,.3);isolation:isolate}
+.book-panel{background:linear-gradient(150deg,rgba(43,33,20,.94),rgba(28,21,12,.97)),url('https://images.unsplash.com/photo-1600334129128-685c5582fd35?w=1000&q=60&auto=format&fit=crop') center/cover,#1c150c;color:var(--ivory);border-radius:26px;padding:clamp(34px,4vw,52px);position:relative;overflow:hidden;box-shadow:0 34px 70px rgba(36,28,18,.3);isolation:isolate}
 .book-panel::before{content:"";position:absolute;inset:-60px;background:radial-gradient(closest-side,rgba(227,196,124,.22),transparent 70%);z-index:-1}
 .book-panel h3{font-family:var(--serif);font-size:clamp(30px,3.4vw,44px);font-weight:400;margin-bottom:14px}
 .book-panel h3 em{font-style:italic;color:var(--gold-2)}
@@ -319,7 +343,7 @@ footer{background:#171208;color:#e8dfc9;padding:70px 0 34px}
       <p class="sub hero-sub rv d2">Botox, rellenos, láser, faciales, Morpheus8, Endolift, IV Therapy y cirugía plástica — todo bajo un mismo techo, con atención médica profesional y trato cálido.</p>
       <div class="hero-ctas rv d2">
         <a class="btn gold" href="https://ig.me/m/golden_cosmetic_center" target="_blank" rel="noopener">Agendar por DM</a>
-        <a class="btn ghost" href="tel:+13052675317">305-267-5317</a>
+        <a class="btn btn-ghost" href="tel:+13052675317">305-267-5317</a>
       </div>
       <div class="hero-proof rv d3">
         <div><b><span data-count="33">0</span>K+</b><span>Comunidad en Instagram</span></div>
@@ -357,7 +381,7 @@ footer{background:#171208;color:#e8dfc9;padding:70px 0 34px}
       <p class="sub rv d1">Del facial de mantenimiento a la cirugía plástica: cada tratamiento se indica según tu caso, con valoración profesional antes de empezar.</p>
     </div>
     <div class="bento">
-      <article class="tcard s1 rv"><span class="tag">Rostro</span><span class="num">01</span><h3>Botox &amp; Rellenos</h3><p>Realce sutil y de apariencia natural: labios hidratados, volumen en mejillas y suavizado de líneas de expresión.</p></article>
+      <article class="tcard s1 feat rv"><span class="tag">Rostro</span><span class="num">01</span><h3>Botox &amp; Rellenos</h3><p>Realce sutil y de apariencia natural: labios hidratados, volumen en mejillas y suavizado de líneas de expresión.</p></article>
       <article class="tcard s2 rv d1"><span class="tag">Piel</span><span class="num">02</span><h3>Láser &amp; Lumecca IPL</h3><p>Tecnología de luz para manchas del sol, hiperpigmentación, rosácea y textura — temporada de láser todo el año.</p></article>
       <article class="tcard s3 rv"><span class="tag">Glow</span><span class="num">03</span><h3>Faciales de Lujo</h3><p>Hydro Jelly Masks, Golden Star Peel y LED Light Therapy: el ritual favorito para una piel luminosa.</p></article>
       <article class="tcard s4 rv d1"><span class="tag">Firmeza</span><span class="num">04</span><h3>Morpheus8</h3><p>Radiofrecuencia con microagujas para rostro y cuerpo: firmeza y textura sin cirugía.</p></article>
@@ -373,6 +397,20 @@ footer{background:#171208;color:#e8dfc9;padding:70px 0 34px}
   </div>
 </section>
 
+<!-- EXPERIENCIA -->
+<section class="xp" aria-label="La experiencia Golden">
+  <div class="xp-bg" data-plx="0.08"><img src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=1600&q=65&auto=format&fit=crop" alt="Ambiente sereno y premium de spa" loading="lazy" onerror="this.style.display='none'"></div>
+  <div class="wrap xp-inner">
+    <p class="eyebrow light rv" style="justify-content:center">La experiencia Golden</p>
+    <h2 class="h-sec rv">Un espacio diseñado<br>para <em>tu momento.</em></h2>
+    <div class="xp-stats rv d1">
+      <div><b>33K+</b><span>Comunidad en Instagram</span></div>
+      <div><b>9</b><span>Tratamientos bajo un mismo techo</span></div>
+      <div><b>Calle 8</b><span>Miami, Florida</span></div>
+    </div>
+  </div>
+</section>
+
 <!-- DOCTORA -->
 <section id="doctora" class="doc">
   <span class="ghost" data-plx="-0.04" aria-hidden="true">clínica</span>
@@ -381,7 +419,7 @@ footer{background:#171208;color:#e8dfc9;padding:70px 0 34px}
     <div class="doc-grid">
       <div class="doc-media rv" data-plx="0.06">
         <div class="doc-frame clip" data-clip>
-          <img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=1000&q=70&auto=format&fit=crop" alt="Ambiente de tratamiento en Golden Cosmetic Center" loading="lazy" onerror="this.style.display='none'">
+          <img src="https://images.unsplash.com/photo-1596178065887-1198b6148b2b?w=1000&q=70&auto=format&fit=crop" alt="Tratamiento facial premium en Golden Cosmetic Center" loading="lazy" onerror="this.style.display='none'">
         </div>
         <div class="doc-badge"><b>Dra. García</b><span>Golden Cosmetic Center</span></div>
       </div>
@@ -470,7 +508,7 @@ footer{background:#171208;color:#e8dfc9;padding:70px 0 34px}
         <h3>Tu mejor versión<br>empieza con <em>un mensaje.</em></h3>
         <p>Escríbenos por DM, cuéntanos qué buscas y agenda tu evaluación con nuestro equipo médico.</p>
         <a class="btn gold" href="https://ig.me/m/golden_cosmetic_center" target="_blank" rel="noopener">Abrir chat de Instagram</a>
-        <a class="btn ghost" style="color:#e8dfc9;border-color:rgba(227,196,124,.35)" href="tel:+13052675317">Llamar ahora</a>
+        <a class="btn btn-ghost" style="color:#e8dfc9;border-color:rgba(227,196,124,.35)" href="tel:+13052675317">Llamar ahora</a>
       </div>
     </div>
   </div>
