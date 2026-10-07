@@ -3,233 +3,224 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Figaro Barbershop — Show Up Sharp | Hialeah, FL</title>
-<meta name="description" content="Figaro Barbershop in Hialeah, FL. Clean blends, sharp lines, real precision. Fades, beard sculpting, hot towel shaves. Open 7 days. Book on WhatsApp.">
+<title>Figaro Barbershop — Precision Fades & Hot Towel Shaves | Hialeah, FL</title>
+<meta name="description" content="Figaro Barbershop in Hialeah, FL. Precision fades, beard sculpting and hot towel shaves. Walk-ins welcome — book on WhatsApp: (786) 712-0891.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;0,900;1,700&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;0,900;1,600;1,700&family=Jost:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
 <style>
 :root{
-  --black:#0b0906;
-  --ink:#14100a;
-  --panel:#171208;
+  --black:#0a0805;
+  --ink:#100c07;
+  --panel:#14100a;
   --gold:#c9a24b;
-  --gold-soft:#e3c878;
+  --gold-soft:#e8cf82;
   --gold-dim:#8a6f33;
-  --cream:#f4ecda;
-  --cream-70:rgba(244,236,218,.7);
-  --cream-40:rgba(244,236,218,.4);
+  --cream:#f5eedd;
+  --cream-70:rgba(245,238,221,.68);
+  --cream-45:rgba(245,238,221,.42);
   --line:rgba(201,162,75,.22);
-  --radius:18px;
+  --radius:20px;
   --ease:cubic-bezier(.22,.9,.28,1);
+  --serif:'Playfair Display',Georgia,serif;
+  --sans:'Jost',system-ui,-apple-system,sans-serif;
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{background:var(--black);color:var(--cream);font-family:'Jost',system-ui,sans-serif;font-weight:300;line-height:1.65;overflow-x:hidden;-webkit-font-smoothing:antialiased}
-::selection{background:var(--gold);color:var(--black)}
+body{background:var(--black);color:var(--cream);font-family:var(--sans);font-weight:300;line-height:1.7;overflow-x:hidden;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+::selection{background:var(--gold);color:#140f04}
 img{max-width:100%;display:block}
 a{color:inherit}
-h1,h2,h3,.display{font-family:'Playfair Display',Georgia,serif;font-weight:700;line-height:1.08;letter-spacing:.01em}
-.wrap{width:min(1180px,92vw);margin:0 auto}
-.eyebrow{display:inline-flex;align-items:center;gap:.7rem;font-size:.78rem;font-weight:500;letter-spacing:.32em;text-transform:uppercase;color:var(--gold)}
-.eyebrow::before{content:"";width:34px;height:1px;background:var(--gold)}
-.section{padding:clamp(4.5rem,9vw,7.5rem) 0;position:relative}
-.sec-head{max-width:680px;margin-bottom:clamp(2.2rem,5vw,3.6rem)}
-.sec-head h2{font-size:clamp(2.1rem,4.6vw,3.4rem);margin:.9rem 0 1rem}
-.sec-head h2 em{font-style:italic;color:var(--gold-soft)}
-.sec-head p{color:var(--cream-70);font-size:1.06rem}
+h1,h2,h3,.display{font-family:var(--serif);font-weight:700;line-height:1.1;letter-spacing:.01em}
+.wrap{width:min(1200px,92vw);margin:0 auto}
+.eyebrow{display:inline-flex;align-items:center;gap:.8rem;font-size:.74rem;font-weight:500;letter-spacing:.38em;text-transform:uppercase;color:var(--gold)}
+.eyebrow::before{content:"";width:38px;height:1px;background:linear-gradient(90deg,var(--gold),transparent)}
+.section{padding:clamp(5rem,10vw,8.5rem) 0;position:relative}
+.sec-head{max-width:720px;margin-bottom:clamp(2.6rem,5vw,4rem)}
+.sec-head.center{margin-inline:auto;text-align:center}
+.sec-head.center .eyebrow{justify-content:center}
+.sec-head.center .eyebrow::after{content:"";width:38px;height:1px;background:linear-gradient(270deg,var(--gold),transparent)}
+.sec-head h2{font-size:clamp(2.2rem,5vw,3.6rem);margin:1rem 0 1.1rem;font-weight:800}
+.sec-head h2 em{font-style:italic;font-weight:700;color:var(--gold-soft)}
+.sec-head p{color:var(--cream-70);font-size:1.06rem;max-width:60ch}
 
-/* ---------- reveal ---------- */
-.rv{opacity:0;transform:translateY(28px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+/* ---------- reveals ---------- */
+.rv{opacity:0;transform:translateY(30px);transition:opacity 1s var(--ease),transform 1s var(--ease)}
 .rv.in{opacity:1;transform:none}
 .rv.d1{transition-delay:.12s}.rv.d2{transition-delay:.24s}.rv.d3{transition-delay:.36s}
+.rv-img{clip-path:inset(6% 4% 6% 4% round 24px);opacity:0;transform:scale(.985);transition:clip-path 1.2s var(--ease),opacity 1.2s var(--ease),transform 1.2s var(--ease)}
+.rv-img.in{clip-path:inset(0 0 0 0 round 24px);opacity:1;transform:scale(1)}
 
 /* ---------- header ---------- */
-header{position:fixed;inset:0 0 auto 0;z-index:60;transition:background .35s,box-shadow .35s,backdrop-filter .35s}
-header.scrolled{background:rgba(11,9,6,.92);backdrop-filter:blur(14px);box-shadow:0 1px 0 var(--line)}
-.nav{display:flex;align-items:center;justify-content:space-between;padding:1.05rem 0}
-.brand{display:flex;align-items:center;gap:.8rem;text-decoration:none}
-.brand-mark{width:44px;height:44px;border:1px solid var(--gold);border-radius:50%;display:grid;place-items:center;font-family:'Playfair Display',serif;font-weight:800;font-size:1.25rem;color:var(--gold);letter-spacing:.02em}
-.brand-name{font-family:'Playfair Display',serif;font-weight:800;font-size:1.3rem;letter-spacing:.14em}
-.brand-name small{display:block;font-family:'Jost',sans-serif;font-weight:400;font-size:.6rem;letter-spacing:.42em;color:var(--gold);margin-top:2px}
-.nav-links{display:flex;gap:2rem;list-style:none}
-.nav-links a{text-decoration:none;font-size:.92rem;letter-spacing:.12em;text-transform:uppercase;color:var(--cream-70);transition:color .25s}
+header{position:fixed;inset:0 0 auto 0;z-index:60;transition:background .4s,box-shadow .4s,backdrop-filter .4s}
+header.scrolled{background:rgba(10,8,5,.88);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);box-shadow:0 1px 0 var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;padding:1rem 0}
+.brand{display:flex;align-items:center;gap:.85rem;text-decoration:none}
+.brand-mark{width:46px;height:46px;border:1px solid var(--gold);border-radius:50%;display:grid;place-items:center;font-family:var(--serif);font-weight:800;font-size:1.3rem;color:var(--gold);box-shadow:0 0 0 4px rgba(201,162,75,.08)}
+.brand-name{font-family:var(--serif);font-weight:800;font-size:1.28rem;letter-spacing:.16em}
+.brand-name small{display:block;font-family:var(--sans);font-weight:500;font-size:.58rem;letter-spacing:.5em;color:var(--gold);margin-top:3px}
+.nav-links{display:flex;gap:2.1rem;list-style:none}
+.nav-links a{text-decoration:none;font-size:.88rem;font-weight:400;letter-spacing:.16em;text-transform:uppercase;color:var(--cream-70);transition:color .25s;position:relative}
+.nav-links a::after{content:"";position:absolute;left:0;bottom:-6px;width:0;height:1px;background:var(--gold);transition:width .3s var(--ease)}
 .nav-links a:hover{color:var(--gold-soft)}
-.nav-cta{display:inline-flex;align-items:center;gap:.6rem;background:var(--gold);color:#171204;font-weight:600;font-size:.88rem;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;padding:.75rem 1.5rem;border-radius:999px;transition:transform .3s var(--ease),box-shadow .3s}
-.nav-cta:hover{transform:translateY(-2px);box-shadow:0 10px 28px rgba(201,162,75,.35)}
-.nav-cta svg{width:16px;height:16px}
+.nav-links a:hover::after{width:100%}
+.btn{display:inline-flex;align-items:center;gap:.7rem;text-decoration:none;font-weight:600;letter-spacing:.1em;text-transform:uppercase;font-size:.9rem;padding:1.02rem 2.1rem;border-radius:999px;transition:transform .3s var(--ease),box-shadow .3s,background .3s,border-color .3s;cursor:pointer}
+.btn svg{width:17px;height:17px;flex:none}
+.btn-gold{background:linear-gradient(135deg,var(--gold-soft),var(--gold) 60%,#a8842f);color:#171204;box-shadow:0 6px 22px rgba(201,162,75,.22)}
+.btn-gold:hover{transform:translateY(-3px);box-shadow:0 16px 38px rgba(201,162,75,.4)}
+.btn-ghost{border:1px solid var(--line);color:var(--cream);background:rgba(201,162,75,.04)}
+.btn-ghost:hover{border-color:var(--gold);background:rgba(201,162,75,.12);transform:translateY(-3px)}
+.nav-cta{font-size:.84rem;padding:.78rem 1.6rem}
 
 /* ---------- hero ---------- */
-.hero{min-height:100svh;display:flex;align-items:flex-end;position:relative;overflow:hidden}
+.hero{min-height:100svh;display:flex;align-items:flex-end;position:relative;overflow:hidden;background:#060402}
 .hero-bg{position:absolute;inset:0}
-.hero-bg img{width:100%;height:100%;object-fit:cover;object-position:center 30%;transform:scale(1.06);animation:heroZoom 14s var(--ease) forwards}
+.hero-bg img{width:100%;height:100%;object-fit:cover;object-position:center 28%;transform:scale(1.08);animation:heroZoom 16s var(--ease) forwards;filter:saturate(1.02)}
 @keyframes heroZoom{to{transform:scale(1)}}
-.hero-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,9,6,.62) 0%,rgba(11,9,6,.28) 38%,rgba(11,9,6,.55) 68%,var(--black) 100%)}
-.hero-inner{position:relative;z-index:2;width:min(1180px,92vw);margin:0 auto;padding:9rem 0 5.5rem}
-.hero h1{font-size:clamp(2.9rem,8vw,5.6rem);font-weight:800;max-width:14ch}
+.hero-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,8,5,.68) 0%,rgba(10,8,5,.22) 34%,rgba(10,8,5,.42) 62%,var(--black) 98%)}
+.hero-inner{position:relative;z-index:2;width:min(1200px,92vw);margin:0 auto;padding:10rem 0 5rem}
+.hero-rule{width:64px;height:2px;background:var(--gold);margin:1.6rem 0 0}
+.hero h1{font-size:clamp(2.9rem,8.2vw,5.9rem);font-weight:800;max-width:15ch;text-shadow:0 4px 40px rgba(0,0,0,.55)}
 .hero h1 em{font-style:italic;color:var(--gold-soft)}
-.hero-sub{max-width:52ch;color:var(--cream-70);font-size:clamp(1.02rem,1.8vw,1.2rem);margin:1.4rem 0 2.2rem}
+.hero-sub{max-width:54ch;color:var(--cream-70);font-size:clamp(1.02rem,1.7vw,1.2rem);margin:1.4rem 0 2.4rem}
 .hero-ctas{display:flex;gap:1rem;flex-wrap:wrap}
-.btn{display:inline-flex;align-items:center;gap:.7rem;text-decoration:none;font-weight:600;letter-spacing:.1em;text-transform:uppercase;font-size:.92rem;padding:1rem 2rem;border-radius:999px;transition:transform .3s var(--ease),box-shadow .3s,background .3s}
-.btn svg{width:17px;height:17px}
-.btn-gold{background:linear-gradient(135deg,var(--gold-soft),var(--gold));color:#171204}
-.btn-gold:hover{transform:translateY(-3px);box-shadow:0 14px 34px rgba(201,162,75,.4)}
-.btn-ghost{border:1px solid var(--line);color:var(--cream)}
-.btn-ghost:hover{border-color:var(--gold);background:rgba(201,162,75,.1);transform:translateY(-3px)}
-.hero-meta{display:flex;gap:2.4rem;margin-top:3rem;flex-wrap:wrap}
-.hero-meta div{display:flex;align-items:center;gap:.7rem;font-size:.95rem;color:var(--cream-70)}
-.hero-meta svg{width:18px;height:18px;stroke:var(--gold);flex:none}
+.hero-meta{display:flex;gap:2.6rem;margin-top:3.2rem;flex-wrap:wrap}
+.hero-meta div{display:flex;align-items:center;gap:.75rem;font-size:.95rem;color:var(--cream-70)}
+.hero-meta svg{width:19px;height:19px;stroke:var(--gold);fill:none;stroke-width:1.7;flex:none}
 .hero-meta strong{color:var(--cream);font-weight:500}
-.scroll-hint{position:absolute;right:4vw;bottom:2.2rem;z-index:2;display:flex;flex-direction:column;align-items:center;gap:.7rem;color:var(--cream-40);font-size:.7rem;letter-spacing:.35em;text-transform:uppercase}
-.scroll-hint span.line{width:1px;height:56px;background:linear-gradient(var(--gold),transparent);animation:drip 2.2s ease-in-out infinite}
-@keyframes drip{0%,100%{transform:scaleY(.4);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}}
+.scroll-hint{position:absolute;right:4.5vw;bottom:2.4rem;z-index:2;display:flex;flex-direction:column;align-items:center;gap:.8rem;color:var(--cream-45);font-size:.68rem;letter-spacing:.4em;text-transform:uppercase}
+.scroll-hint .line{width:1px;height:58px;background:linear-gradient(var(--gold),transparent);animation:drip 2.2s ease-in-out infinite;transform-origin:top}
+@keyframes drip{0%,100%{transform:scaleY(.35)}50%{transform:scaleY(1)}}
 
 /* ---------- marquee ---------- */
-.marquee{border-block:1px solid var(--line);background:#0e0b06;padding:1.15rem 0;overflow:hidden;white-space:nowrap}
-.marquee-track{display:inline-flex;gap:0;animation:mq 26s linear infinite}
-.marquee span{font-family:'Playfair Display',serif;font-style:italic;font-size:1.15rem;color:var(--gold-soft);padding:0 1.6rem;display:inline-flex;align-items:center;gap:1.6rem}
-.marquee span::after{content:"✦";color:var(--gold-dim);font-style:normal;font-size:.8rem}
+.marquee{border-block:1px solid var(--line);background:#0d0a06;padding:1.2rem 0;overflow:hidden;white-space:nowrap}
+.marquee-track{display:inline-flex;animation:mq 28s linear infinite;will-change:transform}
+.marquee span{font-family:var(--serif);font-style:italic;font-size:1.18rem;color:var(--gold-soft);padding:0 1.7rem;display:inline-flex;align-items:center;gap:3.4rem}
+.marquee span::after{content:"✦";color:var(--gold-dim);font-style:normal;font-size:.78rem}
 @keyframes mq{to{transform:translateX(-50%)}}
 
-/* ---------- stats ---------- */
-.stats{background:var(--ink)}
-.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden}
-.stat{background:var(--ink);padding:2.4rem 1.6rem;text-align:center;transition:background .35s}
-.stat:hover{background:#1a1410}
-.stat b{display:block;font-family:'Playfair Display',serif;font-size:clamp(2rem,4vw,2.9rem);font-weight:800;color:var(--gold-soft)}
-.stat b .star{font-size:.65em;vertical-align:.25em}
-.stat small{display:block;margin-top:.5rem;color:var(--cream-70);letter-spacing:.14em;text-transform:uppercase;font-size:.76rem}
-
 /* ---------- services ---------- */
-.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.3rem}
-.svc{border:1px solid var(--line);border-radius:var(--radius);padding:2.2rem 1.9rem;background:linear-gradient(160deg,#151009,#0d0a05);position:relative;overflow:hidden;transition:transform .35s var(--ease),border-color .35s,box-shadow .35s}
-.svc::before{content:"";position:absolute;inset:0 0 auto 0;height:3px;background:linear-gradient(90deg,var(--gold),transparent);opacity:0;transition:opacity .35s}
-.svc:hover{transform:translateY(-8px);border-color:rgba(201,162,75,.55);box-shadow:0 24px 50px rgba(0,0,0,.5)}
+.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem;margin-top:.4rem}
+.svc{border:1px solid var(--line);border-radius:var(--radius);padding:2.6rem 2.1rem;background:linear-gradient(165deg,#16100a,#0c0905 70%);position:relative;overflow:hidden;transition:transform .4s var(--ease),border-color .4s,box-shadow .4s;display:flex;flex-direction:column}
+.svc::before{content:"";position:absolute;inset:0 0 auto 0;height:2px;background:linear-gradient(90deg,var(--gold),transparent 80%);opacity:0;transition:opacity .4s}
+.svc:hover{transform:translateY(-10px);border-color:rgba(201,162,75,.55);box-shadow:0 30px 60px rgba(0,0,0,.55)}
 .svc:hover::before{opacity:1}
-.svc-ic{width:54px;height:54px;border:1px solid var(--line);border-radius:14px;display:grid;place-items:center;margin-bottom:1.3rem;background:rgba(201,162,75,.06)}
-.svc-ic svg{width:26px;height:26px;stroke:var(--gold-soft);fill:none;stroke-width:1.6}
-.svc h3{font-size:1.35rem;margin-bottom:.55rem}
-.svc p{color:var(--cream-70);font-size:.98rem;margin-bottom:1.2rem}
-.svc-foot{display:flex;align-items:center;justify-content:space-between;border-top:1px dashed var(--line);padding-top:1.1rem}
-.price{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:800;color:var(--gold-soft)}
-.price small{font-family:'Jost',sans-serif;font-size:.78rem;font-weight:400;color:var(--cream-40);letter-spacing:.06em}
-.dur{font-size:.82rem;color:var(--cream-40);letter-spacing:.08em}
-.price-note{margin-top:1.8rem;color:var(--cream-40);font-size:.85rem;font-style:italic}
+.svc-num{font-family:var(--serif);font-size:.95rem;color:var(--gold-dim);letter-spacing:.3em;margin-bottom:1.4rem}
+.svc h3{font-size:1.6rem;margin-bottom:.7rem}
+.svc p{color:var(--cream-70);font-size:1rem;flex:1}
+.svc-list{list-style:none;margin-top:1.4rem;border-top:1px dashed var(--line);padding-top:1.2rem}
+.svc-list li{display:flex;gap:.7rem;align-items:baseline;color:var(--cream-70);font-size:.93rem;padding:.28rem 0}
+.svc-list li::before{content:"—";color:var(--gold);flex:none}
+.svc-note{margin-top:2rem;text-align:center;color:var(--cream-45);font-size:.9rem;font-style:italic}
+
+/* ---------- ritual ---------- */
+.ritual{background:linear-gradient(180deg,#0c0905,#120d08 55%,#0c0905)}
+.ritual-grid{display:grid;grid-template-columns:1fr 1.05fr;gap:clamp(2.5rem,6vw,5.5rem);align-items:center}
+.ritual-img{position:relative}
+.ritual-img img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:24px;box-shadow:0 40px 90px rgba(0,0,0,.6)}
+.ritual-img::after{content:"";position:absolute;inset:-14px;border:1px solid var(--line);border-radius:30px;pointer-events:none}
+.ritual-copy .eyebrow{margin-bottom:1rem}
+.ritual-copy h2{font-size:clamp(2.1rem,4.4vw,3.3rem);margin-bottom:1.1rem;font-weight:800}
+.ritual-copy h2 em{font-style:italic;color:var(--gold-soft)}
+.ritual-copy>p{color:var(--cream-70);margin-bottom:2.4rem;max-width:52ch}
+.steps{display:grid;gap:0}
+.step{display:grid;grid-template-columns:auto 1fr;gap:1.5rem;padding:1.6rem 0;border-top:1px solid var(--line);transition:padding-left .35s var(--ease)}
+.step:last-child{border-bottom:1px solid var(--line)}
+.step:hover{padding-left:.6rem}
+.step-n{font-family:var(--serif);font-size:1.9rem;font-weight:900;color:transparent;-webkit-text-stroke:1px var(--gold);line-height:1.2}
+.step h3{font-size:1.18rem;margin-bottom:.35rem}
+.step p{color:var(--cream-70);font-size:.96rem}
 
 /* ---------- gallery ---------- */
 .gallery{background:var(--ink)}
-.gal-grid{display:grid;grid-template-columns:1.15fr 1fr 1fr;gap:1.2rem}
-.gal-item{position:relative;border-radius:var(--radius);overflow:hidden;min-height:380px;border:1px solid var(--line)}
-.gal-item img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0;transition:transform 1.2s var(--ease)}
-.gal-item:hover img{transform:scale(1.06)}
-.gal-cap{position:absolute;inset:auto 0 0 0;padding:2.4rem 1.5rem 1.3rem;background:linear-gradient(transparent,rgba(8,6,3,.92));z-index:2}
-.gal-cap h3{font-size:1.2rem}
-.gal-cap p{font-size:.86rem;color:var(--cream-70)}
+.gal-grid{display:grid;grid-template-columns:1.2fr 1fr 1fr;grid-template-rows:1fr 1fr;gap:1.2rem}
+.gal-item{position:relative;border-radius:var(--radius);overflow:hidden;min-height:280px;border:1px solid var(--line)}
+.gal-item:first-child{grid-row:span 2;min-height:480px}
+.gal-item img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0;transition:transform 1.4s var(--ease)}
+.gal-item:hover img{transform:scale(1.07)}
+.gal-cap{position:absolute;inset:auto 0 0 0;padding:2.6rem 1.5rem 1.35rem;background:linear-gradient(transparent,rgba(7,5,2,.94));z-index:2;transform:translateY(8px);transition:transform .5s var(--ease)}
+.gal-item:hover .gal-cap{transform:none}
+.gal-cap h3{font-size:1.22rem}
+.gal-cap p{font-size:.88rem;color:var(--cream-70)}
 
-/* ---------- team ---------- */
-.team-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.3rem}
-.tm{border:1px solid var(--line);border-radius:var(--radius);padding:2.4rem 2rem;text-align:center;background:#100c07;transition:transform .35s var(--ease),border-color .35s}
-.tm:hover{transform:translateY(-8px);border-color:rgba(201,162,75,.55)}
-.tm-avatar{width:96px;height:96px;margin:0 auto 1.3rem;border-radius:50%;border:1px solid var(--gold);display:grid;place-items:center;font-family:'Playfair Display',serif;font-size:2rem;font-weight:800;color:var(--gold);background:radial-gradient(circle at 35% 30%,rgba(201,162,75,.22),transparent 70%)}
-.tm h3{font-size:1.3rem}
-.tm .role{color:var(--gold-soft);letter-spacing:.2em;text-transform:uppercase;font-size:.74rem;margin:.5rem 0 .9rem}
-.tm p{color:var(--cream-70);font-size:.95rem}
-
-/* ---------- process ---------- */
-.process{background:linear-gradient(180deg,#0e0a06,#14100a 50%,#0e0a06)}
-.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:1.3rem;counter-reset:step}
-.step{border:1px solid var(--line);border-radius:var(--radius);padding:2.4rem 2rem;background:rgba(201,162,75,.03);position:relative;transition:transform .35s var(--ease)}
-.step:hover{transform:translateY(-6px)}
-.step-n{font-family:'Playfair Display',serif;font-size:3.2rem;font-weight:900;color:transparent;-webkit-text-stroke:1px var(--gold);line-height:1;margin-bottom:1rem;display:block}
-.step h3{font-size:1.3rem;margin-bottom:.6rem}
-.step p{color:var(--cream-70);font-size:.97rem}
-
-/* ---------- testimonials ---------- */
-.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.3rem}
-.tst{border:1px solid var(--line);border-radius:var(--radius);padding:2.2rem 1.9rem;background:#100c07;display:flex;flex-direction:column;gap:1.1rem;transition:transform .35s var(--ease)}
-.tst:hover{transform:translateY(-6px)}
-.tst .quote-mark{font-family:'Playfair Display',serif;font-size:3rem;line-height:1;color:var(--gold)}
-.tst p{color:var(--cream-70);font-size:1rem;flex:1}
-.tst .who{display:flex;align-items:center;gap:.9rem}
-.tst .who .av{width:44px;height:44px;border-radius:50%;border:1px solid var(--gold);display:grid;place-items:center;font-family:'Playfair Display',serif;color:var(--gold);font-weight:700}
-.tst .who b{display:block;font-weight:500;font-size:.95rem}
-.tst .who small{color:var(--cream-40);font-size:.8rem}
-.tst .stars{color:var(--gold-soft);letter-spacing:.25em;font-size:.85rem}
-
-/* ---------- pricing tiers ---------- */
-.tiers{display:grid;grid-template-columns:repeat(3,1fr);gap:1.3rem;align-items:stretch}
-.tier{border:1px solid var(--line);border-radius:22px;padding:2.6rem 2.1rem;background:#100c07;display:flex;flex-direction:column;position:relative;transition:transform .35s var(--ease),box-shadow .35s}
-.tier:hover{transform:translateY(-8px)}
-.tier.popular{border-color:var(--gold);background:linear-gradient(170deg,#1c150a,#100c07 60%);box-shadow:0 24px 60px rgba(201,162,75,.14)}
-.tier .tag{position:absolute;top:-14px;left:50%;transform:translateX(-50%);background:linear-gradient(135deg,var(--gold-soft),var(--gold));color:#171204;font-size:.72rem;font-weight:600;letter-spacing:.22em;text-transform:uppercase;padding:.45rem 1.3rem;border-radius:999px;white-space:nowrap}
-.tier h3{font-size:1.45rem;margin-bottom:.4rem}
-.tier .tier-sub{color:var(--cream-70);font-size:.94rem;margin-bottom:1.5rem}
-.tier .tprice{font-family:'Playfair Display',serif;font-size:2.6rem;font-weight:800;color:var(--gold-soft);margin-bottom:1.5rem}
-.tier .tprice small{font-family:'Jost',sans-serif;font-size:.85rem;font-weight:400;color:var(--cream-40)}
-.tier ul{list-style:none;margin-bottom:2rem;flex:1}
-.tier li{display:flex;gap:.7rem;align-items:flex-start;padding:.55rem 0;color:var(--cream-70);font-size:.96rem;border-bottom:1px dashed rgba(201,162,75,.14)}
-.tier li:last-child{border-bottom:none}
-.tier li svg{width:16px;height:16px;stroke:var(--gold);fill:none;stroke-width:2.4;flex:none;margin-top:.32rem}
-.tier .btn{justify-content:center}
+/* ---------- visit ---------- */
+.visit-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:clamp(2.5rem,6vw,5rem);align-items:start}
+.visit-card{border:1px solid var(--line);border-radius:26px;background:linear-gradient(165deg,#151009,#0c0905);padding:clamp(2rem,4vw,3.2rem);position:relative;overflow:hidden}
+.visit-card::before{content:"";position:absolute;top:0;left:10%;right:10%;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+.visit-row{display:flex;gap:1.2rem;align-items:flex-start;padding:1.3rem 0;border-bottom:1px dashed var(--line)}
+.visit-row:last-child{border-bottom:none}
+.visit-row .ic{width:48px;height:48px;flex:none;border:1px solid var(--line);border-radius:14px;display:grid;place-items:center;background:rgba(201,162,75,.06)}
+.visit-row .ic svg{width:22px;height:22px;stroke:var(--gold-soft);fill:none;stroke-width:1.7}
+.visit-row h4{font-family:var(--sans);font-size:.76rem;font-weight:600;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);margin-bottom:.45rem}
+.visit-row p,.visit-row a{font-size:1.06rem;color:var(--cream);text-decoration:none}
+.visit-row a:hover{color:var(--gold-soft)}
+.visit-side h2{font-size:clamp(2.1rem,4.4vw,3.2rem);font-weight:800;margin:1rem 0 1.1rem}
+.visit-side h2 em{font-style:italic;color:var(--gold-soft)}
+.visit-side>p{color:var(--cream-70);margin-bottom:2rem;max-width:52ch}
+.visit-ctas{display:flex;gap:1rem;flex-wrap:wrap}
 
 /* ---------- faq ---------- */
-.faq{max-width:820px;margin:0 auto}
-.faq-item{border:1px solid var(--line);border-radius:14px;margin-bottom:.9rem;background:#100c07;overflow:hidden;transition:border-color .3s}
+.faq{max-width:840px;margin:0 auto}
+.faq-item{border:1px solid var(--line);border-radius:16px;margin-bottom:.9rem;background:#100c07;overflow:hidden;transition:border-color .3s}
 .faq-item.open{border-color:rgba(201,162,75,.55)}
-.faq-q{width:100%;background:none;border:none;color:var(--cream);font-family:'Jost',sans-serif;font-size:1.05rem;font-weight:500;text-align:left;padding:1.35rem 1.6rem;display:flex;justify-content:space-between;align-items:center;gap:1rem;cursor:pointer}
-.faq-q .ic{flex:none;width:30px;height:30px;border:1px solid var(--line);border-radius:50%;display:grid;place-items:center;transition:transform .4s var(--ease),background .3s}
+.faq-q{width:100%;background:none;border:none;color:var(--cream);font-family:var(--sans);font-size:1.05rem;font-weight:500;text-align:left;padding:1.4rem 1.7rem;display:flex;justify-content:space-between;align-items:center;gap:1rem;cursor:pointer}
+.faq-q .ic{flex:none;width:32px;height:32px;border:1px solid var(--line);border-radius:50%;display:grid;place-items:center;transition:transform .4s var(--ease),background .3s}
 .faq-q .ic svg{width:14px;height:14px;stroke:var(--gold);fill:none;stroke-width:2}
 .faq-item.open .ic{transform:rotate(45deg);background:rgba(201,162,75,.12)}
-.faq-a{max-height:0;overflow:hidden;transition:max-height .5s var(--ease)}
-.faq-a p{padding:0 1.6rem 1.5rem;color:var(--cream-70);font-size:.97rem}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .55s var(--ease)}
+.faq-a p{padding:0 1.7rem 1.6rem;color:var(--cream-70);font-size:.98rem}
 
 /* ---------- final CTA ---------- */
-.cta-band{position:relative;border-radius:26px;overflow:hidden;border:1px solid var(--line);margin:0 auto}
-.cta-band img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.cta-band::after{content:"";position:absolute;inset:0;background:linear-gradient(100deg,rgba(8,6,3,.94) 20%,rgba(8,6,3,.55) 60%,rgba(8,6,3,.25))}
-.cta-inner{position:relative;z-index:2;padding:clamp(3rem,7vw,5.5rem) clamp(1.8rem,5vw,4.5rem);max-width:640px}
-.cta-inner h2{font-size:clamp(2rem,4.6vw,3.2rem);margin-bottom:1rem}
+.cta-band{position:relative;border-radius:28px;overflow:hidden;border:1px solid var(--line);min-height:480px;display:flex;align-items:center}
+.cta-band>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 22%}
+.cta-band::after{content:"";position:absolute;inset:0;background:linear-gradient(100deg,rgba(8,6,3,.95) 18%,rgba(8,6,3,.62) 55%,rgba(8,6,3,.22))}
+.cta-inner{position:relative;z-index:2;padding:clamp(3rem,7vw,5.5rem) clamp(1.8rem,5vw,4.5rem);max-width:660px}
+.cta-inner h2{font-size:clamp(2.1rem,4.8vw,3.4rem);font-weight:800;margin-bottom:1rem}
 .cta-inner h2 em{font-style:italic;color:var(--gold-soft)}
-.cta-inner p{color:var(--cream-70);margin-bottom:2rem;font-size:1.05rem}
-.cta-inner .hero-ctas{margin:0}
+.cta-inner p{color:var(--cream-70);margin-bottom:2.2rem;font-size:1.05rem;max-width:48ch}
 
 /* ---------- footer ---------- */
-footer{border-top:1px solid var(--line);background:#080604;padding:4rem 0 2rem;margin-top:clamp(4.5rem,9vw,7.5rem)}
-.foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:2.4rem;margin-bottom:3rem}
-.foot-grid h4{font-family:'Jost',sans-serif;font-size:.8rem;font-weight:600;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);margin-bottom:1.2rem}
+footer{border-top:1px solid var(--line);background:#070502;padding:4.5rem 0 2rem;margin-top:clamp(5rem,10vw,8.5rem)}
+.foot-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:2.4rem;margin-bottom:3rem}
+.foot-grid h4{font-family:var(--sans);font-size:.76rem;font-weight:600;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);margin-bottom:1.2rem}
 .foot-grid ul{list-style:none}
 .foot-grid li{margin-bottom:.7rem;color:var(--cream-70);font-size:.95rem}
 .foot-grid a{text-decoration:none;transition:color .25s}
 .foot-grid a:hover{color:var(--gold-soft)}
-.foot-brand p{color:var(--cream-70);font-size:.96rem;max-width:32ch;margin-top:1rem}
-.foot-bottom{border-top:1px solid rgba(201,162,75,.12);padding-top:1.8rem;display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;color:var(--cream-40);font-size:.84rem}
+.foot-brand p{color:var(--cream-70);font-size:.96rem;max-width:34ch;margin-top:1.1rem}
+.foot-bottom{border-top:1px solid rgba(201,162,75,.12);padding-top:1.8rem;display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;color:var(--cream-45);font-size:.84rem}
 
 /* ---------- mobile sticky bar ---------- */
-.mobile-bar{position:fixed;inset:auto 0 0 0;z-index:55;display:none;grid-template-columns:1fr 1fr;background:rgba(11,9,6,.96);backdrop-filter:blur(12px);border-top:1px solid var(--line)}
+.mobile-bar{position:fixed;inset:auto 0 0 0;z-index:55;display:none;grid-template-columns:1fr 1fr;background:rgba(10,8,5,.96);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-top:1px solid var(--line)}
 .mobile-bar a{display:flex;align-items:center;justify-content:center;gap:.6rem;padding:1.05rem;text-decoration:none;font-weight:600;letter-spacing:.1em;text-transform:uppercase;font-size:.85rem}
 .mobile-bar a svg{width:17px;height:17px}
 .mobile-bar .m-call{color:var(--cream)}
 .mobile-bar .m-wa{background:linear-gradient(135deg,var(--gold-soft),var(--gold));color:#171204}
 
 /* ---------- responsive ---------- */
-@media(max-width:960px){
+@media(max-width:1000px){
   .nav-links{display:none}
-  .svc-grid,.team-grid,.steps,.testi-grid,.tiers{grid-template-columns:1fr 1fr}
-  .stats-grid{grid-template-columns:1fr 1fr}
+  .svc-grid{grid-template-columns:1fr 1fr}
+  .gal-grid{grid-template-columns:1fr 1fr}
+  .gal-item:first-child{grid-row:auto;grid-column:span 2;min-height:360px}
+  .ritual-grid,.visit-grid{grid-template-columns:1fr}
+  .ritual-img img{aspect-ratio:16/10}
   .foot-grid{grid-template-columns:1fr 1fr}
 }
 @media(max-width:640px){
-  .svc-grid,.team-grid,.steps,.testi-grid,.tiers{grid-template-columns:1fr}
+  .svc-grid{grid-template-columns:1fr}
   .gal-grid{grid-template-columns:1fr}
-  .gal-item{min-height:300px}
+  .gal-item,.gal-item:first-child{grid-column:auto;min-height:300px}
   .mobile-bar{display:grid}
-  footer{padding-bottom:7rem}
+  footer{padding-bottom:7.2rem}
   .scroll-hint{display:none}
   .nav-cta{display:none}
+  .hero-inner{padding:8.5rem 0 4rem}
+  .cta-band{min-height:560px}
 }
 @media(prefers-reduced-motion:reduce){
   *,*::before,*::after{animation:none!important;transition:none!important}
-  .rv{opacity:1;transform:none}
+  .rv,.rv-img{opacity:1;transform:none;clip-path:none}
 }
 </style>
 </head>
@@ -244,12 +235,12 @@ footer{border-top:1px solid var(--line);background:#080604;padding:4rem 0 2rem;m
       </a>
       <ul class="nav-links">
         <li><a href="#services">Services</a></li>
+        <li><a href="#ritual">The Ritual</a></li>
         <li><a href="#gallery">The Shop</a></li>
-        <li><a href="#team">Barbers</a></li>
-        <li><a href="#pricing">Pricing</a></li>
+        <li><a href="#visit">Visit Us</a></li>
         <li><a href="#faq">FAQ</a></li>
       </ul>
-      <a class="nav-cta" href="https://wa.me/17867120891?text=Hi%20Figaro%2C%20I%27d%20like%20to%20book%20a%20cut" target="_blank" rel="noopener">
+      <a class="btn btn-gold nav-cta" href="https://wa.me/17867120891?text=Hi%20Figaro%2C%20I%27d%20like%20to%20book%20a%20cut" target="_blank" rel="noopener">
         <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.4 14.1c-.2.7-1.3 1.3-1.9 1.4-.5.1-1.1.1-3.6-1.5-2.9-1.8-4.8-5.6-5-5.9-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.4 0 .6l-.4.6-.5.5c-.2.2-.3.4-.1.7.2.3.9 1.5 2 2.4 1.4 1.2 2.5 1.6 2.9 1.8.3.2.5.1.7-.1l1-1.2c.2-.3.4-.2.7-.1l2 1c.3.1.5.2.6.4 0 .1 0 .7-.2 1.4z"/></svg>
         Book now
       </a>
@@ -262,12 +253,13 @@ footer{border-top:1px solid var(--line);background:#080604;padding:4rem 0 2rem;m
 <!-- HERO -->
 <section class="hero">
   <div class="hero-bg">
-    <img src="images/fb-hero.jpg" alt="Barber giving a sharp fade haircut at Figaro Barbershop" fetchpriority="high">
+    <img src="images/fb2-hero.jpg" alt="Barber doing a precision fade at Figaro Barbershop, Hialeah" fetchpriority="high">
   </div>
   <div class="hero-inner">
-    <span class="eyebrow rv">Hialeah · Miami Gardens, FL</span>
-    <h1 class="rv d1">Show up sharp.<br><em>Show up confident.</em></h1>
-    <p class="hero-sub rv d2">Clean blends. Sharp lines. Real precision. At Figaro Barbershop, every detail hits different — from the first lineup to the final hot-towel finish. This is the Figaro way.</p>
+    <span class="eyebrow rv">Hialeah, FL</span>
+    <h1 class="rv d1">Precision fades.<br><em>Razor-sharp finish.</em></h1>
+    <div class="hero-rule rv d1"></div>
+    <p class="hero-sub rv d2">At Figaro Barbershop, every cut is a craft — clean blends, sculpted beards and the old-school hot towel ritual. Sit down, walk out unforgettable.</p>
     <div class="hero-ctas rv d3">
       <a class="btn btn-gold" href="https://wa.me/17867120891?text=Hi%20Figaro%2C%20I%27d%20like%20to%20book%20a%20cut" target="_blank" rel="noopener">
         <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.4 14.1c-.2.7-1.3 1.3-1.9 1.4-.5.1-1.1.1-3.6-1.5-2.9-1.8-4.8-5.6-5-5.9-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.4 0 .6l-.4.6-.5.5c-.2.2-.3.4-.1.7.2.3.9 1.5 2 2.4 1.4 1.2 2.5 1.6 2.9 1.8.3.2.5.1.7-.1l1-1.2c.2-.3.4-.2.7-.1l2 1c.3.1.5.2.6.4 0 .1 0 .7-.2 1.4z"/></svg>
@@ -280,89 +272,109 @@ footer{border-top:1px solid var(--line);background:#080604;padding:4rem 0 2rem;m
     </div>
     <div class="hero-meta rv d3">
       <div>
-        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M12 2l2.9 6.6 7.1.7-5.4 4.8 1.6 7-6.2-3.7-6.2 3.7 1.6-7L2 9.3l7.1-.7z"/></svg>
-        <span><strong>4.6 stars</strong> · 100+ Google reviews</span>
-      </div>
-      <div>
-        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
-        <span>Open <strong>7 days</strong> · 8:30 AM – 8:00 PM</span>
-      </div>
-      <div>
-        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M20 6L9 17l-5-5"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>
         <span>Walk-ins <strong>welcome</strong></span>
+      </div>
+      <div>
+        <svg viewBox="0 0 24 24"><path d="M12 21s7-5.5 7-11a7 7 0 1 0-14 0c0 5.5 7 11 7 11z"/><circle cx="12" cy="10" r="2.6"/></svg>
+        <span><strong>18656 NW 67th Ave</strong>, Hialeah, FL</span>
+      </div>
+      <div>
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+        <span>Message us for <strong>today's availability</strong></span>
       </div>
     </div>
   </div>
   <div class="scroll-hint" aria-hidden="true">Scroll<span class="line"></span></div>
 </section>
-
 <!-- MARQUEE -->
 <div class="marquee" aria-hidden="true">
   <div class="marquee-track">
-    <span>Skin Fade</span><span>Beard Sculpt</span><span>Hot Towel Shave</span><span>Classic Cut</span><span>Kids Cuts</span><span>Line-Up</span><span>Designs</span><span>Blowout</span>
-    <span>Skin Fade</span><span>Beard Sculpt</span><span>Hot Towel Shave</span><span>Classic Cut</span><span>Kids Cuts</span><span>Line-Up</span><span>Designs</span><span>Blowout</span>
+    <span>Precision Fades</span><span>Beard Sculpting</span><span>Hot Towel Shaves</span><span>Walk-Ins Welcome</span>
+    <span>Precision Fades</span><span>Beard Sculpting</span><span>Hot Towel Shaves</span><span>Walk-Ins Welcome</span>
   </div>
 </div>
-
-<!-- STATS -->
-<section class="section stats">
-  <div class="wrap">
-    <div class="stats-grid rv">
-      <div class="stat"><b>4.6<span class="star">★</span></b><small>Google rating</small></div>
-      <div class="stat"><b>5</b><small>Locations in Miami-Dade</small></div>
-      <div class="stat"><b>7</b><small>Days open, every week</small></div>
-      <div class="stat"><b>100%</b><small>Family-friendly shop</small></div>
-    </div>
-  </div>
-</section>
 
 <!-- SERVICES -->
 <section class="section" id="services">
   <div class="wrap">
     <div class="sec-head rv">
-      <span class="eyebrow">Services</span>
-      <h2>Every detail <em>hits different</em></h2>
-      <p>From before to fresh — a clean cut changes everything: your look, your vibe, your confidence. Choose your service, we handle the rest.</p>
+      <span class="eyebrow">The Craft</span>
+      <h2>Three specialties.<br><em>Zero shortcuts.</em></h2>
+      <p>We don't do everything — we do a few things at an obsessive level. This is what Figaro is known for in Hialeah.</p>
     </div>
     <div class="svc-grid">
       <article class="svc rv">
-        <div class="svc-ic"><svg viewBox="0 0 24 24"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M8.5 8.5L20 20M8.5 15.5L20 4"/></svg></div>
-        <h3>Classic Haircut</h3>
-        <p>Precision scissor and clipper work tailored to your face shape — consultation, cut, wash and style.</p>
-        <div class="svc-foot"><span class="price">from $30</span><span class="dur">35 min</span></div>
+        <div class="svc-num">01</div>
+        <h3>Precision Fades</h3>
+        <p>Seamless blends and razor-crisp transitions, cut to your face shape and your style — from a low taper to a skin fade that turns heads.</p>
+        <ul class="svc-list">
+          <li>Consultation before every cut</li>
+          <li>Clean blends, sharp line-up</li>
+          <li>Styled finish to walk out</li>
+        </ul>
       </article>
       <article class="svc rv d1">
-        <div class="svc-ic"><svg viewBox="0 0 24 24"><path d="M3 17c2.5 0 3.5-1.5 5-1.5s2.5 1.5 4 1.5 2.5-1.5 4-1.5 2.5 1.5 5 1.5M3 12c2.5 0 3.5-1.5 5-1.5s2.5 1.5 4 1.5 2.5-1.5 4-1.5 2.5 1.5 5 1.5M12 3v3"/></svg></div>
-        <h3>Skin Fade</h3>
-        <p>Seamless blends, crisp transitions, razor-sharp finish. Our signature fade, built to turn heads.</p>
-        <div class="svc-foot"><span class="price">from $35</span><span class="dur">40 min</span></div>
+        <div class="svc-num">02</div>
+        <h3>Beard Sculpting</h3>
+        <p>Your beard, engineered. Shape, line and condition with hot towel prep, straight-razor detailing and a finish that frames the whole face.</p>
+        <ul class="svc-list">
+          <li>Shape &amp; line-up detailing</li>
+          <li>Hot towel preparation</li>
+          <li>Conditioning finish</li>
+        </ul>
       </article>
       <article class="svc rv d2">
-        <div class="svc-ic"><svg viewBox="0 0 24 24"><path d="M12 3c-4 0-7 3-7 7v3l-2 4c2 1 4 1.5 6 1.5h6c2 0 4-.5 6-1.5l-2-4V10c0-4-3-7-7-7zM9 21h6"/></svg></div>
-        <h3>Beard Sculpt</h3>
-        <p>Shape, line and condition your beard with hot towel, straight razor detailing and premium oils.</p>
-        <div class="svc-foot"><span class="price">from $20</span><span class="dur">20 min</span></div>
-      </article>
-      <article class="svc rv">
-        <div class="svc-ic"><svg viewBox="0 0 24 24"><path d="M4 12h16M4 12l3-3M4 12l3 3M20 12l-3-3M20 12l-3 3M12 4v16"/></svg></div>
-        <h3>Cut + Beard Combo</h3>
-        <p>The full package: haircut plus beard sculpt in one sitting. Walk in good, walk out unforgettable.</p>
-        <div class="svc-foot"><span class="price">from $45</span><span class="dur">55 min</span></div>
-      </article>
-      <article class="svc rv d1">
-        <div class="svc-ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-6.5 8-6.5s8 2.5 8 6.5M9.5 6.5l1 1 2-2"/></svg></div>
-        <h3>Kids Cut <small style="font-family:'Jost';font-size:.75em;color:var(--cream-40)">(12 &amp; under)</small></h3>
-        <p>Where confidence starts young. Patient, friendly barbers and clean cuts for the little gentlemen.</p>
-        <div class="svc-foot"><span class="price">from $25</span><span class="dur">30 min</span></div>
-      </article>
-      <article class="svc rv d2">
-        <div class="svc-ic"><svg viewBox="0 0 24 24"><path d="M3 8h13l-2-2M3 16h13l-2 2M17 4l4 4-4 4M17 16l4 4-4 4" opacity="0"/><path d="M4 19c1-5 3-9 8-11 4-1.6 7-1 8 0M4 19c3 0 6-1 8-3"/></svg></div>
-        <h3>Hot Towel Shave</h3>
-        <p>Old-school luxury: hot towel, straight razor, cooling finish. The closest, smoothest shave of your life.</p>
-        <div class="svc-foot"><span class="price">from $35</span><span class="dur">30 min</span></div>
+        <div class="svc-num">03</div>
+        <h3>Hot Towel Shaves</h3>
+        <p>The old-school ritual done right: steaming hot towel, straight razor, cooling finish. The closest, smoothest shave of your life.</p>
+        <ul class="svc-list">
+          <li>Steaming hot towel</li>
+          <li>Straight razor work</li>
+          <li>Cooling, soothing finish</li>
+        </ul>
       </article>
     </div>
-    <p class="price-note rv">Prices shown are typical starting rates for the area — your barber confirms the final price when you book.</p>
+    <p class="svc-note rv">Message us on WhatsApp for services and pricing — we'll confirm everything before your visit.</p>
+  </div>
+</section>
+
+<!-- RITUAL -->
+<section class="section ritual" id="ritual">
+  <div class="wrap">
+    <div class="ritual-grid">
+      <div class="ritual-img rv-img">
+        <img src="images/fb2-detalle.jpg" alt="Straight razor and steaming hot towel at Figaro Barbershop" loading="lazy">
+      </div>
+      <div class="ritual-copy">
+        <span class="eyebrow rv">The Figaro Ritual</span>
+        <h2 class="rv d1">Fresh in <em>three steps</em></h2>
+        <p class="rv d2">No apps. No accounts. No waiting on hold. Booking your cut takes less than a minute.</p>
+        <div class="steps">
+          <div class="step rv">
+            <span class="step-n">01</span>
+            <div>
+              <h3>Message us</h3>
+              <p>Tap the WhatsApp button or call <strong>(786) 712-0891</strong>. Tell us what you want — fade, beard, the full ritual.</p>
+            </div>
+          </div>
+          <div class="step rv d1">
+            <span class="step-n">02</span>
+            <div>
+              <h3>Lock in your time</h3>
+              <p>We confirm your barber and your slot right away. Message ahead for the time you want — walk-ins always welcome.</p>
+            </div>
+          </div>
+          <div class="step rv d2">
+            <span class="step-n">03</span>
+            <div>
+              <h3>Walk out sharp</h3>
+              <p>Sit back, enjoy the hot towel, and leave looking like the best version of yourself.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -372,202 +384,104 @@ footer{border-top:1px solid var(--line);background:#080604;padding:4rem 0 2rem;m
     <div class="sec-head rv">
       <span class="eyebrow">The Shop</span>
       <h2>Step into <em>the Figaro experience</em></h2>
-      <p>Vintage soul, premium standards. Dark leather, warm light, and tools that mean business.</p>
+      <p>Dark leather, warm light, and tools that mean business. This is what the chair feels like.</p>
     </div>
     <div class="gal-grid">
       <figure class="gal-item rv">
-        <img src="images/fb-hero.jpg" alt="Barber crafting a sharp fade at Figaro Barbershop" loading="lazy">
-        <figcaption class="gal-cap"><h3>Precision in action</h3><p>Sharp fades, clean blends — every single time.</p></figcaption>
+        <img src="images/fb2-hero.jpg" alt="Barber doing a precision fade at Figaro Barbershop" loading="lazy">
+        <figcaption class="gal-cap"><h3>Precision in action</h3><p>Every blend, every line — done with intention.</p></figcaption>
       </figure>
       <figure class="gal-item rv d1">
-        <img src="images/fb-tools.jpg" alt="Premium barber tools on dark marble at Figaro" loading="lazy">
-        <figcaption class="gal-cap"><h3>Tools of the trade</h3><p>Straight razors, clippers, and craft.</p></figcaption>
+        <img src="images/fb2-barbero.jpg" alt="Premium dark interior of Figaro Barbershop" loading="lazy">
+        <figcaption class="gal-cap"><h3>The shop</h3><p>Vintage soul, premium standards.</p></figcaption>
       </figure>
       <figure class="gal-item rv d2">
-        <img src="images/fb-chair.jpg" alt="Vintage barber chair in the Figaro Barbershop interior" loading="lazy">
-        <figcaption class="gal-cap"><h3>Your chair is waiting</h3><p>Classic atmosphere, first-class service.</p></figcaption>
+        <img src="images/fb2-corte.jpg" alt="Client with an impeccable fresh fade" loading="lazy">
+        <figcaption class="gal-cap"><h3>The result</h3><p>Walk out like the best version of yourself.</p></figcaption>
+      </figure>
+      <figure class="gal-item rv d1">
+        <img src="images/fb2-detalle.jpg" alt="Hot towel and straight razor ritual" loading="lazy">
+        <figcaption class="gal-cap"><h3>The ritual</h3><p>Hot towel, straight razor, cool finish.</p></figcaption>
       </figure>
     </div>
   </div>
 </section>
-
-<!-- TEAM -->
-<section class="section" id="team">
+<!-- VISIT -->
+<section class="section" id="visit">
   <div class="wrap">
-    <div class="sec-head rv">
-      <span class="eyebrow">The Barbers</span>
-      <h2>Masters of <em>the craft</em></h2>
-      <p>Real barbers, real precision. The Figaro team is known across Miami-Dade for fades that exceed expectations — come see why clients drive past other shops to sit in our chairs.</p>
-    </div>
-    <div class="team-grid">
-      <article class="tm rv">
-        <div class="tm-avatar">A</div>
-        <h3>Albert</h3>
-        <div class="role">Master Barber · Shop Manager</div>
-        <p>The name clients ask for by name. Known for flawless fades, sharp designs and years of loyal regulars who won't trust their hair to anyone else.</p>
-      </article>
-      <article class="tm rv d1">
-        <div class="tm-avatar">F</div>
-        <h3>The Figaro Team</h3>
-        <div class="role">Senior Barbers</div>
-        <p>A crew of skilled, respectful barbers trained to one standard: clean blends, sharp lines, and service that keeps the whole family coming back.</p>
-      </article>
-      <article class="tm rv d2">
-        <div class="tm-avatar">★</div>
-        <h3>Your Next Chair</h3>
-        <div class="role">Now booking</div>
-        <p>New to Figaro? Message us on WhatsApp and tell us the look you want — we'll match you with the right barber for your style.</p>
-      </article>
-    </div>
-  </div>
-</section>
-
-<!-- PROCESS -->
-<section class="section process" id="booking">
-  <div class="wrap">
-    <div class="sec-head rv">
-      <span class="eyebrow">How it works</span>
-      <h2>Fresh in <em>three steps</em></h2>
-      <p>No apps, no accounts, no waiting on hold. Booking your cut takes less than a minute.</p>
-    </div>
-    <div class="steps">
-      <div class="step rv">
-        <span class="step-n">01</span>
-        <h3>Message us</h3>
-        <p>Tap the WhatsApp button or call (786) 712-0891. Tell us what you want — fade, beard, full makeover.</p>
+    <div class="visit-grid">
+      <div class="visit-side">
+        <span class="eyebrow rv">Visit Us</span>
+        <h2 class="rv d1">Your chair<br>is <em>waiting</em></h2>
+        <p class="rv d2">Big moment coming up? Wedding day, job interview, first date — when it matters, show up sharp. Message us now and lock in your slot.</p>
+        <div class="visit-ctas rv d3">
+          <a class="btn btn-gold" href="https://wa.me/17867120891?text=Hi%20Figaro%2C%20I%27d%20like%20to%20book%20a%20cut" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.4 14.1c-.2.7-1.3 1.3-1.9 1.4-.5.1-1.1.1-3.6-1.5-2.9-1.8-4.8-5.6-5-5.9-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.4 0 .6l-.4.6-.5.5c-.2.2-.3.4-.1.7.2.3.9 1.5 2 2.4 1.4 1.2 2.5 1.6 2.9 1.8.3.2.5.1.7-.1l1-1.2c.2-.3.4-.2.7-.1l2 1c.3.1.5.2.6.4 0 .1 0 .7-.2 1.4z"/></svg>
+            Book on WhatsApp
+          </a>
+          <a class="btn btn-ghost" href="tel:+17867120891">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.13.96.36 1.9.7 2.8a2 2 0 0 1-.45 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.25a2 2 0 0 1 2.1-.45c.9.34 1.84.57 2.8.7A2 2 0 0 1 22 16.9z"/></svg>
+            (786) 712-0891
+          </a>
+        </div>
       </div>
-      <div class="step rv d1">
-        <span class="step-n">02</span>
-        <h3>Pick your time</h3>
-        <p>We confirm your barber and your slot instantly. Same-day appointments and walk-ins welcome.</p>
-      </div>
-      <div class="step rv d2">
-        <span class="step-n">03</span>
-        <h3>Walk out sharp</h3>
-        <p>Sit back, enjoy the hot towel, and leave looking like the best version of yourself.</p>
+      <div class="visit-card rv d1">
+        <div class="visit-row">
+          <span class="ic"><svg viewBox="0 0 24 24"><path d="M12 21s7-5.5 7-11a7 7 0 1 0-14 0c0 5.5 7 11 7 11z"/><circle cx="12" cy="10" r="2.6"/></svg></span>
+          <div>
+            <h4>Address</h4>
+            <p>18656 NW 67th Ave<br>Hialeah, FL</p>
+          </div>
+        </div>
+        <div class="visit-row">
+          <span class="ic"><svg viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.13.96.36 1.9.7 2.8a2 2 0 0 1-.45 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.25a2 2 0 0 1 2.1-.45c.9.34 1.84.57 2.8.7A2 2 0 0 1 22 16.9z"/></svg></span>
+          <div>
+            <h4>Phone</h4>
+            <p><a href="tel:+17867120891">(786) 712-0891</a></p>
+          </div>
+        </div>
+        <div class="visit-row">
+          <span class="ic"><svg viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.4 14.1c-.2.7-1.3 1.3-1.9 1.4-.5.1-1.1.1-3.6-1.5-2.9-1.8-4.8-5.6-5-5.9-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.4 0 .6l-.4.6-.5.5c-.2.2-.3.4-.1.7.2.3.9 1.5 2 2.4 1.4 1.2 2.5 1.6 2.9 1.8.3.2.5.1.7-.1l1-1.2c.2-.3.4-.2.7-.1l2 1c.3.1.5.2.6.4 0 .1 0 .7-.2 1.4z"/></svg></span>
+          <div>
+            <h4>Bookings</h4>
+            <p><a href="https://wa.me/17867120891" target="_blank" rel="noopener">WhatsApp — fastest way to book</a></p>
+          </div>
+        </div>
+        <div class="visit-row">
+          <span class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></span>
+          <div>
+            <h4>Hours</h4>
+            <p>Walk-ins welcome — message us to confirm today's hours and availability.</p>
+          </div>
+        </div>
       </div>
     </div>
-    <div style="text-align:center;margin-top:2.8rem" class="rv">
-      <a class="btn btn-gold" href="https://wa.me/17867120891?text=Hi%20Figaro%2C%20I%27d%20like%20to%20book%20a%20cut" target="_blank" rel="noopener">
-        <svg viewBox="0 0 24 24" fill="currentColor" width="17" height="17"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.4 14.1c-.2.7-1.3 1.3-1.9 1.4-.5.1-1.1.1-3.6-1.5-2.9-1.8-4.8-5.6-5-5.9-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.4 0 .6l-.4.6-.5.5c-.2.2-.3.4-.1.7.2.3.9 1.5 2 2.4 1.4 1.2 2.5 1.6 2.9 1.8.3.2.5.1.7-.1l1-1.2c.2-.3.4-.2.7-.1l2 1c.3.1.5.2.6.4 0 .1 0 .7-.2 1.4z"/></svg>
-        Start my booking
-      </a>
-    </div>
-  </div>
-</section>
-
-<!-- TESTIMONIALS -->
-<section class="section" id="reviews">
-  <div class="wrap">
-    <div class="sec-head rv">
-      <span class="eyebrow">Reviews</span>
-      <h2>Word on <em>the street</em></h2>
-      <p>4.6 stars across 100+ Google reviews — and clients who've been coming back for years.</p>
-    </div>
-    <div class="testi-grid">
-      <article class="tst rv">
-        <div class="stars">★★★★★</div>
-        <div class="quote-mark">“</div>
-        <p>Excellent cut, very professional, very clean place, great customer service. I never leave disappointed.</p>
-        <div class="who"><span class="av">M</span><div><b>Marco R.</b><small>Google review</small></div></div>
-      </article>
-      <article class="tst rv d1">
-        <div class="stars">★★★★★</div>
-        <div class="quote-mark">“</div>
-        <p>I've been taking my son for the past 2 years. Albert is an amazing barber — the atmosphere and energy here is exceptional. I recommend this place 1000%.</p>
-        <div class="who"><span class="av">D</span><div><b>David L.</b><small>Google review</small></div></div>
-      </article>
-      <article class="tst rv d2">
-        <div class="stars">★★★★★</div>
-        <div class="quote-mark">“</div>
-        <p>Buena atención, barberos expertos. Great fades, sharp styles, and the same barbershop experience you already know.</p>
-        <div class="who"><span class="av">J</span><div><b>Jorge P.</b><small>Google review</small></div></div>
-      </article>
-    </div>
-  </div>
-</section>
-
-<!-- PRICING TIERS -->
-<section class="section" id="pricing" style="background:var(--ink)">
-  <div class="wrap">
-    <div class="sec-head rv">
-      <span class="eyebrow">Packages</span>
-      <h2>Pick your <em>level of fresh</em></h2>
-      <p>Simple, honest packages. One visit, total transformation — or just the maintenance you need.</p>
-    </div>
-    <div class="tiers">
-      <article class="tier rv">
-        <h3>The Cut</h3>
-        <p class="tier-sub">The essential. Look sharp for the week ahead.</p>
-        <div class="tprice">from $30<small> / visit</small></div>
-        <ul>
-          <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Precision haircut, any style</li>
-          <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Neckline &amp; edge cleanup</li>
-          <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Style &amp; finish</li>
-        </ul>
-        <a class="btn btn-ghost" href="https://wa.me/17867120891?text=Hi%20Figaro%2C%20I%20want%20to%20book%20The%20Cut%20package" target="_blank" rel="noopener">Book this</a>
-      </article>
-      <article class="tier popular rv d1">
-        <span class="tag">Most popular</span>
-        <h3>Cut + Beard</h3>
-        <p class="tier-sub">The complete look. Hair and beard, one sitting.</p>
-        <div class="tprice">from $45<small> / visit</small></div>
-        <ul>
-          <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Everything in The Cut</li>
-          <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Beard sculpt &amp; line-up</li>
-          <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Hot towel &amp; razor detailing</li>
-          <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Beard oil finish</li>
-        </ul>
-        <a class="btn btn-gold" href="https://wa.me/17867120891?text=Hi%20Figaro%2C%20I%20want%20to%20book%20the%20Cut%20%2B%20Beard%20package" target="_blank" rel="noopener">Book this</a>
-      </article>
-      <article class="tier rv d2">
-        <h3>Figaro Premium</h3>
-        <p class="tier-sub">The full ritual. For when it really matters.</p>
-        <div class="tprice">from $65<small> / visit</small></div>
-        <ul>
-          <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Everything in Cut + Beard</li>
-          <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Hot towel shave</li>
-          <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Eyebrow &amp; nose detailing</li>
-          <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Facial refresh &amp; cooling finish</li>
-        </ul>
-        <a class="btn btn-ghost" href="https://wa.me/17867120891?text=Hi%20Figaro%2C%20I%20want%20to%20book%20the%20Figaro%20Premium%20package" target="_blank" rel="noopener">Book this</a>
-      </article>
-    </div>
-    <p class="price-note rv" style="text-align:center">Starting rates — confirmed with your barber at booking. Wedding day, job interview, first date? We've got you.</p>
   </div>
 </section>
 
 <!-- FAQ -->
-<section class="section" id="faq">
+<section class="section" id="faq" style="padding-top:0">
   <div class="wrap">
-    <div class="sec-head rv" style="text-align:center;margin-inline:auto">
-      <span class="eyebrow" style="justify-content:center">FAQ</span>
+    <div class="sec-head center rv">
+      <span class="eyebrow">FAQ</span>
       <h2>Good <em>questions</em></h2>
     </div>
     <div class="faq">
       <div class="faq-item rv">
         <button class="faq-q">Do I need an appointment, or can I walk in?<span class="ic"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></button>
-        <div class="faq-a"><p>Both. Walk-ins are always welcome, but booking on WhatsApp guarantees your barber and your time — especially on Fridays and Saturdays, when we fill up fast.</p></div>
+        <div class="faq-a"><p>Both work. Walk-ins are always welcome — but messaging us on WhatsApp first locks in your spot and avoids the wait when we're busy.</p></div>
       </div>
       <div class="faq-item rv">
-        <button class="faq-q">Do you cut kids' hair?<span class="ic"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></button>
-        <div class="faq-a"><p>Absolutely — we're a family-friendly shop. Our barbers are patient with little ones, and kids 12 &amp; under get their own cut starting from $25.</p></div>
+        <button class="faq-q">What services do you offer?<span class="ic"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></button>
+        <div class="faq-a"><p>Our specialties are precision fades, beard sculpting and hot towel shaves. Message us with the look you want and we'll tell you exactly what you need.</p></div>
       </div>
       <div class="faq-item rv">
         <button class="faq-q">How do I book?<span class="ic"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></button>
         <div class="faq-a"><p>Just message us on WhatsApp at (786) 712-0891 or call the shop. Tell us the service you want and when — we'll confirm your slot right away. No apps, no accounts.</p></div>
       </div>
       <div class="faq-item rv">
-        <button class="faq-q">What are your hours?<span class="ic"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></button>
-        <div class="faq-a"><p>We're open 7 days a week, 8:30 AM to 8:00 PM — including Sundays. Come through whenever works for you.</p></div>
-      </div>
-      <div class="faq-item rv">
         <button class="faq-q">Where are you located?<span class="ic"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></button>
-        <div class="faq-a"><p>18656 NW 67th Ave, Hialeah, FL 33015 — easy to reach from Hialeah, Miami Lakes and Miami Gardens, with parking on site.</p></div>
-      </div>
-      <div class="faq-item rv">
-        <button class="faq-q">Which barber should I choose?<span class="ic"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></button>
-        <div class="faq-a"><p>Message us with the look you want and we'll match you with the right barber. Many clients ask for Albert by name — his fades have a loyal following.</p></div>
+        <div class="faq-a"><p>You'll find us at 18656 NW 67th Ave, Hialeah, FL — easy to reach, with parking nearby.</p></div>
       </div>
     </div>
   </div>
@@ -577,14 +491,14 @@ footer{border-top:1px solid var(--line);background:#080604;padding:4rem 0 2rem;m
 <section class="section" style="padding-top:0">
   <div class="wrap">
     <div class="cta-band rv">
-      <img src="images/fb-chair.jpg" alt="Vintage barber chair at Figaro Barbershop" loading="lazy">
+      <img src="images/fb2-corte.jpg" alt="Impeccable fresh fade at Figaro Barbershop" loading="lazy">
       <div class="cta-inner">
-        <span class="eyebrow">Your chair is waiting</span>
-        <h2>Big moment coming up? <em>Your cut matters.</em></h2>
-        <p>Wedding day. Job interview. First date. When it matters, show up sharp — the Figaro way. Message us now and lock in your slot.</p>
+        <span class="eyebrow">The Figaro Way</span>
+        <h2>Show up sharp.<br><em>Show up confident.</em></h2>
+        <p>A clean cut changes everything — your look, your vibe, your confidence. Your chair is waiting.</p>
         <div class="hero-ctas">
           <a class="btn btn-gold" href="https://wa.me/17867120891?text=Hi%20Figaro%2C%20I%27d%20like%20to%20book%20a%20cut" target="_blank" rel="noopener">
-            <svg viewBox="0 0 24 24" fill="currentColor" width="17" height="17"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.4 14.1c-.2.7-1.3 1.3-1.9 1.4-.5.1-1.1.1-3.6-1.5-2.9-1.8-4.8-5.6-5-5.9-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.4 0 .6l-.4.6-.5.5c-.2.2-.3.4-.1.7.2.3.9 1.5 2 2.4 1.4 1.2 2.5 1.6 2.9 1.8.3.2.5.1.7-.1l1-1.2c.2-.3.4-.2.7-.1l2 1c.3.1.5.2.6.4 0 .1 0 .7-.2 1.4z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.4 14.1c-.2.7-1.3 1.3-1.9 1.4-.5.1-1.1.1-3.6-1.5-2.9-1.8-4.8-5.6-5-5.9-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.4 0 .6l-.4.6-.5.5c-.2.2-.3.4-.1.7.2.3.9 1.5 2 2.4 1.4 1.2 2.5 1.6 2.9 1.8.3.2.5.1.7-.1l1-1.2c.2-.3.4-.2.7-.1l2 1c.3.1.5.2.6.4 0 .1 0 .7-.2 1.4z"/></svg>
             Reserve on WhatsApp
           </a>
           <a class="btn btn-ghost" href="tel:+17867120891">Call the shop</a>
@@ -604,20 +518,13 @@ footer{border-top:1px solid var(--line);background:#080604;padding:4rem 0 2rem;m
           <span class="brand-mark">F</span>
           <span class="brand-name">FIGARO<small>BARBERSHOP</small></span>
         </a>
-        <p>Clean blends. Sharp lines. Real precision. Hialeah's home for fades that turn heads.</p>
+        <p>Precision fades. Razor-sharp finish. Hialeah's home for the craft done right.</p>
       </div>
       <div>
-        <h4>Visit us</h4>
+        <h4>Visit</h4>
         <ul>
-          <li>18656 NW 67th Ave<br>Hialeah, FL 33015</li>
+          <li>18656 NW 67th Ave<br>Hialeah, FL</li>
           <li><a href="tel:+17867120891">(786) 712-0891</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4>Hours</h4>
-        <ul>
-          <li>Mon – Sun<br>8:30 AM – 8:00 PM</li>
-          <li>Open 7 days</li>
         </ul>
       </div>
       <div>
@@ -626,6 +533,12 @@ footer{border-top:1px solid var(--line);background:#080604;padding:4rem 0 2rem;m
           <li><a href="https://wa.me/17867120891" target="_blank" rel="noopener">WhatsApp</a></li>
           <li><a href="tel:+17867120891">Call the shop</a></li>
           <li>Walk-ins welcome</li>
+        </ul>
+      </div>
+      <div>
+        <h4>Follow</h4>
+        <ul>
+          <li><a href="https://www.facebook.com/101620655142195" target="_blank" rel="noopener">Facebook page</a></li>
         </ul>
       </div>
     </div>
@@ -656,7 +569,7 @@ footer{border-top:1px solid var(--line);background:#080604;padding:4rem 0 2rem;m
   var io=new IntersectionObserver(function(es){
     es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}});
   },{threshold:.12,rootMargin:'0px 0px -6% 0px'});
-  document.querySelectorAll('.rv').forEach(function(el){io.observe(el)});
+  document.querySelectorAll('.rv,.rv-img').forEach(function(el){io.observe(el)});
 
   document.querySelectorAll('.faq-item').forEach(function(item){
     var q=item.querySelector('.faq-q'),a=item.querySelector('.faq-a');
