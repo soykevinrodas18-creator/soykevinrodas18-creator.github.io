@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>La Birra Bar USA | La hamburguesa más premiada del mundo</title>
+<meta name="description" content="La Birra Bar USA — la hamburguesa más premiada del mundo. De Boedo 2001 a Miami: 7 locales en el sur de la Florida y el Nu Stadium, casa del Inter Miami CF.">
+<meta property="og:title" content="La Birra Bar USA — Campeones del mundo">
+<meta property="og:description" content="La hamburguesa más premiada del mundo, ahora en Miami. 7 locales: North Miami Beach, Wynwood, Fort Lauderdale, Weston, Doral, Coral Gables y Nu Stadium.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="images/labirrabarusa/burger-hero.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Barlow+Condensed:wght@400;500;600;700&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "La Birra Bar USA",
+  "slogan": "La hamburguesa más premiada del mundo",
+  "email": "info@labirrabarusa.com",
+  "sameAs": ["https://www.instagram.com/labirrabar.usa/"],
+  "foundingDate": "2001",
+  "founder": [{"@type": "Person", "name": "Daniel Cocchia"}, {"@type": "Person", "name": "Roxana Cocchia"}],
+  "subOrganization": [
+    {"@type": "Restaurant", "name": "La Birra Bar North Miami Beach", "address": {"@type": "PostalAddress", "streetAddress": "14831 Biscayne Blvd", "addressLocality": "North Miami Beach", "addressRegion": "FL", "addressCountry": "US"}, "servesCuisine": ["Hamburguesas", "Americana"]},
+    {"@type": "Restaurant", "name": "La Birra Bar Wynwood", "address": {"@type": "PostalAddress", "streetAddress": "250 NW 24th St", "addressLocality": "Miami", "addressRegion": "FL", "addressCountry": "US"}, "servesCuisine": ["Hamburguesas", "Americana"]},
+    {"@type": "Restaurant", "name": "La Birra Bar Fort Lauderdale", "address": {"@type": "PostalAddress", "streetAddress": "2031 E Oakland Park Blvd", "addressLocality": "Fort Lauderdale", "addressRegion": "FL", "addressCountry": "US"}, "servesCuisine": ["Hamburguesas", "Americana"]},
+    {"@type": "Restaurant", "name": "La Birra Bar Weston", "address": {"@type": "PostalAddress", "streetAddress": "1830 Main St", "addressLocality": "Weston", "addressRegion": "FL", "addressCountry": "US"}, "servesCuisine": ["Hamburguesas", "Americana"]},
+    {"@type": "Restaurant", "name": "La Birra Bar Doral", "address": {"@type": "PostalAddress", "streetAddress": "7901 NW 36th St, Unit 115", "addressLocality": "Doral", "addressRegion": "FL", "addressCountry": "US"}, "servesCuisine": ["Hamburguesas", "Americana"]},
+    {"@type": "Restaurant", "name": "La Birra Bar Coral Gables", "address": {"@type": "PostalAddress", "streetAddress": "219 Miracle Mile", "addressLocality": "Coral Gables", "addressRegion": "FL", "addressCountry": "US"}, "servesCuisine": ["Hamburguesas", "Americana"]},
+    {"@type": "Restaurant", "name": "La Birra Bar Nu Stadium", "address": {"@type": "PostalAddress", "addressLocality": "Miami", "addressRegion": "FL", "addressCountry": "US"}, "servesCuisine": ["Hamburguesas", "Americana"]}
+  ]
+}
+</script>
+<style>
+:root{
+  --ink:#0b0906;
+  --coal:#141009;
+  --coal2:#1d1509;
+  --gold:#e9b81f;
+  --gold-hi:#ffe37a;
+  --gold-deep:#9a6a08;
+  --ember:#ff6a1a;
+  --cream:#f7ead3;
+  --cream-dim:#cdbb97;
+  --line:rgba(233,184,31,.22);
+  --shadow-gold:0 0 60px rgba(233,184,31,.25);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--ink);color:var(--cream);font-family:'Barlow',system-ui,sans-serif;overflow-x:hidden;line-height:1.6}
+::selection{background:var(--gold);color:var(--ink)}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1200px;margin:0 auto;padding:0 24px}
+.display{font-family:'Anton',Impact,sans-serif;font-weight:400;letter-spacing:.02em;text-transform:uppercase;line-height:.95}
+.cond{font-family:'Barlow Condensed','Arial Narrow',sans-serif;text-transform:uppercase;letter-spacing:.18em;font-weight:600}
+
+/* ---------- header ---------- */
+header{position:fixed;inset:0 0 auto 0;z-index:60;transition:background .35s,box-shadow .35s,border-color .35s;border-bottom:1px solid transparent}
+header.scrolled{background:rgba(11,9,6,.92);backdrop-filter:blur(12px);border-color:var(--line);box-shadow:0 10px 40px rgba(0,0,0,.5)}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:16px 24px;max-width:1280px;margin:0 auto}
+.brand{display:flex;align-items:center;gap:12px}
+.brand img{height:38px;width:auto;filter:drop-shadow(0 0 12px rgba(233,184,31,.4))}
+.brand-tag{font-size:11px;color:var(--gold);letter-spacing:.28em;text-transform:uppercase;font-weight:600}
+.nav-links{display:flex;gap:30px;align-items:center}
+.nav-links a{font-family:'Barlow Condensed',sans-serif;text-transform:uppercase;letter-spacing:.16em;font-size:14px;font-weight:600;color:var(--cream-dim);transition:color .25s;position:relative}
+.nav-links a::after{content:"";position:absolute;left:0;bottom:-6px;height:2px;width:0;background:linear-gradient(90deg,var(--gold),var(--ember));transition:width .3s}
+.nav-links a:hover{color:var(--gold-hi)}
+.nav-links a:hover::after{width:100%}
+.btn-solid{display:inline-flex;align-items:center;gap:10px;background:linear-gradient(135deg,var(--gold-hi),var(--gold) 45%,var(--gold-deep));color:#1a1204;font-family:'Barlow Condensed',sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:.14em;font-size:15px;padding:14px 28px;border-radius:999px;border:0;cursor:pointer;position:relative;overflow:hidden;transition:transform .25s,box-shadow .25s;box-shadow:0 8px 30px rgba(233,184,31,.35)}
+.btn-solid::before{content:"";position:absolute;top:0;left:-80%;width:60%;height:100%;background:linear-gradient(105deg,transparent,rgba(255,255,255,.75),transparent);transform:skewX(-20deg);transition:left .6s}
+.btn-solid:hover{transform:translateY(-2px);box-shadow:0 14px 44px rgba(233,184,31,.5)}
+.btn-solid:hover::before{left:130%}
+.btn-line{display:inline-flex;align-items:center;gap:10px;border:1.5px solid var(--gold);color:var(--gold-hi);font-family:'Barlow Condensed',sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:.14em;font-size:15px;padding:13px 28px;border-radius:999px;cursor:pointer;background:transparent;transition:background .25s,color .25s,transform .25s}
+.btn-line:hover{background:rgba(233,184,31,.12);transform:translateY(-2px)}
+.burger-menu{display:none;background:none;border:0;cursor:pointer;flex-direction:column;gap:6px;padding:8px}
+.burger-menu span{display:block;width:26px;height:2px;background:var(--gold);transition:.3s}
+
+/* ---------- hero ---------- */
+.hero{position:relative;min-height:100svh;display:flex;align-items:center;padding:140px 0 90px;overflow:hidden;background:radial-gradient(1200px 600px at 75% 10%,rgba(233,184,31,.14),transparent 60%),radial-gradient(900px 500px at 10% 90%,rgba(255,106,26,.1),transparent 60%),var(--ink)}
+.hero::before{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(233,184,31,.14) 1px,transparent 1px);background-size:34px 34px;mask-image:radial-gradient(70% 70% at 50% 40%,#000 30%,transparent 100%);pointer-events:none}
+.embers{position:absolute;inset:0;pointer-events:none;overflow:hidden}
+.ember{position:absolute;bottom:-20px;width:5px;height:5px;border-radius:50%;background:radial-gradient(circle,var(--gold-hi),var(--ember));opacity:0;animation:rise linear infinite}
+@keyframes rise{0%{transform:translateY(0) translateX(0);opacity:0}12%{opacity:.9}100%{transform:translateY(-110vh) translateX(40px);opacity:0}}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:60px;align-items:center;position:relative;z-index:2}
+.kicker{display:inline-flex;align-items:center;gap:12px;border:1px solid var(--line);border-radius:999px;padding:8px 18px;font-size:12px;letter-spacing:.3em;text-transform:uppercase;color:var(--gold-hi);font-weight:600;background:rgba(233,184,31,.07);margin-bottom:26px}
+.kicker .dot{width:8px;height:8px;border-radius:50%;background:var(--ember);box-shadow:0 0 12px var(--ember);animation:pulse 2s infinite}
+@keyframes pulse{50%{opacity:.4}}
+.hero h1{font-size:clamp(58px,9vw,128px);color:var(--cream)}
+.gleam{background:linear-gradient(100deg,var(--gold-deep) 20%,var(--gold-hi) 38%,#fffbe8 50%,var(--gold-hi) 62%,var(--gold-deep) 80%);background-size:220% auto;-webkit-background-clip:text;background-clip:text;color:transparent;animation:gleam 4.5s linear infinite;display:inline-block}
+@keyframes gleam{to{background-position:220% center}}
+.hero-sub{margin:26px 0 36px;font-size:19px;color:var(--cream-dim);max-width:520px}
+.hero-sub strong{color:var(--gold-hi)}
+.hero-ctas{display:flex;gap:16px;flex-wrap:wrap}
+.hero-stats{display:flex;gap:38px;margin-top:52px;flex-wrap:wrap}
+.stat b{display:block;font-family:'Anton',sans-serif;font-size:40px;color:var(--gold-hi);line-height:1}
+.stat span{font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--cream-dim)}
+.hero-visual{position:relative;display:flex;justify-content:center}
+.hero-frame{position:relative;width:min(440px,90%);aspect-ratio:3/4;border-radius:200px 200px 24px 24px;overflow:hidden;border:1px solid var(--line);box-shadow:var(--shadow-gold),0 40px 90px rgba(0,0,0,.6)}
+.hero-frame img{width:100%;height:100%;object-fit:cover;transform:scale(1.04);animation:breath 7s ease-in-out infinite}
+@keyframes breath{50%{transform:scale(1.12)}}
+.hero-frame::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(11,9,6,.75));pointer-events:none}
+.seal{position:absolute;width:150px;height:150px;top:-34px;right:-10px;z-index:3;animation:spin 18s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.seal svg{width:100%;height:100%;filter:drop-shadow(0 0 18px rgba(233,184,31,.55))}
+.hero-tag{position:absolute;bottom:36px;left:50%;transform:translateX(-50%);z-index:3;text-align:center;background:rgba(11,9,6,.72);backdrop-filter:blur(8px);border:1px solid var(--line);border-radius:16px;padding:14px 26px;white-space:nowrap}
+.hero-tag .cond{font-size:13px;color:var(--gold-hi)}
+.hero-tag p{font-size:12px;color:var(--cream-dim);margin-top:2px}
+
+/* ---------- marquee ---------- */
+.ticker{background:linear-gradient(90deg,var(--gold-deep),var(--gold) 30%,var(--gold-hi) 50%,var(--gold) 70%,var(--gold-deep));color:#1a1204;overflow:hidden;padding:14px 0;transform:rotate(-1.2deg) scale(1.02);box-shadow:0 12px 40px rgba(233,184,31,.3);position:relative;z-index:4}
+.ticker-track{display:flex;gap:0;width:max-content;animation:scrollx 28s linear infinite}
+.ticker span{font-family:'Anton',sans-serif;font-size:20px;letter-spacing:.06em;text-transform:uppercase;white-space:nowrap;padding:0 18px;display:flex;align-items:center;gap:36px}
+@keyframes scrollx{to{transform:translateX(-50%)}}
+.ticker.dark{background:var(--coal2);color:var(--gold-hi);transform:rotate(1deg) scale(1.02);border-top:1px solid var(--line);border-bottom:1px solid var(--line);box-shadow:none;margin:70px 0 0}
+
+/* ---------- sections ---------- */
+section{padding:110px 0;position:relative}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:12px;letter-spacing:.32em;text-transform:uppercase;color:var(--ember);font-weight:700;margin-bottom:18px}
+.eyebrow::before{content:"";width:34px;height:2px;background:var(--ember)}
+h2.sec-title{font-family:'Anton',sans-serif;font-size:clamp(40px,5.5vw,72px);text-transform:uppercase;line-height:1;color:var(--cream)}
+h2.sec-title em{font-style:normal;color:var(--gold-hi)}
+.sec-lead{margin-top:18px;color:var(--cream-dim);max-width:640px;font-size:18px}
+
+/* champion burgers */
+.champs{margin-top:70px;display:grid;grid-template-columns:repeat(3,1fr);gap:30px}
+.champ{position:relative;background:linear-gradient(160deg,var(--coal2),var(--coal));border:1px solid var(--line);border-radius:22px;overflow:hidden;transition:transform .35s,box-shadow .35s,border-color .35s}
+.champ:hover{transform:translateY(-10px);box-shadow:var(--shadow-gold);border-color:rgba(233,184,31,.5)}
+.champ:nth-child(2){transform:translateY(34px)}
+.champ:nth-child(2):hover{transform:translateY(24px)}
+.champ-img{position:relative;height:300px;overflow:hidden}
+.champ-img img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
+.champ:hover .champ-img img{transform:scale(1.08)}
+.champ-img::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 50%,rgba(20,16,9,.9))}
+.stamp{position:absolute;top:18px;right:18px;z-index:2;background:radial-gradient(circle at 35% 30%,var(--gold-hi),var(--gold) 55%,var(--gold-deep));color:#1a1204;font-family:'Anton',sans-serif;font-size:13px;text-transform:uppercase;text-align:center;line-height:1.25;width:112px;height:112px;border-radius:50%;display:flex;align-items:center;justify-content:center;padding:14px;border:3px dashed rgba(26,18,4,.45);box-shadow:0 8px 26px rgba(0,0,0,.5);transform:rotate(8deg)}
+.stamp.in{animation:stampin .5s cubic-bezier(.2,2.2,.4,1) both}
+@keyframes stampin{0%{transform:scale(2.4) rotate(-30deg);opacity:0}100%{transform:scale(1) rotate(8deg);opacity:1}}
+.champ-body{padding:28px 26px 32px}
+.champ-body h3{font-family:'Anton',sans-serif;font-size:30px;text-transform:uppercase;color:var(--gold-hi);margin-bottom:6px}
+.champ-body .cond{font-size:12px;color:var(--ember);margin-bottom:14px;display:block}
+.champ-body p{color:var(--cream-dim);font-size:16px}
+.champ-link{display:inline-flex;align-items:center;gap:8px;margin-top:20px;font-family:'Barlow Condensed',sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:.16em;font-size:14px;color:var(--gold-hi)}
+.champ-link svg{transition:transform .25s}
+.champ-link:hover svg{transform:translateX(6px)}
+
+/* trophy wall */
+.trophy{background:radial-gradient(900px 500px at 50% 0%,rgba(233,184,31,.08),transparent 60%)}
+.wall{margin-top:64px;display:grid;grid-template-columns:repeat(4,1fr);gap:26px}
+.medal{background:linear-gradient(165deg,#201708,#141009);border:1px solid var(--line);border-radius:20px;padding:26px;text-align:center;transition:transform .35s,box-shadow .35s;position:relative;overflow:hidden}
+.medal::before{content:"";position:absolute;top:-40%;left:-80%;width:50%;height:180%;background:linear-gradient(105deg,transparent,rgba(255,227,122,.18),transparent);transform:skewX(-20deg);transition:left .7s}
+.medal:hover::before{left:140%}
+.medal:hover{transform:translateY(-8px) scale(1.02);box-shadow:var(--shadow-gold)}
+.medal img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:12px;border:1px solid rgba(233,184,31,.3);margin-bottom:18px}
+.medal h4{font-family:'Anton',sans-serif;font-size:20px;text-transform:uppercase;color:var(--gold-hi);line-height:1.2}
+.medal p{font-size:13px;color:var(--cream-dim);margin-top:8px}
+.medal.text-card{display:flex;flex-direction:column;justify-content:center;align-items:center;min-height:340px}
+.medal.text-card .big{font-family:'Anton',sans-serif;font-size:64px;color:var(--gold-hi);line-height:1}
+.medal.text-card .star{color:var(--ember);font-size:26px;margin-bottom:10px}
+
+/* story */
+.story{background:linear-gradient(180deg,var(--ink),#151009 50%,var(--ink))}
+.story-grid{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center;margin-top:56px}
+.story-copy p{color:var(--cream-dim);font-size:18px;margin-bottom:20px}
+.story-copy p strong{color:var(--cream)}
+.fam{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:34px}
+.fam-card{background:rgba(233,184,31,.05);border:1px solid var(--line);border-radius:16px;padding:20px 16px;text-align:center;transition:transform .3s,background .3s}
+.fam-card:hover{transform:translateY(-6px);background:rgba(233,184,31,.1)}
+.fam-card .initial{width:56px;height:56px;margin:0 auto 12px;border-radius:50%;background:radial-gradient(circle at 35% 30%,var(--gold-hi),var(--gold-deep));color:#1a1204;font-family:'Anton',sans-serif;font-size:24px;display:flex;align-items:center;justify-content:center}
+.fam-card h5{font-family:'Barlow Condensed',sans-serif;font-size:17px;text-transform:uppercase;letter-spacing:.1em;color:var(--gold-hi)}
+.fam-card span{font-size:13px;color:var(--cream-dim)}
+.timeline{position:relative;padding-left:34px}
+.timeline::before{content:"";position:absolute;left:8px;top:6px;bottom:6px;width:2px;background:linear-gradient(180deg,var(--gold),var(--ember),transparent)}
+.tl-item{position:relative;padding:0 0 34px}
+.tl-item::before{content:"";position:absolute;left:-32px;top:6px;width:12px;height:12px;border-radius:50%;background:var(--gold);box-shadow:0 0 14px var(--gold);border:2px solid var(--ink)}
+.tl-item .year{font-family:'Anton',sans-serif;font-size:26px;color:var(--gold-hi)}
+.tl-item p{color:var(--cream-dim);font-size:16px;margin-top:4px;max-width:420px}
+
+/* locations */
+.loc-grid{margin-top:60px;display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.loc{background:linear-gradient(160deg,var(--coal2),#100c06);border:1px solid var(--line);border-radius:18px;padding:30px 26px;position:relative;overflow:hidden;transition:transform .3s,box-shadow .3s,border-color .3s}
+.loc::after{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--ember),var(--gold),var(--gold-hi));opacity:0;transition:opacity .3s}
+.loc:hover{transform:translateY(-8px);box-shadow:var(--shadow-gold);border-color:rgba(233,184,31,.5)}
+.loc:hover::after{opacity:1}
+.loc .num{font-family:'Anton',sans-serif;font-size:15px;color:var(--ember);letter-spacing:.2em}
+.loc h3{font-family:'Anton',sans-serif;font-size:27px;text-transform:uppercase;color:var(--cream);margin:8px 0 6px}
+.loc address{font-style:normal;color:var(--cream-dim);font-size:15px;margin-bottom:18px}
+.loc .cond{font-size:12px;color:var(--gold);display:flex;align-items:center;gap:8px}
+.loc.featured{grid-column:span 3;background:linear-gradient(120deg,#221606,#141009 60%);display:grid;grid-template-columns:1fr 1fr;gap:30px;align-items:center}
+.loc.featured img{border-radius:14px;border:1px solid var(--line);height:230px;width:100%;object-fit:cover}
+.loc.featured h3{font-size:34px}
+.loc.featured h3 .gleam{font-size:1em}
+
+/* final CTA */
+.final{text-align:center;background:radial-gradient(800px 420px at 50% 100%,rgba(255,106,26,.16),transparent 65%),var(--ink);border-top:1px solid var(--line)}
+.final h2{font-size:clamp(46px,7vw,96px)}
+.final p{color:var(--cream-dim);font-size:19px;max-width:620px;margin:20px auto 40px}
+.final .hero-ctas{justify-content:center}
+.ig-handle{display:inline-flex;align-items:center;gap:10px;margin-top:34px;color:var(--cream-dim);font-size:15px}
+.ig-handle:hover{color:var(--gold-hi)}
+.ig-handle svg{width:20px;height:20px}
+
+/* footer */
+footer{border-top:1px solid var(--line);padding:56px 0 34px;background:#080604}
+.foot-grid{display:flex;justify-content:space-between;gap:40px;flex-wrap:wrap;align-items:flex-start}
+.foot-brand img{height:44px;width:auto;margin-bottom:14px}
+.foot-brand p{color:var(--cream-dim);font-size:14px;max-width:300px}
+.socials{display:flex;gap:14px;margin-top:18px}
+.soc{width:46px;height:46px;border-radius:50%;border:1px solid var(--line);display:flex;align-items:center;justify-content:center;transition:background .25s,transform .25s,box-shadow .25s}
+.soc svg{width:20px;height:20px;fill:var(--gold-hi)}
+.soc:hover{background:rgba(233,184,31,.14);transform:translateY(-4px);box-shadow:0 8px 24px rgba(233,184,31,.3)}
+.foot-col h5{font-family:'Barlow Condensed',sans-serif;text-transform:uppercase;letter-spacing:.2em;font-size:13px;color:var(--gold);margin-bottom:16px}
+.foot-col a,.foot-col li{display:block;list-style:none;color:var(--cream-dim);font-size:15px;margin-bottom:10px}
+.foot-col a:hover{color:var(--gold-hi)}
+.copy{margin-top:44px;padding-top:22px;border-top:1px solid rgba(233,184,31,.12);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:13px;color:var(--cream-dim)}
+
+/* reveal */
+.reveal{opacity:0;transform:translateY(36px);transition:opacity .8s ease,transform .8s cubic-bezier(.2,.7,.2,1)}
+.reveal.in{opacity:1;transform:none}
+.reveal.d1{transition-delay:.12s}.reveal.d2{transition-delay:.24s}.reveal.d3{transition-delay:.36s}
+
+/* responsive */
+@media(max-width:1020px){
+  .champs{grid-template-columns:1fr;max-width:560px;margin-left:auto;margin-right:auto}
+  .champ:nth-child(2){transform:none}
+  .champ:nth-child(2):hover{transform:translateY(-10px)}
+  .wall{grid-template-columns:repeat(2,1fr)}
+  .story-grid{grid-template-columns:1fr;gap:50px}
+  .loc-grid{grid-template-columns:repeat(2,1fr)}
+  .loc.featured{grid-column:span 2}
+}
+@media(max-width:760px){
+  .nav-links{position:fixed;top:0;right:-100%;width:min(320px,80vw);height:100svh;background:#0e0a05;flex-direction:column;justify-content:center;gap:34px;transition:right .35s;border-left:1px solid var(--line);z-index:70}
+  .nav-links.open{right:0}
+  .nav-links a{font-size:18px}
+  .burger-menu{display:flex;z-index:80}
+  .hero-grid{grid-template-columns:1fr;gap:50px}
+  .hero{padding-top:120px}
+  .hero-visual{order:-1}
+  .hero-frame{width:min(320px,84%)}
+  .seal{width:118px;height:118px;top:-22px;right:6px}
+  .loc-grid{grid-template-columns:1fr}
+  .loc.featured{grid-column:span 1;grid-template-columns:1fr}
+  section{padding:80px 0}
+  .hero-stats{gap:24px}
+  .stat b{font-size:32px}
+}
+@media(max-width:430px){
+  .wall{grid-template-columns:1fr 1fr;gap:14px}
+  .medal{padding:16px}
+  .medal.text-card{min-height:260px}
+  .fam{grid-template-columns:1fr}
+}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+  html{scroll-behavior:auto}
+  .reveal{opacity:1;transform:none}
+  .ticker-track{animation:none}
+}
+</style>
+</head>
+<body>
+
+<header id="header">
+  <nav class="nav" aria-label="Navegación principal">
+    <a class="brand" href="#inicio" aria-label="La Birra Bar USA — inicio">
+      <img src="images/labirrabarusa/logo.png" alt="La Birra Bar" width="786" height="209">
+    </a>
+    <button class="burger-menu" id="burger" aria-label="Abrir menú" aria-expanded="false"><span></span><span></span><span></span></button>
+    <div class="nav-links" id="navLinks">
+      <a href="#campeonas">Las Campeonas</a>
+      <a href="#premios">Premios</a>
+      <a href="#historia">Historia</a>
+      <a href="#locales">Locales</a>
+      <a class="btn-solid" href="https://www.ubereats.com/store/la-birra-bar-burgers-north-miami/3TcEFxtFSfiuiAN5buyXpA" target="_blank" rel="noopener">Pide ahora</a>
+    </div>
+  </nav>
+</header>
+
+<main>
+<!-- HERO -->
+<section class="hero" id="inicio">
+  <div class="embers" id="embers" aria-hidden="true"></div>
+  <div class="wrap hero-grid">
+    <div>
+      <span class="kicker reveal"><span class="dot"></span>La hamburguesa más premiada del mundo</span>
+      <h1 class="display reveal d1">Campeones<br><span class="gleam">del mundo</span></h1>
+      <p class="hero-sub reveal d2">De un barcito de <strong>Boedo 2001</strong> a conquistar <strong>Miami</strong> — y ahora el <strong>Nu Stadium</strong>, casa del Inter Miami CF. Pan de nube horneado a diario, blend propio de carne y salsas de autor.</p>
+      <div class="hero-ctas reveal d3">
+        <a class="btn-solid" href="https://www.ubereats.com/store/la-birra-bar-burgers-north-miami/3TcEFxtFSfiuiAN5buyXpA" target="_blank" rel="noopener">Pide por Uber Eats</a>
+        <a class="btn-line" href="https://ig.me/m/labirrabar.usa" target="_blank" rel="noopener">Escríbenos en IG</a>
+      </div>
+      <div class="hero-stats reveal d3">
+        <div class="stat"><b>7</b><span>locales en USA</span></div>
+        <div class="stat"><b>2001</b><span>nacimos en Boedo</span></div>
+        <div class="stat"><b>73K</b><span>seguidores en IG</span></div>
+      </div>
+    </div>
+    <div class="hero-visual reveal d2">
+      <div class="seal" aria-hidden="true">
+        <svg viewBox="0 0 150 150">
+          <defs><path id="circ" d="M75,75 m-58,0 a58,58 0 1,1 116,0 a58,58 0 1,1 -116,0"/></defs>
+          <circle cx="75" cy="75" r="72" fill="#0b0906" stroke="#e9b81f" stroke-width="2"/>
+          <circle cx="75" cy="75" r="46" fill="none" stroke="#e9b81f" stroke-width="1" stroke-dasharray="4 4"/>
+          <text fill="#ffe37a" font-size="13.5" font-family="Anton,sans-serif" letter-spacing="3">
+            <textPath href="#circ">CAMPEONES DEL MUNDO • DESDE 2001 •</textPath>
+          </text>
+          <text x="75" y="70" text-anchor="middle" fill="#e9b81f" font-size="34" font-family="Anton,sans-serif">🏆</text>
+          <text x="75" y="100" text-anchor="middle" fill="#f7ead3" font-size="15" font-family="Anton,sans-serif">LBB</text>
+        </svg>
+      </div>
+      <div class="hero-frame">
+        <img src="images/labirrabarusa/burger-hero.jpg" alt="Hamburguesa La Birra Bar con queso derretido y cebolla crocante" fetchpriority="high">
+      </div>
+      <div class="hero-tag">
+        <span class="cond">Smash Golden Chimichurri</span>
+        <p>Ganadora del Burger Bash — SOBEWFF 2025</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TICKER -->
+<div class="ticker" aria-hidden="true">
+  <div class="ticker-track" id="ticker1">
+    <span>Dubai Burger Championship 2026 — Overall Winner <i>★</i></span>
+    <span>Mejor hamburguesa de EE. UU. — SOBEWFF 2022 <i>★</i></span>
+    <span>Burger Bash — SOBEWFF 2025 <i>★</i></span>
+    <span>Best of Miami — Miami New Times 2022 &amp; 2023 <i>★</i></span>
+    <span>Top 10 mundial — World's 101 Best 2025 <i>★</i></span>
+    <span>1er lugar — North Miami Brewfest 2024 <i>★</i></span>
+  </div>
+</div>
+
+<!-- CHAMPION BURGERS -->
+<section id="campeonas">
+  <div class="wrap">
+    <span class="eyebrow reveal">Las campeonas</span>
+    <h2 class="sec-title reveal d1">Burgers que<br><em>ganaron el mundo</em></h2>
+    <p class="sec-lead reveal d2">Tres creaciones legendarias, tres coronas internacionales. Cada una nació en la plancha y terminó en lo más alto del podio.</p>
+    <div class="champs">
+      <article class="champ reveal">
+        <div class="champ-img">
+          <span class="stamp" data-stamp>Dubai<br>2026</span>
+          <img src="images/labirrabarusa/burger-macro.jpg" alt="Crispy Dubai Burger — doble smash con queso fundido" loading="lazy">
+        </div>
+        <div class="champ-body">
+          <h3>Crispy Dubai</h3>
+          <span class="cond">Overall Winner — Dubai Burger Championship 2026</span>
+          <p>La que cruzó el planeta y volvió con la corona: proclamada la mejor hamburguesa del mundo en el Dubai Burger Championship, compitiendo contra las mejores hamburgueserías del planeta.</p>
+          <a class="champ-link" href="https://www.ubereats.com/store/la-birra-bar-burgers-north-miami/3TcEFxtFSfiuiAN5buyXpA" target="_blank" rel="noopener">Pídela ahora <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </div>
+      </article>
+      <article class="champ reveal d1">
+        <div class="champ-img">
+          <span class="stamp" data-stamp>SOBEWFF<br>2025</span>
+          <img src="images/labirrabarusa/burger-neon.jpg" alt="Smash Golden Chimichurri — la ganadora del Burger Bash 2025" loading="lazy">
+        </div>
+        <div class="champ-body">
+          <h3>Smash Golden Chimichurri</h3>
+          <span class="cond">Ganadora del Burger Bash — SOBEWFF 2025</span>
+          <p>Queso americano derretido, cebollas rojas frescas y la legendaria mayonesa de chimichurri. La creación que conquistó al público del South Beach Wine &amp; Food Festival entre 40 hamburgueserías de todo el país.</p>
+          <a class="champ-link" href="https://www.ubereats.com/store/la-birra-bar-burgers-north-miami/3TcEFxtFSfiuiAN5buyXpA" target="_blank" rel="noopener">Pídela ahora <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </div>
+      </article>
+      <article class="champ reveal d2">
+        <div class="champ-img">
+          <span class="stamp" data-stamp>SOBEWFF<br>2022</span>
+          <img src="images/labirrabarusa/burger-hero.jpg" alt="Golden Burger — mejor hamburguesa de Estados Unidos 2022" loading="lazy">
+        </div>
+        <div class="champ-body">
+          <h3>Golden Burger</h3>
+          <span class="cond">Mejor hamburguesa de EE. UU. — SOBEWFF 2022</span>
+          <p>La que empezó todo en Miami: coronada como la mejor hamburguesa de Estados Unidos en el Burger Bash de The Food Network, y elegida Best Burger por Miami New Times.</p>
+          <a class="champ-link" href="https://www.ubereats.com/store/la-birra-bar-burgers-north-miami/3TcEFxtFSfiuiAN5buyXpA" target="_blank" rel="noopener">Pídela ahora <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- TROPHY WALL -->
+<section class="trophy" id="premios">
+  <div class="wrap">
+    <span class="eyebrow reveal">El palmarés</span>
+    <h2 class="sec-title reveal d1">Una vitrina<br><em>que no para de crecer</em></h2>
+    <p class="sec-lead reveal d2">De Boedo a Dubái: cada premio es una batalla ganada en la plancha. Este es el muro de los que dudaron.</p>
+    <div class="wall">
+      <div class="medal reveal">
+        <img src="images/labirrabarusa/badge-dubai.jpg" alt="Dubai Burger Championship — Overall Winner 2026" loading="lazy">
+        <h4>Campeona del mundo</h4>
+        <p>Dubai Burger Championship — Overall Winner 2026</p>
+      </div>
+      <div class="medal reveal d1">
+        <img src="images/labirrabarusa/badge-sobewff.jpg" alt="South Beach Wine and Food Festival 2025" loading="lazy">
+        <h4>Burger Bash</h4>
+        <p>South Beach Wine &amp; Food Festival — ganadora 2025 y 2022</p>
+      </div>
+      <div class="medal reveal d2">
+        <img src="images/labirrabarusa/badge-101best.jpg" alt="World's 101 Best Steak Restaurants — Top 10 Burger Places 2025" loading="lazy">
+        <h4>Top 10 mundial</h4>
+        <p>World's 101 Best — entre las 10 mejores del mundo 2025</p>
+      </div>
+      <div class="medal reveal d3">
+        <img src="images/labirrabarusa/badge-brewfest.jpg" alt="North Miami Brewfest 2024 — 1er lugar Best Eatery" loading="lazy">
+        <h4>1er lugar</h4>
+        <p>North Miami Brewfest — Best Eatery 2024</p>
+      </div>
+      <div class="medal text-card reveal">
+        <span class="star">★★</span>
+        <span class="big">2022<br>2023</span>
+        <h4>Best of Miami</h4>
+        <p>Mejor hamburguesa — Miami New Times, dos años seguidos</p>
+      </div>
+      <div class="medal text-card reveal d1">
+        <span class="star">★</span>
+        <span class="big">Top 5</span>
+        <h4>Del planeta</h4>
+        <p>Entre las 5 mejores hamburgueserías del mundo — Big 7 Travel</p>
+      </div>
+      <div class="medal text-card reveal d2">
+        <span class="star">★</span>
+        <span class="big">20→miles</span>
+        <h4>Al día</h4>
+        <p>De 20 hamburguesas diarias en 2001 a miles en 4 países</p>
+      </div>
+      <div class="medal text-card reveal d3">
+        <span class="star">★</span>
+        <span class="big">Nº 1</span>
+        <h4>En el estadio</h4>
+        <p>Propuesta gastronómica oficial del Nu Stadium, casa del Inter Miami CF</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STORY -->
+<section class="story" id="historia">
+  <div class="wrap">
+    <span class="eyebrow reveal">La historia</span>
+    <h2 class="sec-title reveal d1">Una familia,<br><em>una obsesión</em></h2>
+    <div class="story-grid">
+      <div class="story-copy reveal d1">
+        <p>Todo empezó en <strong>2001, en el barrio de Boedo</strong>, cuando <strong>Dany Cocchia</strong> y su esposa <strong>Roxana</strong> abrieron un pequeño local junto a la rotisería de los padres de Dany. En plena crisis argentina, se enfocaron en una sola cosa: <strong>hacer la mejor hamburguesa posible</strong>.</p>
+        <p>Pan de nube amasado todos los días, un blend propio de cortes de carne y salsas de autor. Lo que empezó con <strong>20 hamburguesas al día</strong> se convirtió en un templo de peregrinación para fanáticos — y en <strong>2021 cruzó el océano hasta North Miami Beach</strong>.</p>
+        <p>Hoy, con su hijo <strong>Renzo</strong> como copropietario y Dany como CEO, La Birra Bar es la <strong>hamburguesa más premiada del mundo</strong>: de Dubái a South Beach, la corona siempre vuelve a casa.</p>
+        <div class="fam">
+          <div class="fam-card"><span class="initial">D</span><h5>Dany Cocchia</h5><span>Fundador &amp; CEO</span></div>
+          <div class="fam-card"><span class="initial">R</span><h5>Roxana</h5><span>Cofundadora</span></div>
+          <div class="fam-card"><span class="initial">R</span><h5>Renzo Cocchia</h5><span>Copropietario</span></div>
+        </div>
+      </div>
+      <div class="timeline reveal d2">
+        <div class="tl-item"><span class="year">2001</span><p>Nace en Boedo: Dany y Roxana abren su barcito y empiezan a perfeccionar la hamburguesa, 20 al día.</p></div>
+        <div class="tl-item"><span class="year">2014</span><p>La obsesión se vuelve misión: desarrollan su propio blend de carnes y su pan de nube.</p></div>
+        <div class="tl-item"><span class="year">2021</span><p>Desembarco en la meca: primer local en EE. UU., North Miami Beach.</p></div>
+        <div class="tl-item"><span class="year">2022</span><p>La Golden Burger es coronada la mejor hamburguesa de Estados Unidos en el SOBEWFF.</p></div>
+        <div class="tl-item"><span class="year">2025</span><p>La Smash Golden Chimichurri repite la hazaña en el Burger Bash del SOBEWFF.</p></div>
+        <div class="tl-item"><span class="year">2026</span><p>La Crispy Dubai gana el Dubai Burger Championship: oficialmente, la mejor del mundo. Y llegamos al Nu Stadium.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TICKER 2 -->
+<div class="ticker dark" aria-hidden="true">
+  <div class="ticker-track" id="ticker2">
+    <span>North Miami Beach <i>★</i></span>
+    <span>Wynwood <i>★</i></span>
+    <span>Fort Lauderdale <i>★</i></span>
+    <span>Weston <i>★</i></span>
+    <span>Doral <i>★</i></span>
+    <span>Coral Gables <i>★</i></span>
+    <span>Nu Stadium <i>★</i></span>
+  </div>
+</div>
+
+<!-- LOCATIONS -->
+<section id="locales">
+  <div class="wrap">
+    <span class="eyebrow reveal">Locales</span>
+    <h2 class="sec-title reveal d1">7 templos<br><em>en el sur de la Florida</em></h2>
+    <p class="sec-lead reveal d2">Donde sea que estés en Miami, hay una plancha caliente esperándote. Búscanos también en Uber Eats.</p>
+    <div class="loc-grid">
+      <article class="loc featured reveal">
+        <div>
+          <span class="num">★ DESTACADO</span>
+          <h3>Nu <span class="gleam">Stadium</span></h3>
+          <address>Casa del Inter Miami CF — Miami Freedom Park</address>
+          <p style="color:var(--cream-dim);font-size:15px;margin-bottom:20px">La hamburguesa campeona del mundo, ahora parte de la experiencia oficial del estadio. El sabor que representa a Miami, en la casa del fútbol de Miami.</p>
+          <a class="btn-solid" href="https://ig.me/m/labirrabar.usa" target="_blank" rel="noopener">Pregunta por nosotros</a>
+        </div>
+        <img src="images/labirrabarusa/burger-neon.jpg" alt="Hamburguesa La Birra Bar en ambiente neón" loading="lazy">
+      </article>
+      <article class="loc reveal"><span class="num">01</span><h3>North Miami Beach</h3><address>14831 Biscayne Blvd</address><span class="cond">📍 El original de USA — desde 2021</span></article>
+      <article class="loc reveal d1"><span class="num">02</span><h3>Wynwood</h3><address>250 NW 24th St</address><span class="cond">📍 En el corazón del arte</span></article>
+      <article class="loc reveal d2"><span class="num">03</span><h3>Fort Lauderdale</h3><address>2031 E Oakland Park Blvd</address><span class="cond">📍 Sabor campeón al norte</span></article>
+      <article class="loc reveal"><span class="num">04</span><h3>Weston</h3><address>1830 Main St</address><span class="cond">📍 Tu parada obligada</span></article>
+      <article class="loc reveal d1"><span class="num">05</span><h3>Doral</h3><address>7901 NW 36th St, Unit 115</address><span class="cond">📍 La capital del sabor</span></article>
+      <article class="loc reveal d2"><span class="num">06</span><h3>Coral Gables</h3><address>219 Miracle Mile</address><span class="cond">📍 En la milla de los milagros</span></article>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final">
+  <div class="wrap">
+    <span class="eyebrow reveal" style="justify-content:center;display:inline-flex">El hambre no espera</span>
+    <h2 class="display reveal d1">¿Ya probaste la<br><span class="gleam">mejor del mundo?</span></h2>
+    <p class="reveal d2">Pide tu favorita por Uber Eats o escríbenos por Instagram y te decimos cuál local te queda más cerca.</p>
+    <div class="hero-ctas reveal d3">
+      <a class="btn-solid" href="https://www.ubereats.com/store/la-birra-bar-burgers-north-miami/3TcEFxtFSfiuiAN5buyXpA" target="_blank" rel="noopener">Pide por Uber Eats</a>
+      <a class="btn-line" href="https://ig.me/m/labirrabar.usa" target="_blank" rel="noopener">DM en Instagram</a>
+    </div>
+    <a class="ig-handle reveal d3" href="https://www.instagram.com/labirrabar.usa/" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 3.3.1 4.8 1.7 4.9 4.9.1 1.3.1 1.6.1 4.8s0 3.6-.1 4.8c-.1 3.2-1.7 4.8-4.9 4.9-1.3.1-1.6.1-4.9.1-3.2 0-3.6 0-4.8-.1-3.3-.1-4.8-1.7-4.9-4.9-.1-1.3-.1-1.6-.1-4.8s0-3.6.1-4.8C2.4 3.9 4 2.3 7.2 2.3c1.2-.1 1.6-.1 4.8-.1zM12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm0 8.2a3.2 3.2 0 1 1 0-6.4 3.2 3.2 0 0 1 0 6.4zm5.2-9.6a1.2 1.2 0 1 0 0 2.4 1.2 1.2 0 0 0 0-2.4z"/></svg>
+      @labirrabar.usa
+    </a>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <img src="images/labirrabarusa/logo.png" alt="La Birra Bar" width="786" height="209">
+        <p>La hamburguesa más premiada del mundo. De Boedo 2001 al sur de la Florida.</p>
+        <div class="socials">
+          <a class="soc" href="https://www.instagram.com/labirrabar.usa/" target="_blank" rel="noopener" aria-label="Instagram de La Birra Bar USA">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 3.3.1 4.8 1.7 4.9 4.9.1 1.3.1 1.6.1 4.8s0 3.6-.1 4.8c-.1 3.2-1.7 4.8-4.9 4.9-1.3.1-1.6.1-4.9.1-3.2 0-3.6 0-4.8-.1-3.3-.1-4.8-1.7-4.9-4.9-.1-1.3-.1-1.6-.1-4.8s0-3.6.1-4.8C2.4 3.9 4 2.3 7.2 2.3c1.2-.1 1.6-.1 4.8-.1zM12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm0 8.2a3.2 3.2 0 1 1 0-6.4 3.2 3.2 0 0 1 0 6.4zm5.2-9.6a1.2 1.2 0 1 0 0 2.4 1.2 1.2 0 0 0 0-2.4z"/></svg>
+          </a>
+          <a class="soc" href="mailto:info@labirrabarusa.com" aria-label="Email de La Birra Bar USA">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg>
+          </a>
+          <a class="soc" href="https://www.ubereats.com/store/la-birra-bar-burgers-north-miami/3TcEFxtFSfiuiAN5buyXpA" target="_blank" rel="noopener" aria-label="Pide en Uber Eats">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 7V6a6 6 0 1 1 12 0v1h3v13a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7h3zm2 0h8V6a4 4 0 1 0-8 0v1z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="foot-col">
+        <h5>Explora</h5>
+        <ul>
+          <li><a href="#campeonas">Las Campeonas</a></li>
+          <li><a href="#premios">Premios</a></li>
+          <li><a href="#historia">Historia</a></li>
+          <li><a href="#locales">Locales</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h5>Locales USA</h5>
+        <ul>
+          <li>North Miami Beach</li>
+          <li>Wynwood · Fort Lauderdale</li>
+          <li>Weston · Doral</li>
+          <li>Coral Gables · Nu Stadium</li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h5>Contacto</h5>
+        <ul>
+          <li><a href="mailto:info@labirrabarusa.com">info@labirrabarusa.com</a></li>
+          <li><a href="https://ig.me/m/labirrabar.usa" target="_blank" rel="noopener">DM en Instagram</a></li>
+          <li><a href="https://www.ubereats.com/store/la-birra-bar-burgers-north-miami/3TcEFxtFSfiuiAN5buyXpA" target="_blank" rel="noopener">Uber Eats</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="copy">
+      <span>© <span id="year">2026</span> La Birra Bar USA — Concepto web de muestra.</span>
+      <span>Hecho con hambre en Miami 🌴</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+  var header=document.getElementById('header');
+  var burger=document.getElementById('burger');
+  var navLinks=document.getElementById('navLinks');
+
+  function onScroll(){ header.classList.toggle('scrolled', window.scrollY>40); }
+  window.addEventListener('scroll', onScroll, {passive:true});
+  onScroll();
+
+  burger.addEventListener('click', function(){
+    var open=navLinks.classList.toggle('open');
+    burger.setAttribute('aria-expanded', open?'true':'false');
+    burger.setAttribute('aria-label', open?'Cerrar menú':'Abrir menú');
+  });
+  navLinks.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click', function(){
+      navLinks.classList.remove('open');
+      burger.setAttribute('aria-expanded','false');
+    });
+  });
+
+  // duplicate ticker content for seamless loop
+  ['ticker1','ticker2'].forEach(function(id){
+    var t=document.getElementById(id);
+    if(t){ t.innerHTML+=t.innerHTML; }
+  });
+
+  // ember particles
+  var embers=document.getElementById('embers');
+  if(embers && !window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+    for(var i=0;i<14;i++){
+      var e=document.createElement('span');
+      e.className='ember';
+      e.style.left=(Math.random()*100)+'%';
+      e.style.animationDuration=(7+Math.random()*9)+'s';
+      e.style.animationDelay=(Math.random()*10)+'s';
+      var s=3+Math.random()*5;
+      e.style.width=s+'px'; e.style.height=s+'px';
+      embers.appendChild(e);
+    }
+  }
+
+  // scroll reveals + stamp-in
+  var io=new IntersectionObserver(function(entries){
+    entries.forEach(function(en){
+      if(en.isIntersecting){
+        en.target.classList.add('in');
+        en.target.querySelectorAll('[data-stamp]').forEach(function(st){
+          st.classList.add('in');
+        });
+        if(en.target.hasAttribute('data-stamp')) en.target.classList.add('in');
+        io.unobserve(en.target);
+      }
+    });
+  },{threshold:.15,rootMargin:'0px 0px -40px 0px'});
+  document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
+
+  document.getElementById('year').textContent=new Date().getFullYear();
+})();
+</script>
+</body>
+</html>

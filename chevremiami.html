@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chèvre Miami — Gourmet Market &amp; Café | Coral Way · Design District · Coconut Grove</title>
+<meta name="description" content="Chèvre Miami — a European-style gourmet market and café. Curated artisan cheeses, fine wines, cult-favorite burgers and private events across Coral Way, Design District and Coconut Grove.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400;1,600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="icon" href="images/chevremiami/profile-chevre.jpg">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FoodEstablishment",
+  "name": "Chèvre Miami",
+  "description": "Gourmet market and café: curated artisan cheeses, fine wines, cult-favorite burgers, catering and private events in Miami.",
+  "telephone": "+17867893284",
+  "email": "mnaar@chevremiami.com",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "1295 Coral Way",
+    "addressLocality": "Miami",
+    "addressRegion": "FL",
+    "postalCode": "33145",
+    "addressCountry": "US"
+  },
+  "sameAs": [
+    "https://www.instagram.com/chevremiami/",
+    "https://linktr.ee/chevremiami"
+  ]
+}
+</script>
+<style>
+:root{
+  --navy:#141f33;
+  --navy-deep:#0c1424;
+  --navy-soft:#1c2a45;
+  --cream:#f6f0e1;
+  --cream-dim:#e9e0cb;
+  --gold:#c9a35c;
+  --gold-bright:#e9cf8f;
+  --wine:#8e2f45;
+  --ink:#23262c;
+  --muted:rgba(246,240,225,.62);
+  --line:rgba(201,163,92,.28);
+  --serif:'Playfair Display',Georgia,'Times New Roman',serif;
+  --sans:'Jost','Helvetica Neue',Arial,sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  background:var(--navy-deep);
+  color:var(--cream);
+  font-family:var(--sans);
+  font-weight:300;
+  line-height:1.7;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+::selection{background:var(--gold);color:var(--navy-deep)}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+
+/* ---------- grain ---------- */
+.grain::after{
+  content:"";position:fixed;inset:0;pointer-events:none;z-index:120;opacity:.055;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* ---------- preloader ---------- */
+#loader{
+  position:fixed;inset:0;z-index:200;background:var(--navy-deep);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:22px;
+  transition:opacity .9s ease,visibility .9s;
+}
+#loader.done{opacity:0;visibility:hidden}
+.seal{
+  width:110px;height:110px;border-radius:50%;
+  border:1px solid var(--line);
+  display:flex;align-items:center;justify-content:center;
+  position:relative;
+  animation:sealPulse 2.2s ease-in-out infinite;
+}
+.seal::before{
+  content:"";position:absolute;inset:9px;border-radius:50%;
+  border:1px dashed rgba(201,163,92,.55);
+  animation:spin 14s linear infinite;
+}
+.seal img{width:64px;height:64px;border-radius:50%;object-fit:cover}
+@keyframes sealPulse{0%,100%{transform:scale(1)}50%{transform:scale(1.05)}}
+@keyframes spin{to{transform:rotate(360deg)}}
+#loader p{letter-spacing:.45em;font-size:.7rem;color:var(--muted);text-transform:uppercase}
+
+/* ---------- nav ---------- */
+header{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:18px clamp(20px,4vw,54px);
+  transition:background .4s,padding .4s,border-color .4s;
+  border-bottom:1px solid transparent;
+}
+header.scrolled{background:rgba(12,20,36,.86);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);padding:12px clamp(20px,4vw,54px);border-color:rgba(201,163,92,.16)}
+.brand{display:flex;align-items:center;gap:13px}
+.brand img{width:44px;height:44px;border-radius:50%;object-fit:cover;border:1px solid var(--line);box-shadow:0 0 18px rgba(201,163,92,.25)}
+.brand .word{font-family:var(--serif);font-size:1.35rem;letter-spacing:.08em;color:var(--cream)}
+.brand .word small{display:block;font-family:var(--sans);font-size:.58rem;letter-spacing:.5em;color:var(--gold);font-weight:400}
+nav.links{display:flex;gap:clamp(14px,2.4vw,34px);align-items:center}
+nav.links a{font-size:.78rem;letter-spacing:.24em;text-transform:uppercase;color:var(--muted);position:relative;padding:6px 0;transition:color .3s}
+nav.links a::after{content:"";position:absolute;left:0;bottom:0;height:1px;width:0;background:var(--gold);transition:width .35s}
+nav.links a:hover{color:var(--gold-bright)}
+nav.links a:hover::after{width:100%}
+.nav-cta{
+  font-size:.74rem;letter-spacing:.24em;text-transform:uppercase;
+  border:1px solid var(--gold);color:var(--gold-bright);
+  padding:11px 26px;border-radius:100px;transition:all .35s;background:transparent;
+}
+.nav-cta:hover{background:var(--gold);color:var(--navy-deep);box-shadow:0 0 26px rgba(201,163,92,.4)}
+.burger{display:none;background:none;border:0;cursor:pointer;flex-direction:column;gap:6px;padding:8px}
+.burger span{width:26px;height:2px;background:var(--gold);transition:.3s}
+@media(max-width:900px){
+  nav.links{
+    position:fixed;top:0;right:-100%;height:100vh;width:min(78vw,340px);
+    background:var(--navy);flex-direction:column;justify-content:center;gap:30px;
+    transition:right .45s cubic-bezier(.7,0,.3,1);border-left:1px solid var(--line);
+  }
+  nav.links.open{right:0}
+  .burger{display:flex}
+}
+
+/* ---------- buttons ---------- */
+.btn{
+  display:inline-block;font-size:.78rem;letter-spacing:.26em;text-transform:uppercase;font-weight:500;
+  padding:17px 42px;border-radius:100px;transition:all .35s;cursor:pointer;border:1px solid transparent;
+}
+.btn-solid{background:linear-gradient(135deg,var(--gold-bright),var(--gold));color:var(--navy-deep)}
+.btn-solid:hover{transform:translateY(-3px);box-shadow:0 14px 34px rgba(201,163,92,.35)}
+.btn-outline{border-color:var(--gold);color:var(--gold-bright)}
+.btn-outline:hover{background:rgba(201,163,92,.12);transform:translateY(-3px)}
+
+/* ---------- hero ---------- */
+.hero{
+  min-height:100svh;display:flex;flex-direction:column;justify-content:flex-end;
+  position:relative;overflow:hidden;padding:120px clamp(20px,5vw,72px) 0;
+}
+.hero-bg{position:absolute;inset:-12% 0;z-index:0}
+.hero-bg img{width:100%;height:100%;object-fit:cover;transform:scale(1.08);will-change:transform}
+.hero-veil{position:absolute;inset:0;z-index:1;
+  background:linear-gradient(180deg,rgba(12,20,36,.62) 0%,rgba(12,20,36,.35) 38%,rgba(12,20,36,.88) 78%,var(--navy-deep) 100%);}
+.hero-inner{position:relative;z-index:2;max-width:1200px;margin:0 auto;width:100%;padding-bottom:26px}
+.eyebrow{
+  display:inline-flex;align-items:center;gap:14px;
+  font-size:.72rem;letter-spacing:.42em;text-transform:uppercase;color:var(--gold-bright);
+  margin-bottom:26px;
+}
+.eyebrow::before{content:"";width:44px;height:1px;background:var(--gold)}
+.hero h1{
+  font-family:var(--serif);font-weight:700;
+  font-size:clamp(3.6rem,11vw,9.2rem);line-height:.95;letter-spacing:.01em;
+  color:var(--cream);
+}
+.hero h1 .accent{font-style:italic;font-weight:400;color:var(--gold-bright)}
+.hero h1 .ch{display:inline-block;opacity:0;transform:translateY(.55em) rotate(3deg)}
+.hero h1.revealed .ch{opacity:1;transform:none;transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1)}
+.hero-sub{
+  margin-top:26px;max-width:560px;color:var(--muted);font-size:clamp(1rem,1.6vw,1.15rem);
+  opacity:0;transform:translateY(24px);transition:opacity 1s .5s,transform 1s .5s;
+}
+.hero-inner.revealed .hero-sub{opacity:1;transform:none}
+.hero-cta{display:flex;gap:16px;flex-wrap:wrap;margin-top:36px;opacity:0;transform:translateY(24px);transition:opacity 1s .75s,transform 1s .75s}
+.hero-inner.revealed .hero-cta{opacity:1;transform:none}
+.hero-locs{
+  display:flex;gap:clamp(18px,3vw,46px);flex-wrap:wrap;margin-top:44px;padding-top:26px;
+  border-top:1px solid rgba(201,163,92,.2);opacity:0;transition:opacity 1.2s 1s;
+}
+.hero-inner.revealed .hero-locs{opacity:1}
+.hero-locs div{font-size:.74rem;letter-spacing:.3em;text-transform:uppercase;color:var(--muted)}
+.hero-locs div b{display:block;color:var(--gold-bright);font-weight:500;margin-bottom:4px}
+
+/* ---------- ticker ---------- */
+.ticker{
+  position:relative;z-index:2;border-top:1px solid rgba(201,163,92,.22);border-bottom:1px solid rgba(201,163,92,.22);
+  background:rgba(12,20,36,.7);backdrop-filter:blur(6px);overflow:hidden;white-space:nowrap;
+  margin-top:34px;
+}
+.ticker-track{display:inline-block;padding:15px 0;animation:tick 30s linear infinite}
+.ticker-track span{
+  font-family:var(--serif);font-style:italic;font-size:1.02rem;color:var(--gold-bright);
+  margin:0 26px;letter-spacing:.06em;
+}
+.ticker-track i{color:var(--wine);font-style:normal;font-size:.85rem}
+@keyframes tick{to{transform:translateX(-50%)}}
+
+/* ---------- sections ---------- */
+section{position:relative;padding:clamp(80px,10vw,140px) clamp(20px,5vw,72px)}
+.wrap{max-width:1200px;margin:0 auto}
+.kicker{font-size:.72rem;letter-spacing:.42em;text-transform:uppercase;color:var(--gold);margin-bottom:20px;display:flex;align-items:center;gap:14px}
+.kicker::before{content:"";width:38px;height:1px;background:var(--gold)}
+h2.title{font-family:var(--serif);font-size:clamp(2.1rem,4.6vw,3.6rem);line-height:1.12;font-weight:600;color:var(--cream);max-width:14em}
+h2.title em{color:var(--gold-bright);font-weight:400}
+.lede{color:var(--muted);max-width:620px;margin-top:18px;font-size:1.05rem}
+
+.rv{opacity:0;transform:translateY(44px);transition:opacity 1.1s cubic-bezier(.2,.7,.2,1),transform 1.1s cubic-bezier(.2,.7,.2,1)}
+.rv.in{opacity:1;transform:none}
+.rv-d1{transition-delay:.12s}.rv-d2{transition-delay:.24s}.rv-d3{transition-delay:.36s}
+
+/* ---------- house ---------- */
+.house-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(36px,6vw,90px);align-items:center;margin-top:56px}
+@media(max-width:900px){.house-grid{grid-template-columns:1fr}}
+.photo-frame{position:relative}
+.photo-frame .main{
+  border-radius:6px;overflow:hidden;
+  box-shadow:0 40px 80px rgba(0,0,0,.5);
+  border:1px solid rgba(201,163,92,.2);
+}
+.photo-frame .main img{width:100%;height:clamp(320px,44vw,560px);object-fit:cover;transition:transform 1.4s cubic-bezier(.2,.7,.2,1)}
+.photo-frame:hover .main img{transform:scale(1.045)}
+.photo-frame .offset{
+  position:absolute;inset:0;border:1px solid var(--gold);border-radius:6px;
+  transform:translate(18px,18px);z-index:-1;opacity:.5;
+}
+.stamp{
+  position:absolute;right:-26px;bottom:36px;width:128px;height:128px;border-radius:50%;
+  background:radial-gradient(circle at 34% 30%,#a53a52,var(--wine) 70%);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;
+  box-shadow:0 18px 40px rgba(0,0,0,.5),inset 0 0 0 6px rgba(246,240,225,.14);
+  transform:rotate(-10deg);transition:transform .5s;
+}
+.stamp:hover{transform:rotate(4deg) scale(1.06)}
+.stamp b{font-family:var(--serif);font-size:1.5rem;color:var(--cream);line-height:1}
+.stamp small{font-size:.56rem;letter-spacing:.3em;color:var(--gold-bright);text-transform:uppercase;margin-top:6px}
+.house-copy p{color:var(--muted);margin-top:20px}
+.house-copy p b{color:var(--cream);font-weight:500}
+.fact-row{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:38px}
+.fact{border-top:1px solid var(--line);padding-top:16px}
+.fact b{font-family:var(--serif);font-size:1.7rem;color:var(--gold-bright);display:block;font-weight:600}
+.fact span{font-size:.74rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+
+/* ---------- menu ---------- */
+#menu{background:linear-gradient(180deg,var(--navy-deep) 0%,#101a2e 50%,var(--navy-deep) 100%)}
+.menu-head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap}
+.menu-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;margin-top:60px}
+@media(max-width:1000px){.menu-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:620px){.menu-grid{grid-template-columns:1fr}}
+.dish{
+  position:relative;border:1px solid rgba(201,163,92,.18);border-radius:8px;overflow:hidden;
+  background:linear-gradient(160deg,rgba(28,42,69,.9),rgba(12,20,36,.95));
+  transition:transform .5s cubic-bezier(.2,.7,.2,1),box-shadow .5s,border-color .5s;
+}
+.dish:hover{transform:translateY(-8px);box-shadow:0 30px 60px rgba(0,0,0,.5),0 0 40px rgba(201,163,92,.12);border-color:rgba(201,163,92,.45)}
+.dish .ph{height:190px;overflow:hidden;position:relative}
+.dish .ph img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s}
+.dish:hover .ph img{transform:scale(1.08)}
+.dish .ph::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(12,20,36,.85))}
+.day{
+  position:absolute;top:14px;left:14px;z-index:2;
+  font-size:.62rem;letter-spacing:.28em;text-transform:uppercase;font-weight:600;
+  background:var(--gold);color:var(--navy-deep);padding:8px 14px;border-radius:100px;
+}
+.dish .bd{padding:26px 26px 30px}
+.dish h3{font-family:var(--serif);font-size:1.5rem;font-weight:600;color:var(--cream);line-height:1.25}
+.dish h3 em{color:var(--gold-bright)}
+.dish .ing{font-size:.86rem;color:var(--muted);margin-top:10px;line-height:1.65}
+.dish .price{margin-top:16px;font-family:var(--serif);font-size:1.15rem;color:var(--gold-bright)}
+.dish .note{margin-top:8px;font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(246,240,225,.42)}
+.dish.wide{grid-column:span 2;display:grid;grid-template-columns:1fr 1fr}
+.dish.wide .ph{height:100%;min-height:260px}
+@media(max-width:620px){.dish.wide{grid-column:span 1;grid-template-columns:1fr}.dish.wide .ph{height:190px}}
+
+/* ---------- founder ---------- */
+#founder{background:var(--cream);color:var(--ink);overflow:hidden}
+#founder .kicker{color:#9a6b1e}
+#founder .kicker::before{background:#9a6b1e}
+#founder h2.title{color:#1b2334}
+#founder h2.title em{color:#9a6b1e}
+.founder-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(36px,6vw,90px);align-items:center;margin-top:54px}
+@media(max-width:900px){.founder-grid{grid-template-columns:1fr}}
+.founder-photo{position:relative}
+.founder-photo img{border-radius:50%;width:min(340px,72vw);aspect-ratio:1;object-fit:cover;margin:0 auto;
+  border:10px solid #fff;box-shadow:0 30px 70px rgba(20,31,51,.25);outline:1px solid rgba(154,107,30,.35)}
+.founder-photo .goat-ring{
+  position:absolute;inset:6%;border:1px dashed rgba(154,107,30,.5);border-radius:50%;
+  animation:spin 26s linear infinite;pointer-events:none;
+}
+.founder-copy .quote{
+  font-family:var(--serif);font-style:italic;font-size:clamp(1.4rem,2.8vw,2rem);line-height:1.4;color:#1b2334;margin:26px 0;
+  border-left:3px solid var(--gold);padding-left:24px;
+}
+.founder-copy p{color:#4a4f59;margin-top:16px}
+.founder-copy p b{color:#1b2334;font-weight:600}
+.curates{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
+.curates span{
+  font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;
+  border:1px solid rgba(154,107,30,.4);color:#6d4d15;border-radius:100px;padding:9px 18px;background:#fff;
+}
+
+/* ---------- events ---------- */
+.events-band{
+  border:1px solid var(--line);border-radius:10px;overflow:hidden;
+  display:grid;grid-template-columns:1.1fr .9fr;margin-top:60px;
+  background:linear-gradient(140deg,#182747,var(--navy-deep));
+}
+@media(max-width:900px){.events-band{grid-template-columns:1fr}}
+.events-band .eb-copy{padding:clamp(34px,5vw,64px)}
+.events-band .eb-copy ul{list-style:none;margin:26px 0 34px}
+.events-band .eb-copy li{
+  display:flex;gap:16px;align-items:flex-start;padding:13px 0;border-bottom:1px solid rgba(201,163,92,.14);
+  color:var(--muted);font-size:.98rem;
+}
+.events-band .eb-copy li i{color:var(--gold);font-style:normal}
+.events-band .eb-copy li b{color:var(--cream);font-weight:500}
+.events-band .eb-img{min-height:320px}
+.events-band .eb-img img{width:100%;height:100%;object-fit:cover;min-height:320px}
+
+/* ---------- visit ---------- */
+.loc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;margin-top:56px}
+@media(max-width:900px){.loc-grid{grid-template-columns:1fr}}
+.loc{
+  border:1px solid rgba(201,163,92,.18);border-radius:8px;padding:38px 32px;
+  background:rgba(28,42,69,.35);transition:all .45s;position:relative;overflow:hidden;
+}
+.loc::before{
+  content:"";position:absolute;top:0;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,transparent,var(--gold),transparent);
+  transform:scaleX(0);transition:transform .5s;
+}
+.loc:hover{transform:translateY(-6px);border-color:rgba(201,163,92,.45);box-shadow:0 24px 50px rgba(0,0,0,.45)}
+.loc:hover::before{transform:scaleX(1)}
+.loc .num{font-family:var(--serif);font-style:italic;color:rgba(201,163,92,.5);font-size:1rem;letter-spacing:.1em}
+.loc h3{font-family:var(--serif);font-size:1.7rem;margin:10px 0 8px;color:var(--cream)}
+.loc p{color:var(--muted);font-size:.94rem}
+.loc a.tel{display:inline-block;margin-top:18px;font-size:.78rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-bright);border-bottom:1px solid var(--line);padding-bottom:4px}
+.visit-cta{
+  margin-top:60px;text-align:center;border:1px dashed rgba(201,163,92,.35);border-radius:10px;
+  padding:clamp(34px,5vw,56px);
+}
+.visit-cta p{color:var(--muted);max-width:560px;margin:14px auto 30px}
+.contact-row{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+
+/* ---------- footer ---------- */
+footer{border-top:1px solid rgba(201,163,92,.2);padding:64px clamp(20px,5vw,72px) 34px;background:#0a1120}
+.foot-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:40px}
+@media(max-width:800px){.foot-grid{grid-template-columns:1fr}}
+.foot-brand img{width:58px;height:58px;border-radius:50%;object-fit:cover;border:1px solid var(--line);margin-bottom:16px}
+.foot-brand p{color:var(--muted);font-size:.9rem;max-width:320px}
+footer h4{font-size:.72rem;letter-spacing:.34em;text-transform:uppercase;color:var(--gold);margin-bottom:20px;font-weight:500}
+footer ul{list-style:none}
+footer ul li{margin:10px 0}
+footer ul a{color:var(--muted);font-size:.92rem;transition:color .3s}
+footer ul a:hover{color:var(--gold-bright)}
+.socials{display:flex;gap:14px;margin-top:6px}
+.socials a{
+  width:46px;height:46px;border-radius:50%;border:1px solid rgba(201,163,92,.35);
+  display:flex;align-items:center;justify-content:center;transition:all .35s;
+}
+.socials a:hover{background:var(--gold);border-color:var(--gold);transform:translateY(-4px);box-shadow:0 12px 26px rgba(201,163,92,.35)}
+.socials a:hover svg{fill:var(--navy-deep)}
+.socials svg{width:20px;height:20px;fill:var(--gold-bright);transition:fill .35s}
+.foot-base{
+  max-width:1200px;margin:48px auto 0;padding-top:24px;border-top:1px solid rgba(201,163,92,.14);
+  display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;
+  font-size:.76rem;letter-spacing:.14em;color:rgba(246,240,225,.4);text-transform:uppercase;
+}
+
+/* ---------- marquee words (motion typography) ---------- */
+.words-marquee{overflow:hidden;white-space:nowrap;padding:26px 0;border-top:1px solid rgba(201,163,92,.18);border-bottom:1px solid rgba(201,163,92,.18)}
+.words-marquee .wm-track{display:inline-block;animation:tick 36s linear infinite}
+.words-marquee span{
+  font-family:var(--serif);font-size:clamp(2.2rem,5vw,3.8rem);color:transparent;
+  -webkit-text-stroke:1px rgba(201,163,92,.55);margin:0 30px;letter-spacing:.04em;
+}
+.words-marquee span.fill{color:var(--gold-bright);-webkit-text-stroke:0}
+
+@media(max-width:640px){
+  .fact-row{grid-template-columns:1fr 1fr}
+  .stamp{right:8px;width:104px;height:104px}
+  .stamp b{font-size:1.15rem}
+}
+
+/* ---------- reduced motion ---------- */
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important}
+  html{scroll-behavior:auto}
+  .rv,.hero h1 .ch,.hero-sub,.hero-cta,.hero-locs{opacity:1 !important;transform:none !important}
+  #loader{display:none}
+  .hero h1.revealed .ch{transition:none}
+}
+</style>
+</head>
+<body class="grain">
+
+<div id="loader" aria-hidden="true">
+  <div class="seal"><img src="images/chevremiami/profile-chevre.jpg" alt=""></div>
+  <p>Chèvre Miami</p>
+</div>
+
+<header id="siteHeader">
+  <a class="brand" href="#top" aria-label="Chèvre Miami — home">
+    <img src="images/chevremiami/profile-chevre.jpg" alt="Chèvre Miami logo — goat with bow tie">
+    <span class="word">Chèvre<small>MIAMI</small></span>
+  </a>
+  <nav class="links" id="navLinks" aria-label="Primary">
+    <a href="#house">The House</a>
+    <a href="#menu">Signatures</a>
+    <a href="#founder">The Curator</a>
+    <a href="#events">Events</a>
+    <a href="#visit">Visit</a>
+    <a class="nav-cta" href="https://ig.me/m/chevremiami" target="_blank" rel="noopener">DM Us</a>
+  </nav>
+  <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero" aria-label="Welcome to Chèvre Miami">
+    <div class="hero-bg" id="heroBg">
+      <img src="images/chevremiami/photo-interior.jpg" alt="Inside the Chèvre Miami gourmet market — cheese counters, baguettes and wine shelves">
+    </div>
+    <div class="hero-veil"></div>
+    <div class="hero-inner" id="heroInner">
+      <span class="eyebrow">Gourmet Market · Café · Miami</span>
+      <h1 id="heroTitle"><span class="accent">The</span> <span class="word-split">Chèvre</span><br><span class="word-split">House</span></h1>
+      <p class="hero-sub">A European-style fromagerie in the heart of Miami — curated artisan cheeses, fine wines and a café that became a cult. Three neighborhoods. One obsession.</p>
+      <div class="hero-cta">
+        <a class="btn btn-solid" href="#menu">Explore Signatures</a>
+        <a class="btn btn-outline" href="https://ig.me/m/chevremiami" target="_blank" rel="noopener">Message Us</a>
+      </div>
+      <div class="hero-locs">
+        <div><b>Coral Way</b>The original market</div>
+        <div><b>Design District</b>The design edit</div>
+        <div><b>Coconut Grove</b>The Grove outpost</div>
+      </div>
+    </div>
+    <div class="ticker" aria-hidden="true">
+      <div class="ticker-track" id="tickerTrack">
+        <span>Artisan Fromage</span><i>✦</i><span>Fine Wine</span><i>✦</i><span>Burger Wednesdays</span><i>✦</i><span>Gourmet Market</span><i>✦</i><span>Private Events</span><i>✦</i><span>Office Catering</span><i>✦</i>
+      </div>
+    </div>
+  </section>
+
+  <!-- THE HOUSE -->
+  <section id="house">
+    <div class="wrap">
+      <p class="kicker rv">The House</p>
+      <h2 class="title rv">Not a cheese shop.<br><em>A temple of taste.</em></h2>
+      <div class="house-grid">
+        <div class="photo-frame rv">
+          <div class="offset"></div>
+          <div class="main">
+            <img src="images/chevremiami/photo-grove.jpg" alt="Chèvre Miami cheese counter with an illuminated case of artisan cheeses and a wall of fine wines">
+          </div>
+          <div class="stamp" aria-hidden="true">
+            <b>3</b>
+            <small>Locations<br>Miami</small>
+          </div>
+        </div>
+        <div class="house-copy">
+          <p class="rv"><b>Chèvre — French for goat — is Miami's love letter to the European fromagerie.</b> Walk in for a wheel of Vacherin Mont d'Or, stay for a glass of wine, leave with a bag full of good decisions.</p>
+          <p class="rv rv-d1">Every shelf is curated, not stocked. From 18-month prosciutto di San Daniele DOP to the Rothschild Truffle Brie that sells out every time it lands, only the best ingredients make it through the door.</p>
+          <p class="rv rv-d2">And then there's the café — where a humble burger became a <b>cult-favorite phenomenon</b>, and the grilled cheese earned the title "world famous" from the people who know.</p>
+          <div class="fact-row">
+            <div class="fact rv"><b>91K+</b><span>Cheese lovers</span></div>
+            <div class="fact rv rv-d1"><b>3</b><span>Miami locations</span></div>
+            <div class="fact rv rv-d2"><b>1</b><span>Obsession: flavor</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="words-marquee" aria-hidden="true">
+    <div class="wm-track">
+      <span>Fromage</span><span class="fill">Vin</span><span>Café</span><span class="fill">Marché</span><span>Chèvre</span><span class="fill">Miami</span>
+      <span>Fromage</span><span class="fill">Vin</span><span>Café</span><span class="fill">Marché</span><span>Chèvre</span><span class="fill">Miami</span>
+    </div>
+  </div>
+
+  <!-- SIGNATURES -->
+  <section id="menu">
+    <div class="wrap">
+      <div class="menu-head">
+        <div>
+          <p class="kicker rv">Signatures</p>
+          <h2 class="title rv">Dishes Miami <em>lines up for.</em></h2>
+        </div>
+        <p class="lede rv">Limited drops, weekly rituals, and the kind of sourcing that makes you close your eyes mid-bite.</p>
+      </div>
+      <div class="menu-grid">
+
+        <article class="dish wide rv">
+          <div class="ph">
+            <span class="day">Wednesdays only</span>
+            <img src="images/chevremiami/photo-shop.jpg" alt="The Chèvre Miami shop interior with a glass case of artisan cheeses">
+          </div>
+          <div class="bd">
+            <h3>Burger <em>Wednesdays</em></h3>
+            <p class="ing">Two exclusive burgers drop every Wednesday — <b>Le Chèvre</b> and <b>Le Truffe Royale</b>, built on Australian wagyu with premium ingredients. Limited burgers per location.</p>
+            <p class="price">Le Truffe Royale — $38</p>
+            <p class="note">Coral Way &amp; Coconut Grove · Until sold out</p>
+          </div>
+        </article>
+
+        <article class="dish rv rv-d1">
+          <div class="bd">
+            <span class="day">Thursdays only</span>
+            <h3>The Miami <em>Cheesesteak</em></h3>
+            <p class="ing">Upper Iowa prime ribeye, Tetilla DOP cheese, Japanese garlic aioli, pepperoncini peppers on the side. Let the ingredients make the argument.</p>
+            <p class="note">Coral Way &amp; Coconut Grove · Until sold out</p>
+          </div>
+        </article>
+
+        <article class="dish rv rv-d2">
+          <div class="bd">
+            <span class="day">The icon</span>
+            <h3>World Famous <em>Grilled Cheese</em></h3>
+            <p class="ing">Four world-class cheeses — Gruyère, Prairie Breeze cheddar, Morbier, Emmental — pressed golden between buttered Pullman slices with Beurre de Baratte.</p>
+            <p class="note">We. Are. Cheese.</p>
+          </div>
+        </article>
+
+        <article class="dish rv">
+          <div class="bd">
+            <span class="day">Caviar hour</span>
+            <h3>The <em>Daniel</em></h3>
+            <p class="ing">Fresh croissant, Daniel Boulud smoked salmon, crème fraîche, pickled onions, Golden Goat caviar and arugula. Order with or without caviar.</p>
+            <p class="note">Upgrade everything</p>
+          </div>
+        </article>
+
+        <article class="dish rv rv-d1">
+          <div class="bd">
+            <span class="day">Weekend ritual</span>
+            <h3>Chèvre × <em>Essa NY Bagels</em></h3>
+            <p class="ing">A proper weekend brunch starts with a good bagel. Four signature bagels plus coffee and matcha, every Saturday and Sunday.</p>
+            <p class="note">Coconut Grove · Sat–Sun 11 AM – 2 PM</p>
+          </div>
+        </article>
+
+        <article class="dish rv rv-d2">
+          <div class="bd">
+            <span class="day">Coming soon</span>
+            <h3>The Breakfast <em>Burrito</em></h3>
+            <p class="ing">Lightly scrambled crème fraîche eggs, guanciale ibérico, crispy hashbrowns, raclette and Prairie Breeze cheddar, avocado, crispy chicken tenders, smoky chipotle fire sauce.</p>
+            <p class="note">In the works — stay close</p>
+          </div>
+        </article>
+
+        <article class="dish rv">
+          <div class="bd">
+            <span class="day">To go</span>
+            <h3>Tablas <em>Chèvres</em></h3>
+            <p class="ing">Signature cheese boards built for gatherings, gifts and golden hour. Curated, cut and ready to impress.</p>
+            <p class="note">Order via the link in bio</p>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- THE CURATOR -->
+  <section id="founder">
+    <div class="wrap">
+      <p class="kicker rv">The Curator</p>
+      <h2 class="title rv">Behind every great house<br><em>is a great palate.</em></h2>
+      <div class="founder-grid">
+        <div class="founder-photo rv">
+          <div class="goat-ring" aria-hidden="true"></div>
+          <img src="images/chevremiami/profile-mario.jpg" alt="Mario D Naar, curator of Chèvre Miami, seated beside a white goat">
+        </div>
+        <div class="founder-copy">
+          <p class="rv"><b>Mario D Naar</b> — known to Miami as <b>@naarmiami</b> — is the wine lover and master curator behind Chèvre. The bio says it plainly: <b>"Curated by @naarmiami."</b></p>
+          <blockquote class="quote rv rv-d1">"Content isn't king — it's the Kingdom."</blockquote>
+          <p class="rv rv-d2">Curation is his craft. Beyond Chèvre, Mario curates a small constellation of Miami concepts — each one built the same way: <b>obsessive sourcing, honest flavor, and an experience worth talking about.</b> That's why the shelves read like a collector's shelf, and why a cheese shop ended up with a cult-favorite burger.</p>
+          <div class="curates rv rv-d3">
+            <span>@chevremiami</span>
+            <span>@salvajeworld</span>
+            <span>@goldengoatcaviar</span>
+            <span>@taqueria.la52</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EVENTS & CATERING -->
+  <section id="events">
+    <div class="wrap">
+      <p class="kicker rv">Events &amp; Catering</p>
+      <h2 class="title rv">The guest list is yours.<br><em>The rest is very Chèvre.</em></h2>
+      <div class="events-band rv">
+        <div class="eb-copy">
+          <p class="lede" style="margin-top:0">Exceptional food, wine worth lingering over, and thoughtful hospitality set the tone.</p>
+          <ul>
+            <li><i>✦</i><span><b>Private dinners</b> — intimate tables, curated pairings</span></li>
+            <li><i>✦</i><span><b>Celebrations</b> — birthdays and milestones, Chèvre-style</span></li>
+            <li><i>✦</i><span><b>Corporate gatherings</b> — office catering that raises the bar</span></li>
+            <li><i>✦</i><span><b>Wine dinners</b> — every bottle has a story; the best ones start here</span></li>
+          </ul>
+          <div class="hero-cta" style="opacity:1;transform:none;margin-top:0">
+            <a class="btn btn-solid" href="tel:+17867893284">Call to Inquire</a>
+            <a class="btn btn-outline" href="https://ig.me/m/chevremiami" target="_blank" rel="noopener">DM Your Date</a>
+          </div>
+        </div>
+        <div class="eb-img">
+          <img src="images/chevremiami/photo-interior.jpg" alt="The Chèvre Miami market set for guests — wine shelves and tasting counters" loading="lazy">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VISIT -->
+  <section id="visit">
+    <div class="wrap">
+      <p class="kicker rv">Visit</p>
+      <h2 class="title rv">Three doors.<br><em>One standard.</em></h2>
+      <div class="loc-grid">
+        <article class="loc rv">
+          <span class="num">N° 01</span>
+          <h3>Coral Way</h3>
+          <p>The original market. 1295 Coral Way, Miami. Cheese counters, the wine wall, and the full café ritual.</p>
+          <a class="tel" href="tel:+17867893284">+1 (786) 789-3284</a>
+        </article>
+        <article class="loc rv rv-d1">
+          <span class="num">N° 02</span>
+          <h3>Design District</h3>
+          <p>The design edit of the house — curated fromage in Miami's most artful neighborhood.</p>
+          <a class="tel" href="https://ig.me/m/chevremiami" target="_blank" rel="noopener">Ask us on DM</a>
+        </article>
+        <article class="loc rv rv-d2">
+          <span class="num">N° 03</span>
+          <h3>Coconut Grove</h3>
+          <p>The Grove outpost — home of the weekend bagel ritual and Burger Wednesdays.</p>
+          <a class="tel" href="https://ig.me/m/chevremiami" target="_blank" rel="noopener">Ask us on DM</a>
+        </article>
+      </div>
+      <div class="visit-cta rv">
+        <p class="kicker" style="justify-content:center">Get in touch</p>
+        <h2 class="title" style="margin:0 auto">Hungry? <em>Curious?</em> Planning something?</h2>
+        <p>Call the market, write to us, or slide into our DMs — for today's drops, catering quotes and private events.</p>
+        <div class="contact-row">
+          <a class="btn btn-solid" href="tel:+17867893284">+1 (786) 789-3284</a>
+          <a class="btn btn-outline" href="mailto:mnaar@chevremiami.com">mnaar@chevremiami.com</a>
+          <a class="btn btn-outline" href="https://ig.me/m/chevremiami" target="_blank" rel="noopener">Instagram DM</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="foot-grid">
+    <div class="foot-brand">
+      <img src="images/chevremiami/profile-chevre.jpg" alt="Chèvre Miami logo">
+      <p>Miami's European-style gourmet market &amp; café — curated by <b>@naarmiami</b>. Coral Way · Design District · Coconut Grove.</p>
+      <div class="socials">
+        <a href="https://www.instagram.com/chevremiami/" target="_blank" rel="noopener" aria-label="Chèvre Miami on Instagram">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 1.2.1 1.8.2 2.2.4.6.2 1 .5 1.4.9.4.4.7.8.9 1.4.2.4.4 1 .4 2.2.1 1.3.1 1.7.1 4.9s0 3.6-.1 4.9c-.1 1.2-.2 1.8-.4 2.2-.2.6-.5 1-.9 1.4-.4.4-.8.7-1.4.9-.4.2-1 .4-2.2.4-1.3.1-1.7.1-4.9.1s-3.6 0-4.9-.1c-1.2-.1-1.8-.2-2.2-.4-.6-.2-1-.5-1.4-.9-.4-.4-.7-.8-.9-1.4-.2-.4-.4-1-.4-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.9c.1-1.2.2-1.8.4-2.2.2-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.4-.2 1-.4 2.2-.4C8.4 2.2 8.8 2.2 12 2.2M12 0C8.7 0 8.3 0 7 .1 5.8.2 4.9.4 4.1.7c-.8.3-1.4.7-2 1.3-.6.6-1 1.2-1.3 2C.4 4.9.2 5.8.1 7 0 8.3 0 8.7 0 12s0 3.7.1 5c.1 1.2.3 2.1.6 2.9.3.8.7 1.4 1.3 2 .6.6 1.2 1 2 1.3.8.3 1.7.5 2.9.6 1.3.1 1.7.1 5 .1s3.7 0 5-.1c1.2-.1 2.1-.3 2.9-.6.8-.3 1.4-.7 2-1.3.6-.6 1-1.2 1.3-2 .3-.8.5-1.7.6-2.9.1-1.3.1-1.7.1-5s0-3.7-.1-5c-.1-1.2-.3-2.1-.6-2.9-.3-.8-.7-1.4-1.3-2-.6-.6-1.2-1-2-1.3C19.1.4 18.2.2 17 .1 15.7 0 15.3 0 12 0zm0 5.8A6.2 6.2 0 1 0 18.2 12 6.2 6.2 0 0 0 12 5.8zm0 10.2A4 4 0 1 1 16 12a4 4 0 0 1-4 4zm6.4-11.8a1.4 1.4 0 1 1-1.4 1.4 1.4 1.4 0 0 1 1.4-1.4z"/></svg>
+        </a>
+      </div>
+    </div>
+    <div>
+      <h4>Explore</h4>
+      <ul>
+        <li><a href="#house">The House</a></li>
+        <li><a href="#menu">Signatures</a></li>
+        <li><a href="#founder">The Curator</a></li>
+        <li><a href="#events">Events &amp; Catering</a></li>
+        <li><a href="#visit">Visit</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Connect</h4>
+      <ul>
+        <li><a href="tel:+17867893284">+1 (786) 789-3284</a></li>
+        <li><a href="mailto:mnaar@chevremiami.com">mnaar@chevremiami.com</a></li>
+        <li><a href="https://linktr.ee/chevremiami" target="_blank" rel="noopener">linktr.ee/chevremiami</a></li>
+        <li><a href="https://www.instagram.com/chevremiami/" target="_blank" rel="noopener">@chevremiami</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="foot-base">
+    <span>© 2026 Chèvre Miami — Concept</span>
+    <span>Coral Way · Design District · Coconut Grove</span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+  var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  /* split hero title into letters */
+  var title = document.getElementById("heroTitle");
+  var words = title.querySelectorAll(".word-split");
+  var delay = 0;
+  words.forEach(function(w){
+    var text = w.textContent;
+    w.textContent = "";
+    Array.prototype.forEach.call(text, function(c){
+      var s = document.createElement("span");
+      s.className = "ch";
+      s.textContent = c;
+      s.style.transitionDelay = (delay * 0.045) + "s";
+      w.appendChild(s);
+      delay++;
+    });
+  });
+
+  /* duplicate ticker for seamless loop */
+  var track = document.getElementById("tickerTrack");
+  track.innerHTML += track.innerHTML;
+
+  /* loader */
+  function reveal(){
+    document.getElementById("loader").classList.add("done");
+    document.getElementById("heroInner").classList.add("revealed");
+    title.classList.add("revealed");
+  }
+  if (reduceMotion) { reveal(); }
+  else { window.addEventListener("load", function(){ setTimeout(reveal, 900); }); setTimeout(reveal, 3200); }
+
+  /* header scroll state */
+  var header = document.getElementById("siteHeader");
+  function onScroll(){ header.classList.toggle("scrolled", window.scrollY > 40); }
+  window.addEventListener("scroll", onScroll, {passive:true});
+  onScroll();
+
+  /* mobile nav */
+  var burger = document.getElementById("burger");
+  var nav = document.getElementById("navLinks");
+  burger.addEventListener("click", function(){
+    var open = nav.classList.toggle("open");
+    burger.setAttribute("aria-expanded", open ? "true" : "false");
+  });
+  nav.querySelectorAll("a").forEach(function(a){
+    a.addEventListener("click", function(){ nav.classList.remove("open"); burger.setAttribute("aria-expanded","false"); });
+  });
+
+  /* scroll reveals */
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); }
+    });
+  }, {threshold: 0.12, rootMargin: "0px 0px -6% 0px"});
+  document.querySelectorAll(".rv").forEach(function(el){ io.observe(el); });
+
+  /* hero parallax */
+  var heroBg = document.getElementById("heroBg");
+  if (!reduceMotion) {
+    window.addEventListener("scroll", function(){
+      var y = window.scrollY;
+      if (y < window.innerHeight * 1.2) {
+        heroBg.style.transform = "translateY(" + (y * 0.22) + "px)";
+      }
+    }, {passive:true});
+  }
+})();
+</script>
+</body>
+</html>

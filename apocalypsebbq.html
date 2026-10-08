@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Apocalypse BBQ — Pit-Smoked Miami BBQ in Kendall</title>
+<meta name="description" content="Apocalypse BBQ — Natural Born Grillers. Pit-smoked Miami-style BBQ in Kendall, Florida. Brisket, ribs, cafecito ribs, brisket empanadas, game day packages. Tue–Sun, 8695 SW 124th Ave, Miami.">
+<meta name="theme-color" content="#0a0908">
+<link rel="icon" type="image/jpeg" href="images/apocalypsebbq/logo-apocalypse.jpg">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Restaurant",
+  "name": "Apocalypse BBQ",
+  "slogan": "Natural Born Grillers",
+  "servesCuisine": ["Barbecue", "American"],
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "8695 SW 124th Ave",
+    "addressLocality": "Miami",
+    "addressRegion": "FL",
+    "postalCode": "33183",
+    "addressCountry": "US"
+  },
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Tuesday","Wednesday","Thursday","Sunday"],
+      "opens": "11:00",
+      "closes": "21:00"
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Friday","Saturday"],
+      "opens": "11:00",
+      "closes": "23:00"
+    }
+  ],
+  "sameAs": ["https://www.instagram.com/apocalypsebbq/"],
+  "founder": {
+    "@type": "Person",
+    "name": "Jeff Budnechky"
+  },
+  "url": "https://apocalypsebbq.com/"
+}
+</script>
+<style>
+:root{
+  --ink:#0a0908;
+  --coal:#131110;
+  --soot:#1c1816;
+  --bone:#f2e8d5;
+  --ash:#b8a98f;
+  --ember:#ff5c1a;
+  --flame:#ff8c2f;
+  --gold:#d9a441;
+  --blood:#c1272d;
+  --line:rgba(242,232,213,.14);
+  --cond:"Arial Narrow","Helvetica Neue Condensed",Haettenschweiler,Impact,sans-serif;
+  --serif:Georgia,"Times New Roman",serif;
+  --body:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  background:var(--ink);
+  color:var(--bone);
+  font-family:var(--body);
+  line-height:1.6;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+body::before{
+  content:"";position:fixed;inset:0;z-index:60;pointer-events:none;opacity:.07;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+::selection{background:var(--ember);color:#000}
+img{max-width:100%;display:block}
+a{color:inherit}
+.wrap{max-width:1240px;margin:0 auto;padding:0 clamp(18px,4vw,48px)}
+section{position:relative}
+
+/* ============ LOADER ============ */
+#loader{position:fixed;inset:0;z-index:200;background:var(--ink);display:flex;flex-direction:column;gap:22px;align-items:center;justify-content:center;transition:opacity .7s ease,visibility .7s}
+#loader.done{opacity:0;visibility:hidden}
+#loader .stoke{font-family:var(--cond);letter-spacing:.55em;font-size:13px;color:var(--ash);text-transform:uppercase;animation:flick 1.4s infinite}
+#loader .bar{width:min(320px,60vw);height:2px;background:var(--soot);overflow:hidden}
+#loader .bar i{display:block;height:100%;width:40%;background:linear-gradient(90deg,var(--blood),var(--ember),var(--flame));animation:load 1.1s ease-in-out infinite alternate}
+@keyframes load{from{transform:translateX(-100%)}to{transform:translateX(280%)}}
+@keyframes flick{0%,100%{opacity:1}45%{opacity:.45}60%{opacity:.85}80%{opacity:.55}}
+
+/* ============ NAV ============ */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:14px clamp(18px,4vw,48px);background:linear-gradient(180deg,rgba(10,9,8,.92),rgba(10,9,8,0));transition:background .35s}
+nav.scrolled{background:rgba(10,9,8,.94);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none}
+.brand img{width:44px;height:44px;object-fit:cover;border-radius:50%;border:2px solid var(--ember);box-shadow:0 0 18px rgba(255,92,26,.45)}
+.brand .wm{font-family:var(--cond);font-weight:700;font-size:20px;letter-spacing:.12em;text-transform:uppercase;line-height:1}
+.brand .wm small{display:block;font-size:10px;letter-spacing:.5em;color:var(--flame);font-weight:400}
+.navlinks{display:flex;gap:30px;align-items:center}
+.navlinks a{font-family:var(--cond);font-size:14px;letter-spacing:.28em;text-transform:uppercase;text-decoration:none;color:var(--bone);opacity:.85;transition:opacity .25s,color .25s;position:relative}
+.navlinks a::after{content:"";position:absolute;left:0;bottom:-6px;height:2px;width:0;background:var(--ember);transition:width .3s}
+.navlinks a:hover{opacity:1;color:var(--flame)}
+.navlinks a:hover::after{width:100%}
+.btn{display:inline-flex;align-items:center;gap:10px;font-family:var(--cond);letter-spacing:.22em;text-transform:uppercase;font-size:14px;font-weight:700;text-decoration:none;padding:14px 30px;border:1px solid transparent;cursor:pointer;transition:transform .25s,box-shadow .25s,background .25s,color .25s}
+.btn-solid{background:linear-gradient(135deg,var(--blood),var(--ember));color:#0a0908;box-shadow:0 6px 28px rgba(255,92,26,.35)}
+.btn-solid:hover{transform:translateY(-2px);box-shadow:0 12px 36px rgba(255,92,26,.55)}
+.btn-outline{border-color:rgba(242,232,213,.4);color:var(--bone);background:rgba(10,9,8,.4)}
+.btn-outline:hover{border-color:var(--ember);color:var(--flame);transform:translateY(-2px)}
+.nav-cta{padding:10px 22px;font-size:12px}
+
+/* ============ HERO ============ */
+.hero{min-height:100svh;display:flex;flex-direction:column;justify-content:flex-end;padding-bottom:70px;overflow:hidden;
+  background:
+    linear-gradient(180deg,rgba(10,9,8,.55) 0%,rgba(10,9,8,.25) 40%,rgba(10,9,8,.94) 88%),
+    url("https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=1920&auto=format&fit=crop") center/cover no-repeat, var(--ink);}
+#embers{position:absolute;inset:0;pointer-events:none}
+.hero .smoke-drift{position:absolute;inset:-20%;pointer-events:none;opacity:.5;
+  background:radial-gradient(ellipse 40% 30% at 20% 80%,rgba(255,92,26,.10),transparent 60%),
+             radial-gradient(ellipse 50% 35% at 80% 70%,rgba(193,39,45,.08),transparent 60%),
+             radial-gradient(ellipse 35% 25% at 50% 90%,rgba(217,164,65,.07),transparent 60%);
+  animation:drift 16s ease-in-out infinite alternate;filter:blur(6px)}
+@keyframes drift{from{transform:translate3d(-4%,2%,0) scale(1)}to{transform:translate3d(4%,-3%,0) scale(1.08)}}
+.hero-inner{position:relative;z-index:2}
+.kicker{font-family:var(--cond);letter-spacing:.5em;text-transform:uppercase;font-size:clamp(11px,1.4vw,14px);color:var(--flame);margin-bottom:18px;display:flex;align-items:center;gap:14px}
+.kicker::before{content:"";width:52px;height:2px;background:linear-gradient(90deg,var(--ember),transparent)}
+h1.giant{
+  font-family:var(--cond);font-weight:900;text-transform:uppercase;line-height:.86;
+  font-size:clamp(64px,13.5vw,196px);letter-spacing:.01em;
+  background:linear-gradient(180deg,#fff5e6 8%,var(--gold) 32%,var(--flame) 55%,var(--ember) 72%,var(--blood) 95%);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+  animation:emberflick 3.2s ease-in-out infinite;
+  filter:drop-shadow(0 0 26px rgba(255,92,26,.35));
+}
+h1.giant .stroke{color:transparent;-webkit-text-stroke:2px var(--bone);background:none;-webkit-background-clip:unset;filter:none;animation:none;opacity:.9}
+@keyframes emberflick{0%,100%{filter:drop-shadow(0 0 26px rgba(255,92,26,.35)) brightness(1)}30%{filter:drop-shadow(0 0 40px rgba(255,140,47,.55)) brightness(1.06)}55%{filter:drop-shadow(0 0 18px rgba(255,92,26,.25)) brightness(.96)}75%{filter:drop-shadow(0 0 34px rgba(255,92,26,.45)) brightness(1.03)}}
+.hero-sub{font-family:var(--serif);font-style:italic;font-size:clamp(17px,2.4vw,26px);color:var(--bone);max-width:640px;margin-top:22px;opacity:.92}
+.hero-sub strong{color:var(--flame);font-style:normal;font-family:var(--cond);text-transform:uppercase;letter-spacing:.1em;font-size:.8em}
+.hero-ctas{display:flex;flex-wrap:wrap;gap:16px;margin-top:34px}
+.hero-meta{display:flex;flex-wrap:wrap;gap:12px 34px;margin-top:30px;font-family:var(--cond);font-size:13px;letter-spacing:.24em;text-transform:uppercase;color:var(--ash)}
+.hero-meta b{color:var(--bone)}
+.scrollcue{position:absolute;right:clamp(18px,4vw,48px);bottom:70px;z-index:2;writing-mode:vertical-rl;font-family:var(--cond);font-size:12px;letter-spacing:.5em;text-transform:uppercase;color:var(--ash);display:flex;align-items:center;gap:12px}
+.scrollcue::after{content:"";width:1px;height:64px;background:linear-gradient(var(--ember),transparent);animation:pulse 1.8s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.2}}
+
+/* ============ FIRE TICKER ============ */
+.ticker{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:#0d0b0a;overflow:hidden;white-space:nowrap;padding:16px 0;position:relative;z-index:3}
+.ticker::before,.ticker::after{content:"";position:absolute;top:0;bottom:0;width:120px;z-index:2;pointer-events:none}
+.ticker::before{left:0;background:linear-gradient(90deg,var(--ink),transparent)}
+.ticker::after{right:0;background:linear-gradient(-90deg,var(--ink),transparent)}
+.ticker-track{display:inline-flex;gap:56px;animation:tick 26s linear infinite;padding-right:56px}
+.ticker span{font-family:var(--cond);font-size:clamp(15px,2vw,20px);letter-spacing:.3em;text-transform:uppercase;color:var(--bone);display:inline-flex;align-items:center;gap:56px}
+.ticker span i{font-style:normal;color:var(--ember)}
+@keyframes tick{to{transform:translateX(-50%)}}
+
+/* ============ SECTIONS COMMON ============ */
+.sect{padding:clamp(80px,10vw,140px) 0}
+.eyebrow{font-family:var(--cond);letter-spacing:.5em;text-transform:uppercase;font-size:12px;color:var(--ember);margin-bottom:18px;display:flex;align-items:center;gap:14px}
+.eyebrow::before{content:"";width:44px;height:2px;background:var(--ember)}
+h2.title{font-family:var(--cond);font-weight:900;text-transform:uppercase;line-height:.95;font-size:clamp(42px,7vw,96px);letter-spacing:.01em;margin-bottom:14px}
+h2.title .hot{color:transparent;-webkit-text-stroke:1.5px var(--flame)}
+.lede{font-family:var(--serif);font-style:italic;font-size:clamp(16px,2vw,21px);color:var(--ash);max-width:680px}
+.reveal{opacity:0;transform:translateY(36px);transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1)}
+.reveal.in{opacity:1;transform:none}
+.reveal.d1{transition-delay:.12s}.reveal.d2{transition-delay:.24s}.reveal.d3{transition-delay:.36s}
+
+/* ============ STORY ============ */
+.story{background:radial-gradient(ellipse 70% 50% at 80% 10%,rgba(255,92,26,.07),transparent 60%),var(--ink)}
+.story-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(36px,5vw,80px);align-items:start;margin-top:50px}
+.story-copy p{margin-bottom:20px;font-size:clamp(15px,1.6vw,18px);color:#d8cbb2}
+.story-copy p b{color:var(--bone)}
+.dropcap{float:left;font-family:var(--cond);font-weight:900;font-size:64px;line-height:.8;color:var(--ember);margin:6px 12px 0 0;text-shadow:0 0 24px rgba(255,92,26,.5)}
+blockquote.fire-quote{border-left:3px solid var(--ember);padding:6px 0 6px 26px;margin:34px 0;font-family:var(--serif);font-style:italic;font-size:clamp(20px,2.6vw,28px);color:var(--bone);line-height:1.4}
+blockquote.fire-quote cite{display:block;margin-top:12px;font-family:var(--cond);font-style:normal;font-size:13px;letter-spacing:.3em;text-transform:uppercase;color:var(--flame)}
+.factwall{display:grid;grid-template-columns:repeat(2,1fr);gap:2px;background:var(--line);border:1px solid var(--line)}
+.fact{background:var(--coal);padding:30px 26px;position:relative;overflow:hidden;transition:background .3s}
+.fact::after{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:linear-gradient(var(--ember),var(--blood));opacity:0;transition:opacity .3s}
+.fact:hover{background:var(--soot)}
+.fact:hover::after{opacity:1}
+.fact .n{font-family:var(--cond);font-weight:900;font-size:clamp(30px,3.4vw,44px);color:var(--flame);line-height:1;text-shadow:0 0 20px rgba(255,140,47,.35)}
+.fact .t{font-family:var(--cond);font-size:13px;letter-spacing:.24em;text-transform:uppercase;color:var(--bone);margin-top:10px}
+.fact .d{font-size:13px;color:var(--ash);margin-top:6px}
+.story-img{position:relative;margin-top:8px}
+.story-img .frame{border:1px solid var(--line);padding:10px;background:var(--coal);transform:rotate(-1.2deg);box-shadow:0 30px 60px rgba(0,0,0,.55)}
+.story-img img{width:100%;height:clamp(320px,40vw,520px);object-fit:cover;filter:saturate(1.1) contrast(1.05)}
+.story-img .tag{position:absolute;bottom:-16px;right:18px;background:linear-gradient(135deg,var(--blood),var(--ember));color:#0a0908;font-family:var(--cond);font-weight:700;letter-spacing:.2em;text-transform:uppercase;font-size:12px;padding:10px 20px;transform:rotate(1.5deg)}
+.hazard{height:10px;background:repeating-linear-gradient(-45deg,var(--ember) 0 14px,#0a0908 14px 28px);opacity:.85;margin-top:60px}
+
+/* ============ MENU ============ */
+.menu{background:linear-gradient(180deg,var(--ink),#0e0c0b)}
+.menu-head{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:24px;margin-bottom:54px}
+.menu-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:22px}
+.dish{position:relative;border:1px solid var(--line);background:var(--coal);overflow:hidden;grid-column:span 4;min-height:430px;display:flex;flex-direction:column;justify-content:flex-end;cursor:pointer;transition:transform .35s,border-color .35s,box-shadow .35s}
+.dish:nth-child(1){grid-column:span 7;min-height:500px}
+.dish:nth-child(2){grid-column:span 5;min-height:500px}
+.dish:nth-child(3){grid-column:span 5;min-height:440px}
+.dish:nth-child(4){grid-column:span 7;min-height:440px}
+.dish img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .8s cubic-bezier(.2,.7,.2,1),filter .5s;filter:brightness(.72) saturate(1.08)}
+.dish:hover img{transform:scale(1.06);filter:brightness(.85) saturate(1.15)}
+.dish .veil{position:absolute;inset:0;background:linear-gradient(180deg,transparent 30%,rgba(10,9,8,.55) 60%,rgba(10,9,8,.96) 100%)}
+.dish .body{position:relative;z-index:2;padding:26px}
+.dish .cat{font-family:var(--cond);font-size:11px;letter-spacing:.42em;text-transform:uppercase;color:var(--flame);margin-bottom:8px;display:block}
+.dish h3{font-family:var(--cond);font-weight:900;font-size:clamp(24px,2.8vw,38px);text-transform:uppercase;line-height:1;letter-spacing:.02em;margin-bottom:8px}
+.dish p{font-size:14px;color:#cfc2a8;max-width:420px}
+.dish .flare{position:absolute;top:18px;right:18px;z-index:2;font-family:var(--cond);font-size:11px;letter-spacing:.26em;text-transform:uppercase;background:rgba(10,9,8,.75);border:1px solid var(--ember);color:var(--flame);padding:8px 14px;backdrop-filter:blur(6px)}
+.dish:hover{transform:translateY(-6px);border-color:rgba(255,92,26,.5);box-shadow:0 24px 60px rgba(0,0,0,.6),0 0 40px rgba(255,92,26,.12)}
+.sauces{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:22px}
+.sauce{border:1px solid var(--line);background:linear-gradient(160deg,var(--coal),#100d0b);padding:32px 28px;position:relative;overflow:hidden;transition:transform .3s,border-color .3s}
+.sauce:hover{transform:translateY(-4px);border-color:rgba(217,164,65,.5)}
+.sauce::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--blood),var(--ember),var(--gold))}
+.sauce h4{font-family:var(--cond);font-weight:900;font-size:24px;text-transform:uppercase;letter-spacing:.04em;margin-bottom:6px}
+.sauce p{font-size:14px;color:var(--ash)}
+.specials-strip{margin-top:34px;display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--line);border:1px solid var(--line)}
+.special{background:#0d0b0a;padding:28px;display:flex;gap:18px;align-items:center}
+.special .price{font-family:var(--cond);font-weight:900;font-size:44px;color:var(--ember);line-height:1;text-shadow:0 0 22px rgba(255,92,26,.4);white-space:nowrap}
+.special .price small{font-size:16px;color:var(--gold)}
+.special .info b{display:block;font-family:var(--cond);font-size:15px;letter-spacing:.2em;text-transform:uppercase;color:var(--bone)}
+.special .info span{font-size:13px;color:var(--ash)}
+
+/* ============ ALLIES / COLLABS ============ */
+.allies{background:#0c0a09}
+.collab-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;margin-top:50px}
+.collab{border:1px solid var(--line);background:var(--coal);padding:clamp(28px,3.4vw,44px);position:relative;overflow:hidden;transition:transform .3s,border-color .3s}
+.collab:hover{transform:translateY(-5px);border-color:rgba(255,92,26,.45)}
+.collab .who{font-family:var(--cond);font-size:12px;letter-spacing:.4em;text-transform:uppercase;color:var(--gold);margin-bottom:12px}
+.collab h3{font-family:var(--cond);font-weight:900;font-size:clamp(26px,3vw,40px);text-transform:uppercase;line-height:1;margin-bottom:12px}
+.collab h3 em{font-style:normal;color:var(--ember)}
+.collab p{color:#cfc2a8;font-size:15px;max-width:460px}
+.collab .num{position:absolute;top:10px;right:20px;font-family:var(--cond);font-weight:900;font-size:90px;color:transparent;-webkit-text-stroke:1px rgba(242,232,213,.14);line-height:1}
+.press{display:flex;flex-wrap:wrap;gap:14px;margin-top:34px}
+.press a{text-decoration:none;font-family:var(--cond);font-size:13px;letter-spacing:.26em;text-transform:uppercase;border:1px solid var(--line);padding:14px 24px;color:var(--ash);transition:all .3s}
+.press a:hover{border-color:var(--gold);color:var(--gold);transform:translateY(-2px)}
+
+/* ============ WEEK ============ */
+.week-rail{display:grid;grid-template-columns:repeat(7,1fr);gap:2px;background:var(--line);border:1px solid var(--line);margin-top:50px}
+.day{background:var(--coal);padding:26px 18px;min-height:210px;position:relative;transition:background .3s;overflow:hidden}
+.day:hover{background:#1b1512}
+.day.on{background:linear-gradient(170deg,#1e1208,#120c07)}
+.day.on::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--ember),var(--flame))}
+.day .dn{font-family:var(--cond);font-weight:900;font-size:20px;text-transform:uppercase;letter-spacing:.1em;color:var(--bone)}
+.day.on .dn{color:var(--flame)}
+.day .dd{font-size:12px;color:var(--ash);margin-top:8px;line-height:1.55}
+.day .dd b{color:var(--bone)}
+.day .ic{font-size:22px;margin-bottom:10px;display:block}
+
+/* ============ VISIT ============ */
+.visit{background:radial-gradient(ellipse 60% 45% at 15% 90%,rgba(255,92,26,.08),transparent 60%),var(--ink)}
+.visit-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(36px,5vw,80px);margin-top:50px;align-items:stretch}
+.addr-card{border:1px solid var(--line);background:var(--coal);padding:clamp(30px,4vw,50px);position:relative;overflow:hidden}
+.addr-card::after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 90% 10%,rgba(255,92,26,.12),transparent 45%);pointer-events:none}
+.addr-card h3{font-family:var(--cond);font-weight:900;font-size:clamp(28px,3.4vw,44px);text-transform:uppercase;line-height:1;margin-bottom:20px}
+.addr-row{display:flex;gap:16px;padding:16px 0;border-top:1px solid var(--line);align-items:flex-start}
+.addr-row:first-of-type{border-top:none}
+.addr-row .lbl{font-family:var(--cond);font-size:12px;letter-spacing:.34em;text-transform:uppercase;color:var(--flame);min-width:96px;padding-top:4px}
+.addr-row .val{font-size:16px;color:var(--bone)}
+.addr-row .val small{display:block;color:var(--ash);font-size:13px;margin-top:4px}
+.addr-card .btn-solid{margin-top:26px}
+.game-card{position:relative;border:1px solid var(--line);overflow:hidden;min-height:420px;display:flex;flex-direction:column;justify-content:flex-end}
+.game-card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:brightness(.6) saturate(1.1)}
+.game-card .veil{position:absolute;inset:0;background:linear-gradient(180deg,transparent 20%,rgba(10,9,8,.6) 55%,rgba(10,9,8,.97) 100%)}
+.game-card .body{position:relative;z-index:2;padding:clamp(28px,4vw,46px)}
+.game-card .kick{font-family:var(--cond);font-size:12px;letter-spacing:.42em;text-transform:uppercase;color:var(--gold);margin-bottom:10px}
+.game-card h3{font-family:var(--cond);font-weight:900;font-size:clamp(30px,3.8vw,52px);text-transform:uppercase;line-height:.95;margin-bottom:12px}
+.game-card h3 span{color:transparent;-webkit-text-stroke:1.5px var(--flame)}
+.game-card p{color:#cfc2a8;font-size:15px;max-width:440px;margin-bottom:24px}
+
+/* ============ FOOTER ============ */
+footer{border-top:1px solid var(--line);background:#080706;padding:60px 0 34px}
+.foot-grid{display:flex;flex-wrap:wrap;gap:40px;justify-content:space-between;align-items:flex-start;margin-bottom:44px}
+.foot-brand{display:flex;align-items:center;gap:14px}
+.foot-brand img{width:56px;height:56px;border-radius:50%;border:2px solid var(--ember);object-fit:cover}
+.foot-brand .wm{font-family:var(--cond);font-weight:900;font-size:24px;letter-spacing:.1em;text-transform:uppercase}
+.foot-brand .wm small{display:block;font-size:11px;letter-spacing:.5em;color:var(--flame);font-weight:400}
+.socials{display:flex;gap:14px}
+.socials a{width:52px;height:52px;border:1px solid var(--line);display:flex;align-items:center;justify-content:center;transition:all .3s;border-radius:50%}
+.socials a:hover{border-color:var(--ember);transform:translateY(-3px) rotate(6deg);box-shadow:0 8px 24px rgba(255,92,26,.3)}
+.socials svg{width:22px;height:22px;fill:var(--bone)}
+.socials a:hover svg{fill:var(--flame)}
+.foot-note{font-size:13px;color:var(--ash);max-width:420px}
+.foot-base{display:flex;flex-wrap:wrap;gap:14px;justify-content:space-between;align-items:center;padding-top:26px;border-top:1px solid var(--line);font-family:var(--cond);font-size:12px;letter-spacing:.28em;text-transform:uppercase;color:var(--ash)}
+
+/* ============ RESPONSIVE ============ */
+@media(max-width:1020px){
+  .story-grid,.visit-grid{grid-template-columns:1fr}
+  .week-rail{grid-template-columns:repeat(2,1fr)}
+  .dish:nth-child(n){grid-column:span 6;min-height:380px}
+  .collab-grid{grid-template-columns:1fr}
+}
+@media(max-width:640px){
+  .navlinks a:not(.btn){display:none}
+  .dish:nth-child(n){grid-column:span 12;min-height:340px}
+  .sauces,.specials-strip{grid-template-columns:1fr}
+  .factwall{grid-template-columns:1fr 1fr}
+  .fact{padding:22px 18px}
+  .scrollcue{display:none}
+  .ticker-track{animation-duration:18s}
+  h1.giant{font-size:clamp(58px,17vw,110px)}
+}
+
+/* ============ REDUCED MOTION ============ */
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.001s !important;animation-iteration-count:1 !important;transition-duration:.001s !important}
+  html{scroll-behavior:auto}
+  .reveal{opacity:1;transform:none}
+  #embers{display:none}
+  #loader{display:none}
+}
+</style>
+</head>
+<body>
+
+<div id="loader" aria-hidden="true">
+  <div class="stoke">Stoking the fire</div>
+  <div class="bar"><i></i></div>
+</div>
+
+<nav id="nav" aria-label="Main navigation">
+  <a class="brand" href="#top">
+    <img src="images/apocalypsebbq/logo-apocalypse.jpg" alt="Apocalypse BBQ logo">
+    <span class="wm">Apocalypse<small>BBQ · Kendall</small></span>
+  </a>
+  <div class="navlinks">
+    <a href="#story">Story</a>
+    <a href="#menu">Menu</a>
+    <a href="#week">The Week</a>
+    <a href="#visit">Visit</a>
+    <a class="btn btn-solid nav-cta" href="https://apocalypsebbq.com/" target="_blank" rel="noopener">Order Online</a>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <canvas id="embers" aria-hidden="true"></canvas>
+  <div class="smoke-drift" aria-hidden="true"></div>
+  <div class="wrap hero-inner">
+    <p class="kicker">Kendall · Miami, Florida</p>
+    <h1 class="giant">Apoca&shy;lypse<br><span class="stroke">Barbecue</span></h1>
+    <p class="hero-sub"><strong>Natural Born Grillers.</strong> Pit-smoked, Miami-style BBQ — low &amp; slow over hickory &amp; oak until it falls apart and the flavor hits like the end of the world.</p>
+    <div class="hero-ctas">
+      <a class="btn btn-solid" href="https://apocalypsebbq.com/" target="_blank" rel="noopener">Order Online</a>
+      <a class="btn btn-outline" href="https://ig.me/m/apocalypsebbq" target="_blank" rel="noopener">DM Us on Instagram</a>
+    </div>
+    <div class="hero-meta">
+      <span>Tue–Sun <b>11am–9pm</b></span>
+      <span>Fri–Sat <b>11am–11pm</b></span>
+      <span>8695 SW 124th Ave, <b>Miami</b></span>
+    </div>
+  </div>
+  <div class="scrollcue" aria-hidden="true">Feed the fire</div>
+</header>
+
+<div class="ticker" aria-hidden="true">
+  <div class="ticker-track">
+    <span>Low &amp; Slow <i>✦</i> Hickory &amp; Oak <i>✦</i> Natural Born Grillers <i>✦</i> Brisket <i>✦</i> Ribs <i>✦</i> Cafecito Ribs <i>✦</i> Brisket Empanadas <i>✦</i> Skull Cornbread <i>✦</i></span>
+    <span>Low &amp; Slow <i>✦</i> Hickory &amp; Oak <i>✦</i> Natural Born Grillers <i>✦</i> Brisket <i>✦</i> Ribs <i>✦</i> Cafecito Ribs <i>✦</i> Brisket Empanadas <i>✦</i> Skull Cornbread <i>✦</i></span>
+  </div>
+</div>
+
+<section class="sect story" id="story">
+  <div class="wrap">
+    <p class="eyebrow reveal">The man behind the fire</p>
+    <h2 class="title reveal">"F*ck the apoca&shy;lypse.<br><span class="hot">Let's BBQ."</span></h2>
+    <p class="lede reveal">One sentence, said out loud in a driveway in 2020, became the most-followed BBQ joint in Miami.</p>
+    <div class="story-grid">
+      <div class="story-copy reveal">
+        <p><span class="dropcap">J</span>eff Budnechky wasn't a pitmaster. When the pandemic shut everything down, he had no work, too much time, and a backyard smoker. So he created the <b>@apocalypsebbq</b> handle on a whim, registered the name, and started calling his friends.</p>
+        <p>The first week he sold <b>two racks of ribs</b>. Then five. Then ten. And it never stopped growing. His wife <b>Laura</b> — and her mother Aida — jumped on the ride, and a backyard hobby turned into one of the <b>top-rated barbecue restaurants in Miami</b>, now home in Kendall with a second location on the way.</p>
+        <p>Behind the pits stands pitmaster <b>Aaron</b>, running a blend of <b>hickory and oak</b> that gives every bite its depth. No shortcuts, no gas — just wood, smoke, patience, and Miami attitude.</p>
+        <blockquote class="fire-quote">"We all stand behind our cornbread."<cite>— The Apocalypse Crew</cite></blockquote>
+        <p>Today the fire spreads further: the <b>Bad Company</b> chef dinner series, collabs with Miami's best, and Lala's — the smash-burger offshoot named after Laura herself. Family first, smoke always.</p>
+      </div>
+      <div>
+        <div class="factwall reveal d1">
+          <div class="fact"><div class="n">2020</div><div class="t">Born in the fire</div><div class="d">Started as a backyard cook during the pandemic</div></div>
+          <div class="fact"><div class="n">2</div><div class="t">Racks of ribs</div><div class="d">Sold in the very first week — then it exploded</div></div>
+          <div class="fact"><div class="n">H+O</div><div class="t">Hickory &amp; Oak</div><div class="d">The wood blend behind every smoke</div></div>
+          <div class="fact"><div class="n">142K</div><div class="t">On Instagram</div><div class="d">Miami's most-followed BBQ — @apocalypsebbq</div></div>
+        </div>
+        <div class="story-img reveal d2">
+          <div class="frame">
+            <img src="https://images.unsplash.com/photo-1558030006-450675393462?q=80&w=1200&auto=format&fit=crop" alt="Steak grilling over open fire at Apocalypse BBQ" loading="lazy">
+          </div>
+          <span class="tag">Over real fire</span>
+        </div>
+      </div>
+    </div>
+    <div class="hazard reveal" aria-hidden="true"></div>
+  </div>
+</section>
+
+<section class="sect menu" id="menu">
+  <div class="wrap">
+    <div class="menu-head">
+      <div>
+        <p class="eyebrow reveal">The menu</p>
+        <h2 class="title reveal">Smoked to<br><span class="hot">the bone</span></h2>
+      </div>
+      <p class="lede reveal" style="max-width:380px">Everything stays true to the process. Traditional BBQ, Miami soul — once it's gone, it's gone.</p>
+    </div>
+    <div class="menu-grid">
+      <article class="dish reveal">
+        <img src="https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=1400&auto=format&fit=crop" alt="Smoked ribs glazed over the fire" loading="lazy">
+        <div class="veil"></div>
+        <span class="flare">The Legend</span>
+        <div class="body">
+          <span class="cat">Pit classics</span>
+          <h3>Brisket &amp; Ribs</h3>
+          <p>Sliced, sandwiched, taco'd, empanada'd, chopped-cheesed — or all in. Smoked low &amp; slow until it surrenders.</p>
+        </div>
+      </article>
+      <article class="dish reveal d1">
+        <img src="https://images.unsplash.com/photo-1603360946369-dc9bb6258143?q=80&w=1200&auto=format&fit=crop" alt="Smoked chicken wings with char" loading="lazy">
+        <div class="veil"></div>
+        <span class="flare">$1 Wednesdays</span>
+        <div class="body">
+          <span class="cat">Wings</span>
+          <h3>$1 Wing Wednesday</h3>
+          <p>Smokafried wings in rotating flavors — Smoked Buffalo, Guava Jerk, the classic Cafecito. Monthly flavors drop on the 1st.</p>
+        </div>
+      </article>
+      <article class="dish reveal">
+        <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?q=80&w=1200&auto=format&fit=crop" alt="Skewers and smoked meats over open flame" loading="lazy">
+        <div class="veil"></div>
+        <span class="flare">Southern Living Pick</span>
+        <div class="body">
+          <span class="cat">Miami-style</span>
+          <h3>Brisket Empanadas</h3>
+          <p>Crispy fried shell, smoky brisket, melty cheese. Featured by Southern Living as a South Florida staple.</p>
+        </div>
+      </article>
+      <article class="dish reveal d1">
+        <img src="https://images.unsplash.com/photo-1529193591184-b1d58069ecdd?q=80&w=1400&auto=format&fit=crop" alt="Meat searing on the grill with flames" loading="lazy">
+        <div class="veil"></div>
+        <span class="flare">Cult Favorite</span>
+        <div class="body">
+          <span class="cat">Sandwiches</span>
+          <h3>Cluck Norris &amp; Cowboyrrito</h3>
+          <p>The chicken sandwich with a name, and the burrito that broke Tuesdays. Plus the smoked Crunchwrap and brisket birria tacos.</p>
+        </div>
+      </article>
+    </div>
+    <div class="sauces">
+      <div class="sauce reveal"><h4>OG BBQ</h4><p>The original. Sweet, dark, unapologetic.</p></div>
+      <div class="sauce reveal d1"><h4>Oro Negro</h4><p>Black gold — deep, smoky, dangerous.</p></div>
+      <div class="sauce reveal d2"><h4>Carolina Mojo</h4><p>Zesty, bright, with Miami in its blood.</p></div>
+    </div>
+    <div class="specials-strip">
+      <div class="special reveal"><div class="price">$10<small>+</small></div><div class="info"><b>Lunch Special</b><span>Tue–Fri, noon–6pm. Any sandwich. Fries +$2.</span></div></div>
+      <div class="special reveal d1"><div class="price">$1</div><div class="info"><b>Wing Wednesday</b><span>Every Wednesday. Monthly flavor drop. Eating contest on the last Wednesday of the month.</span></div></div>
+      <div class="special reveal d2"><div class="price">🌮</div><div class="info"><b>Taco Tuesday</b><span>Smoked tacos, crunchwraps, fresh house-made salsas. Every single Tuesday.</span></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="sect allies" id="collabs">
+  <div class="wrap">
+    <p class="eyebrow reveal">Allies in the fire</p>
+    <h2 class="title reveal">Bad <span class="hot">company</span></h2>
+    <p class="lede reveal">Apocalypse doesn't cook alone. Guest chefs, restaurant takeovers, and dinners that sell out.</p>
+    <div class="collab-grid">
+      <article class="collab reveal">
+        <span class="num">01</span>
+        <p class="who">Chef dinner series · with @kojinmiami</p>
+        <h3>Bad <em>Company</em></h3>
+        <p>A ticketed dinner series pairing Apocalypse with Miami's boldest kitchens — menus inspired by the neighborhoods of the city. Guest chefs like <b>Jeremy Ford</b>. They sell out.</p>
+      </article>
+      <article class="collab reveal d1">
+        <span class="num">02</span>
+        <p class="who">Weekend takeover · with @cowyburger</p>
+        <h3>Burgers <em>&amp; Milkshakes</em></h3>
+        <p>An insane burger collab plus a cornbread milkshake — one weekend at Cowy, one at Apocalypse. Miami shows up.</p>
+      </article>
+    </div>
+    <div class="press reveal">
+      <a href="https://www.southernliving.com/new-barbecue-joints-2026-12060676" target="_blank" rel="noopener">★ Southern Living Feature</a>
+      <a href="https://www.instagram.com/apocalypsebbq/" target="_blank" rel="noopener">★ The Takeout Feature</a>
+    </div>
+  </div>
+</section>
+
+<section class="sect" id="week">
+  <div class="wrap">
+    <p class="eyebrow reveal">Every day has a flavor</p>
+    <h2 class="title reveal">The weekly <span class="hot">ritual</span></h2>
+    <p class="lede reveal">Plan your week around the smoke. Same fire, different temptation every day.</p>
+    <div class="week-rail">
+      <div class="day reveal"><span class="ic">🌮</span><div class="dn">Tue</div><div class="dd"><b>Taco Tuesday.</b> Smoked tacos, the Crunchwrap, loaded nachos, house salsas.</div></div>
+      <div class="day on reveal d1"><span class="ic">🔥</span><div class="dn">Wed</div><div class="dd"><b>$1 Wing Wednesday.</b> New monthly flavor. Last Wednesday of the month = wing-eating contest.</div></div>
+      <div class="day reveal d2"><span class="ic">🥪</span><div class="dn">Thu</div><div class="dd"><b>$10 lunch</b> sandwiches till 6pm. Line dancing every third Wednesday of the month.</div></div>
+      <div class="day reveal d3"><span class="ic">🍖</span><div class="dn">Fri</div><div class="dd">Full BBQ menu all day. Open late — <b>till 11pm</b>.</div></div>
+      <div class="day reveal"><span class="ic">🦴</span><div class="dn">Sat</div><div class="dd">Weekend feast mode. <b>Beef ribs return.</b> Open till 11pm.</div></div>
+      <div class="day reveal d1"><span class="ic">🏈</span><div class="dn">Sun</div><div class="dd"><b>Game Day Packages.</b> Smoked meats, wings &amp; sides for the whole crew.</div></div>
+      <div class="day reveal d2"><span class="ic">💤</span><div class="dn">Mon</div><div class="dd">The fire rests. The pits cool down. See you Tuesday.</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="sect visit" id="visit">
+  <div class="wrap">
+    <p class="eyebrow reveal">Find the fire</p>
+    <h2 class="title reveal">Get <span class="hot">here</span></h2>
+    <div class="visit-grid">
+      <div class="addr-card reveal">
+        <h3>Kendall, Miami</h3>
+        <div class="addr-row">
+          <span class="lbl">Address</span>
+          <span class="val">8695 SW 124th Ave, Miami, FL 33183<small>Kendall — west of the city, east of nowhere</small></span>
+        </div>
+        <div class="addr-row">
+          <span class="lbl">Hours</span>
+          <span class="val">Tue–Sun · 11am–9pm<small>Fri–Sat · 11am–11pm. Closed Mondays.</small></span>
+        </div>
+        <div class="addr-row">
+          <span class="lbl">Follow</span>
+          <span class="val">@apocalypsebbq<small>142K strong — Miami's most-followed BBQ</small></span>
+        </div>
+        <a class="btn btn-solid" href="https://www.google.com/maps/search/?api=1&query=8695+SW+124th+Ave+Miami+FL+33183" target="_blank" rel="noopener">Get Directions</a>
+      </div>
+      <div class="game-card reveal d1">
+        <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?q=80&w=1400&auto=format&fit=crop" alt="BBQ feast platter for game day" loading="lazy">
+        <div class="veil"></div>
+        <div class="body">
+          <p class="kick">Football season</p>
+          <h3>Game Day <span>Packages</span></h3>
+          <p>Smoked meats, wings, sides and serious flavor for the whole crew. No mess, no stress — just good eats and a damn good time.</p>
+          <a class="btn btn-solid" href="https://apocalypsebbq.com/" target="_blank" rel="noopener">Order a Package</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-brand">
+          <img src="images/apocalypsebbq/logo-apocalypse.jpg" alt="Apocalypse BBQ logo">
+          <span class="wm">Apocalypse<small>BBQ · Kendall</small></span>
+        </div>
+        <p class="foot-note" style="margin-top:18px">Natural Born Grillers. Pit-smoked Miami-style BBQ, low &amp; slow over hickory &amp; oak since 2020.</p>
+      </div>
+      <div class="socials">
+        <a href="https://www.instagram.com/apocalypsebbq/" target="_blank" rel="noopener" aria-label="Apocalypse BBQ on Instagram">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 1.2.1 1.8.2 2.2.4.6.2 1 .5 1.4.9.4.4.7.8.9 1.4.2.4.4 1 .4 2.2.1 1.3.1 1.7.1 4.9s0 3.6-.1 4.9c-.1 1.2-.2 1.8-.4 2.2-.2.6-.5 1-.9 1.4-.4.4-.8.7-1.4.9-.4.2-1 .4-2.2.4-1.3.1-1.7.1-4.9.1s-3.6 0-4.9-.1c-1.2-.1-1.8-.2-2.2-.4-.6-.2-1-.5-1.4-.9-.4-.4-.7-.8-.9-1.4-.2-.4-.4-1-.4-2.2-.1-1.3-.1-1.7-.1-4.9s0-3.6.1-4.9c.1-1.2.2-1.8.4-2.2.2-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.4-.2 1-.4 2.2-.4 1.3-.1 1.7-.1 4.9-.1zM12 0C8.7 0 8.3 0 7 .1 5.7.2 4.9.4 4.2.7c-.7.3-1.3.7-1.9 1.3-.6.6-1 1.2-1.3 1.9C.7 4.9.5 5.7.4 7 .3 8.3.3 8.7.3 12s0 3.7.1 5c.1 1.3.3 2.1.6 2.8.3.7.7 1.3 1.3 1.9.6.6 1.2 1 1.9 1.3.7.3 1.5.5 2.8.6 1.3.1 1.7.1 5 .1s3.7 0 5-.1c1.3-.1 2.1-.3 2.8-.6.7-.3 1.3-.7 1.9-1.3.6-.6 1-1.2 1.3-1.9.3-.7.5-1.5.6-2.8.1-1.3.1-1.7.1-5s0-3.7-.1-5c-.1-1.3-.3-2.1-.6-2.8-.3-.7-.7-1.3-1.3-1.9-.6-.6-1.2-1-1.9-1.3-.7-.3-1.5-.5-2.8-.6C15.7 0 15.3 0 12 0zm0 5.8A6.2 6.2 0 1 0 18.2 12 6.2 6.2 0 0 0 12 5.8zm0 10.2A4 4 0 1 1 16 12a4 4 0 0 1-4 4zm6.4-10.5a1.4 1.4 0 1 1-1.4-1.4 1.4 1.4 0 0 1 1.4 1.4z"/></svg>
+        </a>
+      </div>
+    </div>
+    <div class="foot-base">
+      <span>© 2026 Apocalypse BBQ · Kendall, Miami</span>
+      <span>Natural Born Grillers</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+  var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  /* Loader */
+  var loader = document.getElementById("loader");
+  window.addEventListener("load", function(){
+    setTimeout(function(){ loader.classList.add("done"); }, 700);
+  });
+  setTimeout(function(){ loader.classList.add("done"); }, 4000);
+
+  /* Nav scroll state */
+  var nav = document.getElementById("nav");
+  function onScroll(){ nav.classList.toggle("scrolled", window.scrollY > 40); }
+  window.addEventListener("scroll", onScroll, {passive:true});
+  onScroll();
+
+  /* Ember particles */
+  var canvas = document.getElementById("embers");
+  if(canvas && !reduced){
+    var ctx = canvas.getContext("2d");
+    var W, H, parts = [];
+    function size(){
+      W = canvas.width = canvas.offsetWidth;
+      H = canvas.height = canvas.offsetHeight;
+    }
+    size(); window.addEventListener("resize", size);
+    var COUNT = Math.min(90, Math.floor(window.innerWidth / 14));
+    function spawn(p){
+      p.x = Math.random() * W;
+      p.y = H + 10 + Math.random() * 60;
+      p.r = 1 + Math.random() * 3.2;
+      p.vy = .4 + Math.random() * 1.4;
+      p.vx = (Math.random() - .5) * .6;
+      p.life = 0;
+      p.max = 240 + Math.random() * 240;
+      p.hue = 14 + Math.random() * 26;
+      return p;
+    }
+    for(var i = 0; i < COUNT; i++){ parts.push(spawn({})); parts[i].y = Math.random() * H; }
+    (function tick(){
+      ctx.clearRect(0, 0, W, H);
+      for(var j = 0; j < parts.length; j++){
+        var p = parts[j];
+        p.life++;
+        p.x += p.vx + Math.sin((p.life + j * 40) / 60) * .4;
+        p.y -= p.vy;
+        if(p.y < -20 || p.life > p.max){ spawn(p); continue; }
+        var a = Math.max(0, .9 - p.life / p.max);
+        var flicker = .75 + .25 * Math.sin(p.life / 7 + j);
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.r, 0, 6.2832);
+        ctx.fillStyle = "hsla(" + p.hue + ",100%," + (52 + p.r * 4) + "%," + (a * flicker).toFixed(3) + ")";
+        ctx.shadowColor = "hsla(" + p.hue + ",100%,55%,.8)";
+        ctx.shadowBlur = 12;
+        ctx.fill();
+        ctx.shadowBlur = 0;
+      }
+      requestAnimationFrame(tick);
+    })();
+  }
+
+  /* Scroll reveals */
+  var els = document.querySelectorAll(".reveal");
+  if("IntersectionObserver" in window && !reduced){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){ e.target.classList.add("in"); io.unobserve(e.target); }
+      });
+    }, {threshold:.12, rootMargin:"0px 0px -6% 0px"});
+    els.forEach(function(el){ io.observe(el); });
+  } else {
+    els.forEach(function(el){ el.classList.add("in"); });
+  }
+
+  /* Magnetic hover for solid CTAs */
+  if(!reduced && window.matchMedia("(pointer:fine)").matches){
+    document.querySelectorAll(".btn-solid").forEach(function(btn){
+      btn.addEventListener("mousemove", function(ev){
+        var r = btn.getBoundingClientRect();
+        var x = ev.clientX - r.left - r.width / 2;
+        var y = ev.clientY - r.top - r.height / 2;
+        btn.style.transform = "translate(" + (x * .12) + "px," + (y * .18 - 2) + "px)";
+      });
+      btn.addEventListener("mouseleave", function(){ btn.style.transform = ""; });
+    });
+  }
+
+  /* Dish card tilt */
+  if(!reduced && window.matchMedia("(pointer:fine)").matches){
+    document.querySelectorAll(".dish").forEach(function(card){
+      card.addEventListener("mousemove", function(ev){
+        var r = card.getBoundingClientRect();
+        var rx = ((ev.clientY - r.top) / r.height - .5) * -6;
+        var ry = ((ev.clientX - r.left) / r.width - .5) * 8;
+        card.style.transform = "perspective(900px) rotateX(" + rx + "deg) rotateY(" + ry + "deg) translateY(-6px)";
+      });
+      card.addEventListener("mouseleave", function(){ card.style.transform = ""; });
+    });
+  }
+})();
+</script>
+</body>
+</html>
