@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Casa Canela — House of Cinnamon | Handcrafted Cinnamon Rolls in Cutler Bay, FL</title>
+<meta name="description" content="Casa Canela is a cottage bakery in Cutler Bay, Florida baking handcrafted cinnamon rolls — the OG Glazed, Irish Espresso, Churro Roll and more. Weekly pre-orders and pre-sale drops.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,300;1,9..144,400;1,9..144,500&family=Caveat:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Bakery",
+  "name": "Casa Canela",
+  "alternateName": "House of Cinnamon",
+  "description": "Cottage bakery in Cutler Bay, Florida baking handcrafted cinnamon rolls. Weekly pre-orders and pre-sale drops.",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Cutler Bay",
+    "addressRegion": "FL",
+    "addressCountry": "US"
+  },
+  "sameAs": ["https://www.instagram.com/casacanelamiami/"],
+  "url": "https://linktr.ee/casacanelamiami",
+  "servesCuisine": "Bakery",
+  "priceRange": "$$"
+}
+</script>
+<style>
+:root{
+  --bark:#120906;
+  --bark-2:#1d0f07;
+  --bark-3:#2a1508;
+  --caramel:#d99a4e;
+  --caramel-hi:#f2c078;
+  --cinnamon:#a55a22;
+  --cream:#f6ead8;
+  --cream-dim:#e8d3b3;
+  --ink-soft:#c9a97e;
+  --line:rgba(217,154,78,.22);
+  --shadow:0 30px 80px rgba(0,0,0,.55);
+  --font-display:"Fraunces",Georgia,serif;
+  --font-hand:"Caveat",cursive;
+  --font-ui:"Manrope",system-ui,sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  background:var(--bark);
+  color:var(--cream);
+  font-family:var(--font-ui);
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+::selection{background:var(--caramel);color:var(--bark)}
+img{display:block;max-width:100%}
+a{color:inherit}
+
+/* film grain */
+.grain{position:fixed;inset:0;pointer-events:none;z-index:60;opacity:.07;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");}
+
+/* ambient ember glows */
+.glow{position:absolute;border-radius:50%;filter:blur(110px);pointer-events:none;z-index:0}
+
+/* ---------- NAV ---------- */
+.nav{
+  position:fixed;top:0;left:0;right:0;z-index:50;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:16px clamp(18px,4vw,54px);
+  background:linear-gradient(to bottom,rgba(18,9,6,.92),rgba(18,9,6,0));
+  backdrop-filter:blur(2px);
+}
+.brand{display:flex;align-items:center;gap:14px;text-decoration:none}
+.brand .seal{
+  width:52px;height:52px;border-radius:50%;overflow:hidden;flex:0 0 52px;
+  border:2px solid var(--caramel);
+  box-shadow:0 0 0 4px rgba(217,154,78,.15),0 8px 24px rgba(0,0,0,.5);
+  transform:rotate(-6deg);
+  transition:transform .5s cubic-bezier(.2,.8,.2,1);
+}
+.brand:hover .seal{transform:rotate(6deg) scale(1.06)}
+.brand .seal img{width:100%;height:100%;object-fit:cover}
+.brand-name{font-family:var(--font-display);font-weight:500;font-size:1.35rem;letter-spacing:.02em;line-height:1}
+.brand-name small{display:block;font-family:var(--font-ui);font-weight:600;font-size:.62rem;letter-spacing:.32em;color:var(--caramel);margin-top:5px}
+.nav-links{display:flex;gap:clamp(14px,2.4vw,34px);align-items:center}
+.nav-links a{font-size:.78rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--cream-dim);text-decoration:none;position:relative}
+.nav-links a::after{content:"";position:absolute;left:0;bottom:-6px;height:1px;width:0;background:var(--caramel);transition:width .35s ease}
+.nav-links a:hover::after{width:100%}
+.btn{
+  display:inline-flex;align-items:center;gap:10px;
+  font-family:var(--font-ui);font-weight:800;font-size:.8rem;letter-spacing:.16em;text-transform:uppercase;
+  text-decoration:none;color:var(--bark);
+  background:linear-gradient(135deg,var(--caramel-hi),var(--caramel) 60%,var(--cinnamon));
+  padding:15px 30px;border-radius:100px;border:0;cursor:pointer;
+  box-shadow:0 10px 30px rgba(217,154,78,.35),inset 0 1px 0 rgba(255,255,255,.5);
+  transition:transform .3s cubic-bezier(.2,.8,.2,1),box-shadow .3s;
+  position:relative;overflow:hidden;
+}
+.btn::before{content:"";position:absolute;inset:0;background:linear-gradient(135deg,transparent 30%,rgba(255,255,255,.45) 50%,transparent 70%);transform:translateX(-120%);transition:transform .7s ease}
+.btn:hover{transform:translateY(-3px) scale(1.02);box-shadow:0 16px 42px rgba(217,154,78,.5)}
+.btn:hover::before{transform:translateX(120%)}
+.btn-outline{
+  display:inline-flex;align-items:center;gap:10px;
+  font-weight:700;font-size:.8rem;letter-spacing:.16em;text-transform:uppercase;text-decoration:none;
+  color:var(--cream);padding:14px 28px;border-radius:100px;
+  border:1px solid var(--line);background:rgba(217,154,78,.06);
+  transition:border-color .3s,background .3s,transform .3s;
+}
+.btn-outline:hover{border-color:var(--caramel);background:rgba(217,154,78,.14);transform:translateY(-3px)}
+@media(max-width:760px){.nav-links a{display:none}}
+
+/* ---------- HERO ---------- */
+.hero{
+  position:relative;min-height:100svh;
+  display:grid;grid-template-columns:1.05fr .95fr;
+  align-items:center;gap:clamp(24px,4vw,60px);
+  padding:130px clamp(18px,5vw,70px) 60px;
+  overflow:hidden;
+}
+.hero .glow.g1{width:640px;height:640px;background:radial-gradient(circle,rgba(217,154,78,.28),transparent 70%);top:-160px;left:-140px;animation:breathe 7s ease-in-out infinite}
+.hero .glow.g2{width:520px;height:520px;background:radial-gradient(circle,rgba(165,90,34,.32),transparent 70%);bottom:-180px;right:8%;animation:breathe 9s ease-in-out infinite reverse}
+@keyframes breathe{0%,100%{transform:scale(1);opacity:.8}50%{transform:scale(1.15);opacity:1}}
+
+.eyebrow{
+  display:inline-flex;align-items:center;gap:12px;
+  font-size:.72rem;font-weight:700;letter-spacing:.34em;text-transform:uppercase;color:var(--caramel);
+  margin-bottom:26px;
+}
+.eyebrow::before{content:"";width:44px;height:1px;background:var(--caramel)}
+h1{
+  font-family:var(--font-display);font-weight:400;
+  font-size:clamp(3.2rem,8.4vw,7.6rem);line-height:.94;letter-spacing:-.01em;
+}
+h1 .swirl{position:relative;display:inline-block;font-style:italic;font-weight:500;color:var(--caramel-hi)}
+h1 .swirl svg{position:absolute;left:-4%;bottom:-.18em;width:108%;height:.5em;overflow:visible}
+h1 .swirl svg path{stroke:var(--caramel);stroke-width:5;fill:none;stroke-linecap:round;
+  stroke-dasharray:600;stroke-dashoffset:600;animation:draw 1.6s .9s ease forwards}
+@keyframes draw{to{stroke-dashoffset:0}}
+.hand-note{
+  font-family:var(--font-hand);font-size:clamp(1.5rem,2.6vw,2.1rem);color:var(--caramel-hi);
+  transform:rotate(-3deg);margin:26px 0 10px;display:inline-block;
+}
+.hero-sub{max-width:46ch;color:var(--cream-dim);font-size:1.02rem;line-height:1.75;margin-bottom:34px}
+.hero-ctas{display:flex;gap:16px;flex-wrap:wrap;align-items:center}
+.hero-meta{display:flex;gap:34px;margin-top:44px;flex-wrap:wrap}
+.hero-meta .stat{border-left:1px solid var(--line);padding-left:18px}
+.hero-meta .num{font-family:var(--font-display);font-size:2rem;color:var(--caramel-hi)}
+.hero-meta .lbl{font-size:.68rem;letter-spacing:.24em;text-transform:uppercase;color:var(--ink-soft);margin-top:6px}
+
+/* hero photo collage */
+.hero-visual{position:relative;z-index:1}
+.photo-card{
+  position:relative;border-radius:22px;overflow:hidden;
+  transform:rotate(3deg);
+  box-shadow:var(--shadow);
+  border:1px solid rgba(217,154,78,.28);
+  transition:transform .6s cubic-bezier(.2,.8,.2,1);
+}
+.photo-card:hover{transform:rotate(0deg) scale(1.015)}
+.photo-card img{width:100%;height:min(68vh,560px);object-fit:cover}
+.photo-card .caption{
+  position:absolute;left:0;right:0;bottom:0;padding:40px 26px 20px;
+  background:linear-gradient(transparent,rgba(10,5,3,.85));
+  font-family:var(--font-hand);font-size:1.6rem;color:var(--cream);
+}
+.tape{position:absolute;width:120px;height:34px;background:rgba(242,192,120,.85);
+  top:-14px;left:50%;transform:translateX(-50%) rotate(-4deg);
+  box-shadow:0 4px 12px rgba(0,0,0,.3);
+  clip-path:polygon(2% 0,98% 4%,100% 96%,0 100%);opacity:.9;z-index:2}
+.steam{position:absolute;top:-6px;left:50%;width:120px;height:120px;transform:translateX(-50%);pointer-events:none;z-index:2}
+.steam span{position:absolute;bottom:0;width:14px;height:70px;border-radius:50%;
+  background:linear-gradient(to top,transparent,rgba(246,234,216,.5));
+  filter:blur(8px);opacity:0;animation:rise 3.4s ease-in-out infinite}
+.steam span:nth-child(1){left:18px;animation-delay:0s}
+.steam span:nth-child(2){left:52px;animation-delay:1.1s}
+.steam span:nth-child(3){left:86px;animation-delay:2.2s}
+@keyframes rise{0%{transform:translateY(20px) scaleY(.6);opacity:0}35%{opacity:.9}100%{transform:translateY(-70px) translateX(14px) scaleY(1.3);opacity:0}}
+/* rotating badge */
+.badge-orbit{position:absolute;top:-58px;right:-30px;width:132px;height:132px;z-index:3;animation:spin 16s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.badge-orbit text{font-family:var(--font-ui);font-size:11.5px;font-weight:800;letter-spacing:3.2px;fill:var(--caramel-hi)}
+.badge-core{position:absolute;top:-58px;right:-30px;width:132px;height:132px;display:grid;place-items:center;z-index:3;pointer-events:none}
+.badge-core i{font-style:normal;font-size:1.7rem}
+@media(max-width:900px){
+  .hero{grid-template-columns:1fr;padding-top:110px;text-align:left}
+  .photo-card img{height:44vh}
+  .badge-orbit,.badge-core{right:6px;top:-46px}
+}
+
+/* ---------- MARQUEE TAPE ---------- */
+.tape-strip{
+  position:relative;z-index:2;overflow:hidden;white-space:nowrap;
+  background:linear-gradient(135deg,var(--cinnamon),#7e3f14);
+  border-top:1px solid rgba(242,192,120,.4);border-bottom:1px solid rgba(242,192,120,.4);
+  transform:rotate(-1.2deg) scale(1.02);
+  box-shadow:0 18px 50px rgba(0,0,0,.45);
+}
+.tape-track{display:inline-flex;gap:0;animation:marquee 26s linear infinite;padding:16px 0}
+.tape-track span{
+  font-family:var(--font-display);font-style:italic;font-size:1.15rem;color:var(--cream);
+  padding:0 26px;display:inline-flex;align-items:center;gap:26px;
+}
+.tape-track span::after{content:"✦";color:var(--caramel-hi);font-style:normal;font-size:.9rem}
+@keyframes marquee{to{transform:translateX(-50%)}}
+.tape-strip:hover .tape-track{animation-play-state:paused}
+
+/* ---------- SECTIONS ---------- */
+.section{position:relative;padding:clamp(80px,10vw,140px) clamp(18px,5vw,70px);max-width:1240px;margin:0 auto}
+.kicker{font-family:var(--font-hand);font-size:1.7rem;color:var(--caramel-hi);transform:rotate(-2deg);display:inline-block;margin-bottom:12px}
+h2{font-family:var(--font-display);font-weight:400;font-size:clamp(2.4rem,5vw,4.4rem);line-height:1.02;letter-spacing:-.01em;margin-bottom:18px}
+h2 em{font-style:italic;color:var(--caramel-hi)}
+.lede{color:var(--cream-dim);max-width:60ch;line-height:1.8;font-size:1.02rem}
+
+/* reveal on scroll */
+.rv{opacity:0;transform:translateY(38px);transition:opacity .9s cubic-bezier(.2,.8,.2,1),transform .9s cubic-bezier(.2,.8,.2,1)}
+.rv.in{opacity:1;transform:none}
+.rv.d1{transition-delay:.12s}.rv.d2{transition-delay:.24s}.rv.d3{transition-delay:.36s}
+
+/* ---------- FLAVORS ---------- */
+.flavor-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:26px;margin-top:54px}
+@media(max-width:760px){.flavor-grid{grid-template-columns:1fr}}
+.flavor{
+  position:relative;border-radius:20px;overflow:hidden;
+  background:linear-gradient(160deg,var(--bark-3),var(--bark-2));
+  border:1px solid var(--line);
+  transition:transform .5s cubic-bezier(.2,.8,.2,1),box-shadow .5s,border-color .5s;
+}
+.flavor:hover{transform:translateY(-8px);box-shadow:var(--shadow);border-color:rgba(217,154,78,.55)}
+.flavor .ph{height:250px;overflow:hidden;position:relative}
+.flavor .ph img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s cubic-bezier(.2,.8,.2,1);filter:saturate(1.05)}
+.flavor:hover .ph img{transform:scale(1.07)}
+.flavor .ph::after{content:"";position:absolute;inset:0;background:linear-gradient(transparent 55%,rgba(18,9,6,.55))}
+.flavor .no{position:absolute;top:18px;left:20px;z-index:2;
+  font-family:var(--font-display);font-style:italic;font-size:1rem;color:var(--bark);
+  background:var(--caramel-hi);width:44px;height:44px;border-radius:50%;display:grid;place-items:center;
+  box-shadow:0 6px 18px rgba(0,0,0,.4)}
+.flavor .body{padding:28px 30px 32px}
+.flavor h3{font-family:var(--font-display);font-weight:500;font-size:1.9rem;margin-bottom:6px}
+.flavor .tag{font-family:var(--font-hand);font-size:1.35rem;color:var(--caramel-hi);margin-bottom:12px;display:block}
+.flavor p{color:var(--cream-dim);line-height:1.75;font-size:.96rem}
+.flavor .pill{display:inline-block;margin-top:16px;font-size:.68rem;font-weight:800;letter-spacing:.22em;text-transform:uppercase;color:var(--caramel);border:1px dashed rgba(217,154,78,.5);border-radius:100px;padding:8px 16px}
+
+/* ---------- SWIRL BAND (parallax texture) ---------- */
+.swirl-band{position:relative;height:62vh;min-height:420px;overflow:hidden;display:grid;place-items:center;text-align:center}
+.swirl-band .bg{position:absolute;inset:-18% 0;background:url("https://images.unsplash.com/photo-1649308401368-a68b77116605?w=1800&q=70&auto=format&fit=crop") center/cover;will-change:transform;filter:saturate(1.1)}
+.swirl-band::after{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(18,9,6,.25),rgba(18,9,6,.88) 75%)}
+.swirl-quote{position:relative;z-index:2;max-width:800px;padding:0 24px}
+.swirl-quote .hand-note{font-size:clamp(1.8rem,3.4vw,2.6rem);margin:0 0 18px}
+.swirl-quote p{font-family:var(--font-display);font-style:italic;font-size:clamp(1.5rem,3.2vw,2.5rem);line-height:1.35;color:var(--cream);text-shadow:0 4px 30px rgba(0,0,0,.6)}
+
+/* ---------- STORY ---------- */
+.story{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(30px,5vw,70px);align-items:center}
+@media(max-width:860px){.story{grid-template-columns:1fr}}
+.recipe-card{
+  position:relative;background:linear-gradient(175deg,#fbf3e3,#f0dfc2);
+  color:#3a2110;border-radius:8px;padding:44px 38px 50px;
+  transform:rotate(-2.5deg);
+  box-shadow:0 34px 80px rgba(0,0,0,.5);
+  transition:transform .5s cubic-bezier(.2,.8,.2,1);
+}
+.recipe-card:hover{transform:rotate(0deg) scale(1.01)}
+.recipe-card::before{content:"";position:absolute;inset:12px;border:1.5px dashed rgba(165,90,34,.4);border-radius:5px;pointer-events:none}
+.recipe-card .logo-ring{width:120px;height:120px;border-radius:50%;overflow:hidden;margin:0 auto 20px;border:3px solid var(--cinnamon);box-shadow:0 10px 26px rgba(0,0,0,.25)}
+.recipe-card .logo-ring img{width:100%;height:100%;object-fit:cover}
+.recipe-card h3{font-family:var(--font-hand);font-size:2.2rem;text-align:center;color:#5a2f12}
+.recipe-card .est{text-align:center;font-size:.7rem;font-weight:800;letter-spacing:.3em;text-transform:uppercase;color:#8a5a2b;margin:8px 0 20px}
+.recipe-card ul{list-style:none;display:grid;gap:14px;font-size:.95rem;line-height:1.65}
+.recipe-card li{padding-left:30px;position:relative}
+.recipe-card li::before{content:"✦";position:absolute;left:4px;color:var(--cinnamon)}
+.story-copy .num-row{display:flex;gap:40px;margin:34px 0;flex-wrap:wrap}
+.story-copy .num-row .n{font-family:var(--font-display);font-size:3rem;color:var(--caramel-hi);line-height:1}
+.story-copy .num-row .l{font-size:.7rem;letter-spacing:.26em;text-transform:uppercase;color:var(--ink-soft);margin-top:8px}
+
+/* ---------- STEPS ---------- */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:54px}
+@media(max-width:820px){.steps{grid-template-columns:1fr}}
+.step{
+  border:1px solid var(--line);border-radius:18px;padding:36px 30px;
+  background:rgba(217,154,78,.04);position:relative;overflow:hidden;
+  transition:transform .45s cubic-bezier(.2,.8,.2,1),background .45s;
+}
+.step:hover{transform:translateY(-6px);background:rgba(217,154,78,.09)}
+.step .snum{font-family:var(--font-display);font-style:italic;font-size:3.4rem;color:transparent;-webkit-text-stroke:1.5px var(--caramel);line-height:1}
+.step h3{font-family:var(--font-display);font-size:1.5rem;font-weight:500;margin:18px 0 10px}
+.step p{color:var(--cream-dim);line-height:1.75;font-size:.95rem}
+.step a{color:var(--caramel-hi);font-weight:700}
+
+/* ---------- CTA ---------- */
+.cta-panel{
+  position:relative;border-radius:28px;overflow:hidden;text-align:center;
+  padding:clamp(60px,8vw,110px) clamp(24px,6vw,80px);
+  background:
+    radial-gradient(ellipse 70% 90% at 50% 110%,rgba(217,154,78,.35),transparent 60%),
+    linear-gradient(160deg,#241106,#120906);
+  border:1px solid rgba(217,154,78,.35);
+  box-shadow:var(--shadow);
+}
+.cta-panel .swirl-svg{width:110px;height:110px;margin:0 auto 26px;animation:spin 24s linear infinite}
+.cta-panel h2{margin-bottom:14px}
+.cta-panel .lede{margin:0 auto 36px}
+.cta-btns{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+
+/* ---------- FOOTER ---------- */
+footer{border-top:1px solid var(--line);padding:60px clamp(18px,5vw,70px) 40px;position:relative}
+.foot-grid{max-width:1240px;margin:0 auto;display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:40px}
+@media(max-width:760px){.foot-grid{grid-template-columns:1fr}}
+.foot-brand{display:flex;align-items:center;gap:16px;margin-bottom:18px}
+.foot-brand .seal{width:64px;height:64px;border-radius:50%;overflow:hidden;border:2px solid var(--caramel)}
+.foot-brand .seal img{width:100%;height:100%;object-fit:cover}
+footer h4{font-size:.72rem;font-weight:800;letter-spacing:.3em;text-transform:uppercase;color:var(--caramel);margin-bottom:18px}
+footer p,footer li{color:var(--cream-dim);font-size:.92rem;line-height:1.8;list-style:none}
+footer a{color:var(--cream-dim);text-decoration:none}
+footer a:hover{color:var(--caramel-hi)}
+.social-row{display:flex;gap:14px;margin-top:6px}
+.soc{
+  width:52px;height:52px;border-radius:50%;display:grid;place-items:center;
+  border:1px solid var(--line);background:rgba(217,154,78,.06);color:var(--caramel-hi);
+  transition:transform .35s cubic-bezier(.2,.8,.2,1),background .35s,border-color .35s;
+}
+.soc:hover{transform:translateY(-4px) rotate(-8deg);background:rgba(217,154,78,.16);border-color:var(--caramel)}
+.soc svg{width:22px;height:22px}
+.foot-base{max-width:1240px;margin:44px auto 0;padding-top:24px;border-top:1px solid rgba(217,154,78,.12);
+  display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
+  font-size:.75rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft)}
+
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+  html{scroll-behavior:auto}
+  .rv{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+
+<div class="grain" aria-hidden="true"></div>
+
+<!-- NAV -->
+<nav class="nav" aria-label="Main">
+  <a class="brand" href="#top" aria-label="Casa Canela home">
+    <span class="seal"><img src="images/casacanelamiami/logo.jpg" alt="Casa Canela logo"></span>
+    <span class="brand-name">Casa Canela<small>House of Cinnamon</small></span>
+  </a>
+  <div class="nav-links">
+    <a href="#rolls">The Rolls</a>
+    <a href="#story">Our Story</a>
+    <a href="#how">How It Works</a>
+    <a class="btn" href="https://ig.me/m/casacanelamiami" target="_blank" rel="noopener">Pre-Order</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero" id="top">
+  <div class="glow g1" aria-hidden="true"></div>
+  <div class="glow g2" aria-hidden="true"></div>
+
+  <div class="hero-copy">
+    <span class="eyebrow rv">Cutler Bay, Florida · Cottage Bakery</span>
+    <h1 class="rv d1">House of<br><span class="swirl">Cinnamon<svg viewBox="0 0 300 24" preserveAspectRatio="none" aria-hidden="true"><path d="M4 16 C 60 6, 120 22, 180 12 S 280 8, 296 14"/></svg></span></h1>
+    <span class="hand-note rv d2">handcrafted cinnamon rolls, baked with love</span>
+    <p class="hero-sub rv d2">Small-batch rolls from a home kitchen in Cutler Bay — soft, fluffy, and finished with our signature glazes. Pre-orders open weekly, and pre-sale drops sell out fast.</p>
+    <div class="hero-ctas rv d3">
+      <a class="btn" href="https://ig.me/m/casacanelamiami" target="_blank" rel="noopener">Pre-Order via DM</a>
+      <a class="btn-outline" href="#rolls">See the Rolls</a>
+    </div>
+    <div class="hero-meta rv d3">
+      <div class="stat"><div class="num" data-count="100">0</div><div class="lbl">Five-Star Reviews</div></div>
+      <div class="stat"><div class="num">2024</div><div class="lbl">Est. in Cutler Bay</div></div>
+      <div class="stat"><div class="num" data-count="4">0</div><div class="lbl">Signature Flavors</div></div>
+    </div>
+  </div>
+
+  <div class="hero-visual rv d2">
+    <div class="steam" aria-hidden="true"><span></span><span></span><span></span></div>
+    <div class="badge-orbit" aria-hidden="true">
+      <svg viewBox="0 0 132 132"><defs><path id="circ" d="M66,66 m-48,0 a48,48 0 1,1 96,0 a48,48 0 1,1 -96,0"/></defs>
+      <text><textPath href="#circ">HOUSE OF CINNAMON • CUTLER BAY • EST 2024 • </textPath></text></svg>
+    </div>
+    <div class="badge-core" aria-hidden="true"><i>✦</i></div>
+    <figure class="photo-card">
+      <div class="tape" aria-hidden="true"></div>
+      <img src="https://images.unsplash.com/photo-1509365465985-25d11c17e812?w=1400&q=70&auto=format&fit=crop" alt="Freshly baked cinnamon rolls dusted with sugar" fetchpriority="high">
+      <figcaption class="caption">warm from the oven, every bake day</figcaption>
+    </figure>
+  </div>
+</header>
+
+<!-- MARQUEE -->
+<div class="tape-strip" aria-hidden="true">
+  <div class="tape-track" id="tapeTrack">
+    <span>Fresh from the oven</span><span>Pre-order only</span><span>Cutler Bay, Florida</span><span>Handcrafted with love</span><span>Weekly bake days</span><span>Pre-sale drops</span>
+  </div>
+</div>
+
+<!-- FLAVORS -->
+<section class="section" id="rolls">
+  <span class="kicker rv">the menu, always rotating</span>
+  <h2 class="rv d1">The <em>Rolls</em></h2>
+  <p class="lede rv d2">Flavors rotate with the seasons and the drops — but a few legends never leave. Reserve yours before the bake day sells out.</p>
+
+  <div class="flavor-grid">
+    <article class="flavor rv">
+      <span class="no">01</span>
+      <div class="ph"><img src="https://images.unsplash.com/photo-1584966164218-42b0c3225e41?w=900&q=70&auto=format&fit=crop" alt="OG Glazed cinnamon rolls with vanilla glaze" loading="lazy"></div>
+      <div class="body">
+        <h3>OG Glazed</h3>
+        <span class="tag">the one that started it all</span>
+        <p>No fancy toppings, no over-the-top extras — just soft, fluffy cinnamon roll perfection finished with our signature vanilla glaze. A classic for a reason, and she never leaves the menu.</p>
+        <span class="pill">Always available</span>
+      </div>
+    </article>
+
+    <article class="flavor rv d1">
+      <span class="no">02</span>
+      <div class="ph"><img src="https://images.unsplash.com/photo-1509365465985-25d11c17e812?w=900&q=70&auto=format&fit=crop" alt="Irish Espresso cinnamon roll" loading="lazy"></div>
+      <div class="body">
+        <h3>Irish Espresso</h3>
+        <span class="tag">a Casa Canela favorite, back by demand</span>
+        <p>Our espresso cinnamon roll crowned with Bailey's Irish cream frosting and a deep espresso glaze. Bold, cozy, and dangerously good with your morning coffee.</p>
+        <span class="pill">Seasonal drop</span>
+      </div>
+    </article>
+
+    <article class="flavor rv">
+      <span class="no">03</span>
+      <div class="ph"><img src="https://images.unsplash.com/photo-1587131782738-de30ea91a542?w=900&q=70&auto=format&fit=crop" alt="Cinnamon sticks, the heart of the Churro Roll" loading="lazy"></div>
+      <div class="body">
+        <h3>Churro Roll</h3>
+        <span class="tag">new to the lineup</span>
+        <p>All the cinnamon-sugar crunch of a fresh churro, swirled into our pillowy roll. The newest addition to the flavor family — catch it on the next drop.</p>
+        <span class="pill">Limited drop</span>
+      </div>
+    </article>
+
+    <article class="flavor rv d1">
+      <span class="no">04</span>
+      <div class="ph"><img src="https://images.unsplash.com/photo-1649308401368-a68b77116605?w=900&q=70&auto=format&fit=crop" alt="Hand-rolled dough swirls" loading="lazy"></div>
+      <div class="body">
+        <h3>Arroz con Leche</h3>
+        <span class="tag">from grandmother Conchita's recipe</span>
+        <p>Creamy, comforting, and full of cinnamon warmth — just like she used to make. Our beloved rice pudding, now part of the Casa Canela family in limited quantities.</p>
+        <span class="pill">Limited quantities</span>
+      </div>
+    </article>
+  </div>
+
+  <p class="lede rv" style="margin-top:36px">Feeding a crowd? Ask about the <strong style="color:var(--caramel-hi)">Variety Box</strong> — a 4-pack of favorite flavors — or the <strong style="color:var(--caramel-hi)">Crowd Pleaser</strong>, 24 mini cinnamon rolls in one flavor or a variety. Perfect for parties, birthdays, and office treats.</p>
+</section>
+
+<!-- SWIRL BAND -->
+<div class="swirl-band" aria-hidden="true">
+  <div class="bg" id="swirlBg"></div>
+  <div class="swirl-quote">
+    <span class="hand-note">from my kitchen, with love</span>
+    <p>Soft, fluffy, impossibly gooey — handcrafted in small batches, never rushed.</p>
+  </div>
+</div>
+
+<!-- STORY -->
+<section class="section" id="story">
+  <div class="story">
+    <div class="recipe-card rv">
+      <div class="logo-ring"><img src="images/casacanelamiami/logo.jpg" alt="Casa Canela — handcrafted cinnamon rolls, est. 2024"></div>
+      <h3>Casa Canela</h3>
+      <div class="est">est. 2024 · Cutler Bay, FL</div>
+      <ul>
+        <li>Run from a home kitchen — fueled by late nights and early mornings</li>
+        <li>Grandmother Conchita's arroz con leche, now part of the family</li>
+        <li>100 five-star reviews and counting, from our amazing community</li>
+        <li>Weekly pre-orders + pre-sale drops, baked fresh on bake days</li>
+      </ul>
+    </div>
+    <div class="story-copy">
+      <span class="kicker rv">the baker behind the rolls</span>
+      <h2 class="rv d1">Baked in a Home Kitchen,<br><em>Loved Like Family</em></h2>
+      <p class="lede rv d2">Casa Canela began as a small dream poured into every batch — handcrafted cinnamon rolls baked at home in Cutler Bay, Florida. Every order, every kind message, every five-star review is a reminder of why it started: to share something warm, sweet, and made with genuine love.</p>
+      <p class="lede rv d2" style="margin-top:16px">From the OG Glazed that never leaves the menu to grandmother Conchita's arroz con leche recipe, everything here carries a little piece of home.</p>
+      <div class="num-row rv d3">
+        <div><div class="n"><span data-count="100">0</span>★</div><div class="l">Five-star reviews</div></div>
+        <div><div class="n"><span data-count="3500">0</span>+</div><div class="l">Instagram family</div></div>
+        <div><div class="n">FL</div><div class="l">Cottage baker</div></div>
+      </div>
+      <a class="btn rv d3" href="https://www.instagram.com/casacanelamiami/" target="_blank" rel="noopener">Follow the Journey</a>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="section" id="how" style="padding-top:0">
+  <span class="kicker rv">easy as pie — well, rolls</span>
+  <h2 class="rv d1">How <em>Pre-Orders</em> Work</h2>
+  <p class="lede rv d2">Everything is baked fresh to order on weekly bake days. No storefront, no stale shelves — just warm rolls, reserved for you.</p>
+  <div class="steps">
+    <div class="step rv">
+      <div class="snum">01</div>
+      <h3>Reserve your box</h3>
+      <p>Tap the link in bio or send a <a href="https://ig.me/m/casacanelamiami" target="_blank" rel="noopener">DM</a> to place your pre-order. Sign up for drop notifications so you never miss a flavor.</p>
+    </div>
+    <div class="step rv d1">
+      <div class="snum">02</div>
+      <h3>We bake fresh</h3>
+      <p>Your rolls are handcrafted and baked on bake day — soft, gooey, and glazed to order in our Cutler Bay home kitchen.</p>
+    </div>
+    <div class="step rv d2">
+      <div class="snum">03</div>
+      <h3>Pickup or delivery</h3>
+      <p>Pick up in Cutler Bay, or get delivery through Hotplate via Uber Eats (fee applies). Warm rolls, zero hassle.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="section" style="padding-top:0">
+  <div class="cta-panel rv">
+    <svg class="swirl-svg" viewBox="0 0 100 100" fill="none" aria-hidden="true">
+      <path d="M50 8a42 42 0 1 0 42 42 34 34 0 1 1-34-34 26 26 0 1 0 26 26 18 18 0 1 1-18-18 10 10 0 1 0 10 10" stroke="#d99a4e" stroke-width="4" stroke-linecap="round"/>
+      <circle cx="50" cy="50" r="4" fill="#f2c078"/>
+    </svg>
+    <span class="kicker">this week's bake day is coming</span>
+    <h2>Your Thursday Just Got <em>Sweeter</em></h2>
+    <p class="lede">Pre-orders are open — choose your favorites and reserve your pickup or delivery slot before they're gone.</p>
+    <div class="cta-btns">
+      <a class="btn" href="https://ig.me/m/casacanelamiami" target="_blank" rel="noopener">DM to Pre-Order</a>
+      <a class="btn-outline" href="https://linktr.ee/casacanelamiami" target="_blank" rel="noopener">Order via Link in Bio</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="foot-grid">
+    <div>
+      <div class="foot-brand">
+        <span class="seal"><img src="images/casacanelamiami/logo.jpg" alt="Casa Canela logo"></span>
+        <div>
+          <div style="font-family:var(--font-display);font-size:1.4rem">Casa Canela</div>
+          <div style="font-size:.66rem;letter-spacing:.3em;text-transform:uppercase;color:var(--caramel)">House of Cinnamon</div>
+        </div>
+      </div>
+      <p>Handcrafted cinnamon rolls from a cottage bakery in Cutler Bay, Florida. Weekly pre-orders and pre-sale drops — baked fresh, with love.</p>
+    </div>
+    <div>
+      <h4>Order</h4>
+      <ul>
+        <li><a href="https://ig.me/m/casacanelamiami" target="_blank" rel="noopener">DM to pre-order</a></li>
+        <li><a href="https://linktr.ee/casacanelamiami" target="_blank" rel="noopener">Link in bio — drops &amp; notifications</a></li>
+        <li>Pickup in Cutler Bay</li>
+        <li>Delivery via Hotplate / Uber Eats</li>
+      </ul>
+    </div>
+    <div>
+      <h4>Follow Along</h4>
+      <div class="social-row">
+        <a class="soc" href="https://www.instagram.com/casacanelamiami/" target="_blank" rel="noopener" aria-label="Casa Canela on Instagram">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="2.5" width="19" height="19" rx="5.5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.6" cy="6.4" r="1.3" fill="currentColor" stroke="none"/></svg>
+        </a>
+      </div>
+      <p style="margin-top:16px">@casacanelamiami</p>
+    </div>
+  </div>
+  <div class="foot-base">
+    <span>© 2026 Casa Canela · Cutler Bay, FL</span>
+    <span>Handcrafted with love</span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+  var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  /* duplicate marquee content for a seamless loop */
+  var track = document.getElementById("tapeTrack");
+  if (track) { track.innerHTML += track.innerHTML; }
+
+  /* scroll reveals */
+  var io = ("IntersectionObserver" in window) ? new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); }
+    });
+  }, {threshold: 0.12, rootMargin: "0px 0px -40px 0px"}) : null;
+  document.querySelectorAll(".rv").forEach(function(el){
+    if (io && !reduced) { io.observe(el); } else { el.classList.add("in"); }
+  });
+
+  /* animated counters */
+  function animateCount(el){
+    var target = parseInt(el.getAttribute("data-count"), 10) || 0;
+    if (reduced) { el.textContent = target.toLocaleString("en-US"); return; }
+    var dur = 1400, t0 = null;
+    function tick(t){
+      if (!t0) t0 = t;
+      var p = Math.min((t - t0) / dur, 1);
+      var eased = 1 - Math.pow(1 - p, 3);
+      el.textContent = Math.round(target * eased).toLocaleString("en-US");
+      if (p < 1) requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+  }
+  var cio = ("IntersectionObserver" in window) ? new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if (e.isIntersecting) { animateCount(e.target); cio.unobserve(e.target); }
+    });
+  }, {threshold: 0.6}) : null;
+  document.querySelectorAll("[data-count]").forEach(function(el){
+    if (cio) { cio.observe(el); } else { animateCount(el); }
+  });
+
+  /* parallax on the swirl band */
+  var band = document.querySelector(".swirl-band .bg");
+  if (band && !reduced && "requestAnimationFrame" in window) {
+    var ticking = false;
+    function update(){
+      var r = band.parentElement.getBoundingClientRect();
+      var vh = window.innerHeight || 800;
+      if (r.bottom > 0 && r.top < vh) {
+        var prog = (vh - r.top) / (vh + r.height);
+        band.style.transform = "translateY(" + ((prog - 0.5) * 90).toFixed(1) + "px)";
+      }
+      ticking = false;
+    }
+    window.addEventListener("scroll", function(){
+      if (!ticking) { ticking = true; requestAnimationFrame(update); }
+    }, {passive: true});
+    update();
+  }
+})();
+</script>
+</body>
+</html>

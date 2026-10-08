@@ -1,0 +1,826 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Capirosa Desserts — Custom Celebration Cakes in Miami</title>
+<meta name="description" content="Capirosa Desserts crafts custom celebration cakes in Miami & Doral — vintage hearts, pearl moons, birthday showstoppers and more, baked to order by Melissa. Now booking October & November.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Parisienne&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="icon" href="images/capirosadesserts/logo.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Bakery",
+  "name": "Capirosa Desserts",
+  "description": "Custom celebration cakes made to order in Miami & Doral, Florida — birthday cakes, vintage heart cakes, themed cakes and more.",
+  "areaServed": ["Miami, FL", "Doral, FL"],
+  "url": "https://www.instagram.com/capirosa.desserts/",
+  "sameAs": ["https://www.instagram.com/capirosa.desserts/", "https://bakesy.shop/b/capirosa-desserts"],
+  "servesCuisine": "Bakery",
+  "founder": { "@type": "Person", "name": "Melissa" }
+}
+</script>
+<style>
+:root{
+  --cream:#FFF7F0;
+  --cream-2:#FDEFE3;
+  --blush:#F8CBD6;
+  --blush-deep:#F2A7BC;
+  --rose:#E77E9B;
+  --cherry:#C11E4C;
+  --cocoa:#33202A;
+  --cocoa-soft:#5A414C;
+  --gold:#C9A24B;
+  --gold-soft:#EFD9A7;
+  --white:#FFFFFF;
+  --shadow:0 24px 60px -18px rgba(51,32,42,.28);
+  --radius:22px;
+  --serif:'Cormorant Garamond',serif;
+  --script:'Parisienne',cursive;
+  --sans:'Jost',sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:var(--sans);
+  background:var(--cream);
+  color:var(--cocoa);
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+::selection{background:var(--rose);color:#fff}
+img{max-width:100%;display:block}
+a{color:inherit}
+
+/* ---------- Loader ---------- */
+#loader{
+  position:fixed;inset:0;z-index:2000;
+  background:var(--cream);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;
+  transition:opacity .6s ease,visibility .6s;
+}
+#loader.done{opacity:0;visibility:hidden}
+#loader img{width:88px;height:88px;border-radius:50%;box-shadow:var(--shadow);animation:loaderPulse 1.4s ease-in-out infinite}
+@keyframes loaderPulse{0%,100%{transform:scale(1)}50%{transform:scale(1.07)}}
+#loader .l-script{font-family:var(--script);font-size:2rem;color:var(--cherry)}
+#loader .l-bar{width:150px;height:3px;background:var(--cream-2);border-radius:3px;overflow:hidden}
+#loader .l-bar span{display:block;height:100%;width:40%;background:linear-gradient(90deg,var(--rose),var(--gold));border-radius:3px;animation:lslide 1.1s ease-in-out infinite}
+@keyframes lslide{0%{transform:translateX(-110%)}100%{transform:translateX(390%)}}
+
+/* ---------- Nav ---------- */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:1000;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:14px clamp(18px,4vw,54px);
+  background:rgba(255,247,240,.82);
+  backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  border-bottom:1px solid rgba(201,162,75,.25);
+  transition:box-shadow .3s;
+}
+nav.scrolled{box-shadow:0 10px 30px -12px rgba(51,32,42,.18)}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none}
+.brand img{width:46px;height:46px;border-radius:50%;box-shadow:0 6px 16px -6px rgba(193,30,76,.5)}
+.brand-name{font-family:var(--serif);font-weight:700;font-size:1.28rem;letter-spacing:.06em;text-transform:uppercase;line-height:1}
+.brand-name small{display:block;font-family:var(--sans);font-weight:400;font-size:.6rem;letter-spacing:.42em;color:var(--gold);margin-top:4px}
+.nav-links{display:flex;gap:clamp(14px,2.6vw,34px);align-items:center}
+.nav-links a.nl{
+  text-decoration:none;font-size:.82rem;letter-spacing:.22em;text-transform:uppercase;font-weight:500;
+  position:relative;padding:6px 0;color:var(--cocoa-soft);transition:color .25s;
+}
+.nav-links a.nl::after{content:"";position:absolute;left:0;bottom:0;height:2px;width:0;background:linear-gradient(90deg,var(--rose),var(--gold));transition:width .3s ease}
+.nav-links a.nl:hover{color:var(--cherry)}
+.nav-links a.nl:hover::after{width:100%}
+.btn-solid{
+  display:inline-flex;align-items:center;gap:10px;
+  background:linear-gradient(120deg,var(--cherry),#E3547C);
+  color:#fff;text-decoration:none;
+  font-size:.82rem;letter-spacing:.2em;text-transform:uppercase;font-weight:500;
+  padding:14px 30px;border-radius:100px;border:none;cursor:pointer;
+  box-shadow:0 14px 30px -10px rgba(193,30,76,.55);
+  transition:transform .25s ease,box-shadow .25s ease;
+  position:relative;overflow:hidden;
+}
+.btn-solid::before{
+  content:"";position:absolute;top:0;left:-80%;width:50%;height:100%;
+  background:linear-gradient(105deg,transparent,rgba(255,255,255,.5),transparent);
+  transform:skewX(-20deg);transition:left .55s ease;
+}
+.btn-solid:hover{transform:translateY(-3px);box-shadow:0 20px 38px -10px rgba(193,30,76,.6)}
+.btn-solid:hover::before{left:130%}
+.btn-outline{
+  display:inline-flex;align-items:center;gap:10px;
+  color:var(--cocoa);text-decoration:none;background:transparent;
+  font-size:.82rem;letter-spacing:.2em;text-transform:uppercase;font-weight:500;
+  padding:13px 28px;border-radius:100px;border:1.5px solid var(--cocoa);
+  transition:all .25s ease;cursor:pointer;
+}
+.btn-outline:hover{background:var(--cocoa);color:var(--cream);transform:translateY(-3px)}
+.nav-cta{padding:11px 24px;font-size:.74rem}
+
+/* ---------- Hero ---------- */
+.hero{
+  position:relative;min-height:100svh;
+  display:grid;grid-template-columns:1.05fr .95fr;align-items:center;
+  gap:clamp(24px,4vw,60px);
+  padding:clamp(110px,14vh,150px) clamp(18px,5vw,70px) 70px;
+  overflow:hidden;
+  background:
+    radial-gradient(900px 480px at 12% 8%,rgba(248,203,214,.55),transparent 60%),
+    radial-gradient(700px 500px at 88% 90%,rgba(239,217,167,.5),transparent 60%),
+    var(--cream);
+}
+#confetti{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:1}
+.hero-copy{position:relative;z-index:2;max-width:640px}
+.kicker{
+  display:inline-flex;align-items:center;gap:10px;
+  font-size:.74rem;letter-spacing:.34em;text-transform:uppercase;color:var(--cherry);font-weight:500;
+  margin-bottom:22px;
+}
+.kicker::before{content:"";width:38px;height:1.5px;background:var(--gold)}
+.hero h1{
+  font-family:var(--serif);font-weight:600;
+  font-size:clamp(2.9rem,6.4vw,5.6rem);line-height:1.02;letter-spacing:-.01em;
+}
+.hero h1 .script{
+  font-family:var(--script);font-weight:400;color:var(--cherry);
+  font-size:1.18em;display:inline-block;
+  background:linear-gradient(100deg,var(--cherry) 20%,#F2739B 45%,var(--cherry) 70%);
+  background-size:200% auto;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
+  animation:shimmer 5s linear infinite;
+}
+@keyframes shimmer{to{background-position:200% center}}
+.hero h1 .word{display:inline-block;overflow:hidden;vertical-align:bottom}
+.hero h1 .word > span{display:inline-block;transform:translateY(110%);animation:riseUp .9s cubic-bezier(.2,.7,.2,1) forwards}
+@keyframes riseUp{to{transform:translateY(0)}}
+.hero-sub{
+  margin:26px 0 34px;font-size:clamp(1rem,1.4vw,1.15rem);line-height:1.75;color:var(--cocoa-soft);font-weight:300;max-width:52ch;
+}
+.hero-sub strong{color:var(--cocoa);font-weight:500}
+.hero-ctas{display:flex;gap:16px;flex-wrap:wrap}
+.hero-badges{display:flex;gap:26px;margin-top:38px;flex-wrap:wrap}
+.hb{display:flex;align-items:center;gap:10px;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--cocoa-soft)}
+.hb svg{width:22px;height:22px;stroke:var(--gold);fill:none;stroke-width:1.6}
+
+.hero-visual{position:relative;z-index:2;display:flex;justify-content:center}
+.cake-frame{
+  position:relative;width:min(460px,88vw);aspect-ratio:4/4.7;
+  transform-style:preserve-3d;will-change:transform;
+}
+.cake-frame .polaroid{
+  position:absolute;inset:0;border-radius:var(--radius);overflow:hidden;
+  box-shadow:var(--shadow);border:10px solid #fff;
+  transform:rotate(3deg);
+}
+.cake-frame .polaroid img{width:100%;height:100%;object-fit:cover;transform:scale(1.06);transition:transform 1.2s ease}
+.cake-frame:hover .polaroid img{transform:scale(1.14)}
+.cake-frame .polaroid::after{
+  content:"";position:absolute;inset:0;
+  background:linear-gradient(180deg,transparent 55%,rgba(51,32,42,.35));
+}
+.frame-caption{
+  position:absolute;left:0;right:0;bottom:0;z-index:3;padding:18px 22px;color:#fff;
+  font-family:var(--script);font-size:1.5rem;text-shadow:0 2px 12px rgba(0,0,0,.4);
+}
+.stamp{
+  position:absolute;top:-38px;right:-30px;width:128px;height:128px;z-index:4;
+  animation:spin 16s linear infinite;
+}
+@keyframes spin{to{transform:rotate(360deg)}}
+.float-chip{
+  position:absolute;z-index:4;background:rgba(255,255,255,.92);backdrop-filter:blur(8px);
+  border:1px solid rgba(201,162,75,.4);border-radius:100px;
+  padding:10px 20px;font-size:.74rem;letter-spacing:.18em;text-transform:uppercase;font-weight:500;
+  box-shadow:0 12px 26px -10px rgba(51,32,42,.3);
+  animation:floaty 5s ease-in-out infinite;
+}
+.fc-1{bottom:64px;left:-46px;animation-delay:0s}
+.fc-2{top:120px;left:-70px;animation-delay:2.4s}
+@keyframes floaty{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+
+/* ---------- Ticker ---------- */
+.ticker{
+  background:var(--cocoa);color:var(--cream);overflow:hidden;white-space:nowrap;
+  padding:16px 0;border-top:2px solid var(--gold);border-bottom:2px solid var(--gold);
+  position:relative;z-index:5;
+}
+.ticker-track{display:inline-flex;gap:0;animation:tick 26s linear infinite}
+.ticker span{
+  font-family:var(--serif);font-style:italic;font-size:1.25rem;letter-spacing:.12em;
+  padding:0 26px;display:inline-flex;align-items:center;gap:26px;
+}
+.ticker span::after{content:"✦";color:var(--gold);font-style:normal;font-size:.9rem}
+@keyframes tick{to{transform:translateX(-50%)}}
+
+/* ---------- Sections ---------- */
+section{position:relative}
+.wrap{max-width:1240px;margin:0 auto;padding:clamp(80px,10vw,130px) clamp(18px,5vw,60px)}
+.sec-head{max-width:720px;margin-bottom:clamp(44px,5vw,70px)}
+.sec-script{font-family:var(--script);font-size:clamp(1.7rem,2.6vw,2.2rem);color:var(--cherry);display:block;margin-bottom:10px}
+.sec-title{font-family:var(--serif);font-weight:600;font-size:clamp(2.2rem,4.4vw,3.6rem);line-height:1.08}
+.sec-title em{font-style:italic;color:var(--cherry)}
+.sec-lede{margin-top:16px;color:var(--cocoa-soft);font-weight:300;font-size:1.05rem;line-height:1.75}
+
+/* piped wave divider */
+.wave{display:block;width:100%;height:70px;margin:-1px 0}
+.reveal{opacity:0;transform:translateY(36px);transition:opacity .8s ease,transform .8s cubic-bezier(.2,.7,.2,1)}
+.reveal.in{opacity:1;transform:none}
+
+/* ---------- Gallery ---------- */
+#gallery{background:var(--cream)}
+.g-grid{
+  display:grid;grid-template-columns:repeat(12,1fr);gap:clamp(18px,2.6vw,32px);
+}
+.g-card{
+  position:relative;border-radius:var(--radius);overflow:hidden;background:#fff;
+  box-shadow:0 18px 44px -18px rgba(51,32,42,.25);
+  transition:transform .4s cubic-bezier(.2,.7,.2,1),box-shadow .4s;
+  text-decoration:none;
+}
+.g-card:hover{transform:translateY(-10px) rotate(0deg)!important;box-shadow:0 30px 60px -18px rgba(193,30,76,.35)}
+.g-card .ph{overflow:hidden;position:relative}
+.g-card .ph img{width:100%;height:100%;object-fit:cover;transition:transform 1s ease;aspect-ratio:1/1}
+.g-card:hover .ph img{transform:scale(1.08)}
+.g-card .ph::after{
+  content:"";position:absolute;inset:0;
+  background:linear-gradient(180deg,transparent 60%,rgba(51,32,42,.45));opacity:0;transition:opacity .4s;
+}
+.g-card:hover .ph::after{opacity:1}
+.g-meta{padding:20px 22px 24px}
+.g-tag{font-size:.68rem;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);font-weight:600}
+.g-name{font-family:var(--serif);font-size:1.5rem;font-weight:600;margin:8px 0 6px}
+.g-desc{font-size:.92rem;color:var(--cocoa-soft);font-weight:300;line-height:1.65}
+.g-1{grid-column:span 7;transform:rotate(-1.2deg)}
+.g-2{grid-column:span 5;transform:rotate(1.4deg);margin-top:56px}
+.g-3{grid-column:span 5;transform:rotate(-1deg);margin-top:-30px}
+.g-4{grid-column:span 7;transform:rotate(1deg)}
+.g-5{grid-column:4/span 6;transform:rotate(-.8deg);margin-top:6px}
+.g-num{
+  position:absolute;top:16px;left:18px;z-index:2;
+  font-family:var(--serif);font-style:italic;font-size:1rem;color:#fff;
+  background:rgba(51,32,42,.55);backdrop-filter:blur(6px);
+  width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+  border:1px solid rgba(255,255,255,.5);
+}
+
+/* ---------- Flavors ---------- */
+#flavors{background:linear-gradient(180deg,var(--cream) 0%,#FBE9E4 50%,var(--cream) 100%)}
+.flav-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(26px,4vw,54px);align-items:start}
+.flav-card{
+  background:#fff;border-radius:var(--radius);padding:clamp(26px,3.4vw,44px);
+  box-shadow:var(--shadow);border:1px solid rgba(201,162,75,.3);position:relative;overflow:hidden;
+}
+.flav-card::before{
+  content:"";position:absolute;top:0;left:0;right:0;height:6px;
+  background:linear-gradient(90deg,var(--rose),var(--gold),var(--blush-deep));
+}
+.flav-card h3{font-family:var(--serif);font-size:1.7rem;font-weight:600;margin-bottom:6px}
+.flav-card .fc-sub{font-size:.78rem;letter-spacing:.24em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:20px}
+.flav-list{list-style:none}
+.flav-list li{
+  display:flex;justify-content:space-between;align-items:baseline;gap:14px;
+  padding:13px 2px;border-bottom:1px dashed rgba(51,32,42,.18);font-weight:300;font-size:1.02rem;
+}
+.flav-list li:last-child{border-bottom:none}
+.flav-list li .dots{flex:1;border-bottom:2px dotted rgba(201,162,75,.55);transform:translateY(-4px)}
+.flav-list li b{font-weight:500}
+.combo{
+  margin-top:clamp(26px,4vw,44px);border-radius:var(--radius);overflow:hidden;
+  background:linear-gradient(135deg,#3A2330,#5A2C3E 55%,#7A3550);
+  color:#FFEDE4;display:grid;grid-template-columns:1fr 1fr;
+  box-shadow:0 30px 60px -20px rgba(58,35,48,.5);position:relative;
+}
+.combo::after{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(600px 300px at 80% 10%,rgba(239,217,167,.25),transparent 60%);
+}
+.combo-copy{padding:clamp(30px,4vw,54px)}
+.combo-copy .cb-tag{font-size:.72rem;letter-spacing:.32em;text-transform:uppercase;color:var(--gold-soft);font-weight:600}
+.combo-copy h3{font-family:var(--serif);font-size:clamp(2rem,3.4vw,2.9rem);margin:12px 0 10px;font-weight:600}
+.combo-copy h3 em{font-family:var(--script);font-weight:400;color:var(--gold-soft);font-size:1.25em}
+.combo-copy p{font-weight:300;line-height:1.75;color:#F6D9CB;max-width:40ch}
+.combo .ph{min-height:320px}
+.combo .ph img{width:100%;height:100%;object-fit:cover}
+.sizes{display:flex;gap:14px;margin-top:26px;flex-wrap:wrap}
+.size-chip{
+  border:1.5px solid var(--gold);color:var(--cocoa);border-radius:100px;padding:10px 22px;
+  font-size:.8rem;letter-spacing:.16em;text-transform:uppercase;font-weight:500;background:rgba(255,255,255,.6);
+}
+
+/* ---------- About ---------- */
+#about{background:var(--cocoa);color:#F7E8DC;overflow:hidden}
+#about .wrap{position:relative;z-index:2}
+.about-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(30px,5vw,70px);align-items:center}
+.about-photo{position:relative}
+.about-photo .frame{
+  border-radius:var(--radius);overflow:hidden;transform:rotate(-2.5deg);
+  border:12px solid #FFF7F0;box-shadow:0 30px 70px -20px rgba(0,0,0,.55);
+}
+.about-photo .frame img{width:100%;aspect-ratio:4/4.4;object-fit:cover}
+.about-photo .tape{
+  position:absolute;top:-16px;left:50%;transform:translateX(-50%) rotate(-4deg);
+  background:rgba(239,217,167,.85);padding:8px 34px;font-size:.7rem;letter-spacing:.3em;
+  text-transform:uppercase;color:var(--cocoa);font-weight:600;box-shadow:0 4px 10px rgba(0,0,0,.2);
+}
+.about-copy .sec-script{color:var(--gold-soft)}
+.about-copy h2{font-family:var(--serif);font-size:clamp(2.2rem,4.4vw,3.4rem);font-weight:600;line-height:1.1;margin-bottom:20px}
+.about-copy h2 em{font-style:italic;color:var(--blush)}
+.about-copy p{font-weight:300;line-height:1.85;color:#EFD9CB;margin-bottom:18px;font-size:1.04rem}
+.about-copy p strong{color:#fff;font-weight:500}
+.about-facts{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:30px 0 34px}
+.af{background:rgba(255,255,255,.06);border:1px solid rgba(201,162,75,.4);border-radius:16px;padding:20px 16px;text-align:center}
+.af .n{font-family:var(--serif);font-size:2rem;color:var(--gold-soft);font-weight:600}
+.af .l{font-size:.68rem;letter-spacing:.22em;text-transform:uppercase;color:#D9BFAE;margin-top:6px}
+#about .btn-outline{border-color:var(--gold-soft);color:var(--gold-soft)}
+#about .btn-outline:hover{background:var(--gold-soft);color:var(--cocoa)}
+
+/* ---------- Order ---------- */
+#order{background:var(--cream)}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(18px,2.6vw,30px);margin-bottom:clamp(40px,5vw,60px)}
+.step{
+  background:#fff;border-radius:var(--radius);padding:34px 30px;position:relative;
+  border:1px solid rgba(201,162,75,.3);box-shadow:0 16px 40px -18px rgba(51,32,42,.2);
+  transition:transform .35s ease,box-shadow .35s ease;
+}
+.step:hover{transform:translateY(-8px);box-shadow:0 26px 50px -18px rgba(193,30,76,.3)}
+.step .s-num{
+  font-family:var(--script);font-size:3.4rem;color:var(--rose);line-height:1;margin-bottom:14px;display:block;
+}
+.step h3{font-family:var(--serif);font-size:1.45rem;font-weight:600;margin-bottom:10px}
+.step p{font-weight:300;color:var(--cocoa-soft);line-height:1.7;font-size:.96rem}
+.step p a{color:var(--cherry);font-weight:500}
+.order-cta{
+  background:linear-gradient(120deg,var(--blush) 0%,#F9D9E2 45%,var(--gold-soft) 100%);
+  border-radius:28px;padding:clamp(36px,5vw,64px);text-align:center;position:relative;overflow:hidden;
+  box-shadow:var(--shadow);border:1px solid rgba(201,162,75,.45);
+}
+.order-cta::before{
+  content:"";position:absolute;inset:-40%;pointer-events:none;
+  background:conic-gradient(from 0deg,transparent 0 40%,rgba(255,255,255,.5) 50%,transparent 60% 100%);
+  animation:ctaSweep 7s linear infinite;
+}
+@keyframes ctaSweep{to{transform:rotate(360deg)}}
+.order-cta > *{position:relative;z-index:1}
+.order-cta .oc-script{font-family:var(--script);font-size:clamp(1.8rem,3vw,2.4rem);color:var(--cherry)}
+.order-cta h2{font-family:var(--serif);font-size:clamp(2rem,4vw,3.2rem);font-weight:600;margin:10px 0 14px}
+.order-cta p{color:var(--cocoa-soft);font-weight:300;max-width:52ch;margin:0 auto 30px;line-height:1.75}
+.oc-btns{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+
+/* ---------- Footer ---------- */
+footer{background:var(--cocoa);color:#EFD9CB;padding:70px clamp(18px,5vw,60px) 34px}
+.foot-grid{max-width:1240px;margin:0 auto;display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:40px;margin-bottom:50px}
+.foot-brand img{width:64px;height:64px;border-radius:50%;margin-bottom:16px;box-shadow:0 8px 20px -6px rgba(0,0,0,.5)}
+.foot-brand h3{font-family:var(--serif);font-size:1.5rem;letter-spacing:.08em;text-transform:uppercase}
+.foot-brand p{font-weight:300;font-size:.92rem;line-height:1.7;color:#C9AFA0;margin-top:10px;max-width:34ch}
+.foot-col h4{font-size:.74rem;letter-spacing:.3em;text-transform:uppercase;color:var(--gold-soft);margin-bottom:18px;font-weight:600}
+.foot-col a{display:block;color:#EFD9CB;text-decoration:none;font-weight:300;padding:7px 0;font-size:.95rem;transition:color .25s,transform .25s}
+.foot-col a:hover{color:#fff;transform:translateX(4px)}
+.socials{display:flex;gap:14px;margin-top:6px}
+.socials a{
+  width:48px;height:48px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+  border:1.5px solid rgba(239,217,167,.5);transition:all .3s ease;background:rgba(255,255,255,.04);
+}
+.socials a:hover{background:var(--cherry);border-color:var(--cherry);transform:translateY(-4px) rotate(8deg)}
+.socials svg{width:22px;height:22px;fill:#FFEDE4}
+.foot-bottom{max-width:1240px;margin:0 auto;padding-top:26px;border-top:1px solid rgba(239,217,167,.2);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:.8rem;color:#B89A8B;font-weight:300}
+.foot-bottom a{color:var(--gold-soft);text-decoration:none}
+
+/* ---------- Responsive ---------- */
+@media(max-width:1020px){
+  .hero{grid-template-columns:1fr;padding-top:120px;text-align:center}
+  .hero-copy{margin:0 auto}
+  .kicker{justify-content:center}
+  .kicker::before{display:none}
+  .hero-ctas,.hero-badges{justify-content:center}
+  .hero-visual{margin-top:10px}
+  .g-1,.g-2,.g-3,.g-4{grid-column:span 6;margin-top:0}
+  .g-5{grid-column:2/span 10}
+  .flav-grid{grid-template-columns:1fr}
+  .about-grid{grid-template-columns:1fr}
+  .steps{grid-template-columns:1fr;max-width:560px;margin-left:auto;margin-right:auto}
+  .foot-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:640px){
+  .nav-links a.nl{display:none}
+  .g-1,.g-2,.g-3,.g-4,.g-5{grid-column:span 12}
+  .g-card{transform:none!important}
+  .combo{grid-template-columns:1fr}
+  .combo .ph{min-height:240px;order:-1}
+  .about-facts{grid-template-columns:1fr 1fr}
+  .foot-grid{grid-template-columns:1fr}
+  .fc-1{left:6px}.fc-2{left:0}
+  .stamp{width:100px;height:100px;top:-26px;right:-8px}
+  .frame-caption{font-size:1.25rem}
+}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+  html{scroll-behavior:auto}
+  .reveal{opacity:1;transform:none}
+  .hero h1 .word > span{transform:none}
+  #confetti{display:none}
+}
+</style>
+</head>
+<body>
+
+<div id="loader" aria-hidden="true">
+  <img src="images/capirosadesserts/logo.png" alt="">
+  <div class="l-script">Capirosa Desserts</div>
+  <div class="l-bar"><span></span></div>
+</div>
+
+<nav id="nav">
+  <a class="brand" href="#top" aria-label="Capirosa Desserts — home">
+    <img src="images/capirosadesserts/logo.png" alt="Capirosa Desserts logo">
+    <span class="brand-name">Capirosa<small>Desserts · Miami</small></span>
+  </a>
+  <div class="nav-links">
+    <a class="nl" href="#gallery">Creations</a>
+    <a class="nl" href="#flavors">Flavors</a>
+    <a class="nl" href="#about">Melissa</a>
+    <a class="nl" href="#order">Order</a>
+    <a class="btn-solid nav-cta" href="https://bakesy.shop/b/capirosa-desserts" target="_blank" rel="noopener">Get a Quote</a>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <canvas id="confetti" aria-hidden="true"></canvas>
+  <div class="hero-copy">
+    <span class="kicker">Custom celebration cakes · Miami / Doral</span>
+    <h1 id="heroTitle">Every celebration deserves a <span class="script">showstopper</span></h1>
+    <p class="hero-sub">Capirosa Desserts designs <strong>custom cakes made to order</strong> — vintage hearts with gold piping, pearl-covered moons, birthday centerpieces and playful meme cakes — every one hand-piped in Miami, Florida.</p>
+    <div class="hero-ctas">
+      <a class="btn-solid" href="https://bakesy.shop/b/capirosa-desserts" target="_blank" rel="noopener">Get a Quote
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+      <a class="btn-outline" href="https://ig.me/m/capirosa.desserts" target="_blank" rel="noopener">DM on Instagram</a>
+    </div>
+    <div class="hero-badges">
+      <span class="hb"><svg viewBox="0 0 24 24"><path d="M12 2l2.4 7.2H22l-6 4.4 2.3 7.4-6.3-4.6-6.3 4.6L8 13.6 2 9.2h7.6z"/></svg>Made to order</span>
+      <span class="hb"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>Now booking Oct &amp; Nov</span>
+      <span class="hb"><svg viewBox="0 0 24 24"><path d="M12 21s-7-5.5-7-11a7 7 0 0114 0c0 5.5-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>Miami · Doral</span>
+    </div>
+  </div>
+  <div class="hero-visual">
+    <div class="cake-frame" id="tiltCard">
+      <svg class="stamp" viewBox="0 0 128 128" aria-hidden="true">
+        <defs><path id="circ" d="M64,64 m-46,0 a46,46 0 1,1 92,0 a46,46 0 1,1 -92,0"/></defs>
+        <circle cx="64" cy="64" r="62" fill="#C11E4C"/>
+        <circle cx="64" cy="64" r="58" fill="none" stroke="#EFD9A7" stroke-width="1.5" stroke-dasharray="4 4"/>
+        <text fill="#FFEDE4" font-size="12.5" letter-spacing="3.5" font-family="Jost,sans-serif"><textPath href="#circ">HAND PIPED · MIAMI · MADE TO ORDER ·</textPath></text>
+        <text x="64" y="74" text-anchor="middle" fill="#EFD9A7" font-size="26" font-family="Cormorant Garamond,serif" font-style="italic">cd</text>
+      </svg>
+      <div class="polaroid">
+        <img src="images/capirosadesserts/cake-heart.jpg" alt="Gold vintage heart celebration cake by Capirosa Desserts" fetchpriority="high">
+        <div class="frame-caption">the gold vintage heart</div>
+      </div>
+      <span class="float-chip fc-1">✦ custom designs</span>
+      <span class="float-chip fc-2">✦ 600+ cakes shared</span>
+    </div>
+  </div>
+</header>
+
+<div class="ticker" aria-hidden="true">
+  <div class="ticker-track" id="tickerTrack">
+    <span>birthday cakes</span><span>vintage hearts</span><span>wedding cakes</span><span>pearl moons</span><span>meme cakes</span><span>first birthdays</span><span>custom themes</span><span>made to order</span>
+  </div>
+</div>
+
+<section id="gallery">
+  <svg class="wave" viewBox="0 0 1440 70" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M0,40 C120,70 240,10 360,30 C480,50 600,70 720,45 C840,20 960,10 1080,35 C1200,60 1320,55 1440,30 L1440,70 L0,70 Z" fill="#F8CBD6" opacity=".45"/>
+    <path d="M0,48 C140,72 260,22 380,40 C500,58 620,74 740,50 C860,26 980,18 1100,42 C1220,66 1330,60 1440,38" fill="none" stroke="#E77E9B" stroke-width="3" stroke-linecap="round" opacity=".8"/>
+  </svg>
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-script">fresh from the feed</span>
+      <h2 class="sec-title">Signature <em>creations</em>, piped by hand</h2>
+      <p class="sec-lede">A taste of what leaves Melissa's kitchen — every design below is a real Capirosa Desserts cake, made for a real Miami celebration.</p>
+    </div>
+    <div class="g-grid">
+      <a class="g-card g-1 reveal" href="https://www.instagram.com/capirosa.desserts/" target="_blank" rel="noopener" aria-label="See more on Instagram">
+        <span class="g-num">01</span>
+        <div class="ph"><img src="images/capirosadesserts/cake-heart.jpg" alt="White and gold vintage heart cake with piped detailing" loading="lazy"></div>
+        <div class="g-meta">
+          <span class="g-tag">Vintage · Gold leaf</span>
+          <h3 class="g-name">The Gold Vintage Heart</h3>
+          <p class="g-desc">Ivory buttercream, hand-piped gold piping and pearl details — her signature vintage heart style, made for milestone birthdays.</p>
+        </div>
+      </a>
+      <a class="g-card g-2 reveal" href="https://www.instagram.com/capirosa.desserts/" target="_blank" rel="noopener" aria-label="See more on Instagram">
+        <span class="g-num">02</span>
+        <div class="ph"><img src="images/capirosadesserts/cake-moon.jpg" alt="Crescent moon cake covered in pearls and seashells" loading="lazy"></div>
+        <div class="g-meta">
+          <span class="g-tag">Sculpted · Pearls</span>
+          <h3 class="g-name">Crescent Moon &amp; Pearls</h3>
+          <p class="g-desc">A crescent moon cake dressed in seashells and sugar pearls — proof that any shape you dream up can become cake.</p>
+        </div>
+      </a>
+      <a class="g-card g-3 reveal" href="https://www.instagram.com/capirosa.desserts/" target="_blank" rel="noopener" aria-label="See more on Instagram">
+        <span class="g-num">03</span>
+        <div class="ph"><img src="images/capirosadesserts/cake-vintage.jpg" alt="Blush pink vintage heart cake with ribbon bows" loading="lazy"></div>
+        <div class="g-meta">
+          <span class="g-tag">Vintage · Blush</span>
+          <h3 class="g-name">The Bow-Tied Heart</h3>
+          <p class="g-desc">Blush piping, pearl dots and satin bows — the romantic vintage heart Miami keeps asking for.</p>
+        </div>
+      </a>
+      <a class="g-card g-4 reveal" href="https://www.instagram.com/capirosa.desserts/" target="_blank" rel="noopener" aria-label="See more on Instagram">
+        <span class="g-num">04</span>
+        <div class="ph"><img src="images/capirosadesserts/cake-cookies.jpg" alt="Colorful first birthday cake with pastel piping" loading="lazy"></div>
+        <div class="g-meta">
+          <span class="g-tag">First birthday · Color</span>
+          <h3 class="g-name">First Birthday, Full Color</h3>
+          <p class="g-desc">Pastel swirls in every shade for a first birthday — playful, bright and unapologetically fun.</p>
+        </div>
+      </a>
+      <a class="g-card g-5 reveal" href="https://www.instagram.com/capirosa.desserts/" target="_blank" rel="noopener" aria-label="See more on Instagram">
+        <span class="g-num">05</span>
+        <div class="ph"><img src="images/capirosadesserts/cake-farewell.jpg" alt="Hand-drawn meme farewell cake" loading="lazy"></div>
+        <div class="g-meta">
+          <span class="g-tag">Meme · Hand-drawn</span>
+          <h3 class="g-name">The Meme Cake</h3>
+          <p class="g-desc">Farewell cakes with personality — hand-drawn doodles and inside jokes, piped freehand. If you can joke about it, she can cake it.</p>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section id="flavors">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-script">mix &amp; match</span>
+      <h2 class="sec-title">Flavors worth <em>celebrating</em></h2>
+      <p class="sec-lede">Pick a cake flavor, pick a filling — or go for the signature combo everyone's asking about. Every cake is baked to order in 5″, 6″ and 7″ sizes.</p>
+    </div>
+    <div class="flav-grid">
+      <div class="flav-card reveal">
+        <h3>Cake Flavors</h3>
+        <div class="fc-sub">The base</div>
+        <ul class="flav-list">
+          <li><b>Vanilla</b><span class="dots"></span><span>classic</span></li>
+          <li><b>Chocolate</b><span class="dots"></span><span>rich</span></li>
+          <li><b>Strawberry</b><span class="dots"></span><span>new</span></li>
+          <li><b>Red Velvet</b><span class="dots"></span><span>fan favorite</span></li>
+          <li><b>Carrot</b><span class="dots"></span><span>new</span></li>
+          <li><b>Marble</b><span class="dots"></span><span>new</span></li>
+          <li><b>Lemon</b><span class="dots"></span><span>new</span></li>
+          <li><b>Matcha</b><span class="dots"></span><span>new</span></li>
+          <li><b>Cookies n Crème</b><span class="dots"></span><span>Oreo vanilla</span></li>
+        </ul>
+      </div>
+      <div class="flav-card reveal">
+        <h3>Fillings</h3>
+        <div class="fc-sub">The surprise inside</div>
+        <ul class="flav-list">
+          <li><b>Dulce de Leche</b><span class="dots"></span><span>most loved</span></li>
+          <li><b>Cream Cheese</b><span class="dots"></span><span>red velvet's match</span></li>
+          <li><b>Strawberry Jam + Fresh Strawberries</b><span class="dots"></span><span>shortcake style</span></li>
+          <li><b>Biscoff Cookie Butter</b><span class="dots"></span><span>new</span></li>
+          <li><b>Matcha Buttercream</b><span class="dots"></span><span>new</span></li>
+          <li><b>Marshmallow Fluff</b><span class="dots"></span><span>new</span></li>
+          <li><b>Cookies n Crème</b><span class="dots"></span><span>cookies folded in</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="combo reveal">
+      <div class="combo-copy">
+        <span class="cb-tag">✦ Signature combo ✦</span>
+        <h3>S'mores, <em>but make it cake</em></h3>
+        <p>Chocolate cake layered with marshmallow fluff and graham cracker crumble — the brand-new flavor combination Melissa is most excited about. Available to order now.</p>
+        <div class="sizes">
+          <span class="size-chip">5″ cakes</span>
+          <span class="size-chip">6″ cakes</span>
+          <span class="size-chip">7″ cakes</span>
+        </div>
+      </div>
+      <div class="ph"><img src="images/capirosadesserts/cake-menu.jpg" alt="Capirosa Desserts new flavors announcement" loading="lazy"></div>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <svg class="wave" viewBox="0 0 1440 70" preserveAspectRatio="none" aria-hidden="true" style="background:#FBE9E4">
+    <path d="M0,40 C120,70 240,10 360,30 C480,50 600,70 720,45 C840,20 960,10 1080,35 C1200,60 1320,55 1440,30 L1440,70 L0,70 Z" fill="#33202A"/>
+  </svg>
+  <div class="wrap">
+    <div class="about-grid">
+      <div class="about-photo reveal">
+        <span class="tape">The baker</span>
+        <div class="frame"><img src="images/capirosadesserts/cake-moon.jpg" alt="Pearl crescent moon cake by Melissa of Capirosa Desserts" loading="lazy"></div>
+      </div>
+      <div class="about-copy reveal">
+        <span class="sec-script">the hands behind the piping bag</span>
+        <h2>Hi, I'm <em>Melissa</em> — I turn your celebrations into cake.</h2>
+        <p>Capirosa Desserts is my custom cake studio in <strong>Miami, Florida</strong>. Every cake is <strong>designed and hand-piped by me, to order</strong> — from vintage hearts with gold detailing to sculpted moons, disco cakes and cakes that make the whole party laugh.</p>
+        <p>I share every creation on Instagram, where the feed has grown into <strong>600+ cakes and counting</strong> — each one made for someone's biggest day. When you order, you're not getting a template. You're getting a cake sketched, baked and finished for <strong>your</strong> moment.</p>
+        <div class="about-facts">
+          <div class="af"><div class="n">600+</div><div class="l">cakes shared</div></div>
+          <div class="af"><div class="n">100%</div><div class="l">made to order</div></div>
+          <div class="af"><div class="n">Miami</div><div class="l">baked with love</div></div>
+        </div>
+        <a class="btn-outline" href="https://www.instagram.com/capirosa.desserts/" target="_blank" rel="noopener">Follow the journey</a>
+      </div>
+    </div>
+  </div>
+  <svg class="wave" viewBox="0 0 1440 70" preserveAspectRatio="none" aria-hidden="true" style="background:#FFF7F0">
+    <path d="M0,30 C120,0 240,60 360,40 C480,20 600,0 720,25 C840,50 960,60 1080,35 C1200,10 1320,15 1440,40 L1440,0 L0,0 Z" fill="#33202A"/>
+  </svg>
+</section>
+
+<section id="order">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-script">easy as cake</span>
+      <h2 class="sec-title">Order your <em>custom cake</em></h2>
+      <p class="sec-lede">Three steps between you and the centerpiece of the party.</p>
+    </div>
+    <div class="steps">
+      <div class="step reveal">
+        <span class="s-num">one</span>
+        <h3>Dream it up</h3>
+        <p>Pick your cake flavor and filling, and tell Melissa the theme — a vintage heart, a sculpted shape, a meme only your friends would get. Browse <a href="https://www.instagram.com/capirosa.desserts/" target="_blank" rel="noopener">@capirosa.desserts</a> for ideas.</p>
+      </div>
+      <div class="step reveal">
+        <span class="s-num">two</span>
+        <h3>Request a quote</h3>
+        <p>Use the order link to get a quote or place your order — it takes a minute, and you'll hear back with availability and pricing for your date.</p>
+      </div>
+      <div class="step reveal">
+        <span class="s-num">three</span>
+        <h3>DM your date</h3>
+        <p>Message <a href="https://ig.me/m/capirosa.desserts" target="_blank" rel="noopener">@capirosa.desserts</a> with your celebration date to lock it in. Custom cakes are made to order, so the earlier the better.</p>
+      </div>
+    </div>
+    <div class="order-cta reveal">
+      <span class="oc-script">the calendar is open</span>
+      <h2>Now booking October &amp; November</h2>
+      <p>Spots for custom celebration cakes fill fast — get your quote through the order link or send a DM with your date, theme and servings.</p>
+      <div class="oc-btns">
+        <a class="btn-solid" href="https://bakesy.shop/b/capirosa-desserts" target="_blank" rel="noopener">Get a Quote / Order</a>
+        <a class="btn-outline" href="https://ig.me/m/capirosa.desserts" target="_blank" rel="noopener">DM on Instagram</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="foot-grid">
+    <div class="foot-brand">
+      <img src="images/capirosadesserts/logo.png" alt="Capirosa Desserts logo">
+      <h3>Capirosa Desserts</h3>
+      <p>Custom celebration cakes, hand-piped to order in Miami &amp; Doral, Florida — by Melissa.</p>
+      <div class="socials">
+        <a href="https://www.instagram.com/capirosa.desserts/" target="_blank" rel="noopener" aria-label="Capirosa Desserts on Instagram">
+          <svg viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 1.2.1 1.8.2 2.2.4.6.2 1 .5 1.4.9.4.4.7.8.9 1.4.2.4.4 1 .4 2.2.1 1.3.1 1.7.1 4.9s0 3.6-.1 4.9c-.1 1.2-.2 1.8-.4 2.2-.2.6-.5 1-.9 1.4-.4.4-.8.7-1.4.9-.4.2-1 .4-2.2.4-1.3.1-1.7.1-4.9.1s-3.6 0-4.9-.1c-1.2-.1-1.8-.2-2.2-.4-.6-.2-1-.5-1.4-.9-.4-.4-.7-.8-.9-1.4-.2-.4-.4-1-.4-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.9c.1-1.2.2-1.8.4-2.2.2-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.4-.2 1-.4 2.2-.4C8.4 2.2 8.8 2.2 12 2.2m0 3.6a6.2 6.2 0 100 12.4 6.2 6.2 0 000-12.4zm0 10.2a4 4 0 110-8 4 4 0 010 8zm6.4-10.5a1.4 1.4 0 11-2.9 0 1.4 1.4 0 012.9 0z"/></svg>
+        </a>
+      </div>
+    </div>
+    <div class="foot-col">
+      <h4>Explore</h4>
+      <a href="#gallery">Creations</a>
+      <a href="#flavors">Flavors</a>
+      <a href="#about">About Melissa</a>
+      <a href="#order">Order</a>
+    </div>
+    <div class="foot-col">
+      <h4>Order &amp; Contact</h4>
+      <a href="https://bakesy.shop/b/capirosa-desserts" target="_blank" rel="noopener">Get a quote / Order</a>
+      <a href="https://ig.me/m/capirosa.desserts" target="_blank" rel="noopener">DM on Instagram</a>
+      <a href="https://www.instagram.com/capirosa.desserts/" target="_blank" rel="noopener">@capirosa.desserts</a>
+    </div>
+  </div>
+  <div class="foot-bottom">
+    <span>© 2026 Capirosa Desserts · Miami / Doral, Florida</span>
+    <span>Concept mockup crafted with care · <a href="https://www.instagram.com/capirosa.desserts/" target="_blank" rel="noopener">Instagram</a></span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+  var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  /* Loader */
+  var loader = document.getElementById("loader");
+  function hideLoader(){ loader.classList.add("done"); }
+  window.addEventListener("load", function(){ setTimeout(hideLoader, 500); });
+  setTimeout(hideLoader, 3500);
+
+  /* Nav shadow */
+  var nav = document.getElementById("nav");
+  window.addEventListener("scroll", function(){
+    nav.classList.toggle("scrolled", window.scrollY > 24);
+  }, {passive:true});
+
+  /* Hero title word-split reveal */
+  var h1 = document.getElementById("heroTitle");
+  if (h1 && !reduceMotion) {
+    var frag = document.createDocumentFragment();
+    var delay = 0.15;
+    Array.prototype.forEach.call(h1.childNodes, function(node){
+      if (node.nodeType === 3) {
+        node.textContent.split(/(\s+)/).forEach(function(part){
+          if (!part) return;
+          if (/^\s+$/.test(part)) { frag.appendChild(document.createTextNode(" ")); return; }
+          var w = document.createElement("span"); w.className = "word";
+          var inner = document.createElement("span"); inner.textContent = part;
+          inner.style.animationDelay = delay.toFixed(2) + "s"; delay += 0.06;
+          w.appendChild(inner); frag.appendChild(w);
+        });
+      } else if (node.nodeType === 1 && node.classList.contains("script")) {
+        var w2 = document.createElement("span"); w2.className = "word";
+        var inner2 = document.createElement("span"); inner2.className = "script";
+        inner2.textContent = node.textContent;
+        inner2.style.animationDelay = delay.toFixed(2) + "s"; delay += 0.06;
+        w2.appendChild(inner2); frag.appendChild(w2);
+      } else {
+        frag.appendChild(node.cloneNode(true));
+      }
+    });
+    h1.textContent = ""; h1.appendChild(frag);
+  }
+
+  /* Scroll reveals */
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); }
+    });
+  }, {threshold: 0.12, rootMargin: "0px 0px -40px 0px"});
+  document.querySelectorAll(".reveal").forEach(function(el){ io.observe(el); });
+
+  /* Ticker duplication for seamless loop */
+  var track = document.getElementById("tickerTrack");
+  if (track) { track.innerHTML += track.innerHTML; }
+
+  /* Hero card tilt */
+  var card = document.getElementById("tiltCard");
+  if (card && !reduceMotion && window.matchMedia("(pointer:fine)").matches) {
+    card.addEventListener("mousemove", function(ev){
+      var r = card.getBoundingClientRect();
+      var x = (ev.clientX - r.left) / r.width - 0.5;
+      var y = (ev.clientY - r.top) / r.height - 0.5;
+      card.style.transform = "perspective(900px) rotateY(" + (x*10).toFixed(2) + "deg) rotateX(" + (-y*10).toFixed(2) + "deg)";
+    });
+    card.addEventListener("mouseleave", function(){
+      card.style.transition = "transform .7s cubic-bezier(.2,.7,.2,1)";
+      card.style.transform = "perspective(900px) rotateY(0deg) rotateX(0deg)";
+      setTimeout(function(){ card.style.transition = ""; }, 700);
+    });
+  }
+
+  /* Confetti sprinkles */
+  var canvas = document.getElementById("confetti");
+  if (canvas && !reduceMotion) {
+    var ctx = canvas.getContext("2d");
+    var W, H, parts = [];
+    var COLORS = ["#E77E9B","#C9A24B","#F2A7BC","#C11E4C","#EFD9A7","#FFF7F0"];
+    function sizeCanvas(){
+      var hero = canvas.parentElement;
+      W = canvas.width = hero.offsetWidth;
+      H = canvas.height = hero.offsetHeight;
+    }
+    function makePiece(init){
+      return {
+        x: Math.random()*W,
+        y: init ? Math.random()*H : -20,
+        w: 4 + Math.random()*6,
+        h: 8 + Math.random()*10,
+        vy: 0.6 + Math.random()*1.4,
+        vx: -0.4 + Math.random()*0.8,
+        rot: Math.random()*Math.PI*2,
+        vr: -0.03 + Math.random()*0.06,
+        c: COLORS[(Math.random()*COLORS.length)|0],
+        a: 0.35 + Math.random()*0.5,
+        sway: Math.random()*Math.PI*2
+      };
+    }
+    function init(){ sizeCanvas(); parts = []; for (var i=0;i<70;i++) parts.push(makePiece(true)); }
+    init();
+    window.addEventListener("resize", init);
+    var t = 0;
+    (function loop(){
+      t += 0.016;
+      ctx.clearRect(0,0,W,H);
+      for (var i=0;i<parts.length;i++){
+        var p = parts[i];
+        p.y += p.vy; p.x += p.vx + Math.sin(t*2 + p.sway)*0.4; p.rot += p.vr;
+        if (p.y > H + 30) { parts[i] = makePiece(false); continue; }
+        ctx.save();
+        ctx.globalAlpha = p.a;
+        ctx.translate(p.x, p.y); ctx.rotate(p.rot);
+        ctx.fillStyle = p.c;
+        ctx.beginPath();
+        if (ctx.roundRect) ctx.roundRect(-p.w/2, -p.h/2, p.w, p.h, 3); else ctx.rect(-p.w/2, -p.h/2, p.w, p.h);
+        ctx.fill();
+        ctx.restore();
+      }
+      requestAnimationFrame(loop);
+    })();
+  }
+})();
+</script>
+</body>
+</html>

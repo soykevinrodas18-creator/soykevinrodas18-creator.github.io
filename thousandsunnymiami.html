@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Thousand Sunny — One Piece-Inspired Restaurant | Pinecrest, Miami</title>
+<meta name="description" content="The Thousand Sunny is Pinecrest's One Piece-inspired restaurant: ramen, pirate hot pot, bao buns, boba teas, steak and tres leches. 9545 S Dixie Hwy. Open daily 12PM–10PM.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;800;900&family=Special+Elite&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --abyss:#081426;
+  --sea:#0d2140;
+  --sea-2:#12305c;
+  --gold:#d9a441;
+  --gold-lt:#f0c569;
+  --gold-dk:#9a6f24;
+  --parch:#f4e8c8;
+  --parch-dk:#e6d3a1;
+  --crim:#b3273b;
+  --crim-dk:#7e1b2a;
+  --ink:#191307;
+  --foam:#9fd8cb;
+  --mut:#c9d4e6;
+  --display:'Cinzel',serif;
+  --type:'Special Elite',monospace;
+  --body:'Manrope',sans-serif;
+  --ease:cubic-bezier(.22,.9,.28,1);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:var(--body);
+  background:var(--abyss);
+  color:#f2ede0;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+::selection{background:var(--gold);color:var(--abyss)}
+img{max-width:100%;display:block}
+a{color:inherit}
+
+/* ---------- grain + chart grid textures ---------- */
+.grain::after{
+  content:"";position:fixed;inset:0;z-index:120;pointer-events:none;opacity:.05;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='.9'/%3E%3C/svg%3E");
+}
+.chart-lines{
+  background-image:
+    linear-gradient(rgba(217,164,65,.055) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(217,164,65,.055) 1px,transparent 1px);
+  background-size:56px 56px;
+}
+
+/* ---------- nav ---------- */
+.nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:14px clamp(18px,4vw,48px);
+  transition:background .4s var(--ease),box-shadow .4s var(--ease),padding .4s var(--ease);
+}
+.nav.scrolled{background:rgba(8,20,38,.88);backdrop-filter:blur(14px);box-shadow:0 8px 30px rgba(0,0,0,.45);padding-top:10px;padding-bottom:10px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none}
+.brand img{width:46px;height:46px;border-radius:50%;object-fit:cover;border:2px solid var(--gold);box-shadow:0 0 18px rgba(217,164,65,.5)}
+.brand-name{font-family:var(--display);font-weight:800;font-size:15px;letter-spacing:.14em;color:var(--gold-lt);line-height:1.25}
+.brand-name small{display:block;font-family:var(--type);font-weight:400;font-size:10px;letter-spacing:.3em;color:var(--mut)}
+.nav-links{display:flex;gap:30px;list-style:none}
+.nav-links a{
+  text-decoration:none;font-size:12px;font-weight:700;letter-spacing:.24em;color:var(--mut);
+  padding:6px 2px;position:relative;transition:color .3s;
+}
+.nav-links a::after{content:"";position:absolute;left:0;bottom:0;height:2px;width:0;background:var(--gold);transition:width .35s var(--ease)}
+.nav-links a:hover{color:var(--gold-lt)}
+.nav-links a:hover::after{width:100%}
+.burger{display:none;background:none;border:0;cursor:pointer;padding:8px}
+.burger span{display:block;width:26px;height:2px;background:var(--gold-lt);margin:6px 0;transition:transform .3s,opacity .3s}
+
+/* ---------- buttons (never combine .btn + .btn-line) ---------- */
+.btn{
+  display:inline-flex;align-items:center;gap:10px;
+  font-family:var(--display);font-weight:800;font-size:13px;letter-spacing:.18em;
+  text-decoration:none;color:#241a05;background:linear-gradient(135deg,var(--gold-lt),var(--gold) 60%,var(--gold-dk));
+  padding:16px 32px;border-radius:2px;border:0;cursor:pointer;
+  box-shadow:0 10px 28px rgba(217,164,65,.35),inset 0 1px 0 rgba(255,255,255,.5);
+  transition:transform .3s var(--ease),box-shadow .3s var(--ease);
+  position:relative;overflow:hidden;
+}
+.btn::before{content:"";position:absolute;top:0;left:-80%;width:50%;height:100%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.55),transparent);transform:skewX(-20deg);transition:left .6s var(--ease)}
+.btn:hover{transform:translateY(-3px);box-shadow:0 16px 36px rgba(217,164,65,.5)}
+.btn:hover::before{left:130%}
+.btn-line{
+  display:inline-flex;align-items:center;gap:10px;
+  font-family:var(--display);font-weight:700;font-size:13px;letter-spacing:.18em;
+  text-decoration:none;color:var(--gold-lt);background:transparent;
+  padding:15px 30px;border:1px solid rgba(217,164,65,.65);border-radius:2px;cursor:pointer;
+  transition:background .3s,color .3s,transform .3s var(--ease),box-shadow .3s;
+}
+.btn-line:hover{background:rgba(217,164,65,.12);transform:translateY(-3px);box-shadow:0 12px 28px rgba(0,0,0,.4)}
+
+/* ---------- hero ---------- */
+.hero{
+  min-height:100svh;display:flex;flex-direction:column;justify-content:flex-end;
+  position:relative;overflow:hidden;padding:120px clamp(18px,5vw,64px) 0;
+}
+.hero-bg{position:absolute;inset:-6%;z-index:0;background:url('https://images.unsplash.com/photo-1623341214825-9f4f963727da?w=1600&q=70&auto=format&fit=crop') center/cover;animation:kenburns 26s ease-in-out infinite alternate;will-change:transform}
+@keyframes kenburns{from{transform:scale(1)}to{transform:scale(1.12)}}
+.hero-veil{position:absolute;inset:0;z-index:1;
+  background:
+    radial-gradient(1100px 500px at 20% 30%,rgba(217,164,65,.14),transparent 60%),
+    linear-gradient(180deg,rgba(8,20,38,.62) 0%,rgba(8,20,38,.35) 40%,rgba(8,20,38,.94) 88%,var(--abyss) 100%);}
+.hero-inner{position:relative;z-index:3;max-width:1200px;width:100%;margin:0 auto}
+.compass{
+  position:absolute;z-index:2;right:clamp(-60px,2vw,40px);top:16%;width:clamp(280px,34vw,520px);
+  opacity:.5;filter:drop-shadow(0 0 40px rgba(217,164,65,.25));will-change:transform;pointer-events:none;
+}
+.eyebrow{
+  font-family:var(--type);font-size:13px;letter-spacing:.34em;color:var(--gold-lt);
+  display:flex;align-items:center;gap:14px;margin-bottom:22px;
+}
+.eyebrow::before{content:"";width:46px;height:1px;background:var(--gold)}
+.hero h1{
+  font-family:var(--display);font-weight:900;line-height:.98;
+  font-size:clamp(52px,9.5vw,138px);letter-spacing:.02em;color:#fdf6e3;
+  text-shadow:0 6px 40px rgba(0,0,0,.55);
+}
+.hero h1 .line{display:block;overflow:hidden}
+.hero h1 .line>span{display:inline-block;transform:translateY(110%);animation:riseUp 1s var(--ease) forwards}
+.hero h1 .line:nth-child(2)>span{animation-delay:.14s}
+.hero h1 .line:nth-child(3)>span{animation-delay:.28s}
+@keyframes riseUp{to{transform:translateY(0)}}
+.hero h1 em{font-style:normal;color:var(--gold-lt);
+  background:linear-gradient(120deg,var(--gold-lt),var(--gold) 55%,#b57f2a);
+  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;}
+.hero-sub{max-width:560px;margin-top:22px;font-size:clamp(15px,1.6vw,18px);line-height:1.75;color:var(--mut)}
+.hero-ctas{display:flex;flex-wrap:wrap;gap:16px;margin-top:34px}
+.hero-chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:30px}
+.chip{
+  font-family:var(--type);font-size:12px;letter-spacing:.12em;color:var(--parch);
+  border:1px dashed rgba(217,164,65,.55);border-radius:999px;padding:9px 18px;
+  background:rgba(8,20,38,.55);backdrop-filter:blur(6px);
+}
+.scroll-hint{margin:44px auto 0;display:flex;flex-direction:column;align-items:center;gap:8px;color:var(--mut);
+  font-size:11px;letter-spacing:.34em;font-weight:700}
+.scroll-hint i{width:1px;height:52px;background:linear-gradient(var(--gold),transparent);display:block;animation:drip 2.2s ease-in-out infinite}
+@keyframes drip{0%{transform:scaleY(0);transform-origin:top}45%{transform:scaleY(1);transform-origin:top}55%{transform:scaleY(1);transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+
+/* ---------- ticker ---------- */
+.ticker{position:relative;z-index:4;background:var(--gold);color:#241a05;overflow:hidden;
+  border-top:3px solid #241a05;border-bottom:3px solid #241a05;transform:rotate(-1.2deg) scale(1.02);margin-top:56px}
+.ticker.rev{background:var(--crim);color:#fdf3e3;transform:rotate(1deg) scale(1.02);border-color:#3d0f17}
+.ticker-track{display:flex;gap:0;width:max-content;animation:tick 30s linear infinite}
+.ticker.rev .ticker-track{animation-direction:reverse;animation-duration:36s}
+.ticker span{font-family:var(--display);font-weight:800;font-size:15px;letter-spacing:.22em;white-space:nowrap;padding:13px 0}
+.ticker span b{color:#7e1b2a;margin:0 22px;font-weight:900}
+.ticker.rev span b{color:var(--gold-lt)}
+@keyframes tick{to{transform:translateX(-50%)}}
+
+/* ---------- sections ---------- */
+section{position:relative}
+.wrap{max-width:1200px;margin:0 auto;padding:clamp(80px,10vw,140px) clamp(18px,5vw,64px)}
+.sec-head{margin-bottom:clamp(36px,5vw,64px)}
+.sec-head h2{
+  font-family:var(--display);font-weight:900;font-size:clamp(34px,5vw,64px);
+  line-height:1.05;color:#fdf6e3;letter-spacing:.02em;
+}
+.sec-head h2 em{font-style:normal;color:var(--gold-lt)}
+.sec-head p{margin-top:14px;max-width:620px;color:var(--mut);font-size:16px;line-height:1.7}
+.rule{width:120px;height:3px;background:linear-gradient(90deg,var(--gold),transparent);margin-top:20px;border-radius:2px}
+
+/* reveal on scroll */
+.rv{opacity:0;transform:translateY(36px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+.rv.on{opacity:1;transform:none}
+.rv.d1{transition-delay:.12s}.rv.d2{transition-delay:.24s}.rv.d3{transition-delay:.36s}.rv.d4{transition-delay:.48s}
+
+/* ---------- voyage (about) ---------- */
+.voyage{background:linear-gradient(180deg,var(--abyss),var(--sea) 130%)}
+.voyage-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(30px,5vw,72px);align-items:center}
+.photo-frame{
+  position:relative;transform:rotate(-2deg);
+  background:var(--parch);padding:14px 14px 56px;border-radius:3px;
+  box-shadow:0 30px 70px rgba(0,0,0,.55);
+  transition:transform .5s var(--ease);
+}
+.photo-frame:hover{transform:rotate(0deg) scale(1.015)}
+.photo-frame img{border-radius:2px;aspect-ratio:4/3;object-fit:cover;width:100%}
+.photo-frame figcaption{
+  position:absolute;left:0;right:0;bottom:12px;text-align:center;
+  font-family:var(--type);font-size:13px;letter-spacing:.1em;color:#5c4a1e;
+}
+.photo-frame::before,.photo-frame::after{
+  content:"";position:absolute;top:-14px;width:92px;height:30px;
+  background:rgba(217,164,65,.35);border:1px dashed rgba(90,64,15,.4);transform:rotate(-4deg);
+}
+.photo-frame::before{left:26px}
+.photo-frame::after{right:26px;transform:rotate(4deg)}
+.stamp{
+  position:absolute;top:-34px;right:-24px;width:118px;height:118px;z-index:2;
+  display:flex;align-items:center;justify-content:center;text-align:center;
+  font-family:var(--type);font-size:12px;line-height:1.5;letter-spacing:.08em;color:#fdf3e3;
+  background:radial-gradient(circle at 50% 40%,var(--crim),var(--crim-dk));
+  border-radius:50%;border:3px dashed rgba(253,243,227,.7);
+  transform:rotate(12deg);box-shadow:0 14px 30px rgba(0,0,0,.5);
+  animation:stampIn .8s var(--ease) .5s backwards;
+}
+@keyframes stampIn{from{transform:rotate(12deg) scale(2.2);opacity:0}to{transform:rotate(12deg) scale(1);opacity:1}}
+.voyage-copy .lede{font-family:var(--display);font-size:clamp(20px,2.4vw,27px);line-height:1.5;color:var(--gold-lt);font-weight:700}
+.voyage-copy p.body{margin-top:18px;color:var(--mut);line-height:1.85;font-size:16px}
+.voyage-copy p.body strong{color:#fdf6e3}
+.coords{
+  margin-top:26px;display:inline-flex;align-items:center;gap:12px;
+  font-family:var(--type);font-size:13px;letter-spacing:.14em;color:var(--foam);
+  border:1px solid rgba(159,216,203,.4);padding:10px 20px;border-radius:999px;background:rgba(159,216,203,.06);
+}
+.pull{
+  margin-top:28px;padding-left:22px;border-left:3px solid var(--gold);
+  font-family:var(--type);font-size:16px;line-height:1.8;color:var(--parch);
+}
+
+/* ---------- galley (menu) ---------- */
+.galley{background:
+  radial-gradient(900px 420px at 85% 8%,rgba(217,164,65,.1),transparent 60%),
+  linear-gradient(180deg,var(--sea),var(--abyss) 90%)}
+.menu-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
+.card{
+  background:linear-gradient(160deg,var(--parch),var(--parch-dk));
+  color:var(--ink);border-radius:4px;overflow:hidden;position:relative;
+  border:1px solid rgba(90,64,15,.35);
+  box-shadow:0 24px 50px rgba(0,0,0,.45);
+  transition:transform .45s var(--ease),box-shadow .45s var(--ease);
+  will-change:transform;
+}
+.card:hover{transform:translateY(-10px) rotate(-.4deg);box-shadow:0 34px 70px rgba(0,0,0,.55),0 0 0 1px rgba(217,164,65,.5)}
+.card-img{height:220px;overflow:hidden;position:relative}
+.card-img img{width:100%;height:100%;object-fit:cover;transition:transform .8s var(--ease);filter:saturate(1.08)}
+.card:hover .card-img img{transform:scale(1.08)}
+.card-img::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(25,19,7,.35))}
+.card-tag{
+  position:absolute;top:14px;left:14px;z-index:2;
+  font-family:var(--type);font-size:11px;letter-spacing:.2em;color:#fdf3e3;
+  background:var(--crim);padding:7px 14px;border-radius:2px;transform:rotate(-3deg);
+  box-shadow:0 6px 16px rgba(0,0,0,.35);
+}
+.card-body{padding:24px 24px 28px}
+.card-body h3{font-family:var(--display);font-weight:800;font-size:21px;letter-spacing:.04em;margin-bottom:6px}
+.card-body .kicker{font-family:var(--type);font-size:12px;letter-spacing:.14em;color:#7a5f22;margin-bottom:14px}
+.card-body ul{list-style:none;display:grid;gap:9px}
+.card-body li{font-size:14.5px;font-weight:600;line-height:1.5;display:flex;gap:10px;align-items:baseline}
+.card-body li::before{content:"✦";color:var(--crim);font-size:12px;flex:none}
+.card-body li small{display:block;font-weight:500;color:#5c4a1e;font-size:12.5px}
+.card.hh{
+  background:linear-gradient(150deg,var(--crim),var(--crim-dk) 70%);
+  color:#fdf3e3;border:1px solid rgba(240,197,105,.5);
+}
+.card.hh .card-body h3{color:var(--gold-lt)}
+.card.hh .kicker{color:var(--gold-lt)}
+.card.hh li::before{color:var(--gold-lt)}
+.card.hh li small{color:#f3d9a4}
+.hh-price{font-family:var(--display);font-weight:900;font-size:44px;color:#fff;margin:6px 0 2px}
+.hh-price sup{font-size:20px;top:-14px;position:relative}
+.corner{position:absolute;width:22px;height:22px;border:2px solid rgba(90,64,15,.5)}
+.corner.tl{top:8px;left:8px;border-right:0;border-bottom:0}
+.corner.tr{top:8px;right:8px;border-left:0;border-bottom:0}
+.corner.bl{bottom:8px;left:8px;border-right:0;border-top:0}
+.corner.br{bottom:8px;right:8px;border-left:0;border-top:0}
+
+/* ---------- crew ---------- */
+.crew{background:linear-gradient(180deg,var(--abyss) 0%,#0a1c38 50%,var(--abyss) 100%)}
+.crew-grid{display:grid;grid-template-columns:.92fr 1.08fr;gap:clamp(30px,5vw,72px);align-items:center}
+.crew-photo{position:relative}
+.crew-photo img{border-radius:6px;aspect-ratio:4/4.4;object-fit:cover;width:100%;box-shadow:0 30px 70px rgba(0,0,0,.6)}
+.crew-photo::before{
+  content:"";position:absolute;inset:18px -18px -18px 18px;border:2px solid rgba(217,164,65,.5);
+  border-radius:6px;z-index:-1;
+}
+.captain-log{
+  background:rgba(244,232,200,.04);border:1px solid rgba(217,164,65,.3);border-radius:6px;
+  padding:clamp(24px,3.5vw,44px);position:relative;
+}
+.captain-log::before{
+  content:"“";position:absolute;top:-6px;left:22px;font-family:var(--display);
+  font-size:90px;color:var(--gold);opacity:.35;line-height:1;
+}
+.log-meta{display:flex;align-items:center;gap:16px;margin-top:26px}
+.log-meta .avatar{width:58px;height:58px;border-radius:50%;object-fit:cover;border:2px solid var(--gold)}
+.log-meta .who{font-family:var(--display);font-weight:800;letter-spacing:.06em;color:var(--gold-lt);font-size:16px}
+.log-meta .who small{display:block;font-family:var(--type);font-weight:400;font-size:11px;letter-spacing:.22em;color:var(--mut);margin-top:4px}
+.crew-copy p{color:var(--mut);line-height:1.85;font-size:16px;margin-top:16px}
+.crew-copy p strong{color:#fdf6e3}
+.sister{
+  margin-top:26px;display:flex;flex-wrap:wrap;align-items:center;gap:14px;
+  border-top:1px dashed rgba(217,164,65,.4);padding-top:22px;
+}
+.sister span{font-family:var(--type);font-size:12px;letter-spacing:.18em;color:var(--mut)}
+.sister a{
+  font-weight:800;font-size:15px;color:var(--gold-lt);text-decoration:none;
+  border-bottom:2px solid var(--gold);padding-bottom:2px;transition:color .3s;
+}
+.sister a:hover{color:#fff}
+
+/* ---------- visit ---------- */
+.visit{background:
+  radial-gradient(800px 400px at 12% 20%,rgba(178,39,59,.14),transparent 60%),
+  linear-gradient(180deg,var(--abyss),var(--sea) 140%)}
+.visit-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;margin-bottom:56px}
+.v-card{
+  background:rgba(13,33,64,.6);border:1px solid rgba(217,164,65,.28);border-radius:6px;
+  padding:34px 30px;backdrop-filter:blur(8px);
+  transition:transform .4s var(--ease),border-color .4s,box-shadow .4s;
+}
+.v-card:hover{transform:translateY(-8px);border-color:rgba(217,164,65,.7);box-shadow:0 26px 54px rgba(0,0,0,.5)}
+.v-card .ico{width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+  background:rgba(217,164,65,.12);border:1px solid rgba(217,164,65,.5);margin-bottom:20px}
+.v-card .ico svg{width:24px;height:24px;stroke:var(--gold-lt);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.v-card h3{font-family:var(--display);font-weight:800;font-size:19px;letter-spacing:.08em;color:var(--gold-lt);margin-bottom:12px}
+.v-card p,.v-card a.t{color:var(--mut);line-height:1.8;font-size:15px}
+.v-card a.t{text-decoration:none;border-bottom:1px dotted rgba(217,164,65,.6);transition:color .3s}
+.v-card a.t:hover{color:var(--gold-lt)}
+.cta-band{
+  text-align:center;background:linear-gradient(140deg,#10294f,#0a1a33);
+  border:1px solid rgba(217,164,65,.4);border-radius:10px;
+  padding:clamp(40px,6vw,72px) clamp(24px,5vw,60px);position:relative;overflow:hidden;
+}
+.cta-band::before{
+  content:"";position:absolute;inset:0;opacity:.12;
+  background-image:
+    linear-gradient(rgba(217,164,65,.6) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(217,164,65,.6) 1px,transparent 1px);
+  background-size:44px 44px;
+}
+.cta-band h2{font-family:var(--display);font-weight:900;font-size:clamp(30px,4.6vw,56px);color:#fdf6e3;position:relative}
+.cta-band h2 em{font-style:normal;color:var(--gold-lt)}
+.cta-band p{color:var(--mut);margin:16px auto 30px;max-width:520px;line-height:1.75;position:relative}
+.cta-band .row{display:flex;flex-wrap:wrap;gap:16px;justify-content:center;position:relative}
+
+/* ---------- footer ---------- */
+footer{background:#050d1a;border-top:1px solid rgba(217,164,65,.25);padding:56px clamp(18px,5vw,64px) 30px}
+.foot-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:40px}
+.foot-brand{display:flex;align-items:center;gap:14px;margin-bottom:16px}
+.foot-brand img{width:54px;height:54px;border-radius:50%;border:2px solid var(--gold);object-fit:cover}
+.foot-brand .n{font-family:var(--display);font-weight:800;letter-spacing:.12em;color:var(--gold-lt);font-size:16px}
+.foot-grid p{color:#8b97ad;font-size:14px;line-height:1.8}
+.foot-grid h4{font-family:var(--display);font-size:13px;letter-spacing:.24em;color:var(--gold-lt);margin-bottom:16px}
+.foot-grid ul{list-style:none;display:grid;gap:10px}
+.foot-grid ul a{color:#8b97ad;text-decoration:none;font-size:14px;transition:color .3s}
+.foot-grid ul a:hover{color:var(--gold-lt)}
+.socials{display:flex;gap:12px;margin-top:18px}
+.socials a{
+  width:46px;height:46px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+  border:1px solid rgba(217,164,65,.5);background:rgba(217,164,65,.07);
+  transition:transform .3s var(--ease),background .3s,box-shadow .3s;
+}
+.socials a:hover{transform:translateY(-4px) rotate(-6deg);background:rgba(217,164,65,.2);box-shadow:0 10px 24px rgba(217,164,65,.3)}
+.socials svg{width:22px;height:22px;fill:var(--gold-lt)}
+.foot-base{max-width:1200px;margin:44px auto 0;padding-top:22px;border-top:1px solid rgba(217,164,65,.15);
+  display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;
+  color:#5f6b82;font-size:12.5px;letter-spacing:.06em}
+
+/* ---------- responsive ---------- */
+@media (max-width:1020px){
+  .menu-grid{grid-template-columns:repeat(2,1fr)}
+  .visit-grid{grid-template-columns:1fr 1fr}
+  .foot-grid{grid-template-columns:1fr 1fr}
+}
+@media (max-width:860px){
+  .nav-links{
+    position:fixed;top:0;right:0;bottom:0;width:min(78vw,320px);z-index:99;
+    flex-direction:column;justify-content:center;align-items:center;gap:34px;
+    background:rgba(8,20,38,.97);backdrop-filter:blur(16px);
+    transform:translateX(100%);transition:transform .45s var(--ease);
+    border-left:1px solid rgba(217,164,65,.3);
+  }
+  .nav-links.open{transform:none}
+  .nav-links a{font-size:15px}
+  .burger{display:block;z-index:101}
+  .burger.x span:nth-child(1){transform:translateY(8px) rotate(45deg)}
+  .burger.x span:nth-child(2){opacity:0}
+  .burger.x span:nth-child(3){transform:translateY(-8px) rotate(-45deg)}
+  .nav .btn{display:none}
+  .voyage-grid,.crew-grid{grid-template-columns:1fr}
+  .crew-photo{max-width:480px}
+  .compass{opacity:.28;top:10%}
+}
+@media (max-width:620px){
+  .menu-grid,.visit-grid{grid-template-columns:1fr}
+  .foot-grid{grid-template-columns:1fr}
+  .hero-ctas .btn,.hero-ctas .btn-line{width:100%;justify-content:center}
+  .stamp{width:96px;height:96px;font-size:10px;top:-26px;right:-8px}
+}
+
+/* ---------- reduced motion ---------- */
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+  html{scroll-behavior:auto}
+  .hero h1 .line>span{transform:none}
+  .rv{opacity:1;transform:none}
+  .hero-bg{animation:none}
+}
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Restaurant",
+  "name": "The Thousand Sunny",
+  "description": "One Piece-inspired restaurant in Pinecrest, Miami serving ramen, pirate hot pot, bao buns, boba teas, steak and tres leches.",
+  "servesCuisine": ["Asian Fusion", "Ramen", "Boba Tea", "Hot Pot"],
+  "priceRange": "$$",
+  "telephone": "+1-786-953-7459",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "9545 S Dixie Hwy",
+    "addressLocality": "Pinecrest",
+    "addressRegion": "FL",
+    "postalCode": "33156",
+    "addressCountry": "US"
+  },
+  "geo": { "@type": "GeoCoordinates", "latitude": 25.68213, "longitude": -80.31486 },
+  "openingHours": "Mo-Su 12:00-22:00",
+  "sameAs": ["https://www.instagram.com/thousandsunnymiami/"]
+}
+</script>
+</head>
+<body class="grain">
+<a href="#galley" style="position:absolute;left:-9999px">Skip to menu</a>
+
+<!-- ============ NAV ============ -->
+<nav class="nav" id="nav" aria-label="Main navigation">
+  <a class="brand" href="#top" aria-label="The Thousand Sunny — home">
+    <img src="images/thousandsunnymiami/logo.jpg" alt="The Thousand Sunny logo — pirate ship badge">
+    <span class="brand-name">THE THOUSAND SUNNY<small>PINECREST · MIAMI</small></span>
+  </a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#voyage">THE VOYAGE</a></li>
+    <li><a href="#galley">THE GALLEY</a></li>
+    <li><a href="#crew">THE CREW</a></li>
+    <li><a href="#visit">VISIT</a></li>
+  </ul>
+  <a class="btn" href="https://ig.me/m/thousandsunnymiami" target="_blank" rel="noopener">DM THE CREW</a>
+  <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- ============ HERO ============ -->
+<header class="hero chart-lines" id="top">
+  <div class="hero-bg" aria-hidden="true"></div>
+  <div class="hero-veil" aria-hidden="true"></div>
+  <svg class="compass" id="compass" viewBox="0 0 400 400" aria-hidden="true">
+    <circle cx="200" cy="200" r="190" fill="none" stroke="#d9a441" stroke-width="2" opacity=".8"/>
+    <circle cx="200" cy="200" r="168" fill="none" stroke="#d9a441" stroke-width="1" opacity=".5"/>
+    <circle cx="200" cy="200" r="120" fill="none" stroke="#d9a441" stroke-width="1" opacity=".35" stroke-dasharray="4 8"/>
+    <g fill="#d9a441">
+      <path d="M200 20 L214 170 L200 150 L186 170 Z"/>
+      <path d="M200 380 L214 230 L200 250 L186 230 Z" opacity=".55"/>
+      <path d="M20 200 L170 214 L150 200 L170 186 Z" opacity=".55"/>
+      <path d="M380 200 L230 214 L250 200 L230 186 Z" opacity=".55"/>
+      <path d="M200 90 L207 185 L200 172 L193 185 Z" opacity=".8"/>
+      <path d="M200 310 L207 215 L200 228 L193 215 Z" opacity=".4"/>
+      <path d="M90 200 L185 207 L172 200 L185 193 Z" opacity=".4"/>
+      <path d="M310 200 L215 207 L228 200 L215 193 Z" opacity=".8"/>
+    </g>
+    <circle cx="200" cy="200" r="14" fill="none" stroke="#f0c569" stroke-width="2"/>
+    <circle cx="200" cy="200" r="4" fill="#f0c569"/>
+    <text x="200" y="58" text-anchor="middle" font-family="Cinzel,serif" font-size="26" font-weight="800" fill="#f0c569">N</text>
+    <text x="200" y="360" text-anchor="middle" font-family="Cinzel,serif" font-size="20" fill="#d9a441" opacity=".8">S</text>
+    <text x="352" y="208" text-anchor="middle" font-family="Cinzel,serif" font-size="20" fill="#d9a441" opacity=".8">E</text>
+    <text x="48" y="208" text-anchor="middle" font-family="Cinzel,serif" font-size="20" fill="#d9a441" opacity=".8">W</text>
+  </svg>
+
+  <div class="hero-inner">
+    <p class="eyebrow">ONE PIECE-INSPIRED KITCHEN · PINECREST, MIAMI</p>
+    <h1>
+      <span class="line"><span>SET SAIL</span></span>
+      <span class="line"><span>FOR <em>FLAVOR</em></span></span>
+    </h1>
+    <p class="hero-sub">Ramen, pirate hot pot, bao buns, boba teas, steak &amp; tres leches — served aboard the Grand Line's most delicious ship, docked at 9545 S Dixie Hwy.</p>
+    <div class="hero-ctas">
+      <a class="btn" href="tel:+17869537459">CALL THE GALLEY</a>
+      <a class="btn-line" href="https://ig.me/m/thousandsunnymiami" target="_blank" rel="noopener">DM TO RESERVE</a>
+    </div>
+    <div class="hero-chips">
+      <span class="chip">OPEN DAILY · 12PM – 10PM</span>
+      <span class="chip">(786) 953-7459</span>
+      <span class="chip">DINE-IN · TAKEOUT · DELIVERY</span>
+    </div>
+    <div class="scroll-hint" aria-hidden="true">SAIL DOWN<i></i></div>
+  </div>
+
+  <div class="ticker" aria-hidden="true">
+    <div class="ticker-track" id="ticker1">
+      <span>TATABABASCO FIRE RAMEN<b>✦</b>PIRATE PORK BAO<b>✦</b>DR CHOPPER BOBA<b>✦</b>NAVIGATOR FLAME STEAK<b>✦</b>STRAWBERRY TRES LECHES<b>✦</b>SIZZLING SHORT RIBS<b>✦</b></span>
+      <span>TATABABASCO FIRE RAMEN<b>✦</b>PIRATE PORK BAO<b>✦</b>DR CHOPPER BOBA<b>✦</b>NAVIGATOR FLAME STEAK<b>✦</b>STRAWBERRY TRES LECHES<b>✦</b>SIZZLING SHORT RIBS<b>✦</b></span>
+    </div>
+  </div>
+</header>
+
+<!-- ============ VOYAGE / ABOUT ============ -->
+<section class="voyage" id="voyage">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <p class="eyebrow">THE VOYAGE</p>
+      <h2>Step Aboard the <em>Thousand Sunny</em></h2>
+      <div class="rule"></div>
+    </div>
+    <div class="voyage-grid">
+      <figure class="photo-frame rv" aria-label="Photo of the restaurant dining room">
+        <div class="stamp">NAKAMA<br>APPROVED<br>★ ★ ★</div>
+        <img src="images/thousandsunnymiami/interior.jpg" alt="Inside The Thousand Sunny — wooden ship-style dining room with pirate flags, One Piece figures and a Zoro statue" loading="lazy">
+        <figcaption>THE GALLEY DINING ROOM — PINECREST, FL</figcaption>
+      </figure>
+      <div class="voyage-copy">
+        <p class="lede rv">Some restaurants serve dinner. This one drops anchor in another world.</p>
+        <p class="body rv d1">Past the doors on S Dixie Hwy, the dining room turns into the <strong>Grand Line</strong> — warm wood like a ship's hull, pirate flags overhead, wanted posters on the walls, a towering <strong>Zoro</strong> greeting the crew at the entrance, and shelves of figurines collected like treasure.</p>
+        <p class="body rv d2">Every dish is named for the voyage: ramen worthy of the Pirate King, sizzling skillets fit for a Yonko, boba teas poured for the whole Straw Hat crew. Come for the food, stay for the adventure — <strong>dine in, take out, or get it delivered</strong>.</p>
+        <p class="pull rv d3">"It's not just about the food — it's the adventure. Every corner is crafted to make you feel like a true Straw Hat pirate."</p>
+        <span class="coords rv d3">◈ 25.68213° N · 80.31486° W — GRAND LINE, MIAMI</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ GALLEY / MENU ============ -->
+<section class="galley" id="galley">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <p class="eyebrow">THE GALLEY</p>
+      <h2>Treasures <em>Worth Chasing</em></h2>
+      <p>A menu written like a voyage log — every plate named for the crew, the ship, and the sea. These are the dishes the nakama keep coming back for.</p>
+      <div class="rule"></div>
+    </div>
+    <div class="menu-grid">
+      <article class="card rv tilt">
+        <span class="corner tl"></span><span class="corner tr"></span><span class="corner bl"></span><span class="corner br"></span>
+        <div class="card-img">
+          <span class="card-tag">MOST WANTED</span>
+          <img src="https://images.unsplash.com/photo-1591814468924-caf88d1232e1?w=1200&q=70&auto=format&fit=crop" alt="Steaming bowl of ramen with egg and toppings" loading="lazy">
+        </div>
+        <div class="card-body">
+          <h3>Pirate Hot Pot &amp; Ramen</h3>
+          <p class="kicker">THE FIRE THAT STARTED IT ALL</p>
+          <ul>
+            <li>TATABABASCO Fire Ramen <small>Choose your heat: beef, pork belly, tofu or shrimp</small></li>
+            <li>Beef Udon <small>Steaming hot, perfect egg on top</small></li>
+            <li>Tonkotsu Hotpot <small>Eight broths — mix, match &amp; customize</small></li>
+          </ul>
+        </div>
+      </article>
+      <article class="card rv d1 tilt">
+        <span class="corner tl"></span><span class="corner tr"></span><span class="corner bl"></span><span class="corner br"></span>
+        <div class="card-img">
+          <img src="https://images.unsplash.com/photo-1563245372-f21724e3856d?w=1200&q=70&auto=format&fit=crop" alt="Steamed dumplings in a bamboo basket" loading="lazy">
+        </div>
+        <div class="card-body">
+          <h3>Bao &amp; Small Plates</h3>
+          <p class="kicker">TREASURES FOR THE WHOLE CREW</p>
+          <ul>
+            <li>Pirate Pork Bao <small>2 pcs — soft, savory, gone in seconds</small></li>
+            <li>Wagyu Beef Gyoza <small>Pan-seared, 6 pcs</small></li>
+            <li>Takoyaki &amp; Scallion Pancakes <small>Straight from the galley grill</small></li>
+          </ul>
+        </div>
+      </article>
+      <article class="card rv d2 tilt">
+        <span class="corner tl"></span><span class="corner tr"></span><span class="corner bl"></span><span class="corner br"></span>
+        <div class="card-img">
+          <span class="card-tag">CAPTAIN'S PICK</span>
+          <img src="https://images.unsplash.com/photo-1600891964092-4316c288032e?w=1200&q=70&auto=format&fit=crop" alt="Sliced grilled steak served with fries" loading="lazy">
+        </div>
+        <div class="card-body">
+          <h3>Steak &amp; Sizzle</h3>
+          <p class="kicker">MEAT WORTHY OF A YONKO</p>
+          <ul>
+            <li>Navigator Flame Steak <small>Zesty orange glaze, treasure of rice</small></li>
+            <li>Zoro's Saltado <small>Beef, caramelized onions, crispy fries</small></li>
+            <li>Sizzling Short Ribs <small>Served on a blazing skillet</small></li>
+            <li>General Franky Burger <small>Angus beef, caramelized onions</small></li>
+          </ul>
+        </div>
+      </article>
+      <article class="card rv tilt">
+        <span class="corner tl"></span><span class="corner tr"></span><span class="corner bl"></span><span class="corner br"></span>
+        <div class="card-img">
+          <img src="https://images.unsplash.com/photo-1572490122747-3968b75cc699?w=1200&q=70&auto=format&fit=crop" alt="Creamy milkshake-style boba drink with whipped topping" loading="lazy">
+        </div>
+        <div class="card-body">
+          <h3>Boba &amp; Character Drinks</h3>
+          <p class="kicker">POURED FOR THE WHOLE CREW</p>
+          <ul>
+            <li>Dr Chopper <small>Strawberry milkshake-style boba</small></li>
+            <li>Moss Head &amp; Kuri Kuri Nom <small>House-special boba teas</small></li>
+            <li>Mera Mera No Mi <small>Mango sake cocktail, lime finish</small></li>
+            <li>Ice-Cold Sake <small>Cool off like it's Alabasta</small></li>
+          </ul>
+        </div>
+      </article>
+      <article class="card rv d1 tilt">
+        <span class="corner tl"></span><span class="corner tr"></span><span class="corner bl"></span><span class="corner br"></span>
+        <div class="card-img">
+          <img src="images/thousandsunnymiami/tresleches.jpg" alt="Slice of tres leches cake with fresh raspberries" loading="lazy">
+        </div>
+        <div class="card-body">
+          <h3>Sweet Endings</h3>
+          <p class="kicker">THE REAL ONE PIECE</p>
+          <ul>
+            <li>Strawberry Tres Leches <small>Milk-soaked, berry-crowned</small></li>
+            <li>Strawberry Flan <small>A galley classic</small></li>
+          </ul>
+        </div>
+      </article>
+      <article class="card hh rv d2">
+        <span class="corner tl"></span><span class="corner tr"></span><span class="corner bl"></span><span class="corner br"></span>
+        <div class="card-body" style="padding-top:34px">
+          <p class="kicker">TUESDAY – FRIDAY · 3PM – 6PM</p>
+          <h3>Tea Time Happy Hour</h3>
+          <div class="hh-price"><sup>$</sup>24.99</div>
+          <ul>
+            <li>Any 2 appetizers <small>Pick your starters</small></li>
+            <li>Any 2 drinks <small>Boba, teas &amp; more</small></li>
+            <li>Not valid on holidays <small>Walk-ins welcome</small></li>
+          </ul>
+        </div>
+      </article>
+    </div>
+  </div>
+  <div class="ticker rev" aria-hidden="true">
+    <div class="ticker-track">
+      <span>DINE-IN<b>✦</b>TAKEOUT<b>✦</b>DELIVERY<b>✦</b>OPEN DAILY 12PM – 10PM<b>✦</b>9545 S DIXIE HWY<b>✦</b></span>
+      <span>DINE-IN<b>✦</b>TAKEOUT<b>✦</b>DELIVERY<b>✦</b>OPEN DAILY 12PM – 10PM<b>✦</b>9545 S DIXIE HWY<b>✦</b></span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CREW ============ -->
+<section class="crew" id="crew">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <p class="eyebrow">THE CREW</p>
+      <h2>The People <em>Behind the Ship</em></h2>
+      <div class="rule"></div>
+    </div>
+    <div class="crew-grid">
+      <div class="crew-photo rv">
+        <img src="images/thousandsunnymiami/interior2.jpg" alt="Dining room of The Thousand Sunny with pirate flags, One Piece wall art and figure shelves" loading="lazy">
+      </div>
+      <div class="crew-copy">
+        <div class="captain-log rv d1">
+          <p style="color:var(--parch);line-height:1.9;font-size:16.5px">The Thousand Sunny is the second voyage of the team behind <strong style="color:var(--gold-lt)">Naruto 88 Bistro</strong> — the anime-obsessed crew, led by co-owner <strong style="color:var(--gold-lt)">Bin Chen</strong>, that turned a Kendall ramen spot into a home port for Miami's anime fans. For their next chapter they sailed to Pinecrest with a love letter to One Piece: a restaurant where the food hits as hard as the fandom.</p>
+          <div class="log-meta">
+            <img class="avatar" src="images/thousandsunnymiami/logo.jpg" alt="The Thousand Sunny ship badge">
+            <div class="who">BIN CHEN &amp; CREW<small>CO-OWNER · NARUTO 88 BISTRO TEAM</small></div>
+          </div>
+        </div>
+        <p class="rv d2">The same hands, the same obsession with the details — from the wanted posters on the walls to the names on the menu. If you have eaten at their Kendall spot, you already know the crew. This is their bigger ship.</p>
+        <div class="sister rv d3">
+          <span>SISTER SHIP →</span>
+          <a href="https://www.instagram.com/naruto88bistro/" target="_blank" rel="noopener">@naruto88bistro</a>
+          <span>10471 N KENDALL DR, B-104 · MIAMI</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ VISIT ============ -->
+<section class="visit" id="visit">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <p class="eyebrow">CHART YOUR COURSE</p>
+      <h2>Drop Anchor in <em>Pinecrest</em></h2>
+      <p>No treasure map needed — just show up hungry. The crew is ready to serve you with the heart of the Straw Hats.</p>
+      <div class="rule"></div>
+    </div>
+    <div class="visit-grid">
+      <div class="v-card rv">
+        <div class="ico"><svg viewBox="0 0 24 24"><path d="M12 21s-7-5.5-7-11a7 7 0 0 1 14 0c0 5.5-7 11-7 11z"/><circle cx="12" cy="10" r="2.6"/></svg></div>
+        <h3>FIND US</h3>
+        <p>9545 S Dixie Hwy<br>Pinecrest, FL 33156</p>
+        <p style="margin-top:10px"><a class="t" href="https://www.google.com/maps/search/?api=1&query=9545%20S%20Dixie%20Hwy%20Pinecrest%20FL%2033156" target="_blank" rel="noopener">Get directions →</a></p>
+      </div>
+      <div class="v-card rv d1">
+        <div class="ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg></div>
+        <h3>HOURS</h3>
+        <p>Monday – Sunday<br><strong style="color:var(--gold-lt)">12:00 PM – 10:00 PM</strong></p>
+        <p style="margin-top:10px">Tea Time Happy Hour<br>Tue – Fri · 3PM – 6PM</p>
+      </div>
+      <div class="v-card rv d2">
+        <div class="ico"><svg viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a12 12 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg></div>
+        <h3>CALL THE CREW</h3>
+        <p><a class="t" href="tel:+17869537459">(786) 953-7459</a></p>
+        <p style="margin-top:10px"><a class="t" href="https://ig.me/m/thousandsunnymiami" target="_blank" rel="noopener">DM @thousandsunnymiami →</a></p>
+      </div>
+    </div>
+    <div class="cta-band rv">
+      <h2>No Website. <em>No Waiting.</em><br>Just DM.</h2>
+      <p>The Thousand Sunny doesn't have a website yet — that's exactly why this page exists. Message the crew on Instagram to reserve your table, order takeout, or ask what's sailing out of the kitchen today.</p>
+      <div class="row">
+        <a class="btn" href="https://ig.me/m/thousandsunnymiami" target="_blank" rel="noopener">DM ON INSTAGRAM</a>
+        <a class="btn-line" href="tel:+17869537459">CALL (786) 953-7459</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="foot-grid">
+    <div>
+      <div class="foot-brand">
+        <img src="images/thousandsunnymiami/logo.jpg" alt="The Thousand Sunny logo">
+        <span class="n">THE THOUSAND SUNNY</span>
+      </div>
+      <p>One Piece-inspired kitchen in Pinecrest, Miami.<br>Ramen · Hot Pot · Bao · Boba · Steak · Tres Leches</p>
+      <div class="socials">
+        <a href="https://www.instagram.com/thousandsunnymiami/" target="_blank" rel="noopener" aria-label="The Thousand Sunny on Instagram">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 1.2.1 1.8.2 2.2.4.6.2 1 .5 1.4.9.4.4.7.8.9 1.4.2.4.4 1 .4 2.2.1 1.3.1 1.7.1 4.9s0 3.6-.1 4.9c-.1 1.2-.2 1.8-.4 2.2-.2.6-.5 1-.9 1.4-.4.4-.8.7-1.4.9-.4.2-1 .4-2.2.4-1.3.1-1.7.1-4.9.1s-3.6 0-4.9-.1c-1.2-.1-1.8-.2-2.2-.4-.6-.2-1-.5-1.4-.9-.4-.4-.7-.8-.9-1.4-.2-.4-.4-1-.4-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.9c.1-1.2.2-1.8.4-2.2.2-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.4-.2 1-.4 2.2-.4C8.4 2.2 8.8 2.2 12 2.2m0 3.6a6.2 6.2 0 1 0 0 12.4 6.2 6.2 0 0 0 0-12.4zm0 10.2a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.4-10.5a1.4 1.4 0 1 0 0-2.9 1.4 1.4 0 0 0 0 2.9z"/></svg>
+        </a>
+      </div>
+    </div>
+    <div>
+      <h4>SAIL TO</h4>
+      <ul>
+        <li><a href="#voyage">The Voyage</a></li>
+        <li><a href="#galley">The Galley</a></li>
+        <li><a href="#crew">The Crew</a></li>
+        <li><a href="#visit">Visit Us</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>FIND THE SHIP</h4>
+      <ul>
+        <li><a href="https://www.google.com/maps/search/?api=1&query=9545%20S%20Dixie%20Hwy%20Pinecrest%20FL%2033156" target="_blank" rel="noopener">9545 S Dixie Hwy, Pinecrest, FL 33156</a></li>
+        <li><a href="tel:+17869537459">(786) 953-7459</a></li>
+        <li><a href="https://www.instagram.com/thousandsunnymiami/" target="_blank" rel="noopener">@thousandsunnymiami</a></li>
+        <li>Open daily · 12PM – 10PM</li>
+      </ul>
+    </div>
+  </div>
+  <div class="foot-base">
+    <span>© 2026 The Thousand Sunny · Pinecrest, Miami</span>
+    <span>Website concept — set sail for flavor ⚓</span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+  var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  /* nav scroll state */
+  var nav = document.getElementById("nav");
+  function onScrollNav(){ nav.classList.toggle("scrolled", window.scrollY > 40); }
+  window.addEventListener("scroll", onScrollNav, {passive:true});
+  onScrollNav();
+
+  /* mobile menu */
+  var burger = document.getElementById("burger");
+  var links = document.getElementById("navLinks");
+  burger.addEventListener("click", function(){
+    var open = links.classList.toggle("open");
+    burger.classList.toggle("x", open);
+    burger.setAttribute("aria-expanded", open ? "true" : "false");
+    burger.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+  });
+  links.addEventListener("click", function(e){
+    if(e.target.tagName === "A"){
+      links.classList.remove("open");
+      burger.classList.remove("x");
+      burger.setAttribute("aria-expanded","false");
+    }
+  });
+
+  /* reveal on scroll */
+  var rvEls = document.querySelectorAll(".rv");
+  if("IntersectionObserver" in window && !reduced){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if(en.isIntersecting){ en.target.classList.add("on"); io.unobserve(en.target); }
+      });
+    }, {threshold:.12, rootMargin:"0px 0px -6% 0px"});
+    rvEls.forEach(function(el){ io.observe(el); });
+  } else {
+    rvEls.forEach(function(el){ el.classList.add("on"); });
+  }
+
+  /* compass parallax rotation */
+  var compass = document.getElementById("compass");
+  if(compass && !reduced){
+    var ticking = false;
+    window.addEventListener("scroll", function(){
+      if(!ticking){
+        window.requestAnimationFrame(function(){
+          var y = window.scrollY || 0;
+          compass.style.transform = "translateY(" + (y * 0.12) + "px) rotate(" + (y * 0.05) + "deg)";
+          ticking = false;
+        });
+        ticking = true;
+      }
+    }, {passive:true});
+  }
+
+  /* menu card tilt */
+  if(!reduced && window.matchMedia("(pointer: fine)").matches){
+    document.querySelectorAll(".tilt").forEach(function(card){
+      card.addEventListener("mousemove", function(e){
+        var r = card.getBoundingClientRect();
+        var x = (e.clientX - r.left) / r.width - 0.5;
+        var y = (e.clientY - r.top) / r.height - 0.5;
+        card.style.transform = "translateY(-10px) rotateX(" + (-y*7) + "deg) rotateY(" + (x*7) + "deg)";
+      });
+      card.addEventListener("mouseleave", function(){ card.style.transform = ""; });
+    });
+  }
+})();
+</script>
+</body>
+</html>
