@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Simulador FREC - Examen de Sales Associate, Florida</title>
+<style>
+  :root{
+    --bg:#eef1f6; --card:#ffffff; --ink:#17233a; --muted:#66748c;
+    --accent:#0f5fd0; --good:#15803d; --good-bg:#e7f6ec;
+    --bad:#c81e1e; --bad-bg:#fdeaea; --warn:#b45309; --warn-bg:#fef3e2;
+    --line:#e2e8f0; --radius:14px;
+  }
+  *{box-sizing:border-box; -webkit-tap-highlight-color:transparent;}
+  body{margin:0; background:var(--bg); color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    line-height:1.55;}
+  .app{max-width:760px; margin:0 auto; padding:16px 14px 48px;}
+  .hidden{display:none !important;}
+  header.top{position:sticky; top:0; z-index:20; background:var(--bg); padding:10px 0 8px;}
+  .topline{display:flex; align-items:center; justify-content:space-between; gap:10px; margin-bottom:8px;}
+  .qcount{font-weight:700; font-size:15px;}
+  .timer{font-variant-numeric:tabular-nums; font-weight:700; font-size:15px;
+    background:var(--card); border:1px solid var(--line); border-radius:999px; padding:6px 14px;}
+  .timer.low{color:var(--bad); border-color:var(--bad);}
+  .progress{height:8px; background:#dbe2ee; border-radius:999px; overflow:hidden;}
+  .progress > div{height:100%; width:0; background:var(--accent); border-radius:999px; transition:width .25s;}
+  .card{background:var(--card); border:1px solid var(--line); border-radius:var(--radius);
+    padding:20px 18px; margin-top:12px; box-shadow:0 2px 10px rgba(20,40,80,.05);}
+  .area-badge{display:inline-block; font-size:12px; font-weight:700; letter-spacing:.4px;
+    text-transform:uppercase; color:var(--accent); background:#e3eefc;
+    border-radius:999px; padding:4px 12px; margin-bottom:10px;}
+  .qtext{font-size:17px; font-weight:600; margin:0 0 14px;}
+  .opt{display:flex; gap:12px; align-items:flex-start; width:100%; text-align:left;
+    background:#f8fafc; border:2px solid var(--line); border-radius:12px;
+    padding:13px 14px; margin:0 0 10px; font-size:15px; cursor:pointer; color:var(--ink);}
+  .opt .letter{flex:0 0 30px; height:30px; border-radius:50%; background:#e2e8f0; color:#33415c;
+    font-weight:700; display:flex; align-items:center; justify-content:center; font-size:14px;}
+  .opt:hover:not(:disabled){border-color:var(--accent);}
+  .opt:disabled{cursor:default; opacity:.95;}
+  .opt.selected{border-color:var(--accent); background:#eaf2fe;}
+  .opt.selected .letter{background:var(--accent); color:#fff;}
+  .opt.correct{border-color:var(--good); background:var(--good-bg);}
+  .opt.correct .letter{background:var(--good); color:#fff;}
+  .opt.wrong{border-color:var(--bad); background:var(--bad-bg);}
+  .opt.wrong .letter{background:var(--bad); color:#fff;}
+  .feedback{border-radius:12px; padding:13px 15px; margin-top:6px; font-size:14.5px;}
+  .feedback.good{background:var(--good-bg); border:1px solid #bfe6c9; color:#14532d;}
+  .feedback.bad{background:var(--bad-bg); border:1px solid #f3c1c1; color:#7f1d1d;}
+  .feedback strong{display:block; margin-bottom:4px;}
+  .navrow{display:flex; gap:10px; margin-top:14px;}
+  .btn{flex:1; border:none; border-radius:12px; padding:14px; font-size:15.5px; font-weight:700;
+    cursor:pointer; background:var(--accent); color:#fff;}
+  .btn:active{transform:scale(.98);}
+  .btn.secondary{background:#e2e8f0; color:#33415c;}
+  .btn.ghost{background:transparent; color:var(--accent); border:2px solid var(--accent); flex:0 0 auto; padding:12px 18px;}
+  .btn.danger{background:var(--bad);}
+  .btn:disabled{opacity:.45; cursor:default;}
+  .toolbar{display:flex; gap:10px; margin-top:12px; flex-wrap:wrap;}
+  .toolbar .btn{flex:1 1 auto;}
+  .hero{text-align:center; padding:22px 10px 4px;}
+  .hero h1{font-size:23px; margin:0 0 8px;}
+  .hero p{color:var(--muted); margin:0 0 4px; font-size:15px;}
+  .statrow{display:flex; gap:10px; margin:16px 0;}
+  .stat{flex:1; background:var(--card); border:1px solid var(--line); border-radius:12px; padding:12px 6px; text-align:center;}
+  .stat b{display:block; font-size:20px;}
+  .stat span{font-size:12px; color:var(--muted);}
+  .modegrid{display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-top:6px;}
+  @media (max-width:520px){.modegrid{grid-template-columns:1fr;}}
+  .mode{background:var(--card); border:2px solid var(--line); border-radius:var(--radius);
+    padding:18px 14px; cursor:pointer; text-align:left; font-family:inherit;}
+  .mode:hover:not(:disabled){border-color:var(--accent);}
+  .mode b{display:block; font-size:16px; margin-bottom:6px; color:var(--ink);}
+  .mode span{font-size:13.5px; color:var(--muted);}
+  .mode:disabled{opacity:.45; cursor:default;}
+  .mode .count{display:inline-block; margin-top:8px; font-size:12.5px; font-weight:700;
+    background:var(--warn-bg); color:var(--warn); border-radius:999px; padding:3px 10px;}
+  .checkrow{display:flex; align-items:center; gap:10px; margin:16px 2px 4px; font-size:15px;}
+  .checkrow input{width:20px; height:20px; accent-color:var(--accent);}
+  .arealist{display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-top:10px;}
+  @media (max-width:520px){.arealist{grid-template-columns:1fr;}}
+  .arealist div{background:var(--card); border:1px solid var(--line); border-radius:10px;
+    padding:8px 12px; font-size:13.5px; display:flex; justify-content:space-between; gap:8px;}
+  .arealist b{color:var(--accent);}
+  .arealist .pct{font-size:12px; color:var(--muted);}
+  .arealist .pct.good{color:var(--good); font-weight:700;}
+  .arealist .pct.low{color:var(--bad); font-weight:700;}
+  .overlay{position:fixed; inset:0; background:rgba(15,25,45,.55); z-index:50;
+    display:flex; align-items:flex-end; justify-content:center;}
+  .sheet{background:#fff; width:100%; max-width:760px; max-height:82vh; overflow:auto;
+    border-radius:18px 18px 0 0; padding:18px 16px 26px;}
+  .sheet h3{margin:0 0 12px; font-size:17px;}
+  .pgrid{display:grid; grid-template-columns:repeat(10,1fr); gap:8px;}
+  @media (max-width:520px){.pgrid{grid-template-columns:repeat(8,1fr);}}
+  .pcell{aspect-ratio:1; border-radius:9px; border:1.5px solid var(--line); background:#f8fafc;
+    font-size:13px; font-weight:700; color:var(--muted); cursor:pointer;}
+  .pcell.answered{background:#dbeafe; border-color:#93b8f5; color:#1e40af;}
+  .pcell.marked{position:relative; border-color:var(--warn); color:var(--warn);}
+  .pcell.marked::after{content:""; position:absolute; top:4px; right:4px; width:8px; height:8px;
+    border-radius:50%; background:var(--warn);}
+  .pcell.current{outline:3px solid var(--accent); outline-offset:1px;}
+  .legend{display:flex; gap:14px; font-size:12.5px; color:var(--muted); margin:12px 2px 0; flex-wrap:wrap;}
+  .legend i{display:inline-block; width:12px; height:12px; border-radius:4px; margin-right:5px; vertical-align:-1px;}
+  .score-wrap{text-align:center; padding:10px 0 4px;}
+  .score-num{font-size:52px; font-weight:800; line-height:1;}
+  .verdict{display:inline-block; margin-top:10px; font-weight:800; font-size:16px;
+    border-radius:999px; padding:8px 22px;}
+  .verdict.pass{background:var(--good-bg); color:var(--good); border:2px solid var(--good);}
+  .verdict.fail{background:var(--bad-bg); color:var(--bad); border:2px solid var(--bad);}
+  .areabar{margin:10px 0;}
+  .areabar .lbl{display:flex; justify-content:space-between; font-size:13.5px; margin-bottom:4px;}
+  .areabar .track{height:10px; background:#e6ebf3; border-radius:999px; overflow:hidden;}
+  .areabar .fill{height:100%; border-radius:999px; background:var(--accent);}
+  .areabar.low .fill{background:var(--bad);}
+  .areabar.low .lbl b{color:var(--bad);}
+  .wrongitem{border:1px solid var(--line); border-radius:12px; padding:14px; margin:10px 0; background:#fff;}
+  .wrongitem .wq{font-weight:600; font-size:14.5px; margin-bottom:8px;}
+  .wrongitem .wa{font-size:14px; margin:3px 0;}
+  .wrongitem .wa b{color:var(--good);}
+  .wrongitem .wa s{color:var(--bad); text-decoration-color:var(--bad);}
+  .wrongitem .we{font-size:13.5px; color:var(--muted); margin-top:6px;}
+  h2.sec{font-size:18px; margin:22px 0 6px;}
+  .muted{color:var(--muted); font-size:14px;}
+  /* flashcards */
+  .fcard{background:var(--card); border:2px solid var(--line); border-radius:18px;
+    min-height:300px; display:flex; align-items:center; justify-content:center;
+    padding:28px 22px; margin-top:12px; cursor:pointer; text-align:center;}
+  .fcard .front{font-size:17px; font-weight:600;}
+  .fcard .back{font-size:15px; display:none;}
+  .fcard.flipped{border-color:var(--accent); background:#f4f8ff;}
+  .fcard.flipped .front{display:none;}
+  .fcard.flipped .back{display:block;}
+  .fcard .fans{font-size:16px; font-weight:700; color:var(--good); display:block; margin-bottom:8px;}
+  .fhint{text-align:center; color:var(--muted); font-size:13px; margin-top:10px;}
+</style>
+</head>
+<body>
+<div class="app">
+
+  <!-- HOME -->
+  <section id="screen-home">
+    <div class="hero">
+      <h1>Simulador FREC<br>Sales Associate &mdash; Florida</h1>
+      <p>100 preguntas estilo examen &middot; 19 &aacute;reas oficiales &middot; tu progreso se guarda en este dispositivo.</p>
+    </div>
+    <div class="statrow">
+      <div class="stat"><b id="st-best">&ndash;</b><span>mejor nota</span></div>
+      <div class="stat"><b id="st-acc">&ndash;</b><span>precisi&oacute;n</span></div>
+      <div class="stat"><b id="st-streak">0</b><span>d&iacute;as de racha</span></div>
+      <div class="stat"><b id="st-err">0</b><span>errores por repasar</span></div>
+    </div>
+    <div class="card">
+      <div class="modegrid">
+        <button class="mode" id="m-study"><b>Modo estudio</b><span>100 preguntas con respuesta inmediata y explicaci&oacute;n.</span></button>
+        <button class="mode" id="m-exam"><b>Examen completo</b><span>100 preguntas, cron&oacute;metro de 3:30, como el d&iacute;a real.</span></button>
+        <button class="mode" id="m-quick"><b>Examen r&aacute;pido</b><span>20 preguntas al azar en 40 minutos.</span></button>
+        <button class="mode" id="m-cards"><b>Tarjetas de memoria</b><span>Voltea tarjetas pregunta/respuesta para memorizar.</span></button>
+        <button class="mode" id="m-errors"><b>Repasar errores</b><span>Solo las que has fallado hasta dominarlas.</span><br><span class="count" id="err-count"></span></button>
+        <button class="mode" id="m-reset"><b>Reiniciar progreso</b><span>Borra racha, notas y errores guardados.</span></button>
+      </div>
+      <label class="checkrow"><input type="checkbox" id="opt-shuffle"> Mezclar el orden de las preguntas</label>
+    </div>
+    <div class="card">
+      <b style="font-size:15px;">Tu dominio por &aacute;rea</b>
+      <div class="arealist" id="area-list"></div>
+    </div>
+  </section>
+
+  <!-- QUIZ -->
+  <section id="screen-quiz" class="hidden">
+    <header class="top">
+      <div class="topline">
+        <span class="qcount" id="q-count"></span>
+        <span class="timer hidden" id="timer"></span>
+      </div>
+      <div class="progress"><div id="pbar"></div></div>
+    </header>
+    <div class="card">
+      <span class="area-badge" id="q-area"></span>
+      <p class="qtext" id="q-text"></p>
+      <div id="q-opts"></div>
+      <div id="q-feedback"></div>
+    </div>
+    <div class="navrow">
+      <button class="btn secondary" id="btn-prev">&larr; Anterior</button>
+      <button class="btn" id="btn-next">Siguiente &rarr;</button>
+    </div>
+    <div class="toolbar" id="exam-toolbar" style="display:none;">
+      <button class="btn ghost" id="btn-mark">Marcar para revisar</button>
+      <button class="btn ghost" id="btn-map">Mapa</button>
+      <button class="btn danger" id="btn-finish">Terminar</button>
+    </div>
+    <div class="toolbar" id="home-toolbar" style="display:none;">
+      <button class="btn secondary" id="btn-quit">Salir al inicio</button>
+    </div>
+  </section>
+
+  <!-- FLASHCARDS -->
+  <section id="screen-cards" class="hidden">
+    <header class="top">
+      <div class="topline">
+        <span class="qcount" id="c-count"></span>
+        <button class="btn ghost" id="btn-cards-exit" style="padding:8px 14px;">Salir</button>
+      </div>
+      <div class="progress"><div id="cbar"></div></div>
+    </header>
+    <div class="fcard" id="fcard">
+      <div class="front" id="fc-front"></div>
+      <div class="back"><span class="fans" id="fc-ans"></span><span id="fc-expl"></span></div>
+    </div>
+    <div class="fhint">Toca la tarjeta para voltearla</div>
+    <div class="navrow">
+      <button class="btn secondary" id="btn-cprev">&larr; Anterior</button>
+      <button class="btn" id="btn-cnext">Siguiente &rarr;</button>
+    </div>
+  </section>
+
+  <!-- RESULTS -->
+  <section id="screen-results" class="hidden">
+    <div class="card">
+      <div class="score-wrap">
+        <div class="score-num" id="r-score"></div>
+        <div class="muted" id="r-detail"></div>
+        <div><span class="verdict" id="r-verdict"></span></div>
+        <p class="muted" id="r-time" style="margin-top:10px;"></p>
+      </div>
+    </div>
+    <h2 class="sec">Desempe&ntilde;o por &aacute;rea</h2>
+    <div class="card" id="r-areas"></div>
+    <h2 class="sec" id="r-wrong-title">Preguntas a repasar</h2>
+    <div id="r-wrong"></div>
+    <div class="navrow">
+      <button class="btn secondary" id="btn-home">Inicio</button>
+      <button class="btn" id="btn-retry-wrong">Repasar falladas</button>
+    </div>
+    <div class="navrow">
+      <button class="btn ghost" style="flex:1;" id="btn-again">Nuevo intento</button>
+    </div>
+  </section>
+
+</div>
+
+<div class="overlay hidden" id="palette-overlay">
+  <div class="sheet">
+    <h3>Mapa de preguntas <span class="muted" style="font-weight:400;">(toca un n&uacute;mero para ir)</span></h3>
+    <div class="pgrid" id="pgrid"></div>
+    <div class="legend">
+      <span><i style="background:#dbeafe;border:1px solid #93b8f5;"></i>Respondida</span>
+      <span><i style="background:#f8fafc;border:1.5px solid #e2e8f0;"></i>Sin responder</span>
+      <span><i style="background:#fef3e2;border:1.5px solid #b45309;"></i>Marcada</span>
+    </div>
+    <div class="navrow"><button class="btn" id="btn-close-map">Cerrar</button></div>
+  </div>
+</div>
+
+<script>
+"use strict";
+const QUESTIONS = [{"n": 1, "area": "Corretaje", "q": "Un broker recibe un cheque de earnest money de $10,000 un lunes. Segun la ley de Florida, debe depositarlo en la cuenta de escrow a mas tardar:", "options": [{"letter": "A", "text": "El mismo lunes"}, {"letter": "B", "text": "Al final del tercer dia habil siguiente"}, {"letter": "C", "text": "Dentro de 10 dias calendario"}, {"letter": "D", "text": "Antes del cierre, sin plazo especifico"}], "correct": "B", "expl": "El deposito debe entrar al escrow antes del fin del tercer dia habil."}, {"n": 2, "area": "Corretaje", "q": "Un broker usa dinero del escrow de un cliente para pagar la renta de su oficina, con intencion de reponerlo. Esto es:", "options": [{"letter": "A", "text": "Conversion (uso indebido), violacion grave"}, {"letter": "B", "text": "Commingling leve, sin sancion"}, {"letter": "C", "text": "Permitido si lo repone en 30 dias"}, {"letter": "D", "text": "Solo una falta administrativa menor"}], "correct": "A", "expl": "Conversion: usar fondos de clientes para fines propios es de las violaciones mas graves."}, {"n": 3, "area": "Corretaje", "q": "Toda publicidad de un sales associate en Florida debe mostrar:", "options": [{"letter": "A", "text": "Solo el nombre y telefono del associate"}, {"letter": "B", "text": "El nombre del brokerage registrado, de forma clara y visible"}, {"letter": "C", "text": "El numero de licencia del broker unicamente"}, {"letter": "D", "text": "La direccion fisica de la oficina"}], "correct": "B", "expl": "La publicidad siempre identifica al brokerage registrado."}, {"n": 4, "area": "Corretaje", "q": "Un asistente SIN licencia puede legalmente:", "options": [{"letter": "A", "text": "Mostrar propiedades a compradores"}, {"letter": "B", "text": "Redactar y presentar ofertas"}, {"letter": "C", "text": "Hacer trabajo administrativo: archivar, contestar telefonos, repartir volantes"}, {"letter": "D", "text": "Negociar reparaciones con el vendedor"}], "correct": "C", "expl": "Sin licencia, solo tareas administrativas; nada que requiera criterio de agente."}, {"n": 5, "area": "Corretaje", "q": "Las comisiones que cobra un sales associate:", "options": [{"letter": "A", "text": "Las recibe directamente del cliente"}, {"letter": "B", "text": "Debe recibirlas unicamente a traves de su broker empleador"}, {"letter": "C", "text": "Puede recibirlas de cualquier broker"}, {"letter": "D", "text": "No tienen regulacion"}], "correct": "B", "expl": "Toda compensacion al associate pasa por su broker."}, {"n": 6, "area": "Corretaje", "q": "Tres brokers de Miami acuerdan cobrar todos 6% de comision para \"no danarse el mercado\". Esto viola:", "options": [{"letter": "A", "text": "RESPA"}, {"letter": "B", "text": "Las leyes antimonopolio (antitrust / Sherman Act)"}, {"letter": "C", "text": "Solo el codigo de etica de NAR"}, {"letter": "D", "text": "Ninguna ley, porque fue acuerdo voluntario"}], "correct": "B", "expl": "Fijar comisiones entre competidores es price fixing, viola el Sherman Act."}, {"n": 7, "area": "Corretaje", "q": "Bajo RESPA, Section 8, esta prohibido:", "options": [{"letter": "A", "text": "Cobrar comision al vendedor"}, {"letter": "B", "text": "Pagar o recibir kickbacks (pagos por referidos) en transacciones con prestamo federal"}, {"letter": "C", "text": "Usar cuenta de escrow"}, {"letter": "D", "text": "Publicar en el MLS"}], "correct": "B", "expl": "RESPA Section 8 prohibe kickbacks y pagos por referidos."}, {"n": 8, "area": "Corretaje", "q": "Un sales associate quiere cambiarse de brokerage. Lo correcto es:", "options": [{"letter": "A", "text": "Empezar a trabajar de inmediato y avisar despues"}, {"letter": "B", "text": "El nuevo broker registra el cambio ante la DBPR; el associate opera solo cuando queda registrado con el nuevo broker"}, {"letter": "C", "text": "Esperar 90 dias sin trabajar"}, {"letter": "D", "text": "Tomar de nuevo el curso de 63 horas"}], "correct": "B", "expl": "La licencia va atada al broker; el cambio se registra en la DBPR."}, {"n": 9, "area": "Corretaje", "q": "Un broker puede mantener el escrow:", "options": [{"letter": "A", "text": "Solo en su cuenta personal si lleva registro"}, {"letter": "B", "text": "En la cuenta de escrow del brokerage, o el contrato puede designar a un abogado o compania de titulo"}, {"letter": "C", "text": "En efectivo en la caja fuerte de la oficina"}, {"letter": "D", "text": "En la cuenta del vendedor"}], "correct": "B", "expl": "El contrato puede designar escrow del broker, abogado o compania de titulo."}, {"n": 10, "area": "Corretaje", "q": "El uso de un nombre comercial (trade name) por un brokerage en Florida requiere:", "options": [{"letter": "A", "text": "Nada, puede usar cualquiera"}, {"letter": "B", "text": "Registrarlo ante la DBPR"}, {"letter": "C", "text": "Solo avisarle a la FREC por telefono"}, {"letter": "D", "text": "Publicarlo en el periodico"}], "correct": "B", "expl": "Los trade names se registran ante la DBPR."}, {"n": 11, "area": "Corretaje", "q": "Cual de estas entidades SI puede registrarse como brokerage en Florida?", "options": [{"letter": "A", "text": "Solo personas naturales"}, {"letter": "B", "text": "Corporacion, LLC o sociedad (partnership), ademas de persona natural"}, {"letter": "C", "text": "Solo corporaciones sin animo de lucro"}, {"letter": "D", "text": "Ninguna entidad, solo individuos"}], "correct": "B", "expl": "Corp, LLC, partnership o individuo pueden ser brokerage."}, {"n": 12, "area": "Corretaje", "q": "Un \"personal assistant\" CON licencia de sales associate, empleado por un sales associate:", "options": [{"letter": "A", "text": "Puede hacer todo lo que hace un associate, pero su compensacion la paga el associate que lo emplea a traves del broker"}, {"letter": "B", "text": "No necesita estar registrado con ningun broker"}, {"letter": "C", "text": "Puede abrir su propia oficina"}, {"letter": "D", "text": "Cobra directamente del publico"}], "correct": "A", "expl": "Con licencia puede actuar como associate; le paga el associate empleador via el broker."}, {"n": 13, "area": "Contratos", "q": "Para que un contrato de compraventa de bienes raices sea exigible en Florida, el Statute of Frauds exige:", "options": [{"letter": "A", "text": "Firma de dos testigos"}, {"letter": "B", "text": "Que este por escrito y firmado por la parte contra la que se exige"}, {"letter": "C", "text": "Sello notarial obligatorio"}, {"letter": "D", "text": "Registro en el condado dentro de 5 dias"}], "correct": "B", "expl": "Statute of Frauds: por escrito y firmado por la parte obligada."}, {"n": 14, "area": "Contratos", "q": "Elementos esenciales de un contrato valido:", "options": [{"letter": "A", "text": "Oferta y aceptacion, consideration, partes capaces, objeto legal"}, {"letter": "B", "text": "Precio alto, prisa y dos agentes"}, {"letter": "C", "text": "Escritura publica siempre"}, {"letter": "D", "text": "Aprobacion de la FREC"}], "correct": "A", "expl": "Los cuatro esenciales: oferta/aceptacion, consideration, capacidad, objeto legal."}, {"n": 15, "area": "Contratos", "q": "En un exclusive right to sell listing:", "options": [{"letter": "A", "text": "Si el dueno vende solo, no hay comision"}, {"letter": "B", "text": "El broker cobra comision aunque el dueno consiga al comprador"}, {"letter": "C", "text": "Varios brokers compiten por la venta"}, {"letter": "D", "text": "No hay plazo definido"}], "correct": "B", "expl": "Exclusive right to sell: comision garantizada aunque venda el dueno."}, {"n": 16, "area": "Contratos", "q": "En un option contract (contrato de opcion):", "options": [{"letter": "A", "text": "Ambas partes estan obligadas a comprar y vender"}, {"letter": "B", "text": "El optionor esta obligado a vender si el optionee ejerce la opcion; el optionee no esta obligado a comprar (contrato unilateral)"}, {"letter": "C", "text": "No requiere consideration"}, {"letter": "D", "text": "Dura maximo 30 dias por ley"}], "correct": "B", "expl": "La opcion es unilateral: obliga al optionor, no al optionee; lleva consideration."}, {"n": 17, "area": "Contratos", "q": "Una contraoferta (counteroffer) legalmente significa:", "options": [{"letter": "A", "text": "Aceptacion parcial"}, {"letter": "B", "text": "Rechazo de la oferta original y creacion de una nueva oferta"}, {"letter": "C", "text": "Extension automatica del plazo"}, {"letter": "D", "text": "Que el contrato ya es vinculante"}], "correct": "B", "expl": "La contraoferta mata la oferta original y crea una nueva."}, {"n": 18, "area": "Contratos", "q": "El plazo de prescripcion (statute of limitations) para demandar por incumplimiento de un contrato ESCRITO en Florida es:", "options": [{"letter": "A", "text": "1 ano"}, {"letter": "B", "text": "3 anos"}, {"letter": "C", "text": "5 anos"}, {"letter": "D", "text": "20 anos"}], "correct": "C", "expl": "5 anos para contratos escritos en Florida (F.S. 95.11)."}, {"n": 19, "area": "Contratos", "q": "Un sales associate en Florida puede:", "options": [{"letter": "A", "text": "Redactar contratos a medida para sus clientes"}, {"letter": "B", "text": "Llenar los formularios contractuales aprobados como parte de su trabajo como agente"}, {"letter": "C", "text": "Dar consejo legal sobre testamentos"}, {"letter": "D", "text": "Cobrar honorarios legales"}], "correct": "B", "expl": "Puede llenar formularios aprobados; no redactar a medida ni dar consejo legal."}, {"n": 20, "area": "Contratos", "q": "Si el comprador incumple (default) y el contrato dice que el deposito queda como liquidated damages:", "options": [{"letter": "A", "text": "El vendedor puede demandar por el precio total mas el deposito"}, {"letter": "B", "text": "El deposito es la compensacion pactada y limita el reclamo del vendedor"}, {"letter": "C", "text": "El broker se queda con el deposito"}, {"letter": "D", "text": "El contrato se extiende automaticamente"}], "correct": "B", "expl": "Liquidated damages: el deposito pactado limita el reclamo."}, {"n": 21, "area": "Contratos", "q": "Un contrato bilateral se caracteriza porque:", "options": [{"letter": "A", "text": "Solo una parte promete algo"}, {"letter": "B", "text": "Ambas partes se obligan mutuamente (promesa por promesa)"}, {"letter": "C", "text": "Debe ser verbal"}, {"letter": "D", "text": "No necesita consideration"}], "correct": "B", "expl": "Bilateral: promesa por promesa, ambas partes obligadas."}, {"n": 22, "area": "Contratos", "q": "La cesion (assignment) de un contrato de compraventa:", "options": [{"letter": "A", "text": "Esta prohibida siempre"}, {"letter": "B", "text": "Es permitida salvo que el contrato la prohiba; el cedente sigue pudiendo ser responsable segun lo pactado"}, {"letter": "C", "text": "Requiere aprobacion de la FREC"}, {"letter": "D", "text": "Convierte el contrato en una opcion"}], "correct": "B", "expl": "La cesion es valida salvo prohibicion contractual."}, {"n": 23, "area": "Contratos", "q": "Un buyer-broker agreement establece principalmente:", "options": [{"letter": "A", "text": "El precio de la casa"}, {"letter": "B", "text": "Los terminos de la relacion entre el comprador y el broker: deberes, duracion y compensacion"}, {"letter": "C", "text": "La aprobacion del prestamo"}, {"letter": "D", "text": "Los impuestos del condado"}], "correct": "B", "expl": "Define deberes, duracion y compensacion entre comprador y broker."}, {"n": 24, "area": "Contratos", "q": "Cual de estos contratos debe estar por escrito para ser exigible en Florida?", "options": [{"letter": "A", "text": "Un arrendamiento de 6 meses"}, {"letter": "B", "text": "Un contrato de compraventa de una casa"}, {"letter": "C", "text": "Un acuerdo verbal de comision entre amigos"}, {"letter": "D", "text": "Una promesa de regalo"}], "correct": "B", "expl": "La compraventa de inmuebles debe ser escrita (Statute of Frauds)."}, {"n": 25, "area": "Hipotecas", "q": "La diferencia clave entre un prestamo FHA y uno VA es:", "options": [{"letter": "A", "text": "El FHA es solo para veteranos"}, {"letter": "B", "text": "El FHA esta asegurado (insured) por el gobierno federal; el VA esta garantizado (guaranteed) para veteranos elegibles"}, {"letter": "C", "text": "El VA exige 20% de down payment"}, {"letter": "D", "text": "No hay diferencia"}], "correct": "B", "expl": "FHA = insured; VA = guaranteed para veteranos."}, {"n": 26, "area": "Hipotecas", "q": "La clausula de acceleration permite al prestamista:", "options": [{"letter": "A", "text": "Reducir la tasa si el cliente paga puntual"}, {"letter": "B", "text": "Declarar vencido el saldo total ante el incumplimiento del prestatario"}, {"letter": "C", "text": "Extender el plazo automaticamente"}, {"letter": "D", "text": "Vender la propiedad sin juicio"}], "correct": "B", "expl": "Acceleration: todo el saldo se vence ante el default."}, {"n": 27, "area": "Hipotecas", "q": "La clausula due-on-sale (alienation) establece que:", "options": [{"letter": "A", "text": "El comprador asume la hipoteca con la misma tasa"}, {"letter": "B", "text": "Si se transfiere la propiedad, el prestamista puede exigir el pago total del prestamo"}, {"letter": "C", "text": "La hipoteca se cancela al vender"}, {"letter": "D", "text": "El vendedor sigue pagando despues de vender"}], "correct": "B", "expl": "Due-on-sale: transferir dispara el vencimiento total."}, {"n": 28, "area": "Hipotecas", "q": "La clausula de defeasance en una hipoteca significa:", "options": [{"letter": "A", "text": "Que el prestamista puede subir la tasa"}, {"letter": "B", "text": "Que el gravamen se extingue cuando el prestatario paga totalmente la deuda"}, {"letter": "C", "text": "Que el prestamo no se puede pagar por anticipado"}, {"letter": "D", "text": "Que se requiere seguro de vida"}], "correct": "B", "expl": "Defeasance: pagada la deuda, se extingue el gravamen."}, {"n": 29, "area": "Hipotecas", "q": "En los primeros anos de un prestamo amortizado a 30 anos, la mayor parte de cada pago mensual corresponde a:", "options": [{"letter": "A", "text": "Capital"}, {"letter": "B", "text": "Intereses"}, {"letter": "C", "text": "Impuestos"}, {"letter": "D", "text": "Seguro"}], "correct": "B", "expl": "Al inicio casi todo el pago es interes."}, {"n": 30, "area": "Hipotecas", "q": "Un prestamo con amortizacion a 30 anos pero vencimiento total (balloon) a los 10 anos se llama:", "options": [{"letter": "A", "text": "Prestamo completamente amortizado"}, {"letter": "B", "text": "Balloon loan (parcialmente amortizado)"}, {"letter": "C", "text": "Prestamo de interes simple"}, {"letter": "D", "text": "Reverse mortgage"}], "correct": "B", "expl": "Balloon: amortiza a 30 pero vence antes con pago global."}, {"n": 31, "area": "Hipotecas", "q": "El seguro hipotecario privado (PMI) en un prestamo convencional tipicamente se exige cuando:", "options": [{"letter": "A", "text": "El down payment es del 50%"}, {"letter": "B", "text": "El LTV supera el 80% (down payment menor al 20%)"}, {"letter": "C", "text": "La propiedad es nueva"}, {"letter": "D", "text": "El prestatario es inversionista"}], "correct": "B", "expl": "PMI tipico cuando el LTV supera 80%."}, {"n": 32, "area": "Hipotecas", "q": "En una asuncion (assumption) de hipoteca con novation:", "options": [{"letter": "A", "text": "El vendedor sigue siendo responsable"}, {"letter": "B", "text": "El comprador asume la deuda y el vendedor queda liberado de responsabilidad"}, {"letter": "C", "text": "La tasa siempre sube"}, {"letter": "D", "text": "No se necesita aprobacion del prestamista"}], "correct": "B", "expl": "Con novation el vendedor queda liberado y el comprador asume."}, {"n": 33, "area": "Hipotecas", "q": "Bajo Truth in Lending (Regulation Z), el prestamista debe divulgar:", "options": [{"letter": "A", "text": "El color de la casa"}, {"letter": "B", "text": "La APR (tasa de porcentaje anual) y el costo total del credito"}, {"letter": "C", "text": "La comision del agente"}, {"letter": "D", "text": "El nombre del vendedor"}], "correct": "B", "expl": "TILA exige divulgar APR y costo total del credito."}, {"n": 34, "area": "Propiedad", "q": "El bundle of rights (conjunto de derechos de propiedad) incluye:", "options": [{"letter": "A", "text": "Solo el derecho a vender"}, {"letter": "B", "text": "Disposition, exclusion, enjoyment, possession y control (DEEP C)"}, {"letter": "C", "text": "Solo derechos del gobierno"}, {"letter": "D", "text": "Derechos unicamente sobre el suelo"}], "correct": "B", "expl": "DEEP C: disposition, exclusion, enjoyment, possession, control."}, {"n": 35, "area": "Propiedad", "q": "Un life estate termina:", "options": [{"letter": "A", "text": "A los 99 anos exactos"}, {"letter": "B", "text": "Con la muerte del life tenant (o de la persona cuya vida mide el estate)"}, {"letter": "C", "text": "Cuando se vende la propiedad"}, {"letter": "D", "text": "Nunca termina"}], "correct": "B", "expl": "El life estate termina con la muerte de quien lo mide."}, {"n": 36, "area": "Propiedad", "q": "Para crear un joint tenancy con derecho de supervivencia se requieren las cuatro unidades (PITT):", "options": [{"letter": "A", "text": "Precio, interes, tiempo y titulo"}, {"letter": "B", "text": "Possession, interest, time y title (posesion, interes, tiempo y titulo)"}, {"letter": "C", "text": "Permiso del condado siempre"}, {"letter": "D", "text": "Que sean esposos"}], "correct": "B", "expl": "PITT: possession, interest, time, title."}, {"n": 37, "area": "Propiedad", "q": "En un tenancy in common:", "options": [{"letter": "A", "text": "Hay derecho de supervivencia automatico"}, {"letter": "B", "text": "Cada dueno tiene una participacion divisible y heredable, que puede ser desigual"}, {"letter": "C", "text": "Solo puede haber dos duenos"}, {"letter": "D", "text": "Es exclusivo de matrimonios"}], "correct": "B", "expl": "Tenancy in common: participaciones heredables y divisibles, pueden ser desiguales."}, {"n": 38, "area": "Propiedad", "q": "La proteccion del homestead en Florida contra acreedores forzosos significa que:", "options": [{"letter": "A", "text": "La residencia principal tiene proteccion amplia contra la venta forzosa por la mayoria de las deudas"}, {"letter": "B", "text": "No se pagan impuestos nunca"}, {"letter": "C", "text": "Aplica a casas de inversion"}, {"letter": "D", "text": "La crea el condado automaticamente sin solicitud"}], "correct": "A", "expl": "El homestead protege la residencia contra venta forzosa por la mayoria de deudas."}, {"n": 39, "area": "Propiedad", "q": "La diferencia principal entre condominio y cooperativa es:", "options": [{"letter": "A", "text": "No hay diferencia"}, {"letter": "B", "text": "En el condominio se posee la unidad en fee simple mas un interes en las areas comunes; en la cooperativa se poseen acciones de la corporacion con derecho de ocupacion"}, {"letter": "C", "text": "La cooperativa es mas cara siempre"}, {"letter": "D", "text": "El condominio no tiene areas comunes"}], "correct": "B", "expl": "Condominio: unidad en propiedad + areas comunes; cooperativa: acciones + derecho de uso."}, {"n": 40, "area": "Propiedad", "q": "Un time-sharing otorga:", "options": [{"letter": "A", "text": "Propiedad total perpetua"}, {"letter": "B", "text": "Derecho de uso de la unidad por un periodo recurrente cada ano"}, {"letter": "C", "text": "Acciones de una empresa"}, {"letter": "D", "text": "Un arrendamiento de 99 anos"}], "correct": "B", "expl": "Time-sharing: uso recurrente por periodos cada ano."}, {"n": 41, "area": "Propiedad", "q": "La adhesion (adquisicion por causas naturales, como sedimento de un rio) es un ejemplo de:", "options": [{"letter": "A", "text": "Voluntary alienation"}, {"letter": "B", "text": "Adquisicion por accesion natural del titulo"}, {"letter": "C", "text": "Expropiacion"}, {"letter": "D", "text": "Prescripcion adquisitiva"}], "correct": "B", "expl": "Accesion natural (adhesion/aluvion) transfiere titulo por causas naturales."}, {"n": 42, "area": "Valuación", "q": "El enfoque mas confiable para valuar una vivienda unifamiliar es:", "options": [{"letter": "A", "text": "Costo"}, {"letter": "B", "text": "Comparacion de ventas (sales comparison approach)"}, {"letter": "C", "text": "Ingresos"}, {"letter": "D", "text": "Valor sentimental"}], "correct": "B", "expl": "En residencias manda la comparacion de ventas."}, {"n": 43, "area": "Valuación", "q": "Formula del enfoque de ingresos (income capitalization):", "options": [{"letter": "A", "text": "Valor = Ingreso neto operativo / tasa de capitalizacion (V = I / R)"}, {"letter": "B", "text": "Valor = costo - depreciacion"}, {"letter": "C", "text": "Valor = precio de compra + 10%"}, {"letter": "D", "text": "Valor = renta bruta x 100"}], "correct": "A", "expl": "V = I / R (IRV)."}, {"n": 44, "area": "Valuación", "q": "En el enfoque de costo: Valor =", "options": [{"letter": "A", "text": "Costo de reemplazo nuevo - depreciacion + valor del terreno"}, {"letter": "B", "text": "Precio pagado + mejoras"}, {"letter": "C", "text": "Ingreso / tasa"}, {"letter": "D", "text": "Promedio de comparables"}], "correct": "A", "expl": "Costo nuevo - depreciacion + terreno."}, {"n": 45, "area": "Valuación", "q": "La perdida de valor por una planta industrial ruidosa construida al lado es:", "options": [{"letter": "A", "text": "Depreciacion fisica"}, {"letter": "B", "text": "Obsolescencia funcional"}, {"letter": "C", "text": "Obsolescencia economica (externa)"}, {"letter": "D", "text": "No es depreciacion"}], "correct": "C", "expl": "Causa externa al terreno: obsolescencia economica."}, {"n": 46, "area": "Valuación", "q": "Un CMA (Comparative Market Analysis):", "options": [{"letter": "A", "text": "Es una valuacion formal bajo USPAP"}, {"letter": "B", "text": "Lo prepara el agente para estimar precio de mercado; no es un appraisal"}, {"letter": "C", "text": "Solo lo puede hacer un valuador licenciado"}, {"letter": "D", "text": "Es obligatorio para vender"}], "correct": "B", "expl": "El CMA es herramienta del agente, no valuacion formal."}, {"n": 47, "area": "Valuación", "q": "El principio de sustitucion (substitution) dice que:", "options": [{"letter": "A", "text": "El comprador no pagara mas por una propiedad que el costo de otra igualmente deseable"}, {"letter": "B", "text": "El valor siempre sube"}, {"letter": "C", "text": "La primera oferta es la mejor"}, {"letter": "D", "text": "El gobierno fija los precios"}], "correct": "A", "expl": "Sustitucion: nadie paga mas que el costo de un sustituto igual."}, {"n": 48, "area": "Valuación", "q": "Highest and best use (mejor y mayor uso) es:", "options": [{"letter": "A", "text": "El uso actual de la propiedad"}, {"letter": "B", "text": "El uso legalmente permitido, fisicamente posible y financieramente viable que da el mayor valor"}, {"letter": "C", "text": "Siempre construir torres"}, {"letter": "D", "text": "Lo que decida el dueno sin limites"}], "correct": "B", "expl": "Legalmente permitido, fisicamente posible, viable y de mayor valor."}, {"n": 49, "area": "Valuación", "q": "USPAP son:", "options": [{"letter": "A", "text": "Impuestos federales"}, {"letter": "B", "text": "Los estandares uniformes de practica profesional de valuacion que debe seguir el appraiser"}, {"letter": "C", "text": "Un tipo de hipoteca"}, {"letter": "D", "text": "Reglas de zonificacion"}], "correct": "B", "expl": "USPAP: estandares de practica valuatoria."}, {"n": 50, "area": "Relaciones", "q": "En Florida, si no hay acuerdo escrito de agencia, la relacion presunta es:", "options": [{"letter": "A", "text": "Single agent"}, {"letter": "B", "text": "Transaction broker"}, {"letter": "C", "text": "Dual agent"}, {"letter": "D", "text": "No brokerage relationship"}], "correct": "B", "expl": "Sin acuerdo escrito, Florida presume transaction broker."}, {"n": 51, "area": "Relaciones", "q": "Los deberes fiduciarios del single agent se resumen en OLD CAR:", "options": [{"letter": "A", "text": "Oferta, listing, dano, comision, anuncio, renta"}, {"letter": "B", "text": "Obedience, loyalty, disclosure, confidentiality, accounting, reasonable care"}, {"letter": "C", "text": "Solo obediencia"}, {"letter": "D", "text": "No tiene deberes fiduciarios"}], "correct": "B", "expl": "Obedience, loyalty, disclosure, confidentiality, accounting, reasonable care."}, {"n": 52, "area": "Relaciones", "q": "Para pasar de single agent a transaction broker en una transaccion se requiere:", "options": [{"letter": "A", "text": "Nada, es automatico"}, {"letter": "B", "text": "Consentimiento escrito del cliente"}, {"letter": "C", "text": "Solo avisar verbalmente"}, {"letter": "D", "text": "Aprobacion de la FREC"}], "correct": "B", "expl": "El cambio a transaction broker exige consentimiento escrito."}, {"n": 53, "area": "Relaciones", "q": "En Florida, el dual agency (representar a comprador y vendedor como single agent de ambos):", "options": [{"letter": "A", "text": "Esta permitido con consentimiento escrito"}, {"letter": "B", "text": "Esta prohibido, aun con consentimiento"}, {"letter": "C", "text": "Es lo mismo que transaction broker"}, {"letter": "D", "text": "Solo aplica a rentas"}], "correct": "B", "expl": "El dual agency esta prohibido en Florida aun con consentimiento."}, {"n": 54, "area": "Relaciones", "q": "En una relacion de no brokerage relationship, el licensee debe:", "options": [{"letter": "A", "text": "Negociar por el cliente"}, {"letter": "B", "text": "Actuar con honestidad, llevar contabilidad y divulgar hechos materiales conocidos"}, {"letter": "C", "text": "Guardar todos los secretos sin divulgar nada"}, {"letter": "D", "text": "No puede mostrar propiedades"}], "correct": "B", "expl": "Honestidad, contabilidad y divulgar hechos materiales."}, {"n": 55, "area": "Relaciones", "q": "Un associate descubre un defecto material oculto en la propiedad. Debe:", "options": [{"letter": "A", "text": "Callarlo por lealtad al vendedor"}, {"letter": "B", "text": "Divulgarlo, porque ocultar hechos materiales es misrepresentation"}, {"letter": "C", "text": "Solo decirlo si le preguntan dos veces"}, {"letter": "D", "text": "Subir el precio"}], "correct": "B", "expl": "Los defectos materiales se divulgan; ocultarlos es misrepresentation."}, {"n": 56, "area": "Relaciones", "q": "Los ministerial acts (actos ministeriales) del transaction broker incluyen:", "options": [{"letter": "A", "text": "Negociar el precio por una parte"}, {"letter": "B", "text": "Tareas de facilitacion sin juicio discrecional: entregar documentos, coordinar citas, dar informacion objetiva"}, {"letter": "C", "text": "Decidir la estrategia de oferta"}, {"letter": "D", "text": "Aconsejar si aceptar o no"}], "correct": "B", "expl": "Actos ministeriales: facilitacion sin discrecion ni negociacion."}, {"n": 57, "area": "Títulos y escrituras", "q": "La escritura con mayor proteccion para el comprador es:", "options": [{"letter": "A", "text": "Quitclaim deed"}, {"letter": "B", "text": "Special warranty deed"}, {"letter": "C", "text": "General warranty deed"}, {"letter": "D", "text": "Deed in lieu"}], "correct": "C", "expl": "General warranty deed: maxima proteccion, cubre toda la historia."}, {"n": 58, "area": "Títulos y escrituras", "q": "El special warranty deed garantiza el titulo:", "options": [{"letter": "A", "text": "Contra defectos de toda la historia"}, {"letter": "B", "text": "Solo contra defectos surgidos durante el periodo en que el otorgante fue dueno"}, {"letter": "C", "text": "Contra nada"}, {"letter": "D", "text": "Solo por un ano"}], "correct": "B", "expl": "Special warranty: solo el periodo del otorgante."}, {"n": 59, "area": "Títulos y escrituras", "q": "Una hipoteca es un ejemplo de:", "options": [{"letter": "A", "text": "General lien voluntario"}, {"letter": "B", "text": "Specific lien"}, {"letter": "C", "text": "Easement"}, {"letter": "D", "text": "Restriccion de escritura"}], "correct": "B", "expl": "La hipoteca es specific lien sobre ese inmueble."}, {"n": 60, "area": "Títulos y escrituras", "q": "Un judgment (fallo judicial) contra una persona es un:", "options": [{"letter": "A", "text": "Specific lien"}, {"letter": "B", "text": "General lien (afecta todos los bienes del deudor)"}, {"letter": "C", "text": "Voluntary lien"}, {"letter": "D", "text": "Tax lien"}], "correct": "B", "expl": "El judgment es general lien sobre todos los bienes."}, {"n": 61, "area": "Títulos y escrituras", "q": "La expropiacion por el gobierno con compensacion justa (eminent domain) es un ejemplo de:", "options": [{"letter": "A", "text": "Voluntary alienation"}, {"letter": "B", "text": "Involuntary alienation"}, {"letter": "C", "text": "Adverse possession"}, {"letter": "D", "text": "Dedicacion"}], "correct": "B", "expl": "Eminent domain: transferencia involuntaria por el gobierno."}, {"n": 62, "area": "Títulos y escrituras", "q": "El registro (recording) de una escritura en los registros del condado otorga:", "options": [{"letter": "A", "text": "Actual notice"}, {"letter": "B", "text": "Constructive notice (aviso constructivo al mundo)"}, {"letter": "C", "text": "Ningun tipo de aviso"}, {"letter": "D", "text": "Titulo perfecto automaticamente"}], "correct": "B", "expl": "Registrar da constructive notice al mundo."}, {"n": 63, "area": "Títulos y escrituras", "q": "Las deed restrictions (restricciones de escritura) tipicamente:", "options": [{"letter": "A", "text": "Las impone el gobierno federal"}, {"letter": "B", "text": "Las crea el desarrollador o duenos anteriores y corren con la tierra, limitando su uso"}, {"letter": "C", "text": "Duran maximo un ano"}, {"letter": "D", "text": "No son exigibles"}], "correct": "B", "expl": "Las impone el desarrollador/duenos y corren con la tierra."}, {"n": 64, "area": "Licencias", "q": "Requisitos para la licencia de sales associate en Florida:", "options": [{"letter": "A", "text": "21 anos y titulo universitario"}, {"letter": "B", "text": "18 anos, high school o equivalente, curso de 63 horas, pasar el examen, huellas"}, {"letter": "C", "text": "Solo pagar la tarifa"}, {"letter": "D", "text": "5 anos de experiencia en ventas"}], "correct": "B", "expl": "18 anos, high school, 63 horas, examen y huellas."}, {"n": 65, "area": "Licencias", "q": "Antes del primer vencimiento de la licencia se exigen:", "options": [{"letter": "A", "text": "14 horas de continuing education"}, {"letter": "B", "text": "45 horas de post-licensing education"}, {"letter": "C", "text": "Repetir el examen"}, {"letter": "D", "text": "Nada"}], "correct": "B", "expl": "45 horas post-licensing antes del primer vencimiento."}, {"n": 66, "area": "Licencias", "q": "Despues del primer ciclo, la renovacion cada 2 anos exige:", "options": [{"letter": "A", "text": "45 horas"}, {"letter": "B", "text": "14 horas de continuing education"}, {"letter": "C", "text": "Nuevo examen"}, {"letter": "D", "text": "63 horas otra vez"}], "correct": "B", "expl": "14 horas de continuing education cada 2 anos."}, {"n": 67, "area": "Licencias", "q": "Cual de estas personas esta EXENTA de necesitar licencia de real estate en Florida?", "options": [{"letter": "A", "text": "Quien vende casas ajenas por comision"}, {"letter": "B", "text": "El dueno que vende su propia propiedad"}, {"letter": "C", "text": "Un amigo que cobra por mostrar casas"}, {"letter": "D", "text": "Un asistente que negocia ofertas"}], "correct": "B", "expl": "El dueno vendiendo lo propio esta exento."}, {"n": 68, "area": "Licencias", "q": "Para obtener licencia de broker en Florida, ademas del curso, se requiere tipicamente:", "options": [{"letter": "A", "text": "Haber estado activo como sales associate al menos 24 meses en los ultimos 5 anos"}, {"letter": "B", "text": "Tener 30 anos"}, {"letter": "C", "text": "Ser ciudadano americano"}, {"letter": "D", "text": "Hablar dos idiomas"}], "correct": "A", "expl": "24 meses activo como associate en los ultimos 5 anos."}, {"n": 69, "area": "Licencias", "q": "Si un sales associate deja de trabajar con su broker y no se registra con otro, su licencia queda:", "options": [{"letter": "A", "text": "Activa para siempre"}, {"letter": "B", "text": "Inactiva: no puede ejercer hasta registrarse con un broker"}, {"letter": "C", "text": "Cancelada definitivamente"}, {"letter": "D", "text": "Convertida en licencia de broker"}], "correct": "B", "expl": "Sin broker queda inactiva; no puede ejercer."}, {"n": 70, "area": "Matemáticas y cierre", "q": "Casa vendida en $380,000, comision total 6%. La comision es:", "options": [{"letter": "A", "text": "$22,800"}, {"letter": "B", "text": "$19,000"}, {"letter": "C", "text": "$38,000"}, {"letter": "D", "text": "$22,000"}], "correct": "A", "expl": "$380,000 x 0.06 = $22,800."}, {"n": 71, "area": "Matemáticas y cierre", "q": "Doc stamps en una escritura (deed) por venta de $275,000 en Florida ($0.70 por cada $100):", "options": [{"letter": "A", "text": "$1,925"}, {"letter": "B", "text": "$962.50"}, {"letter": "C", "text": "$19,250"}, {"letter": "D", "text": "$2,750"}], "correct": "A", "expl": "2,750 x $0.70 = $1,925."}, {"n": 72, "area": "Matemáticas y cierre", "q": "Hipoteca de $240,000: doc stamps ($0.35 por cada $100) mas intangible tax ($2 por cada $1,000):", "options": [{"letter": "A", "text": "$840 + $480 = $1,320"}, {"letter": "B", "text": "$1,680 + $240 = $1,920"}, {"letter": "C", "text": "$420 + $120 = $540"}, {"letter": "D", "text": "Solo $840"}], "correct": "A", "expl": "(2,400 x $0.35) + (240 x $2) = $840 + $480 = $1,320."}, {"n": 73, "area": "Matemáticas y cierre", "q": "Prestamo de $280,000 sobre propiedad de $350,000. El LTV es:", "options": [{"letter": "A", "text": "75%"}, {"letter": "B", "text": "80%"}, {"letter": "C", "text": "125%"}, {"letter": "D", "text": "20%"}], "correct": "B", "expl": "280,000 / 350,000 = 80%."}, {"n": 74, "area": "Matemáticas y cierre", "q": "Impuestos anuales de $4,380. El vendedor es dueno 120 dias del ano. Su porcion prorrateada es:", "options": [{"letter": "A", "text": "$1,440"}, {"letter": "B", "text": "$1,460"}, {"letter": "C", "text": "$2,190"}, {"letter": "D", "text": "$4,380"}], "correct": "A", "expl": "($4,380 / 365) x 120 = $12 x 120 = $1,440."}, {"n": 75, "area": "Matemáticas y cierre", "q": "El Closing Disclosure debe entregarse al comprador:", "options": [{"letter": "A", "text": "El dia del cierre"}, {"letter": "B", "text": "Al menos 3 dias habiles antes del cierre"}, {"letter": "C", "text": "30 dias despues"}, {"letter": "D", "text": "No es obligatorio"}], "correct": "B", "expl": "Closing Disclosure minimo 3 dias habiles antes del cierre."}, {"n": 76, "area": "Descripciones legales", "q": "En el sistema gubernamental de subdivision, una section equivale a:", "options": [{"letter": "A", "text": "36 acres"}, {"letter": "B", "text": "640 acres (una milla cuadrada)"}, {"letter": "C", "text": "43,560 acres"}, {"letter": "D", "text": "160 acres"}], "correct": "B", "expl": "Section = 640 acres = 1 milla cuadrada."}, {"n": 77, "area": "Descripciones legales", "q": "Un township contiene:", "options": [{"letter": "A", "text": "640 sections"}, {"letter": "B", "text": "36 sections"}, {"letter": "C", "text": "12 sections"}, {"letter": "D", "text": "100 acres"}], "correct": "B", "expl": "Township = 36 sections."}, {"n": 78, "area": "Descripciones legales", "q": "La descripcion por metes and bounds se basa en:", "options": [{"letter": "A", "text": "Numero de lote y manzana"}, {"letter": "B", "text": "Distancias y angulos desde un point of beginning, cerrando el poligono"}, {"letter": "C", "text": "La direccion postal"}, {"letter": "D", "text": "Coordenadas del censo"}], "correct": "B", "expl": "Metes and bounds: distancias y angulos desde el point of beginning."}, {"n": 79, "area": "Descripciones legales", "q": "La descripcion lot and block se encuentra en:", "options": [{"letter": "A", "text": "El plano de subdivision registrado (plat) en el condado"}, {"letter": "B", "text": "La escritura original del gobierno"}, {"letter": "C", "text": "El testamento del dueno"}, {"letter": "D", "text": "La poliza de seguro"}], "correct": "A", "expl": "Lot and block se lee en el plat registrado."}, {"n": 80, "area": "Descripciones legales", "q": "Un lote mide 100 x 150 pies. Su area en acres es:", "options": [{"letter": "A", "text": "0.34 acres (15,000 / 43,560)"}, {"letter": "B", "text": "1 acre exacto"}, {"letter": "C", "text": "3.4 acres"}, {"letter": "D", "text": "0.034 acres"}], "correct": "A", "expl": "15,000 pies2 / 43,560 = 0.34 acres."}, {"n": 81, "area": "Financiamiento", "q": "Cuando el vendedor financia directamente al comprador se llama:", "options": [{"letter": "A", "text": "Prestamo FHA"}, {"letter": "B", "text": "Purchase money mortgage (seller financing)"}, {"letter": "C", "text": "Reverse mortgage"}, {"letter": "D", "text": "Prestamo puente del gobierno"}], "correct": "B", "expl": "Seller financing = purchase money mortgage."}, {"n": 82, "area": "Financiamiento", "q": "Una blanket mortgage:", "options": [{"letter": "A", "text": "Cubre una sola vivienda"}, {"letter": "B", "text": "Grava dos o mas parcelas con un solo prestamo, con clausula de liberacion parcial"}, {"letter": "C", "text": "Es solo para veteranos"}, {"letter": "D", "text": "No requiere garantia"}], "correct": "B", "expl": "Blanket: un prestamo sobre varias parcelas, con liberacion parcial."}, {"n": 83, "area": "Financiamiento", "q": "La diferencia entre mortgage banker y mortgage broker es:", "options": [{"letter": "A", "text": "No hay diferencia"}, {"letter": "B", "text": "El banker presta con sus propios fondos; el broker intermedia entre prestatario y prestamista por una comision"}, {"letter": "C", "text": "El broker presta dinero propio"}, {"letter": "D", "text": "El banker no necesita licencia"}], "correct": "B", "expl": "Banker presta fondos propios; broker intermedia por comision."}, {"n": 84, "area": "Financiamiento", "q": "Fannie Mae y Freddie Mac operan en el:", "options": [{"letter": "A", "text": "Mercado primario"}, {"letter": "B", "text": "Mercado secundario, comprando prestamos y dando liquidez"}, {"letter": "C", "text": "Mercado de alquileres"}, {"letter": "D", "text": "Solo en Florida"}], "correct": "B", "expl": "Mercado secundario: compran prestamos y dan liquidez."}, {"n": 85, "area": "Violaciones", "q": "Son causales de suspension o revocacion de la licencia en Florida:", "options": [{"letter": "A", "text": "Cobrar comision alta"}, {"letter": "B", "text": "Fraude, misrepresentation, commingling o conversion de fondos"}, {"letter": "C", "text": "Vestir informal"}, {"letter": "D", "text": "No usar redes sociales"}], "correct": "B", "expl": "Fraude, misrepresentation y mal manejo de fondos = suspension/revocacion."}, {"n": 86, "area": "Violaciones", "q": "El Real Estate Recovery Fund de Florida:", "options": [{"letter": "A", "text": "Paga comisiones atrasadas a brokers"}, {"letter": "B", "text": "Compensa al publico perjudicado por un licenciatario, hasta $50,000 por transaccion"}, {"letter": "C", "text": "Financia a la FREC"}, {"letter": "D", "text": "Cubre perdidas de inversion"}], "correct": "B", "expl": "Recovery Fund: hasta $50,000 por transaccion al publico perjudicado."}, {"n": 87, "area": "Violaciones", "q": "La negligencia culpable (culpable negligence) de un broker, como no verificar la zonificacion prometida, puede sancionarse segun:", "options": [{"letter": "A", "text": "F.S. 475.25(1)(b)"}, {"letter": "B", "text": "El codigo penal federal unicamente"}, {"letter": "C", "text": "No es sancionable"}, {"letter": "D", "text": "Solo con una carta"}], "correct": "A", "expl": "F.S. 475.25(1)(b): negligencia culpable e incumplimiento de deberes."}, {"n": 88, "area": "Leyes federales/estatales", "q": "Las clases protegidas por el Fair Housing Act federal son:", "options": [{"letter": "A", "text": "Raza, color, religion, sexo, discapacidad, estado familiar, origen nacional"}, {"letter": "B", "text": "Edad e ingresos solamente"}, {"letter": "C", "text": "Ocupacion y estado civil"}, {"letter": "D", "text": "Solo raza y religion"}], "correct": "A", "expl": "Las 7 clases federales del Fair Housing Act."}, {"n": 89, "area": "Leyes federales/estatales", "q": "Bajo la ley de landlord and tenant de Florida (Cap. 83), el deposito de seguridad:", "options": [{"letter": "A", "text": "Puede mezclarlo el landlord con su dinero"}, {"letter": "B", "text": "Debe mantenerse en cuenta separada y el landlord debe notificar al inquilino donde esta dentro de 30 dias"}, {"letter": "C", "text": "No tiene regulacion"}, {"letter": "D", "text": "Se devuelve siempre con intereses del 10%"}], "correct": "B", "expl": "Cuenta separada y aviso al inquilino en 30 dias (F.S. 83.49)."}, {"n": 90, "area": "Leyes federales/estatales", "q": "RESPA aplica a:", "options": [{"letter": "A", "text": "Todas las ventas en efectivo"}, {"letter": "B", "text": "Prestamos residenciales federales (1-4 unidades) y prohibe kickbacks y exige divulgaciones de cierre"}, {"letter": "C", "text": "Solo propiedades comerciales"}, {"letter": "D", "text": "Arrendamientos"}], "correct": "B", "expl": "RESPA: prestamos residenciales federales, anti-kickbacks y divulgaciones."}, {"n": 91, "area": "Impuestos", "q": "El impuesto ad valorem se calcula como:", "options": [{"letter": "A", "text": "Precio de compra x 10%"}, {"letter": "B", "text": "(Assessed value - exenciones) x millage rate"}, {"letter": "C", "text": "Lo que decida el vendedor"}, {"letter": "D", "text": "Monto de la hipoteca x tasa"}], "correct": "B", "expl": "(Assessed - exenciones) x millage."}, {"n": 92, "area": "Impuestos", "q": "La enmienda Save Our Homes limita el aumento anual del assessed value del homestead a:", "options": [{"letter": "A", "text": "10%"}, {"letter": "B", "text": "3% o el IPC, lo que sea menor"}, {"letter": "C", "text": "0%, nunca sube"}, {"letter": "D", "text": "25%"}], "correct": "B", "expl": "Save Our Homes: tope 3% o IPC, el menor."}, {"n": 93, "area": "Impuestos", "q": "Los property tax liens (gravamenes por impuestos):", "options": [{"letter": "A", "text": "Son voluntarios"}, {"letter": "B", "text": "Son specific, involuntarios y tienen prioridad sobre la mayoria de los demas gravamenes"}, {"letter": "C", "text": "Desaparecen al vender"}, {"letter": "D", "text": "Solo aplican a comercios"}], "correct": "B", "expl": "Tax lien: specific, involuntario y prioritario."}, {"n": 94, "area": "FREC y DBPR", "q": "La FREC (Florida Real Estate Commission) esta compuesta por:", "options": [{"letter": "A", "text": "3 miembros"}, {"letter": "B", "text": "7 miembros nombrados por el Gobernador"}, {"letter": "C", "text": "12 miembros electos"}, {"letter": "D", "text": "Solo brokers"}], "correct": "B", "expl": "7 miembros nombrados por el Gobernador."}, {"n": 95, "area": "FREC y DBPR", "q": "La DBPR (Department of Business and Professional Regulation):", "options": [{"letter": "A", "text": "Fija las comisiones"}, {"letter": "B", "text": "Emite las licencias y apoya la aplicacion de la ley; la FREC crea las reglas y disciplina"}, {"letter": "C", "text": "Vende propiedades"}, {"letter": "D", "text": "Otorga hipotecas"}], "correct": "B", "expl": "DBPR emite licencias; FREC reglamenta y disciplina."}, {"n": 96, "area": "Inversiones", "q": "El leverage (apalancamiento) en inversion inmobiliaria significa:", "options": [{"letter": "A", "text": "Pagar todo en efectivo"}, {"letter": "B", "text": "Usar dinero prestado para controlar una propiedad mayor y amplificar el retorno sobre el efectivo invertido"}, {"letter": "C", "text": "Evitar deudas siempre"}, {"letter": "D", "text": "Comprar solo terrenos"}], "correct": "B", "expl": "Leverage: deuda para amplificar retorno sobre efectivo."}, {"n": 97, "area": "Inversiones", "q": "Un 1031 exchange (like-kind exchange) permite:", "options": [{"letter": "A", "text": "Evadir impuestos ilegalmente"}, {"letter": "B", "text": "Diferir el impuesto sobre la ganancia al reinvertir en otra propiedad similar de inversion"}, {"letter": "C", "text": "No pagar nunca impuestos"}, {"letter": "D", "text": "Cambiar de casa cada ano sin costo"}], "correct": "B", "expl": "1031: difiere el impuesto reinvirtiendo en propiedad similar."}, {"n": 98, "area": "El negocio", "q": "Una caracteristica distintiva del mercado inmobiliario frente a otros mercados es:", "options": [{"letter": "A", "text": "Los bienes son moviles y homogeneos"}, {"letter": "B", "text": "Inmovilidad, heterogeneidad (cada propiedad es unica) e iliquidez relativa"}, {"letter": "C", "text": "Precios fijados por el gobierno"}, {"letter": "D", "text": "Transacciones instantaneas"}], "correct": "B", "expl": "Inmovilidad, heterogeneidad e iliquidez definen el mercado."}, {"n": 99, "area": "Mercados", "q": "Si la demanda de vivienda en Miami sube y la oferta se mantiene igual, el efecto esperado es:", "options": [{"letter": "A", "text": "Bajada de precios"}, {"letter": "B", "text": "Subida de precios"}, {"letter": "C", "text": "Ningun cambio"}, {"letter": "D", "text": "Mas construccion inmediata"}], "correct": "B", "expl": "Mas demanda con igual oferta = precios suben."}, {"n": 100, "area": "Zonificación", "q": "Un variance (dispensa) de zonificacion es:", "options": [{"letter": "A", "text": "Un cambio permanente del mapa de zonificacion"}, {"letter": "B", "text": "Un permiso para desviarse de la norma por una dificultad (hardship) del terreno, sin cambiar la zonificacion"}, {"letter": "C", "text": "Una multa"}, {"letter": "D", "text": "Lo mismo que expropiacion"}], "correct": "B", "expl": "Variance: desvio por hardship sin cambiar la zonificacion."}];
+const PASS_PCT = 75;
+const LS_KEY = "frec_sim_v1";
+const $ = id => document.getElementById(id);
+let S = null;
+
+/* ---------- persistent store ---------- */
+function loadStore(){
+  try{
+    const s = JSON.parse(localStorage.getItem(LS_KEY));
+    if(s && typeof s==="object") return Object.assign({best:0,answered:0,correct:0,streak:0,lastDay:"",errors:[],area:{}}, s);
+  }catch(e){}
+  return {best:0,answered:0,correct:0,streak:0,lastDay:"",errors:[],area:{}};
+}
+let store = loadStore();
+function saveStore(){ try{ localStorage.setItem(LS_KEY, JSON.stringify(store)); }catch(e){} }
+function todayStr(){ return new Date().toISOString().slice(0,10); }
+function bumpStreak(){
+  const t = todayStr();
+  if(store.lastDay === t) return;
+  const y = new Date(Date.now()-864e5).toISOString().slice(0,10);
+  store.streak = (store.lastDay === y) ? store.streak+1 : 1;
+  store.lastDay = t;
+}
+
+function show(id){
+  ["screen-home","screen-quiz","screen-cards","screen-results"].forEach(s => $(s).classList.toggle("hidden", s !== id));
+  window.scrollTo(0,0);
+}
+
+/* ---------- home dashboard ---------- */
+function renderHome(){
+  $("st-best").textContent = store.best>0 ? store.best+"%" : "\u2013";
+  $("st-acc").textContent = store.answered>0 ? Math.round(store.correct/store.answered*100)+"%" : "\u2013";
+  $("st-streak").textContent = store.streak;
+  $("st-err").textContent = store.errors.length;
+  $("err-count").textContent = store.errors.length ? store.errors.length+" pendientes" : "sin errores pendientes";
+  $("m-errors").disabled = store.errors.length===0;
+
+  const counts={};
+  QUESTIONS.forEach(q=>counts[q.area]=(counts[q.area]||0)+1);
+  $("area-list").innerHTML = Object.keys(counts).map(a=>{
+    const st = store.area[a];
+    let pct = "";
+    if(st && st.tot>0){
+      const p=Math.round(st.ok/st.tot*100);
+      pct = `<span class="pct ${p>=75?"good":"low"}">${p}%</span>`;
+    }
+    return `<div><span>${a} <b>&middot;${counts[a]}</b></span>${pct}</div>`;
+  }).join("");
+}
+$("m-study").onclick = ()=>startQuiz("study");
+$("m-exam").onclick = ()=>startQuiz("exam");
+$("m-quick").onclick = ()=>startQuiz("quick");
+$("m-cards").onclick = startCards;
+$("m-errors").onclick = ()=>{
+  if(store.errors.length) startQuiz("errors", store.errors.slice());
+};
+$("m-reset").onclick = ()=>{
+  if(confirm("\u00BFBorrar todo tu progreso guardado (racha, notas, errores)?")){
+    store = {best:0,answered:0,correct:0,streak:0,lastDay:"",errors:[],area:{}};
+    saveStore(); renderHome();
+  }
+};
+
+/* ---------- quiz engine ---------- */
+function shuffled(arr){
+  const a=arr.slice();
+  for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}
+  return a;
+}
+function startQuiz(mode, onlyIdx){
+  let order;
+  if(mode==="quick"){
+    order = shuffled(QUESTIONS.map((_,i)=>i)).slice(0,20);
+  } else if(onlyIdx){
+    order = onlyIdx.slice();
+    if($("opt-shuffle").checked) order = shuffled(order);
+  } else {
+    order = QUESTIONS.map((_,i)=>i);
+    if($("opt-shuffle").checked) order = shuffled(order);
+  }
+  const timed = (mode==="exam"||mode==="quick");
+  S = {mode, order, idx:0, answers:{}, marked:new Set(),
+       t0:Date.now(), limit: mode==="exam"?Math.round(3.5*3600):(mode==="quick"?2400:0),
+       timerId:null, reviewMode:(mode==="errors")};
+  show("screen-quiz");
+  $("exam-toolbar").style.display = timed ? "flex" : "none";
+  $("home-toolbar").style.display = timed ? "none" : "flex";
+  $("timer").classList.toggle("hidden", !timed);
+  if(timed) startTimer();
+  renderQ();
+}
+function curQ(){ return QUESTIONS[S.order[S.idx]]; }
+function total(){ return S.order.length; }
+
+function renderQ(){
+  const q = curQ(), n = S.idx+1;
+  $("q-count").textContent = `Pregunta ${n} de ${total()}`;
+  $("pbar").style.width = (n/total()*100)+"%";
+  $("q-area").textContent = q.area;
+  $("q-text").textContent = q.n + ". " + q.q;
+  const box=$("q-opts"); box.innerHTML="";
+  const fb=$("q-feedback"); fb.innerHTML="";
+  const key=S.order[S.idx], saved=S.answers[key];
+  const instant = (S.mode==="study"||S.mode==="errors") && saved!==undefined;
+  q.options.forEach((op,i)=>{
+    const b=document.createElement("button");
+    b.className="opt";
+    b.innerHTML=`<span class="letter">${op.letter}</span><span>${op.text}</span>`;
+    if(instant){
+      b.disabled=true;
+      const ci=q.options.findIndex(o=>o.letter===q.correct);
+      if(i===ci) b.classList.add("correct"); else if(i===saved) b.classList.add("wrong");
+    } else if((S.mode==="exam"||S.mode==="quick") && saved===i){
+      b.classList.add("selected");
+    }
+    b.onclick=()=>selectOpt(i);
+    box.appendChild(b);
+  });
+  if(instant){
+    const ci=q.options.findIndex(o=>o.letter===q.correct);
+    const ok=saved===ci;
+    fb.innerHTML=`<div class="feedback ${ok?"good":"bad"}"><strong>${ok?"Correcto":"Incorrecto"}. Respuesta: ${q.correct}</strong>${q.expl}</div>`;
+  }
+  $("btn-prev").disabled = S.idx===0;
+  const last = S.idx===total()-1, timed=(S.mode==="exam"||S.mode==="quick");
+  $("btn-next").textContent = last ? (timed?"Revisar y terminar":"Ver resultados") : "Siguiente \u2192";
+  $("btn-mark").textContent = S.marked.has(key) ? "Quitar marca" : "Marcar para revisar";
+  renderPalette();
+}
+function selectOpt(i){
+  const key=S.order[S.idx];
+  if((S.mode==="study"||S.mode==="errors") && S.answers[key]!==undefined) return;
+  S.answers[key]=i;
+  renderQ();
+}
+$("btn-prev").onclick=()=>{ if(S.idx>0){S.idx--; renderQ();} };
+$("btn-next").onclick=()=>{ if(S.idx<total()-1){S.idx++; renderQ();} else finishQuiz(false); };
+$("btn-mark").onclick=()=>{
+  const key=S.order[S.idx];
+  S.marked.has(key)?S.marked.delete(key):S.marked.add(key);
+  renderQ();
+};
+$("btn-map").onclick=()=>$("palette-overlay").classList.remove("hidden");
+$("btn-close-map").onclick=()=>$("palette-overlay").classList.add("hidden");
+$("palette-overlay").addEventListener("click",e=>{
+  if(e.target===$("palette-overlay")) $("palette-overlay").classList.add("hidden");
+});
+$("btn-quit").onclick=()=>{ if(confirm("\u00BFSalir? Se perder\u00E1 el avance de esta sesi\u00F3n.")) show("screen-home"), renderHome(); };
+function renderPalette(){
+  const g=$("pgrid"); g.innerHTML="";
+  S.order.forEach((qi,pos)=>{
+    const c=document.createElement("button");
+    c.className="pcell"; c.textContent=pos+1;
+    if(S.answers[qi]!==undefined) c.classList.add("answered");
+    if(S.marked.has(qi)) c.classList.add("marked");
+    if(pos===S.idx) c.classList.add("current");
+    c.onclick=()=>{S.idx=pos; $("palette-overlay").classList.add("hidden"); renderQ();};
+    g.appendChild(c);
+  });
+}
+function fmt(s){
+  s=Math.max(0,s);
+  const h=Math.floor(s/3600), m=Math.floor(s%3600/60), ss=s%60;
+  return `${h}:${String(m).padStart(2,"0")}:${String(ss).padStart(2,"0")}`;
+}
+function startTimer(){
+  clearInterval(S.timerId);
+  const tick=()=>{
+    const el=Math.floor((Date.now()-S.t0)/1000);
+    const rem=S.limit-el;
+    $("timer").textContent=fmt(rem);
+    $("timer").classList.toggle("low", rem<900);
+    if(rem<=0){ clearInterval(S.timerId); finishQuiz(true); }
+  };
+  tick(); S.timerId=setInterval(tick,1000);
+}
+$("btn-finish").onclick=()=>finishQuiz(false);
+function finishQuiz(auto){
+  const timed=(S.mode==="exam"||S.mode==="quick");
+  if(timed && !auto){
+    const un=S.order.filter(qi=>S.answers[qi]===undefined).length;
+    if(un>0 && !confirm(`Tienes ${un} pregunta(s) sin responder. \u00BFTerminar de todos modos?`)) return;
+  }
+  clearInterval(S.timerId);
+  gradeAndSave();
+  renderResults(auto);
+}
+function gradeAndSave(){
+  let right=0; const wrong=[];
+  S.order.forEach(qi=>{
+    const q=QUESTIONS[qi];
+    const ci=q.options.findIndex(o=>o.letter===q.correct);
+    const ok = S.answers[qi]===ci;
+    if(ok) right++; else wrong.push(qi);
+    if(!store.area[q.area]) store.area[q.area]={ok:0,tot:0};
+    store.area[q.area].tot++;
+    if(ok) store.area[q.area].ok++;
+  });
+  const pct=Math.round(right/total()*100);
+  store.answered+=total(); store.correct+=right;
+  if(S.mode==="exam" && pct>store.best) store.best=pct;
+  // error bank: add new wrong, remove fixed in review mode
+  const errSet=new Set(store.errors);
+  if(S.reviewMode){
+    wrong.forEach(qi=>errSet.add(qi));
+    S.order.forEach(qi=>{ if(!wrong.includes(qi)) errSet.delete(qi); });
+  } else {
+    wrong.forEach(qi=>errSet.add(qi));
+  }
+  store.errors=[...errSet];
+  bumpStreak();
+  saveStore();
+  S._right=right; S._pct=pct; S._wrong=wrong;
+}
+function renderResults(auto){
+  show("screen-results");
+  const right=S._right, pct=S._pct, wrong=S._wrong;
+  $("r-score").textContent=pct+"%";
+  $("r-score").style.color = pct>=PASS_PCT?"var(--good)":"var(--bad)";
+  $("r-detail").textContent=`${right} de ${total()} correctas`;
+  const v=$("r-verdict");
+  const showVerdict = (S.mode==="exam");
+  v.style.display = showVerdict?"":"none";
+  v.textContent = pct>=PASS_PCT?"APROBADO":"NO APROBADO";
+  v.className="verdict "+(pct>=PASS_PCT?"pass":"fail");
+  const mins=Math.round((Date.now()-S.t0)/60000);
+  $("r-time").textContent = auto ? "Se agot\u00F3 el tiempo." : `Tiempo utilizado: ${mins} min`;
+
+  const stats={};
+  S.order.forEach(qi=>{
+    const q=QUESTIONS[qi];
+    if(!stats[q.area]) stats[q.area]={ok:0,tot:0};
+    stats[q.area].tot++;
+    const ci=q.options.findIndex(o=>o.letter===q.correct);
+    if(S.answers[qi]===ci) stats[q.area].ok++;
+  });
+  $("r-areas").innerHTML=Object.keys(stats).map(a=>{
+    const s=stats[a], p=Math.round(s.ok/s.tot*100);
+    return `<div class="areabar ${p<75?"low":""}"><div class="lbl"><span>${a}</span><b>${s.ok}/${s.tot} (${p}%)</b></div><div class="track"><div class="fill" style="width:${p}%"></div></div></div>`;
+  }).join("");
+
+  $("r-wrong-title").textContent = wrong.length?`Preguntas a repasar (${wrong.length})`:"Sin errores. Excelente.";
+  $("r-wrong").innerHTML=wrong.map(qi=>{
+    const q=QUESTIONS[qi], picked=S.answers[qi];
+    const ci=q.options.findIndex(o=>o.letter===q.correct);
+    const pickedTxt = picked===undefined?"<i>Sin responder</i>"
+      :`<s>${q.options[picked].letter}) ${q.options[picked].text}</s>`;
+    return `<div class="wrongitem"><div class="wq">${q.n}. ${q.q}</div>
+      <div class="wa">Tu respuesta: ${pickedTxt}</div>
+      <div class="wa">Correcta: <b>${q.correct}) ${q.options[ci].text}</b></div>
+      <div class="we">${q.expl}</div></div>`;
+  }).join("");
+  $("btn-retry-wrong").style.display = wrong.length?"":"none";
+  $("btn-retry-wrong").onclick=()=>startQuiz("errors", wrong.slice());
+}
+$("btn-home").onclick=()=>{ show("screen-home"); renderHome(); };
+$("btn-again").onclick=()=>{ show("screen-home"); renderHome(); };
+
+/* ---------- flashcards ---------- */
+let C=null;
+function startCards(){
+  let order=QUESTIONS.map((_,i)=>i);
+  if($("opt-shuffle").checked) order=shuffled(order);
+  C={order, idx:0, flipped:false};
+  show("screen-cards");
+  renderCard();
+}
+function renderCard(){
+  const q=QUESTIONS[C.order[C.idx]];
+  $("c-count").textContent=`Tarjeta ${C.idx+1} de ${C.order.length}`;
+  $("cbar").style.width=((C.idx+1)/C.order.length*100)+"%";
+  $("fc-front").textContent=q.n+". "+q.q;
+  const ci=q.options.findIndex(o=>o.letter===q.correct);
+  $("fc-ans").textContent=`${q.correct}) ${q.options[ci].text}`;
+  $("fc-expl").textContent=q.expl;
+  $("fcard").classList.toggle("flipped", C.flipped);
+}
+$("fcard").onclick=()=>{ C.flipped=!C.flipped; renderCard(); };
+$("btn-cprev").onclick=()=>{ if(C.idx>0){C.idx--; C.flipped=false; renderCard();} };
+$("btn-cnext").onclick=()=>{ if(C.idx<C.order.length-1){C.idx++; C.flipped=false; renderCard();} };
+$("btn-cards-exit").onclick=()=>{ show("screen-home"); renderHome(); };
+
+/* init */
+renderHome();
+</script>
+</body>
+</html>
