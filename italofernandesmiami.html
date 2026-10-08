@@ -5,6 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Italo Fernandes — Elite Trainer &amp; Coach | Miami</title>
 <meta name="description" content="Italo Fernandes — Elite Trainer & Coach in Miami. IFPA certified. Luxury Condo Specialist. Body Express, GAP, Spinning, Hydro, Personal Training. VIP clients only.">
+<meta property="og:title" content="Italo Fernandes — Elite Trainer & Coach | Miami">
+<meta property="og:description" content="IFPA certified. Luxury Condo Specialist. VIP clients only. Apply for coaching in Miami.">
+<meta property="og:image" content="images/italofernandesmiami/post-vacation.jpg">
+<meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -13,8 +17,10 @@
 </script>
 <style>
 :root{
-  --black:#0a0908; --coal:#141210; --gold:#d4a937; --gold-lt:#f0d488; --gold-dk:#8a6a1c;
+  --black:#0a0908; --coal:#141210; --coal2:#1b1815;
+  --gold:#d4a937; --gold-lt:#f0d488; --gold-dk:#8a6a1c;
   --cream:#f4ede0; --muted:#a89f8d; --line:rgba(212,169,55,.22);
+  --wa:#25d366;
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
@@ -24,6 +30,8 @@ img{display:block;max-width:100%}
 a{color:inherit}
 .display{font-family:'Anton',sans-serif;text-transform:uppercase;letter-spacing:.01em;line-height:.92;font-weight:400}
 .wrap{max-width:1280px;margin:0 auto;padding:0 clamp(20px,4vw,56px)}
+/* gold scroll progress */
+#progress{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,var(--gold-dk),var(--gold),var(--gold-lt));z-index:300}
 /* grain */
 body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:200;opacity:.09;
   background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");}
@@ -33,15 +41,19 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 nav.scrolled{background:rgba(10,9,8,.9);backdrop-filter:blur(14px);border-color:var(--line)}
 .brand{font-family:'Anton',sans-serif;font-size:1.35rem;letter-spacing:.06em;text-decoration:none}
 .brand span{color:var(--gold)}
-.nav-links{display:flex;gap:34px;align-items:center}
-.nav-links a{text-decoration:none;font-size:.78rem;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);transition:color .3s}
-.nav-links a:hover{color:var(--gold)}
+.nav-links{display:flex;gap:30px;align-items:center}
+.nav-links a.nl{text-decoration:none;font-size:.76rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);transition:color .3s;position:relative}
+.nav-links a.nl::after{content:"";position:absolute;left:0;bottom:-6px;height:1px;width:0;background:var(--gold);transition:width .35s}
+.nav-links a.nl:hover{color:var(--gold)}
+.nav-links a.nl:hover::after{width:100%}
 .btn{display:inline-block;text-decoration:none;font-weight:600;font-size:.8rem;letter-spacing:.2em;text-transform:uppercase;
-  padding:16px 34px;border:1px solid var(--gold);color:var(--gold);position:relative;overflow:hidden;transition:color .35s;cursor:pointer;background:transparent}
+  padding:16px 34px;border:1px solid var(--gold);color:var(--gold);position:relative;overflow:hidden;transition:color .35s,box-shadow .35s;cursor:pointer;background:transparent;z-index:0}
 .btn::before{content:"";position:absolute;inset:0;background:linear-gradient(105deg,var(--gold-dk),var(--gold),var(--gold-lt));transform:translateX(-101%);transition:transform .45s cubic-bezier(.7,0,.3,1);z-index:-1}
-.btn:hover{color:#000}.btn:hover::before{transform:translateX(0)}
-.btn.solid{background:linear-gradient(105deg,var(--gold-dk),var(--gold) 60%,var(--gold-lt));color:#000;border:none;z-index:0}
+.btn:hover{color:#000;box-shadow:0 12px 34px -10px rgba(212,169,55,.55)}
+.btn:hover::before{transform:translateX(0)}
+.btn.solid{background:linear-gradient(105deg,var(--gold-dk),var(--gold) 60%,var(--gold-lt));color:#000;border:none}
 .btn.solid::before{background:#fff}
+.btn.mag{transition:transform .25s cubic-bezier(.2,.7,.2,1),color .35s,box-shadow .35s}
 .burger{display:none;background:none;border:none;cursor:pointer;flex-direction:column;gap:6px;padding:6px}
 .burger span{display:block;width:26px;height:2px;background:var(--gold)}
 /* hero */
@@ -65,112 +77,177 @@ nav.scrolled{background:rgba(10,9,8,.9);backdrop-filter:blur(14px);border-color:
 @keyframes drop{0%{transform:scaleY(0);transform-origin:top}45%{transform:scaleY(1);transform-origin:top}55%{transform:scaleY(1);transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
 /* ticker */
 .ticker{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--coal);overflow:hidden;white-space:nowrap;padding:20px 0}
-.ticker-track{display:inline-flex;gap:0;animation:tick 26s linear infinite}
+.ticker-track{display:inline-flex;animation:tick 26s linear infinite}
 .ticker span{font-family:'Anton',sans-serif;font-size:clamp(1.1rem,2.4vw,1.7rem);letter-spacing:.08em;text-transform:uppercase;color:var(--cream);padding:0 26px;display:flex;align-items:center;gap:52px}
 .ticker span i{color:var(--gold);font-style:normal;font-size:.8em}
 @keyframes tick{to{transform:translateX(-50%)}}
 /* sections */
 section{padding:clamp(80px,10vw,150px) 0;position:relative}
 .sec-head{margin-bottom:clamp(40px,5vw,70px)}
-.sec-num{font-family:'Anton',sans-serif;font-size:.95rem;letter-spacing:.3em;color:var(--gold);margin-bottom:14px}
+.sec-num{font-family:'Anton',sans-serif;font-size:.95rem;letter-spacing:.3em;color:var(--gold);margin-bottom:14px;display:flex;align-items:center;gap:16px}
+.sec-num::after{content:"";flex:0 0 70px;height:1px;background:linear-gradient(90deg,var(--gold),transparent)}
 .sec-title{font-size:clamp(40px,6.4vw,92px);color:var(--cream)}
 .sec-title em{font-style:normal;color:var(--gold)}
+.sec-sub{margin-top:18px;color:var(--muted);max-width:640px;line-height:1.8;font-weight:300}
+/* gold divider */
+.gdiv{height:1px;background:linear-gradient(90deg,transparent,var(--gold) 20%,var(--gold-lt) 50%,var(--gold) 80%,transparent);opacity:.5;margin:0}
 /* coach */
 .coach-grid{display:grid;grid-template-columns:1fr 1.05fr;gap:clamp(36px,5vw,80px);align-items:center}
-.portrait{position:relative}
-.portrait img{width:100%;aspect-ratio:4/5;object-fit:cover;filter:saturate(.92) contrast(1.05)}
-.portrait::before{content:"";position:absolute;inset:18px -18px -18px 18px;border:1px solid var(--gold);z-index:-1}
-.portrait .tag{position:absolute;left:22px;bottom:22px;background:rgba(10,9,8,.82);backdrop-filter:blur(8px);border:1px solid var(--line);padding:12px 20px;font-size:.72rem;letter-spacing:.26em;text-transform:uppercase;color:var(--gold)}
+.collage{position:relative;padding-bottom:60px}
+.collage .main{width:82%;aspect-ratio:4/5;object-fit:cover;filter:saturate(.92) contrast(1.05);position:relative;z-index:2}
+.collage .frame{position:absolute;inset:18px auto auto 18px;width:82%;aspect-ratio:4/5;border:1px solid var(--gold);z-index:1}
+.collage .off{position:absolute;right:0;bottom:0;width:52%;aspect-ratio:1/1;object-fit:cover;border:1px solid var(--line);z-index:3;box-shadow:0 30px 60px -20px rgba(0,0,0,.7)}
+.collage .brandcard{position:absolute;left:-8px;bottom:24px;z-index:4;width:46%;border:1px solid var(--gold);box-shadow:0 24px 50px -18px rgba(212,169,55,.35)}
+.collage .tag{position:absolute;right:8px;top:26px;z-index:4;background:rgba(10,9,8,.85);backdrop-filter:blur(8px);border:1px solid var(--line);padding:12px 20px;font-size:.7rem;letter-spacing:.26em;text-transform:uppercase;color:var(--gold);writing-mode:vertical-rl}
 .coach-copy p{color:var(--muted);line-height:1.85;font-weight:300;margin-bottom:20px;font-size:clamp(.98rem,1.4vw,1.1rem)}
 .coach-copy p strong{color:var(--cream);font-weight:600}
 .quote{border-left:2px solid var(--gold);padding:6px 0 6px 26px;margin:30px 0;font-size:clamp(1.25rem,2.4vw,1.8rem);line-height:1.5;color:var(--cream);font-weight:300}
 .quote small{display:block;margin-top:10px;font-size:.72rem;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);font-weight:500}
-.facts{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin-top:34px}
-.fact{background:var(--black);padding:22px 18px;text-align:center}
-.fact b{display:block;font-family:'Anton',sans-serif;font-size:1.7rem;color:var(--gold);letter-spacing:.04em;margin-bottom:6px}
-.fact span{font-size:.7rem;letter-spacing:.22em;text-transform:uppercase;color:var(--muted)}
+/* animated stats */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin-top:36px}
+.stat{background:var(--black);padding:26px 14px;text-align:center;position:relative;overflow:hidden}
+.stat::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);opacity:0;transition:opacity .4s}
+.stat:hover::before{opacity:1}
+.stat b{display:block;font-family:'Anton',sans-serif;font-size:clamp(1.6rem,3vw,2.4rem);color:var(--gold);letter-spacing:.04em;margin-bottom:6px}
+.stat span{font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
 /* method */
 .cards{display:grid;grid-template-columns:repeat(2,1fr);gap:clamp(20px,3vw,36px)}
 .card{position:relative;overflow:hidden;background:var(--coal);border:1px solid rgba(212,169,55,.12);transition:transform .5s cubic-bezier(.2,.7,.2,1),border-color .4s,box-shadow .4s}
-.card:hover{transform:translateY(-8px);border-color:var(--gold);box-shadow:0 30px 60px -20px rgba(212,169,55,.25)}
-.card .ph{overflow:hidden;aspect-ratio:16/10}
+.card::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(105deg,transparent 40%,rgba(240,212,136,.09) 50%,transparent 60%);transform:translateX(-120%);transition:transform 1s ease}
+.card:hover{transform:translateY(-8px);border-color:var(--gold);box-shadow:0 30px 60px -20px rgba(212,169,55,.28)}
+.card:hover::after{transform:translateX(120%)}
+.card .ph{overflow:hidden;aspect-ratio:16/10;position:relative}
 .card .ph img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s cubic-bezier(.2,.7,.2,1);filter:saturate(.9)}
-.card:hover .ph img{transform:scale(1.06)}
+.card:hover .ph img{transform:scale(1.07)}
+.card .ph .shine{position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(10,9,8,.55))}
 .card .body{padding:30px 28px}
-.card .idx{font-family:'Anton',sans-serif;color:var(--gold);letter-spacing:.3em;font-size:.8rem;margin-bottom:12px}
+.card .idx{font-family:'Anton',sans-serif;color:var(--gold);letter-spacing:.3em;font-size:.8rem;margin-bottom:12px;display:flex;align-items:center;gap:12px}
+.card .idx::after{content:"";flex:1;height:1px;background:rgba(212,169,55,.25)}
 .card h3{font-family:'Anton',sans-serif;font-size:clamp(1.5rem,2.6vw,2.1rem);text-transform:uppercase;letter-spacing:.03em;margin-bottom:12px}
 .card p{color:var(--muted);line-height:1.75;font-weight:300;font-size:.96rem}
 /* condo */
-.condo{background:var(--coal);border-top:1px solid var(--line);border-bottom:1px solid var(--line);overflow:hidden}
+.condo{background:linear-gradient(180deg,var(--coal),var(--coal2));border-top:1px solid var(--line);border-bottom:1px solid var(--line);overflow:hidden}
 .condo-grid{display:grid;grid-template-columns:1.05fr 1fr;gap:clamp(36px,5vw,80px);align-items:center}
 .condo .ph{position:relative}
 .condo .ph img{width:100%;aspect-ratio:4/5;object-fit:cover}
-.condo .seal{position:absolute;top:-34px;right:-14px;width:120px;height:120px;border:1px solid var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;text-align:center;font-size:.62rem;letter-spacing:.24em;text-transform:uppercase;color:var(--gold);background:rgba(10,9,8,.85);backdrop-filter:blur(6px);animation:spin 22s linear infinite}
+.condo .ph::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 60%,rgba(10,9,8,.5));pointer-events:none}
+.condo .seal{position:absolute;top:-34px;right:-14px;width:124px;height:124px;border:1px solid var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;text-align:center;font-size:.62rem;letter-spacing:.24em;text-transform:uppercase;color:var(--gold);background:rgba(10,9,8,.88);backdrop-filter:blur(6px);animation:spin 22s linear infinite;z-index:2}
 @keyframes spin{to{transform:rotate(360deg)}}
 .condo-copy p{color:var(--muted);line-height:1.85;font-weight:300;margin-bottom:20px}
 .condo-copy p strong{color:var(--cream)}
 .checks{list-style:none;margin:28px 0}
-.checks li{display:flex;gap:14px;align-items:baseline;padding:12px 0;border-bottom:1px solid rgba(212,169,55,.14);color:var(--cream);font-weight:300}
-.checks li::before{content:"✦";color:var(--gold);font-size:.8em}
+.checks li{display:flex;gap:14px;align-items:baseline;padding:13px 0;border-bottom:1px solid rgba(212,169,55,.14);color:var(--cream);font-weight:300;transition:padding-left .3s}
+.checks li:hover{padding-left:8px}
+.checks li::before{content:"✦";color:var(--gold);font-size:.8em;flex:none}
 /* philosophy */
-.philo{text-align:center}
+.philo{position:relative;overflow:hidden;text-align:center}
+.philo-bg{position:absolute;inset:-12% 0;background:url("images/italofernandesmiami/post-philosophy.jpg") center 20%/cover;opacity:.16;filter:grayscale(.4) contrast(1.1)}
+.philo-veil{position:absolute;inset:0;background:radial-gradient(70% 80% at 50% 50%,transparent 20%,var(--black) 90%)}
+.philo .wrap{position:relative;z-index:2}
 .philo blockquote{font-family:'Anton',sans-serif;font-size:clamp(30px,5.4vw,76px);text-transform:uppercase;line-height:1.12;max-width:1000px;margin:0 auto}
 .philo blockquote .g{color:var(--gold)}
 .philo .by{margin-top:26px;font-size:.72rem;letter-spacing:.34em;text-transform:uppercase;color:var(--muted)}
+.philo .rule{width:120px;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:34px auto 0}
 /* 40+ */
 .forty-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(36px,5vw,80px);align-items:center}
-.forty .ph img{width:100%;aspect-ratio:4/5;object-fit:cover}
+.forty-imgs{position:relative}
+.forty-imgs .a{width:78%;aspect-ratio:4/5;object-fit:cover}
+.forty-imgs .b{position:absolute;right:0;bottom:-46px;width:52%;aspect-ratio:1/1;object-fit:cover;border:1px solid var(--gold);box-shadow:0 30px 60px -20px rgba(0,0,0,.75)}
+.forty-imgs .cap{position:absolute;left:0;bottom:-46px;background:rgba(10,9,8,.88);border:1px solid var(--line);padding:12px 18px;font-size:.68rem;letter-spacing:.24em;text-transform:uppercase;color:var(--gold);max-width:44%}
 .forty-copy .big{font-family:'Anton',sans-serif;font-size:clamp(1.8rem,3.6vw,3rem);text-transform:uppercase;line-height:1.25;margin:22px 0;color:var(--cream)}
 .forty-copy .big em{font-style:normal;color:var(--gold)}
-.forty-copy p{color:var(--muted);line-height:1.85;font-weight:300}
+.forty-copy p{color:var(--muted);line-height:1.85;font-weight:300;margin-bottom:18px}
+.forty-copy p strong{color:var(--cream)}
+/* faq */
+.faq{max-width:860px;margin:0 auto}
+.faq-item{border:1px solid var(--line);margin-bottom:14px;background:var(--coal);transition:border-color .3s}
+.faq-item.open{border-color:var(--gold)}
+.faq-q{width:100%;background:none;border:none;color:var(--cream);font-family:'Inter',sans-serif;font-size:1.02rem;font-weight:500;text-align:left;padding:22px 26px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:18px}
+.faq-q .pm{font-family:'Anton',sans-serif;color:var(--gold);font-size:1.4rem;flex:none;transition:transform .35s}
+.faq-item.open .pm{transform:rotate(45deg)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .45s cubic-bezier(.2,.7,.2,1)}
+.faq-a p{padding:0 26px 24px;color:var(--muted);line-height:1.8;font-weight:300}
+.faq-a p strong{color:var(--cream)}
 /* vip */
-.vip{background:radial-gradient(70% 90% at 50% 10%,rgba(212,169,55,.12),transparent 65%),var(--black);text-align:center;border-top:1px solid var(--line)}
+.vip{background:radial-gradient(70% 90% at 50% 10%,rgba(212,169,55,.14),transparent 65%),var(--black);text-align:center;border-top:1px solid var(--line);overflow:hidden}
+.vip .sealrow{display:flex;justify-content:center;margin-bottom:30px}
+.vip .seal2{width:130px;height:130px;border:1px solid var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;text-align:center;font-size:.66rem;letter-spacing:.26em;text-transform:uppercase;color:var(--gold);animation:spin 26s linear infinite;background:rgba(212,169,55,.05)}
 .vip .sec-title{max-width:900px;margin:0 auto}
 .vip p.lead{color:var(--muted);max-width:640px;margin:26px auto 0;line-height:1.85;font-weight:300}
 .vip p.lead strong{color:var(--cream)}
 .vip-ctas{display:flex;gap:16px;justify-content:center;margin-top:40px;flex-wrap:wrap}
 .vip .note{margin-top:26px;font-size:.72rem;letter-spacing:.28em;text-transform:uppercase;color:var(--gold)}
+/* contact */
+.contact{background:var(--coal);border-top:1px solid var(--line)}
+.contact-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:clamp(36px,5vw,80px);align-items:center}
+.contact .ph{position:relative}
+.contact .ph img{width:100%;aspect-ratio:4/3;object-fit:cover}
+.contact .ph::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,transparent 60%,var(--coal))}
+.c-cards{display:grid;gap:14px;margin-top:30px}
+.c-card{display:flex;align-items:center;gap:18px;border:1px solid var(--line);padding:18px 22px;text-decoration:none;transition:border-color .3s,transform .3s,background .3s;background:rgba(10,9,8,.4)}
+.c-card:hover{border-color:var(--gold);transform:translateX(8px);background:rgba(212,169,55,.06)}
+.c-card .ic{width:48px;height:48px;flex:none;border:1px solid var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center}
+.c-card .ic svg{width:22px;height:22px;fill:var(--gold)}
+.c-card b{display:block;font-size:.95rem;letter-spacing:.06em}
+.c-card span{font-size:.78rem;color:var(--muted);letter-spacing:.1em}
 /* footer */
-footer{border-top:1px solid var(--line);padding:56px 0 40px;background:var(--coal)}
-.foot{display:flex;justify-content:space-between;align-items:center;gap:28px;flex-wrap:wrap}
-.socials{display:flex;gap:14px}
-.socials a{width:46px;height:46px;border:1px solid var(--line);display:flex;align-items:center;justify-content:center;transition:border-color .3s,transform .3s}
-.socials a:hover{border-color:var(--gold);transform:translateY(-3px)}
+footer{border-top:1px solid var(--line);padding:64px 0 36px;background:#0c0a09}
+.foot-top{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:40px;margin-bottom:48px}
+.foot-brand p{color:var(--muted);font-size:.9rem;line-height:1.8;font-weight:300;margin-top:16px;max-width:320px}
+.foot h4{font-size:.72rem;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);margin-bottom:20px}
+.foot-links{list-style:none}
+.foot-links li{margin-bottom:12px}
+.foot-links a{text-decoration:none;color:var(--muted);font-size:.9rem;transition:color .3s}
+.foot-links a:hover{color:var(--gold)}
+.socials{display:flex;gap:14px;margin-top:6px}
+.socials a{width:46px;height:46px;border:1px solid var(--line);border-radius:50%;display:flex;align-items:center;justify-content:center;transition:border-color .3s,transform .3s,background .3s}
+.socials a:hover{border-color:var(--gold);transform:translateY(-3px);background:rgba(212,169,55,.08)}
 .socials svg{width:20px;height:20px;fill:var(--gold)}
-.copyright{margin-top:36px;padding-top:24px;border-top:1px solid rgba(212,169,55,.1);font-size:.75rem;letter-spacing:.14em;color:var(--muted);text-transform:uppercase;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+.copyright{padding-top:24px;border-top:1px solid rgba(212,169,55,.1);font-size:.72rem;letter-spacing:.14em;color:var(--muted);text-transform:uppercase;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+/* whatsapp bubble */
+.wa-bubble{position:fixed;right:22px;bottom:22px;z-index:250;width:62px;height:62px;border-radius:50%;background:var(--wa);display:flex;align-items:center;justify-content:center;box-shadow:0 12px 32px -6px rgba(37,211,102,.6);transition:transform .3s;text-decoration:none}
+.wa-bubble:hover{transform:scale(1.1) rotate(6deg)}
+.wa-bubble::before{content:"";position:absolute;inset:-6px;border-radius:50%;border:2px solid var(--wa);opacity:.5;animation:pulse 2.2s ease-out infinite}
+@keyframes pulse{0%{transform:scale(.85);opacity:.6}100%{transform:scale(1.25);opacity:0}}
+.wa-bubble svg{width:30px;height:30px;fill:#fff}
 /* reveal */
 .rv{opacity:0;transform:translateY(36px);transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1)}
 .rv.in{opacity:1;transform:none}
-.rv.d1{transition-delay:.1s}.rv.d2{transition-delay:.2s}.rv.d3{transition-delay:.3s}
+.rv.d1{transition-delay:.1s}.rv.d2{transition-delay:.2s}.rv.d3{transition-delay:.3s}.rv.d4{transition-delay:.4s}
 @media(max-width:900px){
-  .nav-links{position:fixed;top:0;right:0;bottom:0;width:min(78vw,320px);background:#12100d;flex-direction:column;justify-content:center;gap:30px;transform:translateX(100%);transition:transform .45s cubic-bezier(.7,0,.3,1);border-left:1px solid var(--line);z-index:99}
+  .nav-links{position:fixed;top:0;right:0;bottom:0;width:min(78vw,320px);background:#12100d;flex-direction:column;justify-content:center;gap:30px;transform:translateX(100%);transition:transform .45s cubic-bezier(.7,0,.3,1);border-left:1px solid var(--line);z-index:99;padding:40px}
   .nav-links.open{transform:none}
   .burger{display:flex;z-index:101}
-  .coach-grid,.condo-grid,.forty-grid{grid-template-columns:1fr}
-  .forty-grid .ph{order:-1}
+  .coach-grid,.condo-grid,.forty-grid,.contact-grid{grid-template-columns:1fr}
+  .forty-grid .forty-imgs{margin-bottom:60px}
   .cards{grid-template-columns:1fr}
   .scroll-hint{display:none}
-  .facts{grid-template-columns:repeat(3,1fr)}
+  .stats{grid-template-columns:repeat(2,1fr)}
   .condo .seal{width:96px;height:96px;top:-24px;right:8px}
+  .foot-top{grid-template-columns:1fr;gap:32px}
+  .collage{padding-bottom:80px}
+  .wa-bubble{right:16px;bottom:16px;width:56px;height:56px}
 }
 @media(prefers-reduced-motion:reduce){
   *,*::before,*::after{animation:none!important;transition:none!important}
   .rv{opacity:1;transform:none}
   html{scroll-behavior:auto}
+  .faq-a{max-height:none!important}
 }
 </style>
 </head>
 <body>
+<div id="progress"></div>
 
 <nav id="nav">
   <a class="brand" href="#top">ITALO <span>ELITE</span></a>
   <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
   <div class="nav-links" id="navlinks">
-    <a href="#coach">The Coach</a>
-    <a href="#method">Method</a>
-    <a href="#condo">Condo</a>
-    <a href="#vip">VIP</a>
-    <a class="btn solid" href="https://linktr.ee/italosiqueiraoficial" target="_blank" rel="noopener">Apply</a>
+    <a class="nl" href="#coach">The Coach</a>
+    <a class="nl" href="#method">Method</a>
+    <a class="nl" href="#condo">Condo</a>
+    <a class="nl" href="#faq">FAQ</a>
+    <a class="btn solid mag" href="https://linktr.ee/italosiqueiraoficial" target="_blank" rel="noopener">Apply</a>
   </div>
 </nav>
 
@@ -182,8 +259,8 @@ footer{border-top:1px solid var(--line);padding:56px 0 40px;background:var(--coa
     <h1 class="display rv d1">Italo<br><span class="gold">Elite Fitness</span></h1>
     <p class="hero-sub rv d2">IFPA certified personal trainer. <strong>Luxury Condo Specialist.</strong> The coach behind Miami's strongest transformations — one rep, one client, one result at a time.</p>
     <div class="hero-ctas rv d3">
-      <a class="btn solid" href="https://linktr.ee/italosiqueiraoficial" target="_blank" rel="noopener">Apply for Coaching</a>
-      <a class="btn" href="#method">The Method</a>
+      <a class="btn solid mag" href="https://linktr.ee/italosiqueiraoficial" target="_blank" rel="noopener">Apply for Coaching</a>
+      <a class="btn mag" href="#method">The Method</a>
     </div>
   </div>
   <div class="scroll-hint">Scroll</div>
@@ -200,36 +277,44 @@ footer{border-top:1px solid var(--line);padding:56px 0 40px;background:var(--coa
     <div class="sec-head rv">
       <div class="sec-num">01 — The Coach</div>
       <h2 class="sec-title display">Built on <em>discipline.</em></h2>
+      <p class="sec-sub">Not a gym influencer. A real coach with real clients, real certifications and a real philosophy — in Miami, every single day.</p>
     </div>
     <div class="coach-grid">
-      <div class="portrait rv">
-        <img src="images/italofernandesmiami/hero-him.jpg" alt="Portrait of Italo Fernandes" loading="lazy">
-        <div class="tag">Italo Fernandes</div>
+      <div class="collage rv">
+        <div class="frame"></div>
+        <img class="main" src="images/italofernandesmiami/hero-him.jpg" alt="Portrait of Italo Fernandes" loading="lazy">
+        <img class="off" src="images/italofernandesmiami/post-blank1.jpg" alt="Italo Fernandes at the gym" loading="lazy">
+        <img class="brandcard" src="images/italofernandesmiami/post-blank2.jpg" alt="Italo Fernandes Personal Trainer" loading="lazy">
+        <div class="tag">Elite Coach</div>
       </div>
       <div class="coach-copy">
-        <p class="rv">Italo Fernandes is a Brazilian elite trainer and coach based in Miami, Florida — <strong>IFPA certified</strong>, with a community of <strong>68K+ followers</strong> who follow his work every day.</p>
-        <p class="rv d1">His coaching goes beyond the workout. He has trained his own sister, and he coaches <strong>his own mother</strong> — helping her live stronger while managing diabetes. For Italo, fitness is family, and every client is treated with that same care.</p>
+        <p class="rv">Italo Fernandes is a Brazilian elite trainer and coach based in Miami, Florida — <strong>IFPA certified</strong>, followed by a community of <strong>68K+</strong> who watch his work every day.</p>
+        <p class="rv d1">His coaching goes beyond the workout. He has trained his own sister Amanda, and he coaches <strong>his own mother</strong> — helping her live stronger while managing diabetes. For Italo, fitness is family, and every client is treated with that same care.</p>
         <blockquote class="quote rv d2">"Saúde é disciplina. Exercício é investimento. Autoestima é consequência."<small>— Italo's philosophy</small></blockquote>
         <p class="rv d3">Health is discipline. Exercise is an investment. Self-esteem is the consequence. Work for yourself. Take care of yourself. Be your best version — every single day.</p>
-        <div class="facts rv d3">
-          <div class="fact"><b>IFPA</b><span>Certified</span></div>
-          <div class="fact"><b>68K+</b><span>Community</span></div>
-          <div class="fact"><b>VIP</b><span>Clients Only</span></div>
+        <div class="stats rv d3">
+          <div class="stat"><b><span class="count" data-count="68">0</span>K+</b><span>Community</span></div>
+          <div class="stat"><b><span class="count" data-count="5">0</span></b><span>Signature programs</span></div>
+          <div class="stat"><b>IFPA</b><span>Certified</span></div>
+          <div class="stat"><b>1:1</b><span>VIP coaching</span></div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<section id="method" style="padding-top:0">
+<div class="gdiv"></div>
+
+<section id="method">
   <div class="wrap">
     <div class="sec-head rv">
       <div class="sec-num">02 — The Method</div>
       <h2 class="sec-title display">Train like <em>you mean it.</em></h2>
+      <p class="sec-sub">Five signature formats, one standard: eyes on every rep. Every program is built around your body, your schedule and your goal.</p>
     </div>
     <div class="cards">
       <article class="card rv">
-        <div class="ph"><img src="images/italofernandesmiami/post-connect.jpg" alt="Italo coaching a client one-on-one in the gym" loading="lazy"></div>
+        <div class="ph"><img src="images/italofernandesmiami/post-connect.jpg" alt="Italo coaching a client one-on-one in the gym" loading="lazy"><div class="shine"></div></div>
         <div class="body">
           <div class="idx">— 01</div>
           <h3>Personal Training</h3>
@@ -237,7 +322,7 @@ footer{border-top:1px solid var(--line);padding:56px 0 40px;background:var(--coa
         </div>
       </article>
       <article class="card rv d1">
-        <div class="ph"><img src="images/italofernandesmiami/post-legday.jpg" alt="Client training legs and glutes with Italo's method" loading="lazy"></div>
+        <div class="ph"><img src="images/italofernandesmiami/post-legday.jpg" alt="Client training legs and glutes with Italo's method" loading="lazy"><div class="shine"></div></div>
         <div class="body">
           <div class="idx">— 02</div>
           <h3>Legs · Glutes · Abs</h3>
@@ -245,7 +330,7 @@ footer{border-top:1px solid var(--line);padding:56px 0 40px;background:var(--coa
         </div>
       </article>
       <article class="card rv">
-        <div class="ph"><img src="images/italofernandesmiami/post-kaspi.jpg" alt="Client doing a full-body strength circuit" loading="lazy"></div>
+        <div class="ph"><img src="images/italofernandesmiami/post-kaspi.jpg" alt="Client doing a full-body strength circuit" loading="lazy"><div class="shine"></div></div>
         <div class="body">
           <div class="idx">— 03</div>
           <h3>Strength Circuits</h3>
@@ -253,7 +338,7 @@ footer{border-top:1px solid var(--line);padding:56px 0 40px;background:var(--coa
         </div>
       </article>
       <article class="card rv d1">
-        <div class="ph"><img src="images/italofernandesmiami/post-40.jpg" alt="Client arriving at a luxury condo gym for training" loading="lazy"></div>
+        <div class="ph"><img src="images/italofernandesmiami/post-vacationtrain.jpg" alt="Italo training in the gym — Body Express, GAP, Spinning and Hydro formats" loading="lazy"><div class="shine"></div></div>
         <div class="body">
           <div class="idx">— 04</div>
           <h3>Body Express · GAP · Spinning · Hydro</h3>
@@ -280,7 +365,7 @@ footer{border-top:1px solid var(--line);padding:56px 0 40px;background:var(--coa
           <li>Flexible scheduling for busy professionals</li>
           <li>Discreet, VIP-level service</li>
         </ul>
-        <div class="rv d3"><a class="btn solid" href="https://linktr.ee/italosiqueiraoficial" target="_blank" rel="noopener">Apply Now</a></div>
+        <div class="rv d3"><a class="btn solid mag" href="https://linktr.ee/italosiqueiraoficial" target="_blank" rel="noopener">Apply Now</a></div>
       </div>
       <div class="ph rv">
         <img src="images/italofernandesmiami/post-40.jpg" alt="Luxury residential gym in Miami where Italo coaches" loading="lazy">
@@ -291,22 +376,61 @@ footer{border-top:1px solid var(--line);padding:56px 0 40px;background:var(--coa
 </section>
 
 <section class="philo">
+  <div class="philo-bg" id="philobg"></div>
+  <div class="philo-veil"></div>
   <div class="wrap">
     <blockquote class="display rv">"Não é só treino. <span class="g">É se reencontrar,</span> se fortalecer e voltar a acreditar em si mesma."</blockquote>
     <div class="by rv d1">— Italo Fernandes</div>
+    <div class="rule rv d2"></div>
   </div>
 </section>
 
-<section class="forty" style="padding-top:0">
+<section class="forty" id="forty">
   <div class="wrap">
     <div class="forty-grid">
-      <div class="ph rv">
-        <img src="images/italofernandesmiami/post-august.jpg" alt="Italo Fernandes with his message for training after 40" loading="lazy">
+      <div class="forty-imgs rv">
+        <img class="a" src="images/italofernandesmiami/post-august.jpg" alt="Italo Fernandes with his message for training after 40" loading="lazy">
+        <img class="b" src="images/italofernandesmiami/post-mother.jpg" alt="Italo training his own mother at the gym" loading="lazy">
+        <div class="cap">He trains his own mother</div>
       </div>
       <div class="forty-copy">
         <div class="sec-num rv">04 — Strong at every age</div>
         <div class="big display rv d1">"After 40 you have <em>2 options:</em> love training — or train without loving it."</div>
-        <p class="rv d2">Italo's message to every woman over 40: <strong style="color:var(--cream)">40+ is the new 25.</strong> Strong. Confident. Determined. It's never too late to become your strongest version — move your body, build muscle, stay active, feel alive.</p>
+        <p class="rv d2">Italo's message to every woman over 40: <strong>40+ is the new 25.</strong> Strong. Confident. Determined. It's never too late to become your strongest version — move your body, build muscle, stay active, feel alive.</p>
+        <p class="rv d3">He lives it at home: Italo personally coaches <strong>his own mother</strong>, helping her manage diabetes through exercise, proper nutrition and medical guidance. If she can do it, so can you.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="gdiv"></div>
+
+<section id="faq">
+  <div class="wrap">
+    <div class="sec-head rv" style="text-align:center;max-width:700px;margin-left:auto;margin-right:auto">
+      <div class="sec-num" style="justify-content:center">05 — FAQ</div>
+      <h2 class="sec-title display">Questions, <em>answered.</em></h2>
+    </div>
+    <div class="faq">
+      <div class="faq-item rv">
+        <button class="faq-q">How do I start training with Italo?<span class="pm">+</span></button>
+        <div class="faq-a"><p>Italo coaches <strong>VIP clients only</strong> — every client is hand-selected. Start by filling out his <strong>official application</strong> through the Apply link, and he'll reach out if you're the right fit.</p></div>
+      </div>
+      <div class="faq-item rv d1">
+        <button class="faq-q">Where do the sessions take place?<span class="pm">+</span></button>
+        <div class="faq-a"><p>Italo is Miami's <strong>Luxury Condo Specialist</strong>: private 1:1 sessions happen in your building's own fitness center — no commute, no crowded commercial gym.</p></div>
+      </div>
+      <div class="faq-item rv d2">
+        <button class="faq-q">What programs does he offer?<span class="pm">+</span></button>
+        <div class="faq-a"><p><strong>Body Express, GAP</strong> (glutes, abs, legs), <strong>Spinning, Hydro</strong> and <strong>Personal Training</strong> — including his signature legs, glutes and abs work and full-body strength circuits.</p></div>
+      </div>
+      <div class="faq-item rv d3">
+        <button class="faq-q">Is he certified?<span class="pm">+</span></button>
+        <div class="faq-a"><p>Yes — Italo is an <strong>IFPA certified</strong> Elite Trainer &amp; Coach based in Miami, Florida.</p></div>
+      </div>
+      <div class="faq-item rv d4">
+        <button class="faq-q">Do I need training experience to apply?<span class="pm">+</span></button>
+        <div class="faq-a"><p>No. Italo trains <strong>all levels</strong> — from his own mother, who trains to manage diabetes, to women over 40 rebuilding strength. Every program is built around your body and your starting point.</p></div>
       </div>
     </div>
   </div>
@@ -314,53 +438,150 @@ footer{border-top:1px solid var(--line);padding:56px 0 40px;background:var(--coa
 
 <section class="vip" id="vip">
   <div class="wrap">
-    <div class="sec-num rv">05 — Application</div>
+    <div class="sealrow rv"><div class="seal2">VIP<br>Only</div></div>
+    <div class="sec-num rv d1" style="justify-content:center">06 — Application</div>
     <h2 class="sec-title display rv d1">VIP clients <em>only.</em></h2>
-    <p class="lead rv d2">Italo coaches a <strong>limited roster</strong> — every client is hand-selected. If you're ready to invest in your strongest version, <strong>apply now</strong> and start the conversation.</p>
+    <p class="lead rv d2">Italo coaches a <strong>limited roster</strong> — every client is hand-selected. If you're ready to invest in your strongest version, <strong>apply now</strong> and start the conversation today.</p>
     <div class="vip-ctas rv d3">
-      <a class="btn solid" href="https://linktr.ee/italosiqueiraoficial" target="_blank" rel="noopener">Apply for Coaching</a>
-      <a class="btn" href="https://www.instagram.com/italofernandesmiami/" target="_blank" rel="noopener">DM on Instagram</a>
+      <a class="btn solid mag" href="https://linktr.ee/italosiqueiraoficial" target="_blank" rel="noopener">Apply for Coaching</a>
+      <a class="btn mag" href="https://wa.me/13054505503?text=Hi%20Italo%2C%20I%20want%20to%20apply%20for%20coaching" target="_blank" rel="noopener">WhatsApp</a>
+      <a class="btn mag" href="https://www.instagram.com/italofernandesmiami/" target="_blank" rel="noopener">DM on Instagram</a>
     </div>
     <div class="note rv d3">✦ &nbsp;Miami, Florida&nbsp; ✦</div>
   </div>
 </section>
 
+<section class="contact" id="contact">
+  <div class="wrap">
+    <div class="contact-grid">
+      <div class="ph rv">
+        <img src="images/italofernandesmiami/post-blank3.jpg" alt="Italo Fernandes in Miami" loading="lazy">
+      </div>
+      <div>
+        <div class="sec-head rv" style="margin-bottom:26px">
+          <div class="sec-num">07 — Contact</div>
+          <h2 class="sec-title display">Let's <em>talk.</em></h2>
+          <p class="sec-sub">The fastest way to reach Italo is WhatsApp. Prefer social? His Instagram DMs are open — or apply directly through his official links.</p>
+        </div>
+        <div class="c-cards">
+          <a class="c-card rv" href="https://wa.me/13054505503?text=Hi%20Italo%2C%20I%20want%20to%20apply%20for%20coaching" target="_blank" rel="noopener">
+            <span class="ic"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.6-6.1c-.3-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1-.2.3-.6.8-.8 1-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4 0-.5.1-.7l.4-.5c.1-.2.1-.4 0-.5l-.8-1.9c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.2-.7.5-.2.3-.9.9-.9 2.2s.9 2.5 1.1 2.7c.1.2 1.9 2.9 4.6 4 .6.3 1.1.4 1.5.6.6.2 1.2.2 1.6.1.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.6-.3z"/></svg></span>
+            <span><b>WhatsApp</b><span>+1 (305) 450-5503</span></span>
+          </a>
+          <a class="c-card rv d1" href="https://www.instagram.com/italofernandesmiami/" target="_blank" rel="noopener">
+            <span class="ic"><svg viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 3.3.1 4.8 1.7 4.9 4.9.1 1.3.1 1.6.1 4.8s0 3.6-.1 4.8c-.1 3.2-1.7 4.8-4.9 4.9-1.3.1-1.6.1-4.9.1-3.2 0-3.6 0-4.8-.1-3.3-.1-4.8-1.7-4.9-4.9-.1-1.3-.1-1.6-.1-4.8s0-3.6.1-4.8C2.4 4 4 2.4 7.2 2.3c1.2-.1 1.6-.1 4.8-.1zM12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm0 8.2a3.2 3.2 0 1 1 0-6.4 3.2 3.2 0 0 1 0 6.4zm5.2-9.6a1.2 1.2 0 1 0 0 2.4 1.2 1.2 0 0 0 0-2.4z"/></svg></span>
+            <span><b>Instagram</b><span>@italofernandesmiami</span></span>
+          </a>
+          <a class="c-card rv d2" href="https://linktr.ee/italosiqueiraoficial" target="_blank" rel="noopener">
+            <span class="ic"><svg viewBox="0 0 24 24"><path d="M13.5 2.6 21.4 10.5c.8.8.8 2 0 2.8l-7.9 7.9c-.8.8-2 .8-2.8 0L2.8 13.3c-.8-.8-.8-2 0-2.8l7.9-7.9c.8-.8 2-.8 2.8 0zM12 7.2 7.2 12 12 16.8 16.8 12 12 7.2z"/></svg></span>
+            <span><b>Apply online</b><span>linktr.ee/italosiqueiraoficial</span></span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <footer>
   <div class="wrap">
-    <div class="foot">
-      <a class="brand" href="#top">ITALO <span>ELITE</span></a>
-      <div class="socials">
-        <a href="https://www.instagram.com/italofernandesmiami/" target="_blank" rel="noopener" aria-label="Instagram">
-          <svg viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 3.3.1 4.8 1.7 4.9 4.9.1 1.3.1 1.6.1 4.8s0 3.6-.1 4.8c-.1 3.2-1.7 4.8-4.9 4.9-1.3.1-1.6.1-4.9.1-3.2 0-3.6 0-4.8-.1-3.3-.1-4.8-1.7-4.9-4.9-.1-1.3-.1-1.6-.1-4.8s0-3.6.1-4.8C2.4 4 4 2.4 7.2 2.3c1.2-.1 1.6-.1 4.8-.1zM12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm0 8.2a3.2 3.2 0 1 1 0-6.4 3.2 3.2 0 0 1 0 6.4zm5.2-9.6a1.2 1.2 0 1 0 0 2.4 1.2 1.2 0 0 0 0-2.4z"/></svg>
-        </a>
-        <a href="https://linktr.ee/italosiqueiraoficial" target="_blank" rel="noopener" aria-label="Apply links">
-          <svg viewBox="0 0 24 24"><path d="M13.5 2.6 21.4 10.5c.8.8.8 2 0 2.8l-7.9 7.9c-.8.8-2 .8-2.8 0L2.8 13.3c-.8-.8-.8-2 0-2.8l7.9-7.9c.8-.8 2-.8 2.8 0zM12 7.2 7.2 12 12 16.8 16.8 12 12 7.2z"/></svg>
-        </a>
+    <div class="foot-top">
+      <div class="foot-brand">
+        <a class="brand" href="#top">ITALO <span>ELITE</span></a>
+        <p>Elite Trainer &amp; Coach in Miami, Florida. IFPA certified. Luxury Condo Specialist. VIP clients only.</p>
+        <div class="socials">
+          <a href="https://www.instagram.com/italofernandesmiami/" target="_blank" rel="noopener" aria-label="Instagram">
+            <svg viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 3.3.1 4.8 1.7 4.9 4.9.1 1.3.1 1.6.1 4.8s0 3.6-.1 4.8c-.1 3.2-1.7 4.8-4.9 4.9-1.3.1-1.6.1-4.9.1-3.2 0-3.6 0-4.8-.1-3.3-.1-4.8-1.7-4.9-4.9-.1-1.3-.1-1.6-.1-4.8s0-3.6.1-4.8C2.4 4 4 2.4 7.2 2.3c1.2-.1 1.6-.1 4.8-.1zM12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm0 8.2a3.2 3.2 0 1 1 0-6.4 3.2 3.2 0 0 1 0 6.4zm5.2-9.6a1.2 1.2 0 1 0 0 2.4 1.2 1.2 0 0 0 0-2.4z"/></svg>
+          </a>
+          <a href="https://wa.me/13054505503" target="_blank" rel="noopener" aria-label="WhatsApp">
+            <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.6-6.1c-.3-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1-.2.3-.6.8-.8 1-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4 0-.5.1-.7l.4-.5c.1-.2.1-.4 0-.5l-.8-1.9c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.2-.7.5-.2.3-.9.9-.9 2.2s.9 2.5 1.1 2.7c.1.2 1.9 2.9 4.6 4 .6.3 1.1.4 1.5.6.6.2 1.2.2 1.6.1.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.6-.3z"/></svg>
+          </a>
+          <a href="https://linktr.ee/italosiqueiraoficial" target="_blank" rel="noopener" aria-label="Apply links">
+            <svg viewBox="0 0 24 24"><path d="M13.5 2.6 21.4 10.5c.8.8.8 2 0 2.8l-7.9 7.9c-.8.8-2 .8-2.8 0L2.8 13.3c-.8-.8-.8-2 0-2.8l7.9-7.9c.8-.8 2-.8 2.8 0zM12 7.2 7.2 12 12 16.8 16.8 12 12 7.2z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <ul class="foot-links">
+          <li><a href="#coach">The Coach</a></li>
+          <li><a href="#method">The Method</a></li>
+          <li><a href="#condo">Luxury Condo Specialist</a></li>
+          <li><a href="#forty">Strong at every age</a></li>
+          <li><a href="#faq">FAQ</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Start</h4>
+        <ul class="foot-links">
+          <li><a href="https://linktr.ee/italosiqueiraoficial" target="_blank" rel="noopener">Apply for coaching</a></li>
+          <li><a href="https://wa.me/13054505503" target="_blank" rel="noopener">WhatsApp</a></li>
+          <li><a href="https://www.instagram.com/italofernandesmiami/" target="_blank" rel="noopener">Instagram DM</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
       </div>
     </div>
     <div class="copyright">
       <span>Italo Fernandes — Elite Trainer &amp; Coach</span>
-      <span>Miami, FL</span>
+      <span>Miami, FL — VIP clients only</span>
     </div>
   </div>
 </footer>
 
+<a class="wa-bubble" href="https://wa.me/13054505503?text=Hi%20Italo%2C%20I%20want%20to%20apply%20for%20coaching" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.6-6.1c-.3-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1-.2.3-.6.8-.8 1-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4 0-.5.1-.7l.4-.5c.1-.2.1-.4 0-.5l-.8-1.9c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.2-.7.5-.2.3-.9.9-.9 2.2s.9 2.5 1.1 2.7c.1.2 1.9 2.9 4.6 4 .6.3 1.1.4 1.5.6.6.2 1.2.2 1.6.1.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.6-.3z"/></svg>
+</a>
+
 <script>
 (function(){
+  var rm=matchMedia('(prefers-reduced-motion: reduce)').matches;
   var nav=document.getElementById('nav');
-  addEventListener('scroll',function(){nav.classList.toggle('scrolled',scrollY>40);},{passive:true});
+  var prog=document.getElementById('progress');
+  addEventListener('scroll',function(){
+    nav.classList.toggle('scrolled',scrollY>40);
+    var h=document.documentElement.scrollHeight-innerHeight;
+    prog.style.width=(h>0?(scrollY/h*100):0)+'%';
+  },{passive:true});
   var burger=document.getElementById('burger'),links=document.getElementById('navlinks');
   burger.addEventListener('click',function(){links.classList.toggle('open');});
   links.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){links.classList.remove('open');});});
-  // duplicate ticker for seamless loop
+  // ticker seamless loop
   var tick=document.getElementById('tick');
   tick.innerHTML+=tick.innerHTML;
   // reveal on scroll
   var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.12,rootMargin:'0px 0px -6% 0px'});
   document.querySelectorAll('.rv').forEach(function(el){io.observe(el);});
-  // hero parallax
-  var heroimg=document.getElementById('heroimg'),rm=matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if(!rm){addEventListener('scroll',function(){var y=scrollY;if(y<innerHeight){heroimg.style.transform='translateY('+(y*.18)+'px)';}},{passive:true});}
+  // animated counters (real numbers only)
+  var cio=new IntersectionObserver(function(es){es.forEach(function(e){
+    if(!e.isIntersecting)return; cio.unobserve(e.target);
+    var el=e.target,end=parseInt(el.getAttribute('data-count'),10),t0=null;
+    if(rm){el.textContent=end;return;}
+    function step(t){if(!t0)t0=t;var p=Math.min((t-t0)/1400,1);el.textContent=Math.round(end*(1-Math.pow(1-p,3)));if(p<1)requestAnimationFrame(step);}
+    requestAnimationFrame(step);
+  });},{threshold:.5});
+  document.querySelectorAll('.count').forEach(function(el){cio.observe(el);});
+  // faq accordion
+  document.querySelectorAll('.faq-item').forEach(function(item){
+    var q=item.querySelector('.faq-q'),a=item.querySelector('.faq-a');
+    q.addEventListener('click',function(){
+      var open=item.classList.contains('open');
+      document.querySelectorAll('.faq-item.open').forEach(function(o){o.classList.remove('open');o.querySelector('.faq-a').style.maxHeight=null;});
+      if(!open){item.classList.add('open');a.style.maxHeight=a.scrollHeight+'px';}
+    });
+  });
+  // magnetic buttons
+  if(!rm&&matchMedia('(pointer:fine)').matches){
+    document.querySelectorAll('.btn.mag').forEach(function(b){
+      b.addEventListener('mousemove',function(e){var r=b.getBoundingClientRect();b.style.transform='translate('+((e.clientX-r.left-r.width/2)*.12)+'px,'+((e.clientY-r.top-r.height/2)*.18)+'px)';});
+      b.addEventListener('mouseleave',function(){b.style.transform='';});
+    });
+  }
+  // hero + philosophy parallax
+  var heroimg=document.getElementById('heroimg'),philobg=document.getElementById('philobg');
+  if(!rm){addEventListener('scroll',function(){var y=scrollY;
+    if(y<innerHeight){heroimg.style.transform='translateY('+(y*.18)+'px)';}
+    var pr=philobg.parentElement.getBoundingClientRect();
+    if(pr.top<innerHeight&&pr.bottom>0){philobg.style.transform='translateY('+((pr.top+pr.height/2-innerHeight/2)*-.08)+'px)';}
+  },{passive:true});}
 })();
 </script>
 </body>
