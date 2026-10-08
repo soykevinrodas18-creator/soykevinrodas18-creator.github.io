@@ -64,7 +64,7 @@ a{color:inherit;text-decoration:none}
 
 /* ---------- grain ---------- */
 .grain::after{
-  content:"";position:fixed;inset:0;pointer-events:none;z-index:120;opacity:.055;
+  content:"";position:fixed;inset:0;pointer-events:none;z-index:120;opacity:.082;
   background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 
@@ -146,18 +146,34 @@ nav.links a:hover::after{width:100%}
 .hero-bg{position:absolute;inset:-12% 0;z-index:0}
 .hero-bg img{width:100%;height:100%;object-fit:cover;transform:scale(1.08);will-change:transform}
 .hero-veil{position:absolute;inset:0;z-index:1;
-  background:linear-gradient(180deg,rgba(12,20,36,.62) 0%,rgba(12,20,36,.35) 38%,rgba(12,20,36,.88) 78%,var(--navy-deep) 100%);}
+  background:linear-gradient(180deg,rgba(12,20,36,.66) 0%,rgba(12,20,36,.28) 34%,rgba(20,16,8,.34) 52%,rgba(12,20,36,.9) 80%,var(--navy-deep) 100%);}
+/* champagne-gold light treatment — layered cinematic glow over the real interior */
+.hero-glow{position:absolute;inset:0;z-index:1;pointer-events:none;
+  background:
+    radial-gradient(52% 38% at 22% 64%,rgba(233,207,143,.20),transparent 70%),
+    radial-gradient(40% 30% at 78% 38%,rgba(201,163,92,.14),transparent 70%),
+    radial-gradient(120% 60% at 50% 118%,rgba(142,47,69,.16),transparent 60%),
+    linear-gradient(180deg,transparent 55%,rgba(12,20,36,.35) 100%);
+  mix-blend-mode:screen;
+  animation:glowDrift 11s ease-in-out infinite alternate;
+}
+@keyframes glowDrift{from{opacity:.75;transform:scale(1)}to{opacity:1;transform:scale(1.06)}}
+.hero-bg img{animation:heroPan 26s ease-in-out infinite alternate}
+@keyframes heroPan{from{transform:scale(1.08) translateX(-1.2%)}to{transform:scale(1.16) translateX(1.2%)}}
 .hero-inner{position:relative;z-index:2;max-width:1200px;margin:0 auto;width:100%;padding-bottom:26px}
 .eyebrow{
-  display:inline-flex;align-items:center;gap:14px;
-  font-size:.72rem;letter-spacing:.42em;text-transform:uppercase;color:var(--gold-bright);
-  margin-bottom:26px;
+  display:inline-flex;align-items:center;gap:16px;
+  font-size:.76rem;letter-spacing:.5em;text-transform:uppercase;color:var(--gold-bright);
+  margin-bottom:28px;font-weight:500;
+  text-shadow:0 0 24px rgba(233,207,143,.45);
 }
-.eyebrow::before{content:"";width:44px;height:1px;background:var(--gold)}
+.eyebrow::before{content:"";width:52px;height:1px;background:linear-gradient(90deg,transparent,var(--gold))}
+.eyebrow::after{content:"✦";font-size:.7rem;letter-spacing:0;color:var(--gold)}
 .hero h1{
   font-family:var(--serif);font-weight:700;
-  font-size:clamp(3.6rem,11vw,9.2rem);line-height:.95;letter-spacing:.01em;
+  font-size:clamp(3.6rem,11vw,10rem);line-height:.95;letter-spacing:.01em;
   color:var(--cream);
+  text-shadow:0 4px 60px rgba(0,0,0,.5);
 }
 .hero h1 .accent{font-style:italic;font-weight:400;color:var(--gold-bright)}
 .hero h1 .ch{display:inline-block;opacity:0;transform:translateY(.55em) rotate(3deg)}
@@ -183,7 +199,7 @@ nav.links a:hover::after{width:100%}
   background:rgba(12,20,36,.7);backdrop-filter:blur(6px);overflow:hidden;white-space:nowrap;
   margin-top:34px;
 }
-.ticker-track{display:inline-block;padding:15px 0;animation:tick 30s linear infinite}
+.ticker-track{display:inline-block;padding:15px 0;animation:tick 34s linear infinite;will-change:transform;transform:translateZ(0)}
 .ticker-track span{
   font-family:var(--serif);font-style:italic;font-size:1.02rem;color:var(--gold-bright);
   margin:0 26px;letter-spacing:.06em;
@@ -192,13 +208,14 @@ nav.links a:hover::after{width:100%}
 @keyframes tick{to{transform:translateX(-50%)}}
 
 /* ---------- sections ---------- */
-section{position:relative;padding:clamp(80px,10vw,140px) clamp(20px,5vw,72px)}
+section{position:relative;padding:clamp(100px,12vw,170px) clamp(20px,5vw,72px)}
 .wrap{max-width:1200px;margin:0 auto}
-.kicker{font-size:.72rem;letter-spacing:.42em;text-transform:uppercase;color:var(--gold);margin-bottom:20px;display:flex;align-items:center;gap:14px}
-.kicker::before{content:"";width:38px;height:1px;background:var(--gold)}
-h2.title{font-family:var(--serif);font-size:clamp(2.1rem,4.6vw,3.6rem);line-height:1.12;font-weight:600;color:var(--cream);max-width:14em}
-h2.title em{color:var(--gold-bright);font-weight:400}
-.lede{color:var(--muted);max-width:620px;margin-top:18px;font-size:1.05rem}
+.kicker{font-size:.76rem;letter-spacing:.5em;text-transform:uppercase;color:var(--gold);margin-bottom:22px;display:flex;align-items:center;gap:16px;font-weight:500}
+.kicker::before{content:"";width:46px;height:1px;background:linear-gradient(90deg,transparent,var(--gold))}
+.kicker::after{content:"✦";font-size:.62rem;color:rgba(201,163,92,.7);letter-spacing:0}
+h2.title{font-family:var(--serif);font-size:clamp(2.4rem,5.4vw,4.3rem);line-height:1.08;font-weight:600;color:var(--cream);max-width:14em;letter-spacing:.005em}
+h2.title em{color:var(--gold-bright);font-weight:400;font-style:italic}
+.lede{color:var(--muted);max-width:620px;margin-top:20px;font-size:1.08rem}
 
 .rv{opacity:0;transform:translateY(44px);transition:opacity 1.1s cubic-bezier(.2,.7,.2,1),transform 1.1s cubic-bezier(.2,.7,.2,1)}
 .rv.in{opacity:1;transform:none}
@@ -219,14 +236,14 @@ h2.title em{color:var(--gold-bright);font-weight:400}
   position:absolute;inset:0;border:1px solid var(--gold);border-radius:6px;
   transform:translate(18px,18px);z-index:-1;opacity:.5;
 }
+.stamp:hover{transform:rotate(3deg) scale(1.07)}
 .stamp{
   position:absolute;right:-26px;bottom:36px;width:128px;height:128px;border-radius:50%;
   background:radial-gradient(circle at 34% 30%,#a53a52,var(--wine) 70%);
   display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;
-  box-shadow:0 18px 40px rgba(0,0,0,.5),inset 0 0 0 6px rgba(246,240,225,.14);
-  transform:rotate(-10deg);transition:transform .5s;
+  box-shadow:0 18px 40px rgba(0,0,0,.5),inset 0 0 0 6px rgba(246,240,225,.14),0 0 34px rgba(142,47,69,.35);
+  transform:rotate(-10deg);transition:transform .6s cubic-bezier(.34,1.4,.4,1),box-shadow .6s;
 }
-.stamp:hover{transform:rotate(4deg) scale(1.06)}
 .stamp b{font-family:var(--serif);font-size:1.5rem;color:var(--cream);line-height:1}
 .stamp small{font-size:.56rem;letter-spacing:.3em;color:var(--gold-bright);text-transform:uppercase;margin-top:6px}
 .house-copy p{color:var(--muted);margin-top:20px}
@@ -247,7 +264,7 @@ h2.title em{color:var(--gold-bright);font-weight:400}
   background:linear-gradient(160deg,rgba(28,42,69,.9),rgba(12,20,36,.95));
   transition:transform .5s cubic-bezier(.2,.7,.2,1),box-shadow .5s,border-color .5s;
 }
-.dish:hover{transform:translateY(-8px);box-shadow:0 30px 60px rgba(0,0,0,.5),0 0 40px rgba(201,163,92,.12);border-color:rgba(201,163,92,.45)}
+.dish:hover{transform:translateY(-10px);box-shadow:0 34px 70px rgba(0,0,0,.55),0 0 64px rgba(201,163,92,.22),inset 0 0 0 1px rgba(233,207,143,.25);border-color:rgba(233,207,143,.55)}
 .dish .ph{height:190px;overflow:hidden;position:relative}
 .dish .ph img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s}
 .dish:hover .ph img{transform:scale(1.08)}
@@ -267,7 +284,29 @@ h2.title em{color:var(--gold-bright);font-weight:400}
 .dish.wide .ph{height:100%;min-height:260px}
 @media(max-width:620px){.dish.wide{grid-column:span 1;grid-template-columns:1fr}.dish.wide .ph{height:190px}}
 
-/* ---------- founder ---------- */
+/* marble/paper texture over the signatures section */
+#menu::before{
+  content:"";position:absolute;inset:0;pointer-events:none;opacity:.05;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='m'%3E%3CfeTurbulence type='turbulence' baseFrequency='0.012 0.02' numOctaves='3' seed='7'/%3E%3CfeColorMatrix values='0 0 0 0 0.79 0 0 0 0 0.64 0 0 0 0 0.36 0 0 0 0.9 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23m)'/%3E%3C/svg%3E");
+}
+#menu .wrap{position:relative;z-index:1}
+
+/* refined gold hairline divider with a centered diamond */
+.gold-rule{
+  max-width:1200px;margin:0 auto;height:1px;position:relative;
+  background:linear-gradient(90deg,transparent,rgba(201,163,92,.5) 30%,rgba(201,163,92,.5) 70%,transparent);
+}
+.gold-rule::after{
+  content:"✦";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+  color:var(--gold);font-size:.7rem;background:var(--navy-deep);padding:0 14px;
+}
+
+/* Grove location card — real photo header */
+.loc-img{margin:-38px -32px 24px;height:168px;overflow:hidden;position:relative}
+.loc-img img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s cubic-bezier(.2,.7,.2,1)}
+.loc:hover .loc-img img{transform:scale(1.07)}
+.loc-img::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 45%,rgba(12,20,36,.55))}
+.loc-feature{border-color:rgba(201,163,92,.35)}
 #founder{background:var(--cream);color:var(--ink);overflow:hidden}
 #founder .kicker{color:#9a6b1e}
 #founder .kicker::before{background:#9a6b1e}
@@ -364,7 +403,7 @@ footer ul a:hover{color:var(--gold-bright)}
 
 /* ---------- marquee words (motion typography) ---------- */
 .words-marquee{overflow:hidden;white-space:nowrap;padding:26px 0;border-top:1px solid rgba(201,163,92,.18);border-bottom:1px solid rgba(201,163,92,.18)}
-.words-marquee .wm-track{display:inline-block;animation:tick 36s linear infinite}
+.words-marquee .wm-track{display:inline-block;animation:tick 44s linear infinite;will-change:transform;transform:translateZ(0)}
 .words-marquee span{
   font-family:var(--serif);font-size:clamp(2.2rem,5vw,3.8rem);color:transparent;
   -webkit-text-stroke:1px rgba(201,163,92,.55);margin:0 30px;letter-spacing:.04em;
@@ -416,9 +455,10 @@ footer ul a:hover{color:var(--gold-bright)}
   <!-- HERO -->
   <section class="hero" aria-label="Welcome to Chèvre Miami">
     <div class="hero-bg" id="heroBg">
-      <img src="images/chevremiami/photo-interior.jpg" alt="Inside the Chèvre Miami gourmet market — cheese counters, baguettes and wine shelves">
+      <img src="images/chevremiami/interior-press.jpg" alt="Chèvre Miami gourmet market interior — cheese displays, fresh baguettes and curated shelves">
     </div>
     <div class="hero-veil"></div>
+    <div class="hero-glow" aria-hidden="true"></div>
     <div class="hero-inner" id="heroInner">
       <span class="eyebrow">Gourmet Market · Café · Miami</span>
       <h1 id="heroTitle"><span class="accent">The</span> <span class="word-split">Chèvre</span><br><span class="word-split">House</span></h1>
@@ -477,6 +517,8 @@ footer ul a:hover{color:var(--gold-bright)}
     </div>
   </div>
 
+  <div class="gold-rule" aria-hidden="true"></div>
+
   <!-- SIGNATURES -->
   <section id="menu">
     <div class="wrap">
@@ -512,8 +554,11 @@ footer ul a:hover{color:var(--gold-bright)}
         </article>
 
         <article class="dish rv rv-d2">
-          <div class="bd">
+          <div class="ph">
             <span class="day">The icon</span>
+            <img src="images/chevremiami/dish-ribeye.jpg" alt="World Famous Grilled Cheese — four-cheese press with a molten center" loading="lazy">
+          </div>
+          <div class="bd">
             <h3>World Famous <em>Grilled Cheese</em></h3>
             <p class="ing">Four world-class cheeses — Gruyère, Prairie Breeze cheddar, Morbier, Emmental — pressed golden between buttered Pullman slices with Beurre de Baratte.</p>
             <p class="note">We. Are. Cheese.</p>
@@ -629,7 +674,10 @@ footer ul a:hover{color:var(--gold-bright)}
           <p>The design edit of the house — curated fromage in Miami's most artful neighborhood.</p>
           <a class="tel" href="https://ig.me/m/chevremiami" target="_blank" rel="noopener">Ask us on DM</a>
         </article>
-        <article class="loc rv rv-d2">
+        <article class="loc rv rv-d2 loc-feature">
+          <div class="loc-img">
+            <img src="images/chevremiami/store-grove.jpg" alt="A Chèvre Miami signature pressed sandwich, served at the Coconut Grove outpost" loading="lazy">
+          </div>
           <span class="num">N° 03</span>
           <h3>Coconut Grove</h3>
           <p>The Grove outpost — home of the weekend bagel ritual and Burger Wednesdays.</p>
@@ -757,6 +805,23 @@ footer ul a:hover{color:var(--gold-bright)}
         heroBg.style.transform = "translateY(" + (y * 0.22) + "px)";
       }
     }, {passive:true});
+  }
+  /* magnetic buttons — subtle pull toward the cursor */
+  if (!reduceMotion && window.matchMedia("(pointer: fine)").matches) {
+    var magnets = document.querySelectorAll(".btn, .nav-cta");
+    magnets.forEach(function(el){
+      el.addEventListener("mousemove", function(e){
+        var r = el.getBoundingClientRect();
+        var x = (e.clientX - r.left - r.width / 2) * 0.14;
+        var y = (e.clientY - r.top - r.height / 2) * 0.22;
+        el.style.transform = "translate(" + x.toFixed(1) + "px," + y.toFixed(1) + "px)";
+      });
+      el.addEventListener("mouseleave", function(){
+        el.style.transition = "transform .5s cubic-bezier(.2,.7,.2,1)";
+        el.style.transform = "";
+        setTimeout(function(){ el.style.transition = ""; }, 500);
+      });
+    });
   }
 })();
 </script>

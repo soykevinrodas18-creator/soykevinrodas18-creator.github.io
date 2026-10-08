@@ -71,8 +71,15 @@ body{
   -webkit-font-smoothing:antialiased;
 }
 body::before{
-  content:"";position:fixed;inset:0;z-index:60;pointer-events:none;opacity:.07;
+  content:"";position:fixed;inset:0;z-index:60;pointer-events:none;opacity:.13;
   background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+body::after{
+  content:"";position:fixed;inset:0;z-index:59;pointer-events:none;
+  background:
+    radial-gradient(ellipse 125% 95% at 50% 50%,transparent 52%,rgba(0,0,0,.62) 100%),
+    linear-gradient(180deg,rgba(0,0,0,.42),transparent 16%),
+    linear-gradient(0deg,rgba(0,0,0,.42),transparent 16%);
 }
 ::selection{background:var(--ember);color:#000}
 img{max-width:100%;display:block}
@@ -102,35 +109,48 @@ nav.scrolled{background:rgba(10,9,8,.94);backdrop-filter:blur(10px);border-botto
 .navlinks a:hover{opacity:1;color:var(--flame)}
 .navlinks a:hover::after{width:100%}
 .btn{display:inline-flex;align-items:center;gap:10px;font-family:var(--cond);letter-spacing:.22em;text-transform:uppercase;font-size:14px;font-weight:700;text-decoration:none;padding:14px 30px;border:1px solid transparent;cursor:pointer;transition:transform .25s,box-shadow .25s,background .25s,color .25s}
-.btn-solid{background:linear-gradient(135deg,var(--blood),var(--ember));color:#0a0908;box-shadow:0 6px 28px rgba(255,92,26,.35)}
+.btn-solid{background:linear-gradient(135deg,var(--blood),var(--ember));color:#0a0908;box-shadow:0 6px 28px rgba(255,92,26,.35);position:relative;overflow:hidden}
+.btn-solid::after{content:"";position:absolute;top:0;bottom:0;left:-70%;width:45%;background:linear-gradient(105deg,transparent,rgba(255,255,255,.35),transparent);transform:skewX(-20deg);transition:left .7s ease;pointer-events:none}
+.btn-solid:hover::after{left:135%}
 .btn-solid:hover{transform:translateY(-2px);box-shadow:0 12px 36px rgba(255,92,26,.55)}
 .btn-outline{border-color:rgba(242,232,213,.4);color:var(--bone);background:rgba(10,9,8,.4)}
 .btn-outline:hover{border-color:var(--ember);color:var(--flame);transform:translateY(-2px)}
 .nav-cta{padding:10px 22px;font-size:12px}
 
 /* ============ HERO ============ */
-.hero{min-height:100svh;display:flex;flex-direction:column;justify-content:flex-end;padding-bottom:70px;overflow:hidden;
+.hero{position:relative;min-height:100svh;display:flex;flex-direction:column;justify-content:flex-end;padding-bottom:70px;overflow:hidden;background:var(--ink)}
+.hero::before{content:"";position:absolute;inset:-5%;z-index:0;background:url("images/apocalypsebbq/hero-fire.jpg") center 35%/cover no-repeat;animation:herodrift 28s ease-in-out infinite alternate}
+@keyframes herodrift{from{transform:scale(1) translateY(0)}to{transform:scale(1.09) translateY(-1.5%)}}
+.hero .shade{position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(180deg,rgba(10,9,8,.62) 0%,rgba(10,9,8,.28) 42%,rgba(10,9,8,.95) 90%)}
+.hero .glow{position:absolute;inset:0;z-index:2;pointer-events:none;mix-blend-mode:screen;
   background:
-    linear-gradient(180deg,rgba(10,9,8,.55) 0%,rgba(10,9,8,.25) 40%,rgba(10,9,8,.94) 88%),
-    url("https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=1920&auto=format&fit=crop") center/cover no-repeat, var(--ink);}
-#embers{position:absolute;inset:0;pointer-events:none}
-.hero .smoke-drift{position:absolute;inset:-20%;pointer-events:none;opacity:.5;
-  background:radial-gradient(ellipse 40% 30% at 20% 80%,rgba(255,92,26,.10),transparent 60%),
-             radial-gradient(ellipse 50% 35% at 80% 70%,rgba(193,39,45,.08),transparent 60%),
-             radial-gradient(ellipse 35% 25% at 50% 90%,rgba(217,164,65,.07),transparent 60%);
-  animation:drift 16s ease-in-out infinite alternate;filter:blur(6px)}
+    radial-gradient(ellipse 62% 42% at 50% 100%,rgba(255,92,26,.30),transparent 65%),
+    radial-gradient(ellipse 36% 26% at 80% 80%,rgba(193,39,45,.24),transparent 60%),
+    radial-gradient(ellipse 32% 24% at 20% 84%,rgba(217,164,65,.18),transparent 60%);
+  animation:glowpulse 5s ease-in-out infinite alternate}
+@keyframes glowpulse{from{opacity:.7}to{opacity:1}}
+#embers{position:absolute;inset:0;z-index:2;pointer-events:none}
+.hero .smoke-drift{position:absolute;inset:-20%;z-index:2;pointer-events:none;opacity:.68;
+  background:radial-gradient(ellipse 44% 32% at 18% 82%,rgba(255,92,26,.16),transparent 60%),
+             radial-gradient(ellipse 52% 36% at 82% 72%,rgba(193,39,45,.13),transparent 60%),
+             radial-gradient(ellipse 38% 28% at 48% 92%,rgba(217,164,65,.12),transparent 60%),
+             radial-gradient(ellipse 30% 22% at 65% 58%,rgba(255,140,47,.10),transparent 62%),
+             radial-gradient(ellipse 46% 30% at 30% 42%,rgba(193,39,45,.07),transparent 62%);
+  animation:drift 20s ease-in-out infinite alternate;filter:blur(10px)}
 @keyframes drift{from{transform:translate3d(-4%,2%,0) scale(1)}to{transform:translate3d(4%,-3%,0) scale(1.08)}}
-.hero-inner{position:relative;z-index:2}
-.kicker{font-family:var(--cond);letter-spacing:.5em;text-transform:uppercase;font-size:clamp(11px,1.4vw,14px);color:var(--flame);margin-bottom:18px;display:flex;align-items:center;gap:14px}
-.kicker::before{content:"";width:52px;height:2px;background:linear-gradient(90deg,var(--ember),transparent)}
+.hero-inner{position:relative;z-index:3}
+.kicker{font-family:var(--cond);font-weight:700;letter-spacing:.42em;text-transform:uppercase;font-size:clamp(12px,1.6vw,16px);color:var(--flame);margin-bottom:20px;display:flex;align-items:center;gap:16px;text-shadow:0 0 20px rgba(255,140,47,.65)}
+.kicker::before{content:"";width:68px;height:2px;background:linear-gradient(90deg,var(--ember),transparent);box-shadow:0 0 12px rgba(255,92,26,.8)}
 h1.giant{
   font-family:var(--cond);font-weight:900;text-transform:uppercase;line-height:.86;
-  font-size:clamp(64px,13.5vw,196px);letter-spacing:.01em;
-  background:linear-gradient(180deg,#fff5e6 8%,var(--gold) 32%,var(--flame) 55%,var(--ember) 72%,var(--blood) 95%);
+  font-size:clamp(76px,15.5vw,228px);letter-spacing:.01em;
+  background:linear-gradient(180deg,#fff5e6 6%,#ffe9c4 22%,var(--gold) 38%,var(--flame) 56%,var(--ember) 74%,var(--blood) 96%);
+  background-size:100% 210%;
   -webkit-background-clip:text;background-clip:text;color:transparent;
-  animation:emberflick 3.2s ease-in-out infinite;
+  animation:emberflick 3.2s ease-in-out infinite,gradientflow 7s ease-in-out infinite alternate;
   filter:drop-shadow(0 0 26px rgba(255,92,26,.35));
 }
+@keyframes gradientflow{from{background-position:50% 0%}to{background-position:50% 100%}}
 h1.giant .stroke{color:transparent;-webkit-text-stroke:2px var(--bone);background:none;-webkit-background-clip:unset;filter:none;animation:none;opacity:.9}
 @keyframes emberflick{0%,100%{filter:drop-shadow(0 0 26px rgba(255,92,26,.35)) brightness(1)}30%{filter:drop-shadow(0 0 40px rgba(255,140,47,.55)) brightness(1.06)}55%{filter:drop-shadow(0 0 18px rgba(255,92,26,.25)) brightness(.96)}75%{filter:drop-shadow(0 0 34px rgba(255,92,26,.45)) brightness(1.03)}}
 .hero-sub{font-family:var(--serif);font-style:italic;font-size:clamp(17px,2.4vw,26px);color:var(--bone);max-width:640px;margin-top:22px;opacity:.92}
@@ -153,15 +173,17 @@ h1.giant .stroke{color:transparent;-webkit-text-stroke:2px var(--bone);backgroun
 @keyframes tick{to{transform:translateX(-50%)}}
 
 /* ============ SECTIONS COMMON ============ */
-.sect{padding:clamp(80px,10vw,140px) 0}
-.eyebrow{font-family:var(--cond);letter-spacing:.5em;text-transform:uppercase;font-size:12px;color:var(--ember);margin-bottom:18px;display:flex;align-items:center;gap:14px}
+.sect{padding:clamp(110px,13vw,184px) 0}
+.sect::before{content:"";position:absolute;top:0;left:clamp(18px,4vw,48px);right:clamp(18px,4vw,48px);height:1px;background:linear-gradient(90deg,transparent,rgba(255,92,26,.35),transparent)}
+.secnum{display:block;font-family:var(--cond);font-weight:900;font-size:clamp(54px,6.5vw,84px);line-height:1;letter-spacing:.05em;color:transparent;-webkit-text-stroke:1px rgba(255,92,26,.42);margin-bottom:12px}
+.eyebrow{font-family:var(--cond);letter-spacing:.42em;text-transform:uppercase;font-size:13px;color:var(--ember);margin-bottom:20px;display:flex;align-items:center;gap:14px}
 .eyebrow::before{content:"";width:44px;height:2px;background:var(--ember)}
-h2.title{font-family:var(--cond);font-weight:900;text-transform:uppercase;line-height:.95;font-size:clamp(42px,7vw,96px);letter-spacing:.01em;margin-bottom:14px}
+h2.title{font-family:var(--cond);font-weight:900;text-transform:uppercase;line-height:.95;font-size:clamp(50px,8vw,116px);letter-spacing:.01em;margin-bottom:18px}
 h2.title .hot{color:transparent;-webkit-text-stroke:1.5px var(--flame)}
 .lede{font-family:var(--serif);font-style:italic;font-size:clamp(16px,2vw,21px);color:var(--ash);max-width:680px}
 .reveal{opacity:0;transform:translateY(36px);transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1)}
 .reveal.in{opacity:1;transform:none}
-.reveal.d1{transition-delay:.12s}.reveal.d2{transition-delay:.24s}.reveal.d3{transition-delay:.36s}
+.reveal.d1{transition-delay:.12s}.reveal.d2{transition-delay:.24s}.reveal.d3{transition-delay:.36s}.reveal.d4{transition-delay:.5s}
 
 /* ============ STORY ============ */
 .story{background:radial-gradient(ellipse 70% 50% at 80% 10%,rgba(255,92,26,.07),transparent 60%),var(--ink)}
@@ -202,7 +224,10 @@ blockquote.fire-quote cite{display:block;margin-top:12px;font-family:var(--cond)
 .dish h3{font-family:var(--cond);font-weight:900;font-size:clamp(24px,2.8vw,38px);text-transform:uppercase;line-height:1;letter-spacing:.02em;margin-bottom:8px}
 .dish p{font-size:14px;color:#cfc2a8;max-width:420px}
 .dish .flare{position:absolute;top:18px;right:18px;z-index:2;font-family:var(--cond);font-size:11px;letter-spacing:.26em;text-transform:uppercase;background:rgba(10,9,8,.75);border:1px solid var(--ember);color:var(--flame);padding:8px 14px;backdrop-filter:blur(6px)}
-.dish:hover{transform:translateY(-6px);border-color:rgba(255,92,26,.5);box-shadow:0 24px 60px rgba(0,0,0,.6),0 0 40px rgba(255,92,26,.12)}
+.dish::after{content:"";position:absolute;top:-10%;bottom:-10%;left:-75%;width:55%;z-index:1;pointer-events:none;background:linear-gradient(105deg,transparent,rgba(255,170,90,.22),transparent);transform:skewX(-18deg);transition:left .9s ease}
+.dish:hover::after{left:135%}
+.dish:hover{transform:translateY(-6px);border-color:rgba(255,140,47,.65);box-shadow:0 28px 70px rgba(0,0,0,.65),0 0 64px rgba(255,92,26,.28),inset 0 0 40px rgba(255,92,26,.06)}
+.dish:hover .flare{box-shadow:0 0 22px rgba(255,92,26,.55);border-color:var(--flame)}
 .sauces{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:22px}
 .sauce{border:1px solid var(--line);background:linear-gradient(160deg,var(--coal),#100d0b);padding:32px 28px;position:relative;overflow:hidden;transition:transform .3s,border-color .3s}
 .sauce:hover{transform:translateY(-4px);border-color:rgba(217,164,65,.5)}
@@ -215,6 +240,15 @@ blockquote.fire-quote cite{display:block;margin-top:12px;font-family:var(--cond)
 .special .price small{font-size:16px;color:var(--gold)}
 .special .info b{display:block;font-family:var(--cond);font-size:15px;letter-spacing:.2em;text-transform:uppercase;color:var(--bone)}
 .special .info span{font-size:13px;color:var(--ash)}
+
+.sauce-banner{position:relative;overflow:hidden;border:1px solid var(--line);min-height:320px;display:flex;align-items:flex-end;margin-top:22px}
+.sauce-banner img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 28%;transition:transform .9s cubic-bezier(.2,.7,.2,1)}
+.sauce-banner:hover img{transform:scale(1.05)}
+.sauce-banner .veil{position:absolute;inset:0;background:linear-gradient(90deg,rgba(10,9,8,.94) 0%,rgba(10,9,8,.5) 55%,transparent 100%)}
+.sauce-banner .body{position:relative;z-index:2;padding:clamp(26px,4vw,46px);max-width:540px}
+.sauce-banner .cat{font-family:var(--cond);font-size:11px;letter-spacing:.42em;text-transform:uppercase;color:var(--gold);margin-bottom:10px;display:block}
+.sauce-banner h3{font-family:var(--cond);font-weight:900;font-size:clamp(28px,3.6vw,48px);text-transform:uppercase;line-height:1;margin-bottom:10px}
+.sauce-banner p{font-size:15px;color:#cfc2a8}
 
 /* ============ ALLIES / COLLABS ============ */
 .allies{background:#0c0a09}
@@ -293,7 +327,7 @@ footer{border-top:1px solid var(--line);background:#080706;padding:60px 0 34px}
   .fact{padding:22px 18px}
   .scrollcue{display:none}
   .ticker-track{animation-duration:18s}
-  h1.giant{font-size:clamp(58px,17vw,110px)}
+  h1.giant{font-size:clamp(64px,17.5vw,120px)}
 }
 
 /* ============ REDUCED MOTION ============ */
@@ -328,6 +362,8 @@ footer{border-top:1px solid var(--line);background:#080706;padding:60px 0 34px}
 </nav>
 
 <header class="hero" id="top">
+  <div class="shade" aria-hidden="true"></div>
+  <div class="glow" aria-hidden="true"></div>
   <canvas id="embers" aria-hidden="true"></canvas>
   <div class="smoke-drift" aria-hidden="true"></div>
   <div class="wrap hero-inner">
@@ -356,6 +392,7 @@ footer{border-top:1px solid var(--line);background:#080706;padding:60px 0 34px}
 
 <section class="sect story" id="story">
   <div class="wrap">
+    <span class="secnum reveal" aria-hidden="true">01</span>
     <p class="eyebrow reveal">The man behind the fire</p>
     <h2 class="title reveal">"F*ck the apoca&shy;lypse.<br><span class="hot">Let's BBQ."</span></h2>
     <p class="lede reveal">One sentence, said out loud in a driveway in 2020, became the most-followed BBQ joint in Miami.</p>
@@ -376,7 +413,7 @@ footer{border-top:1px solid var(--line);background:#080706;padding:60px 0 34px}
         </div>
         <div class="story-img reveal d2">
           <div class="frame">
-            <img src="https://images.unsplash.com/photo-1558030006-450675393462?q=80&w=1200&auto=format&fit=crop" alt="Steak grilling over open fire at Apocalypse BBQ" loading="lazy">
+            <img src="images/apocalypsebbq/hero-fire.jpg" alt="Fire pit burning at Apocalypse BBQ" loading="lazy" style="object-position:50% 78%">
           </div>
           <span class="tag">Over real fire</span>
         </div>
@@ -390,6 +427,7 @@ footer{border-top:1px solid var(--line);background:#080706;padding:60px 0 34px}
   <div class="wrap">
     <div class="menu-head">
       <div>
+        <span class="secnum reveal" aria-hidden="true">02</span>
         <p class="eyebrow reveal">The menu</p>
         <h2 class="title reveal">Smoked to<br><span class="hot">the bone</span></h2>
       </div>
@@ -397,7 +435,7 @@ footer{border-top:1px solid var(--line);background:#080706;padding:60px 0 34px}
     </div>
     <div class="menu-grid">
       <article class="dish reveal">
-        <img src="https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=1400&auto=format&fit=crop" alt="Smoked ribs glazed over the fire" loading="lazy">
+        <img src="images/apocalypsebbq/dish-cafecito-ribs.jpg" alt="Glazed cafecito ribs at Apocalypse BBQ" loading="lazy">
         <div class="veil"></div>
         <span class="flare">The Legend</span>
         <div class="body">
@@ -407,7 +445,7 @@ footer{border-top:1px solid var(--line);background:#080706;padding:60px 0 34px}
         </div>
       </article>
       <article class="dish reveal d1">
-        <img src="https://images.unsplash.com/photo-1603360946369-dc9bb6258143?q=80&w=1200&auto=format&fit=crop" alt="Smoked chicken wings with char" loading="lazy">
+        <img src="images/apocalypsebbq/dish-brisket.jpg" alt="Smoked brisket tray at Apocalypse BBQ" loading="lazy" style="object-position:50% 25%">
         <div class="veil"></div>
         <span class="flare">$1 Wednesdays</span>
         <div class="body">
@@ -417,7 +455,7 @@ footer{border-top:1px solid var(--line);background:#080706;padding:60px 0 34px}
         </div>
       </article>
       <article class="dish reveal">
-        <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?q=80&w=1200&auto=format&fit=crop" alt="Skewers and smoked meats over open flame" loading="lazy">
+        <img src="images/apocalypsebbq/dish-brisket.jpg" alt="Sliced smoked brisket at Apocalypse BBQ" loading="lazy" style="object-position:50% 82%">
         <div class="veil"></div>
         <span class="flare">Southern Living Pick</span>
         <div class="body">
@@ -427,7 +465,7 @@ footer{border-top:1px solid var(--line);background:#080706;padding:60px 0 34px}
         </div>
       </article>
       <article class="dish reveal d1">
-        <img src="https://images.unsplash.com/photo-1529193591184-b1d58069ecdd?q=80&w=1400&auto=format&fit=crop" alt="Meat searing on the grill with flames" loading="lazy">
+        <img src="images/apocalypsebbq/dish-cafecito-ribs.jpg" alt="Glazed ribs at Apocalypse BBQ" loading="lazy" style="object-position:50% 88%">
         <div class="veil"></div>
         <span class="flare">Cult Favorite</span>
         <div class="body">
@@ -436,6 +474,15 @@ footer{border-top:1px solid var(--line);background:#080706;padding:60px 0 34px}
           <p>The chicken sandwich with a name, and the burrito that broke Tuesdays. Plus the smoked Crunchwrap and brisket birria tacos.</p>
         </div>
       </article>
+    </div>
+    <div class="sauce-banner reveal">
+      <img src="images/apocalypsebbq/dish-sauces.jpg" alt="Apocalypse BBQ sauce bottles: OG BBQ, Oro Negro, and Carolina Mojo" loading="lazy">
+      <div class="veil"></div>
+      <div class="body">
+        <span class="cat">Bottle the fire</span>
+        <h3>Sauces to take home</h3>
+        <p>OG BBQ, Oro Negro, Carolina Mojo — their signature sauces, bottled and ready.</p>
+      </div>
     </div>
     <div class="sauces">
       <div class="sauce reveal"><h4>OG BBQ</h4><p>The original. Sweet, dark, unapologetic.</p></div>
@@ -452,6 +499,7 @@ footer{border-top:1px solid var(--line);background:#080706;padding:60px 0 34px}
 
 <section class="sect allies" id="collabs">
   <div class="wrap">
+    <span class="secnum reveal" aria-hidden="true">03</span>
     <p class="eyebrow reveal">Allies in the fire</p>
     <h2 class="title reveal">Bad <span class="hot">company</span></h2>
     <p class="lede reveal">Apocalypse doesn't cook alone. Guest chefs, restaurant takeovers, and dinners that sell out.</p>
@@ -469,7 +517,7 @@ footer{border-top:1px solid var(--line);background:#080706;padding:60px 0 34px}
         <p>An insane burger collab plus a cornbread milkshake — one weekend at Cowy, one at Apocalypse. Miami shows up.</p>
       </article>
     </div>
-    <div class="press reveal">
+    <div class="press reveal d4">
       <a href="https://www.southernliving.com/new-barbecue-joints-2026-12060676" target="_blank" rel="noopener">★ Southern Living Feature</a>
       <a href="https://www.instagram.com/apocalypsebbq/" target="_blank" rel="noopener">★ The Takeout Feature</a>
     </div>
@@ -478,6 +526,7 @@ footer{border-top:1px solid var(--line);background:#080706;padding:60px 0 34px}
 
 <section class="sect" id="week">
   <div class="wrap">
+    <span class="secnum reveal" aria-hidden="true">04</span>
     <p class="eyebrow reveal">Every day has a flavor</p>
     <h2 class="title reveal">The weekly <span class="hot">ritual</span></h2>
     <p class="lede reveal">Plan your week around the smoke. Same fire, different temptation every day.</p>
@@ -495,6 +544,7 @@ footer{border-top:1px solid var(--line);background:#080706;padding:60px 0 34px}
 
 <section class="sect visit" id="visit">
   <div class="wrap">
+    <span class="secnum reveal" aria-hidden="true">05</span>
     <p class="eyebrow reveal">Find the fire</p>
     <h2 class="title reveal">Get <span class="hot">here</span></h2>
     <div class="visit-grid">
@@ -515,7 +565,7 @@ footer{border-top:1px solid var(--line);background:#080706;padding:60px 0 34px}
         <a class="btn btn-solid" href="https://www.google.com/maps/search/?api=1&query=8695+SW+124th+Ave+Miami+FL+33183" target="_blank" rel="noopener">Get Directions</a>
       </div>
       <div class="game-card reveal d1">
-        <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?q=80&w=1400&auto=format&fit=crop" alt="BBQ feast platter for game day" loading="lazy">
+        <img src="images/apocalypsebbq/hero-fire.jpg" alt="Fire glowing at Apocalypse BBQ" loading="lazy" style="object-position:50% 62%">
         <div class="veil"></div>
         <div class="body">
           <p class="kick">Football season</p>
@@ -634,7 +684,7 @@ footer{border-top:1px solid var(--line);background:#080706;padding:60px 0 34px}
         var r = btn.getBoundingClientRect();
         var x = ev.clientX - r.left - r.width / 2;
         var y = ev.clientY - r.top - r.height / 2;
-        btn.style.transform = "translate(" + (x * .12) + "px," + (y * .18 - 2) + "px)";
+        btn.style.transform = "translate(" + (x * .16) + "px," + (y * .22 - 2) + "px)";
       });
       btn.addEventListener("mouseleave", function(){ btn.style.transform = ""; });
     });

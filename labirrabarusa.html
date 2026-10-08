@@ -73,13 +73,15 @@ header.scrolled{background:rgba(11,9,6,.92);backdrop-filter:blur(12px);border-co
 .btn-solid::before{content:"";position:absolute;top:0;left:-80%;width:60%;height:100%;background:linear-gradient(105deg,transparent,rgba(255,255,255,.75),transparent);transform:skewX(-20deg);transition:left .6s}
 .btn-solid:hover{transform:translateY(-2px);box-shadow:0 14px 44px rgba(233,184,31,.5)}
 .btn-solid:hover::before{left:130%}
-.btn-line{display:inline-flex;align-items:center;gap:10px;border:1.5px solid var(--gold);color:var(--gold-hi);font-family:'Barlow Condensed',sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:.14em;font-size:15px;padding:13px 28px;border-radius:999px;cursor:pointer;background:transparent;transition:background .25s,color .25s,transform .25s}
+.btn-line{display:inline-flex;align-items:center;gap:10px;border:1.5px solid var(--gold);color:var(--gold-hi);font-family:'Barlow Condensed',sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:.14em;font-size:15px;padding:13px 28px;border-radius:999px;cursor:pointer;position:relative;overflow:hidden;background:transparent;transition:background .25s,color .25s,transform .25s}
+.btn-line::before{content:"";position:absolute;top:0;left:-80%;width:60%;height:100%;background:linear-gradient(105deg,transparent,rgba(255,227,122,.35),transparent);transform:skewX(-20deg);transition:left .6s}
 .btn-line:hover{background:rgba(233,184,31,.12);transform:translateY(-2px)}
+.btn-line:hover::before{left:130%}
 .burger-menu{display:none;background:none;border:0;cursor:pointer;flex-direction:column;gap:6px;padding:8px}
 .burger-menu span{display:block;width:26px;height:2px;background:var(--gold);transition:.3s}
 
 /* ---------- hero ---------- */
-.hero{position:relative;min-height:100svh;display:flex;align-items:center;padding:140px 0 90px;overflow:hidden;background:radial-gradient(1200px 600px at 75% 10%,rgba(233,184,31,.14),transparent 60%),radial-gradient(900px 500px at 10% 90%,rgba(255,106,26,.1),transparent 60%),var(--ink)}
+.hero{position:relative;min-height:104svh;display:flex;align-items:center;padding:150px 0 110px;overflow:hidden;background:radial-gradient(1400px 700px at 75% 10%,rgba(233,184,31,.17),transparent 60%),radial-gradient(900px 500px at 10% 90%,rgba(255,106,26,.12),transparent 60%),var(--ink)}
 .hero::before{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(233,184,31,.14) 1px,transparent 1px);background-size:34px 34px;mask-image:radial-gradient(70% 70% at 50% 40%,#000 30%,transparent 100%);pointer-events:none}
 .embers{position:absolute;inset:0;pointer-events:none;overflow:hidden}
 .ember{position:absolute;bottom:-20px;width:5px;height:5px;border-radius:50%;background:radial-gradient(circle,var(--gold-hi),var(--ember));opacity:0;animation:rise linear infinite}
@@ -88,7 +90,7 @@ header.scrolled{background:rgba(11,9,6,.92);backdrop-filter:blur(12px);border-co
 .kicker{display:inline-flex;align-items:center;gap:12px;border:1px solid var(--line);border-radius:999px;padding:8px 18px;font-size:12px;letter-spacing:.3em;text-transform:uppercase;color:var(--gold-hi);font-weight:600;background:rgba(233,184,31,.07);margin-bottom:26px}
 .kicker .dot{width:8px;height:8px;border-radius:50%;background:var(--ember);box-shadow:0 0 12px var(--ember);animation:pulse 2s infinite}
 @keyframes pulse{50%{opacity:.4}}
-.hero h1{font-size:clamp(58px,9vw,128px);color:var(--cream)}
+.hero h1{font-size:clamp(64px,10vw,148px);color:var(--cream)}
 .gleam{background:linear-gradient(100deg,var(--gold-deep) 20%,var(--gold-hi) 38%,#fffbe8 50%,var(--gold-hi) 62%,var(--gold-deep) 80%);background-size:220% auto;-webkit-background-clip:text;background-clip:text;color:transparent;animation:gleam 4.5s linear infinite;display:inline-block}
 @keyframes gleam{to{background-position:220% center}}
 .hero-sub{margin:26px 0 36px;font-size:19px;color:var(--cream-dim);max-width:520px}
@@ -98,13 +100,17 @@ header.scrolled{background:rgba(11,9,6,.92);backdrop-filter:blur(12px);border-co
 .stat b{display:block;font-family:'Anton',sans-serif;font-size:40px;color:var(--gold-hi);line-height:1}
 .stat span{font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--cream-dim)}
 .hero-visual{position:relative;display:flex;justify-content:center}
-.hero-frame{position:relative;width:min(440px,90%);aspect-ratio:3/4;border-radius:200px 200px 24px 24px;overflow:hidden;border:1px solid var(--line);box-shadow:var(--shadow-gold),0 40px 90px rgba(0,0,0,.6)}
+.hero-visual::before{content:"";position:absolute;top:6%;left:50%;transform:translateX(-50%);width:min(640px,115%);aspect-ratio:1;background:radial-gradient(circle,rgba(233,184,31,.22),transparent 65%);filter:blur(10px);pointer-events:none}
+.hero-frame{position:relative;width:min(540px,94%);aspect-ratio:4/5;border-radius:200px 200px 24px 24px;overflow:hidden;border:1px solid var(--line);box-shadow:var(--shadow-gold),0 40px 90px rgba(0,0,0,.6)}
+.hero-frame .gleam-sweep{position:absolute;top:-20%;left:-90%;width:55%;height:140%;background:linear-gradient(105deg,transparent,rgba(255,227,122,.38),transparent);transform:skewX(-18deg);animation:framesweep 6.5s ease-in-out infinite;pointer-events:none;z-index:2}
+@keyframes framesweep{0%,55%{left:-90%}88%,100%{left:170%}}
 .hero-frame img{width:100%;height:100%;object-fit:cover;transform:scale(1.04);animation:breath 7s ease-in-out infinite}
 @keyframes breath{50%{transform:scale(1.12)}}
 .hero-frame::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(11,9,6,.75));pointer-events:none}
-.seal{position:absolute;width:150px;height:150px;top:-34px;right:-10px;z-index:3;animation:spin 18s linear infinite}
+.seal{position:absolute;width:150px;height:150px;top:-34px;right:-10px;z-index:3;animation:sealfloat 6s ease-in-out infinite}
+@keyframes sealfloat{50%{transform:translateY(-14px) rotate(4deg)}}
 @keyframes spin{to{transform:rotate(360deg)}}
-.seal svg{width:100%;height:100%;filter:drop-shadow(0 0 18px rgba(233,184,31,.55))}
+.seal svg{width:100%;height:100%;filter:drop-shadow(0 0 18px rgba(233,184,31,.55));animation:spin 20s linear infinite}
 .hero-tag{position:absolute;bottom:36px;left:50%;transform:translateX(-50%);z-index:3;text-align:center;background:rgba(11,9,6,.72);backdrop-filter:blur(8px);border:1px solid var(--line);border-radius:16px;padding:14px 26px;white-space:nowrap}
 .hero-tag .cond{font-size:13px;color:var(--gold-hi)}
 .hero-tag p{font-size:12px;color:var(--cream-dim);margin-top:2px}
@@ -117,17 +123,19 @@ header.scrolled{background:rgba(11,9,6,.92);backdrop-filter:blur(12px);border-co
 .ticker.dark{background:var(--coal2);color:var(--gold-hi);transform:rotate(1deg) scale(1.02);border-top:1px solid var(--line);border-bottom:1px solid var(--line);box-shadow:none;margin:70px 0 0}
 
 /* ---------- sections ---------- */
-section{padding:110px 0;position:relative}
+section{padding:132px 0;position:relative}
+/* charcoal film-grain texture over the whole page */
+body::after{content:"";position:fixed;inset:0;z-index:200;pointer-events:none;opacity:.05;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='0.55'/%3E%3C/svg%3E")}
 .eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:12px;letter-spacing:.32em;text-transform:uppercase;color:var(--ember);font-weight:700;margin-bottom:18px}
 .eyebrow::before{content:"";width:34px;height:2px;background:var(--ember)}
-h2.sec-title{font-family:'Anton',sans-serif;font-size:clamp(40px,5.5vw,72px);text-transform:uppercase;line-height:1;color:var(--cream)}
+h2.sec-title{font-family:'Anton',sans-serif;font-size:clamp(44px,6vw,80px);text-transform:uppercase;line-height:1;color:var(--cream)}
 h2.sec-title em{font-style:normal;color:var(--gold-hi)}
 .sec-lead{margin-top:18px;color:var(--cream-dim);max-width:640px;font-size:18px}
 
 /* champion burgers */
-.champs{margin-top:70px;display:grid;grid-template-columns:repeat(3,1fr);gap:30px}
-.champ{position:relative;background:linear-gradient(160deg,var(--coal2),var(--coal));border:1px solid var(--line);border-radius:22px;overflow:hidden;transition:transform .35s,box-shadow .35s,border-color .35s}
-.champ:hover{transform:translateY(-10px);box-shadow:var(--shadow-gold);border-color:rgba(233,184,31,.5)}
+.champs{margin-top:80px;display:grid;grid-template-columns:repeat(3,1fr);gap:30px;perspective:1400px}
+.champ{position:relative;background:linear-gradient(160deg,var(--coal2),var(--coal));border:1px solid var(--line);border-radius:22px;overflow:hidden;transition:transform .35s,box-shadow .35s,border-color .35s;transform-style:preserve-3d;will-change:transform}
+.champ:hover{transform:translateY(-10px);box-shadow:0 0 80px rgba(233,184,31,.4),0 30px 60px rgba(0,0,0,.6);border-color:rgba(233,184,31,.55)}
 .champ:nth-child(2){transform:translateY(34px)}
 .champ:nth-child(2):hover{transform:translateY(24px)}
 .champ-img{position:relative;height:300px;overflow:hidden}
@@ -135,8 +143,8 @@ h2.sec-title em{font-style:normal;color:var(--gold-hi)}
 .champ:hover .champ-img img{transform:scale(1.08)}
 .champ-img::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 50%,rgba(20,16,9,.9))}
 .stamp{position:absolute;top:18px;right:18px;z-index:2;background:radial-gradient(circle at 35% 30%,var(--gold-hi),var(--gold) 55%,var(--gold-deep));color:#1a1204;font-family:'Anton',sans-serif;font-size:13px;text-transform:uppercase;text-align:center;line-height:1.25;width:112px;height:112px;border-radius:50%;display:flex;align-items:center;justify-content:center;padding:14px;border:3px dashed rgba(26,18,4,.45);box-shadow:0 8px 26px rgba(0,0,0,.5);transform:rotate(8deg)}
-.stamp.in{animation:stampin .5s cubic-bezier(.2,2.2,.4,1) both}
-@keyframes stampin{0%{transform:scale(2.4) rotate(-30deg);opacity:0}100%{transform:scale(1) rotate(8deg);opacity:1}}
+.stamp.in{animation:stampin .6s cubic-bezier(.2,1.6,.35,1) both}
+@keyframes stampin{0%{transform:scale(2.6) rotate(-32deg);opacity:0}60%{opacity:1}100%{transform:scale(1) rotate(8deg);opacity:1}}
 .champ-body{padding:28px 26px 32px}
 .champ-body h3{font-family:'Anton',sans-serif;font-size:30px;text-transform:uppercase;color:var(--gold-hi);margin-bottom:6px}
 .champ-body .cond{font-size:12px;color:var(--ember);margin-bottom:14px;display:block}
@@ -145,9 +153,28 @@ h2.sec-title em{font-style:normal;color:var(--gold-hi)}
 .champ-link svg{transition:transform .25s}
 .champ-link:hover svg{transform:translateX(6px)}
 
+/* directo de la plancha — real photos */
+.plancha-head{margin-top:96px}
+.plancha{margin-top:64px;display:grid;grid-template-columns:repeat(3,1fr);gap:26px;perspective:1400px}
+.plancha-card{position:relative;border-radius:20px;overflow:hidden;border:1px solid var(--line);background:var(--coal);transform-style:preserve-3d;will-change:transform;transition:transform .35s,box-shadow .35s,border-color .35s;min-height:360px;display:flex}
+.plancha-card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .6s}
+.plancha-card:hover img{transform:scale(1.07)}
+.plancha-card::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 38%,rgba(11,9,6,.88));pointer-events:none}
+.plancha-card:hover{box-shadow:0 0 80px rgba(233,184,31,.4),0 30px 60px rgba(0,0,0,.6);border-color:rgba(233,184,31,.55)}
+.plancha-card .sweep{position:absolute;top:-20%;left:-90%;width:55%;height:140%;background:linear-gradient(105deg,transparent,rgba(255,227,122,.28),transparent);transform:skewX(-18deg);transition:left .8s;z-index:2;pointer-events:none}
+.plancha-card:hover .sweep{left:170%}
+.plancha-cap{position:absolute;left:0;right:0;bottom:0;z-index:2;padding:24px 24px 22px;transform:translateZ(40px)}
+.plancha-cap .cond{font-size:12px;color:var(--ember);display:block;margin-bottom:6px}
+.plancha-cap h3{font-family:'Anton',sans-serif;font-size:28px;text-transform:uppercase;color:var(--cream);line-height:1}
+.real-tag{position:absolute;top:16px;left:16px;z-index:2;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:#1a1204;background:linear-gradient(135deg,var(--gold-hi),var(--gold));padding:6px 14px;border-radius:999px;box-shadow:0 4px 16px rgba(233,184,31,.4)}
+
+/* gold dust atmosphere */
+.dust{position:absolute;border-radius:50%;background:radial-gradient(circle,#ffe37a 0%,rgba(233,184,31,0) 70%);opacity:0;animation:dustfloat linear infinite;pointer-events:none}
+@keyframes dustfloat{0%{transform:translateY(30px);opacity:0}25%{opacity:.85}100%{transform:translateY(-46vh);opacity:0}}
+
 /* trophy wall */
 .trophy{background:radial-gradient(900px 500px at 50% 0%,rgba(233,184,31,.08),transparent 60%)}
-.wall{margin-top:64px;display:grid;grid-template-columns:repeat(4,1fr);gap:26px}
+.wall{margin-top:76px;display:grid;grid-template-columns:repeat(4,1fr);gap:26px}
 .medal{background:linear-gradient(165deg,#201708,#141009);border:1px solid var(--line);border-radius:20px;padding:26px;text-align:center;transition:transform .35s,box-shadow .35s;position:relative;overflow:hidden}
 .medal::before{content:"";position:absolute;top:-40%;left:-80%;width:50%;height:180%;background:linear-gradient(105deg,transparent,rgba(255,227,122,.18),transparent);transform:skewX(-20deg);transition:left .7s}
 .medal:hover::before{left:140%}
@@ -172,9 +199,9 @@ h2.sec-title em{font-style:normal;color:var(--gold-hi)}
 .fam-card span{font-size:13px;color:var(--cream-dim)}
 .timeline{position:relative;padding-left:34px}
 .timeline::before{content:"";position:absolute;left:8px;top:6px;bottom:6px;width:2px;background:linear-gradient(180deg,var(--gold),var(--ember),transparent)}
-.tl-item{position:relative;padding:0 0 34px}
+.tl-item{position:relative;padding:0 0 44px}
 .tl-item::before{content:"";position:absolute;left:-32px;top:6px;width:12px;height:12px;border-radius:50%;background:var(--gold);box-shadow:0 0 14px var(--gold);border:2px solid var(--ink)}
-.tl-item .year{font-family:'Anton',sans-serif;font-size:26px;color:var(--gold-hi)}
+.tl-item .year{font-family:'Anton',sans-serif;font-size:30px;letter-spacing:.04em;color:var(--gold-hi)}
 .tl-item p{color:var(--cream-dim);font-size:16px;margin-top:4px;max-width:420px}
 
 /* locations */
@@ -226,6 +253,7 @@ footer{border-top:1px solid var(--line);padding:56px 0 34px;background:#080604}
   .champs{grid-template-columns:1fr;max-width:560px;margin-left:auto;margin-right:auto}
   .champ:nth-child(2){transform:none}
   .champ:nth-child(2):hover{transform:translateY(-10px)}
+  .plancha{grid-template-columns:1fr;max-width:560px;margin-left:auto;margin-right:auto}
   .wall{grid-template-columns:repeat(2,1fr)}
   .story-grid{grid-template-columns:1fr;gap:50px}
   .loc-grid{grid-template-columns:repeat(2,1fr)}
@@ -243,9 +271,10 @@ footer{border-top:1px solid var(--line);padding:56px 0 34px;background:#080604}
   .seal{width:118px;height:118px;top:-22px;right:6px}
   .loc-grid{grid-template-columns:1fr}
   .loc.featured{grid-column:span 1;grid-template-columns:1fr}
-  section{padding:80px 0}
+  section{padding:96px 0}
   .hero-stats{gap:24px}
   .stat b{font-size:32px}
+  .plancha-card{min-height:300px}
 }
 @media(max-width:430px){
   .wall{grid-template-columns:1fr 1fr;gap:14px}
@@ -312,11 +341,12 @@ footer{border-top:1px solid var(--line);padding:56px 0 34px;background:#080604}
         </svg>
       </div>
       <div class="hero-frame">
-        <img src="images/labirrabarusa/burger-hero.jpg" alt="Hamburguesa La Birra Bar con queso derretido y cebolla crocante" fetchpriority="high">
+        <img src="images/labirrabarusa/burger-golden.jpg" alt="Golden Burger — la hamburguesa oficial de La Birra Bar, directo del menú" fetchpriority="high">
+        <span class="gleam-sweep" aria-hidden="true"></span>
       </div>
       <div class="hero-tag">
-        <span class="cond">Smash Golden Chimichurri</span>
-        <p>Ganadora del Burger Bash — SOBEWFF 2025</p>
+        <span class="cond">Golden Burger</span>
+        <p>La oficial — mejor hamburguesa de EE. UU., SOBEWFF 2022</p>
       </div>
     </div>
   </div>
@@ -375,6 +405,40 @@ footer{border-top:1px solid var(--line);padding:56px 0 34px;background:#080604}
           <span class="cond">Mejor hamburguesa de EE. UU. — SOBEWFF 2022</span>
           <p>La que empezó todo en Miami: coronada como la mejor hamburguesa de Estados Unidos en el Burger Bash de The Food Network, y elegida Best Burger por Miami New Times.</p>
           <a class="champ-link" href="https://www.ubereats.com/store/la-birra-bar-burgers-north-miami/3TcEFxtFSfiuiAN5buyXpA" target="_blank" rel="noopener">Pídela ahora <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </div>
+      </article>
+    </div>
+    <div class="plancha-head reveal">
+      <span class="eyebrow">Directo de la plancha</span>
+    </div>
+    <h2 class="sec-title reveal d1">Fotos reales,<br><em>cero poses</em></h2>
+    <p class="sec-lead reveal d2">Así salen de nuestras cocinas en Miami: fotografía real de nuestros locales, todos los días.</p>
+    <div class="plancha">
+      <article class="plancha-card reveal">
+        <img src="images/labirrabarusa/burger-wynwood.jpg" alt="Hamburguesa La Birra Bar recién salida de la plancha en Wynwood" loading="lazy">
+        <span class="sweep" aria-hidden="true"></span>
+        <span class="real-tag">Foto real</span>
+        <div class="plancha-cap">
+          <span class="cond">Wynwood — 250 NW 24th St</span>
+          <h3>Desde la plancha</h3>
+        </div>
+      </article>
+      <article class="plancha-card reveal d1">
+        <img src="images/labirrabarusa/burger-wynwood2.jpg" alt="Hamburguesa La Birra Bar en el local de Wynwood, Miami" loading="lazy">
+        <span class="sweep" aria-hidden="true"></span>
+        <span class="real-tag">Foto real</span>
+        <div class="plancha-cap">
+          <span class="cond">Wynwood — corazón del arte</span>
+          <h3>Recién hecha</h3>
+        </div>
+      </article>
+      <article class="plancha-card reveal d2">
+        <img src="images/labirrabarusa/burger-gables.jpg" alt="Hamburguesa La Birra Bar en el local de Coral Gables" loading="lazy">
+        <span class="sweep" aria-hidden="true"></span>
+        <span class="real-tag">Foto real</span>
+        <div class="plancha-cap">
+          <span class="cond">Coral Gables — 219 Miracle Mile</span>
+          <h3>La de la milla</h3>
         </div>
       </article>
     </div>
@@ -618,12 +682,45 @@ footer{border-top:1px solid var(--line);padding:56px 0 34px;background:#080604}
     }
   }
 
+  // gold dust atmosphere (slow twinkling particles over the hero)
+  var hero=document.querySelector('.hero');
+  if(hero && !window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+    for(var j=0;j<12;j++){
+      var d=document.createElement('span');
+      d.className='dust';
+      d.style.left=(Math.random()*100)+'%';
+      d.style.top=(30+Math.random()*65)+'%';
+      var ds=2+Math.random()*4;
+      d.style.width=ds+'px'; d.style.height=ds+'px';
+      d.style.animationDuration=(6+Math.random()*8)+'s';
+      d.style.animationDelay=(Math.random()*8)+'s';
+      hero.appendChild(d);
+    }
+  }
+
+  // 3D tilt on burger cards (fine pointers only, no reduced motion)
+  var fine=window.matchMedia('(pointer: fine)').matches;
+  var calm=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(fine && !calm){
+    document.querySelectorAll('.champ, .plancha-card').forEach(function(card){
+      var baseY=card.matches('.champ:nth-child(2)')?34:0;
+      card.addEventListener('mousemove', function(ev){
+        var r=card.getBoundingClientRect();
+        var x=(ev.clientX-r.left)/r.width-0.5;
+        var y=(ev.clientY-r.top)/r.height-0.5;
+        card.style.transform='translateY('+(baseY-8)+'px) perspective(900px) rotateY('+(x*7).toFixed(2)+'deg) rotateX('+(-y*7).toFixed(2)+'deg)';
+      });
+      card.addEventListener('mouseleave', function(){ card.style.transform=''; });
+    });
+  }
+
   // scroll reveals + stamp-in
   var io=new IntersectionObserver(function(entries){
     entries.forEach(function(en){
       if(en.isIntersecting){
         en.target.classList.add('in');
-        en.target.querySelectorAll('[data-stamp]').forEach(function(st){
+        en.target.querySelectorAll('[data-stamp]').forEach(function(st,i){
+          st.style.animationDelay=(i*0.15)+'s';
           st.classList.add('in');
         });
         if(en.target.hasAttribute('data-stamp')) en.target.classList.add('in');
